@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>大城小屋智能公寓-知名的白领公寓|合租公寓|单身公寓出租</title>
+    <meta name="keywords" content="白领公寓,合租公寓,单身公寓出租,智能公寓,陕西租房,大城小屋,陕西房屋托管,公寓出租,小屋智能公寓,陕西大城小屋,陕西大城小屋不动产管理有限公司,陕西毛坯房出租,大城小屋" />
+    <meta name="description" content="大城小屋智能公寓,知名的智能租房网,房源遍布西安成都各区,专为城市白领打造时尚公寓出租服务,统一时尚装修,免中介费,定期保洁,拎包即住,可整租,可合租,临近地铁,交通便利,租房形式灵活多样,满足您的各种租房需求!" />
+    <link rel="stylesheet" type="text/css" href="__WEB__/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="__WEB__/css/public.css"/>
+    <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
+    <script src="__WEB__/js/bootstrap.min.js"></script>
+    <script src="__WEB__/js/swiper.min.js"></script>
+    <script src="__LAY__/layui.js"></script>
+    <link rel="stylesheet" href="__WEB__/css/common.css">
+    <link rel="stylesheet" href="__WEB__/css/swiper.css">
+    <link rel="stylesheet" href="__WEB__/css/index.css">
+    <link rel="stylesheet" href="__LAY__/css/layui.css">
+    <link href="__WEB__/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="__WEB__/css/reset.css" rel="stylesheet" type="text/css" />
+
+</head>
+<style>
+    .navbar{
+        background:#FFF;
+    }
+</style>
+<body>
+<nav class="navbar navbar-default no-margin">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="javascript:void(0);"><img src="__WEB__/img/logo.png" style="max-width:100px;margin-top:-7px;"></a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                {volist name="navinfo" id="nav"}
+                <li>
+                    <a style="color: #5b5b5b;font-size: 16px;" href="/index/{$nav.nav_url}.html">{$nav.nav_title}</a>
+                </li>
+                {/volist}
+                <li>
+                    <a href="#" target="_blank" style="color:#5b5b5b;font-size: 16px;" >看房热线：8:00~22:00
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <em style="color: #ff6000;font-size: 22px;font-weight: bold;margin-top: 5px;">
+                            {$hotLine}
+                        </em>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

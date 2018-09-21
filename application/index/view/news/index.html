@@ -1,0 +1,148 @@
+{include file="common/header" /}
+<style>
+    .layui-breadcrumb {
+        visibility: visible;
+        font-size: 0;
+    }
+</style>
+<div class="body-box-bg">
+    <!-- 面包屑 -->
+    <div class="breadcrumb con">
+        <span class="layui-breadcrumb" lay-separator=">">
+            <em>当前位置：</em>
+            <a href="<?=url('index/index')?>">首页</a>
+             <a>></a>
+            <a >新闻资讯</a>
+        </span>
+    </div>
+    <!-- 当前页面内容 -->
+    <div class="decor-con clearfix con">
+        <!-- 左 -->
+        <div class="decor-con-left pull-left">
+            <!-- 焦点轮播 -->
+            <div class="swiper-container swiper-container1">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <figure>
+                            <a>
+                                <img src="__WEB__/img/news2.jpg" alt="">
+                            </a>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <!-- tab -->
+            <div class="decor-con-tab">
+                <div class="tab-content">
+                    <ul>
+                        {volist name="artInfo" id="art"}
+                        <li class="clearfix">
+                            <figure class="pull-left">
+                                <a href="<?=url('news/details')?>?art_id={$art.art_id}">
+                                    <img src="{$art.art_img}" alt="{$art.art_img_alt}">
+                                </a>
+                            </figure>
+                            <div class="pull-right">
+                                <a href="<?=url('news/details')?>?art_id={$art.art_id}">{$art.art_title}</a>
+                                <span>
+                                    <em>{$art.art_updatetime}&nbsp;&nbsp;&nbsp;&nbsp;{$art.art_view}浏览</em>
+                                </span>
+                                <hr class="layui-bg-red">
+                                <p>
+                                    {$art.art_subtitle}
+                                </p>
+                                <p style="height: 60px;    margin-bottom: 10px;font-size:18px !important;">
+                                    <a href="<?=url('news/details')?>?art_id={$art.art_id}" class="layui-btn layui-btn-primary">点击查看详情</a>
+                                </p>
+                            </div>
+                        </li>
+                        {/volist}
+                    </ul>
+                </div>
+                <!-- 分页 -->
+                <div id="pages" class="bgfff" style="text-align: center;padding: 7px;"></div>
+            </div>
+        </div>
+        <!-- 右 -->
+        <div class="decor-con-right pull-right ">
+            <figure>
+                <a href="#">
+                    <img src="__WEB__/img/news1.jpg" style="width: 337px;height:165px;" alt="">
+                </a>
+            </figure>
+            <!-- 热门推荐 -->
+            <div class="decor-hot" style="width: 337px">
+                <h1>热门攻略推荐</h1>
+                <ul>
+                    {volist name="hotArt" id="hot"}
+                    <li class="clearfix">
+                        <a href="<?=url('news/details')?>?art_id={$hot.art_id}">
+                            <figure class="pull-left">
+                                <img src="{$hot.art_img}" alt="{$hot.art_img_alt}">
+                            </figure>
+                            <div class="pull-right" style="width: 184px;" >
+                                <p>{$hot.art_title}</p>
+                                <a href="<?=url('news/details')?>?art_id={$hot.art_id}" class="layui-btn layui-btn-red layui-btn-xs">查看详情</a>
+                            </div>
+                        </a>
+                    </li>
+                    {/volist}
+                </ul>
+            </div>
+            <div class="hinfoRborder clearfix" style="width: 337px">
+                <h3 class="AimTit">小屋向您保证</h3>
+                <div class="AimTopCon clearfix">
+                    <span class="aCon01">安全承诺</span>
+                    <span class="aCon02">服务承诺</span>
+                    <span class="aCon03">保洁承诺</span>
+                </div>
+                <p class="aimSubText" style="text-align: left !important;">小屋服务全程保障您的权益，租客认证、一客一锁解决您在租房过程中各种担忧，专人保洁、专业维修免除您在居住期间的后顾之忧。通过投诉全公示、400热线等确保您的权益得到落实。</p>
+                <ul class="aimList">
+                    <li>
+                        <p><em class="num_01 fL">ONE</em><span class="fR aimLine"></span></p>
+                        <div class="aimText" style="text-align: left !important;">租客认证&nbsp;凡有意向入住小屋的租客，需要提供相关证明，通过我们的租客认证。新客首次入住可享受三天免费退房。</div>
+                    </li>
+                    <li>
+                        <p><em class="num_02 fL">TWO</em><span class="fR aimLine"></span></p>
+                        <div class="aimText" style="text-align: left !important;">一客一锁&nbsp;每间房间都设置不同的密码锁，电子控制。</div>
+                    </li>
+                    <li>
+                        <p><em class="num_03 fL">THREE</em><span class="fR aimLine"></span></p>
+                        <div class="aimText" style="text-align: left !important;">专人保洁&nbsp;为了给小屋客户创造品质的租住生活，每周2次公共区域保洁。</div>
+                    </li>
+                    <li>
+                        <p><em class="num_04 fL">FOUR</em><span class="fR aimLine"></span></p>
+                        <div class="aimText" style="text-align: left !important;" >专业维修&nbsp;小屋针对房屋主体，电路，灯具等提供24小时内响应，48小时上门，三个工作日完成的维修服务。</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 当前页面底部 -->
+    <div class="decor-show-foot">
+        <div class="con">
+
+        </div>
+    </div>
+</div>
+{include file="common/footer" /}
+<script>
+    layui.use(['laypage'], function () {
+        var laypage = layui.laypage;
+        laypage.render({
+            //自定义每页条数的选择项
+            elem: 'pages'
+            ,first: false
+            ,last: false
+            ,count: {$count}
+            ,limit: {$limit}
+            ,curr: {$page}
+            ,layout: ['count', 'prev', 'page', 'next']
+            ,jump: function(obj,frist){
+                if(!frist){
+                    window.location.href="<?=url('news/index')?>?page="+obj.curr+"&limit="+obj.limit;
+                }
+            }
+        });
+    });
+</script>

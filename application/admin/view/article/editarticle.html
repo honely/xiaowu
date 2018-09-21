@@ -1,0 +1,167 @@
+{include file="index/header" /}
+<style>
+    .one-pan{
+        position: relative;
+    }
+    .one{
+        position: absolute;
+        left:300px;
+        top:0;
+    }
+    .logoPre{
+        width: 216px;
+        height: 150px;
+    }
+    .casePre{
+        display:none;
+    }
+</style>
+<div class="layui-body">
+    <div style="margin: 20px;">
+    <span class="layui-breadcrumb" lay-separator=">">
+        <a>内容管理</a>
+        <a href="<?=url('article/article')?>">文章管理</a>
+        <a><cite>修改文章</cite></a>
+    </span>
+        <div style="float:right;">
+            <a href="<?=url('article/article')?>" class="layui-btn layui-btn-primary layui-btn-sm"  onclick="addArt()">
+                <i class="layui-icon layui-icon-return"></i>
+                返回列表</a>
+        </div>
+    </div>
+    <hr/>
+    <div style="margin: 10px">
+        <div style="padding: 15px;">
+            <form class="layui-form" action="<?=url('article/editArticle')?>?art_id={$art.art_id}" method="post">
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span style="color: red;">*</span>文章标题</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="art_title" value="{$art.art_title}" lay-verify="required|title" placeholder="请输入文章标题，同SEO标题" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span style="color: red;">*</span>关键词</label>
+                    <div class="layui-input-block">
+                        <input type="text" value="{$art.art_keywords}" name="art_keywords" lay-verify="required|title" placeholder="请输入关键词，同SEO关键词" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label"><span style="color: red;">*</span>文章摘要</label>
+                    <div class="layui-input-block">
+                        <textarea placeholder="请输入文章摘要" lay-verify="required" name="art_subtitle" class="layui-textarea">{$art.art_subtitle}</textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span style="color: red;">*</span>文章内容</label>
+                    <div class="layui-input-block">
+                        <textarea id="demo" placeholder="请输入文章内容" lay-verify="content" name="art_content" style="display: none;">{$art.art_content}</textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item one-pan">
+                    <label class="layui-form-label"><span style="color: red;">*</span>封面图片</label>
+
+                    <div {if condition="$art.art_img eq null"}class="layui-upload-drag"{/if} id="uploadLogo" style="display:inline-block;" >
+                        <image id="logoPre"
+                            {if condition="$art.art_img eq null"}
+                            {else/}
+                                src="__PUBLIC__{$art.art_img}"
+                                class="logoPre"
+                            {/if}
+                        >
+                            <input type="hidden" name="art_img" id="art_img" value="{$art.art_img}"/>
+                        </image>
+                        {if condition="$art.art_img eq null"}
+                        <div id="display">
+                            <i class="layui-icon"></i>
+                            <p>请点击此处上传封面图片</p>
+                        </div>
+                        {/if}
+                    </div>
+                    <div class="one">
+                        <div class="layui-form-mid layui-word-aux" id="tips" style="margin-left: 39px; ">图片要求，最大600KB，支持JPG/JEPG/PNG格式</div>
+                        <div class="layui-form-item">
+                                <textarea name="art_img_alt" style="resize:none;width: 1315px;height: 115px; margin-left:39px;"  placeholder="图片描述，建议不超过15个字（等同图片ALT属性）" class="layui-textarea">{$art.art_img_alt}</textarea>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="layui-form-item" pane>
+                    <label class="layui-form-label">是否置顶</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="art_istop" value="2" title="常规" {if condition="$art.art_istop eq '2'"}checked{/if} >
+                        <input type="radio" name="art_istop" value="1" title="置顶" {if condition="$art.art_istop eq '1'"}checked{/if} >
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="saveInfo">修改</button>
+                        <a class="layui-btn layui-btn-primary" href="<?=url('article/article')?>">返回</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use(['form', 'jquery','upload','layedit'], function(){
+        var form = layui.form
+            ,upload = layui.upload
+            ,layedit = layui.layedit
+            ,$ = layui.jquery;
+        //编辑器图片上传接口
+        layedit.set({
+            uploadImage: {
+                url: '/admin/article/editUpload' //接口url
+                ,type: 'post', //默认post
+                success:function(res){
+                    console.log(res);
+                },
+                error:function (res) {
+                    console.log(res);
+                }
+            }
+        });
+        layedit.build('demo'); //建立编辑器
+        //自定义验证规则
+        form.verify({
+            title: function(value){
+                if(value.length < 2){
+                    return '至少得2个字符啊';
+                }
+            }
+        });
+
+        //图片上传
+        upload.render({
+            elem: '#uploadLogo'
+            ,url: '{:url("article/upload")}'
+            ,size:600 //限制文件大小，单位 KB
+            ,ext: 'jpg|png|gif'
+            ,accept: 'images' //限制文件大小，单位 KB
+            ,before: function(input){
+                loading = layer.load(2, {
+                    shade: [0.2,'#000']
+                });
+            }
+            ,done: function(res){
+                $('#logoPre').removeAttr('src');
+                $('#art_img').val('');
+                console.log(res);
+                layer.close(loading);
+                $('#art_img').val(res.path);
+                $('#uploadLogo').removeClass('layui-upload-drag');
+                $('#logoPre').css('width','216px');
+                $('#logoPre').css('height','150px');
+                $('#logoPre').attr('src',"__PUBLIC__"+res.path);
+                $('#display').hide();
+                layer.msg(res.msg, {icon: 1, time: 1000});
+            }
+            ,error: function(res){
+                layer.msg(res.msg, {icon: 2, time: 1000});
+            }
+        });
+    });
+</script>
+{include file="index/footer" /}

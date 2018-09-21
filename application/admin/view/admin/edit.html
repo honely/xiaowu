@@ -1,0 +1,215 @@
+{include file="index/header" /}
+<div class="layui-body">
+    <div style="margin: 20px;">
+    <span class="layui-breadcrumb" lay-separator=">">
+        <a>员工管理</a>
+        <a href="<?=url('admin/admin')?>">员工列表</a>
+        <a><cite>修改管理员</cite></a>
+    </span>
+        <div style="float:right;">
+            <a href="<?=url('admin/admin')?>" class="layui-btn layui-btn-primary layui-btn-sm">
+                <i class="layui-icon layui-icon-return"></i>
+                返回列表</a>
+        </div>
+    </div>
+    <hr/>
+    <div style="padding: 15px;">
+        <form class="layui-form layui-form-pane1" action="<?=url('admin/edit')?>?ad_id={$admin.ad_id}" method="post">
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span style="color: red;">*</span>管理员姓名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="ad_realname"  value="{$admin.ad_realname}" lay-verify="required|title" placeholder="请输入管理员姓名" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item" pane>
+                <label class="layui-form-label"><span style="color: red;">*</span>性别</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="ad_sex" value="1" title="男" {if condition="$admin.ad_sex eq 1"}checked{/if} >
+                    <input type="radio" name="ad_sex" value="2" title="女" {if condition="$admin.ad_sex eq 2"}checked{/if}>
+                </div>
+            </div>
+            {if condition="$admin.ad_id eq 1"}
+            {else/}
+                {if condition="$ad_role eq 1"}
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span style="color: red;">*</span>省份</label>
+                    <div class="layui-input-inline">
+                        <select name="ad_p_id" lay-verify="required" lay-filter="bu_p_id">
+                            <option value="">请选择省份</option>
+                            {volist name='prov' id='vo'}
+                            <option value="{$vo.p_id}" {if condition="$admin.ad_p_id eq $vo.p_id"}selected{/if}>{$vo.p_name}</option>
+                            {/volist}
+                        </select>
+                    </div>
+                    <div class="layui-input-inline">
+                        <select name="ad_c_id" lay-verify="required" id="bu_c_id" lay-filter="bu_c_id">
+                            <option value="">请选择城市</option>
+                            {volist name="city" id="bran"}
+                            <option value="{$bran.c_id}" {if condition="$admin.ad_c_id eq $bran.c_id"}selected{/if}>{$bran.c_name}</option>
+                            {/volist}
+                        </select>
+                    </div>
+                    <div class="layui-input-inline">
+                        <select name="ad_branch" id="branch" lay-verify="required">
+                            <option value="">请选择站点</option>
+                            {volist name="branchs" id="bran"}
+                            <option value="{$bran.b_id}" {if condition="$admin.ad_branch eq $bran.b_id"}selected{/if}>{$bran.b_name}</option>
+                            {/volist}
+                        </select>
+                    </div>
+                    <div class="layui-input-inline">
+                        <select name="ad_role" lay-verify="required">
+                            <option value="">请选择角色</option>
+                            {volist name="role" id="vo"}
+                            <option value="{$vo.r_id}"  {if condition="$admin.ad_role eq $vo.r_id"}selected{/if} >{$vo.r_name}</option>
+                            {/volist}
+                        </select>
+                    </div>
+                </div>
+                {else/}
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span style="color: red;">*</span>所属站点</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input" value="{$admin.p_name}-{$admin.c_name}-{$admin.b_name}" readonly/>
+                    </div>
+                    <div class="layui-input-inline">
+                        <select name="ad_role" lay-verify="required">
+                            <option value="">请选择角色</option>
+                            {volist name="role" id="vo"}
+                            <option value="{$vo.r_id}"  {if condition="$admin.ad_role eq $vo.r_id"}selected{/if} >{$vo.r_name}</option>
+                            {/volist}
+                        </select>
+                    </div>
+                </div>
+                {/if}
+            {/if}
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span style="color: red;">*</span>手机号码</label>
+                <div class="layui-input-block">
+                    <input type="text" name="ad_phone" id="ad_phone" onblur="checkPhone()" value="{$admin.ad_phone}" lay-verify="required|phone" placeholder="请输入手机号码" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span style="color: red;">*</span>电子邮箱</label>
+                <div class="layui-input-block">
+                    <input type="text" name="ad_email" id="ad_email"  onblur="checkEmail()"  value="{$admin.ad_email}" lay-verify="required|email" placeholder="请输入电子邮箱" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            {if condition="$admin.ad_id eq 1"}
+            {else/}
+            <div class="layui-form-item" pane>
+                <label class="layui-form-label">是否启用</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="ad_isable" value="1" title="是" {if condition="$admin.ad_isable eq 1"}checked{/if} >
+                    <input type="radio" name="ad_isable" value="2" title="否" {if condition="$admin.ad_isable eq 2"}checked{/if} >
+                </div>
+            </div>
+            {/if}
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="saveInfo">修改</button>
+                    <a class="layui-btn layui-btn-primary" href="<?=url('admin/admin')?>">返回</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    layui.use(['form','jquery'], function(){
+        var form = layui.form
+            ,$ = layui.jquery;
+        //自定义验证规则
+        form.verify({
+            title: function(value){
+                if(value.length < 2){
+                    return '至少得2个字符啊';
+                }
+            }
+        });
+        form.on('select(bu_p_id)', function(data){
+            var p_id=data.value;
+            $.ajax({
+                type: 'POST',
+                url: "<?=url('user/getCityName')?>?p_id="+p_id,
+                data: {p_id:p_id},
+                dataType:  'json',
+                success: function(data){
+                    var code=data.data;
+                    $("#bu_c_id").html("<option value=''>请选择城市</option>");
+                    $("#branch").html("<option value=''>请选择站点</option>");
+                    $.each(code, function(i, val) {
+                        var option1 = $("<option>").val(val.c_id).text(val.c_name);
+                        $("#bu_c_id").append(option1);
+                        form.render('select');
+                    });
+                    $("#bu_c_id").get(0).selectedIndex=0;
+                }
+            });
+        });
+
+        //调用该城市下面的分站
+        form.on('select(bu_c_id)', function(data){
+            var c_id=data.value;
+            $.ajax({
+                type: 'POST',
+                url: "<?=url('admin/getBranchName')?>?c_id="+c_id,
+                data: {c_id:c_id},
+                dataType:  'json',
+                success: function(data){
+                    var code=data.data;
+                    $("#branch").html("<option value=''>请选择站点</option>");
+                    $.each(code, function(i, val) {
+                        var option1 = $("<option>").val(val.b_id).text(val.b_name);
+                        $("#branch").append(option1);
+                        form.render('select');
+                    });
+                    $("#branch").get(0).selectedIndex=0;
+                }
+            });
+        });
+    });
+
+    function checkPhone(){
+        var ad_phone=$('#ad_phone').val();
+        $.ajax({
+            type:"post",
+            url:"<?=url('admin/checkPhone')?>",
+            dataType: 'json',
+            data:{'ad_phone':ad_phone,'ad_id':{$admin.ad_id}},
+            success:function (data) {
+                console.log(data);
+                if(data.code >1){
+                    layer.msg(data.msg, {icon: 2, time: 1000});
+                }else if(data.code <= 1){
+                    layer.msg(data.msg, {icon: 1, time: 1000});
+                }
+            },
+            error:function (error) {
+                console.log(error);
+            }
+        })
+    }
+
+    function checkEmail(){
+        var ad_email=$('#ad_email').val();
+        $.ajax({
+            type:"post",
+            url:"<?=url('admin/checkEmail')?>",
+            dataType: 'json',
+            data:{'ad_email':ad_email,'ad_id':{$admin.ad_id}},
+            success:function (data) {
+                console.log(data);
+                if(data.code >1){
+                    layer.msg(data.msg, {icon: 2, time: 1000});
+                }else if(data.code <= 1){
+                    layer.msg(data.msg, {icon: 1, time: 1000});
+                }
+            },
+            error:function (error) {
+                console.log(error);
+            }
+        })
+    }
+
+</script>
+{include file="index/footer" /}

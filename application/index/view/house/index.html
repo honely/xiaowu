@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!--[if IE 7 ]><html class="ie ie7"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="zh"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>房屋托管|大城小屋-中国公共租赁房屋提供商</title>
+    <meta name="description" content="大城小屋,上海知名租房品牌,免中介费,真实租房房源,宜家风格环保装修,管家服务,免费维修,每周保洁,上海租房最佳选择!">
+    <meta name="keywords" content="出租毛坯房,出租房屋,房屋托管,出租信息网,房屋托管网">
+    <link href="__WEB__/css/css.css" rel="stylesheet" type="text/css">
+    <link href="__WEB__/css/head.css" rel="stylesheet" type="text/css">
+    <link href="__WEB__/css/footer.css" rel="stylesheet" type="text/css">
+    <link href="__WEB__/css/bjFooter.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+{include file="common/header" /}
+<!-- banner -->
+<div class="ownerBanner">
+    <ul class="zfb_datu_ul">
+        <li class="datu_li2">
+            <a title="大城小屋智能公寓" class="cur" href="#" target="">
+                <img alt="大城小屋智能公寓" src="__WEB__/img/dp_banner.jpg" />
+            </a>
+        </li>
+        <li class="datu_li3">
+            <a title="大城小屋智能公寓" class="cur" href="#" target="">
+                <img alt="大城小屋智能公寓" src="__WEB__/img/dp_banner2.jpg" />
+            </a>
+        </li>
+        <li class="datu_li3">
+            <a title="大城小屋智能公寓" class="cur" href="#" target="">
+                <img alt="大城小屋智能公寓" src="__WEB__/img/dp_banner3.jpg" />
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- owner -->
+<div class="owner">
+    <h3><span>房东</span>选择我们的理由</h3>
+
+    <div class="ownerTit">
+        <img src="__WEB__/img/topLine.png">
+        <img style="width: 113px;height: 12px;" src="__WEB__/img/ownerTit.png">
+    </div>
+    <div class="ownerList">
+        <ul>
+            <li class="listLf">
+                <p class="p1">一键托管躺着赚钱</p>
+                <h4>省心</h4>
+
+                <p class="p2">租期灵活代租代卖</p>
+            </li>
+            <li class="listMid">
+                <p class="p1">资金雄厚按时付款</p>
+                <h4>安心</h4>
+
+                <p class="p2">公安对接严选租客</p>
+            </li>
+            <li class="listRig">
+                <p class="p1">品牌家电环保装修</p>
+                <h4>贴心</h4>
+
+                <p class="p2">专业维修没有烦恼</p>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="tgFlow">
+    <div class="flowBox">
+        <h2>托管流程</h2>
+
+        <div class="choice"><img src="__WEB__/img/flowBox_tit.png"/></div>
+        <div class="flowPic">
+            <ul>
+                <li>
+                    <img src="__WEB__/img/phoneBg.png"/>
+
+                    <p>拨打热线电话<br/>{$hotLine}</p>
+                </li>
+                <li class="mark">
+                    <img src="__WEB__/img/arrow_mark.png"/>
+                </li>
+                <li>
+                    <img src="__WEB__/img/time.png"/>
+
+                    <p>约定上门<br/>看房时间</p>
+                </li>
+                <li class="mark">
+                    <img src="__WEB__/img/arrow_mark.png"/>
+                </li>
+                <li>
+                    <img src="__WEB__/img/speak.png"/>
+
+                    <p>勘察房屋、面谈</p>
+                </li>
+                <li class="mark">
+                    <img src="__WEB__/img/arrow_mark.png"/>
+                </li>
+                <li>
+                    <img src="__WEB__/img/write.png"/>
+                    <p>完成签约</p>
+                </li>
+            </ul>
+            <div class="flowTxt">您可以预留联系方式，管家将在1小时内将与您取得联系</div>
+            <div class="click"><a onclick="makePoint()">一键托管房屋</a></div>
+        </div>
+    </div>
+</div>
+<div class="decor-show-foot">
+    <div class="con">
+    </div>
+</div>
+<div id="layers-sign" class="none">
+    <form class="layui-form" id="houseForm" >
+        <div class="layui-form-item">
+            <label class="layui-form-label">您的称呼</label>
+            <div class="layui-input-inline">
+                <input type="hidden" class="bu_id" name="cus_case" value=""/>
+                <input type="text" class="layui-input" lay-verify="required" name="dp_name" placeholder="请输入您的姓名">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">您的电话</label>
+            <div class="layui-input-inline">
+                <input type="text" class="layui-input" lay-verify="required|phone" name="dp_phone" placeholder="请输入您的电话号码">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block" style="margin-left: 140px;">
+                <span class="layui-btn layui-btn-red" lay-submit  lay-filter="saveInfo">立即预约</span>
+            </div>
+        </div>
+    </form>
+</div>
+{include file="common/footer" /}
+<script src="__WEB__/js/houseTG.js" type="text/javascript"></script>
+<script>
+    function makePoint() {
+        layui.use(['layer', 'form', 'element'], function () {
+            var layer = layui.layer,
+                form = layui.form;
+            layer.open({
+                type: 1,
+                title: '房屋托管',
+                area: '420px',
+                btnAlign: 'c',
+                content: $('#layers-sign'),
+                success: function (layero) {
+
+                }
+            });
+            form.on('submit(saveInfo)', function(data){
+                $.ajax({
+                    'type':"post",
+                    'url':"<?=url('house/deposit')?>",
+                    'data':$('#houseForm').serialize(),
+                    'success':function (result) {
+                        if(result.code == '1'){
+                            layer.msg(result.msg, {icon: 1, time: 2000},function () {
+                                window.location.reload();
+                            });
+                        }else{
+                            layer.msg(result.msg, {icon: 2, time: 3000});
+                        }
+                    }
+                })
+            });
+        })
+    }
+</script>
+
