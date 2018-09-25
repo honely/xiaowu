@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\editseek.html";i:1537866576;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,19 +19,19 @@
     </fieldset>
     <div class="layui-form-item" style="margin-left:20px">
         <div class="layui-form-item">
-            <div class="layui-form-mid layui-word-aux">客户姓名: {$deposit.dp_name}</div>
+            <div class="layui-form-mid layui-word-aux">客户姓名: <?php echo $deposit['dp_name']; ?></div>
         </div>
         <div class="layui-form-item">
-            <div class="layui-form-mid layui-word-aux">联系电话: {$deposit.dp_phone}</div>
+            <div class="layui-form-mid layui-word-aux">联系电话: <?php echo $deposit['dp_phone']; ?></div>
         </div>
         <div class="layui-form-item">
-            <div class="layui-form-mid layui-word-aux">提交时间:{$deposit.dp_addtime}</div>
+            <div class="layui-form-mid layui-word-aux">提交时间:<?php echo $deposit['dp_addtime']; ?></div>
         </div>
     </div>
     <div class="layui-form-item layui-form-text">
         <label class="layui-form-label">回访备注</label>
         <div class="layui-input-block">
-            <textarea placeholder="请输入回访备注" name="dp_tips" class="layui-textarea">{$deposit.dp_tips}</textarea>
+            <textarea placeholder="请输入回访备注" name="dp_tips" class="layui-textarea"><?php echo $deposit['dp_tips']; ?></textarea>
         </div>
     </div>
     <div class="layui-form-item">
@@ -49,7 +50,7 @@
         form.on('submit(editCus)', function(data){
             $.ajax({
                 'type':"post",
-                'url':"<?=url('house/editdept')?>?dp_id={$deposit.dp_id}",
+                'url':"<?=url('house/editdept')?>?dp_id=<?php echo $deposit['dp_id']; ?>",
                 'data':$("#cusInfo").serialize(),
                 'success':function (result) {
                     if(result.code == '1'){

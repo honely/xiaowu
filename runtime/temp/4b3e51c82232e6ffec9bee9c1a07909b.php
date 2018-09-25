@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\seek.html";i:1537865308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\seek.html";i:1537867365;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +37,7 @@
             <th lay-data="{field:'dp_phone'}">联系电话</th>
             <th lay-data="{field:'dp_addtime', sort: true}">提交时间</th>
             <th lay-data="{field:'dp_updatetime',width:180,  sort: true}">跟踪时间</th>
-            <th lay-data="{field:'dp_admin',   sort: true}">操作人</th>
+            <th lay-data="{field:'dp_admin',sort: true}">操作人</th>
             <th lay-data="{ width:220, toolbar: '#barDemo'}">操作</th>
         </tr>
         </thead>
@@ -101,7 +101,15 @@
             var data = obj.data;
             var dp_id = data.dp_id;
             if(obj.event === 'edit'){
-                window.location.href='<?=url("house/editseek")?>?dp_id='+ dp_id ;
+                layer.open({
+                    type: 2,
+                    title: '房屋托管信息',
+                    shadeClose: true,
+                    shade: false,
+                    maxmin: true,
+                    area: ['893px', '600px'],
+                    content: "<?=url('house/editseek')?>?dp_id="+dp_id
+                });
             }else if(obj.event === 'del'){
                 layer.confirm('确定删除该托管信息？删除后不可恢复！', {
                     btn : [ '确定', '取消' ]//按钮

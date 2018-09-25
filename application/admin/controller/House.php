@@ -326,6 +326,35 @@ class House extends Controller{
     }
 
 
+    /*
+     * editseek
+     * */
+    public function editseek(){
+        $dp_id=intval(trim($_GET['dp_id']));
+        $deposit=Db::table('dcxw_deposit')->where(['dp_id' => $dp_id])->find();
+        $deposit['dp_addtime']=date('Y-m-d H:i:s',$deposit['dp_addtime']);
+        $this->assign('deposit',$deposit);
+        return $this->fetch();
+    }
+
+    /*
+     *
+     * editdept
+     * */
+    public function editdept(){
+        $dp_id=intval(trim($_GET['dp_id']));
+        $data['dp_tips']=$_POST['dp_tips'];
+        $data['dp_updatetime'] = time();
+        $data['dp_admin'] = session('adminId');
+        $update=Db::table('dcxw_deposit')->where(['dp_id' => $dp_id])->update($data);
+        if($update){
+            $this->success('修改成功！');
+        }else{
+            $this->success('修改失败！');
+        }
+    }
+
+
 
     /*
      *预约看房
