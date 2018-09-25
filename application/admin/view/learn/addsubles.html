@@ -101,34 +101,6 @@
             ,upload = layui.upload
             ,layedit = layui.layedit
             ,$ = layui.jquery;
-        //编辑器图片上传接口
-        layedit.set({
-            uploadImage: {
-                url: '/admin/article/editUpload' //接口url
-                ,type: 'post', //默认post
-                success:function(res){
-                    console.log(res);
-                },
-                error:function (res) {
-                    console.log(res);
-                }
-            }
-        });
-        var index = layedit.build('demo', {
-            tool: [  'strong' //加粗
-                ,'italic' //斜体
-                ,'underline' //下划线
-                ,'del' //删除线
-                ,'|' //分割线
-                ,'left' //左对齐
-                ,'center' //居中对齐
-                ,'right' //右对齐
-                ,'link' //超链接
-                ,'unlink' //清除链接
-                ,'image' //插入图片
-                ]
-            ,height: 450
-        });
         //自定义验证规则
         form.verify({
             title: function(value){

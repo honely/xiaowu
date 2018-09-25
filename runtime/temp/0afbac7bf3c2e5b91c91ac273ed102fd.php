@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\edit.html";i:1536630959;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\edit.html";i:1537858510;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,6 +82,8 @@
         border-radius: 6px;
     }
 </style>
+<script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.all.js"></script>
 <div class="layui-body">
     <div style="margin: 20px;">
     <span class="layui-breadcrumb" lay-separator=">">
@@ -284,11 +286,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="layui-form-item" style="margin-top: 55px;">
-                                <label class="layui-form-label"><span style="color: red;">*</span>房源简介</label>
-                                <input type="hidden" name="h_description" id="h_description"/>
+                            <div class="layui-form-item" style="margin-top: 65px;">
+                                <label class="layui-form-label">房源简介</label>
                                 <div class="layui-input-block">
-                                    <textarea id="demo" placeholder="请输入房源简介" lay-verify="content" style="display: none;"><?php echo $house['h_description']; ?></textarea>
+                                    <textarea name="h_description" id="container"><?php echo $house['h_description']; ?></textarea>
                                 </div>
                             </div>
                             <div class="layui-form-item" pane style="width: 300px;">
@@ -326,6 +327,15 @@
         </div>
     </div>
 </div>
+<script>
+    var ue= UE.getEditor('container',{    //content为要编辑的textarea的id
+
+        initialFrameWidth: 1100,   //初始化宽度
+
+        initialFrameHeight: 500,   //初始化高度
+
+    });
+</script>
 <script id="img_template" type="text/html">
     <div class="upload-img" filename="{{ d.index }}">
         <input type="checkbox" name="" lay-skin="primary">

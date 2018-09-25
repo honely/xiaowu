@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"G:\xampp\htdocs\bbb\public/../application/admin\view\article\editarticle.html";i:1537847453;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"G:\xampp\htdocs\bbb\public/../application/admin\view\article\editarticle.html";i:1537857929;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,6 +38,9 @@
         display:none;
     }
 </style>
+<script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.all.js"></script>
 <div class="layui-body">
     <div style="margin: 20px;">
     <span class="layui-breadcrumb" lay-separator=">">
@@ -84,9 +87,9 @@
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-form-label"><span style="color: red;">*</span>文章内容</label>
+                    <label class="layui-form-label">文章内容</label>
                     <div class="layui-input-block">
-                        <textarea id="demo" placeholder="请输入文章内容" lay-verify="content" name="art_content" style="display: none;"><?php echo $art['art_content']; ?></textarea>
+                        <textarea name="art_content" id="container"><?php echo $art['art_content']; ?></textarea>
                     </div>
                 </div>
                 <div class="layui-form-item one-pan">
@@ -136,33 +139,20 @@
     </div>
 </div>
 <script>
+    var ue= UE.getEditor('container',{    //content为要编辑的textarea的id
+
+        initialFrameWidth: 1100,   //初始化宽度
+
+        initialFrameHeight: 500,   //初始化高度
+
+    });
+</script>
+<script>
     layui.use(['form', 'jquery','upload','layedit'], function(){
         var form = layui.form
             ,upload = layui.upload
             ,layedit = layui.layedit
             ,$ = layui.jquery;
-        //编辑器图片上传接口
-        layedit.set({
-            uploadImage: {
-                url: '/admin/article/editUpload' //接口url
-                ,type: 'post', //默认post
-                success:function(res){
-                    console.log(res);
-                },
-                error:function (res) {
-                    console.log(res);
-                }
-            }
-        });
-        layedit.build('demo'); //建立编辑器
-        //自定义验证规则
-        form.verify({
-            title: function(value){
-                if(value.length < 2){
-                    return '至少得2个字符啊';
-                }
-            }
-        });
 
         //图片上传
         upload.render({

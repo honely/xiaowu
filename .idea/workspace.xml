@@ -2,45 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="850003d0-3bd9-4cc3-a03e-00bd285a8ff8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/admin/controller/Department.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/controller/Staff.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/department/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/department/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/department/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/staff/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/staff/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/staff/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/wap/controller/Login.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/wap/view/login/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/controller/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/controller/Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/controller/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/controller/Article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/admin/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/admin/menu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/admin/view/article/addarticle.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/article/addarticle.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/article/article.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/article/article.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/admin/view/article/editarticle.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/article/editarticle.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/learn/addlession.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/learn/addlession.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/admin/view/house/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/house/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/admin/view/house/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/house/edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/admin/view/learn/addsubles.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/learn/addsubles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/learn/editlession.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/learn/editlession.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/learn/editsubles.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/learn/editsubles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/wap/controller/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/wap/controller/Index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/wap/view/index/chapter.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/wap/view/index/chapter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/wap/view/index/hello.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/wap/view/index/resetpwd.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/wap/view/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/wap/view/index/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/wap/css/mui.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/wap/css/mui.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/log/201809/25.log" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/log/201809/25.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runtime/temp/09a49a2af1d6a074e056ffaf8c8df4c7.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/09a49a2af1d6a074e056ffaf8c8df4c7.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/1d2dcab19acf556524ee1784481fb1ef.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/1d2dcab19acf556524ee1784481fb1ef.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/24b7176c2660598529226998058da6d4.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/24b7176c2660598529226998058da6d4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/2e3aafd7d83e152cbc2ff43c903680e3.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/2e3aafd7d83e152cbc2ff43c903680e3.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/46c69dcfa32b65f648708d50f8608442.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/46c69dcfa32b65f648708d50f8608442.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/5ea39177d78ce857d42bf51c8ca2fb90.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/5ea39177d78ce857d42bf51c8ca2fb90.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/0afbac7bf3c2e5b91c91ac273ed102fd.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/0afbac7bf3c2e5b91c91ac273ed102fd.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/348c7ea57ab6ea48b2d9eaa9672f585f.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/348c7ea57ab6ea48b2d9eaa9672f585f.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runtime/temp/8646ff47f13c96d14b3c9137c323e0a7.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/8646ff47f13c96d14b3c9137c323e0a7.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/86b256c851a74afe7382eeb396ea3309.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/86b256c851a74afe7382eeb396ea3309.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/8b1d71ddcacf6b0b82569e89afbe79a3.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/8b1d71ddcacf6b0b82569e89afbe79a3.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/b0041ed66be649ed44da8a5f6a2afbaf.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/b0041ed66be649ed44da8a5f6a2afbaf.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/d432537d8b03caf897ddb54389132115.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/d432537d8b03caf897ddb54389132115.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/fb730c591aa0e2c5167f21fcf1841adc.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/fb730c591aa0e2c5167f21fcf1841adc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/fd499ff00785a7ee6df5d5141f84169b.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/fd499ff00785a7ee6df5d5141f84169b.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +89,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="28" />
-          <entry key="html" value="5386" />
+          <entry key="html" value="5432" />
           <entry key="json" value="10" />
           <entry key="php" value="6329" />
           <entry key="txt" value="11" />
@@ -127,7 +98,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="28" />
-          <entry key="HTML" value="5386" />
+          <entry key="HTML" value="5432" />
           <entry key="JSON" value="10" />
           <entry key="PHP" value="6329" />
           <entry key="PLAIN_TEXT" value="11" />
@@ -137,7 +108,7 @@
         <counts>
           <entry key="css" value="10" />
           <entry key="htaccess" value="1" />
-          <entry key="html" value="151" />
+          <entry key="html" value="157" />
           <entry key="jpg" value="5" />
           <entry key="js" value="6" />
           <entry key="json" value="3" />
@@ -148,7 +119,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="10" />
-          <entry key="HTML" value="151" />
+          <entry key="HTML" value="157" />
           <entry key="Image" value="6" />
           <entry key="JSON" value="3" />
           <entry key="JavaScript" value="6" />
@@ -161,10 +132,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/admin/view/learn/addsubles.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="87" column="6" selection-start-line="87" selection-start-column="6" selection-end-line="87" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/view/article/addarticle.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="35" column="81" selection-start-line="35" selection-start-column="77" selection-end-line="35" selection-end-column="81" />
+            <state relative-caret-position="-481">
+              <caret line="119" column="38" lean-forward="true" selection-start-line="119" selection-start-column="38" selection-end-line="119" selection-end-column="38" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -175,8 +155,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/view/article/editarticle.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="42" column="132" selection-start-line="42" selection-start-column="128" selection-end-line="42" selection-end-column="132" />
+            <state relative-caret-position="23">
+              <caret line="115" column="14" lean-forward="true" selection-start-line="115" selection-start-column="14" selection-end-line="115" selection-end-column="14" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -184,11 +164,36 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/admin/view/house/add.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="358">
+              <caret line="240" column="34" lean-forward="true" selection-start-line="240" selection-start-column="34" selection-end-line="240" selection-end-column="34" />
+              <folding>
+                <element signature="n#style#0;n#blockquote#0;n#div#0;n#div#1;n#div#16;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#17;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/admin/view/house/edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="344">
+              <caret line="267" column="81" selection-start-line="267" selection-start-column="81" selection-end-line="267" selection-end-column="81" />
+              <folding>
+                <element signature="n#style#0;n#div#11;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/Article.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1577">
-              <caret line="98" column="30" lean-forward="true" selection-start-line="98" selection-start-column="30" selection-end-line="98" selection-end-column="30" />
+              <caret line="98" column="30" selection-start-line="98" selection-start-column="30" selection-end-line="98" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -198,6 +203,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="321">
               <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/admin/view/learn/editsubles.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="71" column="14" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -271,8 +285,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/admin/view/customer/addconpon.html" />
-        <option value="$PROJECT_DIR$/application/admin/controller/Customer.php" />
         <option value="$PROJECT_DIR$/application/config.php" />
         <option value="$PROJECT_DIR$/application/wap/view/index/hello.html" />
         <option value="$PROJECT_DIR$/application/admin/view/learn/exam.html" />
@@ -311,17 +323,19 @@
         <option value="$PROJECT_DIR$/application/admin/view/learn/editlession.html" />
         <option value="$PROJECT_DIR$/application/wap/view/index/chapter.html" />
         <option value="$PROJECT_DIR$/application/admin/view/learn/editsubles.html" />
-        <option value="$PROJECT_DIR$/application/admin/view/learn/addsubles.html" />
         <option value="$PROJECT_DIR$/public/ueditor/php/config.json" />
         <option value="$PROJECT_DIR$/application/wap/view/index/index.html" />
         <option value="$PROJECT_DIR$/application/wap/controller/Login.php" />
         <option value="$PROJECT_DIR$/application/wap/controller/Index.php" />
         <option value="$PROJECT_DIR$/application/wap/view/index/resetpwd.html" />
         <option value="$PROJECT_DIR$/public/wap/css/mui.min.css" />
-        <option value="$PROJECT_DIR$/application/admin/view/article/addarticle.html" />
-        <option value="$PROJECT_DIR$/application/admin/view/article/editarticle.html" />
         <option value="$PROJECT_DIR$/application/admin/view/article/article.html" />
         <option value="$PROJECT_DIR$/application/admin/controller/Article.php" />
+        <option value="$PROJECT_DIR$/application/admin/view/learn/addsubles.html" />
+        <option value="$PROJECT_DIR$/application/admin/view/article/addarticle.html" />
+        <option value="$PROJECT_DIR$/application/admin/view/house/add.html" />
+        <option value="$PROJECT_DIR$/application/admin/view/article/editarticle.html" />
+        <option value="$PROJECT_DIR$/application/admin/view/house/edit.html" />
       </list>
     </option>
   </component>
@@ -396,7 +410,36 @@
             <path>
               <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
               <item name="bbb" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbb" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbb" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbb" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="article" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbb" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="house" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -470,7 +513,7 @@
       <workItem from="1537492217892" duration="21637000" />
       <workItem from="1537524888045" duration="257000" />
       <workItem from="1537577866009" duration="25383000" />
-      <workItem from="1537839893649" duration="9139000" />
+      <workItem from="1537839893649" duration="11582000" />
     </task>
     <task id="LOCAL-00001" summary="project sql">
       <created>1537524922547</created>
@@ -483,7 +526,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="257052000" />
+    <option name="totallyTimeSpent" value="259495000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -498,7 +541,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14925373" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14925373" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -577,18 +620,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="project sql" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/admin/view/house/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="121" column="64" lean-forward="true" selection-start-line="121" selection-start-column="64" selection-end-line="121" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/house/adds.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3880" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/admin/addmenu.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -719,13 +750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/learn/addlession.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/learn/editlession.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1070">
@@ -768,23 +792,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
           <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/learn/editsubles.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="100" column="42" selection-start-line="100" selection-start-column="42" selection-end-line="100" selection-end-column="42" />
-          <folding>
-            <element signature="n#script#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/learn/addsubles.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="186" column="45" selection-start-line="186" selection-start-column="45" selection-end-line="186" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -880,16 +887,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/article/addarticle.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="35" column="81" selection-start-line="35" selection-start-column="77" selection-end-line="35" selection-end-column="81" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/article/article.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
@@ -897,20 +894,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/article/editarticle.html">
+    <entry file="file://$PROJECT_DIR$/application/admin/controller/Article.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="42" column="132" selection-start-line="42" selection-start-column="128" selection-end-line="42" selection-end-column="132" />
+        <state relative-caret-position="1577">
+          <caret line="98" column="30" selection-start-line="98" selection-start-column="30" selection-end-line="98" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/learn/addlession.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/learn/addsubles.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="87" column="6" selection-start-line="87" selection-start-column="6" selection-end-line="87" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/learn/editsubles.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="71" column="14" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/article/addarticle.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-481">
+          <caret line="119" column="38" lean-forward="true" selection-start-line="119" selection-start-column="38" selection-end-line="119" selection-end-column="38" />
           <folding>
             <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/Article.php">
+    <entry file="file://$PROJECT_DIR$/application/admin/view/house/add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1577">
-          <caret line="98" column="30" lean-forward="true" selection-start-line="98" selection-start-column="30" selection-end-line="98" selection-end-column="30" />
+        <state relative-caret-position="358">
+          <caret line="240" column="34" lean-forward="true" selection-start-line="240" selection-start-column="34" selection-end-line="240" selection-end-column="34" />
+          <folding>
+            <element signature="n#style#0;n#blockquote#0;n#div#0;n#div#1;n#div#16;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#17;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/article/editarticle.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="115" column="14" lean-forward="true" selection-start-line="115" selection-start-column="14" selection-end-line="115" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/house/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="267" column="81" selection-start-line="267" selection-start-column="81" selection-end-line="267" selection-end-column="81" />
+          <folding>
+            <element signature="n#style#0;n#div#11;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
