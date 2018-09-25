@@ -9,9 +9,19 @@
 namespace app\wap\controller;
 use think\Controller;
 use think\Db;
+use think\Request;
 
 class Index extends Controller{
 
+
+    public function __construct(Request $request = null)
+    {
+        parent::__construct($request);
+        $userInfo=session('userInfo');
+        if(empty($userInfo) || $userInfo == null ){
+            $this->redirect('login/login');
+        }
+    }
 
     /*
      * 手机站首页
@@ -60,4 +70,37 @@ class Index extends Controller{
     }
 
 
+
+    /*
+     * 修改密码
+     * */
+    public function resetPwd(){
+        $account=session('userInfo');
+        $this->assign('account',$account);
+        if($_POST){
+            $u_id=intval(trim($_POST['u_id']));
+            $u_password=Db::table('dcxw_user')->where(['u_id' =>$u_id])->column('u_password');
+            $u_passwords=$u_password[0];
+            $password=md5(trim($_POST['u_password']));
+            $passNew=md5(trim($_POST['u_passwordn']));
+            if($u_passwords != $password){
+                $this->error('您输入的密码与原始密码不一致，请重新输入！');
+            }else{
+                if($u_passwords == $passNew){
+                    $this->error('输入的新密码请勿与原密码相同！');
+                }else{
+                    $data['u_password']=md5(trim($_POST['u_passwordn']));
+                    $update=Db::table('dcxw_user')->where(['u_id' =>$u_id])->update($data);
+                    if($update){
+                        session(null);
+                        $this->success('修改成功，请重新登录！');
+                    }else{
+                        $this->error('修改密码失败！');
+                    }
+                }
+            }
+        }else{
+            return $this->fetch();
+        }
+    }
 }

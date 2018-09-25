@@ -25,10 +25,14 @@
     {if condition="$chapter neq null"}
     <div class="mui-card" style="margin-bottom: 35px;">
         <ul class="mui-table-view">
-            {volist name="chapter" id="chap" empty="暂无相关课程"}
-            <li class="mui-table-view-cell">
-                <a class="mui-navigate-right" href="<?=url('index/details')?>?lc_id={$chap.lc_id}">
-                    {$chap.lc_title}
+            {volist name="chapter" id="chap" }
+            <li class="mui-table-view-cell mui-media">
+                <a href="<?=url('index/details')?>?lc_id={$chap.lc_id}">
+                    <img class="mui-media-object mui-pull-left" src="{$chap.lc_img}">
+                    <div class="mui-media-body">
+                        {$chap.lc_title}
+                        <p class='mui-ellipsis'>{$chap.lc_remark}</p>
+                    </div>
                 </a>
             </li>
             {/volist}

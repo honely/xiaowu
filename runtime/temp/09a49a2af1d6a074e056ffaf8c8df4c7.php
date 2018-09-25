@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:76:"G:\xampp\htdocs\bbb\public/../application/admin\view\article\addarticle.html";i:1536888223;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:76:"G:\xampp\htdocs\bbb\public/../application/admin\view\article\addarticle.html";i:1537847359;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,12 +48,23 @@
     <div style="margin: 10px">
         <div style="padding: 15px;">
             <form class="layui-form" action="<?=url('article/addArticle')?>" method="post">
+                <div class="layui-form-item" pane>
+                    <label class="layui-form-label"><span style="color: red;">*</span>文章分类</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="art_type" value="1" title="房租优势" checked>
+                        <input type="radio" name="art_type" value="2" title="精彩瞬间">
+                        <input type="radio" name="art_type" value="3" title="企业优势">
+                        <input type="radio" name="art_type" value="4" title="小屋快讯">
+                        <input type="radio" name="art_type" value="5" title="装修风格">
+                    </div>
+                </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label"><span style="color: red;">*</span>文章标题</label>
                     <div class="layui-input-block">
                         <input type="text" name="art_title" lay-verify="required|title" placeholder="请输入文章标题" autocomplete="off" class="layui-input">
                     </div>
                 </div>
+                <!--1.房租优势；2精彩瞬间，3企业优势，4.小屋快讯，5.装修风格'-->
                 <div class="layui-form-item">
                     <label class="layui-form-label"><span style="color: red;">*</span>关键词</label>
                     <div class="layui-input-block">

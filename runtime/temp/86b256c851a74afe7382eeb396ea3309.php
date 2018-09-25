@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"G:\xampp\htdocs\bbb\public/../application/wap\view\index\chapter.html";i:1537508771;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"G:\xampp\htdocs\bbb\public/../application/wap\view\index\chapter.html";i:1537605107;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,13 +26,17 @@
     <?php if($chapter != null): ?>
     <div class="mui-card" style="margin-bottom: 35px;">
         <ul class="mui-table-view">
-            <?php if(is_array($chapter) || $chapter instanceof \think\Collection || $chapter instanceof \think\Paginator): $i = 0; $__LIST__ = $chapter;if( count($__LIST__)==0 ) : echo "暂无相关课程" ;else: foreach($__LIST__ as $key=>$chap): $mod = ($i % 2 );++$i;?>
-            <li class="mui-table-view-cell">
-                <a class="mui-navigate-right" href="<?=url('index/details')?>?lc_id=<?php echo $chap['lc_id']; ?>">
-                    <?php echo $chap['lc_title']; ?>
+            <?php if(is_array($chapter) || $chapter instanceof \think\Collection || $chapter instanceof \think\Paginator): $i = 0; $__LIST__ = $chapter;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$chap): $mod = ($i % 2 );++$i;?>
+            <li class="mui-table-view-cell mui-media">
+                <a href="<?=url('index/details')?>?lc_id=<?php echo $chap['lc_id']; ?>">
+                    <img class="mui-media-object mui-pull-left" src="<?php echo $chap['lc_img']; ?>">
+                    <div class="mui-media-body">
+                        <?php echo $chap['lc_title']; ?>
+                        <p class='mui-ellipsis'><?php echo $chap['lc_remark']; ?></p>
+                    </div>
                 </a>
             </li>
-            <?php endforeach; endif; else: echo "暂无相关课程" ;endif; ?>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
         </ul>
     </div>
     <?php else: ?>

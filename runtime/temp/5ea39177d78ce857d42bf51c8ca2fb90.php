@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:75:"G:\xampp\htdocs\bbb\public/../application/admin\view\learn\editlession.html";i:1537420791;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:75:"G:\xampp\htdocs\bbb\public/../application/admin\view\learn\editlession.html";i:1537603844;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,19 +61,19 @@
                         <input type="text" name="ls_title" value="<?php echo $lesson['ls_title']; ?>" lay-verify="required|title" placeholder="请输入课程标题" autocomplete="off" class="layui-input">
                     </div>
                 </div>
-                <div class="layui-form-item layui-form-text">
-                    <label class="layui-form-label"><span style="color: red;">*</span>课程简介</label>
-                    <div class="layui-input-block">
-                        <textarea placeholder="请输入课程简介" lay-verify="required" name="ls_remarks" class="layui-textarea"><?php echo $lesson['ls_remarks']; ?></textarea>
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label"><span style="color: red;">*</span>课程详情</label>
-                    <div class="layui-input-block">
-                        <input type="hidden" id="ls_description"  name="ls_description"  value=""/>
-                        <textarea id="demo" placeholder="请输入文章内容" lay-verify="content"style="display: none;"><?php echo $lesson['ls_description']; ?></textarea>
-                    </div>
-                </div>
+                <!--<div class="layui-form-item layui-form-text">-->
+                    <!--<label class="layui-form-label"><span style="color: red;">*</span>课程简介</label>-->
+                    <!--<div class="layui-input-block">-->
+                        <!--<textarea placeholder="请输入课程简介" lay-verify="required" name="ls_remarks" class="layui-textarea"><?php echo $lesson['ls_remarks']; ?></textarea>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="layui-form-item">-->
+                    <!--<label class="layui-form-label"><span style="color: red;">*</span>课程详情</label>-->
+                    <!--<div class="layui-input-block">-->
+                        <!--<input type="hidden" id="ls_description"  name="ls_description"  value=""/>-->
+                        <!--<textarea id="demo" placeholder="请输入文章内容" lay-verify="content"style="display: none;"><?php echo $lesson['ls_description']; ?></textarea>-->
+                    <!--</div>-->
+                <!--</div>-->
                 <div class="layui-form-item one-pan">
                     <label class="layui-form-label"><span style="color: red;">*</span>封面图片</label>
                     <div <?php if($lesson['ls_img'] == null): ?>class="layui-upload-drag"<?php endif; ?> id="uploadLogo" style="display:inline-block;">
@@ -99,15 +99,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label">附件资料</label>
-                    <div class="layui-input-inline" style="width: 290px;">
-                        <input type="text" name="ls_video" value="<?php echo $lesson['ls_video']; ?>"  id="ls_videoas" placeholder="请上传附件资料"  readonly class="layui-input">
-                    </div>
-                    <div class="layui-input-inline">
-                        <button type="button" class="layui-btn" id="ls_video"><i class="layui-icon"></i>上传文件</button>
-                    </div>
-                </div>
+                <!--<div class="layui-form-item">-->
+                    <!--<label class="layui-form-label">附件资料</label>-->
+                    <!--<div class="layui-input-inline" style="width: 290px;">-->
+                        <!--<input type="text" name="ls_video" value="<?php echo $lesson['ls_video']; ?>"  id="ls_videoas" placeholder="请上传附件资料"  readonly class="layui-input">-->
+                    <!--</div>-->
+                    <!--<div class="layui-input-inline">-->
+                        <!--<button type="button" class="layui-btn" id="ls_video"><i class="layui-icon"></i>上传文件</button>-->
+                    <!--</div>-->
+                <!--</div>-->
                 <div class="layui-form-item">
                     <div class="layui-input-block">
                         <span class="layui-btn" lay-submit lay-filter="saveInfo">发布</span>

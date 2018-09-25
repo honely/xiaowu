@@ -69,6 +69,26 @@ class Article extends Controller{
             ->select();
         foreach ($article as $k =>$v){
             $article[$k]['art_updatetime'] = date('Y-m-d H:i:s',$v['art_updatetime']);
+            $artType=$v['art_type'];
+            $typeName='';
+            switch($artType){
+                case  1;
+                    $typeName = '房租优势';
+                    break;
+                case 2;
+                    $typeName = '精彩瞬间';
+                    break;
+                case  3;
+                    $typeName = '企业优势';
+                    break;
+                case  4;
+                    $typeName = '小屋快讯';
+                    break;
+                case  5;
+                    $typeName = '装修风格';
+                    break;
+            }
+            $article[$k]['art_type'] = $typeName;
         }
         $res['code'] = 0;
         $res['data'] = $article;
@@ -182,6 +202,7 @@ class Article extends Controller{
             //生成用户编号；
             $data['art_bid'] = date('Ymd').sprintf("%04d", $buNum+1);
             $data['art_title']=$_POST['art_title'];
+            $data['art_type']=intval(trim($_POST['art_type']));
             $data['art_keywords']=$_POST['art_keywords'];
             $data['art_subtitle']=$_POST['art_subtitle'];
             $data['art_img']=$_POST['art_img'];
@@ -232,6 +253,7 @@ class Article extends Controller{
             $data['art_img']=$_POST['art_img'];
             $data['art_content']=$_POST['art_content'];
             $data['art_updatetime']=time();
+            $data['art_type']=intval(trim($_POST['art_type']));
             $data['art_istop']=$_POST['art_istop'];
             $data['art_admin'] = session('adminId');
             $edit=Db::table('dcxw_article')->where(['art_id'=>$art_id])->update($data);

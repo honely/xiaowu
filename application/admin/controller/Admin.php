@@ -593,7 +593,7 @@ class Admin extends Controller{
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
-        $limit=$this->request->param('limit',10,'intval');
+        $limit=$this->request->param('limit',20,'intval');
         $menuList=Db::table('dcxw_menu')
             ->where($where)
 //            ->fetchSql(true)

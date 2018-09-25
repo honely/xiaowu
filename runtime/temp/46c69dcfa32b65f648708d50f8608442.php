@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\xampp\htdocs\bbb\public/../application/wap\view\index\hello.html";i:1537338311;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\xampp\htdocs\bbb\public/../application/wap\view\index\resetpwd.html";i:1537338311;}*/ ?>
 <!DOCTYPE html>
 <html>
 

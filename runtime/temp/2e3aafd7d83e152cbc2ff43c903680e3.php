@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"G:\xampp\htdocs\bbb\public/../application/admin\view\learn\addsubles.html";i:1537516432;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"G:\xampp\htdocs\bbb\public/../application/admin\view\learn\addsubles.html";i:1537605583;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,6 +31,9 @@
         top:0;
     }
 </style>
+<script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.all.js"></script>
 <div class="layui-body">
     <div style="margin: 20px;">
     <span class="layui-breadcrumb" lay-separator=">">
@@ -55,22 +58,46 @@
                         <input type="text" name="lc_title" lay-verify="required|title" placeholder="请输入章节标题" autocomplete="off" class="layui-input">
                     </div>
                 </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label"><span style="color: red;">*</span>章节内容</label>
+                <div class="layui-form-item one-pan">
+                    <label class="layui-form-label"><span style="color: red;">*</span>封面图片</label>
+                    <div class="layui-upload-drag" id="uploadLogo" style="display:inline-block;">
+                        <image id="logoPre">
+                            <input type="hidden" lay-verify="imgReg"  name="lc_img" id="lc_img" value=""/>
+                        </image>
+                        <div id="display">
+                            <i class="layui-icon"></i>
+                            <p>请点击此处上传封面图片</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label"><span style="color: red;">*</span>文章简介</label>
                     <div class="layui-input-block">
-                        <input type="hidden" id="lc_content"  name="lc_content"  value=""/>
-                        <textarea id="demo" placeholder="请输入章节内容" lay-verify="lc_content"style="display: none;"></textarea>
+                        <textarea placeholder="请输入文章简介" lay-verify="required" name="lc_remark" class="layui-textarea"></textarea>
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-form-label">附件资料</label>
-                    <div class="layui-input-inline" style="width: 290px;">
-                        <input type="text" name="lc_files" id="lc_files" placeholder="请上传附件资料"  readonly class="layui-input">
-                    </div>
-                    <div class="layui-input-inline">
-                        <button type="button" class="layui-btn" id="ls_videoas"><i class="layui-icon"></i>上传文件</button>
+                    <label class="layui-form-label">章节内容</label>
+                    <div class="layui-input-block">
+                        <textarea name="lc_content" id="container"></textarea>
                     </div>
                 </div>
+                <!--<div class="layui-form-item">-->
+                    <!--<label class="layui-form-label"><span style="color: red;">*</span>章节内容</label>-->
+                    <!--<div class="layui-input-block">-->
+                        <!--<input type="hidden" id="lc_content"  name="lc_content"  value=""/>-->
+                        <!--<textarea id="demo" placeholder="请输入章节内容" lay-verify="lc_content"style="display: none;"></textarea>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="layui-form-item">-->
+                    <!--<label class="layui-form-label">附件资料</label>-->
+                    <!--<div class="layui-input-inline" style="width: 290px;">-->
+                        <!--<input type="text" name="lc_files" id="lc_files" placeholder="请上传附件资料"  readonly class="layui-input">-->
+                    <!--</div>-->
+                    <!--<div class="layui-input-inline">-->
+                        <!--<button type="button" class="layui-btn" id="ls_videoas"><i class="layui-icon"></i>上传文件</button>-->
+                    <!--</div>-->
+                <!--</div>-->
                 <div class="layui-form-item">
                     <div class="layui-input-block">
                         <span class="layui-btn" lay-submit lay-filter="saveInfo">发布</span>
@@ -81,6 +108,15 @@
         </div>
     </div>
 </div>
+<script>
+    var ue= UE.getEditor('container',{    //content为要编辑的textarea的id
+
+        initialFrameWidth: 1100,   //初始化宽度
+
+        initialFrameHeight: 500,   //初始化高度
+
+    });
+</script>
 <script>
     layui.use(['form', 'jquery','upload','layedit'], function(){
         var form = layui.form
@@ -113,7 +149,7 @@
                 ,'unlink' //清除链接
                 ,'image' //插入图片
                 ]
-            ,height: 500
+            ,height: 450
         });
         //自定义验证规则
         form.verify({
@@ -134,6 +170,38 @@
                 }
             }
         });
+
+
+        //图片上传
+        upload.render({
+            elem: '#uploadLogo'
+            ,url: '<?php echo url("article/upload"); ?>'
+            ,size:600 //限制文件大小，单位 KB
+            ,ext: 'jpg|png|gif'
+            ,accept: 'images' //限制文件大小，单位 KB
+            ,before: function(input){
+                loading = layer.load(2, {
+                    shade: [0.2,'#000']
+                });
+            }
+            ,done: function(res){
+                $('#logoPre').removeAttr('src');
+                $('#lc_img').val('');
+                console.log(res);
+                layer.close(loading);
+                $('#lc_img').val(res.path);
+                $('#uploadLogo').removeClass('layui-upload-drag');
+                $('#logoPre').css('width','216px');
+                $('#logoPre').css('height','150px');
+                $('#logoPre').attr('src',"__PUBLIC__"+res.path);
+                $('#display').hide();
+                layer.msg(res.msg, {icon: 1, time: 1000});
+            }
+            ,error: function(res){
+                layer.msg(res.msg, {icon: 2, time: 1000});
+            }
+        });
+
 
         //监听提交
         form.on('submit(saveInfo)', function(data){

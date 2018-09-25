@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"G:\xampp\htdocs\bbb\public/../application/admin\view\article\article.html";i:1536888258;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"G:\xampp\htdocs\bbb\public/../application/admin\view\article\article.html";i:1537847633;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,6 +74,7 @@
             <thead>
             <tr>
                 <th lay-data="{field:'art_bid', align:'left',  sort: true}">文章编号</th>
+                <th lay-data="{field:'art_type', align:'left',  sort: true}">文章类型</th>
                 <th lay-data="{field:'art_title',width:550,  align:'left'}">文章标题</th>
                 <th lay-data="{field:'art_view', align:'left',  sort: true}">浏览热度</th>
                 <th lay-data="{field:'art_updatetime',width:180, align:'left',  sort: true}">操作时间</th>

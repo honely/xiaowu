@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\admin\menu.html";i:1530867026;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\admin\menu.html";i:1537596160;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -113,7 +113,7 @@
             ,count: <?php echo $count; ?>
             ,limit: <?php echo $limit; ?>
             ,curr: <?php echo $page; ?>
-            ,limits: [10, 15, 20]
+            ,limits: [20, 30, 50]
             ,prev:'<i class="layui-icon">&#xe603;</i>'
             ,next:'<i class="layui-icon">&#xe602;</i>'
             ,layout: ['prev', 'page', 'next', 'skip','count',  'limit']

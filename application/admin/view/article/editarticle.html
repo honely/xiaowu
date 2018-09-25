@@ -33,6 +33,16 @@
     <div style="margin: 10px">
         <div style="padding: 15px;">
             <form class="layui-form" action="<?=url('article/editArticle')?>?art_id={$art.art_id}" method="post">
+                <div class="layui-form-item" pane>
+                    <label class="layui-form-label"><span style="color: red;">*</span>选择分类</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="art_type" value="1" {if condition="$art.art_type eq '1'"}checked{/if}  title="房租优势">
+                        <input type="radio" name="art_type" value="2" {if condition="$art.art_type eq '2'"}checked{/if}  title="精彩瞬间">
+                        <input type="radio" name="art_type" value="3" {if condition="$art.art_type eq '3'"}checked{/if}  title="企业优势">
+                        <input type="radio" name="art_type" value="4" {if condition="$art.art_type eq '4'"}checked{/if}  title="小屋快讯">
+                        <input type="radio" name="art_type" value="5" {if condition="$art.art_type eq '5'"}checked{/if}  title="装修风格">
+                    </div>
+                </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label"><span style="color: red;">*</span>文章标题</label>
                     <div class="layui-input-block">

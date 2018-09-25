@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\xampp\htdocs\bbb\public/../application/wap\view\index\index.html";i:1537501781;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\xampp\htdocs\bbb\public/../application/wap\view\index\index.html";i:1537840127;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -26,7 +26,9 @@
 
 <body>
 <header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
     <h1 class="mui-title">学习资料</h1>
+    <a class="mui-icon mui-icon-gear mui-icon-right-nav mui-pull-right" href="<?=url('index/resetPwd')?>"></a>
 </header>
 <div class="mui-content" style="background-color:#fff">
     <ul class="mui-table-view mui-grid-view">
