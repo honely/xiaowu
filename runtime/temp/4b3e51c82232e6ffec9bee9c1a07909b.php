@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\seek.html";i:1537066023;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\seek.html";i:1537865308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,14 +38,13 @@
             <th lay-data="{field:'dp_addtime', sort: true}">提交时间</th>
             <th lay-data="{field:'dp_updatetime',width:180,  sort: true}">跟踪时间</th>
             <th lay-data="{field:'dp_admin',   sort: true}">操作人</th>
-            <!--<th lay-data="{ width:220, toolbar: '#barDemo'}">操作</th>-->
+            <th lay-data="{ width:220, toolbar: '#barDemo'}">操作</th>
         </tr>
         </thead>
     </table>
 </section>
 <script type="text/html" id="barDemo">
     <a class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon">&#xe642;</i>编辑</a>
-    <a class="layui-btn layui-btn-xs" lay-event="refresh"><i class="layui-icon">&#xe9aa;</i>刷新</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>
 </script>
 <script type="text/html" id="switchTpl">
@@ -91,24 +90,6 @@
                         console.log(data);
                     }
                 });
-
-                $.ajax({
-                    type:'post',
-                    url:'/admin/example/example',
-                    data:{'keywords':keywords,'case_p_id':p_id,'bu_c_id':c_id,'branch':b_id,'case_area':case_area,'case_decotime':case_decotime,'case_designer':case_designer,'case_admin':case_admin,'style_id':'0'},
-                    success:function (data) {
-                        $('.display').html(data.display);
-                        $('.none').html(data.none);
-                        $('.all').html(data.all);
-                        var style=data.decStyle;
-                        for(var i = 0; i < style.length; i++) {
-                            $('.style'+style[i].type_id).html(style[i].count)
-                        }
-                    },
-                    error:function (data) {
-                        console.log(data)
-                    }
-                })
             }
 
         };
@@ -118,38 +99,17 @@
         });
         table.on('tool(demo)', function(obj){
             var data = obj.data;
-            var h_id = data.h_id;
+            var dp_id = data.dp_id;
             if(obj.event === 'edit'){
-                window.location.href='<?=url("house/edit")?>?h_id='+ h_id ;
-            }else if(obj.event === 'refresh'){
-                $.ajax({
-                    'type':"get",
-                    'url':"<?=url('house/refresh')?>",
-                    'data':{h_id:h_id},
-                    'success':function (result) {
-                        if(result.code < 1){
-                            layer.msg(result.msg);
-                        }else {
-                            layer.msg(result.msg,{
-                                time: 2000,
-                            },function () {
-                                window.location.reload()
-                            });
-                        }
-                    },
-                    'error':function () {
-                        console.log('error');
-                    }
-                })
-            } else if(obj.event === 'del'){
-
-                layer.confirm('确定删除该房源？删除后不可恢复！', {
+                window.location.href='<?=url("house/editseek")?>?dp_id='+ dp_id ;
+            }else if(obj.event === 'del'){
+                layer.confirm('确定删除该托管信息？删除后不可恢复！', {
                     btn : [ '确定', '取消' ]//按钮
                 }, function() {
                     $.ajax({
                         'type':"get",
-                        'url':"<?=url('house/del')?>",
-                        'data':{h_id:h_id},
+                        'url':"<?=url('house/delseek')?>",
+                        'data':{dp_id:dp_id},
                         'success':function (result) {
                             if(result.code < 1){
                                 layer.msg(result.msg);
@@ -160,11 +120,11 @@
                                     ,content: result.msg
                                     ,yes: function(index){
                                         layer.close(index);
-                                        window.location.href='<?=url("house/index")?>';
+                                        window.location.href='<?=url("house/seek")?>';
                                     }
                                     ,cancel:function (index) {
                                         layer.close(index);
-                                        window.location.href='<?=url("house/index")?>';
+                                        window.location.href='<?=url("house/seek")?>';
                                     }
                                 });
                             }

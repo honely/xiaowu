@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:76:"G:\xampp\htdocs\bbb\public/../application/admin\view\customer\addconpon.html";i:1537328342;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:76:"G:\xampp\htdocs\bbb\public/../application/admin\view\customer\addconpon.html";i:1537860626;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="layui-form-item">
                     <div class="layui-input-block">
-                        <button class="layui-btn" lay-submit lay-filter="saveInfo">发布</button>
+                        <span class="layui-btn" lay-submit lay-filter="saveInfo">发布</span>
                         <a class="layui-btn layui-btn-primary" href="<?=url('customer/conpon')?>">返回</a>
                     </div>
                 </div>
@@ -106,7 +106,7 @@
         form.on('submit(saveInfo)', function(data){
             $.ajax({
                 'type':"post",
-                'url':"<?=url('house/addconpon')?>",
+                'url':"<?=url('customer/addconpon')?>",
                 'data':$('#conponForm').serialize(),
                 'success':function (result) {
                     console.log(result.data);
@@ -114,10 +114,8 @@
                         layer.msg(result.msg, {icon: 1, time: 2000},function () {
                             window.location.href='<?=url('customer/conpon')?>';
                         });
-                    }else if(result.code == '2'){
+                    }else{
                         layer.msg(result.msg, {icon: 2, time: 3000});
-                    }else if(result.code == '3'){
-                        layer.msg(result.msg, {icon: 3, time: 3000});
                     }
                 },
                 'error':function (error) {

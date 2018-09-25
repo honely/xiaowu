@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"G:\xampp\htdocs\bbb\public/../application/admin\view\customer\index.html";i:1537324668;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"G:\xampp\htdocs\bbb\public/../application/admin\view\customer\index.html";i:1537860240;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,13 +51,13 @@
             <div class="layui-inline">
                 <div class="layui-input-inline">
                     <span class="layui-btn" data-type="reload">查询</span>
-                    <a href="<?=url('customer/conpon')?>" class="layui-btn layui-btn-warm">刷新</a>
+                    <a href="<?=url('customer/index')?>" class="layui-btn layui-btn-warm">刷新</a>
                 </div>
             </div>
         </div>
     </form>
 </section>
-<table class="layui-table" lay-filter="demo" lay-size="sm" lay-skin="line" lay-data="{height: 'full-200', page:true, url:'/admin/user/userData/', limit:20,limits:[20,30,50] ,id: 'testReload'}" >
+<table class="layui-table" lay-filter="demo" lay-size="sm" lay-skin="line" lay-data="{height: 'full-200', page:true, url:'/admin/customer/custData/', limit:20,limits:[20,30,50] ,id: 'testReload'}" >
     <thead>
     <tr>
         <th lay-data="{type:'checkbox', width:48}"></th>

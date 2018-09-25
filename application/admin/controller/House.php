@@ -311,6 +311,21 @@ class House extends Controller{
         return json($res);
     }
 
+    /*
+     * delseek
+     *
+     * */
+    public function delseek(){
+        $dp_id=intval($_GET['dp_id']);
+        $delArt=Db::table('dcxw_deposit')->where(['dp_id' => $dp_id])->delete();
+        if($delArt){
+            $this->success('删除成功','seek');
+        }else{
+            $this->error('删除失败','seek');
+        }
+    }
+
+
 
     /*
      *预约看房

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"G:\xampp\htdocs\bbb\public/../application/admin\view\customer\conpon.html";i:1537325882;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"G:\xampp\htdocs\bbb\public/../application/admin\view\customer\conpon.html";i:1537863504;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,11 +83,8 @@
     <button class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon">&#xe642;</i>编辑</button>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>
 </script>
-<script type="text/html" id="topTpl">
-    <input type="checkbox" name="sex" lay-skin="switch" value="{{d.art_id}}" lay-text="是|否" lay-filter="topDemo" {{ d.art_istop == 1 ? 'checked' : '' }}>
-</script>
 <script type="text/html" id="switchTpl">
-    <input type="checkbox" name="sex" lay-skin="switch" value="{{d.art_id}}" lay-text="是|否" lay-filter="sexDemo" {{ d.art_isable == 1 ? 'checked' : '' }}>
+    <input type="checkbox" name="sex" lay-skin="switch" value="{{d.cp_id}}" lay-text="是|否" lay-filter="sexDemo" {{ d.cp_isable == 1 ? 'checked' : '' }}>
 </script>
 <script>
     function addArt() {
@@ -103,31 +100,41 @@
             elem: '#cus_opptime'
             ,range: true
         });
-
+        //监听是否开启操作
+        form.on('switch(sexDemo)', function(obj){
+            var id = this.value;
+            //如果选中状态是true,后台数据将要改为显示
+            var change = obj.elem.checked;
+            if(change){
+                change = 1;
+            }else{
+                change = 0;
+            }
+            $.ajax({
+                type: 'POST',
+                url: "<?=url('customer/status')?>?cp_id="+id+ "&change="+change,
+                dataType:  'json',
+                success: function(data){
+                    console.log(data);
+                    layer.msg(data.msg);
+                }
+            });
+        });
 
 
         table.on('tool(demo)', function(obj){
             var data = obj.data;
+            var cp_id = data.cp_id;
             if(obj.event === 'edit'){
-                var user_id = data.cus_id;
-                layer.open({
-                    type: 2,
-                    title: '预约客户详细信息',
-                    shadeClose: true,
-                    shade: false,
-                    maxmin: true,
-                    area: ['893px', '600px'],
-                    content: "<?=url('user/details')?>?user_id="+user_id
-                });
+                window.location.href='<?=url("customer/editconpon")?>?cp_id='+cp_id;
             } else if(obj.event === 'del'){
-                var cus_id = data.cus_id;
-                layer.confirm('确定删除该客户？删除后不可恢复！', {
+                layer.confirm('确定删除该优惠券？删除后不可恢复！', {
                     btn : [ '确定', '取消' ]//按钮
                 }, function() {
                     $.ajax({
                         'type':"get",
-                        'url':"<?=url('user/delUser')?>",
-                        'data':{cus_id:cus_id},
+                        'url':"<?=url('customer/delconpon')?>",
+                        'data':{cp_id:cp_id},
                         'success':function (result) {
                             if(result.code < 1){
                                 layer.msg(result.msg);
@@ -138,11 +145,11 @@
                                     ,content: result.msg
                                     ,yes: function(index){
                                         layer.close(index);
-                                        window.location.href='<?=url("user/user")?>';
+                                        window.location.href='<?=url("customer/conpon")?>';
                                     }
                                     ,cancel:function (index) {
                                         layer.close(index);
-                                        window.location.href='<?=url("user/user")?>';
+                                        window.location.href='<?=url("customer/conpon")?>';
                                     }
                                 });
                             }
@@ -157,93 +164,6 @@
                     });
                 });
             }
-        });
-
-        var $ = layui.$, active = {
-            getCheckData: function(){ //获取选中数据
-                layer.confirm('确定批量删除客户？删除后不可恢复！', {
-                    btn : [ '确定', '取消' ]//按钮
-                }, function() {
-                    var ids = '';
-                    var checkStatus = table.checkStatus('testReload')
-                        ,data = checkStatus.data;
-                    for(var i=0;i<data.length;i++){
-                        ids+=','+checkStatus.data[i].cus_id;
-                    }
-                    $.ajax({
-                        type: 'POST',
-                        url: "<?=url('user/delBatch')?>?ids="+ids,
-                        data: {ids:ids},
-                        dataType:  'json',
-                        success: function(data){
-                            if(data.code == '1'){
-                                layer.alert('批量删除成功！', {
-                                    icon: 1,
-                                    skin: 'layer-ext-moon',
-                                    time: 2000,
-                                    end: function(){
-                                        window.location.href='<?=url("user/user")?>';
-                                    }
-                                });
-                            }
-                        }
-                    });
-                },function(){
-                    layer.msg('您已取消该操作！',{
-                        time: 2000,
-                        end: function(){
-                            window.location.href='<?=url("user/user")?>';
-                        }
-                    });
-                });
-            },
-            reload: function(){
-                var keywords = $('#keywords').val();
-                var cus_opptime = $('#cus_opptime').val();
-                var case_admin = $('#case_admin').val();
-
-                //执行重载
-                table.reload('testReload', {
-                    url: '/admin/user/userData/'
-                    ,page: {
-                        curr: 1 //重新从第 1 页开始
-                    }
-                    ,where: {
-                        keywords: keywords,
-                        case_p_id: case_p_id,
-                        bu_c_id: bu_c_id,
-                        branch: branch,
-                        case_admin: case_admin,
-                        cus_opptime: cus_opptime
-                    },
-                    success:function (data) {
-                        console.log(data);
-                    }
-                });
-
-                $.ajax({
-                    type:'post',
-                    url:'/admin/user/user',
-                    data:{'keywords':keywords,'case_p_id':case_p_id,'bu_c_id':bu_c_id,'branch':branch,'cus_opptime':cus_opptime,'case_admin':case_admin},
-                    success:function (data) {
-                        $('.display').html(data.display);
-                        $('.nones').html(data.none);
-                        $('.all').html(data.all);
-                        var style=data.decStyle;
-                        for(var i = 0; i < style.length; i++) {
-                            $('.style'+style[i].type_id).html(style[i].count)
-                        }
-                    },
-                    error:function (data) {
-                        console.log(data)
-                    }
-                })
-            }
-
-        };
-        $('.demoTable .layui-btn').on('click', function(){
-            var type = $(this).data('type');
-            active[type] ? active[type].call(this) : '';
         });
     });
 </script>
