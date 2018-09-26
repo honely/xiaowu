@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"G:\xampp\htdocs\bbb\public/../application/admin\view\article\editarticle.html";i:1537857929;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"G:\xampp\htdocs\bbb\public/../application/admin\view\article\editarticle.html";i:1537858450;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +39,6 @@
     }
 </style>
 <script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
-<!-- 编辑器源码文件 -->
 <script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.all.js"></script>
 <div class="layui-body">
     <div style="margin: 20px;">

@@ -184,7 +184,7 @@
                             <div class="layui-form-item">
                                 <label class="layui-form-label"><span style="color: red;">*</span>房屋面积</label>
                                 <div class="layui-input-inline">
-                                    <input type="text" onkeyup="this.value=this.value.replace(/\D/g, '')" name="h_area" lay-verify="required" placeholder="请输入房屋面积" value="{$house.h_img_alt}" autocomplete="off" class="layui-input">
+                                    <input type="text" onkeyup="this.value=this.value.replace(/\D/g, '')" name="h_area" lay-verify="required" placeholder="请输入房屋面积" value="{$house.h_area}" autocomplete="off" class="layui-input">
                                 </div>
                                 <div class="layui-form-mid layui-word-aux">单位：平方米。</div>
                             </div>
@@ -240,11 +240,10 @@
                             </div>
                             <div class="layui-form-item" id="houseImg">
                                 <label class="layui-form-label"><span style="color: red;">*</span>房源图片</label>
-                                <div id="h_imgs" style="display: none"></div>
+                                <div id="h_imgs" style="display: none">{$house.h_imgs}</div>
                                 <input name="h_img" id="h_img" value="{$house.h_imgs}" type="hidden">
                                 <div class="layui-input-block">
                                     <div class="layui-upload ">
-
                                         <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;">
                                             预览图：
                                             <div class="layui-upload-list" id="imgs">

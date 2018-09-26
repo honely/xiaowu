@@ -1,0 +1,15 @@
+{include file="common/header"}
+<header class="mui-bar mui-bar-nav">
+    <a href="<?=url('index/news')?>" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">{$news.art_title}</h1>
+</header>
+<div class="mui-content">
+    <div class="mui-content-padded">
+        <h3>{$news.art_title}</h3>
+        <h5 class="h5asd">发布时间：{$news.art_createtime}<span style="float: right;margin-right: 10px;">浏览量：{$news.art_view}</span></h5>
+        <p class="contentss">
+            {$news.art_content}
+        </p>
+    </div>
+</div>
+{include file="common/footer"}

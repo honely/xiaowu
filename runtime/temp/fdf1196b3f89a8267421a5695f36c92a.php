@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/index\view\seek\details.html";i:1537067427;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1536805330;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1537069564;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/index\view\seek\details.html";i:1537941864;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1536805330;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1537069564;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -215,9 +215,9 @@
             <div class="hinfoRborder clearfix">
                 <h3 class="AimTit">小屋向您保证</h3>
                 <div class="AimTopCon clearfix">
-                    <span class="aCon01">3天免费退房</span>
-                    <span class="aCon02">保洁承诺</span>
-                    <span class="aCon03">维修承诺</span>
+                    <span class="aCon01">安全承诺</span>
+                    <span class="aCon02">服务承诺</span>
+                    <span class="aCon03">保洁承诺</span>
                 </div>
                 <p class="aimSubText" style="text-align: left !important;">小屋服务全程保障您的权益，租客认证、一客一锁解决您在租房过程中各种担忧，专人保洁、专业维修免除您在居住期间的后顾之忧。通过投诉全公示、400热线等确保您的权益得到落实。</p>
                 <ul class="aimList">

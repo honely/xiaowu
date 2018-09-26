@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\edit.html";i:1537858510;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\edit.html";i:1537939448;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -205,7 +205,7 @@
                             <div class="layui-form-item">
                                 <label class="layui-form-label"><span style="color: red;">*</span>房屋面积</label>
                                 <div class="layui-input-inline">
-                                    <input type="text" onkeyup="this.value=this.value.replace(/\D/g, '')" name="h_area" lay-verify="required" placeholder="请输入房屋面积" value="<?php echo $house['h_img_alt']; ?>" autocomplete="off" class="layui-input">
+                                    <input type="text" onkeyup="this.value=this.value.replace(/\D/g, '')" name="h_area" lay-verify="required" placeholder="请输入房屋面积" value="<?php echo $house['h_area']; ?>" autocomplete="off" class="layui-input">
                                 </div>
                                 <div class="layui-form-mid layui-word-aux">单位：平方米。</div>
                             </div>
@@ -390,8 +390,6 @@
         };
         //监听提交
         form.on('submit(saveInfo)', function(data){
-            var h_imgs=$('#h_imgs').html();
-            $('#h_img').val(h_imgs);
             var h_desc=layedit.getContent(index);
             $('#h_description').val(h_desc);
             $.ajax({
