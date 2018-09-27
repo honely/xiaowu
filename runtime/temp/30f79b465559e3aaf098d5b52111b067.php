@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\news.html";i:1537947422;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1537929394;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1537954699;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\news.html";i:1538018859;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1537929394;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1537954699;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +20,7 @@
         <?php if(is_array($news) || $news instanceof \think\Collection || $news instanceof \think\Paginator): $i = 0; $__LIST__ = $news;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
         <li class="mui-table-view-cell mui-media mui-col-xs-6">
             <a href="<?=url('index/detail')?>?art_id=<?php echo $vo['art_id']; ?>">
-                <img class="mui-media-object" src="<?php echo $vo['art_img']; ?>">
+                <img style="height: 130px;" class="mui-media-object" src="<?php echo $vo['art_img']; ?>">
                 <div class="mui-media-body"><?php echo $vo['art_title']; ?></div>
             </a>
         </li>

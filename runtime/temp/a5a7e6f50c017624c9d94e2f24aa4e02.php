@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html";i:1537955180;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1537929394;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1537954699;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html";i:1538014111;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1537929394;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1537954699;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,20 +53,36 @@
 </html>
 <script>
     function makeOrders(){
-        $.ajax({
-            'type':"post",
-            'url':"<?=url('index/deposit')?>",
-            'data':$('#order').serialize(),
-            'success':function (result) {
-                if(result.code == '1'){
-                    mui.alert(result.msg);
-                }else{
-                    mui.alert(result.msg);
-                }
-            },
-            'error':function (error) {
-                console.log(error);
+        var dp_name=$('#dp_name').val();
+        var dp_phone=$('#dp_phone').val();
+        var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+        if(dp_name.length<=0){
+            mui.alert("请输入您的姓名！", function() {
+                $('#dp_name').focus();
+            });
+        }else{
+            if(dp_phone.length != 11 || dp_phone.length<=0 ||!myreg.test(dp_phone)){
+                mui.alert("请输入正确的手机号码！", function() {
+                    $('#dp_phone').focus();
+                });
+            }else{
+                $.ajax({
+                    'type':"post",
+                    'url':"<?=url('index/deposit')?>",
+                    'data':$('#order').serialize(),
+                    'success':function (result) {
+                        if(result.code == '1'){
+                            mui.alert(result.msg);
+                            window.reload();
+                        }else{
+                            mui.alert(result.msg);
+                        }
+                    },
+                    'error':function (error) {
+                        console.log(error);
+                    }
+                })
             }
-        })
+        }
     }
 </script>

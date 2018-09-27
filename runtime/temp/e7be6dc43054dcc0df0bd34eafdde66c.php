@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\about.html";i:1537944383;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1537929394;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1537931404;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\about.html";i:1538018113;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1537929394;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1537954699;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,11 +47,12 @@
             </div>
         </div>
         <div class="mui-content">
-                <a href="tel:400-996-1585" type="button" style="width: 50%;float: left;padding: 5px;" class="mui-btn">前往这里</a>
-                <a href="tel:400-996-1585" type="button" style="width: 50%;float: left;padding: 5px;" class="mui-btn">联系我们</a>
+                <!--<a onclick="navTo()" href="tel:400-996-1585" type="button" style="width: 50%;float: left;padding: 5px;" class="mui-btn">前往这里</a>-->
+                <a href="tel:400-996-1585" type="button" style="width: 100%;float: left;padding: 5px;" class="mui-btn">联系我们</a>
         </div>
     </div>
 </div>
+<script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>
 <script type="text/javascript" charset="utf-8">
     mui.init({
@@ -75,5 +76,12 @@
     setTimeout(function(){
         map.centerAndZoom(point, 18);//地图级别
     },100);
-
+    // function navTo(){
+    //     var lon=108.89285;
+    //     var lat=34.230224;
+    //     var shopName="陕西大城小屋不动产管理有限公司";
+    //     var locationLon=108.89285;
+    //     var locationLat=34.230224;
+    //     location.href='http:///uri.amap.com/navigation?from='+locationLon+','+locationLat+',我的位置&to='+lon+','+lat+','+shopName+'&policy=1&src=mypage&callnative=0';
+    // }
 </script>
