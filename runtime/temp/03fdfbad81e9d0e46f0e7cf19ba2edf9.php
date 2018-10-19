@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\about\index.html";i:1537511163;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1536805330;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1537069564;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\about\index.html";i:1538968843;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1536805330;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1537069564;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -136,7 +136,7 @@
             </figure>
             <!-- 热门推荐 -->
             <div class="decor-hot" style="width: 337px">
-                <h1>热门攻略推荐</h1>
+                <h1>热门文章推荐</h1>
                 <ul>
                     <?php if(is_array($hotArt) || $hotArt instanceof \think\Collection || $hotArt instanceof \think\Paginator): $i = 0; $__LIST__ = $hotArt;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$hot): $mod = ($i % 2 );++$i;?>
                     <li class="clearfix">

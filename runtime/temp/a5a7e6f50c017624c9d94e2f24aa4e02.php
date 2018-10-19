@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html";i:1538014111;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1537929394;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1537954699;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html";i:1538116724;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1538205562;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1538103965;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
     <link rel="stylesheet" href="__WAP__/css/icons-extra.css">
 </head>
-<body>
+<body style="background:#fff;width:100%">
 <header class="mui-bar mui-bar-nav">
+    <a href="<?=url('index/index')?>" class="mui-icon-back mui-icon mui-icon-left-nav mui-pull-left"></a>
     <h1 class="mui-title">房屋托管</h1>
     <a class="mui-icon mui-icon-bars mui-icon-right-nav mui-pull-right" href="<?=url('index/nav')?>"></a>
 </header>
@@ -40,13 +41,23 @@
         <span onclick="makeOrders()" style="margin-top: 8px;" class="mui-btn mui-btn-danger mui-btn-block">一键托管</span>
     </form>
 </div>
+<div class="mui-content" style="margin-top: 8px;background:#fff;padding-top: 0px;">
+    <div class="mui-card-content">
+        <div class="mui-card-content-inner">
+            <p style="color: #5b5b5b;text-align: center;">Copyright © 2018 <a style="color: #5b5b5b" href="<?=url('index/index')?>">www.xiaowugroup.com</a>
+                <br/>
+                陕西大城小屋不动产管理有限公司
+                <br/>
+                版权所有 陕ICP备18007211号</p>
+        </div>
+    </div>
+</div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>
 <script type="text/javascript" charset="utf-8">
     mui.init({
         swipeBack:true //启用右滑关闭功能
     });
-
 </script>
 </body>
 

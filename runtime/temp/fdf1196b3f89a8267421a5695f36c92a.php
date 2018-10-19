@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/index\view\seek\details.html";i:1537941864;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1536805330;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1537069564;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/index\view\seek\details.html";i:1539661829;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1536805330;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1537069564;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -114,7 +114,7 @@
                     <div class="swiper-wrapper">
                         <?php if(is_array($house['h_img']) || $house['h_img'] instanceof \think\Collection || $house['h_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $house['h_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
                         <div class="swiper-slide">
-                            <img src="<?php echo $item; ?>" alt="">
+                            <img src="__PUBLIC__/<?php echo $item; ?>" alt="">
                         </div>
                         <?php endforeach; endif; else: echo "" ;endif; ?>
                     </div>
@@ -248,13 +248,13 @@
             <span>热门房源</span>
         </div>
         <ul class="clearfix">
-            <?php if(is_array($hotHouse) || $hotHouse instanceof \think\Collection || $hotHouse instanceof \think\Paginator): $i = 0; $__LIST__ = $hotHouse;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$houses): $mod = ($i % 2 );++$i;?>
+            <?php if(is_array($hotHouse) || $hotHouse instanceof \think\Collection || $hotHouse instanceof \think\Paginator): $i = 0; $__LIST__ = $hotHouse;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
             <li>
-                <a href="<?=url('seek/details')?>?h_id=<?php echo $houses['h_id']; ?>">
+                <a href="<?=url('seek/details')?>?h_id=<?php echo $vo['h_id']; ?>">
                                 <span>
-                                    <img src="<?php echo $houses['h_house_img']; ?>" alt="<?php echo $houses['h_img_alt']; ?>">
+                                    <img src="<?php echo $vo['h_house_img']; ?>" alt="<?php echo $vo['h_img_alt']; ?>">
                                 </span>
-                    <em><?php echo $house['h_name']; ?></em>
+                    <em><?php echo $vo['h_name']; ?></em>
                 </a>
             </li>
             <?php endforeach; endif; else: echo "" ;endif; ?>

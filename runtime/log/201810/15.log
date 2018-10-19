@@ -1,0 +1,1167 @@
+---------------------------------------------------------------
+[ 2018-10-15T17:42:21+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/house/addquiz.html
+[ info ] www.bbb.com/admin/house/addquiz.html [运行时间：0.051003s][吞吐率：19.61req/s] [内存消耗：1,566.17kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'addquiz',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/learn/exam.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\House->addquiz[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\house\addquiz.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T17:42:27+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/house/upload.html
+[ info ] www.bbb.com/admin/house/upload.html [运行时间：0.026002s][吞吐率：38.46req/s] [内存消耗：1,552.59kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'upload',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'content-length' => '28208',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://www.bbb.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryosfOgrEybpoNjc1X',
+  'referer' => 'http://www.bbb.com/admin/house/addquiz.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\House->upload[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T17:42:27+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/house/upload.html
+[ info ] www.bbb.com/admin/house/upload.html [运行时间：0.028002s][吞吐率：35.71req/s] [内存消耗：1,552.59kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'upload',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'content-length' => '27753',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://www.bbb.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryLwOW7Ak3j3ouEJFp',
+  'referer' => 'http://www.bbb.com/admin/house/addquiz.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\House->upload[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T17:42:27+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/text20181015/74be0656864b1006e07003166dd9940d.jpg
+[ info ] www.bbb.com/uploads/text20181015/74be0656864b1006e07003166dd9940d.jpg [运行时间：0.018001s][吞吐率：55.55req/s] [内存消耗：1,275.75kb] [文件加载：40]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'text20181015',
+    2 => '74be0656864b1006e07003166dd9940d.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/house/addquiz.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T17:42:27+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/text20181015/9f36d7e982bef0ec60e42c9e2d225100.jpg
+[ info ] www.bbb.com/uploads/text20181015/9f36d7e982bef0ec60e42c9e2d225100.jpg [运行时间：0.017001s][吞吐率：58.82req/s] [内存消耗：1,275.75kb] [文件加载：40]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'text20181015',
+    2 => '9f36d7e982bef0ec60e42c9e2d225100.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/house/addquiz.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T17:42:27+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/text20181015/dd2f70f56a21a765860a0c44e385b55f.jpg
+[ info ] www.bbb.com/uploads/text20181015/dd2f70f56a21a765860a0c44e385b55f.jpg [运行时间：0.018001s][吞吐率：55.55req/s] [内存消耗：1,275.75kb] [文件加载：40]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'text20181015',
+    2 => 'dd2f70f56a21a765860a0c44e385b55f.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/house/addquiz.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T17:43:13+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/house/addquiz.html
+[ info ] www.bbb.com/admin/house/addquiz.html [运行时间：0.052003s][吞吐率：19.23req/s] [内存消耗：1,691.57kb] [文件加载：49]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'addquiz',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/learn/exam.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\House->addquiz[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\house\addquiz.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T17:43:20+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/house/upload.html
+[ info ] www.bbb.com/admin/house/upload.html [运行时间：0.023002s][吞吐率：43.47req/s] [内存消耗：1,552.59kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'upload',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'content-length' => '27753',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://www.bbb.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryAredpwB9w9NpBKt5',
+  'referer' => 'http://www.bbb.com/admin/house/addquiz.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\House->upload[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T17:43:20+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/house/upload.html
+[ info ] www.bbb.com/admin/house/upload.html [运行时间：0.023002s][吞吐率：43.47req/s] [内存消耗：1,552.59kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'upload',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'content-length' => '30266',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://www.bbb.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryYV9BvAJmHvvvBlrS',
+  'referer' => 'http://www.bbb.com/admin/house/addquiz.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\House->upload[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T17:43:20+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/house/upload.html
+[ info ] www.bbb.com/admin/house/upload.html [运行时间：0.028002s][吞吐率：35.71req/s] [内存消耗：1,552.59kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'upload',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'content-length' => '28208',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://www.bbb.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryr6PNYKVk8Bkw6hdn',
+  'referer' => 'http://www.bbb.com/admin/house/addquiz.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\House->upload[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T17:43:20+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/text20181015/4fa025900f875b85044c98ee0bfaca7a.jpg
+[ info ] www.bbb.com/uploads/text20181015/4fa025900f875b85044c98ee0bfaca7a.jpg [运行时间：0.018001s][吞吐率：55.55req/s] [内存消耗：1,275.75kb] [文件加载：40]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'text20181015',
+    2 => '4fa025900f875b85044c98ee0bfaca7a.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/house/addquiz.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T17:43:20+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/text20181015/62418437302bc0fe1e1d3c821b997e02.jpg
+[ info ] www.bbb.com/uploads/text20181015/62418437302bc0fe1e1d3c821b997e02.jpg [运行时间：0.019001s][吞吐率：52.63req/s] [内存消耗：1,275.75kb] [文件加载：40]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'text20181015',
+    2 => '62418437302bc0fe1e1d3c821b997e02.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/house/addquiz.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T17:43:20+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/text20181015/34c32b5d084ab145f5f1f96e7c4ad097.jpg
+[ info ] www.bbb.com/uploads/text20181015/34c32b5d084ab145f5f1f96e7c4ad097.jpg [运行时间：0.017001s][吞吐率：58.82req/s] [内存消耗：1,275.75kb] [文件加载：40]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'text20181015',
+    2 => '34c32b5d084ab145f5f1f96e7c4ad097.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/house/addquiz.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T17:44:11+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/house/addquiz.html
+[ info ] www.bbb.com/admin/house/addquiz.html [运行时间：0.057003s][吞吐率：17.54req/s] [内存消耗：1,566.03kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'addquiz',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/learn/exam.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\House->addquiz[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\house\addquiz.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T17:44:17+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/house/upload.html
+[ info ] www.bbb.com/admin/house/upload.html [运行时间：0.021001s][吞吐率：47.62req/s] [内存消耗：1,552.63kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'upload',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'content-length' => '27753',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://www.bbb.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryhQ2yWdqi4sZTdHlx',
+  'referer' => 'http://www.bbb.com/admin/house/addquiz.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\House->upload[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T17:44:17+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/house/upload.html
+[ info ] www.bbb.com/admin/house/upload.html [运行时间：0.022001s][吞吐率：45.45req/s] [内存消耗：1,552.63kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'upload',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'content-length' => '28208',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://www.bbb.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundary7CAYGcHQp7jOzwjh',
+  'referer' => 'http://www.bbb.com/admin/house/addquiz.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\House->upload[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T17:44:17+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/house/upload.html
+[ info ] www.bbb.com/admin/house/upload.html [运行时间：0.034002s][吞吐率：29.41req/s] [内存消耗：1,552.63kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'upload',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'content-length' => '30266',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://www.bbb.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryk8rJCn2BHsc9ze1l',
+  'referer' => 'http://www.bbb.com/admin/house/addquiz.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\House->upload[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T17:53:30+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/house/upload.html
+[ info ] www.bbb.com/admin/house/upload.html [运行时间：0.030001s][吞吐率：33.33req/s] [内存消耗：1,552.63kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'upload',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'content-length' => '30266',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://www.bbb.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryjXWW5petD93PoV32',
+  'referer' => 'http://www.bbb.com/admin/house/addquiz.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\House->upload[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T17:53:30+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/house/upload.html
+[ info ] www.bbb.com/admin/house/upload.html [运行时间：0.030001s][吞吐率：33.33req/s] [内存消耗：1,552.63kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'upload',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'content-length' => '28208',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://www.bbb.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryOF8uafj4W84t5LZK',
+  'referer' => 'http://www.bbb.com/admin/house/addquiz.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\House->upload[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T17:56:47+08:00 ] 127.0.0.1 127.0.0.1 GET /marketm/index/payment.html?h_id=201810150001
+[ info ] www.bbb.com/marketm/index/payment.html?h_id=201810150001 [运行时间：0.063004s][吞吐率：15.87req/s] [内存消耗：2,215.13kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'marketm',
+    1 => 'index',
+    2 => 'payment',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/marketm/index/house.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+  'h_id' => '201810150001',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\marketm\controller\Index->payment[ G:\xampp\htdocs\bbb\application\marketm\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/marketm\view\index\payment.html [ array (
+  0 => 'master',
+  1 => 'manager',
+  2 => 'payMoney',
+  3 => 'count',
+  4 => 'payLog',
+  5 => 'h_b_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_master` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `hm_name`,`hm_phone` FROM `dcxw_house_master` WHERE  `hm_house_code` = '201810150001' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `h_admin` FROM `dcxw_house` WHERE  `h_b_id` = '201810150001' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `u_name`,`u_phone` FROM `dcxw_user` WHERE  `u_id` = 103 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_pay`.*,`dcxw_user`.`u_name` FROM `dcxw_house_pay` INNER JOIN `dcxw_user` `dcxw_user` ON `dcxw_user`.`u_id`=`dcxw_house_pay`.`hp_admin` WHERE  `hp_house_code` = '201810150001' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay_log` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_pay_log`.*,`dcxw_user`.`u_name` FROM `dcxw_house_pay_log` INNER JOIN `dcxw_user` `dcxw_user` ON `dcxw_user`.`u_id`=`dcxw_house_pay_log`.`hpl_user` WHERE  `hpl_house_code` = '201810150001' ORDER BY hpl_addtime desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_pay_log` INNER JOIN `dcxw_user` `dcxw_user` ON `dcxw_user`.`u_id`=`dcxw_house_pay_log`.`hpl_user` WHERE  `hpl_house_code` = '201810150001' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-10-15T17:56:56+08:00 ] 127.0.0.1 127.0.0.1 GET /marketm/index/payment.html?h_id=201810150001
+[ info ] www.bbb.com/marketm/index/payment.html?h_id=201810150001 [运行时间：0.062003s][吞吐率：16.13req/s] [内存消耗：2,215.13kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'marketm',
+    1 => 'index',
+    2 => 'payment',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/marketm/index/house.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+  'h_id' => '201810150001',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\marketm\controller\Index->payment[ G:\xampp\htdocs\bbb\application\marketm\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/marketm\view\index\payment.html [ array (
+  0 => 'master',
+  1 => 'manager',
+  2 => 'payMoney',
+  3 => 'count',
+  4 => 'payLog',
+  5 => 'h_b_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_master` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `hm_name`,`hm_phone` FROM `dcxw_house_master` WHERE  `hm_house_code` = '201810150001' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT `h_admin` FROM `dcxw_house` WHERE  `h_b_id` = '201810150001' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `u_name`,`u_phone` FROM `dcxw_user` WHERE  `u_id` = 103 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_pay`.*,`dcxw_user`.`u_name` FROM `dcxw_house_pay` INNER JOIN `dcxw_user` `dcxw_user` ON `dcxw_user`.`u_id`=`dcxw_house_pay`.`hp_admin` WHERE  `hp_house_code` = '201810150001' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay_log` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_pay_log`.*,`dcxw_user`.`u_name` FROM `dcxw_house_pay_log` INNER JOIN `dcxw_user` `dcxw_user` ON `dcxw_user`.`u_id`=`dcxw_house_pay_log`.`hpl_user` WHERE  `hpl_house_code` = '201810150001' ORDER BY hpl_addtime desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_pay_log` INNER JOIN `dcxw_user` `dcxw_user` ON `dcxw_user`.`u_id`=`dcxw_house_pay_log`.`hpl_user` WHERE  `hpl_house_code` = '201810150001' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-10-15T17:56:58+08:00 ] 127.0.0.1 127.0.0.1 GET /marketm/index/logdetails.html?hpl_id=37
+[ info ] www.bbb.com/marketm/index/logdetails.html?hpl_id=37 [运行时间：0.062003s][吞吐率：16.13req/s] [内存消耗：2,069.13kb] [文件加载：52]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'marketm',
+    1 => 'index',
+    2 => 'logdetails',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/marketm/index/payment.html?h_id=201810150001',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+  'hpl_id' => '37',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\marketm\controller\Index->logdetails[ G:\xampp\htdocs\bbb\application\marketm\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/marketm\view\index\logdetails.html [ array (
+  0 => 'logs',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay_log` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_pay_log`.*,`dcxw_user`.`u_name` FROM `dcxw_house_pay_log` INNER JOIN `dcxw_user` `dcxw_user` ON `dcxw_user`.`u_id`=`dcxw_house_pay_log`.`hpl_user` WHERE  `hpl_id` = 37 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-10-15T17:56:59+08:00 ] 127.0.0.1 127.0.0.1 GET /marketm/index/payment.html?h_id=201810150001
+[ info ] www.bbb.com/marketm/index/payment.html?h_id=201810150001 [运行时间：0.059003s][吞吐率：16.95req/s] [内存消耗：2,214.93kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'marketm',
+    1 => 'index',
+    2 => 'payment',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/marketm/index/house.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+  'h_id' => '201810150001',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\marketm\controller\Index->payment[ G:\xampp\htdocs\bbb\application\marketm\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/marketm\view\index\payment.html [ array (
+  0 => 'master',
+  1 => 'manager',
+  2 => 'payMoney',
+  3 => 'count',
+  4 => 'payLog',
+  5 => 'h_b_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_master` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `hm_name`,`hm_phone` FROM `dcxw_house_master` WHERE  `hm_house_code` = '201810150001' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `h_admin` FROM `dcxw_house` WHERE  `h_b_id` = '201810150001' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT `u_name`,`u_phone` FROM `dcxw_user` WHERE  `u_id` = 103 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_pay`.*,`dcxw_user`.`u_name` FROM `dcxw_house_pay` INNER JOIN `dcxw_user` `dcxw_user` ON `dcxw_user`.`u_id`=`dcxw_house_pay`.`hp_admin` WHERE  `hp_house_code` = '201810150001' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay_log` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_pay_log`.*,`dcxw_user`.`u_name` FROM `dcxw_house_pay_log` INNER JOIN `dcxw_user` `dcxw_user` ON `dcxw_user`.`u_id`=`dcxw_house_pay_log`.`hpl_user` WHERE  `hpl_house_code` = '201810150001' ORDER BY hpl_addtime desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_pay_log` INNER JOIN `dcxw_user` `dcxw_user` ON `dcxw_user`.`u_id`=`dcxw_house_pay_log`.`hpl_user` WHERE  `hpl_house_code` = '201810150001' LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-10-15T17:57:00+08:00 ] 127.0.0.1 127.0.0.1 GET /marketm/index/house.html
+[ info ] www.bbb.com/marketm/index/house.html [运行时间：0.057004s][吞吐率：17.54req/s] [内存消耗：2,139.33kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'marketm',
+    1 => 'index',
+    2 => 'house',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/marketm/index/payment.html?h_id=201810150001',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\marketm\controller\Index->house[ G:\xampp\htdocs\bbb\application\marketm\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/marketm\view\index\house.html [ array (
+  0 => 'houses',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house` WHERE  `h_admin` = 103 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-10-15T17:57:01+08:00 ] 127.0.0.1 127.0.0.1 GET /marketm/index/master.html?h_id=201810150001
+[ info ] www.bbb.com/marketm/index/master.html?h_id=201810150001 [运行时间：0.058003s][吞吐率：17.24req/s] [内存消耗：2,122.23kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'marketm',
+    1 => 'index',
+    2 => 'master',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/marketm/index/house.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+  'h_id' => '201810150001',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\marketm\controller\Index->master[ G:\xampp\htdocs\bbb\application\marketm\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/marketm\view\index\master.html [ array (
+  0 => 'h_b_id',
+  1 => 'master',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_master` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house_master` WHERE  `hm_house_code` = '201810150001' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 103 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-10-15T17:57:02+08:00 ] 127.0.0.1 127.0.0.1 GET /marketm/index/house.html
+[ info ] www.bbb.com/marketm/index/house.html [运行时间：0.057003s][吞吐率：17.54req/s] [内存消耗：2,138.83kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'marketm',
+    1 => 'index',
+    2 => 'house',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/marketm/index/master.html?h_id=201810150001',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\marketm\controller\Index->house[ G:\xampp\htdocs\bbb\application\marketm\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/marketm\view\index\house.html [ array (
+  0 => 'houses',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house` WHERE  `h_admin` = 103 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-10-15T17:58:10+08:00 ] 127.0.0.1 127.0.0.1 GET /marketm/index/payment.html?h_id=201810150001
+[ info ] www.bbb.com/marketm/index/payment.html?h_id=201810150001 [运行时间：0.074004s][吞吐率：13.51req/s] [内存消耗：2,214.93kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'marketm',
+    1 => 'index',
+    2 => 'payment',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/marketm/index/house.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+  'h_id' => '201810150001',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\marketm\controller\Index->payment[ G:\xampp\htdocs\bbb\application\marketm\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/marketm\view\index\payment.html [ array (
+  0 => 'master',
+  1 => 'manager',
+  2 => 'payMoney',
+  3 => 'count',
+  4 => 'payLog',
+  5 => 'h_b_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_master` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `hm_name`,`hm_phone` FROM `dcxw_house_master` WHERE  `hm_house_code` = '201810150001' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `h_admin` FROM `dcxw_house` WHERE  `h_b_id` = '201810150001' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `u_name`,`u_phone` FROM `dcxw_user` WHERE  `u_id` = 103 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_pay`.*,`dcxw_user`.`u_name` FROM `dcxw_house_pay` INNER JOIN `dcxw_user` `dcxw_user` ON `dcxw_user`.`u_id`=`dcxw_house_pay`.`hp_admin` WHERE  `hp_house_code` = '201810150001' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay_log` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_pay_log`.*,`dcxw_user`.`u_name` FROM `dcxw_house_pay_log` INNER JOIN `dcxw_user` `dcxw_user` ON `dcxw_user`.`u_id`=`dcxw_house_pay_log`.`hpl_user` WHERE  `hpl_house_code` = '201810150001' ORDER BY hpl_addtime desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_pay_log` INNER JOIN `dcxw_user` `dcxw_user` ON `dcxw_user`.`u_id`=`dcxw_house_pay_log`.`hpl_user` WHERE  `hpl_house_code` = '201810150001' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-10-15T17:58:57+08:00 ] 127.0.0.1 127.0.0.1 GET /marketm/index/paylog.html?h_id=201810150001
+[ info ] www.bbb.com/marketm/index/paylog.html?h_id=201810150001 [运行时间：0.071004s][吞吐率：14.08req/s] [内存消耗：2,130.51kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'marketm',
+    1 => 'index',
+    2 => 'paylog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/marketm/index/payment.html?h_id=201810150001',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=j1gubs1qnb0v70olh8hke3mj0v',
+)
+[ info ] [ PARAM ] array (
+  'h_id' => '201810150001',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\marketm\controller\Index->paylog[ G:\xampp\htdocs\bbb\application\marketm\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/marketm\view\index\paylog.html [ array (
+  0 => 'payLog',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay_log` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_pay_log`.*,`dcxw_user`.`u_name` FROM `dcxw_house_pay_log` INNER JOIN `dcxw_user` `dcxw_user` ON `dcxw_user`.`u_id`=`dcxw_house_pay_log`.`hpl_user` WHERE  `hpl_house_code` = '201810150001' ORDER BY hpl_addtime desc [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-10-15T18:05:29+08:00 ] 127.0.0.1 127.0.0.1 GET /marketm/index/paylog.html?h_id=201810150001
+[ info ] www.bbb.com/marketm/index/paylog.html?h_id=201810150001 [运行时间：0.028002s][吞吐率：35.71req/s] [内存消耗：1,536.36kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'marketm',
+    1 => 'index',
+    2 => 'paylog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/marketm/index/payment.html?h_id=201810150001',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5',
+)
+[ info ] [ PARAM ] array (
+  'h_id' => '201810150001',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T18:05:29+08:00 ] 127.0.0.1 127.0.0.1 GET /marketm/login/login.html
+[ info ] www.bbb.com/marketm/login/login.html [运行时间：0.021001s][吞吐率：47.62req/s] [内存消耗：1,496.74kb] [文件加载：46]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'marketm',
+    1 => 'login',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/marketm/index/payment.html?h_id=201810150001',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=eovnjmblabbitd1u4vr5674pvj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\marketm\controller\Login->login[ G:\xampp\htdocs\bbb\application\marketm\controller\Login.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/marketm\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T18:05:29+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/index.html
+[ info ] www.bbb.com/admin/index/index.html [运行时间：0.024002s][吞吐率：41.66req/s] [内存消耗：1,521.05kb] [文件加载：48]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=eovnjmblabbitd1u4vr5674pvj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T18:05:33+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/login/login.html
+[ info ] www.bbb.com/admin/login/login.html [运行时间：0.023001s][吞吐率：43.48req/s] [内存消耗：1,498.56kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=eovnjmblabbitd1u4vr5674pvj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->login[ G:\xampp\htdocs\bbb\application\admin\controller\Login.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-10-15T18:05:33+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/login/__PUBLIC/static/admin.css
+[ info ] www.bbb.com/admin/login/__PUBLIC/static/admin.css [运行时间：0.022001s][吞吐率：45.45req/s] [内存消耗：1,482.80kb] [文件加载：48]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => '__PUBLIC',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/css,*/*;q=0.1',
+  'referer' => 'http://www.bbb.com/admin/login/login.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=eovnjmblabbitd1u4vr5674pvj',
+)
+[ info ] [ PARAM ] array (
+  'static' => 'admin.css',
+)
+[ info ] [ LOG ] INIT File

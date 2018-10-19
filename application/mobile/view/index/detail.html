@@ -3,13 +3,26 @@
     <a href="<?=url('index/news')?>" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
     <h1 class="mui-title">{$news.art_title}</h1>
 </header>
-<div class="mui-content">
-    <div class="mui-content-padded">
+<div class="mui-content" style="background-color:#fff; ">
+    <div class="mui-content-padded" style="background-color:#fff; ">
         <h3>{$news.art_title}</h3>
         <h5 class="h5asd">发布时间：{$news.art_createtime}<span style="float: right;margin-right: 10px;">浏览量：{$news.art_view}</span></h5>
-        <p class="contentss">
-            {$news.art_content}
-        </p>
+        <div style="background-color:#fff;">
+            <p class="contentss" >
+                {$news.art_content}
+            </p>
+        </div>
+    </div>
+</div>
+<div class="mui-content" style="margin-top: 8px;background:#fff;padding-top: 0px;">
+    <div class="mui-card-content">
+        <div class="mui-card-content-inner">
+            <p style="color: #5b5b5b;text-align: center;">Copyright © 2018 <a style="color: #5b5b5b" href="<?=url('index/index')?>">www.xiaowugroup.com</a>
+                <br/>
+                陕西大城小屋不动产管理有限公司
+                <br/>
+                版权所有 陕ICP备18007211号</p>
+        </div>
     </div>
 </div>
 {include file="common/footer"}

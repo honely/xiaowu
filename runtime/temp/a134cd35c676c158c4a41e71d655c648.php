@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/index\view\news\details.html";i:1537510644;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1536805330;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1537069564;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/index\view\news\details.html";i:1538968811;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1536805330;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1537069564;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -88,35 +88,8 @@
                 <h1><?php echo $art['art_title']; ?></h1>
                 <div class="clearfix" >
                     <span class="pull-left" style="color:#515151;">
-                        发布时间：<?php echo $art['art_updatetime']; ?> &nbsp;&nbsp; &nbsp;&nbsp;|&nbsp;&nbsp;分享到：
+                        发布时间：<?php echo $art['art_updatetime']; ?> &nbsp;&nbsp; &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浏览热度：<?php echo $art['art_view']; ?>
                     </span>
-                    <div class="pull-left" style="display: inline-block">
-                        <div class="bdsharebuttonbox">
-                            <a href="#" class="bds_more" data-cmd="more"></a>
-                            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-                            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-                            <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
-                            <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
-                            <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-                        </div>
-                        <script>
-                            window._bd_share_config = {
-                                "common": {
-                                    "bdSnsKey": {},
-                                    "bdText": "",
-                                    "bdMini": "2",
-                                    "bdPic": "",
-                                    "bdStyle": "0",
-                                    "bdSize": "16"
-                                },
-                                "share": {}
-                            };
-                            with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement(
-                                'script')).src =
-                                'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~
-                                    (-new Date() / 36e5)];
-                        </script>
-                    </div>
                 </div>
             </div>
             <hr class="layui-bg-red">
@@ -134,7 +107,7 @@
             </figure>
             <!-- 热门推荐 -->
             <div class="decor-hot" style="width: 337px">
-                <h1>热门攻略推荐</h1>
+                <h1>热门文章推荐</h1>
                 <ul>
                     <?php if(is_array($hotArt) || $hotArt instanceof \think\Collection || $hotArt instanceof \think\Paginator): $i = 0; $__LIST__ = $hotArt;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$hot): $mod = ($i % 2 );++$i;?>
                     <li class="clearfix">

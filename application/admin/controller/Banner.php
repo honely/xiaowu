@@ -147,6 +147,7 @@ class Banner extends Controller{
             $data['ba_title']=$_POST['ba_title'];
             $data['ba_alt']=$_POST['ba_alt'];
             $data['ba_img']=$_POST['ba_img'];
+            $data['ba_via']=$_POST['ba_via'];
             $data['ba_type']=1;
             $data['ba_order']=$_POST['ba_order'];
             $data['ba_isable']=$_POST['ba_isable'];
@@ -181,6 +182,7 @@ class Banner extends Controller{
         if($_POST){
             $data['ba_title']=$_POST['ba_title'];
             $data['ba_alt']=$_POST['ba_alt'];
+            $data['ba_via']=$_POST['ba_via'];
             $data['ba_img']=$_POST['ba_img'];
             $data['ba_order']=$_POST['ba_order'];
             $data['ba_isable']=$_POST['ba_isable'];
@@ -306,6 +308,7 @@ class Banner extends Controller{
         foreach($example as $k => $v ){
             $example[$k]['case_updatetime'] = date('Y-m-d H:i:s',$v['case_updatetime']);
             $example[$k]['c_name'] =$v['p_name']."-".$v['c_name']."-".$v['b_name'];
+            $example[$k]['ba_via'] =$v['ba_via']==1?'PC端':'移动端';
         }
         $res['code'] = 0;
         $res['msg'] = "";

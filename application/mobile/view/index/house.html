@@ -1,21 +1,44 @@
 {include file="common/header"}
 <header class="mui-bar mui-bar-nav">
+    <a href="<?=url('index/index')?>" class="mui-icon-back mui-icon mui-icon-left-nav mui-pull-left"></a>
     <h1 class="mui-title">房源管理</h1>
     <a class="mui-icon mui-icon-bars mui-icon-right-nav mui-pull-right" href="<?=url('index/nav')?>"></a>
 </header>
-<div class="mui-content">
-    <div class="mui-card">
-        <div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(__WEB__/img/news1.jpg)"></div>
-        <div class="mui-card-content">
-            <div class="mui-card-content-inner">
-                <p>Posted on January 18, 2016</p>
-                <p style="color: #333;">这里显示文章摘要，让读者对文章内容有个粗略的概念...</p>
-            </div>
-        </div>
-        <div class="mui-card-footer">
-            <a class="mui-card-link">Like</a>
-            <a class="mui-card-link">Read more</a>
-        </div>
+<div class="mui-content" style="background:#fff;">
+    <div class="mui-content-padded">
+        <input style="float: left;width: 80%" id="keywords" type="text" placeholder="点击搜索查看附近房源"{if isset($keywords)} value="{$keywords}" {/if} />
+        <span onclick="formQuery()" style="float: left;width: 18%;margin-left: 5px;padding-left: 5px;margin-top: 5px;padding-top: 5px;" class="mui-btn mui-btn-primary mui-icon mui-icon-search">
+            搜索
+        </span>
     </div>
 </div>
+<div class="mui-content" style="background:#fff;">
+    {if condition="$house neq null"}
+    {volist name="house" id="vo"}
+    <div class="mui-card">
+        <a href="<?=url('index/details')?>?h_id={$vo.h_id}">
+            <div class="mui-card-header mui-card-media" style="height:58vw;background-image:url({$vo.h_house_img})"></div>
+            <div class="mui-card-content">
+                <div class="mui-card-content-inner">
+                    <p style="color: #333;">{$vo.h_name}  {$vo.h_area}㎡&nbsp;{$vo.h_rent}元/{if condition="$vo.h_rent_type eq 1"}月{else/}日{/if}</p>
+                    <p style="color: #333;">{$vo.h_address}-{$vo.h_building}-{$vo.h_subway}-{$vo.h_nearbus}</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    {/volist}
+    {else/}
+    <div class="mui-card" style="text-align: center;height: 150px;">
+       暂无信息！
+    </div>
+    {/if}
+
+</div>
 {include file="common/footer"}
+
+<script>
+    function formQuery(){
+        var keywords=$('#keywords').val();
+        location.href="<?=url('index/house')?>?keywords="+keywords;
+    }
+</script>

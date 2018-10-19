@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:76:"G:\xampp\htdocs\bbb\public/../application/admin\view\article\addarticle.html";i:1537857739;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:76:"G:\xampp\htdocs\bbb\public/../application/admin\view\article\addarticle.html";i:1538987971;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,6 +59,7 @@
                         <input type="radio" name="art_type" value="3" title="企业优势">
                         <input type="radio" name="art_type" value="4" title="小屋快讯">
                         <input type="radio" name="art_type" value="5" title="装修风格">
+                        <input type="radio" name="art_type" value="6" title="学习园地">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -136,21 +137,6 @@
             ,upload = layui.upload
             ,layedit = layui.layedit
             ,$ = layui.jquery;
-        //编辑器图片上传接口
-        layedit.set({
-            uploadImage: {
-                url: '/admin/article/editUpload' //接口url
-                ,type: 'post', //默认post
-                success:function(res){
-                    console.log(res);
-                },
-                error:function (res) {
-                    console.log(res);
-                }
-            }
-        });
-        var index = layedit.build('demo');
-        //自定义验证规则
         form.verify({
             title: function(value){
                 if(value.length < 2){

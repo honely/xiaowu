@@ -39,6 +39,13 @@
                             <div class="layui-form-item">
                                 <label class="layui-form-label"><span style="color: red;">*</span>基础信息</label>
                                 <div class="layui-input-inline">
+                                    <select name="ba_via" lay-verify="required" lay-filter="aihao">
+                                        <option value="">请选择显示端</option>
+                                        <option value="1">PC端</option>
+                                        <option value="2">移动端</option>
+                                    </select>
+                                </div>
+                                <div class="layui-input-inline">
                                     <select name="ba_order" lay-verify="required" lay-filter="aihao">
                                         <option value="">请选择排列顺序</option>
                                         <option value="1">1</option>

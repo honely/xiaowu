@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\index.html";i:1537522465;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\index.html";i:1539062856;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,7 +60,7 @@
         </iframe>
 	</div>
 	<div class="layui-footer">
-    服务支持QQ：824913377
+    服务支持QQ：1549089944
 </div>
 </div>	
 <script>

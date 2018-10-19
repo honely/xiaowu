@@ -1,10 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{include file="common/header"}
+<style>
+    input, button, .mui-btn {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    .h5asd{
+        padding: 5px;
+    }
+</style>
+<!--房源详情-->
+<header class="mui-bar mui-bar-nav">
+    <a href="<?=url('index/house')?>" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">房源详情</h1>
+</header>
+<div id="slider" class="mui-slider" style="margin-top:45px" >
+    <div class="mui-slider-group mui-slider-loop">
+        {volist name="house.h_img" id="item"}
+        <div class="mui-slider-item">
+            <a>
+                <img src="{$item}">
+            </a>
+        </div>
+        {/volist}
+    </div>
+    <div class="mui-slider-indicator">
+        <div class="mui-indicator mui-active"></div>
+        <div class="mui-indicator"></div>
+        <div class="mui-indicator"></div>
+        <div class="mui-indicator"></div>
+    </div>
+</div>
+<div class="mui-content" style="padding-top: 4px;background-color: #fff">
+    <div class="mui-content-padded">
+        <h4>{$house.h_name}{if condition="$house.h_iscop eq 1"}整租{else/}合租{/if}</h4>
+        <h5 class="h5asd">租金：{$house.h_area}㎡&nbsp;{$house.h_rent}元/{if condition="$house.h_rent_type eq 1"}月{else/}日{/if}</h5>
 
-</body>
-</html>
+        <h5 class="h5asd">所在区域：{$house.h_address}</h5>
+
+
+        <h5 class="h5asd">小区名称：{$house.h_building}<span style="float: right;margin-right: 10px;">朝向：{$house.h_head}</span></h5>
+
+
+
+        <h5 class="h5asd">附近公交：{$house.h_nearbus}</h5>
+
+        <h5 class="h5asd">沿线地铁：{$house.h_subway}</h5>
+
+
+
+        <h5 class="h5asd">发布时间：{$house.h_updatetime}<span style="float: right;margin-right: 10px;">浏览量：{$house.h_view}</span></h5>
+        <h4 style="margin-top: 20px;width: 100%;">房屋配置<span style="float: right;line-height: 24px;font-size: 11px;color: #828282; font-weight: normal">具体配置以现场实际情况为准</span></h4>
+        <hr/>
+        <div style=" float: left;width: 100% ;background-color: #fff">
+            <div class="mui-content" style="background-color: #fff">
+                {volist name="house.config_img" id="imgs"}
+                <button type="button" class="mui-btn mui-btn-warning">
+                    {$imgs.type_name}
+                </button>
+                {/volist}
+                </div>
+            </div>
+        </div>
+        <div style="padding-left: 10px;padding-right: 10px;float: left;">
+            <p class="contentss" >
+                {$house.h_description}
+            </p>
+        </div>
+</div>
+<div class="mui-content" style="margin-top: 8px;padding-top: 0px;float: left;width: 100%">
+    <div class="mui-card-content">
+        <div class="mui-card-content-inner">
+            <p style="color: #5b5b5b;text-align: center;">Copyright © 2018 <a style="color: #5b5b5b" href="<?=url('index/index')?>">www.xiaowugroup.com</a>
+                <br/>
+                陕西大城小屋不动产管理有限公司
+                <br/>
+                版权所有 陕ICP备18007211号</p>
+        </div>
+    </div>
+</div>
+{include file="common/footer"}

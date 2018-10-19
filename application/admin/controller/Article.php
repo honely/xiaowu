@@ -87,6 +87,9 @@ class Article extends Controller{
                 case  5;
                     $typeName = '装修风格';
                     break;
+                case  6;
+                    $typeName = '学习园地';
+                    break;
             }
             $article[$k]['art_type'] = $typeName;
         }

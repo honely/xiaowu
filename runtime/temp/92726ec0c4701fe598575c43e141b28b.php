@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\index\index.html";i:1537424604;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1537069564;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\index\index.html";i:1538991702;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1537069564;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -257,7 +257,7 @@
             prevEl: '.swiper-button-prev',
         },
         autoplay: {
-            delay: 2500,
+            delay: 5000,
             disableOnInteraction: false,
         }
     });

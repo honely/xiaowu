@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\about.html";i:1538018113;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1537929394;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1537954699;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\about.html";i:1538207077;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1538205562;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1538103965;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
     <link rel="stylesheet" href="__WAP__/css/icons-extra.css">
 </head>
-<body>
+<body style="background:#fff;width:100%">
 <header class="mui-bar mui-bar-nav">
+    <a href="<?=url('index/index')?>" class="mui-icon-back mui-icon mui-icon-left-nav mui-pull-left"></a>
     <h1 class="mui-title">关于我们</h1>
     <a class="mui-icon mui-icon-bars mui-icon-right-nav mui-pull-right" href="<?=url('index/nav')?>"></a>
 </header>
@@ -45,10 +46,18 @@
                 <div class="mui-card-content" id="baiduMap" style="height: 250px;" >
                 </div>
             </div>
+            <a href="http://api.map.baidu.com/marker?location=34.230218,108.892857&title=陕西大城小屋不动产管理有限公司&content=陕西大城小屋不动产管理有限公司&output=html" class="mui-btn mui-btn-warning mui-btn-block">导航到店</a>
         </div>
-        <div class="mui-content">
-                <!--<a onclick="navTo()" href="tel:400-996-1585" type="button" style="width: 50%;float: left;padding: 5px;" class="mui-btn">前往这里</a>-->
-                <a href="tel:400-996-1585" type="button" style="width: 100%;float: left;padding: 5px;" class="mui-btn">联系我们</a>
+    </div>
+</div>
+<div class="mui-content" style="margin-top: 8px;background:#fff;padding-top: 0px;">
+    <div class="mui-card-content">
+        <div class="mui-card-content-inner">
+            <p style="color: #5b5b5b;text-align: center;">Copyright © 2018 <a style="color: #5b5b5b" href="<?=url('index/index')?>">www.xiaowugroup.com</a>
+                <br/>
+                陕西大城小屋不动产管理有限公司
+                <br/>
+                版权所有 陕ICP备18007211号</p>
         </div>
     </div>
 </div>
@@ -58,7 +67,6 @@
     mui.init({
         swipeBack:true //启用右滑关闭功能
     });
-
 </script>
 </body>
 

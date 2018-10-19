@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"G:\xampp\htdocs\bbb\public/../application/admin\view\article\editarticle.html";i:1537858450;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"G:\xampp\htdocs\bbb\public/../application/admin\view\article\editarticle.html";i:1538988011;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,6 +65,7 @@
                         <input type="radio" name="art_type" value="3" <?php if($art['art_type'] == '3'): ?>checked<?php endif; ?>  title="企业优势">
                         <input type="radio" name="art_type" value="4" <?php if($art['art_type'] == '4'): ?>checked<?php endif; ?>  title="小屋快讯">
                         <input type="radio" name="art_type" value="5" <?php if($art['art_type'] == '5'): ?>checked<?php endif; ?>  title="装修风格">
+                        <input type="radio" name="art_type" value="6" <?php if($art['art_type'] == '6'): ?>checked<?php endif; ?>  title="学习园地">
                     </div>
                 </div>
                 <div class="layui-form-item">

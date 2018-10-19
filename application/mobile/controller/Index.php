@@ -11,6 +11,28 @@ use think\Db;
 
 class Index extends Controller{
     public function index(){
+
+        //banner
+        $banner=Db::table('dcxw_banner')
+            ->where(['ba_isable' => 1,'ba_via' =>2])
+            ->order('ba_order desc')
+            ->select();
+        $this->assign('banNum',count($banner));
+        $this->assign('banner',$banner);
+        $house=Db::table('dcxw_house')
+            ->where(['h_isable' => 1,'h_rent_status' => 2])
+            ->limit(4)
+            ->order('h_view desc')
+            ->field('h_id,h_house_img,h_name')
+            ->select();
+        $this->assign('house',$house);
+        $news=Db::table('dcxw_article')
+            ->where(['art_isable' => 1])
+            ->limit(4)
+            ->order('art_istop,art_view desc')
+            ->field('art_id,art_img,art_title,art_subtitle')
+            ->select();
+        $this->assign('news',$news);
         return $this->fetch();
     }
 
@@ -27,11 +49,37 @@ class Index extends Controller{
     public function news(){
         $news=Db::table('dcxw_article')
             ->where(['art_isable' => 1])
+            ->limit(2)
             ->order('art_istop,art_view desc')
             ->field('art_id,art_img,art_title')
             ->select();
+        $count=Db::table('dcxw_article')
+            ->where(['art_isable' => 1])
+            ->count();
         $this->assign('news',$news);
+        $this->assign('count',$count);
         return $this->fetch();
+    }
+
+    public function newsMore(){
+        if($_POST){
+            $page=intval(trim($_POST['page']));
+        }else{
+            $page=1;
+        }
+        $limit=2;
+        $news=Db::table('dcxw_article')
+            ->where(['art_isable' => 1])
+            ->limit(($page-1)*$limit,$limit)
+            ->order('art_istop,art_view desc')
+            ->field('art_id,art_img,art_title')
+            ->select();
+        if($news){
+            $this->success('更多完成','index/news',$news);
+        }else{
+            $this->error('更多失败','index/news',$news);
+        }
+
     }
 
     public function detail(){
@@ -48,6 +96,55 @@ class Index extends Controller{
      * house
      * */
     public function house(){
+        $where='1 = 1 ';
+        if(isset($_GET['keywords']) && !empty($_GET['keywords'])){
+            $keywords=trim($_GET['keywords']);
+            $where.=" and ( h_name like '%".$keywords."%' or h_building like '%".$keywords."%' or h_address like '%".$keywords."%'  or h_description like '%".$keywords."%' )";
+            $this->assign('keywords',$keywords);
+        }
+        $house=Db::table('dcxw_house')
+            ->where($where)
+            ->where(['h_isable' => 1,'h_rent_status' => 2])
+            ->limit(4)
+            ->order('h_view desc')
+            ->field('h_id,h_house_img,h_name,h_rent,h_rent_type,h_area,h_subway,h_address,h_building,h_nearbus')
+            ->select();
+        $this->assign('house',$house);
+        return $this->fetch();
+    }
+
+    public function details(){
+        $h_id=intval(trim($_GET['h_id']));
+        Db::table('dcxw_house')->where(['h_id' => $h_id])->setInc('h_view');
+        $house=Db::table('dcxw_house')->where(['h_id' => $h_id])->find();
+        $house['h_img']=explode(',',rtrim($house['h_img'],','));
+        $house['h_config']=explode(',',$house['h_config']);
+        $house['config_img']=[];
+        for($i=0;$i<count($house['h_config']);$i++){
+            $house['config_img'][$i]=Db::table('dcxw_type')->where(['type_id' => $house['h_config'][$i]])->field('type_name,type_img')->find();
+        }
+        $house['h_updatetime']=date('m-d H:i',$house['h_updatetime']);
+        $this->assign('house',$house);
+        return $this->fetch();
+    }
+
+
+    /*
+     * advance
+     * */
+    public function advance(){
+
+        return $this->fetch();
+    }
+
+
+
+
+    /*
+     * house
+     * */
+    public function promise(){
+
         return $this->fetch();
     }
     /*
@@ -73,6 +170,17 @@ class Index extends Controller{
      * about
      * */
     public function about(){
+        return $this->fetch();
+    }
+
+    /*
+     * 测试模块
+     * */
+    public function tab(){
+        return $this->fetch();
+    }
+    public function tabs(){
+        $page= $this->request->param('page',1,'intval');
         return $this->fetch();
     }
 }

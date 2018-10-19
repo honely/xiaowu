@@ -103,8 +103,8 @@ class Seek extends Controller{
         $h_id=intval(trim($_GET['h_id']));
         //浏览量加一
         Db::table('dcxw_house')->where(['h_id' => $h_id])->setInc('h_view');
-        $house=Db::table('dcxw_house')->find($h_id);
-        $house['h_img']=explode(',',rtrim($house['h_img'],','));
+        $house=Db::table('dcxw_house')->where(['h_id' => $h_id])->find();
+        $house['h_img']=explode(',',$house['h_img']);
         $house['h_config']=explode(',',$house['h_config']);
         $house['config_img']=[];
         for($i=0;$i<count($house['h_config']);$i++){
@@ -121,7 +121,6 @@ class Seek extends Controller{
             ->field('nav_title,nav_url')
             ->select();
         $this->assign('navinfo',$navInfo);
-
         //热门房源
         $hotHouse=Db::table('dcxw_house')->where('h_id','neq',$h_id)->order('h_view desc')->limit(4)->select();
         $this->assign('hotHouse',$hotHouse);

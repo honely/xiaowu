@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"G:\xampp\htdocs\bbb\public/../application/wap\view\index\details.html";i:1537515953;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"G:\xampp\htdocs\bbb\public/../application/wap\view\index\details.html";i:1537947807;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -24,14 +24,11 @@
 <div class="mui-content">
     <div class="mui-content-padded">
         <h3><?php echo $content['ls_title']; ?></h3>
-        <h4><?php echo $content['lc_title']; ?></h4>
+        <h5><?php echo $content['lc_title']; ?></h5>
         <h5 class="h5asd">发布时间：<?php echo $content['lc_addtime']; ?><span style="float: right;margin-right: 10px;">浏览量：<?php echo $content['lc_view']; ?></span></h5>
         <p class="contentss">
             <?php echo $content['lc_content']; ?>
         </p>
-        <!--<a href="http://www.bbb.com<?php echo $content['lc_files']; ?>"><button type="button" class="mui-btn mui-btn-primary mui-icon mui-icon-download">-->
-            <!--资料下载-->
-        <!--</button></a>-->
     </div>
 </div>
 </body>

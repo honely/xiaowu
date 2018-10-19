@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\staff\edit.html";i:1537599227;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\staff\edit.html";i:1537602424;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +26,7 @@
     <span class="layui-breadcrumb" lay-separator=">">
         <a>内部员工</a>
         <a href="<?=url('staff/index')?>">员工列表</a>
-        <a><cite>修改管理员</cite></a>
+        <a><cite>修改员工</cite></a>
     </span>
         <div style="float:right;">
             <a href="<?=url('staff/index')?>" class="layui-btn layui-btn-primary layui-btn-sm">
@@ -38,9 +38,9 @@
     <div style="padding: 15px;">
         <form class="layui-form layui-form-pane1" action="<?=url('staff/edit')?>?u_id=<?php echo $admin['u_id']; ?>" method="post">
             <div class="layui-form-item">
-                <label class="layui-form-label"><span style="color: red;">*</span>管理员姓名</label>
+                <label class="layui-form-label"><span style="color: red;">*</span>员工姓名</label>
                 <div class="layui-input-block">
-                    <input type="text" name="u_name"  value="<?php echo $admin['u_name']; ?>" lay-verify="required|title" placeholder="请输入管理员姓名" autocomplete="off" class="layui-input">
+                    <input type="text" name="u_name"  value="<?php echo $admin['u_name']; ?>" lay-verify="required|title" placeholder="请输入员工姓名" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item" pane>

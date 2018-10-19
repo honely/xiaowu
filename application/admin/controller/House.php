@@ -96,12 +96,18 @@ class House extends Controller{
             $data['h_addtime']=time();
             $data['h_updatetime']=time();
             $data['h_config'] =implode(',',array_keys($_POST['h_config']));
+            $img=$_POST['h_img'];
+            $h_img='';
+            for ($i=0;$i<sizeof($img);$i++){
+                $h_img.=$img[$i].",";
+            }
+            $data['h_img']=trim($h_img,',');
             $data['h_admin'] = session('adminId');
             $add=Db::table('dcxw_house')->insert($data);
             if($add){
-                return  json(['code' => '1','msg' => '发布成功！','data' => $_POST]);
+                return  json(['code' => '1','msg' => '发布成功！','data' => $data]);
             }else{
-                return  json(['code' => '2','msg' => '发布失败！','data' => $_POST]);
+                return  json(['code' => '2','msg' => '发布失败！','data' => $data]);
             }
         }else{
             //房屋配置 备选
@@ -132,6 +138,12 @@ class House extends Controller{
             $data=$_POST;
             $data['h_updatetime']=time();
             $data['h_config'] =implode(',',array_keys($_POST['h_config']));
+            $img=$_POST['h_img'];
+            $h_img='';
+            for ($i=0;$i<sizeof($img);$i++){
+                $h_img.=$img[$i].",";
+            }
+            $data['h_img']=trim($h_img,',');
             $data['h_admin'] = session('adminId');
             $update=Db::table('dcxw_house')->where(['h_id' => $h_id])->update($data);
             if($update){
@@ -295,6 +307,7 @@ class House extends Controller{
         $limit=$this->request->param('limit',10,'intval');
         $design=Db::table('dcxw_deposit')
             ->limit(($page-1)*$limit,$limit)
+            ->order('dp_addtime desc')
             ->where($where)
             ->select();
         if($design){
@@ -394,6 +407,32 @@ class House extends Controller{
         $res['data'] = $design;
         $res['count'] = $count;
         return json($res);
+    }
+
+
+    public function addquiz(){
+        return $this->fetch();
+    }
+
+
+    //通用缩略图上传接口
+    public function upload()
+    {
+        if($this->request->isPost()){
+            $res['code']=1;
+            $res['msg'] = '上传成功！';
+            $file = $this->request->file('file');
+            $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads/text');
+            //halt( $info);
+            if($info){
+                $res['name'] = $info->getFilename();
+                $res['filepath'] = 'uploads/text/'.$info->getSaveName();
+            }else{
+                $res['code'] = 0;
+                $res['msg'] = '上传失败！'.$file->getError();
+            }
+            return $res;
+        }
     }
 
 }

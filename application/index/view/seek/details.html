@@ -54,7 +54,7 @@
                     <div class="swiper-wrapper">
                         {volist name="house.h_img" id="item"}
                         <div class="swiper-slide">
-                            <img src="{$item}" alt="">
+                            <img src="__PUBLIC__/{$item}" alt="">
                         </div>
                         {/volist}
                     </div>
@@ -188,13 +188,13 @@
             <span>热门房源</span>
         </div>
         <ul class="clearfix">
-            {volist name="hotHouse" id="houses"}
+            {volist name="hotHouse" id="vo"}
             <li>
-                <a href="<?=url('seek/details')?>?h_id={$houses.h_id}">
+                <a href="<?=url('seek/details')?>?h_id={$vo.h_id}">
                                 <span>
-                                    <img src="{$houses.h_house_img}" alt="{$houses.h_img_alt}">
+                                    <img src="{$vo.h_house_img}" alt="{$vo.h_img_alt}">
                                 </span>
-                    <em>{$house.h_name}</em>
+                    <em>{$vo.h_name}</em>
                 </a>
             </li>
             {/volist}

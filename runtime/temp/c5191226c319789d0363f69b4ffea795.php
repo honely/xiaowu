@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\nav.html";i:1537942332;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1537929394;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1537954699;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\nav.html";i:1538201765;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1538205562;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1538103965;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
     <link rel="stylesheet" href="__WAP__/css/icons-extra.css">
 </head>
-<body>
+<body style="background:#fff;width:100%">
 <header class="mui-bar mui-bar-nav">
     <a class="mui-icon mui-icon-bars mui-icon-right-nav mui-pull-right" href="<?=url('index/index')?>"></a>
 </header>
@@ -29,9 +29,21 @@
             </a>
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+            <a href="<?=url('index/advance')?>">
+                <span class="mui-icon-extra mui-icon-extra-like"></span>
+                <div class="mui-media-body">托管优势</div>
+            </a>
+        </li>
+        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
             <a href="<?=url('index/house')?>">
                 <span class="mui-icon mui-icon-search"></span>
                 <div class="mui-media-body">快速找房</div>
+            </a>
+        </li>
+        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+            <a href="<?=url('index/promise')?>">
+                <span class="mui-icon-extra mui-icon-extra-rank"></span>
+                <div class="mui-media-body">品质承诺</div>
             </a>
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -60,7 +72,6 @@
     mui.init({
         swipeBack:true //启用右滑关闭功能
     });
-
 </script>
 </body>
 

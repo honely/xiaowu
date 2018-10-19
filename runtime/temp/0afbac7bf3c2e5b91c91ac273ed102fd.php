@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\edit.html";i:1537939448;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\edit.html";i:1539659113;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,50 +37,18 @@
     .casePre{
         display:none;
     }
-    .layui-upload .mark_button {
-        position: absolute;
-        right: 15px;
-    }
-
-    .upload-img {
-        position: relative;
-        display: inline-block;
-        width: 300px;
-        height: 200px;
-        margin: 0 10px 10px 0;
-        transition: box-shadow .25s;
-        border-radius: 4px;
-        box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.5);
-        transition: 0.25s;
-        -webkit-transition: 0.25s;
-        margin-top: 15px;
-    }
-
-    .layui-upload-img {
-        width: 300px;
-        height: 200px;
-        border-radius: 4px;
-    }
-
-    .upload-img:hover {
-        cursor: pointer;
-        box-shadow: 0 0 4px rgba(0,0,0,1);
-        transform: scale(1.2);
-        -webkit-transform: scale(1.05);
-    }
-
-    .upload-img input {
-        position: absolute;
-        left: 0px;
-        top: 0px;
-    }
-
-    .upload-img button {
-        position: absolute;
-        right: 0px;
-        top: 0px;
-        border-radius: 6px;
-    }
+    .layui-upload-img { width: 90px; height: 90px; margin: 0; }
+    .pic-more { width:100%; left; margin: 10px 0px 0px 0px;}
+    .pic-more li { width:300px; float: left; margin-right: 5px;margin-top: 10px;}
+    .pic-more li .layui-input { display: initial; }
+    .pic-more li a { position: absolute; top: 0; display: block; }
+    #slide-pc-priview .item_img img{ width:277px; height: 177px}
+    #slide-pc-priview li{position: relative;}
+    #slide-pc-priview li .operate{ color: #000; display: none;}
+    #slide-pc-priview li .toleft{ position: absolute;top: 40px; left: 1px; cursor:pointer;}
+    #slide-pc-priview li .toright{ position: absolute;top: 40px; right: 1px;cursor:pointer;}
+    #slide-pc-priview li .close{position: absolute;top: 5px; right: 5px;cursor:pointer;}
+    #slide-pc-priview li:hover .operate{ display: block;}
 </style>
 <script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
 <script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.all.js"></script>
@@ -259,33 +227,27 @@
                                     <input type="text" name="h_subway" value="<?php echo $house['h_subway']; ?>"  placeholder="请输入附近地铁" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
-                            <div class="layui-form-item" id="houseImg">
-                                <label class="layui-form-label"><span style="color: red;">*</span>房源图片</label>
-                                <div id="h_imgs" style="display: none"></div>
-                                <input name="h_img" id="h_img" value="<?php echo $house['h_imgs']; ?>" type="hidden">
-                                <div class="layui-input-block">
-                                    <div class="layui-upload ">
-
-                                        <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;">
-                                            预览图：
-                                            <div class="layui-upload-list" id="imgs">
-                                                <?php if(is_array($house['h_img']) || $house['h_img'] instanceof \think\Collection || $house['h_img'] instanceof \think\Paginator): $k = 0; $__LIST__ = $house['h_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($k % 2 );++$k;?>
-                                                <div class="upload-img" filename="<?php echo $k; ?>">
-                                                    <input type="checkbox" name="" lay-skin="primary">
-                                                    <img src="<?php echo $items; ?>" class="layui-upload-img">
-                                                </div>
-                                                <?php endforeach; endif; else: echo "" ;endif; ?>
+                    <div class="layui-form-item" id="pics">
+                        <div class="layui-form-label">房源图片</div>
+                        <div class="layui-input-block" style="width: 70%;">
+                            <div class="layui-upload">
+                                <button type="button" class="layui-btn layui-btn pull-left" id="slide-pc">选择多图</button>
+                                <div class="pic-more">
+                                    <ul class="pic-more-upload-list" id="slide-pc-priview">
+                                        <?php if(is_array($house['h_img']) || $house['h_img'] instanceof \think\Collection || $house['h_img'] instanceof \think\Paginator): $k = 0; $__LIST__ = $house['h_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($k % 2 );++$k;?>
+                                        <li class="item_img">
+                                            <div class="operate">
+                                                <i  class="close layui-icon"></i>
                                             </div>
-                                        </blockquote>
-                                        <div class="mark_button" id="actBtn">
-                                            <button type="button" class="layui-btn layui-btn-normal" id="sele_imgs">选择文件</button>
-                                            <button type="button" class="layui-btn" id="upload_imgs" disabled>开始上传</button>
-
-                                            <button type="button" class="layui-btn layui-btn-danger" id="dele_imgs">删除选中图片</button>
-                                        </div>
-                                    </div>
+                                            <img src="__PUBLIC__/<?php echo $items; ?>" class="img" >
+                                            <input type="hidden" name="h_img[]" value="__PUBLIC__/<?php echo $items; ?>" />
+                                        </li>
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                                    </ul>
                                 </div>
                             </div>
+                        </div>
+                    </div>
                             <div class="layui-form-item" style="margin-top: 65px;">
                                 <label class="layui-form-label">房源简介</label>
                                 <div class="layui-input-block">
@@ -390,6 +352,8 @@
         };
         //监听提交
         form.on('submit(saveInfo)', function(data){
+            var h_imgs=$('#h_imgs').html();
+            $('#h_img').val(h_imgs);
             var h_desc=layedit.getContent(index);
             $('#h_description').val(h_desc);
             $.ajax({
@@ -510,75 +474,6 @@
                 layer.msg(res.msg, {icon: 2, time: 1000});
             }
         });
-
-
-
-        /*
-        * 多图上传
-        * */
-        //批量删除 单击事件
-        $('#dele_imgs').click(function () {
-            $('input:checked').each(function (index, value) {
-                var filename=$(this).parent().attr("filename");
-                delete imgFiles[filename];
-                $(this).parent().remove()
-            });
-        });
-
-
-        var imgFiles;
-
-        //多图片上传
-        upload.render({
-            elem: '#sele_imgs'  //开始
-            , acceptMime: 'image/*'
-            , url: '<?php echo url("article/upload"); ?>'
-            , auto: false
-            , bindAction: '#upload_imgs'
-            , multiple: true
-            , size: 1024 * 12
-            , choose: function (obj) {  //选择图片后事件
-                var files = this.files = obj.pushFile(); //将每次选择的文件追加到文件队列
-                imgFiles = files;
-
-                $('#upload_imgs').prop('disabled',false);
-
-                //预读本地文件示例，不支持ie8
-                obj.preview(function (index, file, result) {
-                    var data = {
-                        index: index,
-                        name: file.name,
-                        result: result
-                    };
-                    //将预览html 追加
-                    laytpl(img_template.innerHTML).render(data, function (html) {
-                        $('#imgs').append(html);
-                    });
-                    //绑定单击事件
-                    $('#imgs div:last-child>img').click(function () {
-                        var isChecked = $(this).siblings("input").prop("checked");
-                        $(this).siblings("input").prop("checked", !isChecked);
-                        return false;
-                    });
-                });
-            }
-            , before: function (obj) { //上传前回函数
-                layer.load(); //上传loading
-            }
-            , done: function (res,index,upload) {    //上传完毕后事件
-                $('#h_imgs').append(res.path+",");
-                layer.closeAll('loading'); //关闭loading
-                //上传完毕
-                top.layer.msg("上传成功！");
-                $('#actBtn').hide();
-                return delete imgFiles[index]; //删除文件队列已经上传成功的文件
-            }
-            , error: function (index, upload) {
-                layer.closeAll('loading'); //关闭loading
-                top.layer.msg("上传失败！");
-
-            }
-        });
     });
 </script>
 </div>
@@ -591,3 +486,36 @@
 </script>
 </body>
 </html>
+<script>
+    layui.use('upload', function(){
+        var $ = layui.jquery;
+        var upload = layui.upload;
+        upload.render({
+            elem: '#slide-pc',
+            url: '<?php echo url("admin/house/upload"); ?>',
+            size: 5120,
+            exts: 'jpg|png|jpeg',
+            multiple: true,
+            before: function(obj) {
+                layer.msg('图片上传中...', {
+                    icon: 16,
+                    shade: 0.01,
+                    time: 0
+                })
+            },
+            done: function(res) {
+                layer.close(layer.msg());//关闭上传提示窗口
+                if(res.status == 0) {
+                    return layer.msg(res.message);
+                }
+                console.log(res);
+                $('#slide-pc-priview').append('' +
+                    '<li class="item_img"><div class="operate"><i  class="close layui-icon"></i></div><img src="__PUBLIC__/' + res.filepath + '" class="img" ><input type="hidden" name="h_img[]" value="' + res.filepath + '" /></li>');
+            }
+        });
+    });
+    //点击多图上传的X,删除当前的图片
+    $("body").on("click",".close",function(){
+        $(this).closest("li").remove();
+    });
+</script>
