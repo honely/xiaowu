@@ -14,14 +14,7 @@
         <div class="layui-form-item  demoTable">
             <div class="layui-inline">
                 <div class="layui-input-inline">
-                    <input type="text" name="keywords" id="keywords"  placeholder="请输入房源标题/编号" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-inline">
-                <div class="layui-input-inline">
-                    <select name="case_area" id="case_area" lay-verify="required" lay-filter="case_designer">
-                        <option value="">请选择面积区间</option>
-                    </select>
+                    <input type="text" name="keywords" id="keywords"  placeholder="请输入房源标题/编号/小区名称" class="layui-input">
                 </div>
             </div>
             <div class="layui-inline">
@@ -82,48 +75,21 @@
             //表格重载
             reload: function(){
                 var keywords = $('#keywords').val();
-                var case_area = $('#case_area').val();
-                var case_admin = $('#case_admin').val()?$('#case_admin').val():0;
-                var case_designer = $('#case_designer').val();
                 var case_decotime = $('#case_decotime').val();
                 //执行重载
                 table.reload('testReload', {
-                    url: '/admin/example/expData/'
+                    url: '/admin/house/houseData/'
                     ,page: {
                         curr: 1 //重新从第 1 页开始
                     }
                     ,where: {
                         keywords: keywords,
-                        case_p_id: p_id,
-                        bu_c_id: c_id,
-                        branch: b_id,
-                        case_area: case_area,
-                        case_decotime: case_decotime,
-                        case_designer: case_designer,
-                        case_admin: case_admin
+                        case_decotime: case_decotime
                     },
                     success:function (data) {
                         console.log(data);
                     }
                 });
-
-                $.ajax({
-                    type:'post',
-                    url:'/admin/example/example',
-                    data:{'keywords':keywords,'case_p_id':p_id,'bu_c_id':c_id,'branch':b_id,'case_area':case_area,'case_decotime':case_decotime,'case_designer':case_designer,'case_admin':case_admin,'style_id':'0'},
-                    success:function (data) {
-                        $('.display').html(data.display);
-                        $('.none').html(data.none);
-                        $('.all').html(data.all);
-                        var style=data.decStyle;
-                        for(var i = 0; i < style.length; i++) {
-                            $('.style'+style[i].type_id).html(style[i].count)
-                        }
-                    },
-                    error:function (data) {
-                        console.log(data)
-                    }
-                })
             }
 
         };

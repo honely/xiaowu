@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>添加回款记录</title>
+    <title>添加记录</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -75,14 +75,6 @@
     mui.init({
         swipeBack: true //启用右滑关闭功能
     });
-    function checkVals(){
-        var hpl_money=$('#hpl_money').val();
-        var will_pay={$payMoney.hp_will_pay};
-        if(hpl_money>will_pay){
-            mui.alert('您输入的金额已超过余额！！', function() {
-            });
-        }
-    }
 </script>
 <script>
 
@@ -105,7 +97,6 @@
         //监听提交
         form.on('submit(saveInfo)', function(){
             var hpl_money=$('#hpl_money').val();
-            var will_pay={$payMoney.hp_will_pay};
             if(hpl_money>will_pay){
                 mui.alert('您输入的金额已超过余额！！', function() {
                 });

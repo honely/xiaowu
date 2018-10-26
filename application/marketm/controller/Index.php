@@ -126,7 +126,6 @@ class Index extends Controller{
                 $master['hm_admin']=$masterArr[0];
             }
         }
-//        dump($master);
         $this->assign('h_b_id',$h_id);
         $this->assign('master',$master);
         return $this->fetch();
@@ -368,9 +367,11 @@ class Index extends Controller{
         $attach=Db::table('dcxw_house_attachment')
             ->where(['ha_house_code' => $h_id])
             ->find();
-        $attach['ha_contact_img']=explode(',',$attach['ha_contact_img']);
-        $attach['ha_deadline']=date('Y-m-d',$attach['ha_deadline']);
-        $attach['ha_decorate_permit']=date('Y-m-d',$attach['ha_decorate_permit']);
+        if($attach){
+            $attach['ha_contact_img']=explode(',',$attach['ha_contact_img']);
+            $attach['ha_deadline']=date('Y-m-d',$attach['ha_deadline']);
+            $attach['ha_decorate_permit']=date('Y-m-d',$attach['ha_decorate_permit']);
+        }
 //        dump($attach);
         $this->assign('attach',$attach);
         $this->assign('manager',$manager);

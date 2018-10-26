@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\dailylog.html";i:1539851639;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\dailylog.html";i:1540027947;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -12,9 +12,12 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/index')?>"></a>
     <h1 class="mui-title">监理日记</h1>
-    <a class="mui-icon-plusempty mui-icon mui-icon-right-nav mui-pull-right" href="<?=url('index/addlog')?>?h_id=<?php echo $h_id; ?>"></a>
+    <?php if($status < 11): ?>
+        <a class="mui-icon-plusempty mui-icon mui-icon-right-nav mui-pull-right" href="<?=url('index/addlog')?>?h_id=<?php echo $h_id; ?>"></a>
+    <?php endif; ?>
+
 </header>
 <div class="mui-content" style="padding-top: 40px;">
     <div class="mui-card">
@@ -26,13 +29,15 @@
                 </li>
                 <?php else: if(is_array($dailyLog) || $dailyLog instanceof \think\Collection || $dailyLog instanceof \think\Paginator): $i = 0; $__LIST__ = $dailyLog;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$log): $mod = ($i % 2 );++$i;?>
                         <li class="mui-table-view-cell mui-media">
-                        <a class="mui-navigate-right" href="<?=url('index/logdetails')?>?hpl_id=<?php echo $log['hpl_id']; ?>">
-                            <img class="mui-media-object mui-pull-left" src="<?php echo $log['hpl_img']; ?>">
+                        <a class="mui-navigate-right" href="<?=url('index/logdetails')?>?hdl_id=<?php echo $log['hdl_id']; ?>">
+                            <img class="mui-media-object mui-pull-left" src="<?php echo $log['hdl_img']; ?>">
                             <div class="mui-media-body">
-                                <?php echo $log['hpl_addtime']; ?>
-                                <p class='mui-ellipsis'>房源编号【<?php echo $log['hpl_house_code']; ?>】回款<?php echo $log['hpl_money']; ?>元，备注信息：<?php echo $log['hpl_tips']; ?>
-                                    本条记录由【<?php echo $log['hpl_addtime']; ?>】在<?php echo $log['hpl_addtime']; ?>提交。</p>
+                                <?php echo $log['hdl_addtime']; ?>
+                                <!--<span class="mui-pull-right"><?php echo $log['hdl_addtime']; ?></span>-->
                             </div>
+                            <p class='mui-ellipsis'>
+                                <?php echo $log['hdl_title']; ?>
+                            </p>
                         </a>
                     </li>
                     <?php endforeach; endif; else: echo "" ;endif; endif; ?>

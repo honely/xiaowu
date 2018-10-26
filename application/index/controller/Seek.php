@@ -82,6 +82,7 @@ class Seek extends Controller{
         $house=Db::table('dcxw_house')
             ->where(['h_isable' => 1,'h_rent_status' => 2])
             ->where($where)
+            ->order('h_istop asc,h_isable,h_view desc')
             ->limit(($page-1)*$limit,$limit)
             ->field('h_name,h_nearbus,h_b_id,h_subway,h_house_img,h_img_alt,h_video,h_address,h_building,h_rent,h_rent_type,h_id')
             ->select();

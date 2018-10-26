@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\about\index.html";i:1538968843;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1536805330;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1537069564;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\about\index.html";i:1540457807;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1536805330;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1540457310;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -65,6 +65,15 @@
         visibility: visible;
         font-size: 0;
     }
+    .content-p{
+        margin-top: 0px; margin-bottom: 0px; margin-top: 8px;padding: 0px 0px 24px; border: 0px; outline: 0px; font-size: 12px; vertical-align: baseline; font-family: &#39;Microsoft Yahei&#39;, 新宋体, 宋体, Verdana; text-indent: 2em; line-height: 24px; white-space: normal; background: rgb(255, 255, 255);
+    }
+    .content-h4{
+        margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 18px; vertical-align: baseline; font-family: &#39;Microsoft Yahei&#39;, 新宋体, 宋体, Verdana; line-height: 26px; text-indent: 2em; white-space: normal; background: rgb(255, 255, 255);    color: #ff3535;"
+    }
+    .content-hp{
+        margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 0px; border: 0px; outline: 0px; font-size: 12px; vertical-align: baseline; font-family: &#39;Microsoft Yahei&#39;, 新宋体, 宋体, Verdana; text-indent: 2em; line-height: 24px; white-space: normal; background: rgb(255, 255, 255);
+    }
 </style>
 <div class="body-box-bg">
     <!-- 面包屑 -->
@@ -89,40 +98,43 @@
             <hr class="layui-bg-red">
             <!-- 下 -->
             <div class="BoxCtThree">
-                <h4 style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 18px; vertical-align: baseline; font-family: &#39;Microsoft Yahei&#39;, 新宋体, 宋体, Verdana; line-height: 26px; text-indent: 2em; white-space: normal; background: rgb(255, 255, 255);    color: #ff3535;">一、公司简介</h4>
-                <p style="margin-top: 0px; margin-bottom: 0px; margin-top: 8px;padding: 0px 0px 24px; border: 0px; outline: 0px; font-size: 12px; vertical-align: baseline; font-family: &#39;Microsoft Yahei&#39;, 新宋体, 宋体, Verdana; text-indent: 2em; line-height: 24px; white-space: normal; background: rgb(255, 255, 255);">
+                <h4 class="content-h4">一、公司简介</h4>
+                <p class="content-p">
                     陕西大城小屋不动产管理有限公司成立于2018年3月22日，位于西安市高新区沣惠南路16号泰华金贸国际7号楼24层。是一家涉及房产管理、交易服务、金融服务、后房地产市场服务为一体的综合性不动产服务企业。
                 </p>
-                <h4 style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 18px; vertical-align: baseline; font-family: &#39;Microsoft Yahei&#39;, 新宋体, 宋体, Verdana; line-height: 26px; text-indent: 2em; white-space: normal; background: rgb(255, 255, 255);    color: #ff3535;">二、产品服务</h4>
+                <h4 class="content-h4">二、产品服务</h4>
 
-                <p style="margin-top: 0px; margin-bottom: 0px;margin-top: 8px; padding: 0px 0px 24px; border: 0px; outline: 0px; font-size: 12px; vertical-align: baseline; font-family: &#39;Microsoft Yahei&#39;, 新宋体, 宋体, Verdana; text-indent: 2em; line-height: 24px; white-space: normal; background: rgb(255, 255, 255);">
+                <p class="content-p">
                     公司业务覆盖房产租赁、房产买卖、海外置业、标准装修、家政服务等领域。公司致力于为闲置房屋业主提供一站式托管服务，打造闲置房屋共享经济时代，同时也为城市租房人群提供高档社区管理+星级酒店服务+智能与科技完美融合为一体的高档智能型公寓。
                 </p>
 
-                <h4 style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 18px; vertical-align: baseline; font-family: &#39;Microsoft Yahei&#39;, 新宋体, 宋体, Verdana; line-height: 26px; text-indent: 2em; white-space: normal; background: rgb(255, 255, 255);    color: #ff3535;">三、组织架构</h4>
+                <h4 class="content-h4">三、组织架构</h4>
 
-                <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 24px; border: 0px; outline: 0px; font-size: 12px; vertical-align: baseline; font-family: &#39;Microsoft Yahei&#39;, 新宋体, 宋体, Verdana; text-indent: 2em; line-height: 24px; white-space: normal; background: rgb(255, 255, 255);">
+                <p class="content-p">
 
                     陕西大城小屋不动产管理有限公司由三大机构组成，分别为决策机构、执行机构、监督建构。公司采用“C管理模式（智慧型管理模式）”，C管理模式是以人为核心，凝聚吸收人才为主体，使得企业适应能力性更强，应变能力更为灵活，同时也使得企业所开发的项目更为精良，让企业具有更健康的根基和更广阔的视野。
 
             </p>
+                <h4 class="content-h4">四、发展模式</h4>
 
-
-
-                <h4 style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 18px; vertical-align: baseline; font-family: &#39;Microsoft Yahei&#39;, 新宋体, 宋体, Verdana; line-height: 26px; text-indent: 2em; white-space: normal; background: rgb(255, 255, 255);    color: #ff3535;">四、发展模式</h4>
-
-                <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 24px; border: 0px; outline: 0px; font-size: 12px; vertical-align: baseline; font-family: &#39;Microsoft Yahei&#39;, 新宋体, 宋体, Verdana; text-indent: 2em; line-height: 24px; white-space: normal; background: rgb(255, 255, 255);">
+                <p class="content-p">
 
                 大城小屋行走于新型房服务行业前沿，引领全新的智能公寓模式，策略于将毛坯房进行超高性价比回租、整租、合租，优化房屋资源配置，进行所有房屋资源共享，取得1+1大于2的成果。让各房主均能直观感受到持续性的价值回报。
 
             </p>
 
-                <h4 style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 18px; vertical-align: baseline; font-family: &#39;Microsoft Yahei&#39;, 新宋体, 宋体, Verdana; line-height: 26px; text-indent: 2em; white-space: normal; background: rgb(255, 255, 255);    color: #ff3535;">五、联系我们</h4>
-                <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 24px; border: 0px; outline: 0px; font-size: 12px; vertical-align: baseline; font-family: &#39;Microsoft Yahei&#39;, 新宋体, 宋体, Verdana; text-indent: 2em; line-height: 24px; white-space: normal; background: rgb(255, 255, 255);">
-                    联系地址：陕西省西安市高新区沣惠南路16号7号楼2401，邮编710065
+                <h4 class="content-h4">五、联系我们</h4>
+                <p class="content-hp">
+                    总部地址：陕西省西安市高新区沣惠南路16号7号楼2401，邮编710065
+
+                </p><p class="content-hp">
+                    成都分公司：四川省成都市高新区环球中心E1 1-2-702
+
+                </p><p class="content-hp">
+                重庆分公司：重庆市江北区江北城IFS国金中心T2栋610
 
                 </p>
-                <div class="map" style="width: 810px;height: 500px;" id="baiduMap">
+                <div class="map" style="width: 810px;height: 500px;margin-top: 10px;" id="baiduMap">
                 </div>
                 <p><br/></p>
             </div>
@@ -219,9 +231,14 @@
             <div class="left pull-left">
                 <h3>
                     <img class="pull-left" style="width: 22px;height: 22px;" src="__WEB__/img/footer-ph.png" alt="">
-                    <span >
+                    <span>
                         <?php echo $hotLine; ?>
+
+
                     </span>
+                    <span><em style="line-height: 30px;">房屋托管：18291435205</em></span>
+                    <span><em style="line-height: 30px;">公寓租赁：17792870379</em></span>
+
                 </h3>
             </div>
             <div class="right pull-left">

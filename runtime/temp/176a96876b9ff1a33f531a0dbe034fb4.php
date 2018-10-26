@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\index.html";i:1539854342;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\index.html";i:1539936028;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -54,7 +54,7 @@
         </div>
         <div class="mui-card-footer">
             <a class="mui-card-link" href="<?=url('index/details')?>?h_id=<?php echo $hous['h_b_id']; ?>">房源详情</a>
-            <a class="mui-card-link" href="<?=url('index/steps')?>?h_id=<?php echo $hous['h_b_id']; ?>">装修进度</a>
+            <a class="mui-card-link" href="<?=url('index/timeline')?>?h_id=<?php echo $hous['h_b_id']; ?>">装修进度</a>
             <a class="mui-card-link" href="<?=url('index/dailylog')?>?h_id=<?php echo $hous['h_b_id']; ?>">监理记录</a>
         </div>
     </div>

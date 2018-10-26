@@ -189,29 +189,67 @@
     <h1 class="mui-title">添加监理日志</h1>
 </header>
 <div class="mui-content">
+    <div class="mui-card">
+        <div class="mui-card-content">
+            <div class="mui-card-content-inner">
+                <p><b>当前装修阶段</b>
+                    <span style="margin-left: 8px;" class="mui-badge mui-badge-danger mui-pull-right">{$statusStart}</span>
+                </p>
+                <p style="color: #333;">
+                    小区名称：{$house.h_building}
+                    <br/>
+                    房源地址：{$house.h_address}
+                    <br/>
+                </p>
+            </div>
+        </div>
+    </div>
     <div class="mui-content-padded " style="margin: 5px;">
         <form class="mui-input-group layui-form" id="payForm">
             <div class="mui-input-row">
                 <label><span class="color-red">*</span>日志标题</label>
-                <input type="text" class="layui-input" id="hpl_money" onblur="checkVals()" lay-verify="required" name="hpl_money" placeholder="请输入回款金额">
+                <input type="text" class="layui-input" layui-verify="required" id="hdl_title" name="hdl_title" placeholder="请输入日志标题">
+                <input name="h_id" type="text" value="{$h_id}"/>
             </div>
             <div class="mui-input-row">
                 <label><span class="color-red">*</span>日志图片</label>
                 <span id="upload" class="mui-btn mui-btn-primary">上传</span>
-                <input type="hidden" id="img" lay-verify="imgReg" value=""/>
+                <input type="hidden" id="img" layui-verify="required"  value=""/>
+                <input type="hidden" name="isTrans" id="isTrans" value="2"/>
             </div>
-            <div id="imgPre">
-
-            </div>
+            <div id="imgPre"></div>
             <div class="mui-card">
                 <div class="mui-input-row" style="margin: 10px 5px;">
-                    <textarea id="textarea" name="hpl_tips" rows="5" placeholder="日志内容"></textarea>
+                    <textarea id="textarea" name="hdl_content" rows="5" placeholder="日志内容"></textarea>
+                    <textarea id="textareas" style="display: none" name="trans" rows="5" placeholder="日志内容"></textarea>
                 </div>
             </div>
-            <span style="margin-top: 5px;" id="subBtn" lay-submit lay-filter="saveInfo" class="mui-btn mui-btn-primary mui-btn-block">确认添加</span>
         </form>
     </div>
 </div>
+{if condition="$status lt 11"}
+<div class="mui-card">
+    <form class="mui-input-group">
+        <div class="mui-input-row mui-checkbox mui-left">
+            <label>{$statusStart}阶段已完工，转入
+                {if condition="$nextStatus eq null"}
+                    运营部
+                {else/}
+                {$nextStatus}
+                {/if}。</label>
+            <input name="checkbox"  type="checkbox" >
+        </div>
+        <div class="mui-card" id="transTips" style="display: none">
+            <div class="mui-input-row" style="margin: 10px 5px;">
+                <textarea id="transRemark" rows="5" placeholder="转接备注"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+{/if}
+
+<span style="margin-top: 5px;" id="subBtn" lay-submit lay-filter="saveInfo" class="mui-btn mui-btn-primary mui-btn-block">确认添加</span>
+
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>
 <script src="__LAY__/layui.js"></script>
@@ -219,8 +257,20 @@
 <script src="__WAP__/js/mui.previewimage.js"></script>
 <script>
     mui.previewImage();
+    mui('.mui-input-group').on('change', 'input', function() {
+        var value = this.checked?"true":"false";
+        if(value == "true"){
+            $("#transTips").show();
+            $('#isTrans').val(1);
+        }else{
+            $("#transTips").hide();
+            $('#isTrans').val(2);
+        }
+    });
+
 </script>
 <script>
+
     layui.use( ['form','jquery','upload',], function(){
         var form = layui.form
             ,upload = layui.upload
@@ -233,33 +283,29 @@
             }
             ,imgReg:function (value) {
                 if(value.length <= 0){
-                    return '请上传打款凭证！';
+                    return '请上传日志图片！';
                 }
             }
         });
         //监听提交
         form.on('submit(saveInfo)', function(){
-            var hpl_money=$('#hpl_money').val();
-            if(hpl_money>will_pay){
-                mui.alert('您输入的金额已超过余额！！', function() {
-                });
-            }else{
-                $.ajax({
-                    'type':"post",
-                    'url':"<?=url('index/addpaylog')?>?h_id=",
-                    'data':$('#payForm').serialize(),
-                    'success':function (result) {
-                        console.log(result);
-                        if(result.code == '1'){
-                            layer.msg(result.msg, {icon: 1, time: 2000},function () {
-                                location.href="<?=url('index/payment')?>?h_id=";
-                            });
-                        }else{
-                            layer.msg(result.msg, {icon: 2, time: 3000});
-                        }
+            var transTip=$("#transRemark").val();
+            $('#textareas').val(transTip);
+            $.ajax({
+                'type':"post",
+                'url':"<?=url('index/addlogpro')?>",
+                'data':$('#payForm').serialize(),
+                'success':function (result) {
+                    console.log(result);
+                    if(result.code == '1'){
+                        layer.msg(result.msg, {icon: 1, time: 2000},function () {
+                            location.href="<?=url('index/dailylog')?>?h_id={$h_id}";
+                        });
+                    }else{
+                        layer.msg(result.msg, {icon: 2, time: 3000});
                     }
-                })
-            }
+                }
+            })
         });
         //图片上传
         upload.render({
@@ -279,7 +325,7 @@
                 $('#imgPre').append('' +
                     '<li class="item_img"><div class="operate"><i  class="close layui-icon"></i></div>' +
                     '<img src="__PUBLIC__/' + res.path + '" data-preview-src="" data-preview-group="1"  class="img" >' +
-                    '<input type="hidden" name="hpl_img[]" value="' + res.path + '" /></li>');
+                    '<input type="hidden" class="imgs" name="hdl_img[]" value="' + res.path + '" /></li>');
                 layer.close(loading);
                 layer.msg(res.msg, {icon: 1, time: 1000});
             }

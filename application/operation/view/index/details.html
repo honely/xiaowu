@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>房源预览</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="__WAP__/css/mui.min.css">
+</head>
+<body>
+<header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/index')?>"></a>
+    <h1 class="mui-title">房源预览</h1>
+</header>
+<div class="mui-content" style="padding-top: 40px;">
+    <div class="mui-card">
+        <div class="mui-card-content">
+            <div class="mui-card-content-inner">
+                <p><b>基本信息</b>：房源编号：【{$hous.h_b_id}】
+                </p>
+                {if condition="$manger neq null"}
+                <p>
+                    {$manger.u_job}-{$manger.u_name}-{$manger.u_phone}
+                </p>
+                {/if}
+
+                <p style="color: #333;">
+                    小区名称：{$hous.h_building}
+                    <br/>
+                    房屋面积：{$hous.h_area}（㎡）
+                    <br/>
+                    {if isset($hous.h_contract_code)}
+                    合同编号：{$hous.h_contract_code}（元）
+                    <br/>
+                    {/if}
+                    签订日期：{$hous.h_addtime}
+                    <br/>
+                    房源地址：{$hous.h_address}
+                    <br/>
+                </p>
+            </div>
+        </div>
+    </div>
+    {if condition="$master neq null"}
+    <div class="mui-card">
+        <div class="mui-card-content">
+            <div class="mui-card-content-inner">
+                <p><b>房主信息</b></p>
+                <p style="color: #333;">
+                    姓名：{$master.hm_name}
+                    <br/>
+                    联系方式：{$master.hm_phone}
+                    <br/>
+                    身份证号：{$master.hm_idcard}
+                    <br/>
+                    银行卡号：{$master.hm_bank_card}
+                    <br/>
+                    现居地址：{$master.hm_address}
+                    <br/>
+                    备注信息：{$master.hm_remarks}
+                </p>
+            </div>
+        </div>
+    </div>
+    {/if}
+    {if condition="$payInfo neq null"}
+    <div class="mui-card">
+        <div class="mui-card-content">
+            <div class="mui-card-content-inner">
+                <p><b>回款信息</b></p>
+                <p style="color: #333;">
+                    总装修款{$payInfo.hp_money}元，已回款{$payInfo.hp_paid}元，未回款{$payInfo.hp_will_pay}元，回款率{$payInfo.hp_paid_ratio}。
+                </p>
+                {if condition="$payLogs neq null"}
+                <p><b>回款记录</b></p>
+                {volist name="payLogs" id="logs"}
+                <p style="color: #333;">
+                    {$logs.hpl_addtime} 回款{$logs.hpl_money}元。
+                </p>
+                {/volist}
+                {/if}
+            </div>
+        </div>
+    </div>
+    {/if}
+    {if condition="$attach neq null"}
+    <div class="mui-content-padded" style="margin: 5px;">
+        <form class="mui-input-group layui-form" id="attachForm" style="background-color: #efeff4">
+            <div class="mui-card">
+                <p><b>附属信息</b></p>
+                <div class="mui-input-row">
+                    <label>钥匙：</label>
+                    <input type="text" readonly {if isset($attach.ha_keys)} value="{$attach.ha_keys}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>备注：</label>
+                    <input type="text" readonly {if isset($attach.ha_keys_remarks)} value="{$attach.ha_keys_remarks}" {/if}>
+                </div>
+            </div>
+            <div class="mui-card">
+                <div class="mui-input-row">
+                    <label>门禁：</label>
+                    <input type="text" readonly {if isset($attach.ha_door_ban)} value="{$attach.ha_door_ban}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>备注：</label>
+                    <input type="text" readonly {if isset($attach.ha_door_ban_remarks)} value="{$attach.ha_door_ban_remarks}" {/if}>
+                </div>
+            </div>
+            <div class="mui-card">
+                <div class="mui-input-row">
+                    <label>电卡：</label>
+                    <input type="text" readonly {if isset($attach.ha_elect_card)} value="{$attach.ha_elect_card}" {/if} id="ha_elect_card">
+                </div>
+                <div class="mui-input-row">
+                    <label>电表底数：</label>
+                    <input type="text" readonly {if isset($attach.ha_elect_start)} value="{$attach.ha_elect_start}" {/if} class="layui-input" lay-verify="required" id="ha_elect_start" name="ha_elect_start">
+                </div>
+                <div class="mui-input-row">
+                    <label>电费单价：</label>
+                    <input type="text" readonly {if isset($attach.ha_elect_price)} value="{$attach.ha_elect_price}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>缴费方式：</label>
+                    <input type="text" readonly {if isset($attach.ha_elect_type)} value="{$attach.ha_elect_type}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>备注：</label>
+                    <input type="text" readonly  {if isset($attach.ha_elect_card_tips)} value="{$attach.ha_elect_card_tips}" {/if}>
+                </div>
+            </div>
+            <div class="mui-card">
+                <div class="mui-input-row">
+                    <label>水卡：</label>
+                    <input type="text" readonly  {if isset($attach.ha_water_card)} value="{$attach.ha_water_card}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>水表底数：</label>
+                    <input type="text" readonly {if isset($attach.ha_water_start)} value="{$attach.ha_water_start}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>水费单价：</label>
+                    <input type="text" readonly {if isset($attach.ha_water_price)} value="{$attach.ha_water_price}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>缴费方式：</label>
+                    <input type="text" readonly {if isset($attach.ha_water_type)} value="{$attach.ha_water_type}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>备注：</label>
+                    <input type="text" readonly  {if isset($attach.ha_water_card_tips)} value="{$attach.ha_water_card_tips}" {/if}>
+                </div>
+            </div>
+
+            <div class="mui-card">
+                <div class="mui-input-row">
+                    <label>供暖方式：</label>
+                    <input type="text" readonly {if isset($attach.ha_warm_type)} value="{$attach.ha_warm_type}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>暖气单价：</label>
+                    <input type="text" readonly {if isset($attach.ha_warm_price)} value="{$attach.ha_warm_price}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>缴费方式：</label>
+                    <input type="text" readonly {if isset($attach.ha_warm_tips)} value="{$attach.ha_warm_tips}" {/if}>
+                </div>
+            </div>
+            <div class="mui-card">
+                <div class="mui-input-row">
+                    <label>猫眼：</label>
+                    <input type="text" readonly {if isset($attach.ha_cat_eye)} value="{$attach.ha_cat_eye}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>备注：</label>
+                    <input type="text" readonly {if isset($attach.ha_cat_eye_tips)} value="{$attach.ha_cat_eye_tips}" {/if}>
+                </div>
+            </div>
+            <div class="mui-card">
+                <div class="mui-input-row">
+                    <label>可视电话：</label>
+                    <input type="text" readonly {if isset($attach.ha_view_phone)} value="{$attach.ha_view_phone}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>备注：</label>
+                    <input type="text" readonly  {if isset($attach.ha_view_phone_tips)} value="{$attach.ha_view_phone_tips}" {/if}>
+                </div>
+            </div>
+            <div class="mui-card">
+                <div class="mui-input-row">
+                    <label>燃气底数：</label>
+                    <input type="text" readonly  {if isset($attach.ha_air_start)} value="{$attach.ha_air_start}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>燃气备注：</label>
+                    <input type="text" readonly  {if isset($attach.ha_air_tips)} value="{$attach.ha_air_tips}" {/if}>
+                </div>
+            </div>
+            <div class="mui-card">
+                <div class="mui-input-row">
+                    <label>车位情况：</label>
+                    <input type="text" readonly   {if isset($attach.ha_car_park)} value="{$attach.ha_car_park}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>物业电话：</label>
+                    <input type="text" readonly {if isset($attach.ha_wuye_phone)} value="{$attach.ha_wuye_phone}" {/if}>
+                </div>
+            </div>
+            <div class="mui-card">
+                <div class="mui-input-row">
+                    <label>合同编号：</label>
+                    <input type="text" readonly {if isset($attach.ha_contact_code)} value="{$attach.ha_contact_code}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>合同扫描件</label>
+                </div>
+                <div id="imgPre">
+                    {volist name="attach.ha_contact_img" id="items"}
+                    <li class="item_img">
+                        <div class="operate">
+                            <i  class="close layui-icon"></i>
+                        </div>
+                        <img src="__PUBLIC__/{$items}" class="img" ><input type="hidden" name="ha_contact_img[]" value="' + res.path + '" />
+                    </li>
+                    {/volist}
+                </div>
+                <div class="mui-input-row">
+                    <label>租金(每月)：</label>
+                    <input type="text" readonly {if isset($attach.ha_rent_price)} value="{$attach.ha_rent_price}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>租期：</label>
+                    <input type="text" readonly {if isset($attach.ha_rent_time)} value="{$attach.ha_rent_time}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>到期时间：</label>
+                    <input type="text" readonly {if isset($attach.ha_deadline)} value="{$attach.ha_deadline}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>装修许可时间：</label>
+                    <input type="text" readonly {if isset($attach.ha_decorate_permit)} value="{$attach.ha_decorate_permit}" {/if}>
+                </div>
+            </div>
+            <div class="mui-card">
+                <div class="mui-input-row" style="margin: 10px 5px;">
+                    <label>其他备注信息：</label>
+                    <textarea readonly rows="5">{if isset($attach.ha_remarks)}{$attach.ha_remarks}{/if}</textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    {/if}
+</div>
+</body>
+
+</html>

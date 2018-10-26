@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/index\view\seek\index.html";i:1537066849;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1536805330;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1537069564;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/index\view\seek\index.html";i:1540008375;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1536805330;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1537069564;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -154,7 +154,7 @@
                         <p  class="pull-left">
                             <i style="width:170px;"><?php echo $house['h_address']; ?></i>
                             <a class="layui-btn layui-btn-primary" href="<?=url('seek/details')?>?h_id=<?php echo $house['h_id']; ?>">查看详情</a>
-                            <a class="layui-btn" onclick="makePoint(<?php echo $house['h_b_id']; ?>)">预约看房</a>
+                            <a class="layui-btn" onclick="makePoint(<?php echo $house['h_building']; ?>)">预约看房</a>
                         </p>
                     </div>
                 </div>
@@ -266,7 +266,7 @@
                 btnAlign: 'c',
                 content: $('#layers-sign'),
                 success: function (layero) {
-                    $('.ho_remark').val('立即订房屋编号为'+h_b_id+'的房');
+                    $('.ho_remark').val('立即订小区名称为'+h_b_id+'的房');
                 }
             });
             form.on('submit(saveInfo)', function(data){

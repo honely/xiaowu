@@ -21,29 +21,9 @@ class House extends Controller{
     public function houseData(){
         $where =' 1 = 1';
         $keywords = trim($this->request->param('keywords'));
-        $case_p_id = intval(trim($this->request->param('case_p_id')));
-        $bu_c_id = intval(trim($this->request->param('bu_c_id')));
-        $branch = intval(trim($this->request->param('branch')));
-        $case_isable = intval(trim($this->request->param('case_isable')));
-        $case_admin = intval(trim($this->request->param('case_admin')));
         $case_decotime=trim($this->request->param('case_decotime'));
         if(isset($keywords) && !empty($keywords)){
             $where.=" and ( h_name like '%".$keywords."%' or h_b_id like '%".$keywords."%' )";
-        }
-        if(isset($case_p_id) && !empty($case_p_id) && $case_p_id){
-            $where.=" and h_p_id = ".$case_p_id;
-        }
-        if(isset($bu_c_id) && !empty($bu_c_id) && $bu_c_id){
-            $where.=" and h_c_id = ".$bu_c_id;
-        }
-        if(isset($branch) && !empty($branch) && $branch){
-            $where.=" and h_a_id = ".$branch;
-        }
-        if(isset($case_isable) && !empty($case_isable)){
-            $where.=" and h_isable = ".$case_isable;
-        }
-        if(isset($case_admin) && !empty($case_admin)){
-            $where.=" and dec_admin = ".$case_admin;
         }
         if(isset($case_decotime) && !empty($case_decotime)){
             $sdate=strtotime(substr($case_decotime,'0','10')." 00:00:00");
@@ -396,6 +376,7 @@ class House extends Controller{
         $design=Db::table('dcxw_house_order')
             ->limit(($page-1)*$limit,$limit)
             ->where($where)
+            ->order('ho_addtime desc')
             ->select();
         if($design){
             foreach($design as $key => $val){

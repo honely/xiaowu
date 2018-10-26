@@ -11,9 +11,12 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/index')?>"></a>
     <h1 class="mui-title">监理日记</h1>
-    <a class="mui-icon-plusempty mui-icon mui-icon-right-nav mui-pull-right" href="<?=url('index/addlog')?>?h_id={$h_id}"></a>
+    {if condition="$status lt 11 "}
+        <a class="mui-icon-plusempty mui-icon mui-icon-right-nav mui-pull-right" href="<?=url('index/addlog')?>?h_id={$h_id}"></a>
+    {/if}
+
 </header>
 <div class="mui-content" style="padding-top: 40px;">
     <div class="mui-card">
@@ -26,13 +29,15 @@
                 {else/}
                     {volist name="dailyLog" id="log"}
                         <li class="mui-table-view-cell mui-media">
-                        <a class="mui-navigate-right" href="<?=url('index/logdetails')?>?hpl_id={$log.hpl_id}">
-                            <img class="mui-media-object mui-pull-left" src="{$log.hpl_img}">
+                        <a class="mui-navigate-right" href="<?=url('index/logdetails')?>?hdl_id={$log.hdl_id}">
+                            <img class="mui-media-object mui-pull-left" src="{$log.hdl_img}">
                             <div class="mui-media-body">
-                                {$log.hpl_addtime}
-                                <p class='mui-ellipsis'>房源编号【{$log.hpl_house_code}】回款{$log.hpl_money}元，备注信息：{$log.hpl_tips}
-                                    本条记录由【{$log.hpl_addtime}】在{$log.hpl_addtime}提交。</p>
+                                {$log.hdl_addtime}
+                                <!--<span class="mui-pull-right">{$log.hdl_addtime}</span>-->
                             </div>
+                            <p class='mui-ellipsis'>
+                                {$log.hdl_title}
+                            </p>
                         </a>
                     </li>
                     {/volist}
