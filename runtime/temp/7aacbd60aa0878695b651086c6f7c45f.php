@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\master.html";i:1539660298;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\master.html";i:1540886935;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -33,19 +33,19 @@
                 <input type="hidden" name="hm_house_code" value="<?php echo $h_b_id; ?>"/>
             </div>
             <div class="mui-input-row">
-                <label><span class="color-red">*</span>联系电话</label>
+                <label>联系电话</label>
                 <input type="text" name="hm_phone" onkeyup="this.value=this.value.replace(/\D/g, '')" <?php if(isset($master['hm_phone'])): ?> value="<?php echo $master['hm_phone']; ?>" <?php endif; ?> id="hm_phone" placeholder="请输入户主联系电话">
             </div>
             <div class="mui-input-row">
-                <label><span class="color-red">*</span>身份证号码</label>
+                <label>身份证号码</label>
                 <input type="text" name="hm_idcard"  <?php if(isset($master['hm_idcard'])): ?> value="<?php echo $master['hm_idcard']; ?>" <?php endif; ?>  id="hm_idcard" placeholder="请输入身份证号码">
             </div>
             <div class="mui-input-row">
-                <label><span class="color-red">*</span>银行卡号</label>
+                <label>银行卡号</label>
                 <input type="text" name="hm_bank_card" onkeyup="this.value=this.value.replace(/\D/g, '')" <?php if(isset($master['hm_bank_card'])): ?> value="<?php echo $master['hm_bank_card']; ?>" <?php endif; ?>  id="hm_bank_card" placeholder="请输入银行卡号">
             </div>
             <div class="mui-input-row">
-                <label><span class="color-red">*</span>现居地址</label>
+                <label>现居地址</label>
                 <input type="text" name="hm_address"  <?php if(isset($master['hm_address'])): ?> value="<?php echo $master['hm_address']; ?>" <?php endif; ?>  id="hm_address" placeholder="请输入地址">
                 <textarea name="hm_remarks" id="hm_remarks"></textarea>
             </div>
@@ -83,32 +83,49 @@
         var hm_address=$('#hm_address').val();
         var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
         var idCard=/^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i;
-        if(!myreg.test(hm_phone)){
-            mui.alert('请填写正确的手机号码！', function() {
-                $('#hm_phone').focus();
-            });
-        }else{
-            if(!idCard.test(hm_idcard)){
-                mui.alert('请填写正确的身份证号！', function() {
-                    $('#hm_idcard').focus();
+        if(hm_phone.length>0){
+            if(!myreg.test(hm_phone)){
+                mui.alert('请填写正确的手机号码！', function() {
+                    $('#hm_phone').focus();
                 });
             }else{
-                if(
-                    hm_name.length<=0
-                    || hm_phone.length<=0
-                    || hm_idcard.length<=0
-                    || hm_bank_card.length<=0
-                    || hm_address.length<=0
-                ){
-                    mui.alert('请检查必填信息是否准确无误填写！', function() {
-                    });
+                if(hm_idcard.length>0){
+                    if(!idCard.test(hm_idcard)){
+                        mui.alert('请填写正确的身份证号！', function() {
+                            $('#hm_idcard').focus();
+                        });
+                    }else{
+                        var btnArray = ['否', '是'];
+                        mui.confirm('请检查信息是否准确无误填写？', 'Hello MUI', btnArray, function(e) {
+                            if (e.index == 1) {
+                                $.ajax({
+                                    'type':"post",
+                                    'url':"<?=url('index/addmaster')?>?h_id=<?php echo $h_b_id; ?>",
+                                    'data':$('#loginForm').serialize(),
+                                    'success':function (result) {
+                                        console.log(result);
+                                        if(result.code == '1'){
+                                            mui.alert(result.msg, function() {
+                                                window.location.href="<?=url('index/house')?>";
+                                            });
+                                        }else{
+                                            mui.toast(result.msg);
+                                        }
+                                    },
+                                    'error':function (error) {
+                                        console.log(error);
+                                    }
+                                })
+                            }
+                        });
+                    }
                 }else{
                     var btnArray = ['否', '是'];
                     mui.confirm('请检查信息是否准确无误填写？', 'Hello MUI', btnArray, function(e) {
                         if (e.index == 1) {
                             $.ajax({
                                 'type':"post",
-                                'url':"<?=url('index/master')?>?h_id=<?php echo $h_b_id; ?>",
+                                'url':"<?=url('index/addmaster')?>?h_id=<?php echo $h_b_id; ?>",
                                 'data':$('#loginForm').serialize(),
                                 'success':function (result) {
                                     console.log(result);
@@ -128,6 +145,30 @@
                     });
                 }
             }
+        }else{
+            var btnArray = ['否', '是'];
+            mui.confirm('请检查信息是否准确无误填写？', 'Hello MUI', btnArray, function(e) {
+                if (e.index == 1) {
+                    $.ajax({
+                        'type':"post",
+                        'url':"<?=url('index/addmaster')?>?h_id=<?php echo $h_b_id; ?>",
+                        'data':$('#loginForm').serialize(),
+                        'success':function (result) {
+                            console.log(result);
+                            if(result.code == '1'){
+                                mui.alert(result.msg, function() {
+                                    window.location.href="<?=url('index/house')?>";
+                                });
+                            }else{
+                                mui.toast(result.msg);
+                            }
+                        },
+                        'error':function (error) {
+                            console.log(error);
+                        }
+                    })
+                }
+            });
         }
     });
 </script>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\index.html";i:1539829883;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\index.html";i:1540882591;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -51,9 +51,19 @@
                 <label>房屋户型</label>
                 <input type="text" id="h_house_type" name="h_house_type"  placeholder="请输入几室几厅几厨几卫">
             </div>
-            <div class="mui-input-row">
-                <label>房屋朝向</label>
-                <input type="text" id="h_head" name="h_head" placeholder="请输入房屋朝向">
+            <div class="mui-content-padded">
+                <select name="h_head" id="h_head" class="mui-btn mui-btn-block">
+                    <!--房屋朝向,1东，2南，3西，4北，5东南，6西南，7东北，8西北-->
+                    <option value="">请选择房屋朝向</option>
+                    <option value="1">东</option>
+                    <option value="2">南</option>
+                    <option value="3">西</option>
+                    <option value="4">北</option>
+                    <option value="5">东南</option>
+                    <option value="6">西南</option>
+                    <option value="6">东北</option>
+                    <option value="6">西北</option>
+                </select>
             </div>
             <div class="mui-input-row">
                 <label>房源地址</label>

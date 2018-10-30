@@ -23,26 +23,43 @@ class Index extends Controller{
     }
 
     public function index(){
+        $where=" 1 =1 ";
+        $keywords=trim($this->request->param('keywords'));
+        if(isset($keywords) && !empty($keywords)){
+            $where.=" and ( h_b_id like '%".$keywords."%')";
+            $this->assign('keywords',$keywords);
+        }
         $houses=Db::table('dcxw_house')
+            ->join('dcxw_house_decorate','dcxw_house.h_b_id = dcxw_house_decorate.hd_house_code')
             ->where(['h_isable' => 2])
+            ->where($where)
             ->order('h_addtime desc')
             ->select();
-        foreach($houses as $k =>$v){
-            $houses[$k]['h_addtime']=date('Y年m月d日',$v['h_addtime']);
-            $payInfo=Db::table('dcxw_house_pay')->where(['hp_house_code' =>$v['h_b_id']])->column('hp_paid_ratio');
-            if($payInfo){
-                $houses[$k]['paid_ratio']=($payInfo[0]*100)."%";
-                $houses[$k]['is_paid_ratio']=1;
-            }else{
-                $houses[$k]['paid_ratio']="0";
-                $houses[$k]['is_paid_ratio']=2;
+//        dump($houses);
+//        $connomModel=new \app\marketm\controller\Common();
+        if($houses){
+            foreach($houses as $k =>$v){
+            $houses[$k]['hd_status']=$this->getStatus($v['hd_status']);
+                $houses[$k]['h_addtime']=date('Y年m月d日',$v['h_addtime']);
+                $payInfo=Db::table('dcxw_house_pay')->where(['hp_house_code' =>$v['h_b_id']])->column('hp_paid_ratio');
+                if($payInfo){
+                    $houses[$k]['paid_ratio']=($payInfo[0]*100)."%";
+                    $houses[$k]['is_paid_ratio']=1;
+                }else{
+                    $houses[$k]['paid_ratio']="0";
+                    $houses[$k]['is_paid_ratio']=2;
+                }
             }
         }
-//        dump($houses);
+
         $this->assign('houses',$houses);
         return $this->fetch();
     }
 
+
+    public function person(){
+        return $this->fetch();
+    }
 
 
     public function details(){

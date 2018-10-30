@@ -54,4 +54,36 @@ class Common extends Controller{
             return json(array('state'=>0,'msg'=>'上传失败,请重新上传！'));
         }
     }
+
+
+    //根据房屋状态编号获取相应文字
+
+    public function getHouseStatus($status){
+//        是否可租，1，事业部，2，工程部装修中；3,运营部配置中，4，可出租，5，已出租
+        $statusTip='';
+        switch ($status) {
+            case 1:
+                $statusTip="签单中";
+                break;
+            case 2:
+                $statusTip="装修中";
+                break;
+            case 3:
+                $statusTip="配置中";
+                break;
+            case 4:
+                $statusTip="可出租";
+                break;
+            case 5:
+                $statusTip="已出租";
+                break;
+        }
+        return $statusTip;
+    }
+
+
+    public function getMasterStatus($h_id){
+        $master=Db::table('dcxw_house_master')->where(['hm_house_code' =>$h_id])->count();
+        return $master?$master:0;
+    }
 }

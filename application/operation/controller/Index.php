@@ -22,11 +22,20 @@ class Index extends Controller{
     }
 
     public function index(){
+        $where=" 1 =1 ";
+        $keywords=trim($this->request->param('keywords'));
+        if(isset($keywords) && !empty($keywords)){
+            $where.=" and ( h_b_id like '%".$keywords."%')";
+            $this->assign('keywords',$keywords);
+        }
         $houses=Db::table('dcxw_house')
             ->where('h_isable','egt','3')
+            ->where($where)
             ->order('h_addtime desc')
             ->select();
+//        $connomModel=new \app\marketm\controller\Common();
         foreach($houses as $k =>$v){
+//            $houses[$k]['h_isable']=$connomModel->getHouseStatus($v['h_isable']);
             $houses[$k]['h_addtime']=date('Y年m月d日',$v['h_addtime']);
             $payInfo=Db::table('dcxw_house_pay')->where(['hp_house_code' =>$v['h_b_id']])->column('hp_paid_ratio');
             if($payInfo){
@@ -149,6 +158,21 @@ class Index extends Controller{
         return $this->fetch();
     }
 
+    public function improve()
+    {
+        $h_id=trim($_GET['h_id']);
+        $houseInfo=Db::table('dcxw_house')
+            ->where(['h_b_id' => $h_id])
+            ->find();
+        dump($houseInfo);
+        return $this->fetch();
+    }
+
+
+    public function person(){
+        return $this->fetch();
+    }
+
 
     /*
      * 出租记录
@@ -156,16 +180,23 @@ class Index extends Controller{
     public function rentlog()
     {
         $h_id=trim($_GET['h_id']);
+        $where=" 1 =1 ";
+        $keywords=trim($this->request->param('keywords'));
+        if(isset($keywords) && !empty($keywords)){
+            $where.=" and ( hr_name like '%".$keywords."%' or hr_phone like '%".$keywords."%' )";
+            $this->assign('keywords',$keywords);
+        }
         $houseInfo=Db::table('dcxw_house')
             ->where(['h_b_id' => $h_id])
-            ->field('h_building,h_address,h_area')
+            ->field('h_building,h_address,h_area,h_isable')
             ->find();
         $this->assign('house',$houseInfo);
         $rentLog=Db::table('dcxw_house_rent_log')
             ->join('dcxw_house_rent','dcxw_house_rent_log.hrl_renter_id = dcxw_house_rent.hr_id')
             ->where(['hrl_house_code' => $h_id])
+            ->where($where)
             ->field('dcxw_house_rent_log.*,dcxw_house_rent.hr_name,dcxw_house_rent.hr_phone')
-            ->order('hrl_addtime desc')
+            ->order('hrl_status,hrl_rent_time desc')
             ->select();
         if($rentLog)
         {
@@ -190,6 +221,7 @@ class Index extends Controller{
         $h_id=trim($_GET['h_id']);
         if($_POST){
             //1.租客信息入库
+            $renter['hr_house_code']=$h_id;
             $renter['hr_name']=trim($_POST['hr_name']);
             $renter['hr_phone']=trim($_POST['hr_phone']);
             $renter['hr_addtime']=time();
@@ -220,7 +252,11 @@ class Index extends Controller{
                 $rentLog['hrl_addtime']=time();
                 $rentLog['hrl_admin']=$userInfo['u_id'];
                 $addRenLog=Db::table('dcxw_house_rent_log')->insert($rentLog);
-                if($addRenLog)
+                //3.修改主表出租状态
+                $updateRentStatus=Db::table('dcxw_house')
+                    ->where(['h_b_id' => $h_id])
+                    ->update(['h_isable' => 4]);
+                if($addRenLog && $updateRentStatus)
                 {
                     $this->success('添加成功！');
                 }else{
@@ -281,6 +317,64 @@ class Index extends Controller{
             return $this->fetch();
         }
     }
+
+
+
+    /*
+     * 出租信息详情
+     * */
+    public function rentdetail(){
+        $hrl_id=trim($_GET['hrl_id']);
+        //根据出租记录id找出房源编号
+        $rentInfo=Db::table('dcxw_house_rent_log')
+            ->where(['hrl_id' => $hrl_id])
+            ->find();
+        $rentInfo['hrl_contact_img']=explode(',',$rentInfo['hrl_contact_img']);
+        $rentInfo['hrl_rent_time']=date('Y/m/d',$rentInfo['hrl_rent_time']);
+        $rentInfo['hrl_dead_time']=date('Y/m/d',$rentInfo['hrl_dead_time']);
+        $this->assign('rent',$rentInfo);
+        $h_code=$rentInfo['hrl_house_code'];
+        $renter_id=$rentInfo['hrl_renter_id'];
+        $housedata=Db::table('dcxw_house')
+            ->where(['h_b_id' => $h_code])
+            ->field('h_area,h_b_id,h_building,h_address')
+            ->find();
+        $renterInfo=Db::table('dcxw_house_rent')
+            ->where(['hr_id' =>$renter_id])
+            ->find();
+        $this->assign('renter',$renterInfo);
+        $this->assign('house',$housedata);
+        return $this->fetch();
+    }
+
+
+    public function endrent(){
+        if($_POST){
+            $hrl_id=intval(trim($_POST['hrl_id']));
+            $data['hrl_elect_end']=trim($_POST['hrl_elect_end']);
+            $data['hrl_water_end']=trim($_POST['hrl_water_end']);
+            $data['hrl_status']=2;
+            $finishRent=Db::table('dcxw_house_rent_log')
+                ->where(['hrl_id' => $hrl_id])
+                ->update($data);
+            $houseInfo=Db::table('dcxw_house_rent_log')
+                ->where(['hrl_id' => $hrl_id])
+                ->column('hrl_house_code');
+            $houseCode=$houseInfo[0];
+            //修改房屋主表的出租状态
+//            是否可租，1，事业部，2，工程部装修中；3,运营部配置中，4，可出租，5，已出租
+            $houseStatus=Db::table('dcxw_house')->where(['h_b_id' => $houseCode])->update(['h_isable' =>4]);
+            if($finishRent && $houseStatus){
+                $this->success('完结成功！');
+            }else{
+                $this->error('完结失败！');
+            }
+        }
+
+
+    }
+
+
 
     /*
      * 收租记录

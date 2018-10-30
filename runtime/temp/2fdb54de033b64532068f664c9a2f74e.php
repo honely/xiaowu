@@ -1,10 +1,10 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\addpaylog.html";i:1539914078;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\addpaylog.html";i:1540890108;}*/ ?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
-    <title>添加回款记录</title>
+    <title>添加记录</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -76,14 +76,6 @@
     mui.init({
         swipeBack: true //启用右滑关闭功能
     });
-    function checkVals(){
-        var hpl_money=$('#hpl_money').val();
-        var will_pay=<?php echo $payMoney['hp_will_pay']; ?>;
-        if(hpl_money>will_pay){
-            mui.alert('您输入的金额已超过余额！！', function() {
-            });
-        }
-    }
 </script>
 <script>
 
@@ -105,27 +97,33 @@
         });
         //监听提交
         form.on('submit(saveInfo)', function(){
-            var hpl_money=$('#hpl_money').val();
             var will_pay=<?php echo $payMoney['hp_will_pay']; ?>;
+            var hpl_money=$('#hpl_money').val();
             if(hpl_money>will_pay){
                 mui.alert('您输入的金额已超过余额！！', function() {
                 });
             }else{
-                $.ajax({
-                    'type':"post",
-                    'url':"<?=url('index/addpaylog')?>?h_id=<?php echo $h_b_id; ?>",
-                    'data':$('#payForm').serialize(),
-                    'success':function (result) {
-                        console.log(result);
-                        if(result.code == '1'){
-                            layer.msg(result.msg, {icon: 1, time: 2000},function () {
-                                location.href="<?=url('index/payment')?>?h_id=<?php echo $h_b_id; ?>";
-                            });
-                        }else{
-                            layer.msg(result.msg, {icon: 2, time: 3000});
-                        }
+                var btnArray = ['否', '是'];
+                mui.confirm('请检查信息是否准确无误填写？', '提交后不可修改！', btnArray, function(e) {
+                    if (e.index == 1) {
+                        $.ajax({
+                            'type':"post",
+                            'url':"<?=url('index/addpaylog')?>?h_id=<?php echo $h_b_id; ?>",
+                            'data':$('#payForm').serialize(),
+                            'success':function (result) {
+                                console.log(result);
+                                if(result.code == '1'){
+                                    layer.msg(result.msg, {icon: 1, time: 2000},function () {
+                                        location.href="<?=url('index/payment')?>?h_id=<?php echo $h_b_id; ?>";
+                                    });
+                                }else{
+                                    layer.msg(result.msg, {icon: 2, time: 3000});
+                                }
+                            }
+                        })
                     }
-                })
+                });
+
             }
         });
         //图片上传

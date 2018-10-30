@@ -41,6 +41,17 @@
                 </div>
             </div>
             <div class="layui-form-item">
+                <label class="layui-form-label"><span style="color: red;">*</span>部门</label>
+                <div class="layui-input-inline">
+                    <select name="u_depart_id" lay-verify="required">
+                        <option value="">请选择部门</option>
+                        {volist name="department" id="depart"}
+                            <option value="{$depart.d_id}">{$depart.d_name}</option>
+                        {/volist}
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
                 <label class="layui-form-label"><span style="color: red;">*</span>职位</label>
                 <div class="layui-input-block">
                     <input type="text" name="u_job" lay-verify="required|title" placeholder="请输入职位" autocomplete="off" class="layui-input">

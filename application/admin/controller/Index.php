@@ -6,12 +6,9 @@
  * Time: 11:33
  */
 namespace app\admin\controller;
-
 use think\Controller;
 use think\Request;
 use think\Db;
-
-
 class Index extends Controller
 {
     public function __construct(Request $request = null)

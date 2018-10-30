@@ -9,8 +9,27 @@
 namespace app\admin\controller;
 use think\Controller;
 use think\Db;
+use think\Request;
 
 class House extends Controller{
+    public function __construct(Request $request = null)
+    {
+        parent::__construct($request);
+        $adminName=session('adminId');
+        if(empty($adminName)){
+            $this->error('请先登录！','login/login');
+        }
+        if(isset($_SESSION['expiretime'])) {
+            if($_SESSION['expiretime'] < time()) {
+                unset($_SESSION['expiretime']);
+                $this->error('您的登录身份已过期，请重新登录！','login/login');
+                exit(0);
+            } else {
+                $_SESSION['expiretime'] = time() + 1800; // 刷新时间戳
+            }
+        }
+    }
+
     /*
      * 房源管理
      * */
@@ -30,20 +49,20 @@ class House extends Controller{
             $edate=strtotime(substr($case_decotime,'-10')." 23:59:59");
             $where.=" and ( h_addtime >= ".$sdate." and h_addtime <= ".$edate." ) ";
         }
-        $count=Db::table('dcxw_house')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_house.h_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_house.h_c_id')
-            ->join('dcxw_area','dcxw_area.area_id = dcxw_house.h_a_id')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_house.h_admin')
+        $count=Db::table('dcxw_houses')
+            ->join('dcxw_province','dcxw_province.p_id = dcxw_houses.h_p_id')
+            ->join('dcxw_city','dcxw_city.c_id = dcxw_houses.h_c_id')
+            ->join('dcxw_area','dcxw_area.area_id = dcxw_houses.h_a_id')
+            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_houses.h_admin')
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $design=Db::table('dcxw_house')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_house.h_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_house.h_c_id')
-            ->join('dcxw_area','dcxw_area.area_id = dcxw_house.h_a_id')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_house.h_admin')
+        $design=Db::table('dcxw_houses')
+            ->join('dcxw_province','dcxw_province.p_id = dcxw_houses.h_p_id')
+            ->join('dcxw_city','dcxw_city.c_id = dcxw_houses.h_c_id')
+            ->join('dcxw_area','dcxw_area.area_id = dcxw_houses.h_a_id')
+            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_houses.h_admin')
             ->limit(($page-1)*$limit,$limit)
             ->order('h_istop asc,h_isable,h_view desc')
             ->where($where)
@@ -83,7 +102,7 @@ class House extends Controller{
             }
             $data['h_img']=trim($h_img,',');
             $data['h_admin'] = session('adminId');
-            $add=Db::table('dcxw_house')->insert($data);
+            $add=Db::table('dcxw_houses')->insert($data);
             if($add){
                 return  json(['code' => '1','msg' => '发布成功！','data' => $data]);
             }else{
@@ -125,14 +144,14 @@ class House extends Controller{
             }
             $data['h_img']=trim($h_img,',');
             $data['h_admin'] = session('adminId');
-            $update=Db::table('dcxw_house')->where(['h_id' => $h_id])->update($data);
+            $update=Db::table('dcxw_houses')->where(['h_id' => $h_id])->update($data);
             if($update){
-                return  json(['code' => '1','msg' => '修改成功！','data' => $_POST]);
+                return  json(['code' => '1','msg' => '修改成功！','data' => $data]);
             }else{
-                return  json(['code' => '2','msg' => '修改失败！','data' => $_POST]);
+                return  json(['code' => '2','msg' => '修改失败！','data' => $data]);
             }
         }else{
-            $houseInfo=Db::table('dcxw_house')->where(['h_id' => $h_id])->find();
+            $houseInfo=Db::table('dcxw_houses')->where(['h_id' => $h_id])->find();
             $houseInfo['h_imgs']=rtrim($houseInfo['h_img'],',');
             $houseInfo['h_img']=explode(',',$houseInfo['h_imgs']);
             $type_list = "";
@@ -183,7 +202,7 @@ class House extends Controller{
                 $data['h_istop'] = '2';
                 $data['h_admin'] = session('adminId');
             }
-            $changeStatus = Db::table('dcxw_house')->where(['h_id' => $h_id])->update($data);
+            $changeStatus = Db::table('dcxw_houses')->where(['h_id' => $h_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -213,7 +232,7 @@ class House extends Controller{
                 $data['h_istop'] = '2';
                 $data['h_admin'] = session('adminId');
             }
-            $changeStatus = Db::table('dcxw_house')->where(['h_id' => $h_id])->update($data);
+            $changeStatus = Db::table('dcxw_houses')->where(['h_id' => $h_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -236,7 +255,7 @@ class House extends Controller{
      * */
     public function del(){
         $h_id=intval($_GET['h_id']);
-        $delArt=Db::table('dcxw_house')->where(['h_id' => $h_id])->delete();
+        $delArt=Db::table('dcxw_houses')->where(['h_id' => $h_id])->delete();
         if($delArt){
             $this->success('删除房源成功','index');
         }else{
@@ -247,8 +266,8 @@ class House extends Controller{
 
     public function refresh(){
         $h_id=intval($_GET['h_id']);
-        $refresh=Db::table('dcxw_house')->where(['h_id' => $h_id])->update(['h_updatetime' => time()]);
-        $setView=Db::table('dcxw_house')->where(['h_id' => $h_id])->setInc('h_view');
+        $refresh=Db::table('dcxw_houses')->where(['h_id' => $h_id])->update(['h_updatetime' => time()]);
+        $setView=Db::table('dcxw_houses')->where(['h_id' => $h_id])->setInc('h_view');
         if($refresh && $setView){
             $this->success('刷新房源成功','index');
         }else{

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\addrent.html";i:1540372563;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\addrent.html";i:1540798821;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -49,11 +49,14 @@
             <div class="mui-card">
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>租房单价：</label>
-                    <input type="text" class="layui-input" lay-verify="required"  id="hrl_rent_price" name="hrl_rent_price">
+                    <input type="text" class="layui-input" lay-verify="required" id="hrl_rent_price" name="hrl_rent_price">
                 </div>
-                <div class="mui-input-row">
-                    <label><span class="color-red">*</span>出租类型：</label>
-                    <input type="text" class="layui-input" lay-verify="required"  id="hrl_rent_type" name="hrl_rent_type">
+                <div class="mui-content-padded">
+                    <h5 class="mui-content-padded"><span class="color-red">*</span>出租类型</h5>
+                    <select name="hrl_rent_type" id="hrl_rent_type" class="mui-btn mui-btn-block">
+                        <option value="2">月租</option>
+                        <option value="1">日租</option>
+                    </select>
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>租房押金：</label>
@@ -145,7 +148,7 @@
                     console.log(data);
                     if(data.code="1"){
                         mui.alert(data.msg, function() {
-                            window.location.href="<?=url('index/paylog')?>?h_id=<?php echo $h_id; ?>";
+                            window.location.href="<?=url('index/rentlog')?>?h_id=<?php echo $h_id; ?>";
                         });
                     }else{
                         mui.alert(data.msg);

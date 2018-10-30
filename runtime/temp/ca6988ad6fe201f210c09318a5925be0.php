@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\attach.html";i:1540343534;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\attach.html";i:1540864943;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -195,11 +195,11 @@
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>到期时间：</label>
-                    <input type="text" <?php if(isset($attach['ha_deadline'])): ?> value="<?php echo $attach['ha_deadline']; ?>" <?php endif; ?>  class="layui-input" lay-verify="required" id="ha_deadline" name="ha_deadline">
+                    <input type="text" readonly <?php if(isset($attach['ha_deadline'])): ?> value="<?php echo $attach['ha_deadline']; ?>" <?php endif; ?>  class="layui-input" lay-verify="required" id="ha_deadline" name="ha_deadline">
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>装修许可时间：</label>
-                    <input type="text" <?php if(isset($attach['ha_decorate_permit'])): ?> value="<?php echo $attach['ha_decorate_permit']; ?>" <?php endif; ?> class="layui-input" lay-verify="required" id="ha_decorate_permit" name="ha_decorate_permit">
+                    <input type="text" readonly <?php if(isset($attach['ha_decorate_permit'])): ?> value="<?php echo $attach['ha_decorate_permit']; ?>" <?php endif; ?> class="layui-input" lay-verify="required" id="ha_decorate_permit" name="ha_decorate_permit">
                 </div>
             </div>
             <div class="mui-card">

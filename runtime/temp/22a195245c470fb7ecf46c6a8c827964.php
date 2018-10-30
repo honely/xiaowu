@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\logdetails.html";i:1539930980;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\logdetails.html";i:1540889794;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -167,6 +167,7 @@
 <header class="mui-bar mui-bar-nav">
     <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
     <h1 class="mui-title">回款详情</h1>
+    <!--<a class="mui-icon mui-icon-compose mui-pull-right" href="<?=url('index/editpay')?>?hpl_id=<?php echo $logs['hpl_id']; ?>"></a>-->
 </header>
 <div class="mui-content">
     <div class="mui-content-padded">
@@ -195,5 +196,12 @@
 <script src="__WAP__/js/mui.previewimage.js"></script>
 <script>
     mui.previewImage();
+</script>
+<script>
+    mui('body').on('tap','a',function(){
+        if(this.href){
+            window.top.location.href=this.href;
+        }
+    });
 </script>
 </html>

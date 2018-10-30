@@ -9,11 +9,20 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
 </head>
-<body>
+<body style="background-color: #fff">
 <header class="mui-bar mui-bar-nav">
     <h1 class="mui-title">房源列表</h1>
+    <a class="mui-icon mui-icon-person mui-icon-right-nav mui-pull-right" href="<?=url('index/person')?>" ></a>
 </header>
-<div class="mui-content" style="padding-top: 40px;">
+<div class="mui-content" style="background:#fff;">
+    <div class="mui-content-padded">
+        <input style="float: left;width: 80%" id="keywords" type="text" placeholder="请输入房源编号进行搜索"{if isset($keywords)} value="{$keywords}" {/if} />
+        <span onclick="formQuery()" style="float: left;width: 18%;margin-left: 5px;padding-left: 5px;margin-top: 5px;padding-top: 5px;" class="mui-btn mui-btn-primary mui-icon mui-icon-search">
+            搜索
+        </span>
+    </div>
+</div>
+<div class="mui-content" style="background:#fff;padding-top: 40px;">
     {if condition="$houses eq null"}
     <div class="mui-card">
         <div class="mui-card-content" style="height: 40px;text-align: center;line-height: 36px;">
@@ -30,11 +39,20 @@
                     <span style="float: right;">回款率：<span style="margin-left: 8px;" class="mui-badge mui-badge-danger">{$hous.paid_ratio}</span></span>
                     {/if}
                 </p>
+                <p><b>小区名称</b>：{$hous.h_building}
+                    <span style="float: right;">房屋状态：
+                        {switch name="$hous.h_isable"}
+                            {case value="4"}<span style="margin-left: 8px;" class="mui-badge mui-badge-warning">待出租</span>{/case}
+                            {case value="5"}<span style="margin-left: 8px;" class="mui-badge mui-badge-success">已出租</span>{/case}
+                            {case value="3"}<span style="margin-left: 8px;" class="mui-badge mui-badge-primary">配置中</span>{/case}
+                        {/switch}
+                    </span>
+                </p>
                 <p style="color: #333;">
                     <!--房源标题：{$hous.h_name}-->
                     <!--<br/>-->
-                    小区名称：{$hous.h_building}
-                    <br/>
+                    <!--小区名称：{$hous.h_building}-->
+                    <!--<br/>-->
                     {if condition="$hous.is_paid_ratio eq 1"}
                     装修款额：{$hous.h_money}（元）
                     <br/>
@@ -54,6 +72,7 @@
         </div>
         <div class="mui-card-footer">
             <a class="mui-card-link" href="<?=url('index/details')?>?h_id={$hous.h_b_id}">房源详情</a>
+            <a class="mui-card-link" href="<?=url('index/improve')?>?h_id={$hous.h_b_id}">信息完善</a>
             <a class="mui-card-link" href="<?=url('index/rentlog')?>?h_id={$hous.h_b_id}">出租记录</a>
         </div>
     </div>
@@ -66,6 +85,12 @@
     mui.init({
         swipeBack:true //启用右滑关闭功能
     });
+</script>
+<script>
+    function formQuery(){
+        var keywords=$('#keywords').val();
+        location.href="<?=url('index/index')?>?&keywords="+keywords;
+    }
 </script>
 </body>
 

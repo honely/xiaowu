@@ -37,8 +37,13 @@ class Index extends Controller{
         $this->assign('banner',$banner);
 
         //房源
-        $house=Db::table('dcxw_house')
+        $house=Db::table('dcxw_houses')
+            ->join('dcxw_province','dcxw_province.p_id = dcxw_houses.h_p_id')
+            ->join('dcxw_city','dcxw_city.c_id = dcxw_houses.h_c_id')
+            ->join('dcxw_area','dcxw_area.area_id = dcxw_houses.h_a_id')
+            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_houses.h_admin')
             ->where(['h_isable' => 1,'h_rent_status' => 2])
+            ->limit(6)
             ->order('h_istop,h_view desc')
             ->select();
         $this->assign('house',$house);

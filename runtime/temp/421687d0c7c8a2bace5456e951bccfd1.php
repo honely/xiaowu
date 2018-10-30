@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\addlog.html";i:1540029230;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\addlog.html";i:1540892851;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -230,7 +230,7 @@
 </div>
 <?php if($status < 11): ?>
 <div class="mui-card">
-    <form class="mui-input-group">
+    <form class="mui-input-group mui-input-groups">
         <div class="mui-input-row mui-checkbox mui-left">
             <label><?php echo $statusStart; ?>阶段已完工，转入
                 <?php if($nextStatus == null): ?>
@@ -249,7 +249,6 @@
 <?php endif; ?>
 
 <span style="margin-top: 5px;" id="subBtn" lay-submit lay-filter="saveInfo" class="mui-btn mui-btn-primary mui-btn-block">确认添加</span>
-
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>
 <script src="__LAY__/layui.js"></script>
@@ -257,7 +256,7 @@
 <script src="__WAP__/js/mui.previewimage.js"></script>
 <script>
     mui.previewImage();
-    mui('.mui-input-group').on('change', 'input', function() {
+    mui('.mui-input-groups').on('change', 'input', function() {
         var value = this.checked?"true":"false";
         if(value == "true"){
             $("#transTips").show();
@@ -311,9 +310,9 @@
         upload.render({
             elem: '#upload'
             ,url: '<?php echo url("common/upload"); ?>'
-            ,size:600 //限制文件大小，单位 KB
+            ,size:600
             ,ext: 'jpg|png|gif'
-            ,accept: 'images' //限制文件大小，单位 KB
+            ,accept: 'images'
             ,before: function(input){
                 loading = layer.load(2, {
                     shade: [0.2,'#000']
@@ -334,7 +333,6 @@
             }
         });
     });
-    //点击多图上传的X,删除当前的图片
     $("body").on("click",".close",function(){
         $(this).closest("li").remove();
     });

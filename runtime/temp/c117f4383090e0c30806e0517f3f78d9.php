@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\preview.html";i:1539848965;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\preview.html";i:1540796872;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -270,7 +270,6 @@
     $("#toWork").click(function () {
         var h_id=<?php echo $hous['h_b_id']; ?>;
         var transInfo=$('#transInfo').val();
-        alert(transInfo);
         var btnArray = ['否', '是'];
         mui.confirm('请确认信息准确无误？', 'Hello MUI', btnArray, function(e) {
             if (e.index == 1) {

@@ -15240,3 +15240,639 @@
 [ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay_log` [ RunTime:0.002000s ]
 [ sql ] [ SQL ] SELECT `dcxw_house_pay_log`.*,`dcxw_user`.`u_name` FROM `dcxw_house_pay_log` INNER JOIN `dcxw_user` `dcxw_user` ON `dcxw_user`.`u_id`=`dcxw_house_pay_log`.`hpl_user` WHERE  `hpl_house_code` = '201810230001' ORDER BY hpl_addtime desc LIMIT 8 [ RunTime:0.000000s ]
 [ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_pay_log` INNER JOIN `dcxw_user` `dcxw_user` ON `dcxw_user`.`u_id`=`dcxw_house_pay_log`.`hpl_user` WHERE  `hpl_house_code` = '201810230001' LIMIT 1 [ RunTime:0.001001s ]
+---------------------------------------------------------------
+[ 2018-10-26T18:00:28+08:00 ] 127.0.0.1 127.0.0.1 GET /operation/index/rentlog.html?h_id=201810230001
+[ info ] www.bbb.com/operation/index/rentlog.html?h_id=201810230001 [运行时间：0.062004s][吞吐率：16.13req/s] [内存消耗：2,161.29kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'operation',
+    1 => 'index',
+    2 => 'rentlog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/operation/index/paylog.html?h_id=3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=2vt4tf56ac5mu94hb40shsd68b',
+)
+[ info ] [ PARAM ] array (
+  'h_id' => '201810230001',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\operation\controller\Index->rentlog[ G:\xampp\htdocs\bbb\application\operation\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/operation\view\index\rentlog.html [ array (
+  0 => 'house',
+  1 => 'h_id',
+  2 => 'rentLog',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `h_building`,`h_address`,`h_area` FROM `dcxw_house` WHERE  `h_b_id` = '201810230001' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_log` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_rent_log`.*,`dcxw_house_rent`.`hr_name`,`dcxw_house_rent`.`hr_phone` FROM `dcxw_house_rent_log` INNER JOIN `dcxw_house_rent` `dcxw_house_rent` ON `dcxw_house_rent_log`.`hrl_renter_id`=`dcxw_house_rent`.`hr_id` WHERE  `hrl_house_code` = '201810230001' ORDER BY hrl_addtime desc [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2018-10-26T18:00:30+08:00 ] 127.0.0.1 127.0.0.1 GET /operation/index/renter.html?hr_id=7
+[ info ] www.bbb.com/operation/index/renter.html?hr_id=7 [运行时间：0.057003s][吞吐率：17.54req/s] [内存消耗：2,138.28kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'operation',
+    1 => 'index',
+    2 => 'renter',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/operation/index/rentlog.html?h_id=201810230001',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=2vt4tf56ac5mu94hb40shsd68b',
+)
+[ info ] [ PARAM ] array (
+  'hr_id' => '7',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\operation\controller\Index->renter[ G:\xampp\htdocs\bbb\application\operation\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/operation\view\index\renter.html [ array (
+  0 => 'renter',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house_rent` WHERE  `hr_id` = 7 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-10-26T18:00:31+08:00 ] 127.0.0.1 127.0.0.1 GET /operation/index/rentlog.html?h_id=201810230001
+[ info ] www.bbb.com/operation/index/rentlog.html?h_id=201810230001 [运行时间：0.049003s][吞吐率：20.41req/s] [内存消耗：2,161.09kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'operation',
+    1 => 'index',
+    2 => 'rentlog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/operation/index/paylog.html?h_id=3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=2vt4tf56ac5mu94hb40shsd68b',
+)
+[ info ] [ PARAM ] array (
+  'h_id' => '201810230001',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\operation\controller\Index->rentlog[ G:\xampp\htdocs\bbb\application\operation\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/operation\view\index\rentlog.html [ array (
+  0 => 'house',
+  1 => 'h_id',
+  2 => 'rentLog',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT `h_building`,`h_address`,`h_area` FROM `dcxw_house` WHERE  `h_b_id` = '201810230001' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_log` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_rent_log`.*,`dcxw_house_rent`.`hr_name`,`dcxw_house_rent`.`hr_phone` FROM `dcxw_house_rent_log` INNER JOIN `dcxw_house_rent` `dcxw_house_rent` ON `dcxw_house_rent_log`.`hrl_renter_id`=`dcxw_house_rent`.`hr_id` WHERE  `hrl_house_code` = '201810230001' ORDER BY hrl_addtime desc [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-10-26T18:00:32+08:00 ] 127.0.0.1 127.0.0.1 GET /operation/index/paylog.html?h_id=3
+[ info ] www.bbb.com/operation/index/paylog.html?h_id=3 [运行时间：0.051003s][吞吐率：19.61req/s] [内存消耗：2,157.91kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'operation',
+    1 => 'index',
+    2 => 'paylog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/operation/index/rentlog.html?h_id=201810230001',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=2vt4tf56ac5mu94hb40shsd68b',
+)
+[ info ] [ PARAM ] array (
+  'h_id' => '3',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\operation\controller\Index->paylog[ G:\xampp\htdocs\bbb\application\operation\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/operation\view\index\paylog.html [ array (
+  0 => 'h_id',
+  1 => 'h_b_id',
+  2 => 'payLog',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_log` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `hrl_house_code` FROM `dcxw_house_rent_log` WHERE  `hrl_id` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_pay_log` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_rent_pay_log`.*,`dcxw_house_rent_log`.`hrl_renter_id` FROM `dcxw_house_rent_pay_log` INNER JOIN `dcxw_house_rent_log` `dcxw_house_rent_log` ON `dcxw_house_rent_log`.`hrl_id`=`dcxw_house_rent_pay_log`.`hrpl_rent_id` WHERE  `hrpl_rent_id` = 3 ORDER BY hrpl_addtime desc [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `hr_name` FROM `dcxw_house_rent` WHERE  `hr_id` = 7 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hr_phone` FROM `dcxw_house_rent` WHERE  `hr_id` = 7 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `hr_name` FROM `dcxw_house_rent` WHERE  `hr_id` = 7 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hr_phone` FROM `dcxw_house_rent` WHERE  `hr_id` = 7 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hr_name` FROM `dcxw_house_rent` WHERE  `hr_id` = 7 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `hr_phone` FROM `dcxw_house_rent` WHERE  `hr_id` = 7 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-10-26T18:01:05+08:00 ] 127.0.0.1 127.0.0.1 GET /operation/index/addpaylog.html?h_id=3
+[ info ] www.bbb.com/operation/index/addpaylog.html?h_id=3 [运行时间：0.082004s][吞吐率：12.19req/s] [内存消耗：2,147.78kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'operation',
+    1 => 'index',
+    2 => 'addpaylog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/operation/index/paylog.html?h_id=3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=2vt4tf56ac5mu94hb40shsd68b',
+)
+[ info ] [ PARAM ] array (
+  'h_id' => '3',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\operation\controller\Index->addpaylog[ G:\xampp\htdocs\bbb\application\operation\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/operation\view\index\addpaylog.html [ array (
+  0 => 'rent',
+  1 => 'hr_id',
+  2 => 'renter',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_log` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `hrl_renter_id`,`hrl_dead_time`,`hrl_house_code` FROM `dcxw_house_rent_log` WHERE  `hrl_id` = 3 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house_rent` WHERE  `hr_id` = 7 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-10-26T18:01:40+08:00 ] 127.0.0.1 127.0.0.1 GET /operation/index/paylog.html?h_id=3
+[ info ] www.bbb.com/operation/index/paylog.html?h_id=3 [运行时间：0.052003s][吞吐率：19.23req/s] [内存消耗：2,157.91kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'operation',
+    1 => 'index',
+    2 => 'paylog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/operation/index/rentlog.html?h_id=201810230001',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=2vt4tf56ac5mu94hb40shsd68b',
+)
+[ info ] [ PARAM ] array (
+  'h_id' => '3',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\operation\controller\Index->paylog[ G:\xampp\htdocs\bbb\application\operation\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/operation\view\index\paylog.html [ array (
+  0 => 'h_id',
+  1 => 'h_b_id',
+  2 => 'payLog',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_log` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT `hrl_house_code` FROM `dcxw_house_rent_log` WHERE  `hrl_id` = 3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_pay_log` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_rent_pay_log`.*,`dcxw_house_rent_log`.`hrl_renter_id` FROM `dcxw_house_rent_pay_log` INNER JOIN `dcxw_house_rent_log` `dcxw_house_rent_log` ON `dcxw_house_rent_log`.`hrl_id`=`dcxw_house_rent_pay_log`.`hrpl_rent_id` WHERE  `hrpl_rent_id` = 3 ORDER BY hrpl_addtime desc [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `hr_name` FROM `dcxw_house_rent` WHERE  `hr_id` = 7 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hr_phone` FROM `dcxw_house_rent` WHERE  `hr_id` = 7 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hr_name` FROM `dcxw_house_rent` WHERE  `hr_id` = 7 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hr_phone` FROM `dcxw_house_rent` WHERE  `hr_id` = 7 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hr_name` FROM `dcxw_house_rent` WHERE  `hr_id` = 7 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hr_phone` FROM `dcxw_house_rent` WHERE  `hr_id` = 7 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-10-26T18:01:41+08:00 ] 127.0.0.1 127.0.0.1 GET /operation/index/rentlog.html?h_id=201810230001
+[ info ] www.bbb.com/operation/index/rentlog.html?h_id=201810230001 [运行时间：0.066003s][吞吐率：15.15req/s] [内存消耗：2,161.09kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'operation',
+    1 => 'index',
+    2 => 'rentlog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/operation/index/paylog.html?h_id=3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=2vt4tf56ac5mu94hb40shsd68b',
+)
+[ info ] [ PARAM ] array (
+  'h_id' => '201810230001',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\operation\controller\Index->rentlog[ G:\xampp\htdocs\bbb\application\operation\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/operation\view\index\rentlog.html [ array (
+  0 => 'house',
+  1 => 'h_id',
+  2 => 'rentLog',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `h_building`,`h_address`,`h_area` FROM `dcxw_house` WHERE  `h_b_id` = '201810230001' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_log` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_rent_log`.*,`dcxw_house_rent`.`hr_name`,`dcxw_house_rent`.`hr_phone` FROM `dcxw_house_rent_log` INNER JOIN `dcxw_house_rent` `dcxw_house_rent` ON `dcxw_house_rent_log`.`hrl_renter_id`=`dcxw_house_rent`.`hr_id` WHERE  `hrl_house_code` = '201810230001' ORDER BY hrl_addtime desc [ RunTime:0.003000s ]
+---------------------------------------------------------------
+[ 2018-10-26T18:01:45+08:00 ] 127.0.0.1 127.0.0.1 GET /operation/index/paylog.html?h_id=3
+[ info ] www.bbb.com/operation/index/paylog.html?h_id=3 [运行时间：0.068004s][吞吐率：14.71req/s] [内存消耗：2,157.91kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'operation',
+    1 => 'index',
+    2 => 'paylog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/operation/index/rentlog.html?h_id=201810230001',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=2vt4tf56ac5mu94hb40shsd68b',
+)
+[ info ] [ PARAM ] array (
+  'h_id' => '3',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\operation\controller\Index->paylog[ G:\xampp\htdocs\bbb\application\operation\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/operation\view\index\paylog.html [ array (
+  0 => 'h_id',
+  1 => 'h_b_id',
+  2 => 'payLog',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_log` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `hrl_house_code` FROM `dcxw_house_rent_log` WHERE  `hrl_id` = 3 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_pay_log` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_rent_pay_log`.*,`dcxw_house_rent_log`.`hrl_renter_id` FROM `dcxw_house_rent_pay_log` INNER JOIN `dcxw_house_rent_log` `dcxw_house_rent_log` ON `dcxw_house_rent_log`.`hrl_id`=`dcxw_house_rent_pay_log`.`hrpl_rent_id` WHERE  `hrpl_rent_id` = 3 ORDER BY hrpl_addtime desc [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `hr_name` FROM `dcxw_house_rent` WHERE  `hr_id` = 7 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hr_phone` FROM `dcxw_house_rent` WHERE  `hr_id` = 7 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hr_name` FROM `dcxw_house_rent` WHERE  `hr_id` = 7 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hr_phone` FROM `dcxw_house_rent` WHERE  `hr_id` = 7 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hr_name` FROM `dcxw_house_rent` WHERE  `hr_id` = 7 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hr_phone` FROM `dcxw_house_rent` WHERE  `hr_id` = 7 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-10-26T18:01:46+08:00 ] 127.0.0.1 127.0.0.1 GET /operation/index/rentlog.html?h_id=201810230001
+[ info ] www.bbb.com/operation/index/rentlog.html?h_id=201810230001 [运行时间：0.071004s][吞吐率：14.08req/s] [内存消耗：2,161.09kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'operation',
+    1 => 'index',
+    2 => 'rentlog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/operation/index/paylog.html?h_id=3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=2vt4tf56ac5mu94hb40shsd68b',
+)
+[ info ] [ PARAM ] array (
+  'h_id' => '201810230001',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\operation\controller\Index->rentlog[ G:\xampp\htdocs\bbb\application\operation\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/operation\view\index\rentlog.html [ array (
+  0 => 'house',
+  1 => 'h_id',
+  2 => 'rentLog',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `h_building`,`h_address`,`h_area` FROM `dcxw_house` WHERE  `h_b_id` = '201810230001' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_log` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_rent_log`.*,`dcxw_house_rent`.`hr_name`,`dcxw_house_rent`.`hr_phone` FROM `dcxw_house_rent_log` INNER JOIN `dcxw_house_rent` `dcxw_house_rent` ON `dcxw_house_rent_log`.`hrl_renter_id`=`dcxw_house_rent`.`hr_id` WHERE  `hrl_house_code` = '201810230001' ORDER BY hrl_addtime desc [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2018-10-26T18:02:14+08:00 ] 127.0.0.1 127.0.0.1 GET /operation/index/index.html
+[ info ] www.bbb.com/operation/index/index.html [运行时间：0.047003s][吞吐率：21.28req/s] [内存消耗：2,142.87kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'operation',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/operation/index/rentlog.html?h_id=201810230001',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=2vt4tf56ac5mu94hb40shsd68b',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\operation\controller\Index->index[ G:\xampp\htdocs\bbb\application\operation\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/operation\view\index\index.html [ array (
+  0 => 'houses',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house` WHERE  `h_isable` >= 3 ORDER BY h_addtime desc [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SELECT `hp_paid_ratio` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '201810230001' [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-10-26T18:02:15+08:00 ] 127.0.0.1 127.0.0.1 GET /operation/index/details.html?h_id=201810230001
+[ info ] www.bbb.com/operation/index/details.html?h_id=201810230001 [运行时间：0.050003s][吞吐率：20.00req/s] [内存消耗：2,205.84kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'operation',
+    1 => 'index',
+    2 => 'details',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/operation/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=2vt4tf56ac5mu94hb40shsd68b',
+)
+[ info ] [ PARAM ] array (
+  'h_id' => '201810230001',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\operation\controller\Index->details[ G:\xampp\htdocs\bbb\application\operation\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/operation\view\index\details.html [ array (
+  0 => 'hous',
+  1 => 'manger',
+  2 => 'master',
+  3 => 'payInfo',
+  4 => 'payLogs',
+  5 => 'attach',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house` WHERE  `h_b_id` = '201810230001' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `u_name`,`u_phone`,`u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_master` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house_master` WHERE  `hm_house_code` = '201810230001' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house_pay` WHERE  `hp_house_code` = '201810230001' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay_log` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house_pay_log` WHERE  `hpl_house_code` = '201810230001' ORDER BY hpl_addtime desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_attachment` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house_attachment` WHERE  `ha_house_code` = '201810230001' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-10-26T18:02:16+08:00 ] 127.0.0.1 127.0.0.1 GET /operation/index/index.html
+[ info ] www.bbb.com/operation/index/index.html [运行时间：0.035002s][吞吐率：28.57req/s] [内存消耗：2,142.87kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'operation',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/operation/index/details.html?h_id=201810230001',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=2vt4tf56ac5mu94hb40shsd68b',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\operation\controller\Index->index[ G:\xampp\htdocs\bbb\application\operation\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/operation\view\index\index.html [ array (
+  0 => 'houses',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house` WHERE  `h_isable` >= 3 ORDER BY h_addtime desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `hp_paid_ratio` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '201810230001' [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-10-26T18:02:18+08:00 ] 127.0.0.1 127.0.0.1 GET /operation/index/rentlog.html?h_id=201810230001
+[ info ] www.bbb.com/operation/index/rentlog.html?h_id=201810230001 [运行时间：0.061004s][吞吐率：16.39req/s] [内存消耗：2,161.04kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'operation',
+    1 => 'index',
+    2 => 'rentlog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/operation/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=2vt4tf56ac5mu94hb40shsd68b',
+)
+[ info ] [ PARAM ] array (
+  'h_id' => '201810230001',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\operation\controller\Index->rentlog[ G:\xampp\htdocs\bbb\application\operation\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/operation\view\index\rentlog.html [ array (
+  0 => 'house',
+  1 => 'h_id',
+  2 => 'rentLog',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `h_building`,`h_address`,`h_area` FROM `dcxw_house` WHERE  `h_b_id` = '201810230001' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_log` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_rent_log`.*,`dcxw_house_rent`.`hr_name`,`dcxw_house_rent`.`hr_phone` FROM `dcxw_house_rent_log` INNER JOIN `dcxw_house_rent` `dcxw_house_rent` ON `dcxw_house_rent_log`.`hrl_renter_id`=`dcxw_house_rent`.`hr_id` WHERE  `hrl_house_code` = '201810230001' ORDER BY hrl_addtime desc [ RunTime:0.002000s ]

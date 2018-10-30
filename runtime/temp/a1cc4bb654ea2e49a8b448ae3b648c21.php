@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\index.html";i:1538198091;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1538205562;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1538103965;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\index.html";i:1540804284;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1538205562;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1538103965;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,7 +83,7 @@
             </h4>
         </div>
     </div>
-    <?php if($house != null): ?>
+    <?php if($news != null): ?>
     <div class="mui-card" >
         <ul class="mui-table-view">
             <?php if(is_array($news) || $news instanceof \think\Collection || $news instanceof \think\Paginator): $i = 0; $__LIST__ = $news;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$chap): $mod = ($i % 2 );++$i;?>
@@ -137,6 +137,10 @@
                 版权所有 陕ICP备18007211号</p>
         </div>
     </div>
+</div>
+<div class="mui-content" style="margin-bottom: 8px;background:#fff;padding-top: 0px;">
+    <span class="mui-btn mui-btn-primary" style="width: 48%;height: 36px;margin-left: 5px;"><a style="color:#fff" href="tel:18291435205">房屋托管</a></span>
+    <span class="mui-btn mui-btn-primary" style="width: 48%;height: 36px"><a style="color:#fff" href="tel:17792870379">公寓租赁</a></span>
 </div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>

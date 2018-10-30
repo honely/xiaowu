@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\about.html";i:1538207077;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1538205562;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1538103965;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\about.html";i:1540804284;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1538205562;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1538103965;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,8 +39,14 @@
                 </p>
                 <h4>五、联系我们</h4>
                 <p style="color: #333;">
-                    联系地址：陕西省西安市高新区沣惠南路16号7号楼2401，邮编710065
-                </p>
+                    总部地址：陕西省西安市高新区沣惠南路16号7号楼2401
+
+                </p><p style="color: #333;">
+                成都分公司：四川省成都市高新区环球中心E1 1-2-702
+
+            </p><p style="color: #333;">
+                重庆分公司：重庆市江北区江北城IFS国金中心T2栋610
+            </p>
             </div>
             <div class="mui-card">
                 <div class="mui-card-content" id="baiduMap" style="height: 250px;" >
@@ -60,6 +66,10 @@
                 版权所有 陕ICP备18007211号</p>
         </div>
     </div>
+</div>
+<div class="mui-content" style="margin-bottom: 8px;background:#fff;padding-top: 0px;">
+    <span class="mui-btn mui-btn-primary" style="width: 48%;height: 36px;margin-left: 5px;"><a style="color:#fff" href="tel:18291435205">房屋托管</a></span>
+    <span class="mui-btn mui-btn-primary" style="width: 48%;height: 36px"><a style="color:#fff" href="tel:17792870379">公寓租赁</a></span>
 </div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>

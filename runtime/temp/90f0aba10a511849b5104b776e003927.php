@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:67:"G:\xampp\htdocs\bbb\public/../application/admin\view\staff\add.html";i:1537602409;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:67:"G:\xampp\htdocs\bbb\public/../application/admin\view\staff\add.html";i:1540878776;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,6 +60,17 @@
                 <label class="layui-form-label"><span style="color: red;">*</span>电子邮箱</label>
                 <div class="layui-input-block">
                     <input type="text" name="u_email" id="u_email" onblur="checkEmail()" lay-verify="required|email" placeholder="请输入电子邮箱" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span style="color: red;">*</span>部门</label>
+                <div class="layui-input-inline">
+                    <select name="u_depart_id" lay-verify="required">
+                        <option value="">请选择部门</option>
+                        <?php if(is_array($department) || $department instanceof \think\Collection || $department instanceof \think\Paginator): $i = 0; $__LIST__ = $department;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$depart): $mod = ($i % 2 );++$i;?>
+                            <option value="<?php echo $depart['d_id']; ?>"><?php echo $depart['d_name']; ?></option>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                    </select>
                 </div>
             </div>
             <div class="layui-form-item">

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\login\login.html";i:1537602909;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\login\login.html";i:1540880371;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -63,11 +63,22 @@
                     'data':$('#loginForm').serialize(),
                     'success':function (result) {
                         if(result.code == '1'){
+                            var data=result.data;
+                            var u_role=data.u_depart_id;
                             mui.alert(result.msg, function() {
-                                window.location.href="<?=url('index/index')?>";
+                                console.log(u_role);
+                                if(u_role == 1){
+                                    window.location.href="<?=url('index/index')?>";
+                                }else if(u_role == 2){
+                                    window.location.href="<?=url('decoration/index/index')?>"
+                                }else if(u_role == 3){
+                                    window.location.href="<?=url('operation/index/index')?>"
+                                }
                             });
                         }else{
-                            mui.toast(result.msg);
+                            mui.alert(result.msg, function() {
+                                window.location.href="<?=url('login/login')?>";
+                            });
                         }
                     },
                     'error':function (error) {

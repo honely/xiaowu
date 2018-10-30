@@ -51,20 +51,24 @@ class Index extends Controller{
             return $this->fetch();
         }
     }
-
-    public function indes(){
-        return $this->fetch();
-    }
-
-
     public function house(){
         $userInfo=session('userInfo');
         $u_id=$userInfo['u_id'];
+        $where=" 1 =1 ";
+        $keywords=trim($this->request->param('keywords'));
+        if(isset($keywords) && !empty($keywords)){
+            $where.=" and ( h_b_id like '%".$keywords."%')";
+            $this->assign('keywords',$keywords);
+        }
         $houses=Db::table('dcxw_house')
+            ->where($where)
             ->where(['h_admin' => $u_id])
             ->order('h_addtime desc')
             ->select();
+        $connomModel=new Common();
         foreach($houses as $k =>$v){
+            $houses[$k]['h_isable']=$connomModel->getHouseStatus($v['h_isable']);
+            $houses[$k]['m_id']=$connomModel->getMasterStatus($v['h_b_id']);
             $houses[$k]['h_addtime']=date('Y年m月d日',$v['h_addtime']);
             $payInfo=Db::table('dcxw_house_pay')->where(['hp_house_code' =>$v['h_b_id']])->column('hp_paid_ratio');
             if($payInfo){
@@ -83,6 +87,99 @@ class Index extends Controller{
      * master
      * */
     public function master(){
+        $h_id=trim($_GET['h_id']);
+        $m_id=trim($_GET['m_id']);
+
+        $masterInfo=Db::table('dcxw_house_master')
+            ->where(['hm_house_code' => $h_id])
+            ->find();
+        if($masterInfo){
+            if($masterInfo){
+                $masterInfo['hm_addtime']=date('Y-m-d H:i:s',$masterInfo['hm_addtime']);
+                $masterArr=Db::table('dcxw_user')
+                    ->where(['u_id' => $masterInfo['hm_admin']])
+                    ->column('u_name');
+                $masterInfo['hm_admin']=$masterArr[0];
+            }
+            if($m_id == 2){
+                $this->assign('h_b_id',$h_id);
+                $this->assign('master',$masterInfo);
+                return $this->fetch();
+            }
+            //仅做展示
+            $this->assign('h_b_id',$h_id);
+            $this->assign('master',$masterInfo);
+            return $this->fetch('masters');
+        }else{
+            //户主信息添加
+            $this->assign('h_b_id',$h_id);
+            $this->assign('master',$masterInfo);
+            return $this->fetch();
+        }
+    }
+
+
+    public function editmaster(){
+        $h_id=trim($_GET['h_id']);
+        $masterInfo=Db::table('dcxw_house_master')
+            ->where(['hm_house_code' => $h_id])
+            ->find();
+        $this->assign('h_b_id',$h_id);
+        $this->assign('master',$masterInfo);
+    }
+
+
+    public function addmaster(){
+        $userInfo=session('userInfo');
+        $h_id=trim($_GET['h_id']);
+        if($_POST){
+            $master=Db::table('dcxw_house_master')
+                ->where(['hm_house_code' => $h_id])
+                ->find();
+            //若有信息是修改，没有信息是添加
+            if($master){
+                $data=$_POST;
+                $data['hm_addtime']=time();
+                $data['hm_house_code']=$h_id;
+                $data['hm_admin']=$userInfo['u_id'];
+                $update=Db::table('dcxw_house_master')
+                    ->where(['hm_house_code' => $h_id])
+                    ->update($data);
+                if($update){
+                    $this->success('修改成功！','',$master);
+                }else{
+                    $this->error('修改失败！','',$master);
+                }
+            }else{
+                $data=$_POST;
+                $data['hm_addtime']=time();
+                $data['hm_admin']=$userInfo['u_id'];
+                $add=Db::table('dcxw_house_master')->insert($data);
+                if($add){
+                    $this->success('添加成功！');
+                }else{
+                    $this->error('添加失败！');
+                }
+            }
+        }else{
+            $master=Db::table('dcxw_house_master')
+                ->where(['hm_house_code' => $h_id])
+                ->find();
+            if($master){
+                $master['hm_addtime']=date('Y-m-d H:i:s',$master['hm_addtime']);
+                $masterArr=Db::table('dcxw_user')
+                    ->where(['u_id' => $master['hm_admin']])
+                    ->column('u_name');
+                $master['hm_admin']=$masterArr[0];
+            }
+        }
+    }
+
+
+    /*
+     * master
+     * */
+    public function masters(){
         $userInfo=session('userInfo');
         $h_id=trim($_GET['h_id']);
         if($_POST){
@@ -342,6 +439,14 @@ class Index extends Controller{
         return $this->fetch();
     }
 
+
+
+
+    public function editpay(){
+        $hpl_id=intval(trim($_GET['hpl_id']));
+        dump($hpl_id);
+        return $this->fetch();
+    }
 
 
 

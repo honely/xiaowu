@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\index.html";i:1539936028;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\index.html";i:1540881185;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -13,7 +13,16 @@
 <body>
 <header class="mui-bar mui-bar-nav">
     <h1 class="mui-title">房源列表</h1>
+    <a class="mui-icon mui-icon-person mui-icon-right-nav mui-pull-right" href="<?=url('index/person')?>" ></a>
 </header>
+<div class="mui-content" style="background:#fff;">
+    <div class="mui-content-padded">
+        <input style="float: left;width: 80%" id="keywords" type="text" placeholder="请输入房源编号进行搜索"<?php if(isset($keywords)): ?> value="<?php echo $keywords; ?>" <?php endif; ?> />
+        <span onclick="formQuery()" style="float: left;width: 18%;margin-left: 5px;padding-left: 5px;margin-top: 5px;padding-top: 5px;" class="mui-btn mui-btn-primary mui-icon mui-icon-search">
+            搜索
+        </span>
+    </div>
+</div>
 <div class="mui-content" style="padding-top: 40px;">
     <?php if($houses == null): ?>
     <div class="mui-card">
@@ -27,14 +36,17 @@
             <div class="mui-card-content-inner">
                 <p><b>房源编号：【<?php echo $hous['h_b_id']; ?>】</b>
                     <?php if($hous['is_paid_ratio'] == 1): ?>
-                    <span style="float: right;">回款率：<span style="margin-left: 8px;" class="mui-badge mui-badge-danger"><?php echo $hous['paid_ratio']; ?></span></span>
+                    <span style="float: right;">回款率：<span style="margin-left: 8px;" class="mui-badge mui-badge-success"><?php echo $hous['paid_ratio']; ?></span></span>
                     <?php endif; ?>
+                </p>
+                <p><b>小区名称</b>：<?php echo $hous['h_building']; ?>
+                    <span style="float: right;">装修阶段：<span style="margin-left: 8px;" class="mui-badge mui-badge-purple"><?php echo $hous['hd_status']; ?></span></span>
                 </p>
                 <p style="color: #333;">
                     <!--房源标题：<?php echo $hous['h_name']; ?>-->
+                    <!--&lt;!&ndash;<br/>&ndash;&gt;-->
+                    <!--小区名称：<?php echo $hous['h_building']; ?>-->
                     <!--<br/>-->
-                    小区名称：<?php echo $hous['h_building']; ?>
-                    <br/>
                     <?php if($hous['is_paid_ratio'] == 1): ?>
                     装修款额：<?php echo $hous['h_money']; ?>（元）
                     <br/>
@@ -66,6 +78,12 @@
     mui.init({
         swipeBack:true //启用右滑关闭功能
     });
+</script>
+<script>
+    function formQuery(){
+        var keywords=$('#keywords').val();
+        location.href="<?=url('index/index')?>?&keywords="+keywords;
+    }
 </script>
 </body>
 

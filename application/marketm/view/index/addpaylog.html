@@ -96,26 +96,33 @@
         });
         //监听提交
         form.on('submit(saveInfo)', function(){
+            var will_pay={$payMoney.hp_will_pay};
             var hpl_money=$('#hpl_money').val();
             if(hpl_money>will_pay){
                 mui.alert('您输入的金额已超过余额！！', function() {
                 });
             }else{
-                $.ajax({
-                    'type':"post",
-                    'url':"<?=url('index/addpaylog')?>?h_id={$h_b_id}",
-                    'data':$('#payForm').serialize(),
-                    'success':function (result) {
-                        console.log(result);
-                        if(result.code == '1'){
-                            layer.msg(result.msg, {icon: 1, time: 2000},function () {
-                                location.href="<?=url('index/payment')?>?h_id={$h_b_id}";
-                            });
-                        }else{
-                            layer.msg(result.msg, {icon: 2, time: 3000});
-                        }
+                var btnArray = ['否', '是'];
+                mui.confirm('请检查信息是否准确无误填写？', '提交后不可修改！', btnArray, function(e) {
+                    if (e.index == 1) {
+                        $.ajax({
+                            'type':"post",
+                            'url':"<?=url('index/addpaylog')?>?h_id={$h_b_id}",
+                            'data':$('#payForm').serialize(),
+                            'success':function (result) {
+                                console.log(result);
+                                if(result.code == '1'){
+                                    layer.msg(result.msg, {icon: 1, time: 2000},function () {
+                                        location.href="<?=url('index/payment')?>?h_id={$h_b_id}";
+                                    });
+                                }else{
+                                    layer.msg(result.msg, {icon: 2, time: 3000});
+                                }
+                            }
+                        })
                     }
-                })
+                });
+
             }
         });
         //图片上传

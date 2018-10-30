@@ -96,6 +96,7 @@ class Staff extends Controller{
             $data['u_job'] = $_POST['u_job'];
             $data['u_sex'] = $_POST['u_sex'];
             $data['u_phone'] = $_POST['u_phone'];
+            $data['u_depart_id'] = intval(trim($_POST['u_depart_id']));
             $data['u_addtime'] = time();
             $data['u_isable'] = 1;
             $data['u_password'] = md5('123456');
@@ -119,6 +120,10 @@ class Staff extends Controller{
                 $this->error('添加员工失败','index');
             }
         }else{
+            $department=Db::table('dcxw_department')
+                ->order('d_addtime desc')
+                ->select();
+            $this->assign('department',$department);
             return $this->fetch();
         }
     }
@@ -206,6 +211,7 @@ class Staff extends Controller{
             $data['u_name'] = $_POST['u_name'];
             $data['u_job'] = $_POST['u_job'];
             $data['u_sex'] = $_POST['u_sex'];
+            $data['u_depart_id'] = intval(trim($_POST['u_depart_id']));
             $data['u_phone'] = $_POST['u_phone'];
             $data['u_addtime'] = time();
             $data['u_isable'] = 1;
@@ -235,6 +241,10 @@ class Staff extends Controller{
             $adminInfo=Db::table('dcxw_user')
                 ->where(['u_id' => $ad_id])
                 ->find();
+            $department=Db::table('dcxw_department')
+                ->order('d_addtime desc')
+                ->select();
+            $this->assign('department',$department);
             $this->assign('admin',$adminInfo);
             return $this->fetch();
         }
