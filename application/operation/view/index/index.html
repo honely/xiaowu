@@ -35,11 +35,6 @@
         <div class="mui-card-content">
             <div class="mui-card-content-inner">
                 <p><b>房源编号：【{$hous.h_b_id}】</b>
-                    {if condition="$hous.is_paid_ratio eq 1"}
-                    <span style="float: right;">回款率：<span style="margin-left: 8px;" class="mui-badge mui-badge-danger">{$hous.paid_ratio}</span></span>
-                    {/if}
-                </p>
-                <p><b>小区名称</b>：{$hous.h_building}
                     <span style="float: right;">房屋状态：
                         {switch name="$hous.h_isable"}
                             {case value="4"}<span style="margin-left: 8px;" class="mui-badge mui-badge-warning">待出租</span>{/case}
@@ -48,12 +43,15 @@
                         {/switch}
                     </span>
                 </p>
+                <p><b>小区名称</b>：{$hous.h_building}
+
+                </p>
                 <p style="color: #333;">
                     <!--房源标题：{$hous.h_name}-->
                     <!--<br/>-->
                     <!--小区名称：{$hous.h_building}-->
                     <!--<br/>-->
-                    {if condition="$hous.is_paid_ratio eq 1"}
+                    {if condition="$hous.h_money neq null"}
                     装修款额：{$hous.h_money}（元）
                     <br/>
                     {/if}
@@ -63,10 +61,7 @@
                     合同编号：{$hous.h_contract_code}（元）
                     <br/>
                     {/if}
-                    签订日期：{$hous.h_addtime}
-                    <br/>
-                    房源地址：{$hous.h_address}
-                    <br/>
+                    房屋地址：{$hous.h_address}
                 </p>
             </div>
         </div>

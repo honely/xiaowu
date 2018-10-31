@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:67:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\add.html";i:1539658376;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:67:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\add.html";i:1540974159;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,12 +73,6 @@
                                 </div>
                             </div>
                             <div class="layui-form-item">
-                                <label class="layui-form-label"><span style="color: red;">*</span>房源编号</label>
-                                <div class="layui-input-block">
-                                    <input type="text" name="h_b_id" lay-verify="required" placeholder="请输入房源编号" autocomplete="off" class="layui-input">
-                                </div>
-                            </div>
-                            <div class="layui-form-item">
                                 <label class="layui-form-label"><span style="color: red;">*</span>基础信息</label>
                                 <div class="layui-input-inline">
                                     <select name="h_p_id" lay-verify="required" lay-filter="bu_p_id">
@@ -106,7 +100,6 @@
                                         <?php if(is_array($houseType) || $houseType instanceof \think\Collection || $houseType instanceof \think\Paginator): $i = 0; $__LIST__ = $houseType;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$type): $mod = ($i % 2 );++$i;?>
                                         <option value="<?php echo $type['type_id']; ?>"><?php echo $type['type_name']; ?></option>
                                         <?php endforeach; endif; else: echo "" ;endif; ?>
-
                                     </select>
                                 </div>
                             </div>
@@ -160,8 +153,18 @@
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label"><span style="color: red;">*</span>房屋朝向</label>
-                                <div class="layui-input-block">
-                                    <input type="text" name="h_head" lay-verify="required" placeholder="请输入房屋朝向" autocomplete="off" class="layui-input">
+                                <div class="layui-input-inline">
+                                    <select name="h_head"   lay-filter="case_style">
+                                        <option value="">请选择房屋朝向</option>
+                                        <option value="1">东</option>
+                                        <option value="2">南</option>
+                                        <option value="3">西</option>
+                                        <option value="4">北</option>
+                                        <option value="5">东南</option>
+                                        <option value="6">西南</option>
+                                        <option value="7">东北</option>
+                                        <option value="8">西北</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="layui-form-item">
@@ -174,12 +177,6 @@
                                 <label class="layui-form-label"><span style="color: red;">*</span>房源地址</label>
                                 <div class="layui-input-block">
                                     <input type="text" name="h_address" lay-verify="required" placeholder="请输入房源地址" autocomplete="off" class="layui-input">
-                                </div>
-                            </div>
-                            <div class="layui-form-item">
-                                <label class="layui-form-label"><span style="color: red;">*</span>地理坐标</label>
-                                <div class="layui-input-block">
-                                    <input type="text" name="h_location" placeholder="请输入地理坐标" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-form-item" pane="">

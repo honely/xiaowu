@@ -57,12 +57,6 @@
                                 </div>
                             </div>
                             <div class="layui-form-item">
-                                <label class="layui-form-label"><span style="color: red;">*</span>房源编号</label>
-                                <div class="layui-input-block">
-                                    <input type="text" name="h_b_id" value="{$house.h_b_id}" lay-verify="required" placeholder="请输入房源编号" autocomplete="off" class="layui-input">
-                                </div>
-                            </div>
-                            <div class="layui-form-item">
                                 <label class="layui-form-label"><span style="color: red;">*</span>基础信息</label>
                                 <div class="layui-input-inline">
                                     <select name="h_p_id" lay-verify="required" lay-filter="bu_p_id">
@@ -158,8 +152,18 @@
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label"><span style="color: red;">*</span>房屋朝向</label>
-                                <div class="layui-input-block">
-                                    <input type="text" name="h_head" value="{$house.h_head}" lay-verify="required" placeholder="请输入房屋朝向" autocomplete="off" class="layui-input">
+                                <div class="layui-input-inline">
+                                    <select name="h_head" >
+                                        <option value="">请选择房屋朝向</option>
+                                        <option value="1" {if condition="$house.h_head eq 1"}selected{/if}>东</option>
+                                        <option value="2" {if condition="$house.h_head eq 2"}selected{/if}>南</option>
+                                        <option value="3" {if condition="$house.h_head eq 3"}selected{/if}>西</option>
+                                        <option value="4" {if condition="$house.h_head eq 4"}selected{/if}>北</option>
+                                        <option value="5" {if condition="$house.h_head eq 5"}selected{/if}>东南</option>
+                                        <option value="6" {if condition="$house.h_head eq 6"}selected{/if}>西南</option>
+                                        <option value="7" {if condition="$house.h_head eq 7"}selected{/if}>东北</option>
+                                        <option value="8" {if condition="$house.h_head eq 8"}selected{/if}>西北</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="layui-form-item">
@@ -172,12 +176,6 @@
                                 <label class="layui-form-label"><span style="color: red;">*</span>房源地址</label>
                                 <div class="layui-input-block">
                                     <input type="text" name="h_address" value="{$house.h_address}"  lay-verify="required" placeholder="请输入房源地址" autocomplete="off" class="layui-input">
-                                </div>
-                            </div>
-                            <div class="layui-form-item">
-                                <label class="layui-form-label"><span style="color: red;">*</span>地理坐标</label>
-                                <div class="layui-input-block">
-                                    <input type="text" name="h_location" value="{$house.h_location}"  lay-verify="required" placeholder="请输入地理坐标" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-form-item" pane="">

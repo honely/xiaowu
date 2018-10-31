@@ -15,6 +15,19 @@
 <div class="mui-content" style="background:#fff;">
     {if condition="$house neq null"}
     {volist name="house" id="vo"}
+    {if condition="$vo.h_isable eq 2"}
+    <div class="mui-card">
+        <a>
+            <div class="mui-card-header mui-card-media" style="height:58vw;background-image:url(__WEB__/img/decorating.png)"></div>
+            <div class="mui-card-content">
+                <div class="mui-card-content-inner">
+                    <p style="color: #333;">{$vo.h_building} {$vo.h_area}㎡</p>
+                    <p style="color: #333;">{$vo.h_address}</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    {else/}
     <div class="mui-card">
         <a href="<?=url('index/details')?>?h_id={$vo.h_id}">
             <div class="mui-card-header mui-card-media" style="height:58vw;background-image:url({$vo.h_house_img})"></div>
@@ -26,6 +39,8 @@
             </div>
         </a>
     </div>
+    {/if}
+
     {/volist}
     {else/}
     <div class="mui-card" style="text-align: center;height: 150px;">

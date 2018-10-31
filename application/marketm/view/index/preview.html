@@ -8,6 +8,159 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
+    <style type="text/css">
+        .mui-preview-image.mui-fullscreen {
+            position: fixed;
+            z-index: 20;
+            background-color: #000;
+        }
+        .mui-preview-header,
+        .mui-preview-footer {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            z-index: 10;
+        }
+        .mui-preview-header {
+            height: 44px;
+            top: 0;
+        }
+        .mui-preview-footer {
+            height: 50px;
+            bottom: 0px;
+        }
+        .mui-preview-header .mui-preview-indicator {
+            display: block;
+            line-height: 25px;
+            color: #fff;
+            text-align: center;
+            margin: 15px auto 4;
+            width: 70px;
+            background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            font-size: 16px;
+        }
+        .mui-preview-image {
+            display: none;
+            -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+        .mui-preview-image.mui-preview-in {
+            -webkit-animation-name: fadeIn;
+            animation-name: fadeIn;
+        }
+        .mui-preview-image.mui-preview-out {
+            background: none;
+            -webkit-animation-name: fadeOut;
+            animation-name: fadeOut;
+        }
+        .mui-preview-image.mui-preview-out .mui-preview-header,
+        .mui-preview-image.mui-preview-out .mui-preview-footer {
+            display: none;
+        }
+        .mui-zoom-scroller {
+            position: absolute;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            -webkit-backface-visibility: hidden;
+        }
+        .mui-zoom {
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+        .mui-slider .mui-slider-group .mui-slider-item img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+            width: 100%;
+        }
+        .mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+            display: inline-table;
+        }
+        .mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .mui-preview-loading {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        .mui-preview-loading.mui-active {
+            display: block;
+        }
+        .mui-preview-loading .mui-spinner-white {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -25px;
+            margin-top: -25px;
+            height: 50px;
+            width: 50px;
+        }
+        .mui-preview-image img.mui-transitioning {
+            -webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        @-webkit-keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @-webkit-keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        p img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
@@ -90,6 +243,39 @@
         <form class="mui-input-group layui-form" id="attachForm" style="background-color: #efeff4">
             <div class="mui-card">
                 <p><b>附属信息</b></p>
+                <div class="mui-input-row">
+                    <label>合同编号：</label>
+                    <input type="text" readonly {if isset($attach.ha_contact_code)} value="{$attach.ha_contact_code}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>合同扫描件</label>
+                </div>
+                <div id="imgPre">
+                    {volist name="attach.ha_contact_img" id="items"}
+                    <li class="item_img" style="list-style-type: none">
+                        <img src="__PUBLIC__/{$items}" class="img" style="padding: 5px;" data-preview-src="" data-preview-group="1"  >
+                        <input type="hidden" name="ha_contact_img[]" value="' + res.path + '" />
+                    </li>
+                    {/volist}
+                </div>
+                <div class="mui-input-row">
+                    <label>租金(每月)：</label>
+                    <input type="text" readonly {if isset($attach.ha_rent_price)} value="{$attach.ha_rent_price}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>租期：</label>
+                    <input type="text" readonly {if isset($attach.ha_rent_time)} value="{$attach.ha_rent_time}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>到期时间：</label>
+                    <input type="text" readonly {if isset($attach.ha_deadline)} value="{$attach.ha_deadline}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>装修许可时间：</label>
+                    <input type="text" readonly {if isset($attach.ha_decorate_permit)} value="{$attach.ha_decorate_permit}" {/if}>
+                </div>
+            </div>
+            <div class="mui-card">
                 <div class="mui-input-row">
                     <label>钥匙：</label>
                     <input type="text" readonly {if isset($attach.ha_keys)} value="{$attach.ha_keys}" {/if}>
@@ -208,41 +394,7 @@
                     <input type="text" readonly {if isset($attach.ha_wuye_phone)} value="{$attach.ha_wuye_phone}" {/if}>
                 </div>
             </div>
-            <div class="mui-card">
-                <div class="mui-input-row">
-                    <label>合同编号：</label>
-                    <input type="text" readonly {if isset($attach.ha_contact_code)} value="{$attach.ha_contact_code}" {/if}>
-                </div>
-                <div class="mui-input-row">
-                    <label>合同扫描件</label>
-                </div>
-                <div id="imgPre">
-                    {volist name="attach.ha_contact_img" id="items"}
-                    <li class="item_img">
-                        <div class="operate">
-                            <i  class="close layui-icon"></i>
-                        </div>
-                        <img src="__PUBLIC__/{$items}" class="img" ><input type="hidden" name="ha_contact_img[]" value="' + res.path + '" />
-                    </li>
-                    {/volist}
-                </div>
-                <div class="mui-input-row">
-                    <label>租金(每月)：</label>
-                    <input type="text" readonly {if isset($attach.ha_rent_price)} value="{$attach.ha_rent_price}" {/if}>
-                </div>
-                <div class="mui-input-row">
-                    <label>租期：</label>
-                    <input type="text" readonly {if isset($attach.ha_rent_time)} value="{$attach.ha_rent_time}" {/if}>
-                </div>
-                <div class="mui-input-row">
-                    <label>到期时间：</label>
-                    <input type="text" readonly {if isset($attach.ha_deadline)} value="{$attach.ha_deadline}" {/if}>
-                </div>
-                <div class="mui-input-row">
-                    <label>装修许可时间：</label>
-                    <input type="text" readonly {if isset($attach.ha_decorate_permit)} value="{$attach.ha_decorate_permit}" {/if}>
-                </div>
-            </div>
+
             <div class="mui-card">
                 <div class="mui-input-row" style="margin: 10px 5px;">
                     <label>其他备注信息：</label>
@@ -267,6 +419,16 @@
 </div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>
+<script src="__WAP__/js/mui.zoom.js"></script>
+<script src="__WAP__/js/mui.previewimage.js"></script>
+<script>
+    mui.previewImage();
+    mui('body').on('tap','a',function(){
+        if(this.href){
+            window.top.location.href=this.href;
+        }
+    });
+</script>
 <script>
     mui.init({
         swipeBack:true //启用右滑关闭功能

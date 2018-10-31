@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\house.html";i:1538977987;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1538205562;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1538103965;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\house.html";i:1540973293;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1538205562;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1538103965;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,14 +18,26 @@
 </header>
 <div class="mui-content" style="background:#fff;">
     <div class="mui-content-padded">
-        <input style="float: left;width: 80%" id="keywords" type="text" placeholder="点击搜索查看附近房源"<?php if(isset($keywords)): ?> value="<?php echo $keywords; ?>" <?php endif; ?> />
+        <input style="float: left;width: 80%" id="keywords" type="text" placeholder="点击搜索房源"<?php if(isset($keywords)): ?> value="<?php echo $keywords; ?>" <?php endif; ?> />
         <span onclick="formQuery()" style="float: left;width: 18%;margin-left: 5px;padding-left: 5px;margin-top: 5px;padding-top: 5px;" class="mui-btn mui-btn-primary mui-icon mui-icon-search">
             搜索
         </span>
     </div>
 </div>
 <div class="mui-content" style="background:#fff;">
-    <?php if($house != null): if(is_array($house) || $house instanceof \think\Collection || $house instanceof \think\Paginator): $i = 0; $__LIST__ = $house;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+    <?php if($house != null): if(is_array($house) || $house instanceof \think\Collection || $house instanceof \think\Paginator): $i = 0; $__LIST__ = $house;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;if($vo['h_isable'] == 2): ?>
+    <div class="mui-card">
+        <a>
+            <div class="mui-card-header mui-card-media" style="height:58vw;background-image:url(__WEB__/img/decorating.png)"></div>
+            <div class="mui-card-content">
+                <div class="mui-card-content-inner">
+                    <p style="color: #333;"><?php echo $vo['h_building']; ?> <?php echo $vo['h_area']; ?>㎡</p>
+                    <p style="color: #333;"><?php echo $vo['h_address']; ?></p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <?php else: ?>
     <div class="mui-card">
         <a href="<?=url('index/details')?>?h_id=<?php echo $vo['h_id']; ?>">
             <div class="mui-card-header mui-card-media" style="height:58vw;background-image:url(<?php echo $vo['h_house_img']; ?>)"></div>
@@ -37,7 +49,7 @@
             </div>
         </a>
     </div>
-    <?php endforeach; endif; else: echo "" ;endif; else: ?>
+    <?php endif; endforeach; endif; else: echo "" ;endif; else: ?>
     <div class="mui-card" style="text-align: center;height: 150px;">
        暂无信息！
     </div>

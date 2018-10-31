@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\index.html";i:1540015273;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\index.html";i:1540972163;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,7 +79,7 @@
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>
 </script>
 <script type="text/html" id="switchTpl">
-    <input type="checkbox" name="sex" lay-skin="switch" value="{{d.h_id}}" lay-text="可租|已租" lay-filter="sexDemo" {{ d.h_isable == 1 ? 'checked' : '' }}>
+    <input type="checkbox" name="sex" lay-skin="switch" value="{{d.h_id}}" lay-text="可租|已租" lay-filter="sexDemo" {{ d.h_isable == 4 ? 'checked' : '' }}>
 </script>
 <script type="text/html" id="switch">
     <input type="checkbox" name="sex" lay-skin="switch" value="{{d.h_id}}" lay-text="是|否" lay-filter="isTop" {{ d.h_istop == 1 ? 'checked' : '' }}>

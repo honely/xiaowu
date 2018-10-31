@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\edit.html";i:1539659113;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\edit.html";i:1540974370;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,12 +76,6 @@
                                 <label class="layui-form-label"><span style="color: red;">*</span>房源名称</label>
                                 <div class="layui-input-block">
                                     <input type="text" onblur="checkBulids()" id="case_title" name="h_name" lay-verify="required|title" placeholder="请输入房源名称" value="<?php echo $house['h_name']; ?>" autocomplete="off" class="layui-input">
-                                </div>
-                            </div>
-                            <div class="layui-form-item">
-                                <label class="layui-form-label"><span style="color: red;">*</span>房源编号</label>
-                                <div class="layui-input-block">
-                                    <input type="text" name="h_b_id" value="<?php echo $house['h_b_id']; ?>" lay-verify="required" placeholder="请输入房源编号" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-form-item">
@@ -179,8 +173,18 @@
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label"><span style="color: red;">*</span>房屋朝向</label>
-                                <div class="layui-input-block">
-                                    <input type="text" name="h_head" value="<?php echo $house['h_head']; ?>" lay-verify="required" placeholder="请输入房屋朝向" autocomplete="off" class="layui-input">
+                                <div class="layui-input-inline">
+                                    <select name="h_head" >
+                                        <option value="">请选择房屋朝向</option>
+                                        <option value="1" <?php if($house['h_head'] == 1): ?>selected<?php endif; ?>>东</option>
+                                        <option value="2" <?php if($house['h_head'] == 2): ?>selected<?php endif; ?>>南</option>
+                                        <option value="3" <?php if($house['h_head'] == 3): ?>selected<?php endif; ?>>西</option>
+                                        <option value="4" <?php if($house['h_head'] == 4): ?>selected<?php endif; ?>>北</option>
+                                        <option value="5" <?php if($house['h_head'] == 5): ?>selected<?php endif; ?>>东南</option>
+                                        <option value="6" <?php if($house['h_head'] == 6): ?>selected<?php endif; ?>>西南</option>
+                                        <option value="7" <?php if($house['h_head'] == 7): ?>selected<?php endif; ?>>东北</option>
+                                        <option value="8" <?php if($house['h_head'] == 8): ?>selected<?php endif; ?>>西北</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="layui-form-item">
@@ -193,12 +197,6 @@
                                 <label class="layui-form-label"><span style="color: red;">*</span>房源地址</label>
                                 <div class="layui-input-block">
                                     <input type="text" name="h_address" value="<?php echo $house['h_address']; ?>"  lay-verify="required" placeholder="请输入房源地址" autocomplete="off" class="layui-input">
-                                </div>
-                            </div>
-                            <div class="layui-form-item">
-                                <label class="layui-form-label"><span style="color: red;">*</span>地理坐标</label>
-                                <div class="layui-input-block">
-                                    <input type="text" name="h_location" value="<?php echo $house['h_location']; ?>"  lay-verify="required" placeholder="请输入地理坐标" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-form-item" pane="">

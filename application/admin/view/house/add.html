@@ -51,12 +51,6 @@
                                 </div>
                             </div>
                             <div class="layui-form-item">
-                                <label class="layui-form-label"><span style="color: red;">*</span>房源编号</label>
-                                <div class="layui-input-block">
-                                    <input type="text" name="h_b_id" lay-verify="required" placeholder="请输入房源编号" autocomplete="off" class="layui-input">
-                                </div>
-                            </div>
-                            <div class="layui-form-item">
                                 <label class="layui-form-label"><span style="color: red;">*</span>基础信息</label>
                                 <div class="layui-input-inline">
                                     <select name="h_p_id" lay-verify="required" lay-filter="bu_p_id">
@@ -84,7 +78,6 @@
                                         {volist name="houseType" id="type"}
                                         <option value="{$type.type_id}">{$type.type_name}</option>
                                         {/volist}
-
                                     </select>
                                 </div>
                             </div>
@@ -138,8 +131,18 @@
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label"><span style="color: red;">*</span>房屋朝向</label>
-                                <div class="layui-input-block">
-                                    <input type="text" name="h_head" lay-verify="required" placeholder="请输入房屋朝向" autocomplete="off" class="layui-input">
+                                <div class="layui-input-inline">
+                                    <select name="h_head"   lay-filter="case_style">
+                                        <option value="">请选择房屋朝向</option>
+                                        <option value="1">东</option>
+                                        <option value="2">南</option>
+                                        <option value="3">西</option>
+                                        <option value="4">北</option>
+                                        <option value="5">东南</option>
+                                        <option value="6">西南</option>
+                                        <option value="7">东北</option>
+                                        <option value="8">西北</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="layui-form-item">
@@ -152,12 +155,6 @@
                                 <label class="layui-form-label"><span style="color: red;">*</span>房源地址</label>
                                 <div class="layui-input-block">
                                     <input type="text" name="h_address" lay-verify="required" placeholder="请输入房源地址" autocomplete="off" class="layui-input">
-                                </div>
-                            </div>
-                            <div class="layui-form-item">
-                                <label class="layui-form-label"><span style="color: red;">*</span>地理坐标</label>
-                                <div class="layui-input-block">
-                                    <input type="text" name="h_location" placeholder="请输入地理坐标" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-form-item" pane="">

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\index.html";i:1540880944;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\index.html";i:1540974764;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -35,21 +35,19 @@
         <div class="mui-card-content">
             <div class="mui-card-content-inner">
                 <p><b>房源编号：【<?php echo $hous['h_b_id']; ?>】</b>
-                    <?php if($hous['is_paid_ratio'] == 1): ?>
-                    <span style="float: right;">回款率：<span style="margin-left: 8px;" class="mui-badge mui-badge-danger"><?php echo $hous['paid_ratio']; ?></span></span>
-                    <?php endif; ?>
-                </p>
-                <p><b>小区名称</b>：<?php echo $hous['h_building']; ?>
                     <span style="float: right;">房屋状态：
                         <?php switch($hous['h_isable']): case "4": ?><span style="margin-left: 8px;" class="mui-badge mui-badge-warning">待出租</span><?php break; case "5": ?><span style="margin-left: 8px;" class="mui-badge mui-badge-success">已出租</span><?php break; case "3": ?><span style="margin-left: 8px;" class="mui-badge mui-badge-primary">配置中</span><?php break; endswitch; ?>
                     </span>
+                </p>
+                <p><b>小区名称</b>：<?php echo $hous['h_building']; ?>
+
                 </p>
                 <p style="color: #333;">
                     <!--房源标题：<?php echo $hous['h_name']; ?>-->
                     <!--<br/>-->
                     <!--小区名称：<?php echo $hous['h_building']; ?>-->
                     <!--<br/>-->
-                    <?php if($hous['is_paid_ratio'] == 1): ?>
+                    <?php if($hous['h_money'] != null): ?>
                     装修款额：<?php echo $hous['h_money']; ?>（元）
                     <br/>
                     <?php endif; ?>
@@ -59,10 +57,7 @@
                     合同编号：<?php echo $hous['h_contract_code']; ?>（元）
                     <br/>
                     <?php endif; ?>
-                    签订日期：<?php echo $hous['h_addtime']; ?>
-                    <br/>
-                    房源地址：<?php echo $hous['h_address']; ?>
-                    <br/>
+                    房屋地址：<?php echo $hous['h_address']; ?>
                 </p>
             </div>
         </div>

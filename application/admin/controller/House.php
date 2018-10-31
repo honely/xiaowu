@@ -49,20 +49,20 @@ class House extends Controller{
             $edate=strtotime(substr($case_decotime,'-10')." 23:59:59");
             $where.=" and ( h_addtime >= ".$sdate." and h_addtime <= ".$edate." ) ";
         }
-        $count=Db::table('dcxw_houses')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_houses.h_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_houses.h_c_id')
-            ->join('dcxw_area','dcxw_area.area_id = dcxw_houses.h_a_id')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_houses.h_admin')
+        $count=Db::table('dcxw_house')
+            ->join('dcxw_province','dcxw_province.p_id = dcxw_house.h_p_id')
+            ->join('dcxw_city','dcxw_city.c_id = dcxw_house.h_c_id')
+            ->join('dcxw_area','dcxw_area.area_id = dcxw_house.h_a_id')
+            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_house.h_admin')
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $design=Db::table('dcxw_houses')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_houses.h_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_houses.h_c_id')
-            ->join('dcxw_area','dcxw_area.area_id = dcxw_houses.h_a_id')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_houses.h_admin')
+        $design=Db::table('dcxw_house')
+            ->join('dcxw_province','dcxw_province.p_id = dcxw_house.h_p_id')
+            ->join('dcxw_city','dcxw_city.c_id = dcxw_house.h_c_id')
+            ->join('dcxw_area','dcxw_area.area_id = dcxw_house.h_a_id')
+            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_house.h_admin')
             ->limit(($page-1)*$limit,$limit)
             ->order('h_istop asc,h_isable,h_view desc')
             ->where($where)
@@ -92,6 +92,12 @@ class House extends Controller{
     public function add(){
         if($_POST){
             $data=$_POST;
+            $stime=strtotime(date('Y-m-d 00:00:00'));
+            $etime=strtotime(date('Y-m-d 23:59:59'));
+            //获取当日预约的数量
+            $buNum=Db::table('dcxw_house')->where('h_addtime','between',[$stime,$etime])->count();
+            //生成用户编号；
+            $data['h_b_id'] = date('Ymd').sprintf("%04d", $buNum+1);
             $data['h_addtime']=time();
             $data['h_updatetime']=time();
             $data['h_config'] =implode(',',array_keys($_POST['h_config']));
@@ -102,7 +108,9 @@ class House extends Controller{
             }
             $data['h_img']=trim($h_img,',');
             $data['h_admin'] = session('adminId');
-            $add=Db::table('dcxw_houses')->insert($data);
+            $data['h_add_type'] = 1;
+            $data['h_isable'] = 4;
+            $add=Db::table('dcxw_house')->insert($data);
             if($add){
                 return  json(['code' => '1','msg' => '发布成功！','data' => $data]);
             }else{
@@ -138,20 +146,21 @@ class House extends Controller{
             $data['h_updatetime']=time();
             $data['h_config'] =implode(',',array_keys($_POST['h_config']));
             $img=$_POST['h_img'];
+            $data['h_isable'] = 4;
             $h_img='';
             for ($i=0;$i<sizeof($img);$i++){
                 $h_img.=$img[$i].",";
             }
             $data['h_img']=trim($h_img,',');
             $data['h_admin'] = session('adminId');
-            $update=Db::table('dcxw_houses')->where(['h_id' => $h_id])->update($data);
+            $update=Db::table('dcxw_house')->where(['h_id' => $h_id])->update($data);
             if($update){
                 return  json(['code' => '1','msg' => '修改成功！','data' => $data]);
             }else{
                 return  json(['code' => '2','msg' => '修改失败！','data' => $data]);
             }
         }else{
-            $houseInfo=Db::table('dcxw_houses')->where(['h_id' => $h_id])->find();
+            $houseInfo=Db::table('dcxw_house')->where(['h_id' => $h_id])->find();
             $houseInfo['h_imgs']=rtrim($houseInfo['h_img'],',');
             $houseInfo['h_img']=explode(',',$houseInfo['h_imgs']);
             $type_list = "";
@@ -194,15 +203,14 @@ class House extends Controller{
             //如果选中状态是true,后台数据将要改为手机 显示
             if($change){
                 $msg = '显示';
-                $data['h_isable'] = '1';
+                $data['h_isable'] = '4';
                 $data['h_admin'] = session('adminId');
             }else{
                 $msg = '隐藏';
-                $data['h_isable'] = '2';
-                $data['h_istop'] = '2';
+                $data['h_isable'] = '5';
                 $data['h_admin'] = session('adminId');
             }
-            $changeStatus = Db::table('dcxw_houses')->where(['h_id' => $h_id])->update($data);
+            $changeStatus = Db::table('dcxw_house')->where(['h_id' => $h_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -232,7 +240,7 @@ class House extends Controller{
                 $data['h_istop'] = '2';
                 $data['h_admin'] = session('adminId');
             }
-            $changeStatus = Db::table('dcxw_houses')->where(['h_id' => $h_id])->update($data);
+            $changeStatus = Db::table('dcxw_house')->where(['h_id' => $h_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -255,7 +263,7 @@ class House extends Controller{
      * */
     public function del(){
         $h_id=intval($_GET['h_id']);
-        $delArt=Db::table('dcxw_houses')->where(['h_id' => $h_id])->delete();
+        $delArt=Db::table('dcxw_house')->where(['h_id' => $h_id])->delete();
         if($delArt){
             $this->success('删除房源成功','index');
         }else{
@@ -266,8 +274,8 @@ class House extends Controller{
 
     public function refresh(){
         $h_id=intval($_GET['h_id']);
-        $refresh=Db::table('dcxw_houses')->where(['h_id' => $h_id])->update(['h_updatetime' => time()]);
-        $setView=Db::table('dcxw_houses')->where(['h_id' => $h_id])->setInc('h_view');
+        $refresh=Db::table('dcxw_house')->where(['h_id' => $h_id])->update(['h_updatetime' => time()]);
+        $setView=Db::table('dcxw_house')->where(['h_id' => $h_id])->setInc('h_view');
         if($refresh && $setView){
             $this->success('刷新房源成功','index');
         }else{

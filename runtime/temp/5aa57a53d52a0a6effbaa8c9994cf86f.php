@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\house.html";i:1540885106;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\house.html";i:1540953512;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -68,7 +68,7 @@
         <div class="mui-card-footer">
             <a class="mui-card-link" href="<?=url('index/master')?>?h_id=<?php echo $hous['h_b_id']; ?>&m_id=<?php echo $hous['m_id']; ?>">户主信息</a>
             <a class="mui-card-link" href="<?=url('index/payment')?>?h_id=<?php echo $hous['h_b_id']; ?>">回款信息</a>
-            <a class="mui-card-link" href="<?=url('index/attach')?>?h_id=<?php echo $hous['h_b_id']; ?>">房屋附属</a>
+            <a class="mui-card-link" href="<?=url('index/attach')?>?h_id=<?php echo $hous['h_b_id']; ?>&a_id=<?php echo $hous['a_id']; ?>">房屋附属</a>
             <a class="mui-card-link" href="<?=url('index/preview')?>?h_id=<?php echo $hous['h_b_id']; ?>">房源预览</a>
         </div>
     </div>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\index.html";i:1540804284;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1538205562;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1538103965;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\index.html";i:1540972982;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1538205562;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1538103965;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,14 +63,21 @@
         </div>
     </div>
     <ul class="mui-table-view mui-grid-view">
-            <?php if(is_array($house) || $house instanceof \think\Collection || $house instanceof \think\Paginator): $i = 0; $__LIST__ = $house;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$hous): $mod = ($i % 2 );++$i;?>
-            <li class="mui-table-view-cell mui-media mui-col-xs-6">
-                <a href="<?=url('index/details')?>?h_id=<?php echo $hous['h_id']; ?>">
-                    <img style="height: 130px;" class="mui-media-object" src="<?php echo $hous['h_house_img']; ?>">
-                    <div class="mui-media-body"><?php echo $hous['h_name']; ?></div>
-                </a>
-            </li>
-            <?php endforeach; endif; else: echo "" ;endif; ?>
+            <?php if(is_array($house) || $house instanceof \think\Collection || $house instanceof \think\Paginator): $i = 0; $__LIST__ = $house;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$hous): $mod = ($i % 2 );++$i;if($hous['h_isable'] == 2): ?>
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                        <a>
+                            <img style="height: 130px;" class="mui-media-object" src="__WEB__/img/decorating.png">
+                            <div class="mui-media-body"><?php echo $hous['h_building']; ?><?php echo $hous['h_area']; ?>m²</div>
+                        </a>
+                    </li>
+                <?php else: ?>
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                        <a href="<?=url('index/details')?>?h_id=<?php echo $hous['h_id']; ?>">
+                            <img style="height: 130px;" class="mui-media-object" src="<?php echo $hous['h_house_img']; ?>">
+                            <div class="mui-media-body"><?php echo $hous['h_name']; ?></div>
+                        </a>
+                    </li>
+                <?php endif; endforeach; endif; else: echo "" ;endif; ?>
         </ul>
     </div>
 </div>
@@ -139,8 +146,8 @@
     </div>
 </div>
 <div class="mui-content" style="margin-bottom: 8px;background:#fff;padding-top: 0px;">
-    <span class="mui-btn mui-btn-primary" style="width: 48%;height: 36px;margin-left: 5px;"><a style="color:#fff" href="tel:18291435205">房屋托管</a></span>
-    <span class="mui-btn mui-btn-primary" style="width: 48%;height: 36px"><a style="color:#fff" href="tel:17792870379">公寓租赁</a></span>
+    <span class="mui-btn mui-btn-warning" style="width: 48%;height: 36px;margin-left: 5px;"><a style="color:#fff" href="tel:18291435205">房屋托管</a></span>
+    <span class="mui-btn mui-btn-warning" style="width: 48%;height: 36px"><a style="color:#fff" href="tel:17792870379">公寓租赁</a></span>
 </div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>

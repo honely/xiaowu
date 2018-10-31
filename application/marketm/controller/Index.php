@@ -51,6 +51,8 @@ class Index extends Controller{
             return $this->fetch();
         }
     }
+
+
     public function house(){
         $userInfo=session('userInfo');
         $u_id=$userInfo['u_id'];
@@ -69,6 +71,8 @@ class Index extends Controller{
         foreach($houses as $k =>$v){
             $houses[$k]['h_isable']=$connomModel->getHouseStatus($v['h_isable']);
             $houses[$k]['m_id']=$connomModel->getMasterStatus($v['h_b_id']);
+            $houses[$k]['a_id']=$connomModel->getAttachStatus($v['h_b_id']);
+            $houses[$k]['h_money']=$connomModel->getDecorateMoney($v['h_b_id']);
             $houses[$k]['h_addtime']=date('Y年m月d日',$v['h_addtime']);
             $payInfo=Db::table('dcxw_house_pay')->where(['hp_house_code' =>$v['h_b_id']])->column('hp_paid_ratio');
             if($payInfo){
@@ -117,17 +121,6 @@ class Index extends Controller{
             return $this->fetch();
         }
     }
-
-
-    public function editmaster(){
-        $h_id=trim($_GET['h_id']);
-        $masterInfo=Db::table('dcxw_house_master')
-            ->where(['hm_house_code' => $h_id])
-            ->find();
-        $this->assign('h_b_id',$h_id);
-        $this->assign('master',$masterInfo);
-    }
-
 
     public function addmaster(){
         $userInfo=session('userInfo');
@@ -456,6 +449,7 @@ class Index extends Controller{
      * */
     public function attach(){
         $h_id=trim($_GET['h_id']);
+        $a_id=intval(trim($_GET['a_id']));
         $master=Db::table('dcxw_house_master')
             ->where(['hm_house_code' => $h_id])
             ->field('hm_name,hm_phone')
@@ -469,20 +463,31 @@ class Index extends Controller{
             ->where(['u_id' => $houseInfo['h_admin']])
             ->field('u_name,u_phone,u_job')
             ->find();
+        $this->assign('manager',$manager);
+        $this->assign('master',$master);
+        $this->assign('h_b_id',$h_id);
         $attach=Db::table('dcxw_house_attachment')
             ->where(['ha_house_code' => $h_id])
             ->find();
         if($attach){
-            $attach['ha_contact_img']=explode(',',$attach['ha_contact_img']);
-            $attach['ha_deadline']=date('Y-m-d',$attach['ha_deadline']);
-            $attach['ha_decorate_permit']=date('Y-m-d',$attach['ha_decorate_permit']);
+                $attach['ha_contact_img']=explode(',',$attach['ha_contact_img']);
+                $attach['ha_deadline']=date('Y-m-d',$attach['ha_deadline']);
+                $attach['ha_decorate_permit']=date('Y-m-d',$attach['ha_decorate_permit']);
+            if($a_id == 2){
+                $this->assign('h_b_id',$h_id);
+                $this->assign('attach',$attach);
+                return $this->fetch('attachs');
+            }else{
+                //仅做展示
+                $this->assign('h_b_id',$h_id);
+                $this->assign('attach',$attach);
+                return $this->fetch();
+            }
+        }else{
+            $this->assign('h_b_id',$h_id);
+            $this->assign('attach',$attach);
+            return $this->fetch('attachs');
         }
-//        dump($attach);
-        $this->assign('attach',$attach);
-        $this->assign('manager',$manager);
-        $this->assign('master',$master);
-        $this->assign('h_b_id',$h_id);
-        return $this->fetch();
     }
 
     public function addattach(){
@@ -543,13 +548,11 @@ class Index extends Controller{
             ->where(['u_id' =>$u_id])
             ->field('u_name,u_phone,u_job')
             ->find();
-//        dump($manger);
         $this->assign('manger',$manger);
         //户主信息
         $master=Db::table('dcxw_house_master')
             ->where(['hm_house_code' => $h_id])
             ->find();
-//        dump($master);
         $this->assign('master',$master);
         //回款信息
         $payInfo=Db::table('dcxw_house_pay')
@@ -577,6 +580,11 @@ class Index extends Controller{
         $attach=Db::table('dcxw_house_attachment')
             ->where(['ha_house_code' => $h_id])
             ->find();
+        if($attach){
+            $attach['ha_contact_img']=explode(',',$attach['ha_contact_img']);
+            $attach['ha_deadline']=date('Y-m-d',$attach['ha_deadline']);
+            $attach['ha_decorate_permit']=date('Y-m-d',$attach['ha_decorate_permit']);
+        }
         $this->assign('attach',$attach);
         return $this->fetch();
     }

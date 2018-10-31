@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/index\view\seek\details.html";i:1539661829;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1536805330;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1537069564;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/index\view\seek\details.html";i:1540274412;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1536805330;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1540457310;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -176,7 +176,7 @@
                 </ul>
             </div>
 
-            <div class="bto" style="margin-top: 100px;">
+            <div class="bto" style="margin-top: 157px;">
                 <div class="mod-title bottomed">
                     <h3 class="title">房源简介</h3>
                 </div>
@@ -315,9 +315,14 @@
             <div class="left pull-left">
                 <h3>
                     <img class="pull-left" style="width: 22px;height: 22px;" src="__WEB__/img/footer-ph.png" alt="">
-                    <span >
+                    <span>
                         <?php echo $hotLine; ?>
+
+
                     </span>
+                    <span><em style="line-height: 30px;">房屋托管：18291435205</em></span>
+                    <span><em style="line-height: 30px;">公寓租赁：17792870379</em></span>
+
                 </h3>
             </div>
             <div class="right pull-left">

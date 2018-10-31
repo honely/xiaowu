@@ -33,9 +33,9 @@ class Index extends Controller{
             ->where($where)
             ->order('h_addtime desc')
             ->select();
-//        $connomModel=new \app\marketm\controller\Common();
+        $connomModel=new \app\marketm\controller\Common();
         foreach($houses as $k =>$v){
-//            $houses[$k]['h_isable']=$connomModel->getHouseStatus($v['h_isable']);
+            $houses[$k]['h_money']=$connomModel->getDecorateMoney($v['h_b_id']);
             $houses[$k]['h_addtime']=date('Y年m月d日',$v['h_addtime']);
             $payInfo=Db::table('dcxw_house_pay')->where(['hp_house_code' =>$v['h_b_id']])->column('hp_paid_ratio');
             if($payInfo){
@@ -164,7 +164,6 @@ class Index extends Controller{
         $houseInfo=Db::table('dcxw_house')
             ->where(['h_b_id' => $h_id])
             ->find();
-        dump($houseInfo);
         return $this->fetch();
     }
 
@@ -255,7 +254,7 @@ class Index extends Controller{
                 //3.修改主表出租状态
                 $updateRentStatus=Db::table('dcxw_house')
                     ->where(['h_b_id' => $h_id])
-                    ->update(['h_isable' => 4]);
+                    ->update(['h_isable' => 5]);
                 if($addRenLog && $updateRentStatus)
                 {
                     $this->success('添加成功！');

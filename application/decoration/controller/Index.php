@@ -36,10 +36,11 @@ class Index extends Controller{
             ->order('h_addtime desc')
             ->select();
 //        dump($houses);
-//        $connomModel=new \app\marketm\controller\Common();
+        $connomModel=new \app\marketm\controller\Common();
         if($houses){
             foreach($houses as $k =>$v){
             $houses[$k]['hd_status']=$this->getStatus($v['hd_status']);
+            $houses[$k]['h_money']=$connomModel->getDecorateMoney($v['h_b_id']);
                 $houses[$k]['h_addtime']=date('Y年m月d日',$v['h_addtime']);
                 $payInfo=Db::table('dcxw_house_pay')->where(['hp_house_code' =>$v['h_b_id']])->column('hp_paid_ratio');
                 if($payInfo){

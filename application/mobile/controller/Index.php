@@ -19,10 +19,12 @@ class Index extends Controller{
             ->select();
         $this->assign('banNum',count($banner));
         $this->assign('banner',$banner);
-        $house=Db::table('dcxw_houses')
+        $house=Db::table('dcxw_house')
             ->limit(4)
+            ->where(['h_isable' => 2])
+            ->whereOr(['h_isable' => 4])
             ->order('h_view desc')
-            ->field('h_id,h_house_img,h_name')
+            ->field('h_id,h_house_img,h_name,h_isable,h_building,h_house_type,h_area')
             ->select();
         $this->assign('house',$house);
         $news=Db::table('dcxw_article')
@@ -101,12 +103,13 @@ class Index extends Controller{
             $where.=" and ( h_name like '%".$keywords."%' or h_building like '%".$keywords."%' or h_address like '%".$keywords."%'  or h_description like '%".$keywords."%' )";
             $this->assign('keywords',$keywords);
         }
-        $house=Db::table('dcxw_houses')
+        $house=Db::table('dcxw_house')
             ->where($where)
-            ->where(['h_isable' => 1,'h_rent_status' => 2])
+            ->where(['h_isable' => 2])
+            ->whereOr(['h_isable' => 4])
 //            ->limit(4)
             ->order('h_view desc')
-            ->field('h_id,h_house_img,h_name,h_rent,h_rent_type,h_area,h_subway,h_address,h_building,h_nearbus')
+            ->field('h_id,h_isable,h_house_img,h_name,h_rent,h_rent_type,h_area,h_subway,h_address,h_building,h_nearbus')
             ->select();
         $this->assign('house',$house);
         return $this->fetch();
@@ -114,8 +117,8 @@ class Index extends Controller{
 
     public function details(){
         $h_id=intval(trim($_GET['h_id']));
-        Db::table('dcxw_houses')->where(['h_id' => $h_id])->setInc('h_view');
-        $house=Db::table('dcxw_houses')->where(['h_id' => $h_id])->find();
+        Db::table('dcxw_house')->where(['h_id' => $h_id])->setInc('h_view');
+        $house=Db::table('dcxw_house')->where(['h_id' => $h_id])->find();
         $house['h_img']=explode(',',$house['h_img']);
         $house['h_config']=explode(',',$house['h_config']);
         $house['config_img']=[];

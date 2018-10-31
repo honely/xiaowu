@@ -83,7 +83,28 @@ class Common extends Controller{
 
 
     public function getMasterStatus($h_id){
-        $master=Db::table('dcxw_house_master')->where(['hm_house_code' =>$h_id])->count();
+        $master=Db::table('dcxw_house_master')
+            ->where(['hm_house_code' =>$h_id])
+            ->count();
         return $master?$master:0;
+    }
+
+
+    public function getAttachStatus($h_id){
+        $attach=Db::table('dcxw_house_attachment')
+            ->where(['ha_house_code' =>$h_id])
+            ->count();
+        return $attach?$attach:0;
+    }
+
+
+    public function getDecorateMoney($h_id){
+        $money=Db::table('dcxw_house_pay')->where(['hp_house_code' => $h_id])->column('hp_money');
+        if(isset($money) && !empty($money)){
+            return $money[0]?$money[0]:0;
+        }else{
+            return 0;
+        }
+
     }
 }
