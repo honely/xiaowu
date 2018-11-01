@@ -67,6 +67,10 @@ class Index extends Controller{
             ->where(['h_admin' => $u_id])
             ->order('h_addtime desc')
             ->select();
+        $count=Db::table('dcxw_house')
+            ->where($where)
+            ->where(['h_admin' => $u_id])
+            ->count();
         $connomModel=new Common();
         foreach($houses as $k =>$v){
             $houses[$k]['h_isable']=$connomModel->getHouseStatus($v['h_isable']);
@@ -83,9 +87,58 @@ class Index extends Controller{
                 $houses[$k]['is_paid_ratio']=2;
             }
         }
+        $this->assign('count',$count);
         $this->assign('houses',$houses);
         return $this->fetch();
     }
+
+
+    /*
+     * 房源加载更多
+     * **/
+
+    public function housemore(){
+        $userInfo=session('userInfo');
+        $u_id=$userInfo['u_id'];
+        $where='h_admin = '.$u_id;
+        if($_POST){
+            $page=intval(trim($_POST['page']));
+            $keywords=trim($_POST['keywords']);
+            $where.=" and ( h_name like '%".$keywords."%' or h_building like '%".$keywords."%' or h_address like '%".$keywords."%'  or h_description like '%".$keywords."%' )";
+        }else{
+            $page=1;
+        }
+        $limit=2;
+        $houses=Db::table('dcxw_house')
+            ->where($where)
+            ->limit(($page-1)*$limit,$limit)
+            ->order('h_addtime desc')
+            ->select();
+        $connomModel=new Common();
+        foreach($houses as $k =>$v){
+            $houses[$k]['h_isable']=$connomModel->getHouseStatus($v['h_isable']);
+            $houses[$k]['m_id']=$connomModel->getMasterStatus($v['h_b_id']);
+            $houses[$k]['a_id']=$connomModel->getAttachStatus($v['h_b_id']);
+            $houses[$k]['h_money']=$connomModel->getDecorateMoney($v['h_b_id']);
+            $houses[$k]['h_addtime']=date('Y年m月d日',$v['h_addtime']);
+            $payInfo=Db::table('dcxw_house_pay')->where(['hp_house_code' =>$v['h_b_id']])->column('hp_paid_ratio');
+            if($payInfo){
+                $houses[$k]['paid_ratio']=($payInfo[0]*100)."%";
+                $houses[$k]['is_paid_ratio']=1;
+            }else{
+                $houses[$k]['paid_ratio']="0";
+                $houses[$k]['is_paid_ratio']=2;
+            }
+        }
+        if($houses){
+            $this->success('更多完成','',$houses);
+        }else{
+            $this->error('更多失败','',$houses);
+        }
+    }
+
+
+
 
     /*
      * master

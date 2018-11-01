@@ -45,6 +45,7 @@ class Index extends Controller{
             ->whereOr(['h_isable' => 4])
             ->limit(6)
             ->order('h_istop,h_view desc')
+            ->field('dcxw_province.p_name,dcxw_city.c_name,dcxw_area.area_name,dcxw_house.*')
             ->select();
         $this->assign('house',$house);
         return $this->fetch();

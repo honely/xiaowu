@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/index\view\seek\index.html";i:1540008375;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1536805330;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1540457310;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/index\view\seek\index.html";i:1541040105;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1541063850;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1540457310;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -25,6 +25,9 @@
 <style>
     .navbar{
         background:#FFF;
+        width: 100%;
+        position: fixed;
+        z-index: 300;
     }
 </style>
 <body>
@@ -154,7 +157,7 @@
                         <p  class="pull-left">
                             <i style="width:170px;"><?php echo $house['h_address']; ?></i>
                             <a class="layui-btn layui-btn-primary" href="<?=url('seek/details')?>?h_id=<?php echo $house['h_id']; ?>">查看详情</a>
-                            <a class="layui-btn" onclick="makePoint(<?php echo $house['h_building']; ?>)">预约看房</a>
+                            <a class="layui-btn" onclick="makePoint('<?php echo $house['h_building']; ?>')">预约看房</a>
                         </p>
                     </div>
                 </div>

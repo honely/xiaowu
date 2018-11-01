@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/index\view\news\details.html";i:1538968811;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1536805330;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1537069564;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/index\view\news\details.html";i:1538968811;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1541063850;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1540457310;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -25,6 +25,9 @@
 <style>
     .navbar{
         background:#FFF;
+        width: 100%;
+        position: fixed;
+        z-index: 300;
     }
 </style>
 <body>
@@ -190,9 +193,14 @@
             <div class="left pull-left">
                 <h3>
                     <img class="pull-left" style="width: 22px;height: 22px;" src="__WEB__/img/footer-ph.png" alt="">
-                    <span >
+                    <span>
                         <?php echo $hotLine; ?>
+
+
                     </span>
+                    <span><em style="line-height: 30px;">房屋托管：18291435205</em></span>
+                    <span><em style="line-height: 30px;">公寓租赁：17792870379</em></span>
+
                 </h3>
             </div>
             <div class="right pull-left">

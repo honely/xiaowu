@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\index\index.html";i:1538991702;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1540457310;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\index\index.html";i:1541063831;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1540457310;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -19,6 +19,18 @@
 <style>
     .navbar{
         background:#FFF;
+    }
+    ul {
+        height:45px;
+        overflow:hidden;
+    }
+    li {
+        height:45px; line-height:22px; font-size:22px;list-style-type:none;
+    }
+    .navbar{
+        width: 100%;
+        position: fixed;
+        z-index: 300;
     }
 </style>
 <body>
@@ -69,12 +81,20 @@
         </div>
     </div>
 </div>
+<!--广告无缝滚动-->
+<h2 class="page-title text-center">
+    <ul class="page-title text-center" id="a">
+        <li><a href="<?=url('index/index')?>">广告啊！广告document.getElementById()的最简化aaaaaaa</a></li>
+        <li><a href="<?=url('index/index')?>">广告啊！广告document.getElementById()的最简化bbbbbbb</a></li>
+        <li><a href="<?=url('index/index')?>">广告啊！广告document.getElementById()的最简化ccccccc</a></li>
+        <li><a href="<?=url('index/index')?>">广告啊！广告document.getElementById()的最简化ddddddd</a></li>
+    </ul>
+</h2>
 <!--banner-->
 <!--闲置房屋托管运营-->
 <h2 class="page-title text-center">
     托管热线&nbsp;&nbsp;<?php echo $hotLine; ?>
 </h2>
-
 <h1 class="text-center no-margin">
     <small>一站式托管服务</small>
 </h1>
@@ -106,7 +126,17 @@
                 <div class="tab-info" >
                     <div class="row">
                         <span id="ajaxElement_1_734">
-                            <?php if($house != null): if(is_array($house) || $house instanceof \think\Collection || $house instanceof \think\Paginator): $i = 0; $__LIST__ = $house;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$hou): $mod = ($i % 2 );++$i;?>
+                            <?php if($house != null): if(is_array($house) || $house instanceof \think\Collection || $house instanceof \think\Paginator): $i = 0; $__LIST__ = $house;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$hou): $mod = ($i % 2 );++$i;if($hou['h_isable'] == 2): ?>
+                            <div class="col-sm-4 col-xs-12" style="height:350px;">
+                                <a class="img-filter center-block" onclick="decorating(<?php echo $hou['h_b_id']; ?>)">
+                                    <img style="width: 350px;height: 262px;" src="__WEB__/img/decorating.png" alt="装修中">
+                                    <div class="img-info selected-info">
+                                        <p></p>
+                                        <span></span>
+                                    </div>
+                                </a>
+                            </div>
+                            <?php else: ?>
                             <div class="col-sm-4 col-xs-12" style="height:350px;">
                                 <a class="img-filter center-block" href="<?=url('seek/details')?>?h_id=<?php echo $hou['h_id']; ?>">
                                     <img style="width: 350px;height: 262px;" src="<?php echo $hou['h_house_img']; ?>" alt="<?php echo $hou['h_img_alt']; ?>">
@@ -116,7 +146,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <?php endforeach; endif; else: echo "" ;endif; else: ?>
+                            <?php endif; endforeach; endif; else: echo "" ;endif; else: ?>
                             <div class="col-sm-4 col-xs-12" style="height:350px;">
                                 暂无信息
                             </div>
@@ -266,4 +296,74 @@
             disableOnInteraction: false,
         }
     });
+    function decorating(h_id){
+
+    }
+</script>
+<script>
+    //document.getElementById()的最简化应用
+    function $(element){
+        if(arguments.length>1){
+            for(var i=0,length=arguments.length,elements=[];i<length;i++){
+                elements.push($(arguments[i]));
+            }
+            return elements;
+        }
+        if(typeof element=="string"){
+            return document.getElementById(element);
+        }else{
+            return element;
+        }
+    }
+    //类创建函数
+    var Class={
+        create:function(){
+            return function(){
+                this.initialize.apply(this,arguments);
+            }
+        }
+    }
+    //对象属性方法扩展
+    Function.prototype.bind=function(object){
+        var method=this;
+        return function(){
+            method.apply(object,arguments);
+        }
+    }
+    var Scroll=Class.create();
+    Scroll.prototype={
+        //第一个参数定义要滚动的区域,第二个参数定义每次滚动的高度
+        initialize:function(element,height,delay){
+            this.element=$(element);
+            this.element.innerHTML+=this.element.innerHTML;
+            this.height=height*2;
+            this.delay=delay*3000;
+            this.maxHeight=this.element.scrollHeight;
+            this.counter=0;
+            this.scroll();
+            this.timer="";
+            this.element.onmouseover=this.stop.bind(this);
+            this.element.onmouseout=function(){this.timer=setTimeout(this.scroll.bind(this),1000);}.bind(this);
+        },
+        scroll:function(){
+            if(this.element.scrollTop<this.maxHeight){
+                this.element.scrollTop++;
+                this.counter++;
+            }else{
+                this.element.scrollTop=0;
+                this.counter=0;
+            }
+
+            if(this.counter<this.height){
+                this.timer=setTimeout(this.scroll.bind(this),5);
+            }else{
+                this.counter=0;
+                this.timer=setTimeout(this.scroll.bind(this),this.delay);
+            }
+        },
+        stop:function(){
+            clearTimeout(this.timer);
+        }
+    }
+    new Scroll('a', 22, 2)
 </script>

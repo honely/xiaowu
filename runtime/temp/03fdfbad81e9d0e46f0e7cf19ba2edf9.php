@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\about\index.html";i:1540457807;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1536805330;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1540457310;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\about\index.html";i:1541063835;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1541063850;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1540457310;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -25,6 +25,9 @@
 <style>
     .navbar{
         background:#FFF;
+        width: 100%;
+        position: fixed;
+        z-index: 300;
     }
 </style>
 <body>
@@ -125,7 +128,7 @@
 
                 <h4 class="content-h4">五、联系我们</h4>
                 <p class="content-hp">
-                    总部地址：陕西省西安市高新区沣惠南路16号7号楼2401，邮编710065
+                    总部地址：陕西省西安市高新区沣惠南路16号7号楼2401
 
                 </p><p class="content-hp">
                     成都分公司：四川省成都市高新区环球中心E1 1-2-702

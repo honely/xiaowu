@@ -97,7 +97,7 @@ class Index extends Controller{
      * house
      * */
     public function house(){
-        $where='1 = 1 ';
+        $where='(h_isable = 2 or  h_isable =4 )';
         if(isset($_GET['keywords']) && !empty($_GET['keywords'])){
             $keywords=trim($_GET['keywords']);
             $where.=" and ( h_name like '%".$keywords."%' or h_building like '%".$keywords."%' or h_address like '%".$keywords."%'  or h_description like '%".$keywords."%' )";
@@ -105,14 +105,40 @@ class Index extends Controller{
         }
         $house=Db::table('dcxw_house')
             ->where($where)
-            ->where(['h_isable' => 2])
-            ->whereOr(['h_isable' => 4])
-//            ->limit(4)
+            ->limit(2)
             ->order('h_view desc')
             ->field('h_id,h_isable,h_house_img,h_name,h_rent,h_rent_type,h_area,h_subway,h_address,h_building,h_nearbus')
             ->select();
+        $count=Db::table('dcxw_house')
+            ->where($where)
+            ->count();
+        $this->assign('count',$count);
         $this->assign('house',$house);
         return $this->fetch();
+    }
+
+
+    public function housemore(){
+        $where='(h_isable = 2 or  h_isable =4 )';
+        if($_POST){
+            $page=intval(trim($_POST['page']));
+            $keywords=trim($_POST['keywords']);
+            $where.=" and ( h_name like '%".$keywords."%' or h_building like '%".$keywords."%' or h_address like '%".$keywords."%'  or h_description like '%".$keywords."%' )";
+        }else{
+            $page=1;
+        }
+        $limit=2;
+        $house=Db::table('dcxw_house')
+            ->where($where)
+            ->limit(($page-1)*$limit,$limit)
+            ->order('h_view desc')
+            ->field('h_id,h_isable,h_house_img,h_name,h_rent,h_rent_type,h_area,h_subway,h_address,h_building,h_nearbus')
+            ->select();
+        if($house){
+            $this->success('更多完成','',$house);
+        }else{
+            $this->error('更多失败','',$house);
+        }
     }
 
     public function details(){
