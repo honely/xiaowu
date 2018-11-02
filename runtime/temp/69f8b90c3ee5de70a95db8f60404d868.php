@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\paydetail.html";i:1540539477;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\paydetail.html";i:1541141711;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -172,7 +172,7 @@
     <div class="mui-content-padded">
         <h4>房源编号【<?php echo $payLog['hrl_house_code']; ?>】</h4>
         <p>
-            今收到房客【<?php echo $payLog['rent_name']; ?>】电话【<?php echo $payLog['rent_phone']; ?>】，房租1200元。
+            今收到房客【<?php echo $payLog['rent_name']; ?>】电话【<?php echo $payLog['rent_phone']; ?>】，房租<?php echo $payLog['hrpl_money']; ?>元。
         </p>
         <p>
             本条记录由【<?php echo $details['u_name']; ?>】在<?php echo $details['hrpl_addtime']; ?>提交。

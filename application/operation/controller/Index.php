@@ -31,24 +31,66 @@ class Index extends Controller{
         $houses=Db::table('dcxw_house')
             ->where('h_isable','egt','3')
             ->where($where)
+            ->limit(10)
             ->order('h_addtime desc')
             ->select();
+        $count=Db::table('dcxw_house')
+            ->where('h_isable','egt','3')
+            ->where($where)->count();
         $connomModel=new \app\marketm\controller\Common();
-        foreach($houses as $k =>$v){
-            $houses[$k]['h_money']=$connomModel->getDecorateMoney($v['h_b_id']);
-            $houses[$k]['h_addtime']=date('Y年m月d日',$v['h_addtime']);
-            $payInfo=Db::table('dcxw_house_pay')->where(['hp_house_code' =>$v['h_b_id']])->column('hp_paid_ratio');
-            if($payInfo){
-                $houses[$k]['paid_ratio']=($payInfo[0]*100)."%";
-                $houses[$k]['is_paid_ratio']=1;
-            }else{
-                $houses[$k]['paid_ratio']="0";
-                $houses[$k]['is_paid_ratio']=2;
+        if($houses){
+            foreach($houses as $k =>$v){
+                $houses[$k]['h_money']=$connomModel->getDecorateMoney($v['h_b_id']);
+                $houses[$k]['h_addtime']=date('Y年m月d日',$v['h_addtime']);
+                $payInfo=Db::table('dcxw_house_pay')->where(['hp_house_code' =>$v['h_b_id']])->column('hp_paid_ratio');
+                if($payInfo){
+                    $houses[$k]['paid_ratio']=($payInfo[0]*100)."%";
+                    $houses[$k]['is_paid_ratio']=1;
+                }else{
+                    $houses[$k]['paid_ratio']="0";
+                    $houses[$k]['is_paid_ratio']=2;
+                }
             }
         }
+        $this->assign('count',$count);
         $this->assign('houses',$houses);
         return $this->fetch();
     }
+
+    /*
+         * 房源加载更多
+         * **/
+
+    public function housemore(){
+        $where='1 = 1';
+        if($_POST){
+            $page=intval(trim($_POST['page']));
+            $keywords=trim($_POST['keywords']);
+            $where.=" and ( h_name like '%".$keywords."%' or h_building like '%".$keywords."%' or h_address like '%".$keywords."%'  or h_description like '%".$keywords."%' )";
+        }else{
+            $page=1;
+        }
+        $limit=8;
+        $houses=Db::table('dcxw_house')
+            ->where('h_isable','egt','3')
+            ->where($where)
+            ->limit(($page-1)*$limit,$limit)
+            ->order('h_addtime desc')
+            ->select();
+        $connomModel=new \app\marketm\controller\Common();
+        if($houses){
+            foreach($houses as $k =>$v){
+                $houses[$k]['h_money']=$connomModel->getDecorateMoney($v['h_b_id']);
+                $houses[$k]['h_addtime']=date('Y年m月d日',$v['h_addtime']);
+            }
+        }
+        if($houses){
+            $this->success('更多完成','',$houses);
+        }else{
+            $this->error('更多失败','',$houses);
+        }
+    }
+
 
 
     public function details()
@@ -194,8 +236,48 @@ class Index extends Controller{
             ->join('dcxw_house_rent','dcxw_house_rent_log.hrl_renter_id = dcxw_house_rent.hr_id')
             ->where(['hrl_house_code' => $h_id])
             ->where($where)
+            ->limit(10)
             ->field('dcxw_house_rent_log.*,dcxw_house_rent.hr_name,dcxw_house_rent.hr_phone')
             ->order('hrl_status,hrl_rent_time desc')
+            ->select();
+        $count=Db::table('dcxw_house_rent_log')
+            ->join('dcxw_house_rent','dcxw_house_rent_log.hrl_renter_id = dcxw_house_rent.hr_id')
+            ->where(['hrl_house_code' => $h_id])
+            ->where($where)->count();
+        if($rentLog)
+        {
+            foreach($rentLog as $k => $v)
+            {
+                $rentLog[$k]['hrl_rent_time']=date('Y/m/d',$v['hrl_rent_time']);
+                $rentLog[$k]['hrl_dead_time']=date('Y/m/d',$v['hrl_dead_time']);
+            }
+        }
+        $this->assign('count',$count);
+        $this->assign('h_id',$h_id);
+        $this->assign('rentLog',$rentLog);
+        return $this->fetch();
+    }
+
+    /*
+     * 出租记录加载更多
+     * */
+    public function logmore(){
+        $h_id=trim($_POST['h_id']);
+        $where='hrl_house_code = '.$h_id;
+
+        if($_POST){
+            $page=intval(trim($_POST['page']));
+//            $keywords=trim($_POST['keywords']);
+//            $where.=" and ( h_name like '%".$keywords."%' or h_building like '%".$keywords."%' or h_address like '%".$keywords."%'  or h_description like '%".$keywords."%' )";
+        }else{
+            $page=1;
+        }
+        $limit=8;
+        $rentLog=Db::table('dcxw_house_rent_log')
+            ->join('dcxw_house_rent','dcxw_house_rent_log.hrl_renter_id = dcxw_house_rent.hr_id')
+            ->where($where)
+            ->limit(($page-1)*$limit,$limit)
+            ->order('hrl_addtime desc')
             ->select();
         if($rentLog)
         {
@@ -205,10 +287,14 @@ class Index extends Controller{
                 $rentLog[$k]['hrl_dead_time']=date('Y/m/d',$v['hrl_dead_time']);
             }
         }
-        $this->assign('h_id',$h_id);
-        $this->assign('rentLog',$rentLog);
-        return $this->fetch();
+        if($rentLog){
+            $this->success('更多完成','',$rentLog);
+        }else{
+            $this->error('更多失败','',$rentLog);
+        }
     }
+
+
 
 
     /*
@@ -280,6 +366,7 @@ class Index extends Controller{
             $data['hrpl_rent_id']=$hrpl_rent_id;
             $data['hrpl_money']=$_POST['hrpl_money'];
             $data['hrpl_addtime']=time();
+            $data['hrpl_next_rent']=strtotime(trim($_POST['hrpl_next_rent'].'20:20:20'));
             $img=$_POST['hrpl_img'];
             $hpl_img='';
             for ($i=0;$i<sizeof($img);$i++)
@@ -390,7 +477,49 @@ class Index extends Controller{
             ->join('dcxw_house_rent_log','dcxw_house_rent_log.hrl_id = dcxw_house_rent_pay_log.hrpl_rent_id')
             ->where(['hrpl_rent_id' => $h_id])
             ->order('hrpl_addtime desc')
+            ->limit(10)
             ->field('dcxw_house_rent_pay_log.*,dcxw_house_rent_log.hrl_renter_id')
+            ->select();
+        $count=Db::table('dcxw_house_rent_pay_log')
+            ->join('dcxw_house_rent_log','dcxw_house_rent_log.hrl_id = dcxw_house_rent_pay_log.hrpl_rent_id')
+            ->where(['hrpl_rent_id' => $h_id])
+            ->count();
+        if($payLog)
+        {
+            foreach ($payLog as $k => $v)
+            {
+                $payLog[$k]['hrpl_addtime'] = date('Y-m-d H:i:s',$v['hrpl_addtime']);
+                $payLog[$k]['hrpl_addtimes'] = date('Y年m月d日H时i分',$v['hrpl_addtime']);
+                $payLog[$k]['hrpl_img'] = explode(',',$v['hrpl_img'])[0];
+                $payLog[$k]['hrpl_rent_name'] = $this->getRenterNameViaRentId($v['hrl_renter_id']);
+                $payLog[$k]['hrpl_rent_phone'] = $this->getRenterPhoneViaRentId($v['hrl_renter_id']);
+
+            }
+        }
+        $this->assign('count',$count);
+        $this->assign('h_id',$h_id);
+        $this->assign('h_b_id',$rentInfo[0]);
+        $this->assign('payLog',$payLog);
+        return $this->fetch();
+    }
+
+    /*
+     * 支付记录加载更多
+     * */
+    public function paymore(){
+        $h_id=trim($_POST['h_id']);
+        $where='hrpl_rent_id = '.$h_id;
+        if($_POST){
+            $page=intval(trim($_POST['page']));
+        }else{
+            $page=1;
+        }
+        $limit=8;
+        $payLog=Db::table('dcxw_house_rent_pay_log')
+            ->join('dcxw_house_rent_log','dcxw_house_rent_log.hrl_id = dcxw_house_rent_pay_log.hrpl_rent_id')
+            ->where($where)
+            ->limit(($page-1)*$limit,$limit)
+            ->order('hrl_addtime desc')
             ->select();
         if($payLog)
         {
@@ -404,11 +533,15 @@ class Index extends Controller{
 
             }
         }
-        $this->assign('h_id',$h_id);
-        $this->assign('h_b_id',$rentInfo[0]);
-        $this->assign('payLog',$payLog);
-        return $this->fetch();
+        if($payLog){
+            $this->success('更多完成','',$payLog);
+        }else{
+            $this->error('更多失败','',$payLog);
+        }
     }
+
+
+
 
 
     //根据租客id获取租客姓名

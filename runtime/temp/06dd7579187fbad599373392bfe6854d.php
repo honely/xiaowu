@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\addrent.html";i:1540798821;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\addrent.html";i:1541139512;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -89,11 +89,11 @@
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>租房日期：</label>
-                    <input type="text"  class="layui-input" lay-verify="required" id="hrl_rent_time" name="hrl_rent_time">
+                    <input type="text" readonly class="layui-input" lay-verify="required" id="hrl_rent_time" name="hrl_rent_time">
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>到期时间：</label>
-                    <input type="text" class="layui-input" lay-verify="required" id="hrl_dead_time" name="hrl_dead_time">
+                    <input type="text" readonly class="layui-input" lay-verify="required" id="hrl_dead_time" name="hrl_dead_time">
                 </div>
             </div>
             <div class="mui-card">

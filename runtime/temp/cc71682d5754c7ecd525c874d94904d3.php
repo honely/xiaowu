@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\paylog.html";i:1540536797;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\paylog.html";i:1541144037;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +19,7 @@
 <div class="mui-content" style="padding-top: 40px;">
     <div class="mui-card">
         <div class="mui-card-content">
-            <ul class="mui-table-view mui-table-view-chevron">
+            <ul class="mui-table-view mui-table-view-chevron" id="getMore">
                 <?php if($payLog == null): ?>
                     <li class="mui-table-view-cell mui-media">
                         暂无数据！
@@ -41,33 +41,54 @@
         </div>
     </div>
 </div>
+<div class="mui-card">
+    <input type="hidden" value="1" id="page"/>
+    <div id="moreBtn" class="mui-btn" style="text-align: center;width: 100%;<?php if($count > 4): ?>display: block<?php else: ?>display: none<?php endif; ?>">加载更多</div>
+</div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>
 <script>
     mui.init({
         swipeBack:true //启用右滑关闭功能
     });
-    //监听提交
-    $('#subBtn').click(function(){
+</script>
+<script>
+    $('#moreBtn').click(function () {
+        var keywords=$('#keywords').val();
+        var page=parseInt($('#page').val());
+        var h_id=parseInt(<?php echo $h_id; ?>);
+        var  pages=page+1;
+        $('#page').val(pages);
         $.ajax({
             'type':"post",
-            'url':"<?=url('index/addpay')?>",
-            'data':$('#loginForm').serialize(),
+            'url':"<?=url('index/paymore')?>",
+            'data':{'page':pages,'keywords':keywords,'h_id':h_id},
             'success':function (result) {
-                console.log(result.data);
-                if(result.code == '1'){
-                    layer.msg(result.msg, {icon: 1, time: 2000},function () {
-                        window.reload();
-                    });
+                var data=result.data;
+                console.log(data);
+                if(data.length<=0){
+                    $('#moreBtn').html('到底了哦！');
                 }else{
-                    layer.msg(result.msg, {icon: 2, time: 3000});
+                    var html="";
+                    for (var i=0;i<data.length;i++) {
+                        html+='<li class="mui-table-view-cell mui-media">' +
+                    '                        <a class="mui-navigate-right" href="<?=url('index/paydetail')?>?hdl_id='+data[i].hrpl_id+'">' +
+                    '                            <img class="mui-media-object mui-pull-left" src="'+data[i].hrpl_img+'">' +
+                    '                            <div class="mui-media-body">' +data[i].hrpl_addtime+
+                    '                            </div>' +
+                    '                            <p class="mui-ellipsis">'+data[i].hrpl_addtimes+'收到房客'+data[i].hrpl_rent_name+'电话'+data[i].hrpl_rent_phone+'房租'+data[i].hrpl_money+'元。' +
+                    '                            </p>' +
+                    '                        </a>' +
+                    '                    </li>';
+                    }
                 }
+                $('#getMore').append(html);
             },
             'error':function (error) {
                 console.log(error);
             }
         })
-    });
+    })
 </script>
 </body>
 

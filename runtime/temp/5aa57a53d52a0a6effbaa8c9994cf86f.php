@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\house.html";i:1541064470;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\house.html";i:1541129390;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -125,7 +125,7 @@
                                     html+='合同编号：'+data[i].h_contract_code+'<br/>';
                                 }
                                 html+=' 签订日期：'+data[i].h_addtime+'<br/>'+
-                                    '                    房源地址：<?php echo $hous['h_address']; ?>' +
+                                    '                    房源地址：'+data[i].h_address+'' +
                                     '                    <br/>' +
                                     '                </p>' +
                                     '            </div>' +

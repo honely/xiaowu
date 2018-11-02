@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\nav.html";i:1538201765;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1538205562;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1538103965;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\nav.html";i:1541150891;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1541150384;s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\foot.html";i:1541150867;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +9,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
     <link rel="stylesheet" href="__WAP__/css/icons-extra.css">
+    <link rel="stylesheet" href="__WAP__/css/style.css">
 </head>
 <body style="background:#fff;width:100%">
 <header class="mui-bar mui-bar-nav">

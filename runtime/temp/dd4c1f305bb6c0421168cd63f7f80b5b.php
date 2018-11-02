@@ -1,25 +1,19 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\login\login.html";i:1540880371;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\login\login.html";i:1541038257;}*/ ?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <title>登录</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-    <!--标准mui.css-->
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
-    <!--App自定义的css-->
-    <!-- <link rel="stylesheet" type="text/css" href="../css/app.css" /> -->
     <style>
         h5 {
             margin: 5px 7px;
         }
     </style>
 </head>
-
 <body>
 <header class="mui-bar mui-bar-nav">
     <h1 class="mui-title">登录</h1>
@@ -90,5 +84,4 @@
     });
 </script>
 </body>
-
 </html>

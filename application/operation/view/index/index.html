@@ -22,7 +22,7 @@
         </span>
     </div>
 </div>
-<div class="mui-content" style="background:#fff;padding-top: 40px;">
+<div class="mui-content" id="getMore" style="background:#fff;padding-top: 40px;">
     {if condition="$houses eq null"}
     <div class="mui-card">
         <div class="mui-card-content" style="height: 40px;text-align: center;line-height: 36px;">
@@ -74,6 +74,10 @@
     {/volist}
     {/if}
 </div>
+<div class="mui-card">
+    <input type="hidden" value="1" id="page"/>
+    <div id="moreBtn" class="mui-btn" style="text-align: center;width: 100%;{if condition='$count gt 8'}display: block{else/}display: none{/if}">加载更多</div>
+</div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>
 <script>
@@ -86,6 +90,65 @@
         var keywords=$('#keywords').val();
         location.href="<?=url('index/index')?>?&keywords="+keywords;
     }
+</script>
+<script>
+    $('#moreBtn').click(function () {
+        var keywords=$('#keywords').val();
+        var page=parseInt($('#page').val());
+        var  pages=page+1;
+        $('#page').val(pages);
+        $.ajax({
+            'type':"post",
+            'url':"<?=url('index/housemore')?>",
+            'data':{'page':pages,'keywords':keywords},
+            'success':function (result) {
+                var data=result.data;
+                console.log(data);
+                if(data.length<=0){
+                    $('#moreBtn').html('到底了哦！');
+                }else{
+                    var html="";
+                    for (var i=0;i<data.length;i++) {
+                        html+='<div class="mui-card">' +
+                            '        <div class="mui-card-content">' +
+                            '            <div class="mui-card-content-inner">' +
+                            '                <p><b>房源编号：【'+data[i].h_b_id+'】</b>' +
+                            '<span style="float: right;">房屋状态：';
+                        switch (data[i].h_isable) {
+                            case 4:
+                                html +='<span style="margin-left: 8px;" class="mui-badge mui-badge-warning">待出租</span>';
+                                break;
+                            case 5:
+                            html+='<span style="margin-left: 8px;" class="mui-badge mui-badge-success">已出租</span>';
+                                break;
+                            case 3:
+                            html+='<span style="margin-left: 8px;" class="mui-badge mui-badge-primary">配置中</span>';
+                                break;
+                        }
+                        html+='                </p>' +
+                            '                <p><b>小区名称</b>：【'+data[i].h_building+'】' +
+                            '                </p>'+
+                            '                <p style="color: #333;">'+
+                            '房屋面积：'+data[i].h_area+'（㎡）<br/>'+
+                            '                    房源地址：'+data[i].h_address+
+                            '                    <br/>' +
+                            '                </p>' +
+                            '            </div>' +
+                            '        </div>' +
+                            '<div class="mui-card-footer">' +
+                            '            <a class="mui-card-link" href="<?=url('index/details')?>?h_id='+data[i].h_b_id+'">房源详情</a>' +
+                        '            <a class="mui-card-link" href="<?=url('index/improve')?>?h_id='+data[i].h_b_id+'">信息完善</a>' +
+                        '            <a class="mui-card-link" href="<?=url('index/rentlog')?>?h_id='+data[i].h_b_id+'">出租记录</a>' +
+                        '        </div></div>';
+                    }
+                }
+                $('#getMore').append(html);
+            },
+            'error':function (error) {
+                console.log(error);
+            }
+        })
+    })
 </script>
 </body>
 

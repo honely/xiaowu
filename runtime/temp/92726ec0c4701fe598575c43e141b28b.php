@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\index\index.html";i:1541063831;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1540457310;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\index\index.html";i:1541124690;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1540457310;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -69,7 +69,7 @@
 <div class="hidden-xs">
     <div class="index-banner">
         <div class="swiper-container">
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper" style="margin-top: 54px;" >
                 <?php if(is_array($banner) || $banner instanceof \think\Collection || $banner instanceof \think\Paginator): $i = 0; $__LIST__ = $banner;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ban): $mod = ($i % 2 );++$i;?>
                 <a <?php if($ban['ba_url'] != null): ?>href="<?php echo $ban['ba_url']; ?>" target="_blank"<?php endif; ?> class="swiper-slide">
                     <img style="width: 100%;height: 490px" src="<?php echo $ban['ba_img']; ?>" alt="<?php echo $ban['ba_img']; ?>"/>

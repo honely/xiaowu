@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\index.html";i:1540972982;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1538205562;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1538103965;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\index.html";i:1541150833;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1541150384;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1541150753;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +9,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
     <link rel="stylesheet" href="__WAP__/css/icons-extra.css">
+    <link rel="stylesheet" href="__WAP__/css/style.css">
 </head>
 <body style="background:#fff;width:100%">
 <header class="mui-bar mui-bar-nav">
@@ -34,6 +35,62 @@
         </div>
     </div>
 </div>
+<nav class="swiper-container3 navbox">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide nav-show">
+            <a href="<?=url('index/design')?>">
+                <span class="nav_tu" style="background-image:url('__WEB__/img/week01.jpg')"></span>
+                量房设计
+            </a>
+            <i class="hot">火热</i>
+        </div>
+        <div class="swiper-slide nav-show">
+            <a href="<?=url('index/product')?>">
+                <span class="nav_tu" style="background-image:url('__WEB__/img/week01.jpg')"></span>
+                整装产品
+            </a>
+        </div>
+        <div class="swiper-slide nav-show">
+            <a href="<?=url('index/loans')?>">
+                <span class="nav_tu" style="background-image:url('__WEB__/img/week01.jpg')"></span>
+                装修贷款
+            </a>
+
+        </div>
+        <div class="swiper-slide nav-show">
+            <a href="<?=url('index/quote')?>">
+                <span class="nav_tu" style="background-image:url('__WEB__/img/week01.jpg')"></span>
+                装修报价
+            </a>
+        </div>
+        <div class="swiper-slide nav-show">
+            <a href="<?=url('index/index')?>">
+                <span class="nav_tu" style="background-image:url('__WEB__/img/week01.jpg')"></span>
+                最新优惠
+            </a>
+        </div>
+        <div class="swiper-slide nav-show">
+            <a href="<?=url('index/drops')?>">
+                <span class="nav_tu" style="background-image:url('__WEB__/img/week01.jpg')"></span>
+                滴滴接驾
+            </a>
+        </div>
+        <div class="swiper-slide nav-show">
+            <a href="tel:400-029-1986">
+                <span class="nav_tu" style="background-image:url('__WEB__/img/week01.jpg')"></span>
+                电话咨询
+            </a>
+        </div>
+        <div class="swiper-slide nav-show">
+            <a href="<?=url('index/stores_nav')?>">
+                <span class="nav_tu" style="background-image:url('__WEB__/img/week01.jpg')"></span>
+                门店导航
+            </a>
+        </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination nav-dot"></div>
+</nav>
 <div class="mui-content" style="padding-top: 0px;background:#fff;">
     <div class="mui-card">
         <div class="mui-card-content">

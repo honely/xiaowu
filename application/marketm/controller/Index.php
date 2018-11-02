@@ -66,6 +66,7 @@ class Index extends Controller{
             ->where($where)
             ->where(['h_admin' => $u_id])
             ->order('h_addtime desc')
+            ->limit(8)
             ->select();
         $count=Db::table('dcxw_house')
             ->where($where)
@@ -108,7 +109,7 @@ class Index extends Controller{
         }else{
             $page=1;
         }
-        $limit=2;
+        $limit=8;
         $houses=Db::table('dcxw_house')
             ->where($where)
             ->limit(($page-1)*$limit,$limit)

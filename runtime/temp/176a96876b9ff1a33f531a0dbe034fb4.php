@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\index.html";i:1540881185;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\index.html";i:1541135820;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -23,7 +23,7 @@
         </span>
     </div>
 </div>
-<div class="mui-content" style="padding-top: 40px;">
+<div class="mui-content" id="getMore" style="padding-top: 40px;">
     <?php if($houses == null): ?>
     <div class="mui-card">
         <div class="mui-card-content" style="height: 40px;text-align: center;line-height: 36px;">
@@ -43,10 +43,6 @@
                     <span style="float: right;">装修阶段：<span style="margin-left: 8px;" class="mui-badge mui-badge-purple"><?php echo $hous['hd_status']; ?></span></span>
                 </p>
                 <p style="color: #333;">
-                    <!--房源标题：<?php echo $hous['h_name']; ?>-->
-                    <!--&lt;!&ndash;<br/>&ndash;&gt;-->
-                    <!--小区名称：<?php echo $hous['h_building']; ?>-->
-                    <!--<br/>-->
                     <?php if($hous['is_paid_ratio'] == 1): ?>
                     装修款额：<?php echo $hous['h_money']; ?>（元）
                     <br/>
@@ -72,6 +68,10 @@
     </div>
     <?php endforeach; endif; else: echo "" ;endif; endif; ?>
 </div>
+<div class="mui-card">
+    <input type="hidden" value="1" id="page"/>
+    <div id="moreBtn" class="mui-btn" style="text-align: center;width: 100%;<?php if($count > 8): ?>display: block<?php else: ?>display: none<?php endif; ?>">加载更多</div>
+</div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>
 <script>
@@ -84,6 +84,64 @@
         var keywords=$('#keywords').val();
         location.href="<?=url('index/index')?>?&keywords="+keywords;
     }
+</script>
+<script>
+    $('#moreBtn').click(function () {
+        var keywords=$('#keywords').val();
+        var page=parseInt($('#page').val());
+        var  pages=page+1;
+        $('#page').val(pages);
+        $.ajax({
+            'type':"post",
+            'url':"<?=url('index/housemore')?>",
+            'data':{'page':pages,'keywords':keywords},
+            'success':function (result) {
+                var data=result.data;
+                console.log(data);
+                if(data.length<=0){
+                    $('#moreBtn').html('到底了哦！');
+                }else{
+                    var html="";
+                    for (var i=0;i<data.length;i++) {
+                        html+='<div class="mui-card">' +
+                            '        <div class="mui-card-content">' +
+                            '            <div class="mui-card-content-inner">' +
+                            '                <p><b>房源编号：【'+data[i].h_b_id+'】</b>';
+                        if(data[i].is_paid_ratio == 1){
+                            html+='<span style="float: right;">回款率：<span style="margin-left: 8px;" class="mui-badge mui-badge-success">'+data[i].paid_ratio+'</span></span>';
+                        }
+                        html+='                </p>' +
+                            '                <p><b>小区名称</b>：【'+data[i].h_building+'】' +
+                            '                    <span style="float: right;">装修状态：<span style="margin-left: 8px;" class="mui-badge mui-badge-purple">'+data[i].hd_status+'</span></span>' +
+                            '                </p>'+
+                            '                <p style="color: #333;">' ;
+                        if(data[i].is_paid_ratio = 1){
+                            html+='装修款额：'+data[i].h_money+'（元）<br/>';
+                        }
+                        html+='房屋面积：'+data[i].h_area+'（㎡）<br/>';
+                        if(data[i].h_contract_code != null){
+                            html+='合同编号：'+data[i].h_contract_code+'<br/>';
+                        }
+                        html+=' 签订日期：'+data[i].h_addtime+'<br/>'+
+                            '                    房源地址：<?php echo $hous['h_address']; ?>' +
+                            '                    <br/>' +
+                            '                </p>' +
+                            '            </div>' +
+                            '        </div>' +
+                            '<div class="mui-card-footer">\n' +
+                            '            <a class="mui-card-link" href="<?=url('index/details')?>?h_id='+data[i].h_b_id+'">房源详情</a>\n' +
+                            '            <a class="mui-card-link" href="<?=url('index/timeline')?>?h_id='+data[i].h_b_id+'">装修进度</a>\n' +
+                            '            <a class="mui-card-link" href="<?=url('index/dailylog')?>?h_id='+data[i].h_b_id+'">监理记录</a>\n' +
+                            '        </div></div>';
+                    }
+                }
+                $('#getMore').append(html);
+            },
+            'error':function (error) {
+                console.log(error);
+            }
+        })
+    })
 </script>
 </body>
 

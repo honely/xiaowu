@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\about.html";i:1540804284;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1538205562;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1538103965;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\about.html";i:1541150833;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1541150384;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1541150753;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +9,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
     <link rel="stylesheet" href="__WAP__/css/icons-extra.css">
+    <link rel="stylesheet" href="__WAP__/css/style.css">
 </head>
 <body style="background:#fff;width:100%">
 <header class="mui-bar mui-bar-nav">
@@ -68,8 +69,8 @@
     </div>
 </div>
 <div class="mui-content" style="margin-bottom: 8px;background:#fff;padding-top: 0px;">
-    <span class="mui-btn mui-btn-primary" style="width: 48%;height: 36px;margin-left: 5px;"><a style="color:#fff" href="tel:18291435205">房屋托管</a></span>
-    <span class="mui-btn mui-btn-primary" style="width: 48%;height: 36px"><a style="color:#fff" href="tel:17792870379">公寓租赁</a></span>
+    <span class="mui-btn mui-btn-warning" style="width: 48%;height: 36px;margin-left: 5px;"><a style="color:#fff" href="tel:18291435205">房屋托管</a></span>
+    <span class="mui-btn mui-btn-warning" style="width: 48%;height: 36px"><a style="color:#fff" href="tel:17792870379">公寓租赁</a></span>
 </div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>

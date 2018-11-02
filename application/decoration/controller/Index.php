@@ -33,9 +33,14 @@ class Index extends Controller{
             ->join('dcxw_house_decorate','dcxw_house.h_b_id = dcxw_house_decorate.hd_house_code')
             ->where(['h_isable' => 2])
             ->where($where)
+            ->limit(8)
             ->order('h_addtime desc')
             ->select();
-//        dump($houses);
+        $count=Db::table('dcxw_house')
+            ->join('dcxw_house_decorate','dcxw_house.h_b_id = dcxw_house_decorate.hd_house_code')
+            ->where(['h_isable' => 2])
+            ->where($where)->count();
+        $this->assign('count',$count);
         $connomModel=new \app\marketm\controller\Common();
         if($houses){
             foreach($houses as $k =>$v){
@@ -56,6 +61,62 @@ class Index extends Controller{
         $this->assign('houses',$houses);
         return $this->fetch();
     }
+
+    /*
+     * 房源加载更多
+     * **/
+
+    public function housemore(){
+        $where='h_isable = 2';
+        if($_POST){
+            $page=intval(trim($_POST['page']));
+            $keywords=trim($_POST['keywords']);
+            $where.=" and ( h_name like '%".$keywords."%' or h_building like '%".$keywords."%' or h_address like '%".$keywords."%'  or h_description like '%".$keywords."%' )";
+        }else{
+            $page=1;
+        }
+        $limit=8;
+        $houses=Db::table('dcxw_house')
+            ->join('dcxw_house_decorate','dcxw_house.h_b_id = dcxw_house_decorate.hd_house_code')
+            ->where(['h_isable' => 2])
+            ->where($where)
+            ->limit(($page-1)*$limit,$limit)
+            ->order('h_addtime desc')
+            ->select();
+        $connomModel=new \app\marketm\controller\Common();
+        if($houses){
+            foreach($houses as $k =>$v){
+                $houses[$k]['hd_status']=$this->getStatus($v['hd_status']);
+                $houses[$k]['h_money']=$connomModel->getDecorateMoney($v['h_b_id']);
+                $houses[$k]['h_addtime']=date('Y年m月d日',$v['h_addtime']);
+                $payInfo=Db::table('dcxw_house_pay')->where(['hp_house_code' =>$v['h_b_id']])->column('hp_paid_ratio');
+                if($payInfo){
+                    $houses[$k]['paid_ratio']=($payInfo[0]*100)."%";
+                    $houses[$k]['is_paid_ratio']=1;
+                }else{
+                    $houses[$k]['paid_ratio']="0";
+                    $houses[$k]['is_paid_ratio']=2;
+                }
+            }
+        }
+        if($houses){
+            $this->success('更多完成','',$houses);
+        }else{
+            $this->error('更多失败','',$houses);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public function person(){
@@ -127,8 +188,12 @@ class Index extends Controller{
         $status=$decoInfo['hd_status'];
         $dailyLog=Db::table('dcxw_house_decorate_log')
             ->where(['hdl_house_code' => $h_id])
+            ->limit(12)
             ->order('hdl_addtime desc')
             ->select();
+        $count=Db::table('dcxw_house_decorate_log')
+            ->where(['hdl_house_code' => $h_id])
+            ->count();
         if($dailyLog){
             foreach($dailyLog as $k =>$v){
                 $dailyLog[$k]['hdl_img']=explode(',',$v['hdl_img'])[0];
@@ -136,10 +201,40 @@ class Index extends Controller{
 
             }
         }
+        $this->assign('count',$count);
         $this->assign('status',$status);
         $this->assign('h_id',$h_id);
         $this->assign('dailyLog',$dailyLog);
         return $this->fetch();
+    }
+
+
+
+    public function logmore(){
+        $h_id=trim($_POST['h_id']);
+        $where=' hdl_house_code = '.$h_id;
+        if($_POST){
+            $page=intval(trim($_POST['page']));
+        }else{
+            $page=1;
+        }
+        $limit=8;
+        $logs=Db::table('dcxw_house_decorate_log')
+            ->where($where)
+            ->limit(($page-1)*$limit,$limit)
+            ->order('hdl_addtime desc')
+            ->select();
+        if($logs){
+            foreach($logs as $k =>$v){
+                $logs[$k]['hdl_img']=explode(',',$v['hdl_img'])[0];
+                $logs[$k]['hdl_addtime']=date("Y-m-d H:i:s", $v['hdl_addtime']);
+            }
+        }
+        if($logs){
+            $this->success('更多完成','',$logs);
+        }else{
+            $this->error('更多失败','',$logs);
+        }
     }
 
 

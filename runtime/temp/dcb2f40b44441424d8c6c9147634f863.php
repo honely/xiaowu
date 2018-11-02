@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\dailylog.html";i:1540027947;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\dailylog.html";i:1541135671;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -17,33 +17,35 @@
     <?php if($status < 11): ?>
         <a class="mui-icon-plusempty mui-icon mui-icon-right-nav mui-pull-right" href="<?=url('index/addlog')?>?h_id=<?php echo $h_id; ?>"></a>
     <?php endif; ?>
-
 </header>
 <div class="mui-content" style="padding-top: 40px;">
     <div class="mui-card">
         <div class="mui-card-content">
-            <ul class="mui-table-view mui-table-view-chevron">
+            <ul class="mui-table-view mui-table-view-chevron" id="getMore" >
                 <?php if($dailyLog == null): ?>
                 <li class="mui-table-view-cell mui-media">
                    暂无数据！
                 </li>
                 <?php else: if(is_array($dailyLog) || $dailyLog instanceof \think\Collection || $dailyLog instanceof \think\Paginator): $i = 0; $__LIST__ = $dailyLog;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$log): $mod = ($i % 2 );++$i;?>
                         <li class="mui-table-view-cell mui-media">
-                        <a class="mui-navigate-right" href="<?=url('index/logdetails')?>?hdl_id=<?php echo $log['hdl_id']; ?>">
-                            <img class="mui-media-object mui-pull-left" src="<?php echo $log['hdl_img']; ?>">
-                            <div class="mui-media-body">
-                                <?php echo $log['hdl_addtime']; ?>
-                                <!--<span class="mui-pull-right"><?php echo $log['hdl_addtime']; ?></span>-->
-                            </div>
-                            <p class='mui-ellipsis'>
-                                <?php echo $log['hdl_title']; ?>
-                            </p>
-                        </a>
-                    </li>
+                            <a class="mui-navigate-right" href="<?=url('index/logdetails')?>?hdl_id=<?php echo $log['hdl_id']; ?>">
+                                <img class="mui-media-object mui-pull-left" src="<?php echo $log['hdl_img']; ?>">
+                                <div class="mui-media-body">
+                                    <?php echo $log['hdl_addtime']; ?>
+                                </div>
+                                <p class='mui-ellipsis'>
+                                    <?php echo $log['hdl_title']; ?>
+                                </p>
+                            </a>
+                        </li>
                     <?php endforeach; endif; else: echo "" ;endif; endif; ?>
             </ul>
         </div>
     </div>
+</div>
+<div class="mui-card">
+    <input type="hidden" value="1" id="page"/>
+    <div id="moreBtn" class="mui-btn" style="text-align: center;width: 100%;<?php if($count > 12): ?>display: block<?php else: ?>display: none<?php endif; ?>">加载更多</div>
 </div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>
@@ -51,27 +53,45 @@
     mui.init({
         swipeBack:true //启用右滑关闭功能
     });
-    //监听提交
-    $('#subBtn').click(function(){
+</script>
+<script>
+    $('#moreBtn').click(function () {
+        var page=parseInt($('#page').val());
+        var h_id=parseInt(<?php echo $h_id; ?>);
+        var  pages=page+1;
+        $('#page').val(pages);
         $.ajax({
             'type':"post",
-            'url':"<?=url('index/addpay')?>",
-            'data':$('#loginForm').serialize(),
+            'url':"<?=url('index/logmore')?>",
+            'data':{'page':pages,'h_id':h_id},
             'success':function (result) {
-                console.log(result.data);
-                if(result.code == '1'){
-                    layer.msg(result.msg, {icon: 1, time: 2000},function () {
-                        window.reload();
-                    });
+                var data=result.data;
+                console.log(data);
+                if(data.length<=0){
+                    $('#moreBtn').html('到底了哦！');
                 }else{
-                    layer.msg(result.msg, {icon: 2, time: 3000});
+                    var html="";
+                    for (var i=0;i<data.length;i++) {
+                        html+='<li class="mui-table-view-cell mui-media">' +
+                            '                            <a class="mui-navigate-right" href="<?=url('index/logdetails')?>?hdl_id='+data[i].hdl_id+'">' +
+                            '                                <img class="mui-media-object mui-pull-left" src="'+data[i].hdl_img+'">'+
+                            '                                <div class="mui-media-body">' +
+                                                                data[i].hdl_addtime+
+                            '                                </div>' +
+                            '                                <p class="mui-ellipsis">' +
+                                                              data[i].hdl_title+''+
+                            '                                </p>' +
+                            '                            </a>' +
+                            '                        </li>';
+                    }
                 }
+                $('#getMore').append(html);
             },
             'error':function (error) {
                 console.log(error);
             }
         })
-    });
+    })
 </script>
 </body>
 
