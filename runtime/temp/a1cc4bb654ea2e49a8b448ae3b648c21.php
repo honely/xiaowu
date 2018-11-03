@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\index.html";i:1541150833;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1541150384;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1541150753;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\index.html";i:1541236989;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1541226131;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1541228282;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,87 +10,176 @@
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
     <link rel="stylesheet" href="__WAP__/css/icons-extra.css">
     <link rel="stylesheet" href="__WAP__/css/style.css">
+    <link rel="stylesheet" href="__WEB__/css/swiper-3.4.2.min.css">
 </head>
 <body style="background:#fff;width:100%">
 <header class="mui-bar mui-bar-nav">
     <h1 class="mui-title">大城小屋智能公寓</h1>
-    <a class="mui-icon mui-icon-bars mui-icon-right-nav mui-pull-right" href="<?=url('index/nav')?>"></a>
+    <!--<a class="mui-icon mui-icon-bars mui-icon-right-nav mui-pull-right" href="<?=url('index/nav')?>"></a>-->
+    <a id="menu" class="mui-action-menu mui-icon mui-icon-bars mui-pull-right" href="#topPopover"></a>
 </header>
+<style>
+
+    .mui-plus .plus{
+        display: inline;
+    }
+
+    .plus{
+        display: none;
+    }
+
+    #topPopover {
+        position: absolute;
+        top: 16px;
+        right: 6px;
+    }
+    #topPopover .mui-popover-arrow {
+        left: auto;
+        right: 6px;
+    }
+    p {
+        text-indent: 22px;
+    }
+    span.mui-icon {
+        font-size: 14px;
+        color: #007aff;
+        margin-left: -15px;
+        padding-right: 10px;
+    }
+    .mui-popover {
+        height: 355px;
+    }
+</style>
+<div id="topPopover" class="mui-popover">
+    <div class="mui-popover-arrow"></div>
+    <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+            <ul class="mui-table-view">
+                <li class="mui-table-view-cell">
+                    <a href="<?=url('index/deposit')?>">房屋托管</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="<?=url('index/house')?>">快速找房</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="<?=url('index/promise')?>">品质承诺</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="<?=url('index/advance')?>">托管优势</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="<?=url('index/news')?>">新闻资讯</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="<?=url('index/about')?>">关于我们</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="tel:400-996-1585">联系我们</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="http://api.map.baidu.com/marker?location=34.230218,108.892857&title=陕西大城小屋不动产管理有限公司&content=陕西大城小屋不动产管理有限公司&output=html">公司地址</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
 <div class="mui-content">
-    <div id="slider" class="mui-slider" >
-        <div class="mui-slider-group mui-slider-loop">
+    <div class="swiper-container" id="swiper-container" style="height:230px;">
+        <div class="swiper-wrapper" style="height: 100%">
             <?php if(is_array($banner) || $banner instanceof \think\Collection || $banner instanceof \think\Paginator): $i = 0; $__LIST__ = $banner;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ban): $mod = ($i % 2 );++$i;?>
-            <div class="mui-slider-item">
-                <a>
-                    <img style="height: 255px;" src="<?php echo $ban['ba_img']; ?>">
-                </a>
+            <div class="swiper-slide" style="height: 100%">
+                <img src="<?php echo $ban['ba_img']; ?>" style="height: 100%" >
             </div>
             <?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
-        <div class="mui-slider-indicator">
-            <div class="mui-indicator mui-active"></div>
-            <div class="mui-indicator"></div>
-            <div class="mui-indicator"></div>
-            <div class="mui-indicator"></div>
-        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination" style="top: 12.5rem;left: 0;width: 100%"></div>
     </div>
 </div>
-<nav class="swiper-container3 navbox">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide nav-show">
-            <a href="<?=url('index/design')?>">
-                <span class="nav_tu" style="background-image:url('__WEB__/img/week01.jpg')"></span>
-                量房设计
-            </a>
-            <i class="hot">火热</i>
-        </div>
-        <div class="swiper-slide nav-show">
-            <a href="<?=url('index/product')?>">
-                <span class="nav_tu" style="background-image:url('__WEB__/img/week01.jpg')"></span>
-                整装产品
-            </a>
-        </div>
-        <div class="swiper-slide nav-show">
-            <a href="<?=url('index/loans')?>">
-                <span class="nav_tu" style="background-image:url('__WEB__/img/week01.jpg')"></span>
-                装修贷款
-            </a>
-
-        </div>
-        <div class="swiper-slide nav-show">
-            <a href="<?=url('index/quote')?>">
-                <span class="nav_tu" style="background-image:url('__WEB__/img/week01.jpg')"></span>
-                装修报价
-            </a>
-        </div>
-        <div class="swiper-slide nav-show">
-            <a href="<?=url('index/index')?>">
-                <span class="nav_tu" style="background-image:url('__WEB__/img/week01.jpg')"></span>
-                最新优惠
-            </a>
-        </div>
-        <div class="swiper-slide nav-show">
-            <a href="<?=url('index/drops')?>">
-                <span class="nav_tu" style="background-image:url('__WEB__/img/week01.jpg')"></span>
-                滴滴接驾
-            </a>
-        </div>
-        <div class="swiper-slide nav-show">
-            <a href="tel:400-029-1986">
-                <span class="nav_tu" style="background-image:url('__WEB__/img/week01.jpg')"></span>
-                电话咨询
-            </a>
-        </div>
-        <div class="swiper-slide nav-show">
-            <a href="<?=url('index/stores_nav')?>">
-                <span class="nav_tu" style="background-image:url('__WEB__/img/week01.jpg')"></span>
-                门店导航
-            </a>
-        </div>
+<style>
+    .nav_tu{
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-size: contain;
+        background-position: center;
+        margin: 0 auto;
+        box-sizing: border-box;
+        float: left;
+    }
+    .swiper-slide{
+        width: 25%;
+        float: left;
+    }
+    .swiper-slide a{
+        width: 100%;
+    }
+    .swiper-slide a span{
+        display: block;
+        width: 100%;
+        height: 55px;
+        background-size: contain;
+        background-position: center;
+        margin: 0 auto;
+        box-sizing: border-box;
+        float: left;
+    }
+    .nav_p{
+        /*text-align: center;*/
+        color: #646464;
+    }
+</style>
+<div class="" style="padding-top: 24px;overflow: hidden" >
+    <div class="swiper-slide">
+        <a href="<?=url('index/deposit')?>" >
+            <span class="nav_tu" style="background-image:url('__WEB__/img/navicon01.png');background-repeat:no-repeat;"></span>
+            <p class="nav_p">房屋托管</p>
+        </a>
     </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination nav-dot"></div>
-</nav>
+    <div class="swiper-slide">
+        <a href="<?=url('index/house')?>">
+            <span class="nav_tu" style="background-image:url('__WEB__/img/navicon02.png');background-repeat:no-repeat;"></span>
+            <p class="nav_p">快速找房</p>
+        </a>
+    </div>
+    <div class="swiper-slide">
+        <a href="<?=url('index/promise')?>">
+            <span class="nav_tu" style="background-image:url('__WEB__/img/navicon03.png');background-repeat:no-repeat;"></span>
+            <p class="nav_p">品质承诺</p>
+        </a>
+    </div>
+    <div class="swiper-slide">
+        <a href="<?=url('index/advance')?>">
+            <span class="nav_tu" style="background-image:url('__WEB__/img/navicon04.png');background-repeat:no-repeat;"></span>
+            <p class="nav_p">托管优势</p>
+        </a>
+    </div>
+    <div class="swiper-slide">
+        <a href="<?=url('index/news')?>">
+            <span class="nav_tu" style="background-image:url('__WEB__/img/navicon05.png');background-repeat:no-repeat;"></span>
+            <p class="nav_p">新闻资讯</p>
+        </a>
+    </div>
+    <div class="swiper-slide">
+        <a href="<?=url('index/about')?>">
+            <span class="nav_tu" style="background-image:url('__WEB__/img/navicon06.png');background-repeat:no-repeat;"></span>
+            <p class="nav_p">关于我们</p>
+        </a>
+    </div>
+    <div class="swiper-slide">
+        <a href="tel:400-996-1585">
+            <span class="nav_tu" style="background-image:url('__WEB__/img/navicon07.png');background-repeat:no-repeat;"></span>
+            <p class="nav_p">联系我们</p>
+        </a>
+    </div>
+    <div class="swiper-slide">
+        <a href="http://api.map.baidu.com/marker?location=34.230218,108.892857&title=陕西大城小屋不动产管理有限公司&content=陕西大城小屋不动产管理有限公司&output=html">
+            <span class="nav_tu" style="background-image:url('__WEB__/img/navicon08.png');background-repeat:no-repeat;"></span>
+            <p class="nav_p">公司地址</p>
+        </a>
+    </div>
+</div>
 <div class="mui-content" style="padding-top: 0px;background:#fff;">
     <div class="mui-card">
         <div class="mui-card-content">
@@ -203,8 +292,8 @@
     </div>
 </div>
 <div class="mui-content" style="margin-bottom: 8px;background:#fff;padding-top: 0px;">
-    <span class="mui-btn mui-btn-warning" style="width: 48%;height: 36px;margin-left: 5px;"><a style="color:#fff" href="tel:18291435205">房屋托管</a></span>
-    <span class="mui-btn mui-btn-warning" style="width: 48%;height: 36px"><a style="color:#fff" href="tel:17792870379">公寓租赁</a></span>
+    <span class="mui-btn mui-btn-warning" style="width: 46.5%;height: 36px;margin-left: 5px;"><a style="color:#fff" href="tel:18291435205">房屋托管</a></span>
+    <span class="mui-btn mui-btn-warning" style="width: 46.5%;height: 36px"><a style="color:#fff" href="tel:17792870379">公寓租赁</a></span>
 </div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>
@@ -216,6 +305,24 @@
 </body>
 
 </html>
+<script src="__WEB__/js/swiper-3.4.2.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+    mui.init({
+        swipeBack:true //启用右滑关闭功能
+    });
+    // 首页banner区
+    var swiper1 = new Swiper('#swiper-container',{
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        }
+    });
+</script>
 <script>
     function makeOrders(){
         var dp_name=$('#dp_name').val();

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html";i:1541150833;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1541150384;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1541150753;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html";i:1541236390;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1541226131;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1541228282;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,13 +10,83 @@
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
     <link rel="stylesheet" href="__WAP__/css/icons-extra.css">
     <link rel="stylesheet" href="__WAP__/css/style.css">
+    <link rel="stylesheet" href="__WEB__/css/swiper-3.4.2.min.css">
 </head>
 <body style="background:#fff;width:100%">
 <header class="mui-bar mui-bar-nav">
     <a href="<?=url('index/index')?>" class="mui-icon-back mui-icon mui-icon-left-nav mui-pull-left"></a>
     <h1 class="mui-title">房屋托管</h1>
-    <a class="mui-icon mui-icon-bars mui-icon-right-nav mui-pull-right" href="<?=url('index/nav')?>"></a>
+    <a id="menu" class="mui-action-menu mui-icon mui-icon-bars mui-pull-right" href="#topPopover"></a>
 </header>
+<style>
+
+    .mui-plus .plus{
+        display: inline;
+    }
+
+    .plus{
+        display: none;
+    }
+
+    #topPopover {
+       position: absolute;
+        top: 16px;
+        right: 6px;
+    }
+    #topPopover .mui-popover-arrow {
+        left: auto;
+        right: 6px;
+    }
+    p {
+        text-indent: 22px;
+    }
+    span.mui-icon {
+        font-size: 14px;
+        color: #007aff;
+        margin-left: -15px;
+        padding-right: 10px;
+    }
+    .mui-popover {
+        height: 355px;
+    }
+    .mui-content {
+        padding: 10px;
+    }
+</style>
+<div id="topPopover" class="mui-popover">
+    <div class="mui-popover-arrow"></div>
+    <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+            <ul class="mui-table-view">
+                <li class="mui-table-view-cell">
+                    <a href="<?=url('index/index')?>">网站首页</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="<?=url('index/house')?>">快速找房</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="<?=url('index/promise')?>">品质承诺</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="<?=url('index/advance')?>">托管优势</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="<?=url('index/news')?>">新闻资讯</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="<?=url('index/about')?>">关于我们</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="tel:400-996-1585">联系我们</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="http://api.map.baidu.com/marker?location=34.230218,108.892857&title=陕西大城小屋不动产管理有限公司&content=陕西大城小屋不动产管理有限公司&output=html">公司地址</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
 <div class="mui-content">
     <div class="mui-card-header mui-card-media" style="height:43vw;background-image:url(__WEB__/img/dp_banners.jpg)"></div>
 </div>
@@ -54,8 +124,8 @@
     </div>
 </div>
 <div class="mui-content" style="margin-bottom: 8px;background:#fff;padding-top: 0px;">
-    <span class="mui-btn mui-btn-warning" style="width: 48%;height: 36px;margin-left: 5px;"><a style="color:#fff" href="tel:18291435205">房屋托管</a></span>
-    <span class="mui-btn mui-btn-warning" style="width: 48%;height: 36px"><a style="color:#fff" href="tel:17792870379">公寓租赁</a></span>
+    <span class="mui-btn mui-btn-warning" style="width: 46.5%;height: 36px;margin-left: 5px;"><a style="color:#fff" href="tel:18291435205">房屋托管</a></span>
+    <span class="mui-btn mui-btn-warning" style="width: 46.5%;height: 36px"><a style="color:#fff" href="tel:17792870379">公寓租赁</a></span>
 </div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>

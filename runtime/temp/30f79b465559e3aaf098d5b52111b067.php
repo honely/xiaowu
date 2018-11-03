@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\news.html";i:1541150932;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1541150384;s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\foot.html";i:1541150867;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\news.html";i:1541236346;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1541226131;s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\foot.html";i:1541150867;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,13 +10,83 @@
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
     <link rel="stylesheet" href="__WAP__/css/icons-extra.css">
     <link rel="stylesheet" href="__WAP__/css/style.css">
+    <link rel="stylesheet" href="__WEB__/css/swiper-3.4.2.min.css">
 </head>
 <body style="background:#fff;width:100%">
 <header class="mui-bar mui-bar-nav">
     <a href="<?=url('index/index')?>" class="mui-icon-back mui-icon mui-icon-left-nav mui-pull-left"></a>
     <h1 class="mui-title">新闻资讯</h1>
-    <a class="mui-icon mui-icon-bars mui-icon-right-nav mui-pull-right" href="<?=url('index/nav')?>"></a>
+    <a id="menu" class="mui-action-menu mui-icon mui-icon-bars mui-pull-right" href="#topPopover"></a>
 </header>
+<style>
+
+    .mui-plus .plus{
+        display: inline;
+    }
+
+    .plus{
+        display: none;
+    }
+
+    #topPopover {
+        position: absolute;
+        top: 16px;
+        right: 6px;
+    }
+    #topPopover .mui-popover-arrow {
+        left: auto;
+        right: 6px;
+    }
+    p {
+        text-indent: 22px;
+    }
+    span.mui-icon {
+        font-size: 14px;
+        color: #007aff;
+        margin-left: -15px;
+        padding-right: 10px;
+    }
+    .mui-popover {
+        height: 355px;
+    }
+    .mui-content {
+        padding: 10px;
+    }
+</style>
+<div id="topPopover" class="mui-popover">
+    <div class="mui-popover-arrow"></div>
+    <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+            <ul class="mui-table-view">
+                <li class="mui-table-view-cell">
+                    <a href="<?=url('index/index')?>">网站首页</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="<?=url('index/deposit')?>">房屋托管</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="<?=url('index/house')?>">快速找房</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="<?=url('index/promise')?>">品质承诺</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="<?=url('index/advance')?>">托管优势</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="<?=url('index/about')?>">关于我们</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="tel:400-996-1585">联系我们</a>
+                </li>
+                <li class="mui-table-view-cell">
+                    <a href="http://api.map.baidu.com/marker?location=34.230218,108.892857&title=陕西大城小屋不动产管理有限公司&content=陕西大城小屋不动产管理有限公司&output=html">公司地址</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
 <div class="mui-content" style="background-color:#fff">
     <ul class="mui-table-view mui-grid-view" id="getMore" >
         <?php if(is_array($news) || $news instanceof \think\Collection || $news instanceof \think\Paginator): $i = 0; $__LIST__ = $news;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
@@ -30,7 +100,7 @@
     </ul>
 </div>
 <input type="hidden" value="1" id="page"/>
-<div id="moreBtn" class="mui-btn mui-btn-warning mui-btn-block mui-btn-outlined" style="text-align: center;width: 100%;<?php if($count > 2): ?>display: block<?php else: ?>display: none<?php endif; ?>">加载更多</div>
+<div id="moreBtn" class="mui-btn" style="text-align: center;width: 100%;<?php if($count > 2): ?>display: block<?php else: ?>display: none<?php endif; ?>">加载更多</div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>
 <script type="text/javascript" charset="utf-8">
