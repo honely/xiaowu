@@ -32,15 +32,13 @@
                     <input type="text" name="c_name" id="c_name" value="{$city.c_name}" lay-verify="required" required placeholder="请输入城市名称" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            {volist name="quality" id="qua"}
-                <div class="layui-form-item">
-                    <label class="layui-form-label"><span style="color: red;">*</span>{$qua.type_name}</label>
-                    <input type="hidden" class="c_q_id" name="c_q_id" value="{$qua.type_id}"/>
-                    <div class="layui-input-inline">
-                        <input type="text" style="width: 300px;" name="c_q_price" lay-verify="required" placeholder="请输入平米单价,单位：（元）" autocomplete="off" value="{$qua.price}" class="layui-input c_q_price">
-                    </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span style="color: red;">*</span>城市编码</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="c_code" id="c_code" lay-verify="required" value="{$city.c_code}" placeholder="请输入城市编码" autocomplete="off" class="layui-input">
                 </div>
-            {/volist}
+                <div class="layui-form-mid layui-word-aux" style="color: red !important;">此编码用来生成房源编号，一旦填写请勿随意修改！</div>
+            </div>
             <div class="layui-form-item">
                 <div class="layui-input-block">
                     <span class="layui-btn" id="saveInfo" >修改</span>
@@ -55,26 +53,13 @@
         // var form = layui.form,
         var     $ = layui.jquery;
         $('#saveInfo').click(function () {
-            //品质id
-            var ids = "";
-            var q_id=document.getElementsByClassName('c_q_id');
-            for(var i=0;i<q_id.length;i++){
-                ids+=q_id.item(i).value;
-                ids+=",";
-            }
-            //品质单价
-            var prices = "";
-            var price=document.getElementsByClassName('c_q_price');
-            for(var i=0;i<price.length;i++){
-                prices+=price.item(i).value;
-                prices+=",";
-            }
             var p_id=$('#p_id').val();
             var c_name=$('#c_name').val();
+            var c_code=$('#c_code').val();
             $.ajax({
                 type: 'POST',
                 url: "<?=url('regin/editcity')?>?c_id={$city.c_id}",
-                data: {ids:ids,prices:prices,p_id:p_id,c_name:c_name},
+                data: {p_id:p_id,c_name:c_name,c_code:c_code},
                 dataType:  'json',
                 success: function(data){
                     console.log(data);

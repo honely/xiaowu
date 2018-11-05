@@ -5119,3 +5119,865 @@
 [ info ] [ PARAM ] array (
 )
 [ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-03T17:33:01+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/index.html
+[ info ] www.bbb.com/admin/index/index.html [运行时间：0.094005s][吞吐率：10.64req/s] [内存消耗：2,288.02kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=mecls4qggtlvjlfvsv10jleulp',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ G:\xampp\htdocs\bbb\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\index\index.html [ array (
+  0 => 'branchWeb',
+  1 => 'admin',
+  2 => 'menuList',
+  3 => 'siteName',
+  4 => 'ad_role',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_admin` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_admin` `admin` INNER JOIN `dcxw_role` `role` ON `admin`.`ad_role`=`role`.`r_id` WHERE  `admin`.`ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_menu` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 22 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 23 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 60 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 61 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 62 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 29 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 30 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 42 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 43 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 44 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 31 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 83 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 108 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 109 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 110 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 10 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 11 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 114 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 115 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 116 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 87 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 119 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 120 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 121 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 122 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 123 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 124 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 21 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 128 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 129 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 130 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 70 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 71 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 72 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 4 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 76 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 77 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 78 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 136 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 137 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 140 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 139 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 141 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 142 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 143 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 144 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 145 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 146 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 147 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 148 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 149 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 150 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 151 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 152 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 153 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 154 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 155 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_admin` INNER JOIN `dcxw_role` `dcxw_role` ON `dcxw_admin`.`ad_role`=`dcxw_role`.`r_id` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_branch` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT `b_prex` FROM `dcxw_branch` WHERE  `b_id` = 22 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_setinfo` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `s_value` FROM `dcxw_setinfo` WHERE  `s_key` = 'webname' [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-03T17:33:01+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/welcome.html
+[ info ] www.bbb.com/admin/index/welcome.html [运行时间：0.022001s][吞吐率：45.45req/s] [内存消耗：1,475.95kb] [文件加载：46]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=mecls4qggtlvjlfvsv10jleulp',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->welcome[ G:\xampp\htdocs\bbb\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\index\welcome.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-03T17:33:07+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/index.html
+[ info ] www.bbb.com/admin/index/index.html [运行时间：0.098006s][吞吐率：10.20req/s] [内存消耗：2,288.45kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=mecls4qggtlvjlfvsv10jleulp',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ G:\xampp\htdocs\bbb\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\index\index.html [ array (
+  0 => 'branchWeb',
+  1 => 'admin',
+  2 => 'menuList',
+  3 => 'siteName',
+  4 => 'ad_role',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_admin` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_admin` `admin` INNER JOIN `dcxw_role` `role` ON `admin`.`ad_role`=`role`.`r_id` WHERE  `admin`.`ad_id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_menu` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 22 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 23 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 60 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 61 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 62 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 29 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 30 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 42 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 43 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 44 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 31 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 83 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 108 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 109 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 110 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 10 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 11 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 115 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 116 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 87 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 119 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 120 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 121 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 122 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 123 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 124 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 21 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 128 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 129 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 130 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 70 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 71 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 72 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 4 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 76 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 77 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 78 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 136 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 137 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 140 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 139 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 141 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 142 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 143 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 144 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 145 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 146 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 147 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 148 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 149 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 150 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 151 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 152 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 153 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 154 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 155 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_admin` INNER JOIN `dcxw_role` `dcxw_role` ON `dcxw_admin`.`ad_role`=`dcxw_role`.`r_id` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_branch` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT `b_prex` FROM `dcxw_branch` WHERE  `b_id` = 22 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_setinfo` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `s_value` FROM `dcxw_setinfo` WHERE  `s_key` = 'webname' [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-03T17:33:07+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/welcome.html
+[ info ] www.bbb.com/admin/index/welcome.html [运行时间：0.021002s][吞吐率：47.61req/s] [内存消耗：1,475.95kb] [文件加载：46]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=mecls4qggtlvjlfvsv10jleulp',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->welcome[ G:\xampp\htdocs\bbb\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\index\welcome.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-03T17:33:08+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/setinfo/setlist.html
+[ info ] www.bbb.com/admin/setinfo/setlist.html [运行时间：0.024001s][吞吐率：41.67req/s] [内存消耗：1,634.96kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'setinfo',
+    2 => 'setlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=mecls4qggtlvjlfvsv10jleulp',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Setinfo->setlist[ G:\xampp\htdocs\bbb\application\admin\controller\Setinfo.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\setinfo\setlist.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-03T17:33:08+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/setinfo/setData/?page=1&limit=20
+[ info ] www.bbb.com/admin/setinfo/setData/?page=1&limit=20 [运行时间：0.036002s][吞吐率：27.78req/s] [内存消耗：2,239.31kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'setinfo',
+    2 => 'setData',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'referer' => 'http://www.bbb.com/admin/setinfo/setlist.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=mecls4qggtlvjlfvsv10jleulp',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '20',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Setinfo->setData[ G:\xampp\htdocs\bbb\application\admin\controller\Setinfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_setinfo` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_setinfo` LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_setinfo` WHERE  (  s_type = 0 ) ORDER BY s_id desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_admin` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `ad_id`,`ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_id`,`ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-03T17:33:09+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/admin/menu.html
+[ info ] www.bbb.com/admin/admin/menu.html [运行时间：0.073004s][吞吐率：13.70req/s] [内存消耗：2,313.63kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'menu',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=mecls4qggtlvjlfvsv10jleulp',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Admin->menu[ G:\xampp\htdocs\bbb\application\admin\controller\Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\admin\menu.html [ array (
+  0 => 'm_fid',
+  1 => 'menuList',
+  2 => 'count',
+  3 => 'page',
+  4 => 'limit',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_menu` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_menu` WHERE  (   m_fid = 0 and m_type = 1  ) LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  (   m_fid = 0 and m_type = 1  ) ORDER BY m_sort desc LIMIT 0,20 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 14  AND `m_type` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 22  AND `m_type` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 29  AND `m_type` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 31  AND `m_type` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 10  AND `m_type` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 1  AND `m_type` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 136  AND `m_type` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 144  AND `m_type` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 147  AND `m_type` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 150  AND `m_type` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 152  AND `m_type` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 154  AND `m_type` = 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-03T17:33:10+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/setinfo/typelist.html
+[ info ] www.bbb.com/admin/setinfo/typelist.html [运行时间：0.047002s][吞吐率：21.28req/s] [内存消耗：1,636.18kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'setinfo',
+    2 => 'typelist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=mecls4qggtlvjlfvsv10jleulp',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Setinfo->typeList[ G:\xampp\htdocs\bbb\application\admin\controller\Setinfo.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\setinfo\typelist.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-03T17:33:10+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/setinfo/userTip/?page=1&limit=20
+[ info ] www.bbb.com/admin/setinfo/userTip/?page=1&limit=20 [运行时间：0.037002s][吞吐率：27.03req/s] [内存消耗：2,249.18kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'setinfo',
+    2 => 'userTip',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'referer' => 'http://www.bbb.com/admin/setinfo/typelist.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=mecls4qggtlvjlfvsv10jleulp',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '20',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Setinfo->userTip[ G:\xampp\htdocs\bbb\application\admin\controller\Setinfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_type` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_type` WHERE  `type_sort` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_type` WHERE  `type_sort` = 1 ORDER BY type_isable asc,type_order desc [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_admin` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `ad_id`,`ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_id`,`ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `ad_id`,`ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_id`,`ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_id`,`ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `ad_id`,`ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-03T17:33:10+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/district/district.html
+[ info ] www.bbb.com/admin/district/district.html [运行时间：0.057003s][吞吐率：17.54req/s] [内存消耗：2,083.88kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'district',
+    2 => 'district',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=mecls4qggtlvjlfvsv10jleulp',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\District->district[ G:\xampp\htdocs\bbb\application\admin\controller\District.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\district\district.html [ array (
+  0 => 'provInfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_province` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_province` ORDER BY p_id desc [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-03T17:33:11+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/setinfo/typelist.html
+[ info ] www.bbb.com/admin/setinfo/typelist.html [运行时间：0.048002s][吞吐率：20.83req/s] [内存消耗：1,636.18kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'setinfo',
+    2 => 'typelist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=mecls4qggtlvjlfvsv10jleulp',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Setinfo->typeList[ G:\xampp\htdocs\bbb\application\admin\controller\Setinfo.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\setinfo\typelist.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-03T17:33:11+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/setinfo/userTip/?page=1&limit=20
+[ info ] www.bbb.com/admin/setinfo/userTip/?page=1&limit=20 [运行时间：0.039002s][吞吐率：25.64req/s] [内存消耗：2,249.18kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'setinfo',
+    2 => 'userTip',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'referer' => 'http://www.bbb.com/admin/setinfo/typelist.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=mecls4qggtlvjlfvsv10jleulp',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '20',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Setinfo->userTip[ G:\xampp\htdocs\bbb\application\admin\controller\Setinfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_type` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_type` WHERE  `type_sort` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_type` WHERE  `type_sort` = 1 ORDER BY type_isable asc,type_order desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_admin` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `ad_id`,`ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_id`,`ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_id`,`ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_id`,`ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_id`,`ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_id`,`ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-11-03T17:33:11+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/admin/menu.html
+[ info ] www.bbb.com/admin/admin/menu.html [运行时间：0.080005s][吞吐率：12.50req/s] [内存消耗：2,313.63kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'menu',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=mecls4qggtlvjlfvsv10jleulp',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Admin->menu[ G:\xampp\htdocs\bbb\application\admin\controller\Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\admin\menu.html [ array (
+  0 => 'm_fid',
+  1 => 'menuList',
+  2 => 'count',
+  3 => 'page',
+  4 => 'limit',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_menu` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 0 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_menu` WHERE  (   m_fid = 0 and m_type = 1  ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  (   m_fid = 0 and m_type = 1  ) ORDER BY m_sort desc LIMIT 0,20 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 14  AND `m_type` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 22  AND `m_type` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 29  AND `m_type` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 31  AND `m_type` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 10  AND `m_type` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 1  AND `m_type` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 136  AND `m_type` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 144  AND `m_type` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 147  AND `m_type` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 150  AND `m_type` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 152  AND `m_type` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_fid` = 154  AND `m_type` = 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-11-03T17:33:13+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/index.html
+[ info ] www.bbb.com/admin/index/index.html [运行时间：0.119007s][吞吐率：8.40req/s] [内存消耗：2,288.45kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=mecls4qggtlvjlfvsv10jleulp',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ G:\xampp\htdocs\bbb\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\index\index.html [ array (
+  0 => 'branchWeb',
+  1 => 'admin',
+  2 => 'menuList',
+  3 => 'siteName',
+  4 => 'ad_role',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_admin` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_admin` `admin` INNER JOIN `dcxw_role` `role` ON `admin`.`ad_role`=`role`.`r_id` WHERE  `admin`.`ad_id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_menu` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 22 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 23 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 60 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 61 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 62 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 29 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 30 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 42 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 43 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 44 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 31 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 83 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 108 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 109 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 110 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 10 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 11 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 114 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 115 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 116 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 87 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 119 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 120 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 121 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 122 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 123 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 124 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 21 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 128 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 129 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 130 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 2 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 70 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 71 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 72 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 4 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 76 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 77 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 78 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 136 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 137 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 140 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 139 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 141 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 142 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 143 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 144 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 145 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 146 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 147 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 148 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 149 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 150 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 151 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 152 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 153 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 154 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_menu` WHERE  `m_id` = 155 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_admin` INNER JOIN `dcxw_role` `dcxw_role` ON `dcxw_admin`.`ad_role`=`dcxw_role`.`r_id` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_branch` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `b_prex` FROM `dcxw_branch` WHERE  `b_id` = 22 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_setinfo` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `s_value` FROM `dcxw_setinfo` WHERE  `s_key` = 'webname' [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-11-03T17:33:13+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/welcome.html
+[ info ] www.bbb.com/admin/index/welcome.html [运行时间：0.022001s][吞吐率：45.45req/s] [内存消耗：1,475.95kb] [文件加载：46]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=mecls4qggtlvjlfvsv10jleulp',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->welcome[ G:\xampp\htdocs\bbb\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\index\welcome.html [ array (
+) ]
+[ info ] [ LOG ] INIT File

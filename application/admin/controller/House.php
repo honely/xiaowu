@@ -92,12 +92,14 @@ class House extends Controller{
     public function add(){
         if($_POST){
             $data=$_POST;
-            $stime=strtotime(date('Y-m-d 00:00:00'));
-            $etime=strtotime(date('Y-m-d 23:59:59'));
-            //获取当日预约的数量
-            $buNum=Db::table('dcxw_house')->where('h_addtime','between',[$stime,$etime])->count();
-            //生成用户编号；
-            $data['h_b_id'] = date('Ymd').sprintf("%04d", $buNum+1);
+            $p_ids=$_POST['h_p_id'];
+            $p_id=Db::table('dcxw_province')->where(['p_id' => $p_ids])->column('p_code');
+            $c_ids=$_POST['h_c_id'];
+            $c_id=Db::table('dcxw_city')->where(['c_id' => $c_ids])->column('c_code');
+            $a_ids=$_POST['h_a_id'];
+            $a_id=Db::table('dcxw_area')->where(['area_id' => $a_ids])->column('area_code');
+            $buNum=Db::table('dcxw_house')->where(['h_c_id' => $c_ids])->count();
+            $data['h_b_id'] = $p_id[0].''.$c_id[0].''.$a_id[0].sprintf("%04d", $buNum+1);
             $data['h_addtime']=time();
             $data['h_updatetime']=time();
             $data['h_config'] =implode(',',array_keys($_POST['h_config']));

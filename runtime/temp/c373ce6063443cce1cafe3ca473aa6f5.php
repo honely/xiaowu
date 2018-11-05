@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:75:"G:\xampp\htdocs\bbb\public/../application/admin\view\district\district.html";i:1536387039;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:75:"G:\xampp\htdocs\bbb\public/../application/admin\view\district\district.html";i:1541389006;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,13 +40,15 @@
     <table lay-skin="line" class="layui-table" lay-filter="parse-table-demo" style="padding: 30px;text-align: center;border: 1px;solid-color: #28282c;text-align: left">
         <colgroup>
             <col width="500">
-            <col width="1060">
+            <col width="530">
+            <col width="530">
             <col width="160">
         </colgroup>
         <thead>
             <tr>
                 <td style="padding-left: 50px;" >编号</td>
                 <td>省份名称</td>
+                <td>省份编码</td>
                 <td >操作</td>
             </tr>
         </thead>
@@ -55,6 +57,7 @@
                 <tr>
                     <td style="padding-left: 50px;"><?php echo $prov['p_id']; ?></td>
                     <td ><?php echo $prov['p_name']; ?></td>
+                    <td ><?php echo $prov['p_code']; ?></td>
                     <td >
                     <button class="layui-btn layui-btn-xs" onclick="editProv(<?php echo $prov['p_id']; ?>)"><i class="layui-icon">&#xe642;</i>编辑</button>
                     <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delProv(<?php echo $prov['p_id']; ?>)" data-type="test2"><i class="layui-icon">&#xe640;</i>删除</button>

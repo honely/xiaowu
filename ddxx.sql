@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-10-26 16:24:01
+Date: 2018-11-05 18:02:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -80,19 +80,24 @@ CREATE TABLE `dcxw_area` (
   `area_c_id` int(10) DEFAULT NULL,
   `area_name` varchar(255) DEFAULT NULL,
   `area_isable` tinyint(2) DEFAULT NULL,
+  `area_code` varchar(20) DEFAULT NULL COMMENT '生成房源编号用的区域编码',
+  `area_addtime` int(11) DEFAULT NULL COMMENT '添加操作时间',
+  `area_admin` int(11) DEFAULT NULL COMMENT '管理员id',
   PRIMARY KEY (`area_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dcxw_area
 -- ----------------------------
-INSERT INTO `dcxw_area` VALUES ('3', '1', '3', '未央区', null);
-INSERT INTO `dcxw_area` VALUES ('4', '1', '3', '新城区', null);
-INSERT INTO `dcxw_area` VALUES ('5', '1', '3', '碑林区', null);
-INSERT INTO `dcxw_area` VALUES ('6', '1', '3', '莲湖区', null);
-INSERT INTO `dcxw_area` VALUES ('7', '1', '3', '雁塔区', null);
-INSERT INTO `dcxw_area` VALUES ('8', '1', '3', '灞桥区', null);
-INSERT INTO `dcxw_area` VALUES ('9', '1', '3', '长安区', null);
+INSERT INTO `dcxw_area` VALUES ('3', '1', '3', '未央区', null, '11', '1541389158', '1');
+INSERT INTO `dcxw_area` VALUES ('4', '1', '3', '新城区', null, '15', '1541389212', '1');
+INSERT INTO `dcxw_area` VALUES ('5', '1', '3', '碑林区', null, '10', '1541389150', '1');
+INSERT INTO `dcxw_area` VALUES ('6', '1', '3', '莲湖区', null, '14', '1541389202', '1');
+INSERT INTO `dcxw_area` VALUES ('7', '1', '3', '雁塔区', null, '16', '1541389219', '1');
+INSERT INTO `dcxw_area` VALUES ('8', '1', '3', '灞桥区', null, '13', '1541389170', '1');
+INSERT INTO `dcxw_area` VALUES ('10', '4', '55', '青羊区', null, '21', '1541389227', '1');
+INSERT INTO `dcxw_area` VALUES ('11', '1', '3', '长安区', null, '12', '1541389164', '1');
+INSERT INTO `dcxw_area` VALUES ('12', '4', '55', '武侯区', null, '55', '1541389329', '1');
 
 -- ----------------------------
 -- Table structure for `dcxw_article`
@@ -123,11 +128,11 @@ CREATE TABLE `dcxw_article` (
 -- ----------------------------
 -- Records of dcxw_article
 -- ----------------------------
-INSERT INTO `dcxw_article` VALUES ('97', '201809140001', '0', '0', '0', '房租优势,', '房租优势', '大城小屋用心走访房屋周边，通过数据对比，直击租房底价。让租价大众化、亲民化，力争给想要租房的你一个温馨、合适、放心、安全的居住之所。', '1', '/uploads/article/20181009/d88884bd8a84742d7eeb91731ad2f395.jpg', '123', '<p><img src=\"/uploads/20180921/2efc5ba3cac54db51c7fcb906be4e052.jpg\" alt=\"undefined\"/></p><p style=\"text-align: right; \">&nbsp; <span style=\"text-align: right;\">陕西大城小屋不动产管理有限公司</span></p>', '1536888470', '1539224941', '119', '1', '1', '1');
-INSERT INTO `dcxw_article` VALUES ('98', '201809140002', null, null, null, '装修风格', '装修风格', '自定义多种生活场景，前期通过装修（硬装）定性整体造型，后期软装饰品进场确定风格特点，多个设备的控制，从此告别繁琐传感联动控制用户自由组合设备联动构建属于自己的个性化生活方式。', '5', '/uploads/article/20181009/0ab593d2a9824f93d8f6ef02ffd8786e.jpg', '123', '<p class=\"MsoNormal\"><br/></p><p><br/></p><p><br/></p><p><br/></p><p style=\"text-align: center;\">北欧风格的优点在于兼顾不同人士对家居的审美追求</p><p style=\"text-align: center;\">其人性化的设计、周全的思想、无微不至的理念</p><p style=\"text-align: center;\">将整体家居舒适性和便捷性展现的淋漓尽致</p><p style=\"text-align: center;\"><img src=\"/uploads/20180921/34063de391a444aae50c604d3e84b91e.jpg\" alt=\"undefined\"/><br/></p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\">在这个生活水准越来越高的时代</p><p style=\"text-align: center;\">北欧式的装修更是迎合了当下人们对于艺术的追捧</p><p style=\"text-align: center;\">不但具现出室内古朴典雅和简洁明快</p><p style=\"text-align: center;\">同时也调和了世界前沿的时尚文化。</p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\"><img src=\"/uploads/20180921/a328059755801f39a4637d961989fb04.png\" alt=\"undefined\"/><br/></p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\">高端后现代风格囊括了软装搭配、家具设计、空间布局等多个方面</p><p style=\"text-align: center;\">北欧现代风格在注重生活品位的同时还注重健康时尚</p><p style=\"text-align: center;\">注重合理节约科学消费</p><p style=\"text-align: center;\">以简洁时尚的视觉效果营造出时尚前卫的感觉。</p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\"><img src=\"/uploads/20180921/afa8af3f667558bacb0acaff98caec10.jpg\" alt=\"undefined\"/><br/></p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\">中端后现代风格是注重人与自然、社会、与环境的有机的科学的结合</p><p style=\"text-align: center;\">它的身上集中体现了绿色设计、环保设计、可持续发展设计的理念</p><p style=\"text-align: center;\">它显示了对手工艺传统和天然材料的尊重与偏爱，它在形式上更为柔和与有机。</p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: right;\">陕西大城小屋不动产管理有限公司</p>', '1536888692', '1539051385', '61', '1', '2', '1');
-INSERT INTO `dcxw_article` VALUES ('99', '201809140003', null, null, null, '企业优势', '企业优势', '大城小屋拥有完善的部门配备、精良的基础设施、以及领先同业的运营理念，成熟的公司管理机制使得各部门能明确自身的职责范围，也能有效提高各部门的沟通意识，公司拥有雄厚的实力和开阔的眼界以及娴熟的业务开展，让客户能享受到更尽心、更优质、更效率的品质服务体验。', '3', '/uploads/article/20181009/4a1b1fcd847ac4a694693b4e3aaf1d71.jpg', '123', '<p class=\"MsoNormal\"><img src=\"/uploads/20180921/bd5ab60f18fe790ff020538567988566.jpg\" alt=\"undefined\"/><br/></p><p>陕西大城小屋不动产管理有限公司</p>', '1536889696', '1539051372', '60', '1', '2', '1');
-INSERT INTO `dcxw_article` VALUES ('100', '201809140004', null, null, null, '新闻摘录', '小屋快讯', '八九十月的装修旺季还在持续，我们在购房装修的时候也一定得擦亮眼睛，服务和质量永远是第一位，不能听信商家鼓唇弄舌去打折送奖就进行交易，这其实真的就因小失大了，我们得对自身、对家人的身心健康负责，对自己的辛苦所赚负责', '4', '/uploads/article/20181009/845f8910bf276fcacd5df4201260a5be.jpg', '123', '<p class=\"MsoNormal\" style=\"text-align: left;\">选自北方网</p><p class=\"MsoNormal\" style=\"text-align: center;\"><br/></p><p class=\"MsoNormal\" style=\"text-align: center;\">租房买房装修——论大城小屋不动产公司的利民模式</p><p class=\"MsoNormal\" style=\"text-align: center;\"><br/></p><p class=\"MsoNormal\" style=\"text-align: center;\"><img src=\"/uploads/20180921/9e7d0f262602b58ca73758097617aa68.png\" alt=\"undefined\"/><br/></p><p class=\"MsoNormal\" style=\"text-align: center;\"><br/></p><p class=\"MsoNormal\" style=\"text-align: center;\"><br/></p><p>陕西大城小屋不动产管理有限公司</p>', '1536889746', '1539051359', '44', '1', '2', '1');
-INSERT INTO `dcxw_article` VALUES ('101', '201809140005', null, null, null, '团体活动', '精彩瞬间', '大城小屋“擎域而搏 革故鼎新”的企业文化在团建时已经慢慢植入，\r\n\r\n在领航同业的基础下，不断拼搏进取，不断摒除陈旧，\r\n\r\n以更好的开拓创新。公司以昂扬的斗志和百折不挠的气魄，\r\n\r\n铸就屹立房屋回租服务行业前沿的豪情！', '2', '/uploads/article/20181009/4a140e419d6ad9ea6e0349253521a2bb.jpg', '123', '<p style=\"text-align: center;\"><img src=\"/uploads/20180921/5d33b9d16485c3b0b98f8f08b4e58c0d.jpg\" alt=\"undefined\"/><br/></p><p style=\"text-align: center;\">有人说</p><p style=\"text-align: center;\"><strong>采菊东篱下，悠然见南山</strong></p><p style=\"text-align: center;\">也有人说</p><p style=\"text-align: center;\"><strong>鱼鸟亲人濠濮想，桂山留客楚骚辞</strong></p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\">还有人直接说</p><p style=\"text-align: center;\"><strong>大城小屋团建活动</strong></p><p style=\"text-align: center;\"><strong>赞！赞！赞！</strong></p><p style=\"text-align: center;\">&nbsp;</p><p style=\"text-align: center;\">真是天苍苍野茫茫</p><p style=\"text-align: center;\">我们的团建不一<strong>YOUNG!~~</strong></p><p style=\"text-align: center;\">跟随小编的镜头</p><p style=\"text-align: center;\">一起回顾</p><p style=\"text-align: center;\">团建的精彩瞬间吧！</p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\"><img src=\"/uploads/20180921/e41b565ce3f4084ed857ede76006f400.jpg\" alt=\"undefined\"/><br/></p><p style=\"text-align: center;\"><br/></p><section><section><section><p style=\"text-align: center;\">淅淅沥沥，秋雨绵绵</p><p style=\"text-align: center;\"><strong>大城小屋团建热情不减</strong></p><p style=\"text-align: center;\">&nbsp;来小编带你看看周边的美</p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\"><img src=\"/uploads/20180921/51313659317968d51b3b4b0f41634c13.jpg\" alt=\"undefined\"/><br/></p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">大城小屋“擎域而搏&nbsp;革故鼎新”的</span><span style=\"text-align: justify;\">企业文化在团建时已经慢慢植入，</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">在领航同业的基础下，不断拼搏进取，不断摒除陈旧，</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">以更好的开拓创新。公司以昂扬的斗志和百折不挠的气魄，</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">铸就屹立房屋回租服务行业前沿的豪情！</span></p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\"><img src=\"/uploads/20180921/1defd8d924fcb70787082a2e96e56d4f.jpg\" alt=\"undefined\"/><br/></p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\"><span style=\"text-align: left;\">着微风，大家开始行动起来，</span></p><p style=\"text-align: center;\"><span style=\"text-align: left;\">有的忙生火、有的忙择菜、有的忙准备食材</span></p><p style=\"text-align: center;\"><span style=\"text-align: left;\">大家忙得不亦乐乎。整个过程充满着欢声笑语</span></p><p style=\"text-align: center;\"><span style=\"text-align: left;\">随着缕缕炊烟萦绕在空中。</span></p><p style=\"text-align: center;\"><span style=\"text-align: left;\"><br/></span></p><p style=\"text-align: center;\"><span style=\"text-align: left;\"><img src=\"/uploads/20180921/d86c2a5e009c0d473083a24aced1d4c0.jpg\" alt=\"undefined\"/><br/></span></p><p style=\"text-align: center;\"><span style=\"text-align: left;\"><br/></span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">英姿飒爽，扬帆起航</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">大城小屋团队的每一个人</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">都那么的热情洋溢</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">拉起公司的旗帜，高喊自己的口号。</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\"><img src=\"/uploads/20180921/e6e8a1507abcb11020255ff979ff5d1b.jpg\" alt=\"undefined\"/><br/></span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\"><br/></span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">沉默中风雨同路，无声处惊雷起航。</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">一天的活动，累并快乐着，</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">大城小屋的全体员工不仅收获了一份难忘的回忆</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">也将彼此拉进了距离</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">使大家在未来事业发展的道路上能够更好的相互协作</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">共同努力，一起创造大城小屋更辉煌的明天。</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\"><br/></span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\"><img src=\"/uploads/20180921/b6c7bf13d53b9dcc424699549ace348b.jpg\" alt=\"undefined\"/><br/></span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\"><br/></span></p><p><br/></p></section></section></section><p style=\"text-align: right;\">陕西大城小屋不动产管理有限公司</p>', '1536889799', '1539051402', '73', '1', '2', '1');
+INSERT INTO `dcxw_article` VALUES ('97', '201809140001', '0', '0', '0', '房租优势,', '房租优势', '大城小屋用心走访房屋周边，通过数据对比，直击租房底价。让租价大众化、亲民化，力争给想要租房的你一个温馨、合适、放心、安全的居住之所。', '1', '/uploads/article/20181009/d88884bd8a84742d7eeb91731ad2f395.jpg', '123', '<p><img src=\"/uploads/20180921/2efc5ba3cac54db51c7fcb906be4e052.jpg\" alt=\"undefined\"/></p><p style=\"text-align: right; \">&nbsp; <span style=\"text-align: right;\">陕西大城小屋不动产管理有限公司</span></p>', '1536888470', '1539224941', '121', '1', '1', '1');
+INSERT INTO `dcxw_article` VALUES ('98', '201809140002', null, null, null, '装修风格', '装修风格', '自定义多种生活场景，前期通过装修（硬装）定性整体造型，后期软装饰品进场确定风格特点，多个设备的控制，从此告别繁琐传感联动控制用户自由组合设备联动构建属于自己的个性化生活方式。', '5', '/uploads/article/20181009/0ab593d2a9824f93d8f6ef02ffd8786e.jpg', '123', '<p class=\"MsoNormal\"><br/></p><p><br/></p><p><br/></p><p><br/></p><p style=\"text-align: center;\">北欧风格的优点在于兼顾不同人士对家居的审美追求</p><p style=\"text-align: center;\">其人性化的设计、周全的思想、无微不至的理念</p><p style=\"text-align: center;\">将整体家居舒适性和便捷性展现的淋漓尽致</p><p style=\"text-align: center;\"><img src=\"/uploads/20180921/34063de391a444aae50c604d3e84b91e.jpg\" alt=\"undefined\"/><br/></p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\">在这个生活水准越来越高的时代</p><p style=\"text-align: center;\">北欧式的装修更是迎合了当下人们对于艺术的追捧</p><p style=\"text-align: center;\">不但具现出室内古朴典雅和简洁明快</p><p style=\"text-align: center;\">同时也调和了世界前沿的时尚文化。</p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\"><img src=\"/uploads/20180921/a328059755801f39a4637d961989fb04.png\" alt=\"undefined\"/><br/></p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\">高端后现代风格囊括了软装搭配、家具设计、空间布局等多个方面</p><p style=\"text-align: center;\">北欧现代风格在注重生活品位的同时还注重健康时尚</p><p style=\"text-align: center;\">注重合理节约科学消费</p><p style=\"text-align: center;\">以简洁时尚的视觉效果营造出时尚前卫的感觉。</p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\"><img src=\"/uploads/20180921/afa8af3f667558bacb0acaff98caec10.jpg\" alt=\"undefined\"/><br/></p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\">中端后现代风格是注重人与自然、社会、与环境的有机的科学的结合</p><p style=\"text-align: center;\">它的身上集中体现了绿色设计、环保设计、可持续发展设计的理念</p><p style=\"text-align: center;\">它显示了对手工艺传统和天然材料的尊重与偏爱，它在形式上更为柔和与有机。</p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: right;\">陕西大城小屋不动产管理有限公司</p>', '1536888692', '1539051385', '63', '1', '2', '1');
+INSERT INTO `dcxw_article` VALUES ('99', '201809140003', null, null, null, '企业优势', '企业优势', '大城小屋拥有完善的部门配备、精良的基础设施、以及领先同业的运营理念，成熟的公司管理机制使得各部门能明确自身的职责范围，也能有效提高各部门的沟通意识，公司拥有雄厚的实力和开阔的眼界以及娴熟的业务开展，让客户能享受到更尽心、更优质、更效率的品质服务体验。', '3', '/uploads/article/20181009/4a1b1fcd847ac4a694693b4e3aaf1d71.jpg', '123', '<p class=\"MsoNormal\"><img src=\"/uploads/20180921/bd5ab60f18fe790ff020538567988566.jpg\" alt=\"undefined\"/><br/></p><p>陕西大城小屋不动产管理有限公司</p>', '1536889696', '1539051372', '61', '1', '2', '1');
+INSERT INTO `dcxw_article` VALUES ('100', '201809140004', null, null, null, '新闻摘录', '小屋快讯', '八九十月的装修旺季还在持续，我们在购房装修的时候也一定得擦亮眼睛，服务和质量永远是第一位，不能听信商家鼓唇弄舌去打折送奖就进行交易，这其实真的就因小失大了，我们得对自身、对家人的身心健康负责，对自己的辛苦所赚负责', '4', '/uploads/article/20181009/845f8910bf276fcacd5df4201260a5be.jpg', '123', '<p class=\"MsoNormal\" style=\"text-align: left;\">选自北方网</p><p class=\"MsoNormal\" style=\"text-align: center;\"><br/></p><p class=\"MsoNormal\" style=\"text-align: center;\">租房买房装修——论大城小屋不动产公司的利民模式</p><p class=\"MsoNormal\" style=\"text-align: center;\"><br/></p><p class=\"MsoNormal\" style=\"text-align: center;\"><img src=\"/uploads/20180921/9e7d0f262602b58ca73758097617aa68.png\" alt=\"undefined\"/><br/></p><p class=\"MsoNormal\" style=\"text-align: center;\"><br/></p><p class=\"MsoNormal\" style=\"text-align: center;\"><br/></p><p>陕西大城小屋不动产管理有限公司</p>', '1536889746', '1539051359', '45', '1', '2', '1');
+INSERT INTO `dcxw_article` VALUES ('101', '201809140005', null, null, null, '团体活动', '精彩瞬间', '大城小屋“擎域而搏 革故鼎新”的企业文化在团建时已经慢慢植入，\r\n\r\n在领航同业的基础下，不断拼搏进取，不断摒除陈旧，\r\n\r\n以更好的开拓创新。公司以昂扬的斗志和百折不挠的气魄，\r\n\r\n铸就屹立房屋回租服务行业前沿的豪情！', '2', '/uploads/article/20181009/4a140e419d6ad9ea6e0349253521a2bb.jpg', '123', '<p style=\"text-align: center;\"><img src=\"/uploads/20180921/5d33b9d16485c3b0b98f8f08b4e58c0d.jpg\" alt=\"undefined\"/><br/></p><p style=\"text-align: center;\">有人说</p><p style=\"text-align: center;\"><strong>采菊东篱下，悠然见南山</strong></p><p style=\"text-align: center;\">也有人说</p><p style=\"text-align: center;\"><strong>鱼鸟亲人濠濮想，桂山留客楚骚辞</strong></p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\">还有人直接说</p><p style=\"text-align: center;\"><strong>大城小屋团建活动</strong></p><p style=\"text-align: center;\"><strong>赞！赞！赞！</strong></p><p style=\"text-align: center;\">&nbsp;</p><p style=\"text-align: center;\">真是天苍苍野茫茫</p><p style=\"text-align: center;\">我们的团建不一<strong>YOUNG!~~</strong></p><p style=\"text-align: center;\">跟随小编的镜头</p><p style=\"text-align: center;\">一起回顾</p><p style=\"text-align: center;\">团建的精彩瞬间吧！</p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\"><img src=\"/uploads/20180921/e41b565ce3f4084ed857ede76006f400.jpg\" alt=\"undefined\"/><br/></p><p style=\"text-align: center;\"><br/></p><section><section><section><p style=\"text-align: center;\">淅淅沥沥，秋雨绵绵</p><p style=\"text-align: center;\"><strong>大城小屋团建热情不减</strong></p><p style=\"text-align: center;\">&nbsp;来小编带你看看周边的美</p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\"><img src=\"/uploads/20180921/51313659317968d51b3b4b0f41634c13.jpg\" alt=\"undefined\"/><br/></p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">大城小屋“擎域而搏&nbsp;革故鼎新”的</span><span style=\"text-align: justify;\">企业文化在团建时已经慢慢植入，</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">在领航同业的基础下，不断拼搏进取，不断摒除陈旧，</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">以更好的开拓创新。公司以昂扬的斗志和百折不挠的气魄，</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">铸就屹立房屋回租服务行业前沿的豪情！</span></p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\"><img src=\"/uploads/20180921/1defd8d924fcb70787082a2e96e56d4f.jpg\" alt=\"undefined\"/><br/></p><p style=\"text-align: center;\"><br/></p><p style=\"text-align: center;\"><span style=\"text-align: left;\">着微风，大家开始行动起来，</span></p><p style=\"text-align: center;\"><span style=\"text-align: left;\">有的忙生火、有的忙择菜、有的忙准备食材</span></p><p style=\"text-align: center;\"><span style=\"text-align: left;\">大家忙得不亦乐乎。整个过程充满着欢声笑语</span></p><p style=\"text-align: center;\"><span style=\"text-align: left;\">随着缕缕炊烟萦绕在空中。</span></p><p style=\"text-align: center;\"><span style=\"text-align: left;\"><br/></span></p><p style=\"text-align: center;\"><span style=\"text-align: left;\"><img src=\"/uploads/20180921/d86c2a5e009c0d473083a24aced1d4c0.jpg\" alt=\"undefined\"/><br/></span></p><p style=\"text-align: center;\"><span style=\"text-align: left;\"><br/></span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">英姿飒爽，扬帆起航</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">大城小屋团队的每一个人</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">都那么的热情洋溢</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">拉起公司的旗帜，高喊自己的口号。</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\"><img src=\"/uploads/20180921/e6e8a1507abcb11020255ff979ff5d1b.jpg\" alt=\"undefined\"/><br/></span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\"><br/></span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">沉默中风雨同路，无声处惊雷起航。</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">一天的活动，累并快乐着，</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">大城小屋的全体员工不仅收获了一份难忘的回忆</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">也将彼此拉进了距离</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">使大家在未来事业发展的道路上能够更好的相互协作</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\">共同努力，一起创造大城小屋更辉煌的明天。</span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\"><br/></span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\"><img src=\"/uploads/20180921/b6c7bf13d53b9dcc424699549ace348b.jpg\" alt=\"undefined\"/><br/></span></p><p style=\"text-align: center;\"><span style=\"text-align: justify;\"><br/></span></p><p><br/></p></section></section></section><p style=\"text-align: right;\">陕西大城小屋不动产管理有限公司</p>', '1536889799', '1539051402', '76', '1', '2', '1');
 INSERT INTO `dcxw_article` VALUES ('105', '201810080001', null, null, null, 'qwe', 'qwe', 'qwe', '6', '/uploads/article/20181008/f9e57b14a8beb173e72810c10facf6ca.jpg', 'qweqwe', '<p>qwe</p>', '1538988032', '1538988032', '4', '1', '2', '1');
 
 -- ----------------------------
@@ -152,7 +157,7 @@ CREATE TABLE `dcxw_banner` (
   `ba_admin` int(10) DEFAULT NULL COMMENT '操作人，对应管理员id',
   `ba_type` tinyint(2) DEFAULT NULL COMMENT 'banner类型1 首页banner，2 文章banner',
   PRIMARY KEY (`ba_id`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=84 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=85 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of dcxw_banner
@@ -161,11 +166,12 @@ INSERT INTO `dcxw_banner` VALUES ('76', '201809070002', '123', '/uploads/banner/
 INSERT INTO `dcxw_banner` VALUES ('75', '201809070002', '123', '/uploads/banner/20180909/0d902981233dbe8117453025185e5128.jpg', '123', '1231', null, null, '1', '1536485940', null, null, '1', '2', '1', '1');
 INSERT INTO `dcxw_banner` VALUES ('77', '201809160001', '智能公寓', '/uploads/banner/20180916/0aaf642a0cd47367fe20c521733c31eb.jpg', '智能公寓', '', null, null, '1', '1538204501', null, '1', '3', '2', '1', '1');
 INSERT INTO `dcxw_banner` VALUES ('78', '201809160002', '人性化自由化', '/uploads/banner/20180916/5e18c0a72371ba7c0c1b15fe8cd465c0.jpg', '人性化自由化', '', null, null, '1', '1538204507', null, '1', '2', '1', '1', '1');
-INSERT INTO `dcxw_banner` VALUES ('79', '201809260001', '十一', '/uploads/banner/20180926/eb65d5755ab75d0670464cd46733db2d.jpg', '', '', null, null, '1', '1538204495', null, '1', '5', '1', '1', '1');
-INSERT INTO `dcxw_banner` VALUES ('80', '201809290004', '123', '/uploads/banner/20180929/ab9be33a7d317224c977c0e891dccd51.jpg', '123321', '', null, null, '1', '1538205663', null, '2', '4', '1', '1', '1');
-INSERT INTO `dcxw_banner` VALUES ('81', '201809290005', '213', '/uploads/banner/20180929/8b884490bab3c9da2886e3dd31e1bfaa.jpg', '123', '', null, null, '1', '1538205680', null, '2', '3', '1', '1', '1');
-INSERT INTO `dcxw_banner` VALUES ('82', '201809290006', '123', '/uploads/banner/20180929/30a17d4200e8226585ad8d1917adb2c7.jpg', '', '', null, null, '1', '1538206634', null, '1', '5', '1', '1', '1');
-INSERT INTO `dcxw_banner` VALUES ('83', '201809290007', '123', '/uploads/banner/20180929/4d45081f93e80e1ca3a5e6b692192972.jpg', '', '', null, null, '1', '1538206649', null, '2', '5', '1', '1', '1');
+INSERT INTO `dcxw_banner` VALUES ('79', '201809260001', '十一', '/uploads/banner/20181031/38318eac295109bda5c152ab8fe953ab.jpg', '', '', null, null, '1', '1540973496', null, '1', '5', '1', '1', '1');
+INSERT INTO `dcxw_banner` VALUES ('80', '201809290004', '123', '/uploads/banner/20181031/f123d87dffc809521f7b908d62e687a7.jpg', '123321', '', null, null, '1', '1540973459', null, '2', '4', '1', '1', '1');
+INSERT INTO `dcxw_banner` VALUES ('81', '201809290005', '213', '/uploads/banner/20181031/227e99cacb574bd29f2595453efcdf2e.jpg', '123', '', null, null, '1', '1540973472', null, '2', '3', '1', '1', '1');
+INSERT INTO `dcxw_banner` VALUES ('82', '201809290006', '123', '/uploads/banner/20181031/55fc3a078df5bc639daf32e5ddbb09ae.png', '', '', null, null, '1', '1540973484', null, '1', '5', '1', '1', '1');
+INSERT INTO `dcxw_banner` VALUES ('83', '201809290007', '123', '/uploads/banner/20181031/38f2c25d226302294cc83016964a425f.png', '', '', null, null, '1', '1540973449', null, '2', '5', '1', '1', '1');
+INSERT INTO `dcxw_banner` VALUES ('84', '201810300001', '123123', '/uploads/banner/20181030/17b536f248a25382d7e14b391714f8ed.jpg', '123', '123', null, null, '1', '1540886294', null, '1', '2', '1', '1', '1');
 
 -- ----------------------------
 -- Table structure for `dcxw_branch`
@@ -359,18 +365,17 @@ CREATE TABLE `dcxw_city` (
   `c_q_id` varchar(225) DEFAULT NULL COMMENT '装修品质，对应品质id，多个id用''，''隔开',
   `c_q_price` varchar(255) DEFAULT NULL COMMENT '品质单价，与装修id对应，多个用‘，’隔开',
   `c_opeatime` int(11) DEFAULT NULL COMMENT '操作时间',
+  `c_code` varchar(20) DEFAULT NULL COMMENT '生成房源编号用的城市编码',
   `c_admin` int(10) DEFAULT NULL COMMENT '操作人，对应管理员id',
   PRIMARY KEY (`c_id`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=58 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of dcxw_city
 -- ----------------------------
-INSERT INTO `dcxw_city` VALUES ('2', '1', '宝鸡', '36,39,40', '', null, null);
-INSERT INTO `dcxw_city` VALUES ('3', '1', '西安', '36,39,40', '', null, null);
-INSERT INTO `dcxw_city` VALUES ('4', '5', '贵阳', '36,39,40', '', null, null);
-INSERT INTO `dcxw_city` VALUES ('6', '4', '昆明', '36,39,40', '', null, null);
-INSERT INTO `dcxw_city` VALUES ('7', '6', '武汉', '36,39,40', '', null, null);
+INSERT INTO `dcxw_city` VALUES ('3', '1', '西安', '36,39,40', '', '1541389115', '10', '1');
+INSERT INTO `dcxw_city` VALUES ('56', '5', '重庆', '', '', '1541389132', '10', '1');
+INSERT INTO `dcxw_city` VALUES ('55', '4', '成都', '', '', '1541389121', '11', '1');
 
 -- ----------------------------
 -- Table structure for `dcxw_coupon`
@@ -437,11 +442,15 @@ CREATE TABLE `dcxw_department` (
   `d_f_id` int(10) DEFAULT NULL COMMENT '部门的父级部门，若为顶级部门则为零，是下级部门，则是上级部门的id',
   `d_addtime` int(11) DEFAULT NULL COMMENT '部门添加时间',
   PRIMARY KEY (`d_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='部门表';
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='部门表';
 
 -- ----------------------------
 -- Records of dcxw_department
 -- ----------------------------
+INSERT INTO `dcxw_department` VALUES ('1', '事业部', '0', '1540878084');
+INSERT INTO `dcxw_department` VALUES ('2', '工程部', '0', '1540878093');
+INSERT INTO `dcxw_department` VALUES ('3', '运营部', '0', '1540878102');
+INSERT INTO `dcxw_department` VALUES ('4', '行政部', '0', '1540878894');
 
 -- ----------------------------
 -- Table structure for `dcxw_deposit`
@@ -531,7 +540,6 @@ DROP TABLE IF EXISTS `dcxw_house`;
 CREATE TABLE `dcxw_house` (
   `h_id` int(11) NOT NULL AUTO_INCREMENT,
   `h_b_id` varchar(200) NOT NULL COMMENT '系统自动生成的房屋编号',
-  `h_contract_code` varchar(255) DEFAULT NULL COMMENT '合同编号',
   `h_p_id` int(10) DEFAULT NULL,
   `h_c_id` int(10) DEFAULT NULL,
   `h_a_id` int(11) DEFAULT NULL,
@@ -539,8 +547,7 @@ CREATE TABLE `dcxw_house` (
   `h_type` int(10) DEFAULT NULL COMMENT '房屋类型，对应type表sort=1的数据',
   `h_house_type` varchar(255) DEFAULT NULL COMMENT '房屋户型几室几 厅几卫几厨',
   `h_area` int(10) DEFAULT NULL COMMENT '房屋面积单位平方米',
-  `h_head` varchar(100) DEFAULT NULL COMMENT '房屋朝向',
-  `h_money` decimal(10,0) DEFAULT NULL COMMENT '总装修款',
+  `h_head` tinyint(2) DEFAULT NULL COMMENT '房屋朝向,1东，2南，3西，4北，5东南，6西南，7东北，8西北',
   `h_rent` decimal(10,2) DEFAULT NULL COMMENT '房屋月租金额',
   `h_rent_type` tinyint(2) DEFAULT '1' COMMENT '租金类型：1，月租；2，日租；3，季租。',
   `h_floor` varchar(100) DEFAULT NULL COMMENT '房屋楼层',
@@ -548,7 +555,6 @@ CREATE TABLE `dcxw_house` (
   `h_subway` varchar(255) DEFAULT NULL COMMENT '附近地铁',
   `h_building` varchar(255) DEFAULT NULL COMMENT '所在小区',
   `h_address` text COMMENT '房源地址',
-  `h_location` varchar(255) DEFAULT NULL COMMENT '房源坐标',
   `h_house_img` text COMMENT '房源封面图',
   `h_img` text COMMENT '房源图片多图之间用逗号‘，’隔开',
   `h_img_alt` varchar(255) DEFAULT NULL COMMENT '封面图alt',
@@ -561,17 +567,51 @@ CREATE TABLE `dcxw_house` (
   `h_config` varchar(255) DEFAULT NULL COMMENT '房源配置这存type表的id集，多个逗号隔开',
   `h_addtime` int(11) DEFAULT NULL COMMENT '房源添加时间(合同签订时间)',
   `h_updatetime` int(11) DEFAULT NULL COMMENT '更新时间',
-  `h_rent_status` tinyint(2) DEFAULT '2' COMMENT '出租状态；1，已租，2，未租',
   `h_istop` tinyint(2) DEFAULT '2' COMMENT '是否置顶：1，置顶；2，常规',
-  `h_isable` tinyint(2) DEFAULT '1' COMMENT '是否可租，1，事业部，2，工程部装修中；3,运营部配置中，4，可出租',
+  `h_isable` tinyint(2) DEFAULT '4' COMMENT '是否可租，1，事业部，2，工程部装修中；3,运营部配置中，4，可出租，5，已出租',
   `h_admin` int(10) DEFAULT NULL COMMENT '添加人员，当前登陆后台的管理员(对应客户经理)，对应admin_id',
+  `h_add_type` tinyint(2) DEFAULT NULL COMMENT '房源添加的方式（1.后台添加，2，前端添加）',
   PRIMARY KEY (`h_id`,`h_b_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=utf8 COMMENT='房源表';
+) ENGINE=MyISAM AUTO_INCREMENT=79 DEFAULT CHARSET=utf8 COMMENT='房源表';
 
 -- ----------------------------
 -- Records of dcxw_house
 -- ----------------------------
-INSERT INTO `dcxw_house` VALUES ('42', '201810230001', null, '1', '3', '3', null, null, '三室一厅一厨一卫', '125', '朝南', '129800', null, '1', null, null, null, '汇成和苑', '陕西省西安市未央区汇成和苑6号楼8单元2503', null, null, null, null, null, null, '0', null, '1', null, null, '1540277464', null, '2', '2', '3', '73');
+INSERT INTO `dcxw_house` VALUES ('44', '201810300001', '1', '3', '6', '泰华金贸国际1', null, '1212', '12', '12', '222.00', '1', null, '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '2121', '12211', '/uploads/example/20181031/79ffed569b97a1b8f787341d8a1ac2fc.jpg', 'uploads/text/20181031\\1e22650336e2bd190c1e64cce6aac012.png,uploads/text/20181031\\0e8731830f79896e59d45866486b53f1.jpg', null, null, null, '0', null, '1', null, null, '1540871262', null, '2', '2', '83', null);
+INSERT INTO `dcxw_house` VALUES ('45', '201810300002', '1', '3', '4', '泰华金贸国际2', null, '两室一厅一厨一卫', '152', '5', '222.00', '1', null, '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '枫叶新都市1', '陕西省西安市雁塔区沣惠南路枫叶新都市A座1807', '/uploads/example/20181031/79ffed569b97a1b8f787341d8a1ac2fc.jpg', null, null, null, null, '8', null, '1', null, null, '1540882460', null, '2', '2', '90', null);
+INSERT INTO `dcxw_house` VALUES ('51', '201810300002', '1', '3', '4', '泰华金贸国际3', null, '两室一厅一厨一卫', '152', '5', '222.00', '1', null, '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '枫叶新都市2', '陕西省西安市雁塔区沣惠南路枫叶新都市A座1807', '/uploads/example/20181031/79ffed569b97a1b8f787341d8a1ac2fc.jpg', null, null, null, null, '6', null, '1', null, null, '1540882460', null, '2', '2', '90', null);
+INSERT INTO `dcxw_house` VALUES ('52', '201810300002', '1', '3', '4', '泰华金贸国际4', null, '两室一厅一厨一卫', '152', '5', '222.00', '1', null, '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '枫叶新都市3', '陕西省西安市雁塔区沣惠南路枫叶新都市A座1807', '/uploads/example/20181031/79ffed569b97a1b8f787341d8a1ac2fc.jpg', null, null, null, null, '6', null, '1', null, null, '1540882460', null, '2', '2', '90', null);
+INSERT INTO `dcxw_house` VALUES ('53', '201810300002', '1', '3', '4', '泰华金贸国际5', null, '两室一厅一厨一卫', '152', '5', '222.00', '1', null, '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '枫叶新都市34', '陕西省西安市雁塔区沣惠南路枫叶新都市A座1807', '/uploads/example/20181031/79ffed569b97a1b8f787341d8a1ac2fc.jpg', null, null, null, null, '6', null, '1', null, null, '1540882460', null, '2', '2', '90', null);
+INSERT INTO `dcxw_house` VALUES ('54', '201810300002', '1', '3', '4', '泰华金贸国际6', null, '两室一厅一厨一卫', '152', '5', '222.00', '1', null, '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '枫叶新都市4', '陕西省西安市雁塔区沣惠南路枫叶新都市A座1807', '/uploads/example/20181031/79ffed569b97a1b8f787341d8a1ac2fc.jpg', null, null, null, null, '6', null, '1', null, null, '1540882460', null, '2', '2', '90', null);
+INSERT INTO `dcxw_house` VALUES ('55', '201810300002', '1', '3', '4', '泰华金贸国际7', null, '两室一厅一厨一卫', '152', '5', '222.00', '1', null, '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '枫叶新都市5', '陕西省西安市雁塔区沣惠南路枫叶新都市A座1807', '/uploads/example/20181031/79ffed569b97a1b8f787341d8a1ac2fc.jpg', null, null, null, null, '6', null, '1', null, null, '1540882460', null, '2', '2', '90', null);
+INSERT INTO `dcxw_house` VALUES ('46', '201810310003', '1', '3', '4', '泰华金贸国际8', null, '三室一厅一厨一卫', '120', '6', '222.00', '1', null, '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '汇成和苑', '陕西省西安市新城区太白南路25号', '/uploads/example/20181031/79ffed569b97a1b8f787341d8a1ac2fc.jpg', null, null, null, null, '12', null, '1', null, null, '1540949159', null, '2', '2', '90', null);
+INSERT INTO `dcxw_house` VALUES ('47', '201810310006', '1', '3', '4', '123', '91', null, '123', '123', '123.00', '1', '123', '123', '123', '123', '123', '/uploads/example/20181031/79ffed569b97a1b8f787341d8a1ac2fc.jpg', '../../../../../../uploads/text/20181031\\3d540e0138c1bf0933028312c68e91b3.jpg,../../../../../../uploads/text/20181031\\e6bbf3d8a028e3da2bfec7daf1820389.jpg', '312', '', '<p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: &quot;Microsoft Yahei&quot;, 新宋体, 宋体, Verdana; font-size: 20px; line-height: 2em; color: rgb(26, 50, 62); white-space: normal;\"><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px; color: rgb(127, 127, 127);\">这城市风太大，为生活打拼的人请驻足疲倦的步伐，回到小屋智能公寓为您一直守护的温馨之家。</span></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: &quot;Microsoft Yahei&quot;, 新宋体, 宋体, Verdana; font-size: 20px; line-height: 2em; color: rgb(26, 50, 62); white-space: normal;\"><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px; color: rgb(127, 127, 127);\">&nbsp;</span></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: &quot;Microsoft Yahei&quot;, 新宋体, 宋体, Verdana; font-size: 20px; line-height: 2em; color: rgb(26, 50, 62); white-space: normal;\"><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px; color: rgb(127, 127, 127);\">这世上没有什么比有一个惬意温暖的避风港更幸福的了，小屋智能公寓用心给我们奉献的，是周末的慵懒，是归家的舒心，是满室芬芳、窗明几净的身心感受。</span></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: &quot;Microsoft Yahei&quot;, 新宋体, 宋体, Verdana; font-size: 20px; line-height: 2em; color: rgb(26, 50, 62); white-space: normal;\"><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px;\">&nbsp;</span></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: &quot;Microsoft Yahei&quot;, 新宋体, 宋体, Verdana; font-size: 20px; line-height: 2em; color: rgb(26, 50, 62); white-space: normal;\"><strong style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;\">柔软</strong><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px;\">——</span><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px; color: rgb(127, 127, 127);\">下班飞奔回家，甩掉脚上的鞋子，扑进那柔软的大床，时间仿佛都暂停了流动。还有那沙发，打开投影，蜷缩在同样柔软的沙发里，看着那投影上的刀光剑影、爱恨别离，或悲或喜，就此沉</span><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px; color: rgb(127, 127, 127);\">沉睡去。</span></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: &quot;Microsoft Yahei&quot;, 新宋体, 宋体, Verdana; font-size: 20px; line-height: 2em; color: rgb(26, 50, 62); white-space: normal;\"><strong style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;\">布局</strong><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px;\">——</span><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px; color: rgb(127, 127, 127);\">合理的布局将空间利用到了极致，多一分便拥挤，少一分便空旷。橘色的灯光下，浪漫的气息将整个房间塞满，无论你在房间何处，那种感觉总会贯彻你的身心，这就是布局的高明之处。</span></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: &quot;Microsoft Yahei&quot;, 新宋体, 宋体, Verdana; font-size: 20px; line-height: 2em; color: rgb(26, 50, 62); white-space: normal;\"><strong style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;\">精致</strong><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px;\">——</span><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px; color: rgb(127, 127, 127);\">每样家具的精挑细选，旨让美的装修理念四处蔓延，生活从来不是狼藉的，那高雅的情调在推开门的一瞬间也叩响了心灵的窗户。淡雅的温香从各处溢出，仿佛此刻才最终融进这个灯火霓虹的城市。</span></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: &quot;Microsoft Yahei&quot;, 新宋体, 宋体, Verdana; font-size: 20px; line-height: 2em; color: rgb(26, 50, 62); white-space: normal;\"><strong style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;\">无忧</strong><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px;\">——</span><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px; color: rgb(127, 127, 127);\">家电</span><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px; color: rgb(127, 127, 127);\">的维修、家具的更换，琐事使人有成就感也使人厌烦，小屋智能公寓怎能忍心让我们平静优雅的居家生活泛起片片涟漪？全天候的服务电话，随叫随到的售后专员，干净的着装、澄澈的笑意，年轻富有活力的干练身手在你需要的时候，总会给你惊艳的感觉和舒心的感受。</span></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: &quot;Microsoft Yahei&quot;, 新宋体, 宋体, Verdana; font-size: 20px; line-height: 2em; color: rgb(26, 50, 62); white-space: normal;\"><strong style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;\">礼物</strong><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px;\">——<span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px; color: rgb(127, 127, 127);\">每个人都是父母最好的礼物，上天塑造了我们的独一无二，所以在小屋智能公寓眼中，我们也同样是其最美的礼物。小屋智能公寓怎能接受只收取而不回报呢？她精心准备的礼物总会带着浓浓的惊喜突然出现在我们面前，无论是生日、乔迁、失落、升值等等，总会把感动赋予给我们的每时每刻。</span></span></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: &quot;Microsoft Yahei&quot;, 新宋体, 宋体, Verdana; font-size: 20px; line-height: 2em; color: rgb(26, 50, 62); white-space: normal;\"><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px; color: rgb(127, 127, 127);\">&nbsp;</span></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: &quot;Microsoft Yahei&quot;, 新宋体, 宋体, Verdana; font-size: 20px; line-height: 2em; color: rgb(26, 50, 62); white-space: normal;\"><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px; color: rgb(127, 127, 127);\">小屋智能公寓总在守护着那归来的旅人，我们也定不会辜负美好，我们会将素质留在这眨眼就会过去的温暖时光里，未来忆起这种泛黄的岁月，我们将不会再有缺憾，这难道不值得我们为之骄傲吗？</span></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: &quot;Microsoft Yahei&quot;, 新宋体, 宋体, Verdana; font-size: 20px; line-height: 2em; color: rgb(26, 50, 62); white-space: normal;\"><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px; color: rgb(127, 127, 127);\">&nbsp;</span></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: &quot;Microsoft Yahei&quot;, 新宋体, 宋体, Verdana; font-size: 20px; line-height: 2em; color: rgb(26, 50, 62); white-space: normal;\"><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px; color: rgb(127, 127, 127);\">人生漫长，幸福却很短，以前、现在甚至未来，经历的一切都会在回忆里逐渐沉淀，那曾经躲在小屋智能公寓洁白羽翼下的回忆碎片也会偶然闪现在眼前：</span></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: &quot;Microsoft Yahei&quot;, 新宋体, 宋体, Verdana; font-size: 20px; line-height: 2em; color: rgb(26, 50, 62); white-space: normal;\"><strong style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;\">我们曾经住的那么舒心，我们不曾去故意破坏；</strong></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: &quot;Microsoft Yahei&quot;, 新宋体, 宋体, Verdana; font-size: 20px; line-height: 2em; color: rgb(26, 50, 62); white-space: normal;\"><strong style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;\">我们曾经住的那么惬意，我们不曾去恶意喧哗；</strong></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: &quot;Microsoft Yahei&quot;, 新宋体, 宋体, Verdana; font-size: 20px; line-height: 2em; color: rgb(26, 50, 62); white-space: normal;\"><strong style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;\">我们曾经住的那么幸福，我们不曾去刻意拖欠；</strong></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: &quot;Microsoft Yahei&quot;, 新宋体, 宋体, Verdana; font-size: 20px; line-height: 2em; color: rgb(26, 50, 62); white-space: normal;\"><strong style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;\">我们曾经住的那么温馨，我们不曾去有意脏乱；</strong></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: &quot;Microsoft Yahei&quot;, 新宋体, 宋体, Verdana; font-size: 20px; line-height: 2em; color: rgb(26, 50, 62); white-space: normal;\"><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px; color: rgb(127, 127, 127);\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;………………</span></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: &quot;Microsoft Yahei&quot;, 新宋体, 宋体, Verdana; font-size: 20px; line-height: 2em; color: rgb(26, 50, 62); white-space: normal;\"><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px; color: rgb(127, 127, 127);\">&nbsp;</span></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: &quot;Microsoft Yahei&quot;, 新宋体, 宋体, Verdana; font-size: 20px; line-height: 2em; color: rgb(26, 50, 62); white-space: normal;\"><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px; color: rgb(127, 127, 127);\">我们共同在小屋智能公寓里维护的那一片属于自己的小天地，多少年后，当我们携回忆再次经过，那一隅仍然那么干净明澈，那么宁静温馨……</span></p><p><br/></p>', '25', '1', '1', '123', '99,101', '1540968679', '1540971825', '1', '4', '1', null);
+INSERT INTO `dcxw_house` VALUES ('48', '201810310009', '1', '3', '5', ' 天润佳苑 2室1厅1卫', '92', null, '123', '0', '123.00', '1', '213', '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '天润佳苑', '123', '/uploads/example/20181031/1db15ec2fcc242128e642316bc8d499f.jpg', '../../../../../../../../../uploads/text/20181031\\b269c5e594b4bc36ee1013c6303f2ae6.jpg,../../../../../../../../../uploads/text/20181031\\fd34cea59e831f8429041dc9c3309ee7.jpg', '123', '', '<p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: \"><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px; color: rgb(127, 127, 127);\">这城市风太大，为生活打拼的人请驻足疲倦的步伐，回到小屋智能公寓为您一直守护的温馨之家。</span></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: \"><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px; color: rgb(127, 127, 127);\">&nbsp;</span></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: \"><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px; color: rgb(127, 127, 127);\">这世上没有什么比有一个惬意温暖的避风港更幸福的了，小屋智能公寓用心给我们奉献的，是周末的慵懒，是归家的舒心，是满室芬芳、窗明几净的身心感受。</span></p><p style=\"box-sizing: border-box; padding: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border: 0px; outline: 0px; vertical-align: baseline; background: rgb(255, 255, 255); font-family: \"><span style=\"box-sizing: border-box; padding: 0px; margin: 0px; -webkit-tap-highlight-color: transparent; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background: transparent; line-height: 30px; letter-spacing: 0px;\">&nbsp;</span></p><p><br/></p>', '24', '1', '1', '', '99,101,102,103,104,105,106', '1540968864', '1540971701', '1', '5', '1', '1');
+INSERT INTO `dcxw_house` VALUES ('49', '201810310004', '1', '3', '5', 'hhahah ', '92', null, '123', '123', '123.00', '1', '', '123', '123', '123', '123', '/uploads/example/20181031/82a85219c4a22379b41a7686138981bb.jpg', 'uploads/text/20181031\\93ab545cf2119f77bdf0f45d092e73a0.jpg', '', '', '<p>123231</p>', '1', '1', '1', '', '99,101', '1540973906', '1540973917', '2', '3', '1', '1');
+INSERT INTO `dcxw_house` VALUES ('50', '201810310005', '1', '3', '6', ' 天润佳苑 2室1厅1卫', '95', null, '123', '1', '123.00', '1', '', '123', '123', '123', '123', '/uploads/example/20181031/d1af0a4bcfd9b2579edf7796028886e2.jpg', 'uploads/text/20181031\\1e22650336e2bd190c1e64cce6aac012.png,uploads/text/20181031\\0e8731830f79896e59d45866486b53f1.jpg', '12', '', '<p>123</p>', '0', '1', '1', '123', '99,101', '1540974346', '1540974346', '2', '5', '1', '1');
+INSERT INTO `dcxw_house` VALUES ('56', '201810310009', '1', '3', '6', ' 天润佳苑 2室1厅1卫', '95', '三室一厅一厨一卫', '123', '1', '555.00', '1', null, '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '天润佳苑', '陕西省西安市新城区太白南路25号', '/uploads/example/20181031/d1af0a4bcfd9b2579edf7796028886e2.jpg', 'uploads/text/20181031\\1e22650336e2bd190c1e64cce6aac012.png,uploads/text/20181031\\0e8731830f79896e59d45866486b53f1.jpg', null, null, null, '0', null, '1', null, null, '1540974346', null, '2', '5', null, null);
+INSERT INTO `dcxw_house` VALUES ('57', '201810310009', '1', '3', '6', ' 天润佳苑 2室1厅1卫', '95', '三室一厅一厨一卫', '123', '1', '555.00', '1', null, '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '天润佳苑', '陕西省西安市新城区太白南路25号', '/uploads/example/20181031/d1af0a4bcfd9b2579edf7796028886e2.jpg', 'uploads/text/20181031\\1e22650336e2bd190c1e64cce6aac012.png,uploads/text/20181031\\0e8731830f79896e59d45866486b53f1.jpg', null, null, null, '0', null, '1', null, null, '1540974346', null, '2', '5', null, null);
+INSERT INTO `dcxw_house` VALUES ('58', '201810310009', '1', '3', '6', ' 天润佳苑 2室1厅1卫', '95', '三室一厅一厨一卫', '123', '1', '555.00', '1', null, '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '天润佳苑', '陕西省西安市新城区太白南路25号', '/uploads/example/20181031/d1af0a4bcfd9b2579edf7796028886e2.jpg', 'uploads/text/20181031\\1e22650336e2bd190c1e64cce6aac012.png,uploads/text/20181031\\0e8731830f79896e59d45866486b53f1.jpg', null, null, null, '0', null, '1', null, null, '1540974346', null, '2', '5', null, null);
+INSERT INTO `dcxw_house` VALUES ('59', '201810310009', '1', '3', '6', ' 天润佳苑 2室1厅1卫', '95', '三室一厅一厨一卫', '123', '1', '555.00', '1', null, '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '天润佳苑', '陕西省西安市新城区太白南路25号', '/uploads/example/20181031/d1af0a4bcfd9b2579edf7796028886e2.jpg', 'uploads/text/20181031\\1e22650336e2bd190c1e64cce6aac012.png,uploads/text/20181031\\0e8731830f79896e59d45866486b53f1.jpg', null, null, null, '0', null, '1', null, null, '1540974346', null, '2', '5', null, null);
+INSERT INTO `dcxw_house` VALUES ('60', '201810310009', '1', '3', '6', ' 天润佳苑 2室1厅1卫', '95', '三室一厅一厨一卫', '123', '1', '555.00', '1', null, '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '天润佳苑', '陕西省西安市新城区太白南路25号', '/uploads/example/20181031/d1af0a4bcfd9b2579edf7796028886e2.jpg', 'uploads/text/20181031\\1e22650336e2bd190c1e64cce6aac012.png,uploads/text/20181031\\0e8731830f79896e59d45866486b53f1.jpg', null, null, null, '0', null, '1', null, null, '1540974346', null, '2', '5', null, null);
+INSERT INTO `dcxw_house` VALUES ('61', '201810310009', '1', '3', '6', ' 天润佳苑 2室1厅1卫', '95', '三室一厅一厨一卫', '123', '1', '555.00', '1', null, '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '天润佳苑', '陕西省西安市新城区太白南路25号', '/uploads/example/20181031/d1af0a4bcfd9b2579edf7796028886e2.jpg', 'uploads/text/20181031\\1e22650336e2bd190c1e64cce6aac012.png,uploads/text/20181031\\0e8731830f79896e59d45866486b53f1.jpg', null, null, null, '0', null, '1', null, null, '1540974346', null, '2', '5', null, null);
+INSERT INTO `dcxw_house` VALUES ('62', '201810310009', '1', '3', '6', ' 天润佳苑 2室1厅1卫', '95', '三室一厅一厨一卫', '123', '1', '555.00', '1', null, '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '天润佳苑', '陕西省西安市新城区太白南路25号', '/uploads/example/20181031/d1af0a4bcfd9b2579edf7796028886e2.jpg', 'uploads/text/20181031\\1e22650336e2bd190c1e64cce6aac012.png,uploads/text/20181031\\0e8731830f79896e59d45866486b53f1.jpg', null, null, null, '0', null, '1', null, null, '1540974346', null, '2', '5', null, null);
+INSERT INTO `dcxw_house` VALUES ('63', '201810310009', '1', '3', '6', ' 天润佳苑 2室1厅1卫', '95', '三室一厅一厨一卫', '123', '1', '555.00', '1', null, '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '天润佳苑', '陕西省西安市新城区太白南路25号', '/uploads/example/20181031/d1af0a4bcfd9b2579edf7796028886e2.jpg', 'uploads/text/20181031\\1e22650336e2bd190c1e64cce6aac012.png,uploads/text/20181031\\0e8731830f79896e59d45866486b53f1.jpg', null, null, null, '0', null, '1', null, null, '1540974346', null, '2', '5', null, null);
+INSERT INTO `dcxw_house` VALUES ('64', '201810310009', '1', '3', '6', ' 天润佳苑 2室1厅1卫', '95', '三室一厅一厨一卫', '123', '1', '555.00', '1', null, '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '天润佳苑', '陕西省西安市新城区太白南路25号', '/uploads/example/20181031/d1af0a4bcfd9b2579edf7796028886e2.jpg', 'uploads/text/20181031\\1e22650336e2bd190c1e64cce6aac012.png,uploads/text/20181031\\0e8731830f79896e59d45866486b53f1.jpg', null, null, null, '0', null, '1', null, null, '1540974346', null, '2', '5', null, null);
+INSERT INTO `dcxw_house` VALUES ('65', '201810310009', '1', '3', '6', ' 天润佳苑 2室1厅1卫', '95', '三室一厅一厨一卫', '123', '1', '555.00', '1', null, '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '天润佳苑', '陕西省西安市新城区太白南路25号', '/uploads/example/20181031/d1af0a4bcfd9b2579edf7796028886e2.jpg', 'uploads/text/20181031\\1e22650336e2bd190c1e64cce6aac012.png,uploads/text/20181031\\0e8731830f79896e59d45866486b53f1.jpg', null, null, null, '0', null, '1', null, null, '1540974346', null, '2', '5', null, null);
+INSERT INTO `dcxw_house` VALUES ('66', '201810310009', '1', '3', '6', ' 天润佳苑 2室1厅1卫', '95', '三室一厅一厨一卫', '123', '1', '555.00', '1', null, '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '天润佳苑', '陕西省西安市新城区太白南路25号', '/uploads/example/20181031/d1af0a4bcfd9b2579edf7796028886e2.jpg', 'uploads/text/20181031\\1e22650336e2bd190c1e64cce6aac012.png,uploads/text/20181031\\0e8731830f79896e59d45866486b53f1.jpg', null, null, null, '0', null, '1', null, null, '1540974346', null, '2', '5', null, null);
+INSERT INTO `dcxw_house` VALUES ('67', '201810310009', '1', '3', '6', ' 天润佳苑 2室1厅1卫', '95', '三室一厅一厨一卫', '123', '1', '555.00', '1', null, '717路、723路、游10路、719路、20路、286路等', '三号线 胡家庙站', '天润佳苑', '陕西省西安市新城区太白南路25号', '/uploads/example/20181031/d1af0a4bcfd9b2579edf7796028886e2.jpg', 'uploads/text/20181031\\1e22650336e2bd190c1e64cce6aac012.png,uploads/text/20181031\\0e8731830f79896e59d45866486b53f1.jpg', null, null, null, '0', null, '1', null, null, '1540974346', null, '2', '5', null, null);
+INSERT INTO `dcxw_house` VALUES ('68', '1330025', '1', '3', '3', null, null, '123', '1123', '2', null, '1', null, null, null, '这是个测试房源编号', '陕西省西安市未央区凤城五路', null, null, null, null, null, '0', null, '1', null, null, '1541390835', null, '2', '4', '90', null);
+INSERT INTO `dcxw_house` VALUES ('69', '1010110026', '1', '3', '3', null, null, '23', '1231', '2', null, '1', null, null, null, '123', '123', null, null, null, null, null, '0', null, '1', null, null, '1541391397', null, '2', '4', '90', null);
+INSERT INTO `dcxw_house` VALUES ('70', '1111210001', '4', '55', '10', null, null, '12', '111', '6', null, '1', null, null, null, '去去去', '1233213', null, null, null, null, null, '0', null, '1', null, null, '1541394749', null, '2', '4', '90', null);
+INSERT INTO `dcxw_house` VALUES ('71', '1111210002', '4', '55', '10', null, null, '12', '111', '6', null, '1', null, null, null, '去去去', '1233213', null, null, null, null, null, '0', null, '1', null, null, '1541394750', null, '2', '4', '90', null);
+INSERT INTO `dcxw_house` VALUES ('72', '1111210003', '4', '55', '10', null, null, '123', '123', '4', null, '1', null, null, null, '123', '123', null, null, null, null, null, '0', null, '1', null, null, '1541394772', null, '2', '4', '90', null);
+INSERT INTO `dcxw_house` VALUES ('73', '1111210004', '4', '55', '10', null, null, '123', '123', '4', null, '1', null, null, null, '123', '123', null, null, null, null, null, '0', null, '1', null, null, '1541394774', null, '2', '4', '90', null);
+INSERT INTO `dcxw_house` VALUES ('74', '1111210005', '4', '55', '10', null, null, '123', '123', '4', null, '1', null, null, null, '123', '123', null, null, null, null, null, '0', null, '1', null, null, '1541394774', null, '2', '4', '90', null);
+INSERT INTO `dcxw_house` VALUES ('75', '1111210006', '4', '55', '10', null, null, '123', '123', '4', null, '1', null, null, null, '123', '123', null, null, null, null, null, '0', null, '1', null, null, '1541394774', null, '2', '4', '90', null);
+INSERT INTO `dcxw_house` VALUES ('76', '1111210007', '4', '55', '10', null, null, '123', '123', '4', null, '1', null, null, null, '123', '123', null, null, null, null, null, '0', null, '1', null, null, '1541394774', null, '2', '4', '90', null);
+INSERT INTO `dcxw_house` VALUES ('77', '1111210008', '4', '55', '10', null, null, '123', '123', '4', null, '1', null, null, null, '123', '123', null, null, null, null, null, '0', null, '1', null, null, '1541394775', null, '2', '4', '90', null);
+INSERT INTO `dcxw_house` VALUES ('78', '1111550009', '4', '55', '12', null, null, '123', '2312', '3', null, '1', null, null, null, '123', '123', null, null, null, null, null, '0', null, '1', null, null, '1541394968', null, '2', '3', '90', null);
 
 -- ----------------------------
 -- Table structure for `dcxw_house_attachment`
@@ -617,15 +657,17 @@ CREATE TABLE `dcxw_house_attachment` (
   `ha_user` int(11) DEFAULT NULL COMMENT '录入人',
   `ha_addtime` int(11) DEFAULT NULL COMMENT '添加时间',
   PRIMARY KEY (`ha_id`,`ha_house_code`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='房源附属表';
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='房源附属表';
 
 -- ----------------------------
 -- Records of dcxw_house_attachment
 -- ----------------------------
-INSERT INTO `dcxw_house_attachment` VALUES ('2', '201810160005', '钥匙', '要是备注', '12345', '5.00', '月付', '电表底数', '1.50', '月付', '12', '燃气备注', '集中供暖', '52.00', '季付', 'dcxw-0009', '/uploads/market/20181017/d11f8e0ff4f14178ec02f60d09e3706b.jpg,/uploads/market/20181017/976364b7957971bd3c9f5456196cd0f7.jpg', '234.00', '23', '1541001599', '1541001599', '门禁', '门禁备注', '电卡', '电费月付', '水卡', '水费月付一吨5块', null, null, '暂无车位', '18202023333', 'hahhahah', '暂无猫眼', '猫眼暂无有', '暂无电话', '答案是丢', '56', '1539768240');
-INSERT INTO `dcxw_house_attachment` VALUES ('3', '201810160004', '231', '', '123', '123.00', '321', '123', '123.00', '123', '123', '', '132', '312.00', '123', '3213', '\' + res.path + \'', '123.00', '123', '1540655999', '1760716799', '132', '', '123', '', '123', '', null, null, '1321', '23', '', '123', '', '312', '', '56', '1539759522');
-INSERT INTO `dcxw_house_attachment` VALUES ('4', '201810160003', '123', '', '123', '23.00', '1231', '123', '123.00', '123', '123', '', '213123', '123.00', '123', '23', '\' + res.path + \'', '123.00', '1231', '2018', '2018', '123', '', '123', '', '123', '', null, null, '132', '3211', '', '123', '', '123', '', '56', '1539758317');
-INSERT INTO `dcxw_house_attachment` VALUES ('5', '201810230001', '钥匙一把', '`werewr', 'tyu', '0.00', 'iop', 'wer', '0.00', 'rt', 'cvb', 'cvb', 'cvb', '0.00', 'cvb', 'cvb', '/uploads/market/20181023/c5735cff1e4d2989919a1960e2098b53.jpg,/uploads/market/20181023/70dd44bda80fd63cf488ed3584522e84.jpg', '0.00', 'fghgj', '1540655999', '1540483199', 'qwe', 'qwe', 'qwe', 'ert', 'ert', 'iop', null, null, 'cvb', 'cvb', 'ghjghjhgj', '', 'cvb', 'cvb', 'cvb', '73', '1540343486');
+INSERT INTO `dcxw_house_attachment` VALUES ('12', '1111210008', '123', '123', '', '0.00', '', '', '0.00', '', '', '', '', '0.00', '', '123', '/uploads/market/20181105/c1d11c8cbdc51768a2cd6b70fe6c10bb.jpg', '123.00', '123', '1542297599', '1543593599', '', '', '', '', '', '', null, null, '', '', '', '', '', '', '', '90', '1541395932');
+INSERT INTO `dcxw_house_attachment` VALUES ('11', '1111550009', '123', '123', '', '0.00', '', '', '0.00', '', '', '', '', '0.00', '', '1', '/uploads/market/20181105/f925491d1d1a8ab886333dc8beb06e89.jpg', '123.00', '123', '1543420799', '1542124799', '123', '123', '', '', '', '', null, null, '', '', '', '', '', '', '', '90', '1541395861');
+INSERT INTO `dcxw_house_attachment` VALUES ('7', '201810300001', '1', '', '1', '1.00', '1', '1', '1.00', '1', '1', '', '1', '1.00', '1', '1', '/uploads/market/20181030/1eb8ddaf8b3ea1f6731e3d126d1f130c.jpg,/uploads/market/20181030/2c668e1c297e0ceb5d441fbabefe0f0e.jpg', '1.00', '1', '1541001599', '1540915199', '1', '', '1', '', '1', '', null, null, '1', '1', '', '1', '', '1', '', '83', '1540871615');
+INSERT INTO `dcxw_house_attachment` VALUES ('8', '201810300002', '1', '1', '1', '1.00', '1', '1', '1.00', '11', '1', '1', '1', '1.00', '1', '123', '/uploads/market/20181030/e5be6bdc9ba882cb6eeef07595b2a932.jpg', '123.00', '123', '1540915199', '1730303999', '1', '1', '1', '1', '1', '1', null, null, '1', '1', '123', '1', '1', '1', '', '90', '1540890610');
+INSERT INTO `dcxw_house_attachment` VALUES ('9', '201810310001', '131', '1231', '123', '0.00', '123', '123', '0.00', '23', '123', '123', '123', '0.00', '123', 'dcxw_20181031', '/uploads/market/20181031/4a8ccea581bb574bca7727f3eae65359.jpg,/uploads/market/20181031/4e50694b807222a0bfe65a50bee31cb0.jpg', '1000.00', '3年', '1541087999', '1730390399', '123', '123', '123', '123', '123', '123', null, null, '123', '123', '123', '123', '123', '123', '123', '90', '1540956480');
+INSERT INTO `dcxw_house_attachment` VALUES ('10', '201810310003', '1231', '231', '', '0.00', '', '231', '1231.00', '', '', '', '', '0.00', '', '123', '/uploads/market/20181031/b5c7dc6a30b68d67b5edd2288455f407.jpg', '123.00', '123', '1541087999', '1538582399', '31231', '2312', '23', '23', '', '', null, null, '', '', '', '', '', '', '', '90', '1540978352');
 
 -- ----------------------------
 -- Table structure for `dcxw_house_decorate`
@@ -639,12 +681,15 @@ CREATE TABLE `dcxw_house_decorate` (
   `hd_admin` varchar(255) DEFAULT NULL COMMENT '监督责任人',
   `hd_tips` varchar(255) DEFAULT NULL COMMENT '装修备注',
   PRIMARY KEY (`hd_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='房屋转到工程部（房屋装修表）';
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='房屋转到工程部（房屋装修表）';
 
 -- ----------------------------
 -- Records of dcxw_house_decorate
 -- ----------------------------
-INSERT INTO `dcxw_house_decorate` VALUES ('9', '201810230001', '1540278684', '11', '73', '交给工程部啦！');
+INSERT INTO `dcxw_house_decorate` VALUES ('11', '201810300001', '1540871674', '11', '83', '');
+INSERT INTO `dcxw_house_decorate` VALUES ('12', '201810300002', '1540890618', '9', '90', '12312321');
+INSERT INTO `dcxw_house_decorate` VALUES ('13', '201810310001', '1540957067', '1', '90', '123213');
+INSERT INTO `dcxw_house_decorate` VALUES ('14', '1111550009', '1541396061', '11', '90', '');
 
 -- ----------------------------
 -- Table structure for `dcxw_house_decorate_log`
@@ -660,43 +705,47 @@ CREATE TABLE `dcxw_house_decorate_log` (
   `hdl_content` text COMMENT '装修内容',
   `hdl_admin` int(255) DEFAULT NULL COMMENT '日志提交人',
   PRIMARY KEY (`hdl_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COMMENT='装修日志表';
+) ENGINE=MyISAM AUTO_INCREMENT=71 DEFAULT CHARSET=utf8 COMMENT='装修日志表';
 
 -- ----------------------------
 -- Records of dcxw_house_decorate_log
 -- ----------------------------
-INSERT INTO `dcxw_house_decorate_log` VALUES ('1', null, '2018/10/19', null, '1539920486', null, '这是今天的工资日志。', null);
-INSERT INTO `dcxw_house_decorate_log` VALUES ('2', null, '123', null, '1539921169', null, '哈哈哈哈', null);
-INSERT INTO `dcxw_house_decorate_log` VALUES ('3', null, '123', '1', '1539921439', '/uploads/decorate/20181019/b7acc4f31f5c56be169467a98fe283f7.jpg,/uploads/decorate/20181019/8d3f2c8e43a0b806e17a0f831e7b1198.jpg', '是的发放', '56');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('4', '201810160005', '哈哈哈', '1', '1539921608', '/uploads/decorate/20181019/d5271e5e198f5a839ced62f98b72a24e.jpg', '咋还是添加不成功！', '56');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('5', '201810160005', '这是今天的日志标题', '1', '1539926988', '/uploads/decorate/20181019/cd6b2f5f9781e535c66e0437335b337b.jpg,/uploads/decorate/20181019/732686a16c9377e7d977f351866db51a.jpg', '哈哈哈哈，这是今天的日记，你有啥看法呢？', '56');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('6', '201810160005', '123321', '1', '1539931812', '/uploads/decorate/20181019/c47fe5cfcd678f9e09c9330b72af7eed.jpg', '', '56');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('7', '201810160005', '123123', '2', '1540006277', '/uploads/decorate/20181020/0f741a8b4cca5e0fe2886510cd55599f.jpg', '231312', '56');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('8', '201810160005', 'qweqweqwe', '2', '1540006363', '/uploads/decorate/20181020/4c935bde9a92f9df857947231223825d.jpg', 'qweqweqweqwe', '56');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('9', '201810160005', 'aaaaaaaa', '3', '1540006517', '/uploads/decorate/20181020/c70c23eeda040e27ebf5a2f09947cdb2.jpg', 'asdasdasd', '56');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('10', '201810160005', '12312312312', '4', '1540006594', '/uploads/decorate/20181020/407a699b506ef099e8f577a54b1a7c14.jpg', '123123123123', '56');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('11', '201810160005', '第三方公司的', '5', '1540006640', '/uploads/decorate/20181020/9419e87517069fed0cb2163dad28821b.jpg', '阿斯顿发水电费', '56');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('12', '201810160005', '委屈翁', '6', '1540006946', '/uploads/decorate/20181020/8a26ea3c598965ce8c600240575fc29c.jpg', '大是大非', '56');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('13', '201810160005', '这个比较正式的', '7', '1540007030', '/uploads/decorate/20181020/9faa395064b50819e41374c1161c0849.jpg', '哈哈哈哈', '56');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('14', '201810160005', 'qwe', '8', '1540019105', '/uploads/decorate/20181020/054b8590c99f27266626c2143f40ac1d.jpg', 'ewqe', '56');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('15', '201810160005', '23123', '9', '1540019153', '/uploads/decorate/20181020/34e1ec3426c61d8d4e105e435c165d74.jpg', '2312313', '56');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('16', '201810160005', '23123123', '10', '1540019921', '/uploads/decorate/20181020/c90668d631f6a2bbd4099f1a38ae76e1.jpg', 'sdasdsad', '56');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('17', '201810160005', '123', '6', '1540024870', '/uploads/decorate/20181020/a8507382ac9dbeec513ef352e2ff2786.jpg', '123123123', '56');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('18', '201810160005', '123123', '7', '1540026858', '/uploads/decorate/20181020/c8e77dabe6237f0f97279de6089ebc23.jpg', '12312313', '56');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('19', '201810160004', 'aasdfasdfsdf', '0', '1540277091', '/uploads/decorate/20181023/0f1ce1b48534de4c3b73d4c3e54a66fa.jpg', 'asdfsadfdsaf', '73');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('20', '201810160004', 'aasdfasdfsdf', '0', '1540277151', '/uploads/decorate/20181023/0f1ce1b48534de4c3b73d4c3e54a66fa.jpg', 'asdfsadfdsaf', '73');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('21', '201810160004', 'erwtert', '0', '1540277171', '/uploads/decorate/20181023/04d26bd68f543e8dbe9ff53b6c5a06da.jpg', '', '73');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('22', '201810230001', '收到同事', '1', '1540279008', '/uploads/decorate/20181023/6662fea8ef2a6bc9ab8a69dc3fa63a9e.jpg', '请问请问VB', '73');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('23', '201810230001', 'werewolf', '2', '1540279030', '/uploads/decorate/20181023/21400a3c254ead9eee569413d5ab8daa.jpg', '而委托他人吧你', '73');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('24', '201810230001', '阿斯蒂芬', '3', '1540279613', '/uploads/decorate/20181023/f6b14d44b5a44b8f775df87d9ff007da.jpg', '斯蒂芬', '73');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('25', '201810230001', '水电验收1', '4', '1540279649', '/uploads/decorate/20181023/7de0764e2f276f3120dc03fe0f71dbe9.jpg', '阿萨德', '73');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('26', '201810230001', '水电验收2', '4', '1540279675', '/uploads/decorate/20181023/6b23fafb366a616a3938e48801a96d6a.jpg', 'V型这次v', '73');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('27', '201810230001', '防水验收', '5', '1540280437', '/uploads/decorate/20181023/77ee281b11ed0a1c77a6d5ab3ea9dc84.jpg', '阿萨德', '73');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('28', '201810230001', '瓦工验收', '6', '1540280456', '/uploads/decorate/20181023/daedcf34ef67931e0a09845909ad5b84.jpg', '', '73');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('29', '201810230001', '乳胶漆验收', '7', '1540280482', '/uploads/decorate/20181023/d8a4ba19681435010a2f11a9a09920b7.jpg', '电费', '73');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('30', '201810230001', '主材验收', '8', '1540280508', '/uploads/decorate/20181023/a5f08b9e6b02dec67f67baacbbc279e0.jpg', '梵蒂冈', '73');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('31', '201810230001', '软装验收', '9', '1540280821', '/uploads/decorate/20181023/8949cfb0d1642cf33a4b8657f3a78a6d.jpg', '手动阀', '73');
-INSERT INTO `dcxw_house_decorate_log` VALUES ('32', '201810230001', '今天自检完成啦', '10', '1540281245', '/uploads/decorate/20181023/d4421da2271d97b88ee4080d6e7807f5.jpg', '阿斯顿发水电费', '73');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('35', '201810300001', '1', '1', '1540871773', '/uploads/decorate/20181030/ab2ef4e6287ac5fea2f21bd7a22b5458.jpg', '', '83');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('36', '201810300001', '1', '1', '1540871948', '/uploads/decorate/20181030/acbe9cb98293c24c1be3b78fe1aa04cf.jpg', '', '83');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('37', '201810300001', '1', '2', '1540871969', '/uploads/decorate/20181030/68330f20dd703f65d6188fba70914538.jpg', '', '83');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('38', '201810300001', '1', '3', '1540872077', '/uploads/decorate/20181030/18e7bb69971a1aaa078fd7c6711771bd.png', '', '83');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('39', '201810300001', '1', '4', '1540872099', '/uploads/decorate/20181030/34977ff395aa3a54ca2e1f20ac00bc06.jpg', '', '83');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('40', '201810300001', '1', '5', '1540872114', '/uploads/decorate/20181030/7b2d00d1208b6fc8ba5dc936aa023237.jpg', '', '83');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('41', '201810300001', '1', '6', '1540872135', '/uploads/decorate/20181030/d7a872c1117641a5365ad5078b557636.jpg', '', '83');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('42', '201810300001', '1', '7', '1540872151', '/uploads/decorate/20181030/0cd6b0b7045ba27fe5ee617ef0c15bf3.jpg', '', '83');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('43', '201810300001', '1', '8', '1540872168', '/uploads/decorate/20181030/bf9aafdb1aa6e6f67ad87bbc9ea13f4e.jpg', '', '83');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('44', '201810300001', '1', '8', '1540872189', '/uploads/decorate/20181030/84c1746acd80c46937c864ff54700731.jpg', '', '83');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('45', '201810300001', '1', '9', '1540872206', '/uploads/decorate/20181030/0c44ab76e1ae0798726c399f9b3b8123.jpg', '', '83');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('46', '201810300001', '1', '10', '1540872221', '/uploads/decorate/20181030/157456554958e637a54eb726a0743388.jpg', '', '83');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('47', '201810300001', '1', '10', '1540872250', '/uploads/decorate/20181030/4712062df6078d34044fc64deefeb8db.jpg', '', '83');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('48', '201810300001', 'fyuj', '10', '1540872336', '/uploads/decorate/20181030/e2e31dec321e498db4eb1f9a1726f1eb.jpg', 'yttyt', '83');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('49', '201810300002', '232312', '1', '1540890707', '/uploads/decorate/20181030/42b955bc58ab4da012f422682f10beeb.jpg', '123123', '90');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('50', '201810300002', '1231123', '2', '1540890728', '/uploads/decorate/20181030/d1a2775ea9912a5fb5ad6e069b32250c.jpg', '12312', '90');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('51', '201810300002', '123', '2', '1540890771', '/uploads/decorate/20181030/74b6e48efd47a4df64e71e6006961c70.jpg', '', '90');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('52', '201810300002', '123', '3', '1540890798', '/uploads/decorate/20181030/d1bd93045240f8c9be1947ef7be21a04.jpg', '', '90');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('53', '201810300002', '123', '3', '1540890909', '/uploads/decorate/20181030/5bda686c511e4a05fb57c71e0853b350.jpg', '', '90');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('54', '201810300002', '123123', '4', '1540892704', '/uploads/decorate/20181030/0a21d0cac8fcaec2246e0a734bc00136.jpg', '', '90');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('55', '201810300002', '123', '5', '1540892719', '/uploads/decorate/20181030/a8a70d5a4965cbcf7a8121d71ea16f43.jpg', '', '90');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('56', '201810300002', '123213', '6', '1541128361', '/uploads/decorate/20181102/5f13da61082ac7d332e599fc17aa7388.png', '2342134', '90');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('57', '201810300002', '234', '7', '1541128389', '/uploads/decorate/20181102/80ad7485973d3e55102e1219ae9c7cab.png', '124', '90');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('58', '201810300002', '123', '8', '1541128973', '/uploads/decorate/20181102/1f89b8c2346cfea84a194f5f5fadb4d5.jpg', '123', '90');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('59', '201810300002', 'qe', '8', '1541128990', '/uploads/decorate/20181102/6e9fab5a62e3ad06fc8863faee217d38.png', '123123', '90');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('60', '1111550009', '123', '1', '1541396130', '/uploads/decorate/20181105/e3392557a8ee6585909e9fccd8762566.jpg', '123', '106');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('61', '1111550009', '123', '2', '1541396142', '/uploads/decorate/20181105/ef1ad5219a7f146fd4371582df04ef49.jpg', '12', '106');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('62', '1111550009', '123', '3', '1541396157', '/uploads/decorate/20181105/001db48584ed65244f7da9f19443d5da.jpg', '123', '106');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('63', '1111550009', '123', '4', '1541396168', '/uploads/decorate/20181105/be48d75a2084af52836a91530dc622b7.jpg', '12123213', '106');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('64', '1111550009', '123', '4', '1541396183', '/uploads/decorate/20181105/cf2ec61a4a03f453127cb43e23731854.jpg', '', '106');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('65', '1111550009', '123', '5', '1541396196', '/uploads/decorate/20181105/33a2a5e621657afdbf0d441000314ccb.jpg', '213', '106');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('66', '1111550009', '1232', '6', '1541396211', '/uploads/decorate/20181105/d74874f865c76f2f7fae02164522ff5f.jpg', '123', '106');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('67', '1111550009', '123', '7', '1541396228', '/uploads/decorate/20181105/fe06afa843b517b09c13101cdcf09ce2.jpg', '123', '106');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('68', '1111550009', '123', '8', '1541396243', '/uploads/decorate/20181105/ce6cf5aaa24275c00eaf3bbe67dcf18d.jpg', '123', '106');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('69', '1111550009', '123', '9', '1541396260', '/uploads/decorate/20181105/1936f747cd2b8c4d1a6b1dd7a0b8db18.jpg', '12213', '106');
+INSERT INTO `dcxw_house_decorate_log` VALUES ('70', '1111550009', '322', '10', '1541396289', '/uploads/decorate/20181105/19ff88de61fb055e8fa80e55732bac67.jpg', '1323', '106');
 
 -- ----------------------------
 -- Table structure for `dcxw_house_decorate_status`
@@ -711,36 +760,43 @@ CREATE TABLE `dcxw_house_decorate_status` (
   `hds_change_tips` varchar(255) CHARACTER SET utf8 DEFAULT NULL COMMENT '变更备注',
   `hds_user_id` int(11) DEFAULT NULL COMMENT '变更人ID',
   PRIMARY KEY (`hds_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='房屋装修状态变更表1.事业部专项工程部；2工程部开始开工；3进场检查；4水电验证；5防水验收；6瓦工验收，7乳胶漆验收；8主材验收；9软装验收；10；自检;11,移交给运营部';
+) ENGINE=MyISAM AUTO_INCREMENT=68 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='房屋装修状态变更表1.事业部专项工程部；2工程部开始开工；3进场检查；4水电验证；5防水验收；6瓦工验收，7乳胶漆验收；8主材验收；9软装验收；10；自检;11,移交给运营部';
 
 -- ----------------------------
 -- Records of dcxw_house_decorate_status
 -- ----------------------------
-INSERT INTO `dcxw_house_decorate_status` VALUES ('8', '201810160005', '1', '1539920287', '1', '?有一点小??，不?不影???装修。', '56');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('9', '201810160005', '2', '1540006363', '3', '', '56');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('10', '201810160005', '3', '1540006517', '4', '', '56');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('11', '201810160005', '4', '1540006594', '5', '', '56');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('12', '201810160005', '5', '1540006640', '6', '', '56');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('13', '201810160005', '6', '1540006946', '7', '', '56');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('14', '201810160005', '7', '1540007030', '8', '这个比较正式，要是还没有备注，我吃屎。', '56');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('15', '201810160005', '8', '1540019105', '9', 'weqweqwe', '56');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('16', '201810160005', '9', '1540019153', '10', '12312313', '56');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('17', '201810160005', '10', '1540019921', '11', 'safsdfasf', '56');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('18', '201810160005', '6', '1540024870', '7', '123123123', '56');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('19', '201810160004', '0', '1540277091', '1', 'asdfsadf', '73');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('20', '201810160004', '0', '1540277151', '1', 'asdfsadf', '73');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('21', '201810160004', '0', '1540277171', '1', 'ertewrt', '73');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('22', '201810230001', '1', '1540278684', '1', '交给工程部啦！', '73');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('23', '201810230001', '1', '1540279008', '2', '开始开工啦', '73');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('24', '201810230001', '2', '1540279030', '3', '让他与他人', '73');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('25', '201810230001', '3', '1540279613', '4', '阿斯蒂芬', '73');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('26', '201810230001', '4', '1540279675', '5', '道森股份但是', '73');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('27', '201810230001', '5', '1540280437', '6', '斯蒂芬', '73');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('28', '201810230001', '6', '1540280456', '7', '斯蒂芬', '73');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('29', '201810230001', '7', '1540280482', '8', '是大法官', '73');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('30', '201810230001', '8', '1540280508', '9', '对方过后', '73');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('31', '201810230001', '9', '1540280821', '10', '地方广东省', '73');
-INSERT INTO `dcxw_house_decorate_status` VALUES ('32', '201810230001', '10', '1540281245', '11', '沙发的公司电费', '73');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('36', '201810300001', '1', '1540871674', '1', '', '83');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('37', '201810300001', '1', '1540871948', '2', '', '83');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('38', '201810300001', '2', '1540871969', '3', '', '83');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('39', '201810300001', '3', '1540872077', '4', '', '83');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('40', '201810300001', '4', '1540872099', '5', '', '83');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('41', '201810300001', '5', '1540872114', '6', '', '83');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('42', '201810300001', '6', '1540872135', '7', '', '83');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('43', '201810300001', '7', '1540872151', '8', '', '83');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('44', '201810300001', '8', '1540872189', '9', '', '83');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('45', '201810300001', '9', '1540872206', '10', '', '83');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('46', '201810300001', '10', '1540872336', '11', 'dykttdykt', '83');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('47', '201810300002', '1', '1540890618', '1', '12312321', '90');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('48', '201810300002', '1', '1540890707', '2', '123123', '90');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('49', '201810300002', '2', '1540890771', '3', '', '90');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('50', '201810300002', '3', '1540890909', '4', '123', '90');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('51', '201810300002', '4', '1540892704', '5', '123', '90');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('52', '201810300002', '5', '1540892719', '6', '123', '90');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('53', '201810310001', '1', '1540957067', '1', '123213', '90');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('54', '201810300002', '6', '1541128361', '7', '1234', '90');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('55', '201810300002', '7', '1541128389', '8', '234', '90');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('56', '201810300002', '8', '1541128990', '9', '123', '90');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('57', '1111550009', '1', '1541396061', '1', '', '90');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('58', '1111550009', '1', '1541396130', '2', '', '106');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('59', '1111550009', '2', '1541396142', '3', '', '106');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('60', '1111550009', '3', '1541396157', '4', '', '106');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('61', '1111550009', '4', '1541396183', '5', '', '106');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('62', '1111550009', '5', '1541396196', '6', '2112', '106');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('63', '1111550009', '6', '1541396211', '7', '', '106');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('64', '1111550009', '7', '1541396228', '8', '3', '106');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('65', '1111550009', '8', '1541396243', '9', '123', '106');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('66', '1111550009', '9', '1541396260', '10', '123', '106');
+INSERT INTO `dcxw_house_decorate_status` VALUES ('67', '1111550009', '10', '1541396289', '11', '', '106');
 
 -- ----------------------------
 -- Table structure for `dcxw_house_master`
@@ -759,18 +815,16 @@ CREATE TABLE `dcxw_house_master` (
   `hm_assign_time` int(11) DEFAULT NULL COMMENT '合同签订时间',
   `hm_admin` int(11) DEFAULT NULL COMMENT '录入人员',
   PRIMARY KEY (`hm_id`,`hm_house_code`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='房屋户主信息表';
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COMMENT='房屋户主信息表';
 
 -- ----------------------------
 -- Records of dcxw_house_master
 -- ----------------------------
-INSERT INTO `dcxw_house_master` VALUES ('1', '夜微凉1', '18566662222', null, null, '陕西省西安市', '201810100002', '1539250207', ' 陕西省西安市', null, '103');
-INSERT INTO `dcxw_house_master` VALUES ('2', '123', '18220995992', '612501199309106322', '3312312', '陕西省西安市未央区凤城南路', '201810150001', '1539594440', '12312     士大夫撒旦 ', null, '103');
-INSERT INTO `dcxw_house_master` VALUES ('3', '夜微凉', '17691074991', '612501199309105623', '456321324697897', '陕西省西安市未央区胡家庙新村', '201810150002', '1539581020', '这个房主有点酷！', null, '103');
-INSERT INTO `dcxw_house_master` VALUES ('4', '好爸爸', '18566663333', '612501199309106322', '123123123312', '1231231231', '201810160003', '1539660311', ' 233213123  ', null, '56');
-INSERT INTO `dcxw_house_master` VALUES ('5', '张欢', '18566663333', '612501189512231025', '123', '123', '201810160005', '1539670751', '123123', null, '56');
-INSERT INTO `dcxw_house_master` VALUES ('6', '日发文确认表', '18566663333', '612501199612230233', '12213123', '事往日迁w', '201810160004', '1539846867', ' 潍坊大事', null, '56');
-INSERT INTO `dcxw_house_master` VALUES ('7', '王莉', '15233336666', '612501196612235523', '2222333366665', '陕西省雁塔区', '201810230001', '1540277518', '雁塔区有两套房子。', null, '73');
+INSERT INTO `dcxw_house_master` VALUES ('19', '党萌萌', '18220995991', '612501199005223366', '13241564', '12332112332132', '201810300002', '1540887430', '   123123123 ', null, '90');
+INSERT INTO `dcxw_house_master` VALUES ('20', '救世扁鹊1', '15211110000', '612501199309106322', '12345678', '陕西省西安市', '201810310001', '1540956624', '    请问 ', null, '90');
+INSERT INTO `dcxw_house_master` VALUES ('21', '123', '18566662222', '612501199305231122', '1231231', '23', '201810310003', '1540978101', ' ', null, '90');
+INSERT INTO `dcxw_house_master` VALUES ('22', '孙二狗', '15866665555', '612501189612232255', '12345678912354689', '陕西省太平是哦', '1111210008', '1541395690', '孙二狗来啦', null, '90');
+INSERT INTO `dcxw_house_master` VALUES ('23', '王小冷', '18888888888', '612501199309106300', '123', '123', '1111550009', '1541396025', ' ', null, '90');
 
 -- ----------------------------
 -- Table structure for `dcxw_house_order`
@@ -783,12 +837,13 @@ CREATE TABLE `dcxw_house_order` (
   `ho_remark` varchar(255) DEFAULT NULL COMMENT '预约备注',
   `ho_addtime` int(11) DEFAULT NULL COMMENT '添加时间',
   PRIMARY KEY (`ho_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dcxw_house_order
 -- ----------------------------
 INSERT INTO `dcxw_house_order` VALUES ('1', '12313', '17691074991', '立即订小区名称为123的房', '1540008417');
+INSERT INTO `dcxw_house_order` VALUES ('2', '123', '18566663333', '立即订小区名称为天润佳苑的房', '1541040116');
 
 -- ----------------------------
 -- Table structure for `dcxw_house_pay`
@@ -804,15 +859,18 @@ CREATE TABLE `dcxw_house_pay` (
   `hp_addtime` int(11) DEFAULT NULL COMMENT '装修款总额添加时间',
   `hp_admin` int(11) DEFAULT NULL COMMENT '录入人',
   PRIMARY KEY (`hp_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COMMENT='房源回款信息表';
+) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COMMENT='房源回款信息表';
 
 -- ----------------------------
 -- Records of dcxw_house_pay
 -- ----------------------------
-INSERT INTO `dcxw_house_pay` VALUES ('41', '201810230001', '129800.00', '29800.00', '100000.00', '0.2296', '1540277590', '73');
-INSERT INTO `dcxw_house_pay` VALUES ('40', '201810160004', '19800.00', '1408.00', '18392.00', '0.0711', '1539766973', '56');
-INSERT INTO `dcxw_house_pay` VALUES ('39', '201810160005', '129800.00', '129800.00', '0.00', '1', '1539670923', '56');
-INSERT INTO `dcxw_house_pay` VALUES ('37', '201810160003', '19800.00', '0.00', '19800.00', null, '1539660770', '56');
+INSERT INTO `dcxw_house_pay` VALUES ('49', '1111210008', '5000.00', '3000.00', '2000.00', '0.6', '1541395815', '90');
+INSERT INTO `dcxw_house_pay` VALUES ('43', '201810300001', '100.00', '60.00', '40.00', '0.6', '1540871373', '83');
+INSERT INTO `dcxw_house_pay` VALUES ('44', '201810300002', '123456.00', '123456.48', '-0.48', '1', '1540887507', '90');
+INSERT INTO `dcxw_house_pay` VALUES ('45', '201810310001', '5200.00', '5200.00', '0.00', '1', '1540949343', '90');
+INSERT INTO `dcxw_house_pay` VALUES ('46', '201810310003', '123.00', '123.00', '0.00', '1', '1541128416', '90');
+INSERT INTO `dcxw_house_pay` VALUES ('47', '201810310003', '123.00', '123.00', '0.00', '1', '1541128420', '90');
+INSERT INTO `dcxw_house_pay` VALUES ('50', '1111550009', '5000.00', '3000.00', '2000.00', '0.6', '1541396031', '90');
 
 -- ----------------------------
 -- Table structure for `dcxw_house_pay_log`
@@ -827,19 +885,29 @@ CREATE TABLE `dcxw_house_pay_log` (
   `hpl_tips` varchar(255) DEFAULT NULL COMMENT '回款备注',
   `hpl_user` int(11) DEFAULT NULL COMMENT '回款提交人',
   PRIMARY KEY (`hpl_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=52 DEFAULT CHARSET=utf8 COMMENT='回款记录表';
+) ENGINE=MyISAM AUTO_INCREMENT=72 DEFAULT CHARSET=utf8 COMMENT='回款记录表';
 
 -- ----------------------------
 -- Records of dcxw_house_pay_log
 -- ----------------------------
-INSERT INTO `dcxw_house_pay_log` VALUES ('51', '201810230001', '20000.00', '1540277667', '/uploads/market/20181023/46fe7aeb8c9044ab69e339be0e149a81.jpg', '打款2W', '73');
-INSERT INTO `dcxw_house_pay_log` VALUES ('49', '201810230001', '800.00', '1540277611', '/uploads/market/20181023/7c9c5309e2f513c2012ce80186deefea.jpg', '打款800', '73');
-INSERT INTO `dcxw_house_pay_log` VALUES ('50', '201810230001', '9000.00', '1540277638', '/uploads/market/20181023/cfbee11fd3cb4a3f94b6fa01ae5a4928.jpg', '打款9000', '73');
-INSERT INTO `dcxw_house_pay_log` VALUES ('48', '201810160004', '123.00', '1539855637', '/uploads/market/20181018/ffd85c602228a910f5dc649d37ca3fd7.jpg,/uploads/market/20181018/f67a10b1afd96096afae2b2145cb8737.jpg,/uploads/market/20181018/e4254683c45440af84861d50ed894acb.jpg', '', '56');
-INSERT INTO `dcxw_house_pay_log` VALUES ('47', '201810160005', '39000.00', '1539768294', '/uploads/market/20181017/490d87b0031ccb0dc8d496308ea51816.jpg', '1231213223', '56');
-INSERT INTO `dcxw_house_pay_log` VALUES ('46', '201810160004', '1285.00', '1539767003', '/uploads/market/20181017/0d79647a3f0b873e93ceb7c37b63a2ea.jpg', '这是备注', '56');
-INSERT INTO `dcxw_house_pay_log` VALUES ('44', '201810160005', '800.00', '1539748608', '/uploads/market/20181017/ddd7179acfe08e9c0874f5056b9351e0.jpg', '12312123', '56');
-INSERT INTO `dcxw_house_pay_log` VALUES ('45', '201810160005', '90000.00', '1539748625', '/uploads/market/20181017/9a5836906f48213e59415eb48d6aff29.jpg', '', '56');
+INSERT INTO `dcxw_house_pay_log` VALUES ('69', '201810310003', '123.00', '1541128438', '/uploads/market/20181102/23c3a2618a256a0a2d671ef0323a3ac8.png', '', '90');
+INSERT INTO `dcxw_house_pay_log` VALUES ('68', '201810310001', '4500.00', '1540949421', '/uploads/market/20181031/f6f91dc854c1505c21e19ca70b35a4a9.jpg', '', '90');
+INSERT INTO `dcxw_house_pay_log` VALUES ('54', '201810300001', '60.00', '1540871470', '/uploads/market/20181030/92a4b702e8d9701441b124b1e117a45e.jpg', '', '83');
+INSERT INTO `dcxw_house_pay_log` VALUES ('67', '201810310001', '500.00', '1540949402', '/uploads/market/20181031/19cdf296d10224438f30b9d24b66fd95.jpg,/uploads/market/20181031/0907d7954619fd767182135a89cdf9e6.jpg', '', '90');
+INSERT INTO `dcxw_house_pay_log` VALUES ('55', '201810300002', '1234.00', '1540887529', '/uploads/market/20181030/7c01c6689cf170d7037ba01a624f3ad3.jpg', '12312313', '90');
+INSERT INTO `dcxw_house_pay_log` VALUES ('56', '201810300002', '12312.00', '1540888371', '/uploads/market/20181030/70bcc8293820d12803515f061fe48fe3.jpg', '123', '90');
+INSERT INTO `dcxw_house_pay_log` VALUES ('57', '201810300002', '123.00', '1540889812', '/uploads/market/20181030/b3e6840df264dce1099551454a37e445.jpg', '', '90');
+INSERT INTO `dcxw_house_pay_log` VALUES ('58', '201810300002', '123.00', '1540889980', '/uploads/market/20181030/ccdcfedaba768a73382a2cf7dd11ed99.jpg', '123', '90');
+INSERT INTO `dcxw_house_pay_log` VALUES ('59', '201810300002', '10000.00', '1540889998', '/uploads/market/20181030/cea730a22fb8c87c344c946855be5b7c.jpg', '123321', '90');
+INSERT INTO `dcxw_house_pay_log` VALUES ('60', '201810300002', '123.00', '1540890024', '/uploads/market/20181030/f3fb91128c49bb269f66ca7aa40aebaa.jpg', '', '90');
+INSERT INTO `dcxw_house_pay_log` VALUES ('61', '201810300002', '541.00', '1540890048', '/uploads/market/20181030/4da0c796d27f5173737e539e35903e29.jpg', '123', '90');
+INSERT INTO `dcxw_house_pay_log` VALUES ('62', '201810300002', '1233.00', '1540890128', '/uploads/market/20181030/d77431508aa9d89ff71cbe3e2c620fa2.jpg', '', '90');
+INSERT INTO `dcxw_house_pay_log` VALUES ('63', '201810300002', '97766.52', '1540890159', '/uploads/market/20181030/98c93dbb34d9d14dda153ec50b6a9f95.jpg', '', '90');
+INSERT INTO `dcxw_house_pay_log` VALUES ('64', '201810300002', '0.48', '1540890178', '/uploads/market/20181030/b5bd67592f2a2b00599e9437a305671a.jpg', '', '90');
+INSERT INTO `dcxw_house_pay_log` VALUES ('65', '201810300002', '0.48', '1540890186', '/uploads/market/20181030/b5bd67592f2a2b00599e9437a305671a.jpg', '2344', '90');
+INSERT INTO `dcxw_house_pay_log` VALUES ('66', '201810310001', '200.00', '1540949365', '/uploads/market/20181031/8f9de33d408f2248b6dd939057b19cb6.jpg', '', '90');
+INSERT INTO `dcxw_house_pay_log` VALUES ('70', '1111210008', '3000.00', '1541395834', '/uploads/market/20181105/2827334ddd04a139f5b1a349e0ba53b4.jpg', '', '90');
+INSERT INTO `dcxw_house_pay_log` VALUES ('71', '1111550009', '3000.00', '1541396045', '/uploads/market/20181105/bd329a57f91ace63da7b76dd67f89c3b.jpg', '1231', '90');
 
 -- ----------------------------
 -- Table structure for `dcxw_house_rent`
@@ -857,18 +925,18 @@ CREATE TABLE `dcxw_house_rent` (
   `hr_isable` tinyint(2) DEFAULT '1' COMMENT '是否拉黑，是否可以租住我们的房子；1是，2否',
   `hr_admin` int(11) DEFAULT NULL COMMENT '操作人',
   PRIMARY KEY (`hr_id`,`hr_house_code`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='租客信息表';
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='租客信息表';
 
 -- ----------------------------
 -- Records of dcxw_house_rent
 -- ----------------------------
-INSERT INTO `dcxw_house_rent` VALUES ('1', '', '切勿w', null, '人', '1540366954', null, '1', '1', null);
-INSERT INTO `dcxw_house_rent` VALUES ('2', '', '的双方各sd', null, '发个', '1540367028', null, '1', '1', null);
-INSERT INTO `dcxw_house_rent` VALUES ('3', '', '请问去二无', null, '企鹅窝群翁', '1540367122', null, '1', '1', null);
-INSERT INTO `dcxw_house_rent` VALUES ('4', '', '123', null, '123', '1540369935', null, '1', '1', null);
-INSERT INTO `dcxw_house_rent` VALUES ('5', '', '党萌萌', null, '18220995991', '1540372304', null, '1', '1', '73');
-INSERT INTO `dcxw_house_rent` VALUES ('6', '', '2123', null, '123123', '1540372381', null, '1', '1', '73');
-INSERT INTO `dcxw_house_rent` VALUES ('7', '', '夜微凉', '612501199309106322', '18220995991', '1540522800', ' 士大夫 女你爸妈女魃墓', '1', '1', '73');
+INSERT INTO `dcxw_house_rent` VALUES ('11', '201810310009', 'marry', null, '18566663333', '1540976505', null, '1', '1', '90');
+INSERT INTO `dcxw_house_rent` VALUES ('12', '201810310009', 'jack', null, '15233336666', '1540976986', null, '1', '1', '90');
+INSERT INTO `dcxw_house_rent` VALUES ('13', '201810310009', '1231', null, '23', '1540977094', null, '1', '1', '90');
+INSERT INTO `dcxw_house_rent` VALUES ('14', '201810310009', '123', null, '123', '1541139383', null, '1', '1', '90');
+INSERT INTO `dcxw_house_rent` VALUES ('15', '201810310009', '1231', null, '23', '1541139423', null, '1', '1', '90');
+INSERT INTO `dcxw_house_rent` VALUES ('16', '201810310009', '123', null, '123', '1541139546', null, '1', '1', '90');
+INSERT INTO `dcxw_house_rent` VALUES ('17', '201810310009', 'rwer', null, 'ert', '1541139587', null, '1', '1', '90');
 
 -- ----------------------------
 -- Table structure for `dcxw_house_rent_log`
@@ -891,17 +959,22 @@ CREATE TABLE `dcxw_house_rent_log` (
   `hrl_rent_type` tinyint(2) DEFAULT NULL COMMENT '出租类型；1.日租金；2月租金',
   `hrl_pay_type` tinyint(2) DEFAULT '1' COMMENT '租金支付方式；1，月付；2，季付；3，年付',
   `hrl_remark` text COMMENT '租房备注',
+  `hrl_status` tinyint(2) DEFAULT '1' COMMENT '出租状态；1.出租中；2，已完成',
   `hrl_addtime` int(11) DEFAULT NULL COMMENT '出租信息添加时间',
   `hrl_admin` int(11) DEFAULT NULL COMMENT '操作人员',
   PRIMARY KEY (`hrl_id`,`hrl_house_code`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='房屋出租信息表';
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COMMENT='房屋出租信息表';
 
 -- ----------------------------
 -- Records of dcxw_house_rent_log
 -- ----------------------------
-INSERT INTO `dcxw_house_rent_log` VALUES ('1', '201810230001', '5', '1234.00', null, '1233.00', null, '1540310400', '1541001599', 'dcxw_0002', '/uploads/operation/20181024/f75a611053190ecc51b17759cc0f6764.jpg,/uploads/operation/20181024/097066453daee954d4998ede4a2f74af.jpg', '1500.00', '1523.00', '0', '0', 'hahhaha', '1540372304', '73');
-INSERT INTO `dcxw_house_rent_log` VALUES ('2', '201810230001', '6', 'werq', null, 'wer', null, '1540310400', '1541001599', 'qwer', '/uploads/operation/20181024/0a2ba34c5de453fa4959457df905fdb3.jpg,/uploads/operation/20181024/ca97223f31ddcf36a82f78247361c1ce.jpg', '0.00', '0.00', '0', '0', 'wqerwqerwqer', '1540372381', '73');
-INSERT INTO `dcxw_house_rent_log` VALUES ('3', '201810230001', '7', 'fgh', null, 'dfgh', null, '1540915200', '1539359999', 'dfgh', '/uploads/operation/20181024/352cfee9adab552d0765f36dbc3a3719.jpg', '0.00', '0.00', '0', '0', 'fdghdfhfdg', '1540372551', '73');
+INSERT INTO `dcxw_house_rent_log` VALUES ('9', '201810310009', '13', '2312', '23432', '3', '234324', '1540915200', '1541001599', '123', '/uploads/operation/20181031/d929247a66b8cc9cd081d0bf564f0b38.png', '23.00', '123.00', '2', '0', '', '2', '1540977094', '90');
+INSERT INTO `dcxw_house_rent_log` VALUES ('8', '201810310009', '12', '23.55', '123', '85.63', '123', '1540915200', '1543420799', '请问去二无', '/uploads/operation/20181031/62963a9fa6ca7efdcd2cca2ac0bd52bf.png', '500.00', '520.00', '1', '127', '123132', '2', '1540976986', '90');
+INSERT INTO `dcxw_house_rent_log` VALUES ('10', '201810310009', '14', '231', '231', '23', '23', '1541088000', '1541174399', '123', '/uploads/operation/20181102/6c586b552acee253b77c1d450c11b3a5.png', '123.00', '123.00', '2', '123', '123', '2', '1541139383', '90');
+INSERT INTO `dcxw_house_rent_log` VALUES ('11', '201810310009', '15', '31', 'eeee', '23', 'dddd', '1541088000', '1541174399', '12', '/uploads/operation/20181102/2142fcc7ef02f59bb56c356f60e1ea89.png', '123.00', '123.00', '2', '127', '123123', '2', '1541139423', '90');
+INSERT INTO `dcxw_house_rent_log` VALUES ('12', '201810310009', '16', 'rury', 'werw', 'ytui', 'rwerwer', '1541088000', '1730563199', 'tyui', '/uploads/operation/20181102/e81c0a2c3abecf16d64e84115270e832.png', '345.00', '12.00', '2', '0', 'werwere', '2', '1541139546', '90');
+INSERT INTO `dcxw_house_rent_log` VALUES ('13', '201810310009', '17', 'up', null, 'iopupo', null, '1541088000', '1730563199', 'uiop', '/uploads/operation/20181102/caf8e2925750109b81b582438c144522.png', '0.00', '0.00', '2', '0', 'dfgfgh', '1', '1541139587', '90');
+INSERT INTO `dcxw_house_rent_log` VALUES ('7', '201810310009', '11', '123.22', '123', '133.33', '123', '1572451200', '1541001599', '哈哈哈', '/uploads/operation/20181031/352b0db38268717a7de995f2e3327f31.jpg', '1200.00', '1523.00', '2', '127', '12316354', '2', '1540976505', '90');
 
 -- ----------------------------
 -- Table structure for `dcxw_house_rent_pay_log`
@@ -917,15 +990,25 @@ CREATE TABLE `dcxw_house_rent_pay_log` (
   `hrpl_next_rent` int(11) DEFAULT NULL COMMENT '下次收租时间',
   `hrpl_user` int(11) DEFAULT NULL COMMENT '操作人',
   PRIMARY KEY (`hrpl_id`,`hrpl_rent_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='租金收取记录表';
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='租金收取记录表';
 
 -- ----------------------------
 -- Records of dcxw_house_rent_pay_log
 -- ----------------------------
-INSERT INTO `dcxw_house_rent_pay_log` VALUES ('1', '3', '0.00', '1540533660', null, '', null, '73');
-INSERT INTO `dcxw_house_rent_pay_log` VALUES ('2', '3', '132.00', '1540533917', null, '', null, '73');
-INSERT INTO `dcxw_house_rent_pay_log` VALUES ('3', '3', '99999999.99', '1540534906', '/uploads/operation/20181026/0d42c36509d8f738eca1691be09dcc87.jpg', '', null, '73');
-INSERT INTO `dcxw_house_rent_pay_log` VALUES ('4', '2', '132.00', '1540539512', '/uploads/operation/20181026/d5ec99ea75289d1e786eb0ed69c40145.jpg', '', null, '73');
+INSERT INTO `dcxw_house_rent_pay_log` VALUES ('6', '7', '123123.00', '1540976802', '/uploads/operation/20181031/8d7045e392efd8246733aa385132832c.jpg', '', null, '90');
+INSERT INTO `dcxw_house_rent_pay_log` VALUES ('7', '13', '123.00', '1541141522', '/uploads/operation/20181102/f6b2906fc1f9d1f5ad89d0ddd66419f3.png', '', null, '90');
+INSERT INTO `dcxw_house_rent_pay_log` VALUES ('8', '13', '123.00', '1541141546', '/uploads/operation/20181102/f5f50058ff422baae9214d46fe27af9c.png', '', null, '90');
+INSERT INTO `dcxw_house_rent_pay_log` VALUES ('9', '13', '123.00', '1541141565', '/uploads/operation/20181102/a432e7f2a0741ac4eb854a46227b5eb6.jpg', '', null, '90');
+INSERT INTO `dcxw_house_rent_pay_log` VALUES ('10', '13', '123.00', '1541141582', '/uploads/operation/20181102/5cda4d4557e9e51f48ee5ebcef816193.jpg', '', null, '90');
+INSERT INTO `dcxw_house_rent_pay_log` VALUES ('11', '13', '222.00', '1541141603', '/uploads/operation/20181102/f324ed3310f19ee46e2aaed6018eb0e0.jpg', '', null, '90');
+INSERT INTO `dcxw_house_rent_pay_log` VALUES ('12', '13', '777.00', '1541141631', '/uploads/operation/20181102/b9106315373bc0788126f67d4ac6c828.jpg', '', null, '90');
+INSERT INTO `dcxw_house_rent_pay_log` VALUES ('13', '13', '222.00', '1541141662', '/uploads/operation/20181102/8dc4cdbcca72bbcd220c47ce270301a5.png', '', null, '90');
+INSERT INTO `dcxw_house_rent_pay_log` VALUES ('14', '13', '3123.00', '1541141730', '/uploads/operation/20181102/4a73f31f1bcab1999c4997211683ff36.jpg', '', null, '90');
+INSERT INTO `dcxw_house_rent_pay_log` VALUES ('15', '13', '999.00', '1541141751', '/uploads/operation/20181102/5ab44c21d65aa75c389d1c5b30993900.png', '', null, '90');
+INSERT INTO `dcxw_house_rent_pay_log` VALUES ('16', '13', '666.00', '1541141805', '/uploads/operation/20181102/73cda74a944b99570f5742c0f0c542cb.jpg', '', null, '90');
+INSERT INTO `dcxw_house_rent_pay_log` VALUES ('17', '13', '111.00', '1541141819', '/uploads/operation/20181102/b721e9558406e32882695eddf02d6923.jpg', '', null, '90');
+INSERT INTO `dcxw_house_rent_pay_log` VALUES ('18', '13', '333.00', '1541141831', '/uploads/operation/20181102/6907a5aa192abf1349c6bea4c0c5b8e3.jpg', '', null, '90');
+INSERT INTO `dcxw_house_rent_pay_log` VALUES ('19', '13', '222.00', '1541141899', '/uploads/operation/20181102/fb1c9c6c76eee464867d8319729e462b.jpg', '', null, '90');
 
 -- ----------------------------
 -- Table structure for `dcxw_lession`
@@ -952,7 +1035,7 @@ CREATE TABLE `dcxw_lession` (
 -- Records of dcxw_lession
 -- ----------------------------
 INSERT INTO `dcxw_lession` VALUES ('19', '财务规章制度', '57', '/uploads/article/20180923/c306882d41bd2b1b6ad609552530a116.jpg', '财务规章制度，请认真阅读！', null, null, null, '1537665616', '1537665616', null, '54', '1');
-INSERT INTO `dcxw_lession` VALUES ('20', '行政审批流程', '38', '/uploads/article/20180923/86f0cc63a7b7a76f160e4d834782038c.jpg', '行政审批流程，请认真阅读！', null, null, null, '1537667856', '1537669998', null, '54', '1');
+INSERT INTO `dcxw_lession` VALUES ('20', '行政审批流程', '38', '/uploads/article/20180923/86f0cc63a7b7a76f160e4d834782038c.jpg', '行政审批流程，请认真阅读！', null, null, null, '1537667856', '1537669998', '5', '54', '1');
 INSERT INTO `dcxw_lession` VALUES ('21', '事业部签约流程', '29', '/uploads/article/20180923/14e4751e9dac8fda105db4bb9242dc75.png', '事业部签约流程，请认真阅读！', null, null, null, '1537670573', '1537670573', null, '54', '1');
 INSERT INTO `dcxw_lession` VALUES ('23', '人事管理制度', '54', '/uploads/article/20180923/c6dac93c8b98a9059fb67aebc419f0eb.png', '人事管理制度，请认真阅读！', null, null, null, '1537689000', '1537689000', null, '54', '1');
 INSERT INTO `dcxw_lession` VALUES ('24', '运营管理制度', '39', '/uploads/article/20180924/235a045c0af35c9543d423dcfbc1a095.png', '', null, null, null, '1537759016', '1537759016', null, '54', '1');
@@ -994,7 +1077,7 @@ CREATE TABLE `dcxw_menu` (
 -- ----------------------------
 -- Records of dcxw_menu
 -- ----------------------------
-INSERT INTO `dcxw_menu` VALUES ('1', '员工管理', '0', 'admin', 'admin', '1', '1', '1', null, null);
+INSERT INTO `dcxw_menu` VALUES ('1', '平台员工', '0', 'admin', 'admin', '1', '1', '1', null, null);
 INSERT INTO `dcxw_menu` VALUES ('2', '员工列表', '1', 'admin', 'admin', '1', '1', '1', null, null);
 INSERT INTO `dcxw_menu` VALUES ('4', '角色列表', '1', 'admin', 'role', '1', '1', '1', null, null);
 INSERT INTO `dcxw_menu` VALUES ('39', '新增', '32', 'banner', 'addbanner', '0', '2', '1', null, null);
@@ -1143,7 +1226,7 @@ CREATE TABLE `dcxw_nav` (
   `nav_opeatime` int(11) DEFAULT NULL COMMENT '操作时间',
   `nav_admin` int(10) DEFAULT NULL COMMENT '操作人，对应管理员id',
   PRIMARY KEY (`nav_id`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=56 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='前端网站导航';
+) ENGINE=MyISAM AUTO_INCREMENT=57 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='前端网站导航';
 
 -- ----------------------------
 -- Records of dcxw_nav
@@ -1153,6 +1236,7 @@ INSERT INTO `dcxw_nav` VALUES ('52', '轻松找房', '0', '', '', '轻松找房'
 INSERT INTO `dcxw_nav` VALUES ('53', '房屋托管', '0', '', '', '房屋托管', '房屋托管', '房屋托管', '5', '1', 'house/index', '1536376013', '1');
 INSERT INTO `dcxw_nav` VALUES ('54', '关于我们', '0', '', '', '关于我们', '关于我们', '关于我们', '3', '1', 'about/index', '1536376935', '1');
 INSERT INTO `dcxw_nav` VALUES ('55', '新闻资讯', '0', '', '', '新闻资讯', '新闻资讯', '新闻资讯', '4', '1', 'news/index', '1536376084', '1');
+INSERT INTO `dcxw_nav` VALUES ('56', '123', '0', '', '', '123', '123', '123', '1', '1', '123', '1540886313', '1');
 
 -- ----------------------------
 -- Table structure for `dcxw_province`
@@ -1163,16 +1247,16 @@ CREATE TABLE `dcxw_province` (
   `p_name` varchar(50) DEFAULT NULL COMMENT '省份名称',
   `p_opeatime` int(11) DEFAULT NULL COMMENT '操作时间',
   `p_admin` int(10) DEFAULT NULL COMMENT '操作人，对应管理员id',
+  `p_code` varchar(20) DEFAULT NULL COMMENT '生成房源编号用的数码',
   PRIMARY KEY (`p_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of dcxw_province
 -- ----------------------------
-INSERT INTO `dcxw_province` VALUES ('1', '陕西', null, null);
-INSERT INTO `dcxw_province` VALUES ('4', '云南', null, null);
-INSERT INTO `dcxw_province` VALUES ('5', '贵州', null, null);
-INSERT INTO `dcxw_province` VALUES ('6', '湖北', null, null);
+INSERT INTO `dcxw_province` VALUES ('1', '陕西', '1541387914', '1', '10');
+INSERT INTO `dcxw_province` VALUES ('4', '四川', '1541387978', '1', '11');
+INSERT INTO `dcxw_province` VALUES ('5', '重庆', '1541387984', '1', '12');
 
 -- ----------------------------
 -- Table structure for `dcxw_question`
@@ -1437,7 +1521,7 @@ CREATE TABLE `dcxw_user` (
   `u_isadmin` tinyint(2) DEFAULT '2' COMMENT '是否为该部门管理员，1是。2，否',
   `u_addtime` int(11) DEFAULT NULL COMMENT '注册时间',
   PRIMARY KEY (`u_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=114 DEFAULT CHARSET=utf8 COMMENT='企业内员工表';
+) ENGINE=MyISAM AUTO_INCREMENT=116 DEFAULT CHARSET=utf8 COMMENT='企业内员工表';
 
 -- ----------------------------
 -- Records of dcxw_user
@@ -1521,11 +1605,11 @@ INSERT INTO `dcxw_user` VALUES ('86', '', '余超', '1', '', 'e10adc3949ba59abbe
 INSERT INTO `dcxw_user` VALUES ('87', '', '郝柯松', '1', '', 'e10adc3949ba59abbe56e057f20f883e', '客户经理', '0', '', '15029253423', '77@qq.com', '0', '0', '1537695780');
 INSERT INTO `dcxw_user` VALUES ('88', '', '惠小康', '1', '', 'e10adc3949ba59abbe56e057f20f883e', '客户经理', '0', '', '18829561054', '78@qq.com', '0', '0', '1537695781');
 INSERT INTO `dcxw_user` VALUES ('89', '', '杨雷可', '1', '', 'e10adc3949ba59abbe56e057f20f883e', '客户经理', '0', '', '13891397780', '79@qq.com', '0', '0', '1537695782');
-INSERT INTO `dcxw_user` VALUES ('90', '', '李小倩', '2', '', 'e10adc3949ba59abbe56e057f20f883e', '客户经理', '0', '', '18571517738', '80@qq.com', '1', '0', '1537695783');
+INSERT INTO `dcxw_user` VALUES ('90', '', '李小倩', '2', '', 'e10adc3949ba59abbe56e057f20f883e', '客户经理', '1', '', '18571517738', '80@qq.com', '1', '0', '1540879100');
 INSERT INTO `dcxw_user` VALUES ('103', null, '陈璟莹', '2', null, 'e10adc3949ba59abbe56e057f20f883e', '会计', null, null, '13669281792', '81@qq.com', '1', '2', '1537837991');
 INSERT INTO `dcxw_user` VALUES ('104', null, '张潘婷', '2', null, 'e10adc3949ba59abbe56e057f20f883e', '行政主管', null, null, '13474603130', '82@qq.com', '1', '2', '1537838030');
 INSERT INTO `dcxw_user` VALUES ('105', null, '张子旭', '1', null, 'e10adc3949ba59abbe56e057f20f883e', '客户经理', null, null, '17602912742', '83@qq.com', '1', '2', '1537838070');
-INSERT INTO `dcxw_user` VALUES ('106', null, '汪亚鹏', '1', null, 'e10adc3949ba59abbe56e057f20f883e', '工程监理', null, null, '15352302716', '84@qq.com', '1', '2', '1537838112');
+INSERT INTO `dcxw_user` VALUES ('106', null, '汪亚鹏', '1', null, 'e10adc3949ba59abbe56e057f20f883e', '工程监理', '2', null, '15352302716', '84@qq.com', '1', '2', '1540879113');
 INSERT INTO `dcxw_user` VALUES ('107', null, '李学辉', '1', null, 'e10adc3949ba59abbe56e057f20f883e', '安装工', null, null, '13571893712', '85@qq.com', '1', '2', '1537838144');
 INSERT INTO `dcxw_user` VALUES ('108', null, '韦丽倩', '2', null, 'e10adc3949ba59abbe56e057f20f883e', '设计师', null, null, '18189555866', '86@qq.com', '1', '2', '1537838186');
 INSERT INTO `dcxw_user` VALUES ('109', null, '王菲菲', '2', null, 'e10adc3949ba59abbe56e057f20f883e', '设计师助理', null, null, '18709186763', '87@qq.com', '1', '2', '1537838233');
@@ -1533,6 +1617,8 @@ INSERT INTO `dcxw_user` VALUES ('110', null, '孙强', '1', null, 'e10adc3949ba5
 INSERT INTO `dcxw_user` VALUES ('111', null, '宋昊', '1', null, 'e10adc3949ba59abbe56e057f20f883e', '客户经理', null, null, '15291964431', '89@qq.com', '1', '2', '1537838312');
 INSERT INTO `dcxw_user` VALUES ('112', null, '张东', '1', null, 'e10adc3949ba59abbe56e057f20f883e', '客户经理', null, null, '13909232307', '90@qq.com', '1', '2', '1537838355');
 INSERT INTO `dcxw_user` VALUES ('113', null, '刘勇', '1', null, 'e10adc3949ba59abbe56e057f20f883e', '客户经理', null, null, '18802968696', '91@qq.com', '1', '2', '1537838385');
+INSERT INTO `dcxw_user` VALUES ('114', null, '运营部测试账号', '1', null, 'e10adc3949ba59abbe56e057f20f883e', '运营专员', '3', null, '18220995991', '152@qq.com', '1', '2', '1540879814');
+INSERT INTO `dcxw_user` VALUES ('115', null, 'qwe', '1', null, 'e10adc3949ba59abbe56e057f20f883e', 'asdfasd', '3', null, '18566662222', '18566662222@qq.com', '1', '2', '1540879890');
 
 -- ----------------------------
 -- Table structure for `dcxw_worker`

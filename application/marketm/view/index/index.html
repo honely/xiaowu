@@ -154,6 +154,7 @@
                                 data: {'h_p_id':p_id,'h_c_id':c_id,'h_a_id':a_id,'h_house_type':h_house_type,'h_building':h_building,'h_area':h_area,'h_head':h_head,'h_address':h_address},
                                 dataType:  'json',
                                 success: function(data){
+                                    console.log(data);
                                     if(data.code="1"){
                                         mui.alert(data.msg, function() {
                                             window.location.href="<?=url('index/house')?>";

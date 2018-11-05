@@ -27,17 +27,22 @@ class Index extends Controller{
         $userInfo=session('userInfo');
         if($_POST){
             $data=$_POST;
-            $stime=strtotime(date('Y-m-d 00:00:00'));
-            $etime=strtotime(date('Y-m-d 23:59:59'));
-            $buNum=Db::table('dcxw_house')->where('h_addtime','between',[$stime,$etime])->count();
-            $data['h_b_id'] = date('Ymd').sprintf("%04d", $buNum+1);
+            $p_ids=$_POST['h_p_id'];
+            $p_id=Db::table('dcxw_province')->where(['p_id' => $p_ids])->column('p_code');
+            $c_ids=$_POST['h_c_id'];
+            $c_id=Db::table('dcxw_city')->where(['c_id' => $c_ids])->column('c_code');
+            $a_ids=$_POST['h_a_id'];
+            $a_id=Db::table('dcxw_area')->where(['area_id' => $a_ids])->column('area_code');
+            $buNum=Db::table('dcxw_house')->where(['h_c_id' => $c_ids])->count();
+            $data['h_b_id'] = $p_id[0].''.$c_id[0].''.$a_id[0].sprintf("%04d", $buNum+1);
             $data['h_addtime']=time();
+            $data['h_isable']=1;
             $data['h_admin'] = $userInfo['u_id'];
             $add=Db::table('dcxw_house')->insert($data);
             if($add){
-                return  json(['code' => '1','msg' => '发布成功！','data' => $_POST]);
+                return  json(['code' => '1','msg' => '发布成功！','data' => $data['h_b_id']]);
             }else{
-                return  json(['code' => '2','msg' => '发布失败！','data' => $_POST]);
+                return  json(['code' => '2','msg' => '发布失败！','data' => $data['h_b_id']]);
             }
         }else{
             //房屋类型 备选
@@ -378,19 +383,11 @@ class Index extends Controller{
             $data['hp_paid']=0;
             $data['hp_will_pay']=$_POST['hp_money'];
             $data['hp_admin'] = $userInfo['u_id'];
-            $house_code=$_POST['hp_house_code'];
-            $money=$_POST['hp_money'];
             $addPay=Db::table('dcxw_house_pay')->insert($data);
             if($addPay){
-                //更新房屋信息表里的装修款
-                $update=Db::table('dcxw_house')
-                    ->where(['h_b_id' => $house_code])
-                    ->update(['h_money' => $money]);
-                if($update){
-                    $this->success('添加成功!');
-                }else{
-                    $this->error('添加失败！');
-                }
+                $this->success('添加成功!');
+            }else{
+                $this->error('添加失败！');
             }
         }
     }

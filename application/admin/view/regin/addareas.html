@@ -37,8 +37,15 @@
             <div class="layui-form-item">
                 <label class="layui-form-label"><span style="color: red;">*</span>县区</label>
                 <div class="layui-input-block">
-                    <input type="text" name="c_name" id="area_name" lay-verify="required" placeholder="请输入县区名称" autocomplete="off" class="layui-input">
+                    <input type="text" name="area_name" id="area_name" lay-verify="required" placeholder="请输入县区名称" autocomplete="off" class="layui-input">
                 </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span style="color: red;">*</span>县区编码</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="area_code" id="area_code" lay-verify="required" placeholder="请输入县区编码" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux" style="color: red !important;">此编码用来生成房源编号，一旦填写请勿随意修改！</div>
             </div>
             <div class="layui-form-item">
                 <div class="layui-input-block">
@@ -76,10 +83,11 @@
             var area_p_id=$('#area_p_id').val();
             var area_c_id=$('#bu_c_id').val();
             var area_name=$('#area_name').val();
+            var area_code=$('#area_code').val();
             $.ajax({
                 type: 'POST',
                 url: "<?=url('regin/addareas')?>",
-                data: {area_p_id:area_p_id,area_c_id:area_c_id,area_name:area_name},
+                data: {area_p_id:area_p_id,area_c_id:area_c_id,area_name:area_name,area_code:area_code},
                 dataType:  'json',
                 success: function(data){
                     console.log(data);

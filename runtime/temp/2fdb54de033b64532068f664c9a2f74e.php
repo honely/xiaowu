@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\addpaylog.html";i:1540890108;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\addpaylog.html";i:1541128604;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -50,7 +50,7 @@
         <form class="mui-input-group layui-form" id="payForm">
             <div class="mui-input-row">
                 <label><span class="color-red">*</span>回款金额</label>
-                <input type="text" class="layui-input" id="hpl_money" onblur="checkVals()" lay-verify="required" name="hpl_money" placeholder="请输入回款金额">
+                <input type="text" class="layui-input" id="hpl_money" lay-verify="required" name="hpl_money" placeholder="请输入回款金额">
             </div>
             <div class="mui-input-row">
                 <label><span class="color-red">*</span>打款凭证</label>

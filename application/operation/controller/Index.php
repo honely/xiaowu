@@ -204,8 +204,25 @@ class Index extends Controller{
     {
         $h_id=trim($_GET['h_id']);
         $houseInfo=Db::table('dcxw_house')
+            ->join('dcxw_province','dcxw_province.p_id = dcxw_house.h_p_id')
+            ->join('dcxw_city','dcxw_city.c_id = dcxw_house.h_c_id')
+            ->join('dcxw_area','dcxw_area.area_id = dcxw_house.h_a_id')
+            ->field('dcxw_house.*,dcxw_province.p_name,dcxw_city.c_name,dcxw_area.area_name')
             ->where(['h_b_id' => $h_id])
             ->find();
+//        dump($houseInfo);
+        //房屋配置 备选
+        $houseConf=Db::table('dcxw_type')
+            ->where(['type_sort' => 2,'type_isable' => 1])
+            ->order('type_order')
+            ->select();
+        $type_list = "";
+        if($houseInfo['h_config']){
+            $type_list = explode(',',trim($houseInfo['h_config'],','));
+        }
+        $this->assign('type_list',$type_list);
+        $this->assign('config',$houseConf);
+        $this->assign('house',$houseInfo);
         return $this->fetch();
     }
 

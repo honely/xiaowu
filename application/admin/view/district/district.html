@@ -18,13 +18,15 @@
     <table lay-skin="line" class="layui-table" lay-filter="parse-table-demo" style="padding: 30px;text-align: center;border: 1px;solid-color: #28282c;text-align: left">
         <colgroup>
             <col width="500">
-            <col width="1060">
+            <col width="530">
+            <col width="530">
             <col width="160">
         </colgroup>
         <thead>
             <tr>
                 <td style="padding-left: 50px;" >编号</td>
                 <td>省份名称</td>
+                <td>省份编码</td>
                 <td >操作</td>
             </tr>
         </thead>
@@ -33,6 +35,7 @@
                 <tr>
                     <td style="padding-left: 50px;">{$prov.p_id}</td>
                     <td >{$prov.p_name}</td>
+                    <td >{$prov.p_code}</td>
                     <td >
                     <button class="layui-btn layui-btn-xs" onclick="editProv({$prov.p_id})"><i class="layui-icon">&#xe642;</i>编辑</button>
                     <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delProv({$prov.p_id})" data-type="test2"><i class="layui-icon">&#xe640;</i>删除</button>

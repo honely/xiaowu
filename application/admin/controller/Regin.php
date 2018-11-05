@@ -45,7 +45,11 @@ class Regin extends Controller{
     //2.添加省份（2018.04.20）
     public function addprov(){
         if($_POST){
+            $adminId=session('adminId');
             $data['p_name']=$_POST['p_name'];
+            $data['p_code']=$_POST['p_code'];
+            $data['p_opeatime']=time();
+            $data['p_admin']=$adminId;
             $addProv=Db::table('dcxw_province')->insert($data);
             if($addProv){
                 $this->success('添加成功','district/district');
@@ -60,9 +64,13 @@ class Regin extends Controller{
 
     //3.修改省份（2018.04.20）
     public function editProv(){
+        $adminId=session('adminId');
         $pId=intval($_GET['p_id']);
         if($_POST){
             $data['p_name']=$_POST['p_name'];
+            $data['p_code']=$_POST['p_code'];
+            $data['p_opeatime']=time();
+            $data['p_admin']=$adminId;
             $editProv=Db::table('dcxw_province')->where(['p_id' => $pId])->update($data);
             if($editProv){
                 $this->success('编辑成功','district/district');
@@ -106,10 +114,13 @@ class Regin extends Controller{
     //2.添加区域城市（2018.04.20）
     public function addCity(){
         if($_POST){
+            $adminId=session('adminId');
+            $data['c_code']=$_POST['c_code'];
+            $data['c_opeatime']=time();
+            $data['c_admin']=$adminId;
             $data['p_id']=$_POST['p_id'];
             $data['c_name']=$_POST['c_name'];
-            $data['c_q_id']=rtrim($_POST['ids'],',');
-            $data['c_q_price']=rtrim($_POST['prices'],',');
+
             $addCity=Db::table('dcxw_city')->insert($data);
             if($addCity){
                 $this->success('添加成功','city');
@@ -118,9 +129,6 @@ class Regin extends Controller{
             }
         }else{
             $provInfo=Db::table('dcxw_province')->select();
-            //获取所有品质
-            $quality=Db::table('dcxw_type')->where(['type_isable' => 1,'type_sort' => 3] )->select();
-            $this->assign('quality',$quality);
             $this->assign('prov',$provInfo);
             return $this->fetch();
         }
@@ -131,10 +139,12 @@ class Regin extends Controller{
     public function editCity(){
         $cId=intval($_GET['c_id']);
         if($_POST){
+            $adminId=session('adminId');
+            $data['c_code']=$_POST['c_code'];
+            $data['c_opeatime']=time();
+            $data['c_admin']=$adminId;
             $data['c_name']=$_POST['c_name'];
             $data['p_id']=$_POST['p_id'];
-            $data['c_q_id']=rtrim($_POST['ids'],',');
-            $data['c_q_price']=rtrim($_POST['prices'],',');
             $editCity=Db::table('dcxw_city')->where(['c_id' => $cId])->update($data);
             if($editCity){
                 $this->success('编辑成功','city');
@@ -143,29 +153,12 @@ class Regin extends Controller{
             }
         }else{
             //获取所有品质
-            $quality=Db::table('dcxw_type')
-                ->where(['type_isable' => 1,'type_sort' => 3] )
-                ->field('type_id , type_name')
-                ->select();
             $provInfo=Db::table('dcxw_province')->select();
             $this->assign('prov',$provInfo);
             $cityInfo=Db::table('dcxw_city')->where(['c_id' => $cId])->find();
-            $cityInfo['c_q_price']=explode(',',$cityInfo['c_q_price']);
-			if($quality){
-				foreach ($quality as $k => $v){
-					$quality[$k]['price'] = "";
-					for($i = 0 ; $i < count($cityInfo['c_q_price']) ; $i++){
-						if($i == $k){
-							$quality[$k]['type_name'] = $v['type_name'];
-							$quality[$k]['price'] = $cityInfo['c_q_price'][$i];
-						}
-					}
-				}
-			}
             if($cityInfo){
                 $this->assign('city',$cityInfo);
             }
-            $this->assign('quality',$quality);
             return $this->fetch();
         }
     }
@@ -184,9 +177,13 @@ class Regin extends Controller{
     //2.添加省份（2018.04.20）
     public function addAreas(){
         if($_POST){
+            $adminId=session('adminId');
             $data['area_p_id']=$_POST['area_p_id'];
             $data['area_c_id']=$_POST['area_c_id'];
             $data['area_name']=$_POST['area_name'];
+            $data['area_code']=$_POST['area_code'];
+            $data['area_addtime']=time();
+            $data['area_admin']=$adminId;
             $addProv=Db::table('dcxw_area')->insert($data);
             if($addProv){
                 $this->success('添加成功','district/area');
@@ -206,9 +203,13 @@ class Regin extends Controller{
     public function editArea(){
         $area_id=intval($_GET['area_id']);
         if($_POST){
+            $adminId=session('adminId');
             $data['area_p_id']=$_POST['area_p_id'];
             $data['area_c_id']=$_POST['area_c_id'];
             $data['area_name']=$_POST['area_name'];
+            $data['area_code']=$_POST['area_code'];
+            $data['area_addtime']=time();
+            $data['area_admin']=$adminId;
             $editProv=Db::table('dcxw_area')->where(['area_id' => $area_id])->update($data);
             if($editProv){
                 $this->success('编辑成功','district/area');
