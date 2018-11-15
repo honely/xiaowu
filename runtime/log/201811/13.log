@@ -1,0 +1,1152 @@
+---------------------------------------------------------------
+[ 2018-11-13T17:41:35+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/admin/admin.html
+[ info ] www.bbb.com/admin/admin/admin.html [运行时间：0.076005s][吞吐率：13.16req/s] [内存消耗：2,266.73kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'admin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Admin->admin[ G:\xampp\htdocs\bbb\application\admin\controller\Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\admin\admin.html [ array (
+  0 => 'prov',
+  1 => 'roleInfo',
+  2 => 'display',
+  3 => 'none',
+  4 => 'count',
+  5 => 'ad_role',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_province` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_province` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_role` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `r_id`,`r_name` FROM `dcxw_role` WHERE  (  r_id != 1 ) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_admin` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_admin` WHERE  (   1 = 1  )  AND `ad_isable` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_admin` WHERE  (   1 = 1  )  AND `ad_isable` = 2 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-13T17:41:35+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/admin/adminData/?page=1&limit=20
+[ info ] www.bbb.com/admin/admin/adminData/?page=1&limit=20 [运行时间：0.047002s][吞吐率：21.28req/s] [内存消耗：2,159.60kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'adminData',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'referer' => 'http://www.bbb.com/admin/admin/admin.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '20',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Admin->adminData[ G:\xampp\htdocs\bbb\application\admin\controller\Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_admin` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_admin` INNER JOIN `dcxw_province` `dcxw_province` ON `dcxw_province`.`p_id`=`dcxw_admin`.`ad_p_id` INNER JOIN `dcxw_city` `dcxw_city` ON `dcxw_city`.`c_id`=`dcxw_admin`.`ad_c_id` INNER JOIN `dcxw_role` `dcxw_role` ON `dcxw_role`.`r_id`=`dcxw_admin`.`ad_role` WHERE  (   1 = 1  ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_admin` INNER JOIN `dcxw_province` `dcxw_province` ON `dcxw_province`.`p_id`=`dcxw_admin`.`ad_p_id` INNER JOIN `dcxw_city` `dcxw_city` ON `dcxw_city`.`c_id`=`dcxw_admin`.`ad_c_id` INNER JOIN `dcxw_role` `dcxw_role` ON `dcxw_role`.`r_id`=`dcxw_admin`.`ad_role` WHERE  (   1 = 1  ) ORDER BY ad_id desc LIMIT 0,20 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2018-11-13T17:41:36+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/admin/role.html
+[ info ] www.bbb.com/admin/admin/role.html [运行时间：0.076004s][吞吐率：13.16req/s] [内存消耗：2,259.23kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'role',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Admin->role[ G:\xampp\htdocs\bbb\application\admin\controller\Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\admin\role.html [ array (
+  0 => 'count',
+  1 => 'page',
+  2 => 'limit',
+  3 => 'role',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_role` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_role` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_role` ORDER BY r_id desc LIMIT 0,10 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_admin` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_admin` WHERE  `ad_role` = 28 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_admin` WHERE  `ad_role` = 27 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_admin` WHERE  `ad_role` = 1 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-13T17:41:37+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/house/index.html
+[ info ] www.bbb.com/admin/house/index.html [运行时间：0.031002s][吞吐率：32.26req/s] [内存消耗：1,631.59kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\House->index[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\house\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-13T17:41:37+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/house/houseData/?page=1&limit=20
+[ info ] www.bbb.com/admin/house/houseData/?page=1&limit=20 [运行时间：0.066004s][吞吐率：15.15req/s] [内存消耗：2,350.00kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'houseData',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'referer' => 'http://www.bbb.com/admin/house/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '20',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\House->houseData[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house` INNER JOIN `dcxw_province` `dcxw_province` ON `dcxw_province`.`p_id`=`dcxw_house`.`h_p_id` INNER JOIN `dcxw_city` `dcxw_city` ON `dcxw_city`.`c_id`=`dcxw_house`.`h_c_id` INNER JOIN `dcxw_area` `dcxw_area` ON `dcxw_area`.`area_id`=`dcxw_house`.`h_a_id` WHERE  (   1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house` INNER JOIN `dcxw_province` `dcxw_province` ON `dcxw_province`.`p_id`=`dcxw_house`.`h_p_id` INNER JOIN `dcxw_city` `dcxw_city` ON `dcxw_city`.`c_id`=`dcxw_house`.`h_c_id` INNER JOIN `dcxw_area` `dcxw_area` ON `dcxw_area`.`area_id`=`dcxw_house`.`h_a_id` WHERE  (   1 = 1 ) ORDER BY h_istop asc,h_isable,h_view desc LIMIT 0,20 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_admin` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_case` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 48 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 90 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 83 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 44 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 49 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 46 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 53 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 51 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 52 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 80 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 90 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 68 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 90 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 69 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 79 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 90 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 70 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 90 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 71 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 90 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 72 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 90 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 74 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 90 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 75 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 90 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 76 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-13T17:41:40+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/house/seek.html
+[ info ] www.bbb.com/admin/house/seek.html [运行时间：0.048003s][吞吐率：20.83req/s] [内存消耗：1,630.66kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'seek',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\House->seek[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\house\seek.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-13T17:41:40+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/house/seekData/?page=1&limit=20
+[ info ] www.bbb.com/admin/house/seekData/?page=1&limit=20 [运行时间：0.042003s][吞吐率：23.81req/s] [内存消耗：2,223.47kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'seekData',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'referer' => 'http://www.bbb.com/admin/house/seek.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '20',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\House->seekData[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_deposit` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_deposit` WHERE  (   1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_deposit` WHERE  (   1 = 1 ) ORDER BY dp_addtime desc LIMIT 0,20 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-11-13T17:41:42+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/house/orders.html
+[ info ] www.bbb.com/admin/house/orders.html [运行时间：0.048002s][吞吐率：20.83req/s] [内存消耗：1,631.36kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'orders',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\House->orders[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\house\orders.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-13T17:41:42+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/house/orderData/?page=1&limit=20
+[ info ] www.bbb.com/admin/house/orderData/?page=1&limit=20 [运行时间：0.041002s][吞吐率：24.39req/s] [内存消耗：2,218.14kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'orderData',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'referer' => 'http://www.bbb.com/admin/house/orders.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '20',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\House->orderData[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_order` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_order` WHERE  (   1 = 1 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house_order` WHERE  (   1 = 1 ) ORDER BY ho_addtime desc LIMIT 0,20 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-13T17:41:43+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/channel/index.html
+[ info ] www.bbb.com/admin/channel/index.html [运行时间：0.062003s][吞吐率：16.13req/s] [内存消耗：2,094.69kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'channel',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Channel->index[ G:\xampp\htdocs\bbb\application\admin\controller\Channel.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\channel\index.html [ array (
+  0 => 'channel',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_channel` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house_rent_channel` ORDER BY hrc_isable,hrc_addtime desc [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-13T17:41:44+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/market/index.html
+[ info ] www.bbb.com/admin/market/index.html [运行时间：0.047003s][吞吐率：21.28req/s] [内存消耗：1,448.74kb] [文件加载：46]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'market',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Market->index[ G:\xampp\htdocs\bbb\application\admin\controller\Market.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\market\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-13T17:41:45+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/channel/index.html
+[ info ] www.bbb.com/admin/channel/index.html [运行时间：0.093005s][吞吐率：10.75req/s] [内存消耗：2,094.69kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'channel',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Channel->index[ G:\xampp\htdocs\bbb\application\admin\controller\Channel.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\channel\index.html [ array (
+  0 => 'channel',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_channel` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house_rent_channel` ORDER BY hrc_isable,hrc_addtime desc [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-13T17:41:51+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/channel/index.html
+[ info ] www.bbb.com/admin/channel/index.html [运行时间：0.060603s][吞吐率：16.50req/s] [内存消耗：2,094.69kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'channel',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Channel->index[ G:\xampp\htdocs\bbb\application\admin\controller\Channel.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\channel\index.html [ array (
+  0 => 'channel',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_channel` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house_rent_channel` ORDER BY hrc_isable,hrc_addtime desc [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-13T17:41:52+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/market/index.html
+[ info ] www.bbb.com/admin/market/index.html [运行时间：0.056003s][吞吐率：17.86req/s] [内存消耗：1,448.74kb] [文件加载：46]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'market',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Market->index[ G:\xampp\htdocs\bbb\application\admin\controller\Market.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\market\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-13T17:41:53+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/channel/index.html
+[ info ] www.bbb.com/admin/channel/index.html [运行时间：0.070004s][吞吐率：14.28req/s] [内存消耗：2,094.69kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'channel',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Channel->index[ G:\xampp\htdocs\bbb\application\admin\controller\Channel.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\channel\index.html [ array (
+  0 => 'channel',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_channel` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house_rent_channel` ORDER BY hrc_isable,hrc_addtime desc [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-13T17:41:54+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/market/index.html
+[ info ] www.bbb.com/admin/market/index.html [运行时间：0.040002s][吞吐率：25.00req/s] [内存消耗：1,448.74kb] [文件加载：46]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'market',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Market->index[ G:\xampp\htdocs\bbb\application\admin\controller\Market.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\market\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-13T17:41:55+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/channel/index.html
+[ info ] www.bbb.com/admin/channel/index.html [运行时间：0.072004s][吞吐率：13.89req/s] [内存消耗：2,094.69kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'channel',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Channel->index[ G:\xampp\htdocs\bbb\application\admin\controller\Channel.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\channel\index.html [ array (
+  0 => 'channel',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_channel` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house_rent_channel` ORDER BY hrc_isable,hrc_addtime desc [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-11-13T17:41:57+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/house/index.html
+[ info ] www.bbb.com/admin/house/index.html [运行时间：0.066004s][吞吐率：15.15req/s] [内存消耗：1,631.59kb] [文件加载：47]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\House->index[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\house\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-13T17:41:57+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/house/houseData/?page=1&limit=20
+[ info ] www.bbb.com/admin/house/houseData/?page=1&limit=20 [运行时间：0.059003s][吞吐率：16.95req/s] [内存消耗：2,350.00kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'houseData',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'referer' => 'http://www.bbb.com/admin/house/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '20',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\House->houseData[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house` INNER JOIN `dcxw_province` `dcxw_province` ON `dcxw_province`.`p_id`=`dcxw_house`.`h_p_id` INNER JOIN `dcxw_city` `dcxw_city` ON `dcxw_city`.`c_id`=`dcxw_house`.`h_c_id` INNER JOIN `dcxw_area` `dcxw_area` ON `dcxw_area`.`area_id`=`dcxw_house`.`h_a_id` WHERE  (   1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house` INNER JOIN `dcxw_province` `dcxw_province` ON `dcxw_province`.`p_id`=`dcxw_house`.`h_p_id` INNER JOIN `dcxw_city` `dcxw_city` ON `dcxw_city`.`c_id`=`dcxw_house`.`h_c_id` INNER JOIN `dcxw_area` `dcxw_area` ON `dcxw_area`.`area_id`=`dcxw_house`.`h_a_id` WHERE  (   1 = 1 ) ORDER BY h_istop asc,h_isable,h_view desc LIMIT 0,20 [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_admin` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_case` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 48 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 90 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 83 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 44 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 49 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 46 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 53 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 51 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 52 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 80 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 90 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 68 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 90 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 69 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 79 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 90 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 70 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 90 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 71 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 90 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 72 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 90 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 74 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 90 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 75 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 90 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 76 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-13T17:41:59+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/house/rent.html?b_id=201810310009
+[ info ] www.bbb.com/admin/house/rent.html?b_id=201810310009 [运行时间：0.049003s][吞吐率：20.41req/s] [内存消耗：2,281.28kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'rent',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/house/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+  'b_id' => '201810310009',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\House->rent[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\house\rent.html [ array (
+  0 => 'house',
+  1 => 'count',
+  2 => 'h_id',
+  3 => 'rentLog',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `h_building`,`h_address`,`h_area`,`h_isable` FROM `dcxw_house` WHERE  `h_b_id` = '201810310009' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_log` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_rent_log`.*,`dcxw_house_rent`.`hr_name`,`dcxw_house_rent`.`hr_phone`,`dcxw_house_rent_channel`.`hrc_title` FROM `dcxw_house_rent_log` INNER JOIN `dcxw_house_rent` `dcxw_house_rent` ON `dcxw_house_rent_log`.`hrl_renter_id`=`dcxw_house_rent`.`hr_id` INNER JOIN `dcxw_house_rent_channel` `dcxw_house_rent_channel` ON `dcxw_house_rent_channel`.`hrc_id`=`dcxw_house_rent_log`.`hrl_rent_channel` WHERE  `hrl_house_code` = '201810310009'  AND (   1 =1  ) ORDER BY hrl_status,hrl_rent_time desc LIMIT 10 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_rent_log` INNER JOIN `dcxw_house_rent` `dcxw_house_rent` ON `dcxw_house_rent_log`.`hrl_renter_id`=`dcxw_house_rent`.`hr_id` WHERE  `hrl_house_code` = '201810310009'  AND (   1 =1  ) LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-11-13T17:43:54+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/house/houseData/?page=2&limit=20
+[ info ] www.bbb.com/admin/house/houseData/?page=2&limit=20 [运行时间：0.079203s][吞吐率：12.63req/s] [内存消耗：2,336.72kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'houseData',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'referer' => 'http://www.bbb.com/admin/house/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+  'page' => '2',
+  'limit' => '20',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\House->houseData[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house` INNER JOIN `dcxw_province` `dcxw_province` ON `dcxw_province`.`p_id`=`dcxw_house`.`h_p_id` INNER JOIN `dcxw_city` `dcxw_city` ON `dcxw_city`.`c_id`=`dcxw_house`.`h_c_id` INNER JOIN `dcxw_area` `dcxw_area` ON `dcxw_area`.`area_id`=`dcxw_house`.`h_a_id` WHERE  (   1 = 1 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house` INNER JOIN `dcxw_province` `dcxw_province` ON `dcxw_province`.`p_id`=`dcxw_house`.`h_p_id` INNER JOIN `dcxw_city` `dcxw_city` ON `dcxw_city`.`c_id`=`dcxw_house`.`h_c_id` INNER JOIN `dcxw_area` `dcxw_area` ON `dcxw_area`.`area_id`=`dcxw_house`.`h_a_id` WHERE  (   1 = 1 ) ORDER BY h_istop asc,h_isable,h_view desc LIMIT 20,20 [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_admin` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_case` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 45 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 78 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 50 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 56 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 57 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` IS NULL LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 58 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 59 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` IS NULL LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 60 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 61 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 62 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 63 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 64 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 65 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 66 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 67 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `ad_realname` FROM `dcxw_admin` WHERE  `ad_id` = 90 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 90 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_case` WHERE  `case_designer` = 77 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-13T17:44:01+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/house/rent.html?b_id=1111550009
+[ info ] www.bbb.com/admin/house/rent.html?b_id=1111550009 [运行时间：0.064004s][吞吐率：15.62req/s] [内存消耗：2,287.88kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'rent',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/house/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+  'b_id' => '1111550009',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\House->rent[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\house\rent.html [ array (
+  0 => 'house',
+  1 => 'count',
+  2 => 'h_id',
+  3 => 'rentLog',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `h_building`,`h_address`,`h_area`,`h_isable` FROM `dcxw_house` WHERE  `h_b_id` = '1111550009' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_log` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_rent_log`.*,`dcxw_house_rent`.`hr_name`,`dcxw_house_rent`.`hr_phone`,`dcxw_house_rent_channel`.`hrc_title` FROM `dcxw_house_rent_log` INNER JOIN `dcxw_house_rent` `dcxw_house_rent` ON `dcxw_house_rent_log`.`hrl_renter_id`=`dcxw_house_rent`.`hr_id` INNER JOIN `dcxw_house_rent_channel` `dcxw_house_rent_channel` ON `dcxw_house_rent_channel`.`hrc_id`=`dcxw_house_rent_log`.`hrl_rent_channel` WHERE  `hrl_house_code` = '1111550009'  AND (   1 =1  ) ORDER BY hrl_status,hrl_rent_time desc LIMIT 10 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_rent_log` INNER JOIN `dcxw_house_rent` `dcxw_house_rent` ON `dcxw_house_rent_log`.`hrl_renter_id`=`dcxw_house_rent`.`hr_id` WHERE  `hrl_house_code` = '1111550009'  AND (   1 =1  ) LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-11-13T17:44:04+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/house/rentdetail.html?hrl_id=18
+[ info ] www.bbb.com/admin/house/rentdetail.html?hrl_id=18 [运行时间：0.065003s][吞吐率：15.38req/s] [内存消耗：2,246.50kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'rentdetail',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/house/rent.html?b_id=1111550009',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+  'hrl_id' => '18',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\House->rentdetail[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\house\rentdetail.html [ array (
+  0 => 'rent',
+  1 => 'renter',
+  2 => 'house',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_log` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_rent_channel`.`hrc_title`,`dcxw_house_rent_log`.* FROM `dcxw_house_rent_log` INNER JOIN `dcxw_house_rent_channel` `dcxw_house_rent_channel` ON `dcxw_house_rent_channel`.`hrc_id`=`dcxw_house_rent_log`.`hrl_rent_channel` WHERE  `hrl_id` = 18 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `h_area`,`h_b_id`,`h_building`,`h_address` FROM `dcxw_house` WHERE  `h_b_id` = '1111550009' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_house_rent` WHERE  `hr_id` = 22 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-13T17:44:06+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/house/paylog.html?hrl_id=18
+[ info ] www.bbb.com/admin/house/paylog.html?hrl_id=18 [运行时间：0.060004s][吞吐率：16.67req/s] [内存消耗：2,294.49kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'house',
+    2 => 'paylog',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/admin/house/rent.html?b_id=1111550009',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=pjkg5obh6bit2cqslbetmnhli1',
+)
+[ info ] [ PARAM ] array (
+  'hrl_id' => '18',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\House->paylog[ G:\xampp\htdocs\bbb\application\admin\controller\House.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/admin\view\house\paylog.html [ array (
+  0 => 'count',
+  1 => 'h_id',
+  2 => 'h_b_id',
+  3 => 'payLog',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_log` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `hrl_house_code` FROM `dcxw_house_rent_log` WHERE  `hrl_id` = 18 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent_pay_log` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_rent_pay_log`.*,`dcxw_house_rent_log`.`hrl_renter_id` FROM `dcxw_house_rent_pay_log` INNER JOIN `dcxw_house_rent_log` `dcxw_house_rent_log` ON `dcxw_house_rent_log`.`hrl_id`=`dcxw_house_rent_pay_log`.`hrpl_rent_id` WHERE  `hrpl_rent_id` = 18 ORDER BY hrpl_addtime desc LIMIT 10 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_rent_pay_log` INNER JOIN `dcxw_house_rent_log` `dcxw_house_rent_log` ON `dcxw_house_rent_log`.`hrl_id`=`dcxw_house_rent_pay_log`.`hrpl_rent_id` WHERE  `hrpl_rent_id` = 18 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_rent` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `hr_name` FROM `dcxw_house_rent` WHERE  `hr_id` = 22 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hr_phone` FROM `dcxw_house_rent` WHERE  `hr_id` = 22 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 90 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hr_name` FROM `dcxw_house_rent` WHERE  `hr_id` = 22 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hr_phone` FROM `dcxw_house_rent` WHERE  `hr_id` = 22 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 90 LIMIT 1 [ RunTime:0.000000s ]

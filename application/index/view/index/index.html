@@ -18,15 +18,6 @@
 <style>
     .navbar{
         background:#FFF;
-    }
-    ul {
-        height:45px;
-        overflow:hidden;
-    }
-    li {
-        height:45px; line-height:22px; font-size:22px;list-style-type:none;
-    }
-    .navbar{
         width: 100%;
         position: fixed;
         z-index: 300;
@@ -53,8 +44,7 @@
                 </li>
                 {/volist}
                 <li>
-                    <a style="color:#5b5b5b;font-size: 16px;" >看房热线：8:00~22:00
-                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a style="color:#5b5b5b;font-size: 16px;" >看房热线：
                         <em style="color: #ff6000;font-size: 22px;font-weight: bold;margin-top: 5px;">
                             {$hotLine}
                         </em>
@@ -71,7 +61,7 @@
             <div class="swiper-wrapper" style="margin-top: 54px;" >
                 {volist name="banner" id="ban"}
                 <a {if condition="$ban.ba_url neq null"}href="{$ban.ba_url}" target="_blank"{/if} class="swiper-slide">
-                    <img style="width: 100%;height: 490px" src="{$ban.ba_img}" alt="{$ban.ba_img}"/>
+                <img style="width: 100%;height: 490px" src="{$ban.ba_img}" alt="{$ban.ba_img}"/>
                 </a>
                 {/volist}
             </div>
@@ -80,20 +70,12 @@
         </div>
     </div>
 </div>
-<!--广告无缝滚动-->
-<h2 class="page-title text-center">
-    <ul class="page-title text-center" id="a">
-        <li><a href="<?=url('index/index')?>">广告啊！广告document.getElementById()的最简化aaaaaaa</a></li>
-        <li><a href="<?=url('index/index')?>">广告啊！广告document.getElementById()的最简化bbbbbbb</a></li>
-        <li><a href="<?=url('index/index')?>">广告啊！广告document.getElementById()的最简化ccccccc</a></li>
-        <li><a href="<?=url('index/index')?>">广告啊！广告document.getElementById()的最简化ddddddd</a></li>
-    </ul>
-</h2>
 <!--banner-->
 <!--闲置房屋托管运营-->
 <h2 class="page-title text-center">
     托管热线&nbsp;&nbsp;{$hotLine}
 </h2>
+
 <h1 class="text-center no-margin">
     <small>一站式托管服务</small>
 </h1>
@@ -127,17 +109,6 @@
                         <span id="ajaxElement_1_734">
                             {if condition="$house neq null"}
                             {volist name="house" id="hou"}
-                            {if condition="$hou.h_isable eq 2"}
-                            <div class="col-sm-4 col-xs-12" style="height:350px;">
-                                <a class="img-filter center-block" onclick="decorating({$hou.h_b_id})">
-                                    <img style="width: 350px;height: 262px;" src="__WEB__/img/decorating.png" alt="装修中">
-                                    <div class="img-info selected-info">
-                                        <p></p>
-                                        <span></span>
-                                    </div>
-                                </a>
-                            </div>
-                            {else/}
                             <div class="col-sm-4 col-xs-12" style="height:350px;">
                                 <a class="img-filter center-block" href="<?=url('seek/details')?>?h_id={$hou.h_id}">
                                     <img style="width: 350px;height: 262px;" src="{$hou.h_house_img}" alt="{$hou.h_img_alt}">
@@ -147,7 +118,6 @@
                                     </div>
                                 </a>
                             </div>
-                            {/if}
                             {/volist}
                             {else/}
                             <div class="col-sm-4 col-xs-12" style="height:350px;">
@@ -166,7 +136,7 @@
 </div>
 
 <h2 class="page-title text-center">
-    小屋智能公寓 ——<span style="font-size: 23px;">心安处▪ 方为家</span>
+    小屋智能公寓 ——<span style="font-size: 23px;">心安处&#9642; 方为家</span>
 </h2>
 <h1 class="text-center no-margin">
     <small>构筑科技、便捷、舒适、温馨的城市智能公寓，打造全新的都市生活居家模式</small>
@@ -225,6 +195,36 @@
         </div>
     </div>
 </div>
+<div class="container">
+    <div class="bs-example bs-example-tabs" style="padding-bottom:0px !important;" role="tabpanel" data-example-id="togglable-tabs">
+        <h2 class="text-center service-tit">
+            战略合作伙伴
+        </h2>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" aria-labelledby="expeditions-tab">
+                <div class="tab-info" >
+                    <div class="row">
+                        <div>
+                            {if condition="$house neq null"}
+                            {volist name="house" id="hou"}
+                            <div class="col-sm-4 col-xs-12">
+                                <a class="img-filter center-block" >
+                                    <img style="width: 350px;height: 262px;" title="{$hou.h_name}" src="{$hou.h_house_img}">
+                                </a>
+                            </div>
+                            {/volist}
+                            {else/}
+                            <div class="col-sm-4 col-xs-12" style="height:350px;">
+                                暂无信息
+                            </div>
+                            {/if}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {include file="common/footer" /}
 <script type="text/javascript">
     var swiper = new Swiper('.swiper-container', {
@@ -238,74 +238,4 @@
             disableOnInteraction: false,
         }
     });
-    function decorating(h_id){
-
-    }
-</script>
-<script>
-    //document.getElementById()的最简化应用
-    function $(element){
-        if(arguments.length>1){
-            for(var i=0,length=arguments.length,elements=[];i<length;i++){
-                elements.push($(arguments[i]));
-            }
-            return elements;
-        }
-        if(typeof element=="string"){
-            return document.getElementById(element);
-        }else{
-            return element;
-        }
-    }
-    //类创建函数
-    var Class={
-        create:function(){
-            return function(){
-                this.initialize.apply(this,arguments);
-            }
-        }
-    }
-    //对象属性方法扩展
-    Function.prototype.bind=function(object){
-        var method=this;
-        return function(){
-            method.apply(object,arguments);
-        }
-    }
-    var Scroll=Class.create();
-    Scroll.prototype={
-        //第一个参数定义要滚动的区域,第二个参数定义每次滚动的高度
-        initialize:function(element,height,delay){
-            this.element=$(element);
-            this.element.innerHTML+=this.element.innerHTML;
-            this.height=height*2;
-            this.delay=delay*3000;
-            this.maxHeight=this.element.scrollHeight;
-            this.counter=0;
-            this.scroll();
-            this.timer="";
-            this.element.onmouseover=this.stop.bind(this);
-            this.element.onmouseout=function(){this.timer=setTimeout(this.scroll.bind(this),1000);}.bind(this);
-        },
-        scroll:function(){
-            if(this.element.scrollTop<this.maxHeight){
-                this.element.scrollTop++;
-                this.counter++;
-            }else{
-                this.element.scrollTop=0;
-                this.counter=0;
-            }
-
-            if(this.counter<this.height){
-                this.timer=setTimeout(this.scroll.bind(this),5);
-            }else{
-                this.counter=0;
-                this.timer=setTimeout(this.scroll.bind(this),this.delay);
-            }
-        },
-        stop:function(){
-            clearTimeout(this.timer);
-        }
-    }
-    new Scroll('a', 22, 2)
 </script>

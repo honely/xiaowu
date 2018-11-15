@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\rentlog.html";i:1541141478;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\rentlog.html";i:1541820955;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -48,6 +48,8 @@
                     小区名称：<?php echo $house['h_building']; ?>
                     <br/> 租客姓名：<?php echo $log['hr_name']; ?>【<?php echo $log['hr_phone']; ?>】
                     <br/> 租赁时间：<?php echo $log['hrl_rent_time']; ?>—<?php echo $log['hrl_dead_time']; ?>
+                    <br/>
+                    出租渠道：<?php echo $log['hrc_title']; ?>
                     <br/>
                     房屋面积：<?php echo $house['h_area']; ?>（㎡）
                     <br/>

@@ -36,7 +36,9 @@ class Index extends Controller{
             $buNum=Db::table('dcxw_house')->where(['h_c_id' => $c_ids])->count();
             $data['h_b_id'] = $p_id[0].''.$c_id[0].''.$a_id[0].sprintf("%04d", $buNum+1);
             $data['h_addtime']=time();
+            $data['h_updatetime']=time();
             $data['h_isable']=1;
+            $data['h_add_type']=2;
             $data['h_admin'] = $userInfo['u_id'];
             $add=Db::table('dcxw_house')->insert($data);
             if($add){
@@ -384,7 +386,10 @@ class Index extends Controller{
             $data['hp_will_pay']=$_POST['hp_money'];
             $data['hp_admin'] = $userInfo['u_id'];
             $addPay=Db::table('dcxw_house_pay')->insert($data);
-            if($addPay){
+            //更新主表签单状态
+            $h_id=trim($_POST['hp_house_code']);
+            $update=Db::table('dcxw_house')->where(['h_b_id' => $h_id])->update(['h_isable' => 6]);
+            if($addPay && $update){
                 $this->success('添加成功!');
             }else{
                 $this->error('添加失败！');

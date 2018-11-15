@@ -17,7 +17,7 @@ class Index extends Controller{
         parent::__construct($request);
         $userInfo=session('userInfo');
         if(empty($userInfo)){
-            $this->redirect('login/login');
+            $this->redirect('marketm/login/login');
         }
     }
 
@@ -141,9 +141,9 @@ class Index extends Controller{
             ->find();
         if($attach){
             $attach['ha_deadline']=date("Y-m-d",$attach['ha_deadline']);
+            $attach['ha_contact_img']=explode(",",$attach['ha_contact_img']);
             $attach['ha_decorate_permit']=date("Y-m-d",$attach['ha_decorate_permit']);
         }
-
         $this->assign('attach',$attach);
         return $this->fetch();
     }
@@ -203,27 +203,52 @@ class Index extends Controller{
     public function improve()
     {
         $h_id=trim($_GET['h_id']);
-        $houseInfo=Db::table('dcxw_house')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_house.h_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_house.h_c_id')
-            ->join('dcxw_area','dcxw_area.area_id = dcxw_house.h_a_id')
-            ->field('dcxw_house.*,dcxw_province.p_name,dcxw_city.c_name,dcxw_area.area_name')
-            ->where(['h_b_id' => $h_id])
-            ->find();
-//        dump($houseInfo);
-        //房屋配置 备选
-        $houseConf=Db::table('dcxw_type')
-            ->where(['type_sort' => 2,'type_isable' => 1])
-            ->order('type_order')
-            ->select();
-        $type_list = "";
-        if($houseInfo['h_config']){
-            $type_list = explode(',',trim($houseInfo['h_config'],','));
+        $userInfo=session('userInfo');
+        if($_POST){
+            $data=$_POST;
+            $data['h_config'] =implode(',',array_keys($_POST['h_config']));
+            $img=$_POST['h_img'];
+            $data['h_isable'] = 4;
+            $h_img='';
+            for ($i=0;$i<sizeof($img);$i++){
+                $h_img.=$img[$i].",";
+            }
+            $data['h_house_img']=$_POST['h_img'][0];
+            $data['h_img']=trim($h_img,',');
+            $data['h_add_type']=2;
+            $data['h_admin']=$userInfo['u_id'];
+            $data['h_updatetime']=time();
+            $update=Db::table('dcxw_house')->where(['h_b_id' => $h_id])->update($data);
+            if($update){
+                $this->success('修改成功！','');
+            }else{
+                $this->error('修改失败！','');
+            }
+        }else{
+            $houseInfo=Db::table('dcxw_house')
+                ->join('dcxw_province','dcxw_province.p_id = dcxw_house.h_p_id')
+                ->join('dcxw_city','dcxw_city.c_id = dcxw_house.h_c_id')
+                ->join('dcxw_area','dcxw_area.area_id = dcxw_house.h_a_id')
+                ->field('dcxw_house.*,dcxw_province.p_name,dcxw_city.c_name,dcxw_area.area_name')
+                ->where(['h_b_id' => $h_id])
+                ->find();
+            if($houseInfo){
+                $houseInfo['h_img']=explode(',',$houseInfo['h_img']);
+            }
+            //房屋配置 备选
+            $houseConf=Db::table('dcxw_type')
+                ->where(['type_sort' => 2,'type_isable' => 1])
+                ->order('type_order')
+                ->select();
+            $type_list = "";
+            if($houseInfo['h_config']){
+                $type_list = explode(',',trim($houseInfo['h_config'],','));
+            }
+            $this->assign('type_list',$type_list);
+            $this->assign('config',$houseConf);
+            $this->assign('house',$houseInfo);
+            return $this->fetch();
         }
-        $this->assign('type_list',$type_list);
-        $this->assign('config',$houseConf);
-        $this->assign('house',$houseInfo);
-        return $this->fetch();
     }
 
 
@@ -251,10 +276,11 @@ class Index extends Controller{
         $this->assign('house',$houseInfo);
         $rentLog=Db::table('dcxw_house_rent_log')
             ->join('dcxw_house_rent','dcxw_house_rent_log.hrl_renter_id = dcxw_house_rent.hr_id')
+            ->join('dcxw_house_rent_channel','dcxw_house_rent_channel.hrc_id = dcxw_house_rent_log.hrl_rent_channel')
             ->where(['hrl_house_code' => $h_id])
             ->where($where)
             ->limit(10)
-            ->field('dcxw_house_rent_log.*,dcxw_house_rent.hr_name,dcxw_house_rent.hr_phone')
+            ->field('dcxw_house_rent_log.*,dcxw_house_rent.hr_name,dcxw_house_rent.hr_phone,dcxw_house_rent_channel.hrc_title')
             ->order('hrl_status,hrl_rent_time desc')
             ->select();
         $count=Db::table('dcxw_house_rent_log')
@@ -284,8 +310,6 @@ class Index extends Controller{
 
         if($_POST){
             $page=intval(trim($_POST['page']));
-//            $keywords=trim($_POST['keywords']);
-//            $where.=" and ( h_name like '%".$keywords."%' or h_building like '%".$keywords."%' or h_address like '%".$keywords."%'  or h_description like '%".$keywords."%' )";
         }else{
             $page=1;
         }
@@ -349,6 +373,7 @@ class Index extends Controller{
                 $rentLog['hrl_foregift']=trim($_POST['hrl_foregift']);
                 $rentLog['hrl_rent_price']=trim($_POST['hrl_rent_price']);
                 $rentLog['hrl_rent_type']=intval(trim($_POST['hrl_rent_type']));
+                $rentLog['hrl_rent_channel']=intval(trim($_POST['hrl_rent_channel']));
                 $rentLog['hrl_pay_type']=intval(trim($_POST['hrl_remark']));
                 $rentLog['hrl_remark']=trim($_POST['hrl_remark']);
                 $rentLog['hrl_addtime']=time();
@@ -366,6 +391,11 @@ class Index extends Controller{
                 }
             }
         }else{
+            $rentChannel=Db::table('dcxw_house_rent_channel')
+                ->where(['hrc_isable' => 1])
+                ->order('hrc_addtime desc')
+                ->select();
+            $this->assign('rentChannel',$rentChannel);
             $this->assign('h_id',$h_id);
             return $this->fetch();
         }
@@ -430,7 +460,9 @@ class Index extends Controller{
         $hrl_id=trim($_GET['hrl_id']);
         //根据出租记录id找出房源编号
         $rentInfo=Db::table('dcxw_house_rent_log')
+            ->join('dcxw_house_rent_channel','dcxw_house_rent_channel.hrc_id = dcxw_house_rent_log.hrl_rent_channel')
             ->where(['hrl_id' => $hrl_id])
+            ->field('dcxw_house_rent_channel.hrc_title,dcxw_house_rent_log.*')
             ->find();
         $rentInfo['hrl_contact_img']=explode(',',$rentInfo['hrl_contact_img']);
         $rentInfo['hrl_rent_time']=date('Y/m/d',$rentInfo['hrl_rent_time']);

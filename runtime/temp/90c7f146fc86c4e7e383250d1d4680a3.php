@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\details.html";i:1541136261;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\details.html";i:1541745287;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -9,6 +9,159 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
+    <style type="text/css">
+        .mui-preview-image.mui-fullscreen {
+            position: fixed;
+            z-index: 20;
+            background-color: #000;
+        }
+        .mui-preview-header,
+        .mui-preview-footer {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            z-index: 10;
+        }
+        .mui-preview-header {
+            height: 44px;
+            top: 0;
+        }
+        .mui-preview-footer {
+            height: 50px;
+            bottom: 0px;
+        }
+        .mui-preview-header .mui-preview-indicator {
+            display: block;
+            line-height: 25px;
+            color: #fff;
+            text-align: center;
+            margin: 15px auto 4;
+            width: 70px;
+            background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            font-size: 16px;
+        }
+        .mui-preview-image {
+            display: none;
+            -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+        .mui-preview-image.mui-preview-in {
+            -webkit-animation-name: fadeIn;
+            animation-name: fadeIn;
+        }
+        .mui-preview-image.mui-preview-out {
+            background: none;
+            -webkit-animation-name: fadeOut;
+            animation-name: fadeOut;
+        }
+        .mui-preview-image.mui-preview-out .mui-preview-header,
+        .mui-preview-image.mui-preview-out .mui-preview-footer {
+            display: none;
+        }
+        .mui-zoom-scroller {
+            position: absolute;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            -webkit-backface-visibility: hidden;
+        }
+        .mui-zoom {
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+        .mui-slider .mui-slider-group .mui-slider-item img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+            width: 100%;
+        }
+        .mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+            display: inline-table;
+        }
+        .mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .mui-preview-loading {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        .mui-preview-loading.mui-active {
+            display: block;
+        }
+        .mui-preview-loading .mui-spinner-white {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -25px;
+            margin-top: -25px;
+            height: 50px;
+            width: 50px;
+        }
+        .mui-preview-image img.mui-transitioning {
+            -webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        @-webkit-keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @-webkit-keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        p img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
@@ -84,173 +237,115 @@
         </div>
     </div>
     <?php endif; if($attach != null): ?>
-    <div class="mui-content-padded" style="margin: 5px;">
-        <form class="mui-input-group layui-form" id="attachForm" style="background-color: #efeff4">
-            <div class="mui-card">
+    <div class="mui-card">
+        <div class="mui-card-content">
+            <div class="mui-card-content-inner">
                 <p><b>附属信息</b></p>
-                <div class="mui-input-row">
-                    <label>钥匙：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_keys'])): ?> value="<?php echo $attach['ha_keys']; ?>" <?php endif; ?>>
-                </div>
-                <div class="mui-input-row">
-                    <label>备注：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_keys_remarks'])): ?> value="<?php echo $attach['ha_keys_remarks']; ?>" <?php endif; ?>>
-                </div>
-            </div>
-            <div class="mui-card">
-                <div class="mui-input-row">
-                    <label>门禁：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_door_ban'])): ?> value="<?php echo $attach['ha_door_ban']; ?>" <?php endif; ?>>
-                </div>
-                <div class="mui-input-row">
-                    <label>备注：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_door_ban_remarks'])): ?> value="<?php echo $attach['ha_door_ban_remarks']; ?>" <?php endif; ?>>
-                </div>
-            </div>
-            <div class="mui-card">
-                <div class="mui-input-row">
-                    <label>电卡：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_elect_card'])): ?> value="<?php echo $attach['ha_elect_card']; ?>" <?php endif; ?> id="ha_elect_card">
-                </div>
-                <div class="mui-input-row">
-                    <label>电表底数：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_elect_start'])): ?> value="<?php echo $attach['ha_elect_start']; ?>" <?php endif; ?> class="layui-input" lay-verify="required" id="ha_elect_start" name="ha_elect_start">
-                </div>
-                <div class="mui-input-row">
-                    <label>电费单价：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_elect_price'])): ?> value="<?php echo $attach['ha_elect_price']; ?>" <?php endif; ?>>
-                </div>
-                <div class="mui-input-row">
-                    <label>缴费方式：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_elect_type'])): ?> value="<?php echo $attach['ha_elect_type']; ?>" <?php endif; ?>>
-                </div>
-                <div class="mui-input-row">
-                    <label>备注：</label>
-                    <input type="text" readonly  <?php if(isset($attach['ha_elect_card_tips'])): ?> value="<?php echo $attach['ha_elect_card_tips']; ?>" <?php endif; ?>>
-                </div>
-            </div>
-            <div class="mui-card">
-                <div class="mui-input-row">
-                    <label>水卡：</label>
-                    <input type="text" readonly  <?php if(isset($attach['ha_water_card'])): ?> value="<?php echo $attach['ha_water_card']; ?>" <?php endif; ?>>
-                </div>
-                <div class="mui-input-row">
-                    <label>水表底数：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_water_start'])): ?> value="<?php echo $attach['ha_water_start']; ?>" <?php endif; ?>>
-                </div>
-                <div class="mui-input-row">
-                    <label>水费单价：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_water_price'])): ?> value="<?php echo $attach['ha_water_price']; ?>" <?php endif; ?>>
-                </div>
-                <div class="mui-input-row">
-                    <label>缴费方式：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_water_type'])): ?> value="<?php echo $attach['ha_water_type']; ?>" <?php endif; ?>>
-                </div>
-                <div class="mui-input-row">
-                    <label>备注：</label>
-                    <input type="text" readonly  <?php if(isset($attach['ha_water_card_tips'])): ?> value="<?php echo $attach['ha_water_card_tips']; ?>" <?php endif; ?>>
-                </div>
-            </div>
-
-            <div class="mui-card">
-                <div class="mui-input-row">
-                    <label>供暖方式：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_warm_type'])): ?> value="<?php echo $attach['ha_warm_type']; ?>" <?php endif; ?>>
-                </div>
-                <div class="mui-input-row">
-                    <label>暖气单价：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_warm_price'])): ?> value="<?php echo $attach['ha_warm_price']; ?>" <?php endif; ?>>
-                </div>
-                <div class="mui-input-row">
-                    <label>缴费方式：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_warm_tips'])): ?> value="<?php echo $attach['ha_warm_tips']; ?>" <?php endif; ?>>
-                </div>
-            </div>
-            <div class="mui-card">
-                <div class="mui-input-row">
-                    <label>猫眼：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_cat_eye'])): ?> value="<?php echo $attach['ha_cat_eye']; ?>" <?php endif; ?>>
-                </div>
-                <div class="mui-input-row">
-                    <label>备注：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_cat_eye_tips'])): ?> value="<?php echo $attach['ha_cat_eye_tips']; ?>" <?php endif; ?>>
-                </div>
-            </div>
-            <div class="mui-card">
-                <div class="mui-input-row">
-                    <label>可视电话：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_view_phone'])): ?> value="<?php echo $attach['ha_view_phone']; ?>" <?php endif; ?>>
-                </div>
-                <div class="mui-input-row">
-                    <label>备注：</label>
-                    <input type="text" readonly  <?php if(isset($attach['ha_view_phone_tips'])): ?> value="<?php echo $attach['ha_view_phone_tips']; ?>" <?php endif; ?>>
-                </div>
-            </div>
-            <div class="mui-card">
-                <div class="mui-input-row">
-                    <label>燃气底数：</label>
-                    <input type="text" readonly  <?php if(isset($attach['ha_air_start'])): ?> value="<?php echo $attach['ha_air_start']; ?>" <?php endif; ?>>
-                </div>
-                <div class="mui-input-row">
-                    <label>燃气备注：</label>
-                    <input type="text" readonly  <?php if(isset($attach['ha_air_tips'])): ?> value="<?php echo $attach['ha_air_tips']; ?>" <?php endif; ?>>
-                </div>
-            </div>
-            <div class="mui-card">
-                <div class="mui-input-row">
-                    <label>车位情况：</label>
-                    <input type="text" readonly   <?php if(isset($attach['ha_car_park'])): ?> value="<?php echo $attach['ha_car_park']; ?>" <?php endif; ?>>
-                </div>
-                <div class="mui-input-row">
-                    <label>物业电话：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_wuye_phone'])): ?> value="<?php echo $attach['ha_wuye_phone']; ?>" <?php endif; ?>>
-                </div>
-            </div>
-            <div class="mui-card">
-                <div class="mui-input-row">
-                    <label>合同编号：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_contact_code'])): ?> value="<?php echo $attach['ha_contact_code']; ?>" <?php endif; ?>>
-                </div>
-                <div class="mui-input-row">
-                    <label>合同扫描件</label>
-                </div>
-                <div id="imgPre">
+                <p style="color: #333;">
+                    钥匙：<?php if(isset($attach['ha_keys'])): ?><?php echo $attach['ha_keys']; endif; ?>
+                    备注：<?php if(isset($attach['ha_keys_remarks'])): ?><?php echo $attach['ha_keys_remarks']; endif; ?>
+                </p>
+                <p style="color: #333;">
+                    门禁：<?php if(isset($attach['ha_door_ban'])): ?><?php echo $attach['ha_door_ban']; endif; ?>
+                    备注：<?php if(isset($attach['ha_door_ban_remarks'])): ?><?php echo $attach['ha_door_ban_remarks']; endif; ?>
+                </p>
+                <hr/>
+                <p style="color: #333;">
+                    电卡：<?php if(isset($attach['ha_elect_card'])): ?><?php echo $attach['ha_elect_card']; endif; ?>
+                </p>
+                <p style="color: #333;">
+                    电表底数：<?php if(isset($attach['ha_elect_start'])): ?><?php echo $attach['ha_elect_start']; endif; ?>
+                </p>
+                <p style="color: #333;">
+                    电费单价：<?php if(isset($attach['ha_elect_price'])): ?><?php echo $attach['ha_elect_price']; endif; ?>
+                </p>
+                <p style="color: #333;">
+                    缴费方式：<?php if(isset($attach['ha_elect_type'])): ?><?php echo $attach['ha_elect_type']; endif; ?>
+                </p>
+                <p style="color: #333;">
+                    备注：<?php if(isset($attach['ha_elect_card_tips'])): ?><?php echo $attach['ha_elect_card_tips']; endif; ?>
+                </p>
+                <hr/>
+                <p style="color: #333;">
+                    水卡：<?php if(isset($attach['ha_water_card'])): ?><?php echo $attach['ha_water_card']; endif; ?>
+                </p>
+                <p style="color: #333;">
+                    水表底数：<?php if(isset($attach['ha_water_start'])): ?><?php echo $attach['ha_water_start']; endif; ?>
+                </p>
+                <p style="color: #333;">
+                    水费单价：<?php if(isset($attach['ha_water_price'])): ?><?php echo $attach['ha_water_price']; endif; ?>
+                </p>
+                <p style="color: #333;">
+                    缴费方式：<?php if(isset($attach['ha_water_type'])): ?><?php echo $attach['ha_water_type']; endif; ?>
+                </p>
+                <p style="color: #333;">
+                    备注：<?php if(isset($attach['ha_water_card_tips'])): ?><?php echo $attach['ha_water_card_tips']; endif; ?>
+                </p>
+                <hr/>
+                <p style="color: #333;">
+                    供暖方式：<?php if(isset($attach['ha_warm_type'])): ?><?php echo $attach['ha_warm_type']; endif; ?>
+                </p>
+                <p style="color: #333;">
+                    暖气单价：<?php if(isset($attach['ha_warm_price'])): ?><?php echo $attach['ha_warm_price']; endif; ?>
+                </p>
+                <p style="color: #333;">
+                    缴费方式：<?php if(isset($attach['ha_warm_tips'])): ?><?php echo $attach['ha_warm_tips']; endif; ?>
+                </p>
+                <hr/>
+                <p style="color: #333;">
+                    猫眼：<?php if(isset($attach['ha_cat_eye'])): ?><?php echo $attach['ha_cat_eye']; endif; ?>
+                    备注：<?php if(isset($attach['ha_cat_eye_tips'])): ?><?php echo $attach['ha_cat_eye_tips']; endif; ?>
+                </p>
+                <p style="color: #333;">
+                    可视电话：<?php if(isset($attach['ha_view_phone'])): ?><?php echo $attach['ha_view_phone']; endif; ?>
+                    备注：<?php if(isset($attach['ha_view_phone_tips'])): ?><?php echo $attach['ha_view_phone_tips']; endif; ?>
+                </p>
+                <p style="color: #333;">
+                    燃气底数：<?php if(isset($attach['ha_air_start'])): ?><?php echo $attach['ha_air_start']; endif; ?>
+                    备注：<?php if(isset($attach['ha_air_tips'])): ?><?php echo $attach['ha_air_tips']; endif; ?>
+                </p>
+                <p style="color: #333;">
+                    车位情况：<?php if(isset($attach['ha_car_park'])): ?><?php echo $attach['ha_car_park']; endif; ?>
+                    物业电话：<?php if(isset($attach['ha_wuye_phone'])): ?><?php echo $attach['ha_wuye_phone']; endif; ?>
+                </p>
+                <p style="color: #333;">
+                    合同编号：<?php if(isset($attach['ha_contact_code'])): ?><?php echo $attach['ha_contact_code']; endif; ?>
+                </p>
+                <p style="color: #333;">
+                    <b>合同扫描件：</b>
+                </p>
+                <p>
                     <?php if(is_array($attach['ha_contact_img']) || $attach['ha_contact_img'] instanceof \think\Collection || $attach['ha_contact_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $attach['ha_contact_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
-                    <li class="item_img">
-                        <div class="operate">
-                            <i  class="close layui-icon"></i>
-                        </div>
-                        <img src="__PUBLIC__/<?php echo $items; ?>" class="img" ><input type="hidden" name="ha_contact_img[]" value="' + res.path + '" />
-                    </li>
+                    <img src="<?php echo $items; ?>" data-preview-src="" data-preview-group="1">
                     <?php endforeach; endif; else: echo "" ;endif; ?>
-                </div>
-                <div class="mui-input-row">
-                    <label>租金(每月)：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_rent_price'])): ?> value="<?php echo $attach['ha_rent_price']; ?>" <?php endif; ?>>
-                </div>
-                <div class="mui-input-row">
-                    <label>租期：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_rent_time'])): ?> value="<?php echo $attach['ha_rent_time']; ?>" <?php endif; ?>>
-                </div>
-                <div class="mui-input-row">
-                    <label>到期时间：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_deadline'])): ?> value="<?php echo $attach['ha_deadline']; ?>" <?php endif; ?>>
-                </div>
-                <div class="mui-input-row">
-                    <label>装修许可时间：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_decorate_permit'])): ?> value="<?php echo $attach['ha_decorate_permit']; ?>" <?php endif; ?>>
-                </div>
-            </div>
-            <div class="mui-card">
-                <div class="mui-input-row" style="margin: 10px 5px;">
-                    <label>其他备注信息：</label>
-                    <textarea readonly rows="5"><?php if(isset($attach['ha_remarks'])): ?><?php echo $attach['ha_remarks']; endif; ?></textarea>
+                </p>
+                <hr/>
+                <p style="color: #333;">
+                    租金(每月)：<?php if(isset($attach['ha_rent_price'])): ?><?php echo $attach['ha_rent_price']; endif; ?>
+                </p>
+                <p style="color: #333;">
+                    租期：<?php if(isset($attach['ha_rent_time'])): ?><?php echo $attach['ha_rent_time']; endif; ?>
+                </p>
+                <p style="color: #333;">
+                    到期时间：<?php if(isset($attach['ha_deadline'])): ?><?php echo $attach['ha_deadline']; endif; ?>
+                </p>
+                <p style="color: #333;">
+                    装修许可时间：<?php if(isset($attach['ha_decorate_permit'])): ?><?php echo $attach['ha_decorate_permit']; endif; ?>
+                </p>
+                <p style="color: #333;">
+                    其他备注：<?php if(isset($attach['ha_remarks'])): ?><?php echo $attach['ha_remarks']; endif; ?>
+                </p>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
     <?php endif; ?>
 </div>
+<script src="__WAP__/js/mui.min.js"></script>
+<script src="__WAP__/js/mui.zoom.js"></script>
+<script src="__WAP__/js/mui.previewimage.js"></script>
+<script>
+    mui.previewImage();
+</script>
 </body>
-
 </html>

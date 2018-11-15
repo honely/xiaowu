@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\admin\edit.html";i:1537598898;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\admin\edit.html";i:1541658450;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,7 +50,6 @@
                     <input type="radio" name="ad_sex" value="2" title="女" <?php if($admin['ad_sex'] == 2): ?>checked<?php endif; ?>>
                 </div>
             </div>
-            <?php if($admin['ad_id'] == 1): else: if($ad_role == 1): ?>
                 <div class="layui-form-item">
                     <label class="layui-form-label"><span style="color: red;">*</span>省份</label>
                     <div class="layui-input-inline">
@@ -70,14 +69,6 @@
                         </select>
                     </div>
                     <div class="layui-input-inline">
-                        <select name="ad_branch" id="branch" lay-verify="required">
-                            <option value="">请选择站点</option>
-                            <?php if(is_array($branchs) || $branchs instanceof \think\Collection || $branchs instanceof \think\Paginator): $i = 0; $__LIST__ = $branchs;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$bran): $mod = ($i % 2 );++$i;?>
-                            <option value="<?php echo $bran['b_id']; ?>" <?php if($admin['ad_branch'] == $bran['b_id']): ?>selected<?php endif; ?>><?php echo $bran['b_name']; ?></option>
-                            <?php endforeach; endif; else: echo "" ;endif; ?>
-                        </select>
-                    </div>
-                    <div class="layui-input-inline">
                         <select name="ad_role" lay-verify="required">
                             <option value="">请选择角色</option>
                             <?php if(is_array($role) || $role instanceof \think\Collection || $role instanceof \think\Paginator): $i = 0; $__LIST__ = $role;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
@@ -86,22 +77,6 @@
                         </select>
                     </div>
                 </div>
-                <?php else: ?>
-                <div class="layui-form-item">
-                    <label class="layui-form-label"><span style="color: red;">*</span>所属站点</label>
-                    <div class="layui-input-inline">
-                        <input type="text" class="layui-input" value="<?php echo $admin['p_name']; ?>-<?php echo $admin['c_name']; ?>-<?php echo $admin['b_name']; ?>" readonly/>
-                    </div>
-                    <div class="layui-input-inline">
-                        <select name="ad_role" lay-verify="required">
-                            <option value="">请选择角色</option>
-                            <?php if(is_array($role) || $role instanceof \think\Collection || $role instanceof \think\Paginator): $i = 0; $__LIST__ = $role;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
-                            <option value="<?php echo $vo['r_id']; ?>"  <?php if($admin['ad_role'] == $vo['r_id']): ?>selected<?php endif; ?> ><?php echo $vo['r_name']; ?></option>
-                            <?php endforeach; endif; else: echo "" ;endif; ?>
-                        </select>
-                    </div>
-                </div>
-                <?php endif; endif; ?>
             <div class="layui-form-item">
                 <label class="layui-form-label"><span style="color: red;">*</span>手机号码</label>
                 <div class="layui-input-block">
@@ -114,15 +89,6 @@
                     <input type="text" name="ad_email" id="ad_email"  onblur="checkEmail()"  value="<?php echo $admin['ad_email']; ?>" lay-verify="required|email" placeholder="请输入电子邮箱" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <?php if($admin['ad_id'] == 1): else: ?>
-            <div class="layui-form-item" pane>
-                <label class="layui-form-label">是否启用</label>
-                <div class="layui-input-block">
-                    <input type="radio" name="ad_isable" value="1" title="是" <?php if($admin['ad_isable'] == 1): ?>checked<?php endif; ?> >
-                    <input type="radio" name="ad_isable" value="2" title="否" <?php if($admin['ad_isable'] == 2): ?>checked<?php endif; ?> >
-                </div>
-            </div>
-            <?php endif; ?>
             <div class="layui-form-item">
                 <div class="layui-input-block">
                     <button class="layui-btn" lay-submit lay-filter="saveInfo">修改</button>
@@ -189,11 +155,12 @@
 
     function checkPhone(){
         var ad_phone=$('#ad_phone').val();
+        var ad_id=<?php echo $admin['ad_id']; ?>;
         $.ajax({
             type:"post",
             url:"<?=url('admin/checkPhone')?>",
             dataType: 'json',
-            data:{'ad_phone':ad_phone,'ad_id':<?php echo $admin['ad_id']; ?>},
+            data:{'ad_phone':ad_phone,'ad_id':ad_id},
             success:function (data) {
                 console.log(data);
                 if(data.code >1){
@@ -210,11 +177,12 @@
 
     function checkEmail(){
         var ad_email=$('#ad_email').val();
+        var ad_id=<?php echo $admin['ad_id']; ?>;
         $.ajax({
             type:"post",
             url:"<?=url('admin/checkEmail')?>",
             dataType: 'json',
-            data:{'ad_email':ad_email,'ad_id':<?php echo $admin['ad_id']; ?>},
+            data:{'ad_email':ad_email,'ad_id':ad_id},
             success:function (data) {
                 console.log(data);
                 if(data.code >1){

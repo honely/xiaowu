@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/index\view\news\details.html";i:1538968811;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1541063850;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1540457310;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/index\view\news\details.html";i:1538968811;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1541063850;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1542010376;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -162,7 +162,7 @@
     </div>
 </div>
 <!--footer-->
-<div class="footer" style="padding-top: 30px;height: 180px;">
+<div class="footer" style="padding-top: 30px;height: 302px;">
     <!--  -->
     <div class="footer-con con clearfix">
         <div class="footer-left pull-left">
@@ -173,7 +173,7 @@
                 <img style="width: 235px;height: 43px;" src="__WEB__/img/footer-adv.png" alt="小屋智能公寓LOGO">
             </p>
         </div>
-        <div class="footer-center pull-left">
+        <div class="footer-center pull-left" style="overflow: hidden;margin:0 55px 0 90px">
             <ul class="clearfix">
                 <li>
                     <a href="<?=url('seek/index')?>">轻松找房</a>
@@ -188,8 +188,39 @@
                     <a href="<?=url('about/index')?>">关于我们</a>
                 </li>
             </ul>
+            <hr/>
+           <ul class="clearfix">
+                <li>
+                    <a>总部地址：陕西省西安市高新区沣惠南路16号7号楼2401</a>
+                </li>
+            </ul>
+            <ul class="clearfix">
+                <li>
+                    <a>联系电话：电话：029-8755-8112</a>
+                </li>
+            </ul>
+            <ul class="clearfix">
+                <li>
+                    <a>成都分公司：四川省成都市高新区环球中心E1 1-2-702</a>
+                </li>
+            </ul>
+            <ul class="clearfix">
+                <li>
+                    <a>电话：028-69215061&nbsp;&nbsp;&nbsp;&nbsp;028-69215051</a>
+                </li>
+            </ul>
+            <ul class="clearfix">
+                <li>
+                    <a>重庆分公司：重庆市江北区江北城IFS国金中心T2栋610</a>
+                </li>
+            </ul>
+            <ul class="clearfix">
+                <li>
+                    <a>电话：023-67753595&nbsp;&nbsp;&nbsp;&nbsp;023-67753685</a>
+                </li>
+            </ul>
         </div>
-        <div class="footer-right pull-left">
+        <div class="footer-right pull-left" style="float: right!important;overflow: hidden">
             <div class="left pull-left">
                 <h3>
                     <img class="pull-left" style="width: 22px;height: 22px;" src="__WEB__/img/footer-ph.png" alt="">

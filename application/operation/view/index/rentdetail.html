@@ -224,7 +224,9 @@
                     <br/>
                     租房单价：{$rent.hrl_rent_price}（元）/ {if condition="$rent.hrl_rent_type eq 1"}日{else/}月{/if}
                     <br/>
-                    付租方式：{$rent.hrl_pay_type}
+                    付租方式：{if condition="$rent.hrl_pay_type eq 1"}日租金{else/}月租金{/if}
+                    <br/>
+                    出租渠道：{$rent.hrc_title}
                     <br/>
                     电表底数：{$rent.hrl_elect_start}
                 {if condition="$rent.hrl_status eq 2"}

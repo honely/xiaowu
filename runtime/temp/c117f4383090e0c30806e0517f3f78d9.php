@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\preview.html";i:1540957036;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\preview.html";i:1541742331;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -401,7 +401,7 @@
             </div>
         </form>
     </div>
-    <?php endif; if(($attach != null) AND ($payLogs != null) AND ($payInfo != null) AND ($hous != null) and ($master != null) AND ($manger != null) AND ($hous['h_isable'] == 1)): ?>
+    <?php endif; if(($attach != null) AND ($payLogs != null) AND ($payInfo != null) AND ($hous != null) and ($master != null) AND ($manger != null) AND ($hous['h_isable'] == 6)): ?>
     <div class="mui-card">
         <div class="mui-input-row" style="margin: 10px 5px;">
             <label>转交备注：</label>

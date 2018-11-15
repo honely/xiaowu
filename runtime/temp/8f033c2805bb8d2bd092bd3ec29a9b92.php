@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\improve.html";i:1541411451;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\improve.html";i:1541755943;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -18,6 +18,168 @@
         }
         .color-red{
             color: red;
+        }
+        .item_img{
+            width: 23%;
+            float: left;
+            height: 116px;
+            overflow: hidden;
+        }
+        .img{
+            width:100%; height: 92px
+        }
+    </style>
+    <style type="text/css">
+        .mui-preview-image.mui-fullscreen {
+            position: fixed;
+            z-index: 20;
+            background-color: #000;
+        }
+        .mui-preview-header,
+        .mui-preview-footer {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            z-index: 10;
+        }
+        .mui-preview-header {
+            height: 44px;
+            top: 0;
+        }
+        .mui-preview-footer {
+            height: 50px;
+            bottom: 0px;
+        }
+        .mui-preview-header .mui-preview-indicator {
+            display: block;
+            line-height: 25px;
+            color: #fff;
+            text-align: center;
+            margin: 15px auto 4;
+            width: 70px;
+            background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            font-size: 16px;
+        }
+        .mui-preview-image {
+            display: none;
+            -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+        .mui-preview-image.mui-preview-in {
+            -webkit-animation-name: fadeIn;
+            animation-name: fadeIn;
+        }
+        .mui-preview-image.mui-preview-out {
+            background: none;
+            -webkit-animation-name: fadeOut;
+            animation-name: fadeOut;
+        }
+        .mui-preview-image.mui-preview-out .mui-preview-header,
+        .mui-preview-image.mui-preview-out .mui-preview-footer {
+            display: none;
+        }
+        .mui-zoom-scroller {
+            position: absolute;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            -webkit-backface-visibility: hidden;
+        }
+        .mui-zoom {
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+        .mui-slider .mui-slider-group .mui-slider-item img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+            width: 100%;
+        }
+        .mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+            display: inline-table;
+        }
+        .mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .mui-preview-loading {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        .mui-preview-loading.mui-active {
+            display: block;
+        }
+        .mui-preview-loading .mui-spinner-white {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -25px;
+            margin-top: -25px;
+            height: 50px;
+            width: 50px;
+        }
+        .mui-preview-image img.mui-transitioning {
+            -webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        @-webkit-keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @-webkit-keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        p img {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -42,11 +204,11 @@
             <div class="mui-card">
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>房源名称：</label>
-                    <input type="text" value="<?php echo $house['h_building']; ?><?php echo $house['h_house_type']; ?>" class="layui-input" lay-verify="required" id="ha_contact_code" name="ha_contact_code">
+                    <input type="text" value="<?php echo $house['h_name']; ?>" class="layui-input" lay-verify="required" id="h_name" name="h_name">
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>房源地址：</label>
-                    <input type="text" value="<?php echo $house['h_address']; ?>" class="layui-input" name="ha_contact_code">
+                    <input type="text" value="<?php echo $house['h_address']; ?>" class="layui-input" name="h_address">
                 </div>
                 <div class="mui-content-padded">
                     <select name="h_head" id="h_head" class="mui-btn mui-btn-block">
@@ -62,24 +224,23 @@
                     </select>
                 </div>
                 <div class="mui-input-row">
-                    <label><span class="color-red">*</span>房源图片</label>
+                    <label><span class="color-red">*</span>房源图片</label>第一张为封面图。
                     <span id="upload" class="mui-btn mui-btn-primary">上传</span>
-                    <input type="hidden" id="img" lay-verify="imgReg" value="123"/>
                 </div>
                 <div id="imgPre">
                     <?php if(isset($house['h_img'])): if(is_array($house['h_img']) || $house['h_img'] instanceof \think\Collection || $house['h_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $house['h_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
                     <li class="item_img">
                         <div class="operate">
-                            <i  class="close layui-icon"></i>
+                            <i class="close layui-icon"></i>
                         </div>
-                        <img src="__PUBLIC__/<?php echo $items; ?>" class="img" >
-                        <input type="hidden" name="h_img[]" value="<?php echo $items; ?>" />
+                        <img src="__PUBLIC__/<?php echo $items; ?>" class="img" data-preview-src="" data-preview-group="1">
+                        <input type="hidden" name="h_img[]" lay-verify="imgReg" value="<?php echo $items; ?>" />
                     </li>
                     <?php endforeach; endif; else: echo "" ;endif; endif; ?>
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>租金：</label>
-                    <input type="text" lay-verify="required" <?php if(isset($house['h_rent'])): ?> value="<?php echo $house['h_rent']; ?>" <?php endif; ?>  class="layui-input" id="h_rent" name="h_rent">
+                    <input type="text" lay-verify="required" onkeyup="this.value=this.value.replace(/\D/g, '')"  <?php if(isset($house['h_rent'])): ?> value="<?php echo $house['h_rent']; ?>" <?php endif; ?>  class="layui-input" id="h_rent" name="h_rent">
                 </div>
                 <div class="mui-content-padded">
                     <select name="h_rent_type" id="出租类型" class="mui-btn mui-btn-block">
@@ -99,17 +260,17 @@
             </div>
             <div class="mui-card">
                 <div class="mui-input-row" style="margin: 10px 5px;">
-                    <textarea id="textarea" name="ha_remarks" rows="5" placeholder="附近公交（必填）"><?php if(isset($attach['ha_remarks'])): ?><?php echo $attach['ha_remarks']; endif; ?></textarea>
+                    <textarea id="textarea" name="h_nearbus" rows="5" placeholder="附近公交（必填）"><?php if(isset($house['h_nearbus'])): ?><?php echo $house['h_nearbus']; endif; ?></textarea>
                 </div>
             </div>
             <div class="mui-card">
                 <div class="mui-input-row" style="margin: 10px 5px;">
-                    <textarea name="ha_remarks" rows="5" placeholder="地铁沿线（必填）"><?php if(isset($attach['ha_remarks'])): ?><?php echo $attach['ha_remarks']; endif; ?></textarea>
+                    <textarea name="h_subway" rows="5" placeholder="地铁沿线（必填）"><?php if(isset($house['h_subway'])): ?><?php echo $house['h_subway']; endif; ?></textarea>
                 </div>
             </div>
             <div class="mui-card">
                 <div class="mui-input-row" style="margin: 10px 5px;">
-                    <textarea rows="5" readonly placeholder="房源简介（鉴于排版问题，请在系统PC端后台填写房源简介效果更好）"></textarea>
+                    <textarea rows="5" readonly placeholder="房源简介（当前不支持房源简介移动端编辑，请在系统PC端后台填写。）"></textarea>
                 </div>
             </div>
             <div id='result' class="ui-alert"></div>
@@ -120,6 +281,11 @@
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>
 <script src="__LAY__/layui.js"></script>
+<script src="__WAP__/js/mui.zoom.js"></script>
+<script src="__WAP__/js/mui.previewimage.js"></script>
+<script>
+    mui.previewImage();
+</script>
 <script>
     mui.init({
         swipeBack: true //启用右滑关闭功能
@@ -144,7 +310,11 @@
             }
             ,imgReg:function (value) {
                 if(value.length <= 0){
-                    return '请上传打款凭证！';
+                    return '请上传房源图片！';
+                }else{
+                    if(value.length <= 3){
+                        return '请上传至少一张房源封面图，两张房源照片！';
+                    }
                 }
             }
         });
@@ -152,14 +322,14 @@
         form.on('submit(saveInfo)', function(){
             $.ajax({
                 type: 'POST',
-                url: "<?=url('index/addattach')?>?h_id=",
+                url: "<?=url('index/improve')?>?h_id=<?php echo $house['h_b_id']; ?>",
                 data: $('#attachForm').serialize(),
                 dataType:  'json',
                 success: function(data){
                     console.log(data);
                     if(data.code="1"){
                         mui.alert(data.msg, function() {
-                            window.location.href="<?=url('index/house')?>";
+                            window.location.href="<?=url('index/index')?>";
                         });
                     }else{
                         mui.alert(data.msg);
@@ -183,7 +353,7 @@
                 console.log(res);
                 $('#img').val(res.path);
                 $('#imgPre').append('' +
-                    '<li class="item_img"><div class="operate"><i  class="close layui-icon"></i></div><img src="__PUBLIC__/' + res.path + '" class="img" ><input type="hidden" name="ha_contact_img[]" value="' + res.path + '" /></li>');
+                    '<li class="item_img"><div class="operate"><i  class="close layui-icon"></i></div><img src="__PUBLIC__/' + res.path + '" class="img" ><input type="hidden" class="h_img" name="h_img[]" value="' + res.path + '" /></li>');
                 layer.close(loading);
                 layer.msg(res.msg, {icon: 1, time: 1000});
             }

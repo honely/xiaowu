@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\login\login.html";i:1541038257;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\login\login.html";i:1542246095;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,7 +62,7 @@
                             mui.alert(result.msg, function() {
                                 console.log(u_role);
                                 if(u_role == 1){
-                                    window.location.href="<?=url('index/index')?>";
+                                    window.location.href="<?=url('index/house')?>";
                                 }else if(u_role == 2){
                                     window.location.href="<?=url('decoration/index/index')?>"
                                 }else if(u_role == 3){

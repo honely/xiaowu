@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:79:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\logdetails.html";i:1540021087;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:79:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\logdetails.html";i:1541745810;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -191,11 +191,14 @@
             <?php endforeach; endif; else: echo "" ;endif; ?>
 
         </p>
-        <p class="mui-pull-right">
-            <b>时间</b>：<?php echo $logs['hdl_addtime']; ?>
-        </p>
+        <br>
         <p class="mui-pull-right">
             <b>提交人</b>：<?php echo $logs['u_job']; ?>---<?php echo $logs['u_name']; ?>
+        </p>
+        <p><hr style="opacity:0"/></p>
+        <hr style="opacity:0"/>
+        <p class="mui-pull-right">
+            <b>时间</b>：<?php echo $logs['hdl_addtime']; ?>
         </p>
     </div>
 </div>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\index\index.html";i:1541124690;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1540457310;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\index\index.html";i:1542015965;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1542016255;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -19,15 +19,6 @@
 <style>
     .navbar{
         background:#FFF;
-    }
-    ul {
-        height:45px;
-        overflow:hidden;
-    }
-    li {
-        height:45px; line-height:22px; font-size:22px;list-style-type:none;
-    }
-    .navbar{
         width: 100%;
         position: fixed;
         z-index: 300;
@@ -54,8 +45,7 @@
                 </li>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
                 <li>
-                    <a style="color:#5b5b5b;font-size: 16px;" >看房热线：8:00~22:00
-                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a style="color:#5b5b5b;font-size: 16px;" >看房热线：
                         <em style="color: #ff6000;font-size: 22px;font-weight: bold;margin-top: 5px;">
                             <?php echo $hotLine; ?>
                         </em>
@@ -72,7 +62,7 @@
             <div class="swiper-wrapper" style="margin-top: 54px;" >
                 <?php if(is_array($banner) || $banner instanceof \think\Collection || $banner instanceof \think\Paginator): $i = 0; $__LIST__ = $banner;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ban): $mod = ($i % 2 );++$i;?>
                 <a <?php if($ban['ba_url'] != null): ?>href="<?php echo $ban['ba_url']; ?>" target="_blank"<?php endif; ?> class="swiper-slide">
-                    <img style="width: 100%;height: 490px" src="<?php echo $ban['ba_img']; ?>" alt="<?php echo $ban['ba_img']; ?>"/>
+                <img style="width: 100%;height: 490px" src="<?php echo $ban['ba_img']; ?>" alt="<?php echo $ban['ba_img']; ?>"/>
                 </a>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
             </div>
@@ -81,20 +71,12 @@
         </div>
     </div>
 </div>
-<!--广告无缝滚动-->
-<h2 class="page-title text-center">
-    <ul class="page-title text-center" id="a">
-        <li><a href="<?=url('index/index')?>">广告啊！广告document.getElementById()的最简化aaaaaaa</a></li>
-        <li><a href="<?=url('index/index')?>">广告啊！广告document.getElementById()的最简化bbbbbbb</a></li>
-        <li><a href="<?=url('index/index')?>">广告啊！广告document.getElementById()的最简化ccccccc</a></li>
-        <li><a href="<?=url('index/index')?>">广告啊！广告document.getElementById()的最简化ddddddd</a></li>
-    </ul>
-</h2>
 <!--banner-->
 <!--闲置房屋托管运营-->
 <h2 class="page-title text-center">
     托管热线&nbsp;&nbsp;<?php echo $hotLine; ?>
 </h2>
+
 <h1 class="text-center no-margin">
     <small>一站式托管服务</small>
 </h1>
@@ -126,17 +108,7 @@
                 <div class="tab-info" >
                     <div class="row">
                         <span id="ajaxElement_1_734">
-                            <?php if($house != null): if(is_array($house) || $house instanceof \think\Collection || $house instanceof \think\Paginator): $i = 0; $__LIST__ = $house;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$hou): $mod = ($i % 2 );++$i;if($hou['h_isable'] == 2): ?>
-                            <div class="col-sm-4 col-xs-12" style="height:350px;">
-                                <a class="img-filter center-block" onclick="decorating(<?php echo $hou['h_b_id']; ?>)">
-                                    <img style="width: 350px;height: 262px;" src="__WEB__/img/decorating.png" alt="装修中">
-                                    <div class="img-info selected-info">
-                                        <p></p>
-                                        <span></span>
-                                    </div>
-                                </a>
-                            </div>
-                            <?php else: ?>
+                            <?php if($house != null): if(is_array($house) || $house instanceof \think\Collection || $house instanceof \think\Paginator): $i = 0; $__LIST__ = $house;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$hou): $mod = ($i % 2 );++$i;?>
                             <div class="col-sm-4 col-xs-12" style="height:350px;">
                                 <a class="img-filter center-block" href="<?=url('seek/details')?>?h_id=<?php echo $hou['h_id']; ?>">
                                     <img style="width: 350px;height: 262px;" src="<?php echo $hou['h_house_img']; ?>" alt="<?php echo $hou['h_img_alt']; ?>">
@@ -146,7 +118,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <?php endif; endforeach; endif; else: echo "" ;endif; else: ?>
+                            <?php endforeach; endif; else: echo "" ;endif; else: ?>
                             <div class="col-sm-4 col-xs-12" style="height:350px;">
                                 暂无信息
                             </div>
@@ -163,7 +135,7 @@
 </div>
 
 <h2 class="page-title text-center">
-    小屋智能公寓 ——<span style="font-size: 23px;">心安处▪ 方为家</span>
+    小屋智能公寓 ——<span style="font-size: 23px;">心安处&#9642; 方为家</span>
 </h2>
 <h1 class="text-center no-margin">
     <small>构筑科技、便捷、舒适、温馨的城市智能公寓，打造全新的都市生活居家模式</small>
@@ -222,8 +194,36 @@
         </div>
     </div>
 </div>
+<div class="container">
+    <div class="bs-example bs-example-tabs" style="padding-bottom:0px !important;" role="tabpanel" data-example-id="togglable-tabs">
+        <h2 class="text-center service-tit">
+            战略合作伙伴
+        </h2>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" aria-labelledby="expeditions-tab">
+                <div class="tab-info" >
+                    <div class="row">
+                        <div>
+                            <?php if($house != null): if(is_array($house) || $house instanceof \think\Collection || $house instanceof \think\Paginator): $i = 0; $__LIST__ = $house;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$hou): $mod = ($i % 2 );++$i;?>
+                            <div class="col-sm-4 col-xs-12">
+                                <a class="img-filter center-block" >
+                                    <img style="width: 350px;height: 262px;" title="<?php echo $hou['h_name']; ?>" src="<?php echo $hou['h_house_img']; ?>">
+                                </a>
+                            </div>
+                            <?php endforeach; endif; else: echo "" ;endif; else: ?>
+                            <div class="col-sm-4 col-xs-12" style="height:350px;">
+                                暂无信息
+                            </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!--footer-->
-<div class="footer" style="padding-top: 30px;height: 180px;">
+<div class="footer" style="padding-top: 30px;height: 169px;">
     <!--  -->
     <div class="footer-con con clearfix">
         <div class="footer-left pull-left">
@@ -277,6 +277,21 @@
         </div>
     </div>
 </div>
+<footer style="height: auto;padding: 10px 0px;color: white;line-height: 1.8;background: #212121;">
+    <div class="container text-center">
+        <p>总部地址：陕西省西安市高新区沣惠南路16号7号楼2401 &nbsp;&nbsp;  电话：029-8755-8112</p>
+    </div>
+</footer>
+<footer style="height: auto;padding: 10px 0px;color: white;line-height: 1.8;background: #212121;">
+    <div class="container text-center">
+        <p>成都分公司：四川省成都市高新区环球中心E1 1-2-702 &nbsp;&nbsp; 电话：028-69215061&nbsp;&nbsp;&nbsp;&nbsp;028-69215051</p>
+    </div>
+</footer>
+<footer style="height: auto;padding: 10px 0px;color: white;line-height: 1.8;background: #212121;">
+    <div class="container text-center">
+        <p>重庆分公司：重庆市江北区江北城IFS国金中心T2栋610 &nbsp;&nbsp; 电话：023-67753595&nbsp;&nbsp;&nbsp;&nbsp;023-67753685</p>
+    </div>
+</footer>
 <footer style="height: auto;padding: 10px 0px;color: #5b5b5b;line-height: 1.8;background: #212121;">
     <div class="container text-center">
         <p>Copyright © 2018 www.xiaowugroup.com 陕西大城小屋不动产管理有限公司 版权所有 陕ICP备18007211号</p>
@@ -296,74 +311,4 @@
             disableOnInteraction: false,
         }
     });
-    function decorating(h_id){
-
-    }
-</script>
-<script>
-    //document.getElementById()的最简化应用
-    function $(element){
-        if(arguments.length>1){
-            for(var i=0,length=arguments.length,elements=[];i<length;i++){
-                elements.push($(arguments[i]));
-            }
-            return elements;
-        }
-        if(typeof element=="string"){
-            return document.getElementById(element);
-        }else{
-            return element;
-        }
-    }
-    //类创建函数
-    var Class={
-        create:function(){
-            return function(){
-                this.initialize.apply(this,arguments);
-            }
-        }
-    }
-    //对象属性方法扩展
-    Function.prototype.bind=function(object){
-        var method=this;
-        return function(){
-            method.apply(object,arguments);
-        }
-    }
-    var Scroll=Class.create();
-    Scroll.prototype={
-        //第一个参数定义要滚动的区域,第二个参数定义每次滚动的高度
-        initialize:function(element,height,delay){
-            this.element=$(element);
-            this.element.innerHTML+=this.element.innerHTML;
-            this.height=height*2;
-            this.delay=delay*3000;
-            this.maxHeight=this.element.scrollHeight;
-            this.counter=0;
-            this.scroll();
-            this.timer="";
-            this.element.onmouseover=this.stop.bind(this);
-            this.element.onmouseout=function(){this.timer=setTimeout(this.scroll.bind(this),1000);}.bind(this);
-        },
-        scroll:function(){
-            if(this.element.scrollTop<this.maxHeight){
-                this.element.scrollTop++;
-                this.counter++;
-            }else{
-                this.element.scrollTop=0;
-                this.counter=0;
-            }
-
-            if(this.counter<this.height){
-                this.timer=setTimeout(this.scroll.bind(this),5);
-            }else{
-                this.counter=0;
-                this.timer=setTimeout(this.scroll.bind(this),this.delay);
-            }
-        },
-        stop:function(){
-            clearTimeout(this.timer);
-        }
-    }
-    new Scroll('a', 22, 2)
 </script>

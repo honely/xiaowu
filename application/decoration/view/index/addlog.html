@@ -16,18 +16,15 @@
         .color-red{
             color: red;
         }
-        .layui-upload-img { width: 90px; height: 90px; margin: 0; }
-        .pic-more { width:100%; left; margin: 10px 0px 0px 0px;}
-        .pic-more li { width:300px; float: left; margin-right: 5px;margin-top: 10px;list-style-type:none}
-        /*.pic-more li .layui-input { display: initial; }*/
-        .pic-more li a { position: absolute; top: 0; display: block; }
-        #slide-pc-priview .item_img img{ width:277px; height: 177px}
-        #slide-pc-priview li{position: relative;}
-        #slide-pc-priview li .operate{ color: #000; display: none;}
-        #slide-pc-priview li .toleft{ position: absolute;top: 40px; left: 1px; cursor:pointer;}
-        #slide-pc-priview li .toright{ position: absolute;top: 40px; right: 1px;cursor:pointer;}
-        #slide-pc-priview li .close{position: absolute;top: 5px; right: 5px;cursor:pointer;}
-        #slide-pc-priview li:hover .operate{ display: block;}
+        .item_img{
+            width: 23%;
+            float: left;
+            height: 116px;
+            overflow: hidden;
+        }
+        .img{
+            width:100%; height: 92px
+        }
     </style>
     <style type="text/css">
         .mui-preview-image.mui-fullscreen {
@@ -217,7 +214,9 @@
                 <input type="hidden" class="layui-input" id="img" lay-verify="required"  value=""/>
                 <input type="hidden" name="isTrans" id="isTrans" value="2"/>
             </div>
-            <div id="imgPre"></div>
+            <div id="imgPre" style="overflow: hidden">
+
+            </div>
             <div class="mui-card">
                 <div class="mui-input-row" style="margin: 10px 5px;">
                     <textarea id="textarea" name="hdl_content" rows="5" placeholder="日志内容"></textarea>

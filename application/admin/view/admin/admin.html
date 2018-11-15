@@ -167,9 +167,6 @@
                     }
                     ,where: {
                         keywords: keywords,
-                        ad_p_id: ad_p_id,
-                        ad_c_id: ad_c_id,
-                        ad_branch: ad_branch,
                         ad_role: ad_role
                     },
                     success:function (data) {
@@ -179,7 +176,7 @@
                 $.ajax({
                     type:'post',
                     url:'/admin/admin/admin',
-                    data:{'keywords':keywords,'ad_p_id':ad_p_id,'ad_c_id':ad_c_id,'ad_branch':ad_branch,'ad_role':ad_role},
+                    data:{'keywords':keywords,'ad_role':ad_role},
                     success:function (data) {
                         console.log(data);
                         $('.all').html(data.all);

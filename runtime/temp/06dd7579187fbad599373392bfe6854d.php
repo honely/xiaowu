@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\addrent.html";i:1541139512;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\addrent.html";i:1541820400;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -13,8 +13,20 @@
     <link rel="stylesheet" type="text/css" href="__WAP__/css/mui.picker.min.css" />
     <link rel="stylesheet" href="__LAY__/css/layui.css">
     <style>
+        h5 {
+            margin: 5px 7px;
+        }
         .color-red{
-            color:red;
+            color: red;
+        }
+        .item_img{
+            width: 23%;
+            float: left;
+            height: 116px;
+            overflow: hidden;
+        }
+        .img{
+            width:100%; height: 92px
         }
     </style>
 </head>
@@ -43,13 +55,21 @@
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>联系方式：</label>
-                    <input type="text" class="layui-input" id="hr_phone" name="hr_phone" >
+                    <input type="text" class="layui-input" onkeyup="this.value=this.value.replace(/\D/g, '')"  id="hr_phone" name="hr_phone" >
                 </div>
             </div>
             <div class="mui-card">
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>租房单价：</label>
-                    <input type="text" class="layui-input" lay-verify="required" id="hrl_rent_price" name="hrl_rent_price">
+                    <input type="text" class="layui-input" lay-verify="required" onkeyup="this.value=this.value.replace(/\D/g, '')"  id="hrl_rent_price" name="hrl_rent_price">
+                </div>
+                <div class="mui-content-padded">
+                    <h5 class="mui-content-padded"><span class="color-red">*</span>出租渠道</h5>
+                    <select name="hrl_rent_channel" id="hrl_rent_channel" class="mui-btn mui-btn-block">
+                        <?php if(is_array($rentChannel) || $rentChannel instanceof \think\Collection || $rentChannel instanceof \think\Paginator): $i = 0; $__LIST__ = $rentChannel;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel): $mod = ($i % 2 );++$i;?>
+                        <option value="<?php echo $channel['hrc_id']; ?>"><?php echo $channel['hrc_title']; ?></option>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                    </select>
                 </div>
                 <div class="mui-content-padded">
                     <h5 class="mui-content-padded"><span class="color-red">*</span>出租类型</h5>
@@ -74,8 +94,6 @@
                     <label><span class="color-red">*</span>水表底数：</label>
                     <input type="text" class="layui-input" lay-verify="required" id="hrl_water_start" name="hrl_water_start" >
                 </div>
-            </div>
-            <div class="mui-card">
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>合同编号：</label>
                     <input type="text" class="layui-input" lay-verify="required" id="hrl_contact_code" name="hrl_contact_code">
@@ -85,7 +103,7 @@
                     <span id="upload" class="mui-btn mui-btn-primary">上传</span>
                     <input type="hidden" id="img" lay-verify="imgReg" value="123"/>
                 </div>
-                <div id="imgPre">
+                <div id="imgPre" style="overflow: hidden">
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>租房日期：</label>

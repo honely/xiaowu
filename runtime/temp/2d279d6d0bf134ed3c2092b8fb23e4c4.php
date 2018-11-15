@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:78:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\rentdetail.html";i:1540801202;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:78:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\rentdetail.html";i:1541820759;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -223,7 +223,9 @@
                     <br/>
                     租房单价：<?php echo $rent['hrl_rent_price']; ?>（元）/ <?php if($rent['hrl_rent_type'] == 1): ?>日<?php else: ?>月<?php endif; ?>
                     <br/>
-                    付租方式：<?php echo $rent['hrl_pay_type']; ?>
+                    付租方式：<?php if($rent['hrl_pay_type'] == 1): ?>日租金<?php else: ?>月租金<?php endif; ?>
+                    <br/>
+                    出租渠道：<?php echo $rent['hrc_title']; ?>
                     <br/>
                     电表底数：<?php echo $rent['hrl_elect_start']; if($rent['hrl_status'] == 2): ?>
                 <br/>

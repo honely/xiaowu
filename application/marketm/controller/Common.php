@@ -77,6 +77,9 @@ class Common extends Controller{
             case 5:
                 $statusTip="已出租";
                 break;
+            case 6:
+                $statusTip="已签单";
+                break;
         }
         return $statusTip;
     }

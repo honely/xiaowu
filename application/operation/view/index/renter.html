@@ -86,13 +86,13 @@
                 dataType:  'json',
                 success: function(data){
                     console.log(data);
-                    // if(data.code="1"){
-                    //     mui.alert(data.msg, function() {
-                    //         window.location.href="<?=url('index/paylog')?>?h_id=";
-                    //     });
-                    // }else{
-                    //     mui.alert(data.msg);
-                    // }
+                    if(data.code="1"){
+                        mui.alert(data.msg, function() {
+                            window.location.href="<?=url('index/rentlog')?>?h_id={$renter.hr_house_code}";
+                        });
+                    }else{
+                        mui.alert(data.msg);
+                    }
                 }
             });
         });

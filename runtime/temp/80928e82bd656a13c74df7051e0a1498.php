@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\renter.html";i:1540522745;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\renter.html";i:1541747010;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -87,13 +87,13 @@
                 dataType:  'json',
                 success: function(data){
                     console.log(data);
-                    // if(data.code="1"){
-                    //     mui.alert(data.msg, function() {
-                    //         window.location.href="<?=url('index/paylog')?>?h_id=";
-                    //     });
-                    // }else{
-                    //     mui.alert(data.msg);
-                    // }
+                    if(data.code="1"){
+                        mui.alert(data.msg, function() {
+                            window.location.href="<?=url('index/rentlog')?>?h_id=<?php echo $renter['hr_house_code']; ?>";
+                        });
+                    }else{
+                        mui.alert(data.msg);
+                    }
                 }
             });
         });

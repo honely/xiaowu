@@ -32,6 +32,14 @@ class Admin extends Controller{
     //管理员
     public function adminData(){
         $where=' 1 = 1 ';
+        $keywords = trim($this->request->param('keywords'));
+        $ad_role=trim($this->request->param('ad_role'));
+        if(isset($keywords) && !empty($keywords)){
+            $where.=" and ( ad_realname like '%".$keywords."%' or ad_email like '%".$keywords."%' or ad_phone like '%".$keywords."%' )";
+        }
+        if(isset($ad_role) && !empty($ad_role)){
+            $where.=" and  ad_role = ".$ad_role;
+        }
         $count=Db::table('dcxw_admin')
             ->join('dcxw_province','dcxw_province.p_id = dcxw_admin.ad_p_id')
             ->join('dcxw_city','dcxw_city.c_id = dcxw_admin.ad_c_id')
@@ -249,7 +257,6 @@ class Admin extends Controller{
 
     //修改管理员
     public function edit(){
-		$ad_role = intval(session('ad_role'));
         $ad_id=intval($_GET['ad_id']);
         if($_POST){
             $data['ad_realname'] = $_POST['ad_realname'];
@@ -262,7 +269,10 @@ class Admin extends Controller{
             if($isRepeat){
                 $this->error('此手机号已注册！','admin');
             }
-            $data['ad_role'] = isset($_POST['ad_role'])?$_POST['ad_role']:'1';
+            $data['ad_role'] = $_POST['ad_role'];
+            $data['ad_role'] = $_POST['ad_role'];
+            $data['ad_role'] = $_POST['ad_role'];
+            $data['ad_role'] = $_POST['ad_role'];
             $data['ad_email'] = $_POST['ad_email'];
             $isRepeat=Db::table('dcxw_admin')
                 ->where('ad_id','neq',$ad_id)
@@ -271,10 +281,6 @@ class Admin extends Controller{
             if($isRepeat){
                 $this->error('此邮箱已注册！','admin');
             }
-            $data['ad_isable'] =isset($_POST['ad_isable'])?$_POST['ad_isable']:'1';
-            $data['ad_admin'] = session('adminId');
-			$data['ad_p_id'] = $ad_role == 1 ? $_POST['ad_p_id'] : session('ad_p_id');
-            $data['ad_c_id'] = $ad_role == 1 ? $_POST['ad_c_id'] : session('ad_c_id');
             $edit=Db::table('dcxw_admin')->where(['ad_id' => $ad_id])->update($data);
             if($edit){
                 $this->success('修改管理员成功！','admin');
@@ -286,30 +292,19 @@ class Admin extends Controller{
                 ->join('dcxw_province','dcxw_province.p_id = dcxw_admin.ad_p_id')
                 ->join('dcxw_city','dcxw_city.c_id = dcxw_admin.ad_c_id')
                 ->join('dcxw_role','dcxw_role.r_id = dcxw_admin.ad_role')
-                ->join('dcxw_branch','dcxw_branch.b_id = dcxw_admin.ad_branch')
-                ->field('dcxw_admin.*,dcxw_province.p_name,dcxw_city.c_name,dcxw_branch.b_name,dcxw_role.r_name')
+                ->field('dcxw_admin.*,dcxw_province.p_name,dcxw_city.c_name,dcxw_role.r_name')
                 ->where(['ad_id' => $ad_id])
                 ->find();
-            //角色
-            $ad_role = intval(session('ad_role'));
-            if($ad_role == 1 ){// 超级管理员
                 $where="r_id != 1";
                 $provInfo=Db::table('dcxw_province')->select();
                 $this->assign('prov',$provInfo);
                 $provid=$adminInfo['ad_p_id'];
                 $cusCity=Db::table('dcxw_city')->where(['p_id' => $provid])->select();
-                $c_id=$adminInfo['ad_c_id'];
-                $branch=Db::table('dcxw_branch')->where(['b_city' =>$c_id ])->field('b_id,b_name')->select();
-                $this->assign('branchs',$branch);
                 $this->assign('city',$cusCity);
-            }else{
-                $where='r_id != 1 and r_id != 6';
-            }
             $roleInfo=Db::table('dcxw_role')
                 ->field('r_id,r_name')
                 ->where($where)
                 ->select();
-            $this->assign('ad_role',$ad_role);
             $this->assign('role',$roleInfo);
             $this->assign('admin',$adminInfo);
             return $this->fetch();

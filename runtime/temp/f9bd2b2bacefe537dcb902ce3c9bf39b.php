@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/admin\view\admin\admin.html";i:1536485716;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/admin\view\admin\admin.html";i:1541660017;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -189,9 +189,6 @@
                     }
                     ,where: {
                         keywords: keywords,
-                        ad_p_id: ad_p_id,
-                        ad_c_id: ad_c_id,
-                        ad_branch: ad_branch,
                         ad_role: ad_role
                     },
                     success:function (data) {
@@ -201,7 +198,7 @@
                 $.ajax({
                     type:'post',
                     url:'/admin/admin/admin',
-                    data:{'keywords':keywords,'ad_p_id':ad_p_id,'ad_c_id':ad_c_id,'ad_branch':ad_branch,'ad_role':ad_role},
+                    data:{'keywords':keywords,'ad_role':ad_role},
                     success:function (data) {
                         console.log(data);
                         $('.all').html(data.all);

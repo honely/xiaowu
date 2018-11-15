@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\addpaylog.html";i:1541128604;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\addpaylog.html";i:1541745865;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -17,18 +17,15 @@
         .color-red{
             color: red;
         }
-        .layui-upload-img { width: 90px; height: 90px; margin: 0; }
-        .pic-more { width:100%; left; margin: 10px 0px 0px 0px;}
-        .pic-more li { width:300px; float: left; margin-right: 5px;margin-top: 10px;list-style-type:none}
-        /*.pic-more li .layui-input { display: initial; }*/
-        .pic-more li a { position: absolute; top: 0; display: block; }
-        #slide-pc-priview .item_img img{ width:277px; height: 177px}
-        #slide-pc-priview li{position: relative;}
-        #slide-pc-priview li .operate{ color: #000; display: none;}
-        #slide-pc-priview li .toleft{ position: absolute;top: 40px; left: 1px; cursor:pointer;}
-        #slide-pc-priview li .toright{ position: absolute;top: 40px; right: 1px;cursor:pointer;}
-        #slide-pc-priview li .close{position: absolute;top: 5px; right: 5px;cursor:pointer;}
-        #slide-pc-priview li:hover .operate{ display: block;}
+        .item_img{
+            width: 23%;
+            float: left;
+            height: 116px;
+            overflow: hidden;
+        }
+        .img{
+            width:100%; height: 92px
+        }
     </style>
 </head>
 <body>
@@ -50,14 +47,14 @@
         <form class="mui-input-group layui-form" id="payForm">
             <div class="mui-input-row">
                 <label><span class="color-red">*</span>回款金额</label>
-                <input type="text" class="layui-input" id="hpl_money" lay-verify="required" name="hpl_money" placeholder="请输入回款金额">
+                <input type="text" class="layui-input" id="hpl_money" onkeyup="this.value=this.value.replace(/\D/g, '')"  lay-verify="required" name="hpl_money" placeholder="请输入回款金额">
             </div>
             <div class="mui-input-row">
                 <label><span class="color-red">*</span>打款凭证</label>
-                <span id="upload" class="mui-btn mui-btn-primary">上传</span>
+                <span id="uploads" class="mui-btn mui-btn-primary uploadasd">上传</span>
                 <input type="hidden" id="img" lay-verify="imgReg" value=""/>
             </div>
-            <div id="imgPre">
+            <div id="imgPre" style="overflow: hidden">
 
             </div>
             <div class="mui-card">
@@ -128,7 +125,7 @@
         });
         //图片上传
         upload.render({
-            elem: '#upload'
+            elem: '.uploadasd'
             ,url: '<?php echo url("common/upload"); ?>'
             ,size:600 //限制文件大小，单位 KB
             ,ext: 'jpg|png|gif'
@@ -142,9 +139,15 @@
                 console.log(res);
                 $('#img').val(res.path);
                 $('#imgPre').append('' +
-                    '<li class="item_img"><div class="operate"><i  class="close layui-icon"></i></div><img src="__PUBLIC__/' + res.path + '" class="img" ><input type="hidden" name="hpl_img[]" value="' + res.path + '" /></li>');
+                    '<li class="item_img"><div class="operate"><i  class="close layui-icon"></i></div><img  src="__PUBLIC__/' + res.path + '" class="img" ><input type="hidden" name="hpl_img[]" value="' + res.path + '" /></li>');
                 layer.close(loading);
                 layer.msg(res.msg, {icon: 1, time: 1000});
+                var simg=$('.img').length;
+                if(simg>=2){
+                    $('#uploads').removeClass('uploadasd');
+                    $('#uploads').removeClass('mui-btn-primary');
+                    $('#uploads').addClass('mui-btn-warning');
+                }
             }
             ,error: function(res){
                 layer.msg(res.msg, {icon: 2, time: 1000});

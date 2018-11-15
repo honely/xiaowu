@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\index.html";i:1540972163;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\index.html";i:1542162658;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,18 +64,20 @@
             <th lay-data="{field:'h_rent'}">房源租金</th>
             <th lay-data="{field:'h_iscop'}">是否合租</th>
             <th lay-data="{field:'h_view', sort: true}">浏览热度</th>
+            <th lay-data="{field:'h_add_type', sort: true}">数据来源</th>
             <th lay-data="{field:'h_updatetime',width:180,  sort: true}">操作时间</th>
-            <th lay-data="{field:'ad_realname',   sort: true}">操作人</th>
-            <th lay-data="{field:'h_istop', templet: '#switch',sort:true, unresize: true}">是否置顶</th>
-            <th lay-data="{field:'h_isable', templet: '#switchTpl',sort:true, unresize: true}">是否可租</th>
-            <th lay-data="{ width:220, toolbar: '#barDemo'}">操作</th>
+            <th lay-data="{field:'h_admin',   sort: true}">操作人</th>
+            <th lay-data="{ width:480, toolbar: '#barDemo'}">操作</th>
         </tr>
         </thead>
     </table>
 </section>
 <script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon">&#xe642;</i>编辑</a>
-    <a class="layui-btn layui-btn-xs" lay-event="refresh"><i class="layui-icon">&#xe9aa;</i>刷新</a>
+    <a class="layui-btn layui-btn-xs" lay-event="payInfo"><i class="layui-icon">&#xe65e;</i>回款详情</a>
+    <a class="layui-btn layui-btn-xs" lay-event="decorate"><i class="layui-icon">&#xe631;</i>装修状态</a>
+    <a class="layui-btn layui-btn-xs" lay-event="rentLog"><i class="layui-icon">&#xe60e;</i>出租记录</a>
+    <a class="layui-btn layui-btn-warm layui-btn-xs" lay-event="edit"><i class="layui-icon">&#xe642;</i>编辑</a>
+    <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="refresh"><i class="layui-icon">&#xe9aa;</i>刷新</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>
 </script>
 <script type="text/html" id="switchTpl">
@@ -122,9 +124,48 @@
         table.on('tool(demo)', function(obj){
             var data = obj.data;
             var h_id = data.h_id;
+            var b_id = data.h_b_id;
             if(obj.event === 'edit'){
                 window.location.href='<?=url("house/edit")?>?h_id='+ h_id ;
-            }else if(obj.event === 'refresh'){
+            }else if(obj.event === 'payInfo')
+            {
+                //回款信息
+                layer.open({
+                    type: 2,
+                    title: '房源编号：【'+ b_id+'】的回款详细信息',
+                    shadeClose: true,
+                    shade: false,
+                    maxmin: true,
+                    area: ['1003px', '700px'],
+                    content: "<?=url('house/payment')?>?b_id="+b_id
+                });
+            }else if(obj.event === 'decorate')
+            {
+                //装修信息
+                layer.open({
+                    type: 2,
+                    title: '房源编号：【'+ b_id+'】的装修信息',
+                    shadeClose: true,
+                    shade: false,
+                    maxmin: true,
+                    area: ['1003px', '700px'],
+                    content: "<?=url('house/decorate')?>?b_id="+b_id
+                });
+
+            }else if(obj.event === 'rentLog')
+            {
+
+                //出租信息
+                layer.open({
+                    type: 2,
+                    title: '房源编号：【'+ b_id+'】的出租信息',
+                    shadeClose: true,
+                    shade: false,
+                    maxmin: true,
+                    area: ['1003px', '700px'],
+                    content: "<?=url('house/rent')?>?b_id="+b_id
+                });
+            } else if(obj.event === 'refresh'){
                 $.ajax({
                     'type':"get",
                     'url':"<?=url('house/refresh')?>",
@@ -145,7 +186,6 @@
                     }
                 })
             } else if(obj.event === 'del'){
-
                 layer.confirm('确定删除该房源？删除后不可恢复！', {
                     btn : [ '确定', '取消' ]//按钮
                 }, function() {

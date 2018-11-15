@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"G:\xampp\htdocs\bbb\public/../application/admin\view\customer\editconpon.html";i:1537862649;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"G:\xampp\htdocs\bbb\public/../application/admin\view\customer\editconpon.html";i:1539323131;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,16 +21,6 @@
 </head>
 <body class="layui-layout-body">
 
-<style>
-    .one-pan{
-        position: relative;
-    }
-    .one{
-        position: absolute;
-        left:300px;
-        top:0;
-    }
-</style>
 <div class="layui-body">
     <div style="margin: 20px;">
     <span class="layui-breadcrumb" lay-separator=">">

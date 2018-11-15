@@ -18,7 +18,7 @@ class Index extends Controller{
         parent::__construct($request);
         $userInfo=session('userInfo');
         if(empty($userInfo)){
-            $this->redirect('login/login');
+            $this->redirect('marketm/login/login');
         }
     }
 
@@ -172,6 +172,7 @@ class Index extends Controller{
         if($attach){
             $attach['ha_deadline']=date("Y-m-d",$attach['ha_deadline']);
             $attach['ha_decorate_permit']=date("Y-m-d",$attach['ha_decorate_permit']);
+            $attach['ha_contact_img']=explode(',',$attach['ha_contact_img']);
         }
         $this->assign('attach',$attach);
         return $this->fetch();
