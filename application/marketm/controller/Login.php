@@ -24,7 +24,7 @@ class Login extends Controller{
                     $this->error('密码输入错误，请重试！');
                 }else{
                     session('userInfo',$isExist);
-                    if($isExist['u_depart_id'] <= 3 && $isExist['u_depart_id'] >= 1 && isset($isExist['u_depart_id'])){
+                    if($isExist['u_depart_id'] <= 4 && $isExist['u_depart_id'] >= 1 && isset($isExist['u_depart_id'])){
                         $this->success('登录成功！','',$isExist);
                     }else{
                         $this->error('您暂无该平台操作权限！','',$isExist);

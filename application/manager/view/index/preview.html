@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>房源预览</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="__WAP__/css/mui.min.css">
+    <style type="text/css">
+        .mui-preview-image.mui-fullscreen {
+            position: fixed;
+            z-index: 20;
+            background-color: #000;
+        }
+        .mui-preview-header,
+        .mui-preview-footer {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            z-index: 10;
+        }
+        .mui-preview-header {
+            height: 44px;
+            top: 0;
+        }
+        .mui-preview-footer {
+            height: 50px;
+            bottom: 0px;
+        }
+        .mui-preview-header .mui-preview-indicator {
+            display: block;
+            line-height: 25px;
+            color: #fff;
+            text-align: center;
+            margin: 15px auto 4;
+            width: 70px;
+            background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            font-size: 16px;
+        }
+        .mui-preview-image {
+            display: none;
+            -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+        .mui-preview-image.mui-preview-in {
+            -webkit-animation-name: fadeIn;
+            animation-name: fadeIn;
+        }
+        .mui-preview-image.mui-preview-out {
+            background: none;
+            -webkit-animation-name: fadeOut;
+            animation-name: fadeOut;
+        }
+        .mui-preview-image.mui-preview-out .mui-preview-header,
+        .mui-preview-image.mui-preview-out .mui-preview-footer {
+            display: none;
+        }
+        .mui-zoom-scroller {
+            position: absolute;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            -webkit-backface-visibility: hidden;
+        }
+        .mui-zoom {
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+        .mui-slider .mui-slider-group .mui-slider-item img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+            width: 100%;
+        }
+        .mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+            display: inline-table;
+        }
+        .mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .mui-preview-loading {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        .mui-preview-loading.mui-active {
+            display: block;
+        }
+        .mui-preview-loading .mui-spinner-white {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -25px;
+            margin-top: -25px;
+            height: 50px;
+            width: 50px;
+        }
+        .mui-preview-image img.mui-transitioning {
+            -webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        @-webkit-keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @-webkit-keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        p img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/index')?>"></a>
+    <h1 class="mui-title">房源预览</h1>
+</header>
+<div class="mui-content" style="padding-top: 40px;">
+    <div class="mui-card">
+        <div class="mui-card-content">
+            <div class="mui-card-content-inner">
+                <p><b>基本信息</b>：房源编号：【{$hous.h_b_id}】
+                </p>
+                {if condition="$manger neq null"}
+                <p>
+                    {$manger.u_job}-{$manger.u_name}-{$manger.u_phone}
+                </p>
+                {/if}
+
+                <p style="color: #333;">
+                    小区名称：{$hous.h_building}
+                    <br/>
+                    房屋面积：{$hous.h_area}（㎡）
+                    <br/>
+                    {if isset($hous.h_contract_code)}
+                    合同编号：{$hous.h_contract_code}（元）
+                    <br/>
+                    {/if}
+                    签订日期：{$hous.h_addtime}
+                    <br/>
+                    房源地址：{$hous.h_address}
+                    <br/>
+                </p>
+            </div>
+        </div>
+    </div>
+    {if condition="$master neq null"}
+    <div class="mui-card">
+        <div class="mui-card-content">
+            <div class="mui-card-content-inner">
+                <p><b>房主信息</b></p>
+                <p style="color: #333;">
+                    姓名：{$master.hm_name}
+                    <br/>
+                    联系方式：{$master.hm_phone}
+                    <br/>
+                    身份证号：{$master.hm_idcard}
+                    <br/>
+                    银行卡号：{$master.hm_bank_card}
+                    <br/>
+                    现居地址：{$master.hm_address}
+                    <br/>
+                    备注信息：{$master.hm_remarks}
+                </p>
+            </div>
+        </div>
+    </div>
+    {/if}
+    {if condition="$payInfo neq null"}
+    <div class="mui-card">
+        <div class="mui-card-content">
+            <div class="mui-card-content-inner">
+                <p><b>回款信息</b></p>
+                <p style="color: #333;">
+                    总装修款{$payInfo.hp_money}元，已回款{$payInfo.hp_paid}元，未回款{$payInfo.hp_will_pay}元，回款率{$payInfo.hp_paid_ratio}。
+                </p>
+                {if condition="$payLogs neq null"}
+                <p><b>回款记录</b></p>
+                {volist name="payLogs" id="logs"}
+                <p style="color: #333;">
+                    {$logs.hpl_addtime} 回款{$logs.hpl_money}元。
+                </p>
+                {/volist}
+                {/if}
+            </div>
+        </div>
+    </div>
+    {/if}
+    {if condition="$attach neq null"}
+    <div class="mui-card">
+        <div class="mui-card-content">
+            <div class="mui-card-content-inner">
+                <p><b>附属信息</b></p>
+                <p style="color: #333;">
+                    钥匙：{if isset($attach.ha_keys)}{$attach.ha_keys}{/if}
+                    备注：{if isset($attach.ha_keys_remarks)}{$attach.ha_keys_remarks}{/if}
+                </p>
+                <p style="color: #333;">
+                    门禁：{if isset($attach.ha_door_ban)}{$attach.ha_door_ban}{/if}
+                    备注：{if isset($attach.ha_door_ban_remarks)}{$attach.ha_door_ban_remarks}{/if}
+                </p>
+                <hr/>
+                <p style="color: #333;">
+                    电卡：{if isset($attach.ha_elect_card)}{$attach.ha_elect_card}{/if}
+                </p>
+                <p style="color: #333;">
+                    电表底数：{if isset($attach.ha_elect_start)}{$attach.ha_elect_start}{/if}
+                </p>
+                <p style="color: #333;">
+                    电费单价：{if isset($attach.ha_elect_price)}{$attach.ha_elect_price}{/if}
+                </p>
+                <p style="color: #333;">
+                    缴费方式：{if isset($attach.ha_elect_type)}{$attach.ha_elect_type}{/if}
+                </p>
+                <p style="color: #333;">
+                    备注：{if isset($attach.ha_elect_card_tips)}{$attach.ha_elect_card_tips}{/if}
+                </p>
+                <hr/>
+                <p style="color: #333;">
+                    水卡：{if isset($attach.ha_water_card)}{$attach.ha_water_card}{/if}
+                </p>
+                <p style="color: #333;">
+                    水表底数：{if isset($attach.ha_water_start)}{$attach.ha_water_start}{/if}
+                </p>
+                <p style="color: #333;">
+                    水费单价：{if isset($attach.ha_water_price)}{$attach.ha_water_price}{/if}
+                </p>
+                <p style="color: #333;">
+                    缴费方式：{if isset($attach.ha_water_type)}{$attach.ha_water_type}{/if}
+                </p>
+                <p style="color: #333;">
+                    备注：{if isset($attach.ha_water_card_tips)}{$attach.ha_water_card_tips}{/if}
+                </p>
+                <hr/>
+                <p style="color: #333;">
+                    供暖方式：{if isset($attach.ha_warm_type)}{$attach.ha_warm_type}{/if}
+                </p>
+                <p style="color: #333;">
+                    暖气单价：{if isset($attach.ha_warm_price)}{$attach.ha_warm_price}{/if}
+                </p>
+                <p style="color: #333;">
+                    缴费方式：{if isset($attach.ha_warm_tips)}{$attach.ha_warm_tips}{/if}
+                </p>
+                <hr/>
+                <p style="color: #333;">
+                    猫眼：{if isset($attach.ha_cat_eye)}{$attach.ha_cat_eye}{/if}
+                    备注：{if isset($attach.ha_cat_eye_tips)}{$attach.ha_cat_eye_tips}{/if}
+                </p>
+                <p style="color: #333;">
+                    可视电话：{if isset($attach.ha_view_phone)}{$attach.ha_view_phone}{/if}
+                    备注：{if isset($attach.ha_view_phone_tips)}{$attach.ha_view_phone_tips}{/if}
+                </p>
+                <p style="color: #333;">
+                    燃气底数：{if isset($attach.ha_air_start)}{$attach.ha_air_start}{/if}
+                    备注：{if isset($attach.ha_air_tips)}{$attach.ha_air_tips}{/if}
+                </p>
+                <p style="color: #333;">
+                    车位情况：{if isset($attach.ha_car_park)}{$attach.ha_car_park}{/if}
+                    物业电话：{if isset($attach.ha_wuye_phone)}{$attach.ha_wuye_phone}{/if}
+                </p>
+                <p style="color: #333;">
+                    合同编号：{if isset($attach.ha_contact_code)}{$attach.ha_contact_code}{/if}
+                </p>
+                <p style="color: #333;">
+                    <b>合同扫描件：</b>
+                </p>
+                <p>
+                    {volist name="attach.ha_contact_img" id="items"}
+                    <img src="{$items}" data-preview-src="" data-preview-group="1">
+                    {/volist}
+                </p>
+                <hr/>
+                <p style="color: #333;">
+                    租金(每月)：{if isset($attach.ha_rent_price)}{$attach.ha_rent_price}{/if}
+                </p>
+                <p style="color: #333;">
+                    租期：{if isset($attach.ha_rent_time)}{$attach.ha_rent_time}{/if}
+                </p>
+                <p style="color: #333;">
+                    到期时间：{if isset($attach.ha_deadline)}{$attach.ha_deadline}{/if}
+                </p>
+                <p style="color: #333;">
+                    装修许可时间：{if isset($attach.ha_decorate_permit)}{$attach.ha_decorate_permit}{/if}
+                </p>
+                <p style="color: #333;">
+                    其他备注：{if isset($attach.ha_remarks)}{$attach.ha_remarks}{/if}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{/if}
+</div>
+<script src="__WAP__/js/mui.min.js"></script>
+<script src="__WAP__/js/mui.zoom.js"></script>
+<script src="__WAP__/js/mui.previewimage.js"></script>
+<script>
+    mui.previewImage();
+</script>
+</body>
+</html>

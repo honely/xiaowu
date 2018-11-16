@@ -518,6 +518,7 @@ class Index extends Controller{
     {
         //出租信息编号
         $h_id=trim($_GET['h_id']);
+        $commonModel=new \app\marketm\controller\Common();
         //房源编号；
         $rentInfo=Db::table('dcxw_house_rent_log')
             ->where(['hrl_id' => $h_id])
@@ -540,8 +541,8 @@ class Index extends Controller{
                 $payLog[$k]['hrpl_addtime'] = date('Y-m-d H:i:s',$v['hrpl_addtime']);
                 $payLog[$k]['hrpl_addtimes'] = date('Y年m月d日H时i分',$v['hrpl_addtime']);
                 $payLog[$k]['hrpl_img'] = explode(',',$v['hrpl_img'])[0];
-                $payLog[$k]['hrpl_rent_name'] = $this->getRenterNameViaRentId($v['hrl_renter_id']);
-                $payLog[$k]['hrpl_rent_phone'] = $this->getRenterPhoneViaRentId($v['hrl_renter_id']);
+                $payLog[$k]['hrpl_rent_name'] = $commonModel->getRenterNameViaRentId($v['hrl_renter_id']);
+                $payLog[$k]['hrpl_rent_phone'] = $commonModel->getRenterPhoneViaRentId($v['hrl_renter_id']);
 
             }
         }
@@ -570,6 +571,7 @@ class Index extends Controller{
             ->limit(($page-1)*$limit,$limit)
             ->order('hrl_addtime desc')
             ->select();
+        $commonModel=new \app\marketm\controller\Common();
         if($payLog)
         {
             foreach ($payLog as $k => $v)
@@ -577,8 +579,8 @@ class Index extends Controller{
                 $payLog[$k]['hrpl_addtime'] = date('Y-m-d H:i:s',$v['hrpl_addtime']);
                 $payLog[$k]['hrpl_addtimes'] = date('Y年m月d日H时i分',$v['hrpl_addtime']);
                 $payLog[$k]['hrpl_img'] = explode(',',$v['hrpl_img'])[0];
-                $payLog[$k]['hrpl_rent_name'] = $this->getRenterNameViaRentId($v['hrl_renter_id']);
-                $payLog[$k]['hrpl_rent_phone'] = $this->getRenterPhoneViaRentId($v['hrl_renter_id']);
+                $payLog[$k]['hrpl_rent_name'] = $commonModel->getRenterNameViaRentId($v['hrl_renter_id']);
+                $payLog[$k]['hrpl_rent_phone'] = $commonModel->getRenterPhoneViaRentId($v['hrl_renter_id']);
 
             }
         }
@@ -587,30 +589,6 @@ class Index extends Controller{
         }else{
             $this->error('更多失败','',$payLog);
         }
-    }
-
-
-
-
-
-    //根据租客id获取租客姓名
-    public function getRenterNameViaRentId($rent_id)
-    {
-        $rentInfo=Db::table('dcxw_house_rent')
-            ->where(['hr_id' => $rent_id])
-            ->column('hr_name');
-        return $rentInfo[0];
-
-    }
-
-    //根据租客id获取租客电话
-    public function getRenterPhoneViaRentId($rent_id)
-    {
-        $rentInfo=Db::table('dcxw_house_rent')
-            ->where(['hr_id' => $rent_id])
-            ->column('hr_phone');
-        return $rentInfo[0];
-
     }
 
 
@@ -637,8 +615,9 @@ class Index extends Controller{
             ->order('hrpl_addtime desc')
             ->field('dcxw_house_rent_pay_log.*,dcxw_house_rent_log.hrl_renter_id,hrl_house_code')
             ->find();
-        $payLog['rent_name']=$this->getRenterNameViaRentId($payLog['hrl_renter_id']);
-        $payLog['rent_phone']=$this->getRenterPhoneViaRentId($payLog['hrl_renter_id']);
+        $commonModel=new \app\marketm\controller\Common();
+        $payLog['rent_name']=$commonModel->getRenterNameViaRentId($payLog['hrl_renter_id']);
+        $payLog['rent_phone']=$commonModel->getRenterPhoneViaRentId($payLog['hrl_renter_id']);
         $this->assign('payLog',$payLog);
         return $this->fetch();
     }

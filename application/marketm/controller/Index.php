@@ -26,7 +26,6 @@ class Index extends Controller{
     public function index(){
         $userInfo=session('userInfo');
         if($_POST){
-            $data=$_POST;
             $p_ids=$_POST['h_p_id'];
             $p_id=Db::table('dcxw_province')->where(['p_id' => $p_ids])->column('p_code');
             $c_ids=$_POST['h_c_id'];
@@ -35,6 +34,14 @@ class Index extends Controller{
             $a_id=Db::table('dcxw_area')->where(['area_id' => $a_ids])->column('area_code');
             $buNum=Db::table('dcxw_house')->where(['h_c_id' => $c_ids])->count();
             $data['h_b_id'] = $p_id[0].''.$c_id[0].''.$a_id[0].sprintf("%04d", $buNum+1);
+            $data['h_house_type']=intval(trim($_POST['h_room'])).",".intval(trim($_POST['h_dinner'])).",".intval(trim($_POST['h_cook'])).",".intval(trim($_POST['h_bath']));
+            $data['h_p_id']=trim($_POST['h_p_id']);
+            $data['h_c_id']=trim($_POST['h_c_id']);
+            $data['h_a_id']=trim($_POST['h_a_id']);
+            $data['h_head']=trim($_POST['h_head']);
+            $data['h_building']=trim($_POST['h_building']);
+            $data['h_area']=trim($_POST['h_area']);
+            $data['h_address']=trim($_POST['h_address']);
             $data['h_addtime']=time();
             $data['h_updatetime']=time();
             $data['h_isable']=1;
@@ -54,6 +61,15 @@ class Index extends Controller{
                 ->select();
             $this->assign('houseType',$houseType);
             $provInfo=Db::table('dcxw_province')->select();
+            $commonM=new Common();
+            $dinner=$commonM->getDinner();
+            $cook=$commonM->getCook();
+            $room=$commonM->getRoom();
+            $bath=$commonM->getBath();
+            $this->assign('dinner',$dinner);
+            $this->assign('cook',$cook);
+            $this->assign('room',$room);
+            $this->assign('bath',$bath);
             $this->assign('prov',$provInfo);
             return $this->fetch();
         }
@@ -684,17 +700,5 @@ class Index extends Controller{
         }else{
             $this->error('转交失败！','',$toWork);
         }
-    }
-
-
-
-
-
-    public function demo(){
-        return $this->fetch();
-    }
-
-    public function form(){
-        return $this->fetch();
     }
 }

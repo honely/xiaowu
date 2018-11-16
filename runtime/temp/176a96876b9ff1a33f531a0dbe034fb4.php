@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\index.html";i:1541135820;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\index.html";i:1542187874;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -123,7 +123,7 @@
                             html+='合同编号：'+data[i].h_contract_code+'<br/>';
                         }
                         html+=' 签订日期：'+data[i].h_addtime+'<br/>'+
-                            '                    房源地址：<?php echo $hous['h_address']; ?>' +
+                            '                    房源地址：'+data[i].h_address+
                             '                    <br/>' +
                             '                </p>' +
                             '            </div>' +

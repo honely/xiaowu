@@ -39,7 +39,7 @@
     $('#loginOut').click(function () {
         $.ajax({
             type:"post",
-            url:"<?=url('login/loginout')?>",
+            url:"<?=url('marketm/login/loginout')?>",
             data:$('#payForm').serialize(),
             success:function (result) {
                 console.log(result);

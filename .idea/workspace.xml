@@ -2,77 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="850003d0-3bd9-4cc3-a03e-00bd285a8ff8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/admin/controller/Channel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/controller/Market.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/controller/Partner.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/channel/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/channel/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/house/declog.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/house/decorate.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/house/paydetail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/house/paylog.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/house/payment.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/house/rent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/house/rentdetail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/house/showdetail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/market/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/partner/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/partner/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/admin/view/partner/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/wap/css/feedback-page.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/wap/images/iconfont-tianjia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/wap/js/feedback-page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/manager/view/index/decorate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/manager/view/index/details.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/manager/view/index/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/manager/view/index/logdetails.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/manager/view/index/paydetail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/manager/view/index/paylog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/manager/view/index/payment.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/manager/view/index/person.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/manager/view/index/preview.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/manager/view/index/rent.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/manager/view/index/rentdetail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/manager/view/index/renter.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/controller/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/controller/Admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/admin/controller/House.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/controller/House.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/admin/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/admin/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/admin/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/admin/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/house/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/house/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/decoration/controller/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/decoration/controller/Index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decoration/view/index/addlog.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/decoration/view/index/addlog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decoration/view/index/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/decoration/view/index/details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decoration/view/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/decoration/view/index/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decoration/view/index/logdetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/decoration/view/index/logdetails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/view/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/view/about/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/view/common/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/view/common/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/view/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/view/index/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/decoration/controller/Login.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/decoration/view/index/person.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/decoration/view/index/person.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/marketm/controller/Common.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/marketm/controller/Common.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/marketm/controller/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/marketm/controller/Index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/marketm/view/index/addpaylog.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/marketm/view/index/addpaylog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/marketm/view/index/preview.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/marketm/view/index/preview.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/marketm/controller/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/marketm/controller/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/marketm/view/index/house.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/marketm/view/index/house.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/marketm/view/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/marketm/view/index/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/marketm/view/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/marketm/view/login/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/operation/controller/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/operation/controller/Index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/operation/view/index/addpaylog.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/operation/view/index/addpaylog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/operation/view/index/addrent.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/operation/view/index/addrent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/operation/view/index/improve.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/operation/view/index/improve.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/operation/view/index/rentdetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/operation/view/index/rentdetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/operation/view/index/renter.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/operation/view/index/renter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/operation/view/index/rentlog.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/operation/view/index/rentlog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/02c591515d973f65c8ed433922666b48.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/02c591515d973f65c8ed433922666b48.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/03fdfbad81e9d0e46f0e7cf19ba2edf9.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/03fdfbad81e9d0e46f0e7cf19ba2edf9.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/06dd7579187fbad599373392bfe6854d.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/06dd7579187fbad599373392bfe6854d.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/22a195245c470fb7ecf46c6a8c827964.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/22a195245c470fb7ecf46c6a8c827964.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/2d279d6d0bf134ed3c2092b8fb23e4c4.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/2d279d6d0bf134ed3c2092b8fb23e4c4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/2fdb54de033b64532068f664c9a2f74e.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/2fdb54de033b64532068f664c9a2f74e.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/421687d0c7c8a2bace5456e951bccfd1.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/421687d0c7c8a2bace5456e951bccfd1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/80928e82bd656a13c74df7051e0a1498.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/80928e82bd656a13c74df7051e0a1498.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/853a6815029cf36bb2ccb2ff12521bbe.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/853a6815029cf36bb2ccb2ff12521bbe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/895c8c0e778217a4c6ce9f7061d74c67.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/895c8c0e778217a4c6ce9f7061d74c67.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/8f033c2805bb8d2bd092bd3ec29a9b92.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/8f033c2805bb8d2bd092bd3ec29a9b92.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/90c7f146fc86c4e7e383250d1d4680a3.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/90c7f146fc86c4e7e383250d1d4680a3.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/92726ec0c4701fe598575c43e141b28b.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/92726ec0c4701fe598575c43e141b28b.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/a134cd35c676c158c4a41e71d655c648.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/a134cd35c676c158c4a41e71d655c648.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/a5a7e6f50c017624c9d94e2f24aa4e02.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/a5a7e6f50c017624c9d94e2f24aa4e02.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/ab1cd297f532799563f249cf9efdeb55.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/ab1cd297f532799563f249cf9efdeb55.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/ab29d422663f976f36084cb84476a8d6.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/ab29d422663f976f36084cb84476a8d6.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/ac712497e3f1c27227da493ca8ea887f.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/ac712497e3f1c27227da493ca8ea887f.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/c117f4383090e0c30806e0517f3f78d9.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/c117f4383090e0c30806e0517f3f78d9.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/operation/controller/Login.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/operation/view/index/person.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/operation/view/index/person.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/wap/css/mui.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/wap/css/mui.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/log/201811/15.log" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/log/201811/15.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/176a96876b9ff1a33f531a0dbe034fb4.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/176a96876b9ff1a33f531a0dbe034fb4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/30f79b465559e3aaf098d5b52111b067.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/30f79b465559e3aaf098d5b52111b067.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/5aa57a53d52a0a6effbaa8c9994cf86f.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/5aa57a53d52a0a6effbaa8c9994cf86f.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/798f167a757c9cab97130ca9783dbd24.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/798f167a757c9cab97130ca9783dbd24.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/80f5b837ee02bb9ac1016bbb2045f6be.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/80f5b837ee02bb9ac1016bbb2045f6be.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/85e1da1f5dbaa6414bea0062e083662b.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/85e1da1f5dbaa6414bea0062e083662b.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/938a1c82add5a3073fee4b678940cd91.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/938a1c82add5a3073fee4b678940cd91.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/c8404c07437a03c50c24de0f23f8362d.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/c8404c07437a03c50c24de0f23f8362d.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runtime/temp/dd4c1f305bb6c0421168cd63f7f80b5b.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/dd4c1f305bb6c0421168cd63f7f80b5b.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/e14670f07d00f9ae5ddb54b6de8f029d.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/e14670f07d00f9ae5ddb54b6de8f029d.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/f9bd2b2bacefe537dcb902ce3c9bf39b.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/f9bd2b2bacefe537dcb902ce3c9bf39b.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/fc369a12fe976ecb6120b981a1ae847f.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/fc369a12fe976ecb6120b981a1ae847f.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/fd499ff00785a7ee6df5d5141f84169b.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/fd499ff00785a7ee6df5d5141f84169b.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/fdf1196b3f89a8267421a5695f36c92a.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/fdf1196b3f89a8267421a5695f36c92a.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/e7be6dc43054dcc0df0bd34eafdde66c.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/e7be6dc43054dcc0df0bd34eafdde66c.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +117,7 @@
     <session id="-1442078431">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="46" />
+          <entry key="project.closed" value="48" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="3" />
@@ -159,60 +126,61 @@
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.23" value="4" />
           <entry key="project.open.time.24" value="2" />
+          <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.6" value="4" />
           <entry key="project.open.time.7" value="8" />
           <entry key="project.open.time.8" value="13" />
           <entry key="project.open.time.9" value="13" />
-          <entry key="project.opened" value="58" />
+          <entry key="project.opened" value="59" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="62" />
+          <entry key="css" value="63" />
           <entry key="dummy" value="1" />
-          <entry key="html" value="30357" />
+          <entry key="html" value="31181" />
           <entry key="json" value="10" />
           <entry key="md" value="62" />
-          <entry key="php" value="31262" />
+          <entry key="php" value="32200" />
           <entry key="sql" value="23" />
           <entry key="txt" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="62" />
-          <entry key="HTML" value="30357" />
+          <entry key="CSS" value="63" />
+          <entry key="HTML" value="31181" />
           <entry key="JSON" value="10" />
           <entry key="Markdown" value="62" />
-          <entry key="PHP" value="31262" />
+          <entry key="PHP" value="32200" />
           <entry key="PLAIN_TEXT" value="12" />
           <entry key="SQL" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="31" />
+          <entry key="css" value="32" />
           <entry key="htaccess" value="1" />
-          <entry key="html" value="808" />
+          <entry key="html" value="854" />
           <entry key="jpg" value="12" />
           <entry key="js" value="14" />
           <entry key="json" value="3" />
           <entry key="md" value="2" />
-          <entry key="php" value="316" />
+          <entry key="php" value="336" />
           <entry key="png" value="8" />
           <entry key="sql" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="31" />
-          <entry key="HTML" value="808" />
+          <entry key="CSS" value="32" />
+          <entry key="HTML" value="854" />
           <entry key="Image" value="20" />
           <entry key="JSON" value="3" />
           <entry key="JavaScript" value="14" />
           <entry key="Markdown" value="2" />
-          <entry key="PHP" value="316" />
+          <entry key="PHP" value="336" />
           <entry key="SQL" value="3" />
           <entry key="htaccess" value="1" />
         </counts>
@@ -225,28 +193,108 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/marketm/controller/Index.php">
+        <entry file="file://$PROJECT_DIR$/application/manager/view/index/preview.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12441">
-              <caret line="474" selection-start-line="474" selection-end-line="474" />
+            <state relative-caret-position="-5596">
+              <caret line="163" column="7" selection-start-line="163" selection-start-column="7" selection-end-line="163" selection-end-column="7" />
+              <folding>
+                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
+                <element signature="e#450#551#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/marketm/controller/Login.php">
+        <entry file="file://$PROJECT_DIR$/application/manager/view/index/rent.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="27" column="58" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="58" />
+            <state relative-caret-position="-3715">
+              <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#p#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/manager/view/index/rentdetail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-5478">
+              <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/manager/view/index/renter.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="311">
+              <caret line="52" column="14" selection-start-line="52" selection-start-column="14" selection-end-line="52" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/marketm/view/login/login.html">
+        <entry file="file://$PROJECT_DIR$/application/manager/view/index/decorate.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="52" column="24" lean-forward="true" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
+            <state relative-caret-position="575">
+              <caret line="26" column="46" lean-forward="true" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
+              <folding>
+                <element signature="n#style#0;n#span#1;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/manager/view/index/details.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="190" lean-forward="true" selection-start-line="190" selection-end-line="190" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/manager/view/index/logdetails.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="173" column="11" lean-forward="true" selection-start-line="173" selection-start-column="11" selection-end-line="173" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/manager/view/index/paydetail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="806">
+              <caret line="180" lean-forward="true" selection-start-line="180" selection-end-line="180" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/manager/view/index/paylog.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="905">
+              <caret line="43" column="22" lean-forward="true" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/manager/controller/Index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="576">
+              <caret line="519" column="50" lean-forward="true" selection-start-line="519" selection-start-column="50" selection-end-line="519" selection-end-column="50" />
+              <folding>
+                <element signature="e#133#167#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -264,18 +312,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>img</find>
-      <find>ha_contact_code</find>
-      <find>role</find>
-      <find>edit</find>
-      <find>checkPhone</find>
-      <find>//执行重载</find>
-      <find>image-list</find>
-      <find>feedback</find>
-      <find>image-item space</find>
-      <find>addpay</find>
-      <find>loginForm</find>
-      <find>item_img</find>
       <find>towork</find>
       <find>deta</find>
       <find>addrent</find>
@@ -294,6 +330,18 @@
       <find>修改</find>
       <find>']=intval(trim($_POST['hrl_rent_type</find>
       <find>hrl_rent_type</find>
+      <find>.mui-btn-block</find>
+      <find>payment</find>
+      <find>decora</find>
+      <find>logdetails</find>
+      <find>decl</find>
+      <find>../js/</find>
+      <find>class=&quot;mui-navigate-right&quot; href=&quot;#&quot;</find>
+      <find>details</find>
+      <find>rentdetail</find>
+      <find>paylog</find>
+      <find>logde</find>
+      <find>payde</find>
     </findStrings>
     <replaceStrings>
       <replace>__WEB__</replace>
@@ -306,7 +354,6 @@
       <replace>/img/</replace>
       <replace>__WAP__/</replace>
       <replace>__WAP__/css/</replace>
-      <replace>__WAP__/js/</replace>
       <replace>u_</replace>
       <replace>__WAP__/images/</replace>
       <replace>type=&quot;radio&quot;</replace>
@@ -323,6 +370,7 @@
       <replace>width: 25%</replace>
       <replace>&lt;p&gt;</replace>
       <replace>class=&quot;show-width&quot;</replace>
+      <replace>__WAP__/js/</replace>
     </replaceStrings>
     <dirStrings>
       <dir>G:\xampp\htdocs\bbb\public</dir>
@@ -344,26 +392,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/admin/controller/Regin.php" />
-        <option value="$PROJECT_DIR$/application/admin/view/regin/editArea.html" />
-        <option value="$PROJECT_DIR$/application/admin/view/district/district.html" />
-        <option value="$PROJECT_DIR$/application/admin/view/district/city.html" />
-        <option value="$PROJECT_DIR$/application/admin/view/district/area.html" />
-        <option value="$PROJECT_DIR$/application/marketm/view/index/index.html" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/application/admin/view/admin/edit.html" />
-        <option value="$PROJECT_DIR$/application/admin/view/admin/admin.html" />
-        <option value="$PROJECT_DIR$/application/admin/controller/Admin.php" />
-        <option value="$PROJECT_DIR$/application/admin/controller/Partner.php" />
-        <option value="$PROJECT_DIR$/application/admin/view/partner/index.html" />
-        <option value="$PROJECT_DIR$/application/marketm/controller/Common.php" />
-        <option value="$PROJECT_DIR$/application/marketm/view/index/logdetails.html" />
-        <option value="$PROJECT_DIR$/application/marketm/view/index/preview.html" />
-        <option value="$PROJECT_DIR$/application/decoration/view/index/logdetails.html" />
-        <option value="$PROJECT_DIR$/application/marketm/view/index/addpaylog.html" />
-        <option value="$PROJECT_DIR$/application/decoration/view/index/addlog.html" />
-        <option value="$PROJECT_DIR$/application/operation/view/index/renter.html" />
-        <option value="$PROJECT_DIR$/application/operation/view/index/addpaylog.html" />
         <option value="$PROJECT_DIR$/application/admin/view/channel/add.html" />
         <option value="$PROJECT_DIR$/application/admin/view/channel/edit.html" />
         <option value="$PROJECT_DIR$/application/operation/view/index/improve.html" />
@@ -374,27 +402,47 @@
         <option value="$PROJECT_DIR$/application/operation/view/index/rentlog.html" />
         <option value="$PROJECT_DIR$/application/admin/controller/Market.php" />
         <option value="$PROJECT_DIR$/application/admin/view/market/index.html" />
-        <option value="$PROJECT_DIR$/application/marketm/controller/Index.php" />
         <option value="$PROJECT_DIR$/application/marketm/view/index/payment.html" />
-        <option value="$PROJECT_DIR$/application/decoration/controller/Index.php" />
         <option value="$PROJECT_DIR$/application/admin/view/house/showdetail.html" />
         <option value="$PROJECT_DIR$/application/admin/view/house/declog.html" />
         <option value="$PROJECT_DIR$/application/mobile/view/index/about.html" />
         <option value="$PROJECT_DIR$/application/index/view/about/index.html" />
         <option value="$PROJECT_DIR$/application/index/view/index/index.html" />
         <option value="$PROJECT_DIR$/application/index/view/common/footer.html" />
-        <option value="$PROJECT_DIR$/application/admin/view/house/decorate.html" />
         <option value="$PROJECT_DIR$/application/admin/view/house/paydetail.html" />
         <option value="$PROJECT_DIR$/application/admin/view/house/rentdetail.html" />
         <option value="$PROJECT_DIR$/application/admin/view/house/index.html" />
         <option value="$PROJECT_DIR$/application/admin/view/house/payment.html" />
         <option value="$PROJECT_DIR$/application/admin/view/house/rent.html" />
-        <option value="$PROJECT_DIR$/application/admin/controller/House.php" />
         <option value="$PROJECT_DIR$/application/admin/view/house/paylog.html" />
         <option value="$PROJECT_DIR$/application/decoration/view/index/index.html" />
-        <option value="$PROJECT_DIR$/application/operation/controller/Index.php" />
         <option value="$PROJECT_DIR$/application/decoration/view/index/details.html" />
+        <option value="$PROJECT_DIR$/application/manger/controller/Index.php" />
+        <option value="$PROJECT_DIR$/application/decoration/view/index/person.html" />
+        <option value="$PROJECT_DIR$/application/operation/view/index/person.html" />
+        <option value="$PROJECT_DIR$/application/marketm/controller/Login.php" />
         <option value="$PROJECT_DIR$/application/marketm/view/login/login.html" />
+        <option value="$PROJECT_DIR$/public/wap/css/mui.min.css" />
+        <option value="$PROJECT_DIR$/application/marketm/view/index/index.html" />
+        <option value="$PROJECT_DIR$/application/marketm/view/index/house.html" />
+        <option value="$PROJECT_DIR$/application/manager/view/index/person.html" />
+        <option value="$PROJECT_DIR$/application/manager/view/index/payment.html" />
+        <option value="$PROJECT_DIR$/application/admin/controller/House.php" />
+        <option value="$PROJECT_DIR$/application/marketm/controller/Index.php" />
+        <option value="$PROJECT_DIR$/application/decoration/controller/Index.php" />
+        <option value="$PROJECT_DIR$/application/marketm/controller/Common.php" />
+        <option value="$PROJECT_DIR$/application/operation/controller/Index.php" />
+        <option value="$PROJECT_DIR$/application/manager/view/index/preview.html" />
+        <option value="$PROJECT_DIR$/application/manager/view/index/index.html" />
+        <option value="$PROJECT_DIR$/application/admin/view/house/decorate.html" />
+        <option value="$PROJECT_DIR$/application/manager/view/index/details.html" />
+        <option value="$PROJECT_DIR$/application/manager/view/index/rent.html" />
+        <option value="$PROJECT_DIR$/application/manager/view/index/paylog.html" />
+        <option value="$PROJECT_DIR$/application/manager/view/index/renter.html" />
+        <option value="$PROJECT_DIR$/application/manager/view/index/logdetails.html" />
+        <option value="$PROJECT_DIR$/application/manager/controller/Index.php" />
+        <option value="$PROJECT_DIR$/application/manager/view/index/paydetail.html" />
+        <option value="$PROJECT_DIR$/application/manager/view/index/decorate.html" />
       </list>
     </option>
   </component>
@@ -473,6 +521,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -489,27 +538,33 @@
               <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
               <item name="bbb" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="marketm" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
               <item name="bbb" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="marketm" type="462c0819:PsiDirectoryNode" />
+              <item name="manager" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbb" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="manager" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
               <item name="bbb" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="marketm" type="462c0819:PsiDirectoryNode" />
+              <item name="manager" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
               <item name="bbb" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="marketm" type="462c0819:PsiDirectoryNode" />
+              <item name="manager" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="index" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -517,21 +572,45 @@
               <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
               <item name="bbb" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="marketm" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
+              <item name="operation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
               <item name="bbb" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="operation" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbb" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="operation" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="index" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbb" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbb" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="wap" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbb" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="wap" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -544,16 +623,16 @@
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\xampp\htdocs\bbb\application\wap\view\login" />
+      <recent name="G:\PHPTutorial\WWW\bbb\application\index\view\house" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\xampp\htdocs\bbb\application\manager\view\index" />
       <recent name="G:\xampp\htdocs\bbb\application\admin\view\partner" />
       <recent name="G:\xampp\htdocs\bbb\public\wap\images" />
       <recent name="G:\xampp\htdocs\bbb\public\wap\css" />
       <recent name="G:\xampp\htdocs\bbb\public\wap\js" />
-      <recent name="G:\xampp\htdocs\bbb\public\web\js" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\xampp\htdocs\bbb\application\wap\view\login" />
-      <recent name="G:\PHPTutorial\WWW\bbb\application\index\view\house" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -643,7 +722,8 @@
       <workItem from="1541985181214" duration="23050000" />
       <workItem from="1542071529369" duration="19548000" />
       <workItem from="1542158054504" duration="18794000" />
-      <workItem from="1542245111431" duration="846000" />
+      <workItem from="1542245111431" duration="22365000" />
+      <workItem from="1542330976135" duration="17493000" />
     </task>
     <task id="LOCAL-00001" summary="project sql">
       <created>1537524922547</created>
@@ -663,7 +743,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="972535000" />
+    <option name="totallyTimeSpent" value="1011547000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -675,10 +755,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.13965885" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.15031983" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5010846" side_tool="true" weight="0.14925373" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -752,219 +831,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/admin/view/example/example.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="111" column="78" selection-start-line="111" selection-start-column="78" selection-end-line="111" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/operation/view/index/improve.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="38" column="31" lean-forward="true" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/operation/view/index/addpaylog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2046">
-          <caret line="32" column="35" lean-forward="true" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/operation/view/index/details.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5365">
-          <caret line="77" column="49" lean-forward="true" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/Channel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="93" column="14" lean-forward="true" selection-start-line="93" selection-start-column="14" selection-end-line="93" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/Setinfo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="895" column="53" selection-start-line="895" selection-start-column="12" selection-end-line="895" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/channel/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/operation/view/index/addrent.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="94" column="22" selection-start-line="94" selection-start-column="22" selection-end-line="94" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/channel/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="48" column="60" selection-start-line="48" selection-start-column="54" selection-end-line="48" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/market/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/Market.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="25" column="64" selection-start-line="25" selection-start-column="64" selection-end-line="25" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/marketm/view/index/logdetails.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="172" column="40" selection-start-line="172" selection-start-column="16" selection-end-line="172" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/marketm/view/index/payment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="79" column="100" selection-start-line="79" selection-start-column="94" selection-end-line="79" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/marketm/view/index/master.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="773">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/decoration/view/index/timeline.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="23" column="63" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/house/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="65" column="45" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/house/editseek.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/mobile/view/common/footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/decoration/view/index/logdetails.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6567">
-          <caret line="199" column="41" selection-start-line="199" selection-start-column="22" selection-end-line="199" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/mobile/view/index/about.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3333">
-          <caret line="95" column="25" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/index/view/about/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2937">
-          <caret line="78" column="67" selection-start-line="78" selection-start-column="16" selection-end-line="78" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/index/view/index/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8151">
-          <caret line="239" column="7" selection-start-line="239" selection-start-column="7" selection-end-line="239" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/index/view/common/footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="52" column="14" lean-forward="true" selection-start-line="52" selection-start-column="14" selection-end-line="52" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/house/showdetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/index/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/house/decorate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/house/declog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1518">
-          <caret line="46" column="19" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/house/paydetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/operation/view/index/rentdetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7458">
-          <caret line="226" column="83" selection-start-line="226" selection-start-column="25" selection-end-line="226" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/operation/view/index/rentlog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1452">
-          <caret line="44" column="25" selection-start-line="40" selection-start-column="19" selection-end-line="44" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/house/rentdetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="632">
-          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/operation/view/index/paydetail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
@@ -1018,39 +884,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/House.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24618">
-          <caret line="753" column="38" selection-start-line="753" selection-start-column="38" selection-end-line="753" selection-end-column="38" />
-          <folding>
-            <element signature="e#136#157#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/house/paylog.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2541">
           <caret line="86" column="42" selection-start-line="86" selection-start-column="42" selection-end-line="86" selection-end-column="42" />
-          <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#fieldset#0;n#form#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#section#0;n#form#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/operation/controller/Index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4488">
-          <caret line="143" column="35" selection-start-line="143" selection-start-column="21" selection-end-line="143" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/decoration/controller/Index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12639">
-          <caret line="390" selection-start-line="390" selection-end-line="390" />
         </state>
       </provider>
     </entry>
@@ -1058,13 +895,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4092">
           <caret line="122" column="60" selection-start-line="122" selection-start-column="60" selection-end-line="122" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/marketm/controller/Common.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3168">
-          <caret line="103" column="20" selection-start-line="103" selection-start-column="20" selection-end-line="103" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -1079,17 +909,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="99">
           <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-          <folding>
-            <element signature="e#6#90#0#PHP" expanded="true" />
-            <element signature="e#123#144#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/decoration/view/index/details.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="268" column="20" lean-forward="true" selection-start-line="268" selection-start-column="20" selection-end-line="268" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -1097,34 +916,306 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
           <caret line="114" column="44" selection-start-line="114" selection-start-column="44" selection-end-line="114" selection-end-column="44" />
-          <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#fieldset#0;n#form#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#form#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#section#0;n#form#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#section#0;n#form#0;n#html#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/marketm/controller/Index.php">
+    <entry file="file://$PROJECT_DIR$/application/manger/controller/Index.php" />
+    <entry file="file://$PROJECT_DIR$/application/operation/controller/Common.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/decoration/controller/Login.php" />
+    <entry file="file://$PROJECT_DIR$/application/decoration/controller/Common.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/decoration/view/index/person.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12441">
-          <caret line="474" selection-start-line="474" selection-end-line="474" />
+        <state relative-caret-position="509">
+          <caret line="39" column="16" lean-forward="true" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/marketm/controller/Login.php">
+    <entry file="file://$PROJECT_DIR$/application/operation/view/index/person.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="27" column="58" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="58" />
+        <state relative-caret-position="165">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/marketm/view/login/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="52" column="24" lean-forward="true" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
+        <state relative-caret-position="396">
+          <caret line="63" column="83" selection-start-line="63" selection-start-column="83" selection-end-line="63" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/marketm/controller/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="674">
+          <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/wap/css/mui.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="4" column="18775" selection-start-line="4" selection-start-column="18775" selection-end-line="4" selection-end-column="18775" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/marketm/view/index/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1881">
+          <caret line="63" column="18" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/marketm/view/index/house.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/marketm/view/index/payment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="75" column="34" lean-forward="true" selection-start-line="75" selection-start-column="34" selection-end-line="75" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/marketm/view/index/person.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="18" column="12" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/marketm/view/index/logdetails.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/marketm/controller/Common.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="158" selection-start-line="158" selection-end-line="158" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/marketm/controller/Index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21252">
+          <caret line="652" column="47" selection-start-line="652" selection-start-column="47" selection-end-line="652" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/controller/House.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="542" column="43" lean-forward="true" selection-start-line="542" selection-start-column="43" selection-end-line="542" selection-end-column="43" />
+          <folding>
+            <element signature="e#136#170#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/decoration/view/index/details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="260" column="40" selection-start-line="260" selection-start-column="40" selection-end-line="260" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/mobile/view/index/nav.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-99" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/mobile/view/common/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/house/decorate.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="938">
+          <caret line="69" column="46" selection-start-line="69" selection-start-column="40" selection-end-line="69" selection-end-column="46" />
+          <folding>
+            <element signature="n#style#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#1157#1163#0" expanded="true" />
+            <element signature="e#1163#1169#0" expanded="true" />
+            <element signature="e#1169#1175#0" expanded="true" />
+            <element signature="e#1175#1181#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h3#0;n#div#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/decoration/view/index/logdetails.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="65" column="34" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/decoration/controller/Index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-19">
+          <caret line="347" selection-start-line="347" selection-end-line="347" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/operation/view/index/rentlog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/operation/controller/Index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="511" selection-start-line="511" selection-end-line="511" />
+          <folding>
+            <element signature="e#5140#6821#0#PHP" />
+            <element signature="e#6827#8824#0#PHP" />
+            <element signature="e#8929#10730#0#PHP" />
+            <element signature="e#10769#11711#0#PHP" />
+            <element signature="e#11573#11705#0#PHP" />
+            <element signature="e#11751#14519#0#PHP" />
+            <element signature="e#14556#16296#0#PHP" />
+            <element signature="e#17521#18474#0#PHP" />
+            <element signature="e#18511#20187#0#PHP" />
+            <element signature="e#20226#21536#0#PHP" />
+            <element signature="e#21572#22891#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/operation/view/index/renter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/manager/view/index/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/manager/view/index/payment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-627">
+          <caret line="55" column="50" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/manager/view/index/person.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="47" column="57" selection-start-line="47" selection-start-column="57" selection-end-line="47" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/manager/view/index/preview.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5596">
+          <caret line="163" column="7" selection-start-line="163" selection-start-column="7" selection-end-line="163" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
+            <element signature="e#450#551#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/manager/view/index/rent.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3715">
+          <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#p#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/manager/view/index/rentdetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5478">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/manager/view/index/renter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="52" column="14" selection-start-line="52" selection-start-column="14" selection-end-line="52" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/manager/view/index/details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="190" lean-forward="true" selection-start-line="190" selection-end-line="190" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/manager/view/index/logdetails.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="173" column="11" lean-forward="true" selection-start-line="173" selection-start-column="11" selection-end-line="173" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/manager/controller/Index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="519" column="50" lean-forward="true" selection-start-line="519" selection-start-column="50" selection-end-line="519" selection-end-column="50" />
+          <folding>
+            <element signature="e#133#167#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/manager/view/index/paylog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="905">
+          <caret line="43" column="22" lean-forward="true" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/manager/view/index/paydetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="806">
+          <caret line="180" lean-forward="true" selection-start-line="180" selection-end-line="180" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/manager/view/index/decorate.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="26" column="46" lean-forward="true" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
+          <folding>
+            <element signature="n#style#0;n#span#1;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

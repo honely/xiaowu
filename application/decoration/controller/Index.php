@@ -44,7 +44,7 @@ class Index extends Controller{
         $connomModel=new \app\marketm\controller\Common();
         if($houses){
             foreach($houses as $k =>$v){
-            $houses[$k]['hd_status']=$this->getStatus($v['hd_status']);
+            $houses[$k]['hd_status']=$connomModel->getStatus($v['hd_status']);
             $houses[$k]['h_money']=$connomModel->getDecorateMoney($v['h_b_id']);
                 $houses[$k]['h_addtime']=date('Y年m月d日',$v['h_addtime']);
                 $payInfo=Db::table('dcxw_house_pay')->where(['hp_house_code' =>$v['h_b_id']])->column('hp_paid_ratio');
@@ -86,7 +86,7 @@ class Index extends Controller{
         $connomModel=new \app\marketm\controller\Common();
         if($houses){
             foreach($houses as $k =>$v){
-                $houses[$k]['hd_status']=$this->getStatus($v['hd_status']);
+                $houses[$k]['hd_status']=$connomModel->getStatus($v['hd_status']);
                 $houses[$k]['h_money']=$connomModel->getDecorateMoney($v['h_b_id']);
                 $houses[$k]['h_addtime']=date('Y年m月d日',$v['h_addtime']);
                 $payInfo=Db::table('dcxw_house_pay')->where(['hp_house_code' =>$v['h_b_id']])->column('hp_paid_ratio');
@@ -253,6 +253,7 @@ class Index extends Controller{
             ->find();
         $this->assign('house',$house);
         $status=$decoInfo['hd_status'];
+        $connomModel=new \app\marketm\controller\Common();
         if($_POST){
             $data=$_POST;
             $data['hdl_addtime']=time();
@@ -272,58 +273,14 @@ class Index extends Controller{
                 $this->error('添加失败！');
             }
         }else{
-            $statusTip=$this->getStatus($status);
-            $nextStatus=$this->getStatus(intval(intval($status)+1));
+            $statusTip=$connomModel->getStatus($status);
+            $nextStatus=$connomModel->getStatus(intval(intval($status)+1));
             $this->assign('statusStart',$statusTip);
             $this->assign('nextStatus',$nextStatus);
             $this->assign('status',$status);
             $this->assign('h_id',$h_id);
             return $this->fetch();
         }
-    }
-
-
-    /*
-     * 根据装修状态码返回相应的状态文字
-     * */
-    public function getStatus($status){
-        $statusTip='';
-        switch ($status) {
-            case 1:
-                $statusTip="接到通知";
-                break;
-            case 2:
-                $statusTip="开始开工";
-                break;
-            case 3:
-                $statusTip="进场检查";
-                break;
-            case 4:
-                $statusTip="水电验收";
-                break;
-            case 5:
-                $statusTip="防水验收";
-                break;
-            case 6:
-                $statusTip="瓦工验收";
-                break;
-            case 7:
-                $statusTip="乳胶漆验收";
-                break;
-            case 8:
-                $statusTip="主材验收";
-                break;
-            case 9:
-                $statusTip="软装验收";
-                break;
-            case 10:
-                $statusTip="自检";
-                break;
-            case 11:
-                $statusTip="转入运营部";
-                break;
-        }
-        return $statusTip;
     }
 
 
@@ -406,7 +363,8 @@ class Index extends Controller{
         $this->assign('house',$houseInfo);
         //吧施工节点转化为文字
 //        状态变更表1.事业部专项工程部；2工程部开始开工；3进场检查；4水电验收；5防水验收；6瓦工验收，7乳胶漆验收；8主材验收；9软装验收；10；自检;11,移交给运营部
-        $daily['hdl_status']=$this->getStatus($daily['hdl_status']);
+        $connomModel=new \app\marketm\controller\Common();
+        $daily['hdl_status']=$connomModel->getStatus($daily['hdl_status']);
         $this->assign('logs',$daily);
         return $this->fetch();
     }
@@ -422,50 +380,12 @@ class Index extends Controller{
             ->where(['hds_house_code' => $h_id])
             ->order('hds_change_time desc')
             ->select();
+        $connomModel=new \app\marketm\controller\Common();
         foreach ($step as $k => $v){
-            $step[$k]['hds_end_statuss']=$this->getStatus($v['hds_end_status']);
-            $step[$k]['hds_change_time']=$this->get_last_time($v['hds_change_time']);
+            $step[$k]['hds_end_statuss']=$connomModel->getStatus($v['hds_end_status']);
+            $step[$k]['hds_change_time']=$connomModel->get_last_time($v['hds_change_time']);
         }
         $this->assign('step',$step);
         return $this->fetch();
     }
-
-
-
-    function get_last_time($time = NULL) {
-        $text = '';
-        $time = $time === NULL || $time > time() ? time() : intval($time);
-        $t = time() - $time; //时间差 （秒）
-        $y = date('Y', $time)-date('Y', time());//是否跨年
-        switch($t){
-            case $t == 0:
-                $text = '刚刚';
-                break;
-            case $t < 60:
-                $text = $t . '秒前'; // 一分钟内
-                break;
-            case $t < 60 * 60:
-                $text = floor($t / 60) . '分钟前'; //一小时内
-                break;
-            case $t < 60 * 60 * 24:
-                $text = floor($t / (60 * 60)) . '小时前'; // 一天内
-                break;
-            case $t < 60 * 60 * 24 * 3:
-                $text = floor($time/(60*60*24)) ==1 ?'昨天 ' . date('H:i', $time) : '前天 ' . date('H:i', $time) ; //昨天和前天
-                break;
-            case $t < 60 * 60 * 24 * 30:
-                $text = date('m月d日 H:i', $time); //一个月内
-                break;
-            case $t < 60 * 60 * 24 * 365&&$y==0:
-                $text = date('m月d日', $time); //一年内
-                break;
-            default:
-                $text = date('Y年m月d日', $time); //一年以前
-                break;
-        }
-
-        return $text;
-    }
-
-
 }

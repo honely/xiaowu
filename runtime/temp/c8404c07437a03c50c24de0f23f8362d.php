@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\person.html";i:1540881161;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\person.html";i:1542247492;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -40,7 +40,7 @@
     $('#loginOut').click(function () {
         $.ajax({
             type:"post",
-            url:"<?=url('login/loginout')?>",
+            url:"<?=url('marketm/login/loginout')?>",
             data:$('#payForm').serialize(),
             success:function (result) {
                 console.log(result);

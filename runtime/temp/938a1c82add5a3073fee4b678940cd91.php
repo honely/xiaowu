@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\promise.html";i:1541236417;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1541226131;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1541228282;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\promise.html";i:1541236989;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1541226131;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1541228282;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +15,7 @@
 <body style="background:#fff;width:100%">
 <header class="mui-bar mui-bar-nav">
     <a href="<?=url('index/index')?>" class="mui-icon-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-    <h1 class="mui-title">租住保证</h1>
+    <h1 class="mui-title">品质承诺</h1>
     <a id="menu" class="mui-action-menu mui-icon mui-icon-bars mui-pull-right" href="#topPopover"></a>
 </header>
 <style>
@@ -48,9 +48,6 @@
     }
     .mui-popover {
         height: 355px;
-    }
-    .mui-content {
-        padding: 10px;
     }
 </style>
 <div id="topPopover" class="mui-popover">

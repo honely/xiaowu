@@ -7,6 +7,7 @@
  * Name: 房源管理
  */
 namespace app\admin\controller;
+use app\marketm\controller\Common;
 use think\Controller;
 use think\Db;
 use think\Request;
@@ -39,6 +40,7 @@ class House extends Controller{
 
     public function houseData(){
         $where =' 1 = 1';
+        $commomModel=new Common();
         $keywords = trim($this->request->param('keywords'));
         $case_decotime=trim($this->request->param('case_decotime'));
         if(isset($keywords) && !empty($keywords)){
@@ -71,9 +73,9 @@ class House extends Controller{
                 $design[$key]['h_updatetime'] = date('Y-m-d H:i:s',$val['h_updatetime']);
                 $design[$key]['h_iscop'] = $val['h_iscop']== 1 ? '整租':'合租';
                 if($val['h_add_type'] == 1){
-                    $design[$key]['h_admin']=$this->getAdminName($val['h_admin']);
+                    $design[$key]['h_admin']=$commomModel->getAdminName($val['h_admin']);
                 }else{
-                    $design[$key]['h_admin']=$this->getUserName($val['h_admin']);
+                    $design[$key]['h_admin']=$commomModel->getUserName($val['h_admin']);
                 }
                 $design[$key]['h_add_type'] = $val['h_add_type']== 1 ? '后台添加':'前端添加';
                 $design[$key]['c_name'] = $val['c_name']."-".$val['area_name'];
@@ -87,20 +89,6 @@ class House extends Controller{
         $res['count'] = $count;
         return json($res);
     }
-
-    //根据id获取后台添加人员名称
-    public function getAdminName($admin_id){
-        $adminInfo=Db::table('dcxw_admin')->where(['ad_id' => $admin_id])->field('ad_realname')->find();
-        $adminName=$adminInfo['ad_realname'];
-        return $adminName;
-    }
-    //根据id获取前端添加人员名称
-    public function getUserName($admin_id){
-        $userInfo=Db::table('dcxw_user')->where(['u_id' => $admin_id])->field('u_name')->find();
-        $username=$userInfo['u_name'];
-        return $username;
-    }
-
 
 
     /*
@@ -466,10 +454,11 @@ class House extends Controller{
     public function payment(){
         $b_id=trim($_GET['b_id']);
         //户主信息
+        $commomModel=new Common();
         $master=Db::table('dcxw_house_master')->where(['hm_house_code' => $b_id])->find();
         if($master){
             $master['hm_addtime']=date('Y-m-d H:i:s',$master['hm_addtime']);
-            $master['hm_admin']=$this->getUserName($master['hm_admin']);
+            $master['hm_admin']=$commomModel->getUserName($master['hm_admin']);
         }
         $this->assign('master',$master);
         //客户经理
@@ -514,7 +503,7 @@ class House extends Controller{
         if($payLog){
             foreach($payLog as $k => $v){
                 $payLog[$k]['hpl_addtime'] = date('Y-m-d H:i:s',$v['hpl_addtime']);
-                $payLog[$k]['hpl_user']=$this->getUserName($v['hpl_user']);
+                $payLog[$k]['hpl_user']=$commomModel->getUserName($v['hpl_user']);
             }
         }
         $this->assign('payLog',$payLog);
@@ -536,58 +525,17 @@ class House extends Controller{
         $this->assign('logs',$logs);
         return $this->fetch();
     }
-    /*
-         * 根据装修状态码返回相应的状态文字
-         * */
-    public function getStatus($status){
-        $statusTip='';
-        switch ($status) {
-            case 1:
-                $statusTip="接到通知";
-                break;
-            case 2:
-                $statusTip="开始开工";
-                break;
-            case 3:
-                $statusTip="进场检查";
-                break;
-            case 4:
-                $statusTip="水电验收";
-                break;
-            case 5:
-                $statusTip="防水验收";
-                break;
-            case 6:
-                $statusTip="瓦工验收";
-                break;
-            case 7:
-                $statusTip="乳胶漆验收";
-                break;
-            case 8:
-                $statusTip="主材验收";
-                break;
-            case 9:
-                $statusTip="软装验收";
-                break;
-            case 10:
-                $statusTip="自检";
-                break;
-            case 11:
-                $statusTip="转入运营部";
-                break;
-        }
-        return $statusTip;
-    }
 
 
     public function decorate(){
         $h_id=trim($_GET['b_id']);
+        $commomModel=new Common();
         $step=Db::table('dcxw_house_decorate_status')
             ->where(['hds_house_code' => $h_id])
             ->order('hds_change_time desc')
             ->select();
         foreach ($step as $k => $v){
-            $step[$k]['hds_end_statuss']=$this->getStatus($v['hds_end_status']);
+            $step[$k]['hds_end_statuss']=$commomModel->getStatus($v['hds_end_status']);
             $step[$k]['hds_change_time']=date('Y-m-d H:i:s',$v['hds_change_time']);
             //日志记录
             $step[$k]['decorate_log']=Db::table('dcxw_house_decorate_log')
@@ -595,7 +543,7 @@ class House extends Controller{
                 ->order('hdl_addtime desc')
                 ->select();
             foreach ($step[$k]['decorate_log'] as $key =>$val){
-                $step[$k]['decorate_log'][$key]['hdl_admin'] =$this->getUserName($val['hdl_admin']);
+                $step[$k]['decorate_log'][$key]['hdl_admin'] =$commomModel->getUserName($val['hdl_admin']);
             }
         }
         $this->assign('step',$step);
@@ -607,6 +555,7 @@ class House extends Controller{
 
     public function declog(){
         $hdl_id=trim($_GET['hdl_id']);
+        $commomModel=new Common();
         $daily=Db::table('dcxw_house_decorate_log')
             ->join('dcxw_user','dcxw_user.u_id = dcxw_house_decorate_log.hdl_admin')
             ->where(['hdl_id' => $hdl_id])
@@ -619,7 +568,7 @@ class House extends Controller{
             ->field('h_building,h_address')
             ->find();
         $this->assign('house',$houseInfo);
-        $daily['hdl_status']=$this->getStatus($daily['hdl_status']);
+        $daily['hdl_status']=$commomModel->getStatus($daily['hdl_status']);
         $this->assign('logs',$daily);
         return $this->fetch();
     }
@@ -696,6 +645,7 @@ class House extends Controller{
             ->where(['hrl_id' => $hrl_id])
             ->field('dcxw_house_rent_channel.hrc_title,dcxw_house_rent_log.*')
             ->find();
+        $commonModel=new Common();
         $rentInfo['hrl_contact_img']=explode(',',$rentInfo['hrl_contact_img']);
         $rentInfo['hrl_rent_time']=date('Y/m/d',$rentInfo['hrl_rent_time']);
         $rentInfo['hrl_dead_time']=date('Y/m/d',$rentInfo['hrl_dead_time']);
@@ -710,7 +660,7 @@ class House extends Controller{
             ->where(['hr_id' =>$renter_id])
             ->find();
         if($renter){
-            $renter['hr_admin']=$this->getUserName($renter['hr_admin']);
+            $renter['hr_admin']=$commonModel->getUserName($renter['hr_admin']);
             $renter['hr_addtime']=date('Y年m月d日 H时i分',$renter['hr_addtime']);
         }
         $this->assign('renter',$renter);
@@ -737,6 +687,7 @@ class House extends Controller{
 
     public function logData(){
         $where =' 1 = 1';
+        $commonModel=new Common();
         $hrl_id=$this->request->param('hrl_id');
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',15,'intval');
@@ -767,9 +718,9 @@ class House extends Controller{
                 $payLog[$k]['hrpl_addtime'] = date('Y-m-d H:i:s',$v['hrpl_addtime']);
                 $payLog[$k]['hrpl_addtimes'] = date('Y年m月d日H时i分',$v['hrpl_addtime']);
                 $payLog[$k]['hrpl_img'] = explode(',',$v['hrpl_img'])[0];
-                $payLog[$k]['hrpl_rent_name'] = $this->getRenterNameViaRentId($v['hrl_renter_id']);
-                $payLog[$k]['hrpl_rent_phone'] = $this->getRenterPhoneViaRentId($v['hrl_renter_id']);
-                $payLog[$k]['hrpl_user'] = $this->getUserName($v['hrpl_user']);
+                $payLog[$k]['hrpl_rent_name'] = $commonModel->getRenterNameViaRentId($v['hrl_renter_id']);
+                $payLog[$k]['hrpl_rent_phone'] = $commonModel->getRenterPhoneViaRentId($v['hrl_renter_id']);
+                $payLog[$k]['hrpl_user'] = $commonModel->getUserName($v['hrpl_user']);
 
             }
         }
@@ -781,31 +732,13 @@ class House extends Controller{
     }
 
 
-    //根据租客id获取租客姓名
-    public function getRenterNameViaRentId($rent_id)
-    {
-        $rentInfo=Db::table('dcxw_house_rent')
-            ->where(['hr_id' => $rent_id])
-            ->column('hr_name');
-        return $rentInfo[0];
-
-    }
-
-    //根据租客id获取租客电话
-    public function getRenterPhoneViaRentId($rent_id)
-    {
-        $rentInfo=Db::table('dcxw_house_rent')
-            ->where(['hr_id' => $rent_id])
-            ->column('hr_phone');
-        return $rentInfo[0];
-
-    }
 
 
 
 
     public function paydetail(){
         $hdl_id=intval(trim($_GET['hrpl_id']));
+        $commonModel=new Common();
         $details=Db::table('dcxw_house_rent_pay_log')
             ->where(['hrpl_id' => $hdl_id])
             ->join('dcxw_user','dcxw_user.u_id = dcxw_house_rent_pay_log.hrpl_user')
@@ -823,8 +756,8 @@ class House extends Controller{
             ->order('hrpl_addtime desc')
             ->field('dcxw_house_rent_pay_log.*,dcxw_house_rent_log.hrl_renter_id,hrl_house_code')
             ->find();
-        $payLog['rent_name']=$this->getRenterNameViaRentId($payLog['hrl_renter_id']);
-        $payLog['rent_phone']=$this->getRenterPhoneViaRentId($payLog['hrl_renter_id']);
+        $payLog['rent_name']=$commonModel->getRenterNameViaRentId($payLog['hrl_renter_id']);
+        $payLog['rent_phone']=$commonModel->getRenterPhoneViaRentId($payLog['hrl_renter_id']);
         $this->assign('payLog',$payLog);
         return $this->fetch();
     }

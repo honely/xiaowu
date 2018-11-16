@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\login\login.html";i:1542246095;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\login\login.html";i:1542247957;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,6 +67,8 @@
                                     window.location.href="<?=url('decoration/index/index')?>"
                                 }else if(u_role == 3){
                                     window.location.href="<?=url('operation/index/index')?>"
+                                }else if(u_role == 4){
+                                    window.location.href="<?=url('manager/index/index')?>"
                                 }
                             });
                         }else{

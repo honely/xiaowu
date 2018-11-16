@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\house.html";i:1541129390;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\house.html";i:1542260213;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -12,9 +12,10 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/index')?>"></a>
+
+    <a class="mui-icon mui-icon-person mui-icon-right-navmui-pull-left " href="<?=url('index/person')?>" ></a>
     <h1 class="mui-title">房源列表</h1>
-    <a class="mui-icon mui-icon-person mui-icon-right-nav mui-pull-right" href="<?=url('index/person')?>" ></a>
+    <a class="mui-icon mui-icon-plusempty mui-pull-right" href="<?=url('index/index')?>"></a>
 </header>
 <div class="mui-content" style="background:#fff;">
     <div class="mui-content-padded">
@@ -72,7 +73,7 @@
 </div>
 <div class="mui-card">
 <input type="hidden" value="1" id="page"/>
-<div id="moreBtn" class="mui-btn" style="text-align: center;width: 100%;<?php if($count > 2): ?>display: block<?php else: ?>display: none<?php endif; ?>">加载更多</div>
+<div id="moreBtn" class="mui-btn" style="text-align: center;width: 100%;<?php if($count > 8): ?>display: block<?php else: ?>display: none<?php endif; ?>">加载更多</div>
 </div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\house.html";i:1541236326;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1541226131;s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\foot.html";i:1541150867;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\house.html";i:1541236989;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1541226131;s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\foot.html";i:1541150867;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,9 +47,6 @@
     }
     .mui-popover {
         height: 355px;
-    }
-    .mui-content {
-        padding: 10px;
     }
 </style>
 <div id="topPopover" class="mui-popover">

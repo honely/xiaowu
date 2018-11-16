@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>回款信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="__WAP__/css/mui.min.css">
+</head>
+<body>
+<header class="mui-bar mui-bar-nav">
+    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/index')?>"></a>
+    <h1 class="mui-title">回款信息</h1>
+</header>
+<div class="mui-content" style="padding-top: 40px;">
+    <div class="mui-card">
+        <div class="mui-card-content">
+            <div class="mui-card-content-inner">
+                <p><b>房源编号：【{$h_b_id}】</b>
+                </p>
+                <p style="color: #333;">
+                    户主信息：{$master.hm_name}&nbsp;&nbsp;&nbsp;&nbsp;电话：{$master.hm_phone}
+                    <br/>
+                    客户经理：{$manager.u_name}&nbsp;&nbsp;&nbsp;&nbsp;电话：{$manager.u_phone} {$manager.u_job}
+                    <br/>
+                </p>
+            </div>
+        </div>
+    </div>
+    {if condition="$payMoney eq null"}
+    <form class="mui-input-group" id="loginForm">
+        <div class="mui-input-row">
+            <label>总装修款</label>
+            <input type="text" name="hp_money" onkeyup="this.value=this.value.replace(/\D/g, '')" id="hp_money" placeholder="请输入总装修款，单位（元）">
+            <input type="hidden" name="hp_house_code" value="{$h_b_id}"/>
+        </div>
+        <div class="mui-content-padded">
+            <span type="button" id="subBtn" class="mui-btn mui-btn-primary mui-btn-block">提交</span>
+        </div>
+    </form>
+    {else/}
+    <div class="mui-card">
+        <div class="mui-card-content">
+            <div class="mui-card-content-inner">
+                <p style="color: #333;">
+                    总装修款：{$payMoney.hp_money}元，已回款：{$payMoney.hp_paid}元。未回款： {$payMoney.hp_will_pay}元，回款比率:{$payMoney.hp_paid_ratio}。
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="mui-card">
+        <div class="mui-card-content">
+            <div class="mui-card-content-inner" style="padding: 8px">
+                <h4 style="text-align: left;">回款记录
+                    {if condition="$count gt 8"}
+                    <a class="mui-pull-right" style="color:#8f8f94;font-size: 14px;" href="<?=url('index/paylog')?>?h_id={$payMoney.hp_house_code}">查看更多</a>
+                    {/if}
+                </h4>
+            </div>
+        </div>
+        {if condition="$payLog eq null"}
+        <div class="mui-card-content">
+            <div class="mui-card-content-inner">
+                <p style="color: #333;">
+                    暂无回款记录
+                </p>
+            </div>
+        </div>
+    </div>
+    {else/}
+    <div class="mui-card-content">
+        <ul class="mui-table-view mui-table-view-chevron">
+            {volist name="payLog" id="log"}
+            <li class="mui-table-view-cell mui-media">
+                <a class="mui-navigate-right" href="<?=url('index/logdetails')?>?hpl_id={$log.hpl_id}">
+                    <img class="mui-media-object mui-pull-left" src="{$log.hpl_img}">
+                    <div class="mui-media-body">
+                        {$log.hpl_addtime}
+                        <p class='mui-ellipsis'>房源编号【{$log.hpl_house_code}】回款{$log.hpl_money}元，备注信息：{$log.hpl_tips}
+                            本条记录由【{$log.hpl_addtime}】在{$log.hpl_addtime}提交。</p>
+                    </div>
+                </a>
+            </li>
+            {/volist}
+        </ul>
+    </div>
+</div>
+{/if}
+</div>
+{/if}
+</body>
+
+</html>
