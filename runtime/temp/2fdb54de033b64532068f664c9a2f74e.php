@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\addpaylog.html";i:1541745865;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\addpaylog.html";i:1542592994;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -127,7 +127,7 @@
         upload.render({
             elem: '.uploadasd'
             ,url: '<?php echo url("common/upload"); ?>'
-            ,size:600 //限制文件大小，单位 KB
+            ,size:5000
             ,ext: 'jpg|png|gif'
             ,accept: 'images' //限制文件大小，单位 KB
             ,before: function(input){

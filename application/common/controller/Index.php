@@ -133,4 +133,14 @@ class Index extends Controller{
         }
         return $netType;
     }
+
+
+
+    public function getCityName(){
+        $city=Db::table('dcxw_city')
+            ->order('c_opeatime')
+            ->field('c_id,c_name')
+            ->select();
+        return $city?$city:null;
+    }
 }

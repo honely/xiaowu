@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"G:\xampp\htdocs\bbb\public/../application/manager\view\index\rentdetail.html";i:1541820759;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"G:\xampp\htdocs\bbb\public/../application/manager\view\index\rentdetail.html";i:1542528064;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -181,29 +181,29 @@
                     房源地址：<?php echo $house['h_address']; ?>
                     <br/>
                 </p>
-            </div>
-        </div>
-    </div>
-    <!--租客信息-->
-    <div class="mui-card">
-        <div class="mui-card-content">
-            <div class="mui-card-content-inner">
+                <hr/>
                 <p><b>租客信息</b></p>
                 <p style="color: #333;">
                     姓名：<?php echo $renter['hr_name']; ?>
                     <br/>
                     联系方式：<?php echo $renter['hr_phone']; if($renter['hr_idcard'] != null): ?>
                     <br/>
-                    身份证号：<?php echo $renter['hr_idcard']; endif; ?>
+                    身份证号：<?php echo $renter['hr_idcard']; endif; if($renter['hr_remarks'] != null): ?>
+                    <br/>
+                    备注信息：<?php echo $renter['hr_remarks']; endif; ?>
                 </p>
-            </div>
-        </div>
-    </div>
-    <!--出租信息-->
-    <div class="mui-card">
-        <div class="mui-card-content">
-            <div class="mui-card-content-inner">
+                <hr/>
                 <p><b>出租信息</b></p>
+                租房日期：<?php echo $rent['hrl_rent_time']; ?>-<?php echo $rent['hrl_dead_time']; ?>
+                <br/>
+                租房押金：<?php echo $rent['hrl_foregift']; ?>（元）
+                <br/>
+                租房单价：<?php echo $rent['hrl_rent_price']; ?>（元）/ <?php if($rent['hrl_rent_type'] == 1): ?>日<?php else: ?>月<?php endif; ?>
+                <br/>
+                付租方式：<?php if($rent['hrl_pay_type'] == 1): ?>日租金<?php else: ?>月租金<?php endif; ?>
+                <br/>
+                出租渠道：<?php echo $rent['hrc_title']; ?>
+                <br/>
                 <p style="color: #333;">
                     合同编号：<?php echo $rent['hrl_contact_code']; ?>
                     <br/>
@@ -217,16 +217,6 @@
                     <?php endforeach; endif; else: echo "" ;endif; ?>
                 </div>
                     <br/>
-                    租房日期：<?php echo $rent['hrl_rent_time']; ?>-<?php echo $rent['hrl_dead_time']; ?>
-                    <br/>
-                    租房押金：<?php echo $rent['hrl_foregift']; ?>（元）
-                    <br/>
-                    租房单价：<?php echo $rent['hrl_rent_price']; ?>（元）/ <?php if($rent['hrl_rent_type'] == 1): ?>日<?php else: ?>月<?php endif; ?>
-                    <br/>
-                    付租方式：<?php if($rent['hrl_pay_type'] == 1): ?>日租金<?php else: ?>月租金<?php endif; ?>
-                    <br/>
-                    出租渠道：<?php echo $rent['hrc_title']; ?>
-                    <br/>
                     电表底数：<?php echo $rent['hrl_elect_start']; if($rent['hrl_status'] == 2): ?>
                 <br/>
                 电表结数：<?php echo $rent['hrl_elect_end']; endif; ?>
@@ -238,23 +228,6 @@
                 </p>
             </div>
         </div>
-    </div>
-    <?php if($rent['hrl_status'] == 1): ?>
-        <form class="mui-input-group layui-form" id="attachForm" style="background-color: #efeff4">
-        <div class="mui-card">
-            <div class="mui-input-row">
-                <label>电表结数：</label>
-                <input type="text" <?php if(isset($rent['hrl_elect_end'])): ?> value="<?php echo $rent['hrl_elect_end']; ?>" readonly  <?php endif; ?> class="layui-input" lay-verify="required" id="hrl_elect_end" name="hrl_elect_end">
-                <input type="text" name="hrl_id" id="hrl_id" value="<?php echo $rent['hrl_id']; ?>" >
-            </div>
-            <div class="mui-input-row">
-                <label>水表结数</label>
-                <input type="text" <?php if(isset($rent['hrl_water_end'])): ?> value="<?php echo $rent['hrl_water_end']; ?>" readonly <?php endif; ?> id="hrl_water_end" name="hrl_water_end" >
-            </div>
-        </div>
-        </form>
-    <span id="finishRent" class="mui-btn mui-btn-primary mui-btn-block">完成出租</span>
-    <?php endif; ?>
     </div>
 </div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>

@@ -33,11 +33,25 @@
             </div>
         </div>
     {else/}
+    <div class="mui-card" >
+        <div class="mui-card-content">
+            <div class="mui-card-content-inner">
+                <p><b>房源编号：【{$house.h_b_id}】</b>
+                <p style="color: #333;">
+                    小区名称：{$house.h_building}
+                    <br/>
+                    房屋面积：{$house.h_area}（㎡）
+                    <br/>
+                    房源地址：{$house.h_address}
+                </p>
+            </div>
+        </div>
+    </div>
     {volist name="rentLog" id="log"}
         <div class="mui-card">
         <div class="mui-card-content">
             <div class="mui-card-content-inner">
-                <p><b>房源编号：【{$log.hrl_house_code}】</b>
+                <p>租客姓名：{$log.hr_name}
                     {if condition="$log.hrl_status eq 1"}
                     <span style="margin-left: 8px;" class="mui-pull-right mui-badge mui-badge-warning">出租中</span>
                     {else/}
@@ -45,15 +59,10 @@
                     {/if}
                 </p>
                 <p style="color: #333;">
-                    小区名称：{$house.h_building}
-                    <br/> 租客姓名：{$log.hr_name}【{$log.hr_phone}】
+                    联系电话：{$log.hr_phone}
                     <br/> 租赁时间：{$log.hrl_rent_time}—{$log.hrl_dead_time}
                     <br/>
                     出租渠道：{$log.hrc_title}
-                    <br/>
-                    房屋面积：{$house.h_area}（㎡）
-                    <br/>
-                    房源地址：{$house.h_address}
                 </p>
             </div>
         </div>
@@ -105,7 +114,7 @@
                         html+='<div class="mui-card">' +
                             '        <div class="mui-card-content">' +
                             '            <div class="mui-card-content-inner">' +
-                            '                <p><b>房源编号：【'+data[i].hr_house_code+'】</b>' +
+                            '                <p><b>租客姓名：【'+data[i].hr_name+'】</b>' +
                             '<span style="float: right;">出租状态：';
                         switch (data[i].hrl_status) {
                             case 1:
@@ -116,13 +125,10 @@
                                 break;
                         }
                         html+='<p style="color: #333;">' +
-                            '                    小区名称：{$house.h_building}' +
-                            '                    <br/> 租客姓名：'+data[i].hr_name+'【'+data[i].hr_phone+'】' +
+                            '                     联系电话：'+data[i].hr_phone+
                             '                    <br/> 租赁时间：'+data[i].hrl_rent_time+'—'+data[i].hrl_dead_time+'' +
                             '                    <br/>' +
-                            '                    房屋面积：{$house.h_area}（㎡）' +
-                            '                    <br/>' +
-                            '                    房源地址：{$house.h_address}' +
+                            '                    出租渠道：'+data[i].hrc_title+
                             '                </p>' +
                             '            </div>' +
                             '        </div>'+

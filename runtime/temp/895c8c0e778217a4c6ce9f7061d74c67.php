@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\rentlog.html";i:1541820955;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\rentlog.html";i:1542509269;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -33,27 +33,36 @@
                 暂无出租信息
             </div>
         </div>
-    <?php else: if(is_array($rentLog) || $rentLog instanceof \think\Collection || $rentLog instanceof \think\Paginator): $i = 0; $__LIST__ = $rentLog;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$log): $mod = ($i % 2 );++$i;?>
+    <?php else: ?>
+    <div class="mui-card" >
+        <div class="mui-card-content">
+            <div class="mui-card-content-inner">
+                <p><b>房源编号：【<?php echo $house['h_b_id']; ?>】</b>
+                <p style="color: #333;">
+                    小区名称：<?php echo $house['h_building']; ?>
+                    <br/>
+                    房屋面积：<?php echo $house['h_area']; ?>（㎡）
+                    <br/>
+                    房源地址：<?php echo $house['h_address']; ?>
+                </p>
+            </div>
+        </div>
+    </div>
+    <?php if(is_array($rentLog) || $rentLog instanceof \think\Collection || $rentLog instanceof \think\Paginator): $i = 0; $__LIST__ = $rentLog;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$log): $mod = ($i % 2 );++$i;?>
         <div class="mui-card">
         <div class="mui-card-content">
             <div class="mui-card-content-inner">
-                <p><b>房源编号：【<?php echo $log['hrl_house_code']; ?>】</b>
-                    <?php if($log['hrl_status'] == 1): ?>
+                <p>租客姓名：<?php echo $log['hr_name']; if($log['hrl_status'] == 1): ?>
                     <span style="margin-left: 8px;" class="mui-pull-right mui-badge mui-badge-warning">出租中</span>
                     <?php else: ?>
                     <span style="margin-left: 8px;" class=" mui-pull-right mui-badge mui-badge-success">已完成</span>
                     <?php endif; ?>
                 </p>
                 <p style="color: #333;">
-                    小区名称：<?php echo $house['h_building']; ?>
-                    <br/> 租客姓名：<?php echo $log['hr_name']; ?>【<?php echo $log['hr_phone']; ?>】
+                    联系电话：<?php echo $log['hr_phone']; ?>
                     <br/> 租赁时间：<?php echo $log['hrl_rent_time']; ?>—<?php echo $log['hrl_dead_time']; ?>
                     <br/>
                     出租渠道：<?php echo $log['hrc_title']; ?>
-                    <br/>
-                    房屋面积：<?php echo $house['h_area']; ?>（㎡）
-                    <br/>
-                    房源地址：<?php echo $house['h_address']; ?>
                 </p>
             </div>
         </div>
@@ -104,7 +113,7 @@
                         html+='<div class="mui-card">' +
                             '        <div class="mui-card-content">' +
                             '            <div class="mui-card-content-inner">' +
-                            '                <p><b>房源编号：【'+data[i].hr_house_code+'】</b>' +
+                            '                <p><b>租客姓名：【'+data[i].hr_name+'】</b>' +
                             '<span style="float: right;">出租状态：';
                         switch (data[i].hrl_status) {
                             case 1:
@@ -115,13 +124,10 @@
                                 break;
                         }
                         html+='<p style="color: #333;">' +
-                            '                    小区名称：<?php echo $house['h_building']; ?>' +
-                            '                    <br/> 租客姓名：'+data[i].hr_name+'【'+data[i].hr_phone+'】' +
+                            '                     联系电话：'+data[i].hr_phone+
                             '                    <br/> 租赁时间：'+data[i].hrl_rent_time+'—'+data[i].hrl_dead_time+'' +
                             '                    <br/>' +
-                            '                    房屋面积：<?php echo $house['h_area']; ?>（㎡）' +
-                            '                    <br/>' +
-                            '                    房源地址：<?php echo $house['h_address']; ?>' +
+                            '                    出租渠道：'+data[i].hrc_title+
                             '                </p>' +
                             '            </div>' +
                             '        </div>'+

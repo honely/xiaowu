@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/manager\view\index\index.html";i:1542332953;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/manager\view\index\index.html";i:1543040695;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -61,10 +61,17 @@
             </div>
         </div>
         <div class="mui-card-footer">
-            <a class="mui-card-link" href="<?=url('index/payment')?>?h_id=<?php echo $hous['h_b_id']; ?>">回款信息</a>
+            <a class="mui-card-link"
+            <?php if($hous['is_paid_ratio'] == 1): ?>
+             href="<?=url('index/payment')?>?h_id=<?php echo $hous['h_b_id']; ?>"
+            <?php else: ?>
+            onclick="alertss()"
+            <?php endif; ?>
+            >回款信息</a>
             <a class="mui-card-link" href="<?=url('index/decorate')?>?b_id=<?php echo $hous['h_b_id']; ?>">装修信息</a>
             <a class="mui-card-link" href="<?=url('index/rent')?>?h_id=<?php echo $hous['h_b_id']; ?>">出租信息</a>
             <a class="mui-card-link" href="<?=url('index/preview')?>?h_id=<?php echo $hous['h_b_id']; ?>">房源预览</a>
+            <a class="mui-card-link" href="<?=url('index/allot')?>?h_id=<?php echo $hous['h_b_id']; ?>">交接信息</a>
         </div>
     </div>
     <?php endforeach; endif; else: echo "" ;endif; endif; ?>
@@ -84,6 +91,9 @@
     function formQuery(){
         var keywords=$('#keywords').val();
         location.href="<?=url('index/house')?>?&keywords="+keywords;
+    }
+    function alertss(){
+        mui.alert('暂无回款信息！');
     }
 </script>
 <script>

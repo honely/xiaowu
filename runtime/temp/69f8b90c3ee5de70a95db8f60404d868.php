@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\paydetail.html";i:1541141711;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\paydetail.html";i:1542528390;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -183,6 +183,15 @@
             <img src="<?php echo $items; ?>" data-preview-src="" data-preview-group="1">
             <?php endforeach; endif; else: echo "" ;endif; ?>
 
+        </p>
+        <br>
+        <p class="mui-pull-right">
+            <b>提交人</b>：<?php echo $details['u_job']; ?>---<?php echo $details['u_name']; ?>
+        </p>
+        <p><hr style="opacity:0"/></p>
+        <hr style="opacity:0"/>
+        <p class="mui-pull-right">
+            <b>时间</b>：<?php echo $details['hrpl_addtime']; ?>
         </p>
     </div>
 </div>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\logdetails.html";i:1541742194;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\logdetails.html";i:1542592309;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -178,15 +178,20 @@
             ，备注信息为<?php echo $logs['hpl_tips']; endif; ?>
             。
         </p>
-        <p>
-            本条记录由【<?php echo $logs['u_name']; ?>】在<?php echo $logs['hpl_addtime']; ?>提交。
-        </p>
         <p><b>回款凭证</b></p>
         <p>
             <?php if(is_array($logs['hpl_img']) || $logs['hpl_img'] instanceof \think\Collection || $logs['hpl_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $logs['hpl_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
             <img src="<?php echo $items; ?>" data-preview-src="" data-preview-group="1">
             <?php endforeach; endif; else: echo "" ;endif; ?>
-
+        </p>
+        <br>
+        <p class="mui-pull-right">
+            <b>提交人</b>：<?php echo $logs['u_job']; ?>---<?php echo $logs['u_name']; ?>
+        </p>
+        <p><hr style="opacity:0"/></p>
+        <hr style="opacity:0"/>
+        <p class="mui-pull-right">
+            <b>时间</b>：<?php echo $logs['hpl_addtime']; ?>
         </p>
     </div>
 </div>

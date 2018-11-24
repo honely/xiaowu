@@ -9,6 +9,15 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
     <style type="text/css">
+        .item_img{
+            width: 23%;
+            float: left;
+            height: 116px;
+            overflow: hidden;
+        }
+        /*.img{*/
+            /*width:100%; height: 92px*/
+        /*}*/
         .mui-preview-image.mui-fullscreen {
             position: fixed;
             z-index: 20;
@@ -184,6 +193,8 @@
                     <br/>
                     房屋面积：{$hous.h_area}（㎡）
                     <br/>
+                    房屋户型：{$hous.h_house_type}
+                    <br/>
                     {if isset($hous.h_contract_code)}
                     合同编号：{$hous.h_contract_code}（元）
                     <br/>
@@ -191,11 +202,60 @@
                     签订日期：{$hous.h_addtime}
                     <br/>
                     房源地址：{$hous.h_address}
+                    {if condition="$hous.h_nearbus neq null"}
                     <br/>
+                    附近公交：{$hous.h_nearbus}
+                    {/if}
+                    {if condition="$hous.h_subway neq null"}
+                    <br/>
+                    沿线地铁：{$hous.h_subway}
+                    {/if}
+                    {if condition="$hous.h_head neq null"}
+                    <br/>
+                    房屋朝向：{$hous.h_head}
+                    {/if}
                 </p>
+                {if isset($hous.config_img)}
+                {if condition="$hous.config_img neq null"}
+                <b>房屋配置</b><span style="float: right;line-height: 24px;font-size: 11px;color: #828282; font-weight: normal">具体配置以现场实际情况为准</span>
+                <hr/>
+                <div style=" float: left;width: 100% ;background-color: #fff">
+                    <div class="mui-content" style="background-color: #fff">
+                        {volist name="hous.config_img" id="imgs"}
+                        <button type="button" class="mui-btn mui-btn-warning" style="margin-top: 10px;margin-left: 10px;">
+                            {$imgs.type_name}
+                        </button>
+                        {/volist}
+                    </div>
+                </div>
+                {/if}
+                {/if}
+                {if condition="$hous.h_view neq null"}
+                <p style="color: #333;">
+                    <br/>浏览量：{$hous.h_view}
+                </p>
+                {/if}
+                {if isset($hous.h_house_img)}
+                {if condition="$hous.h_house_img neq null"}
+                <p><b>房源封面图：</b></p>
+                <p>
+                    <img src="{$hous.h_house_img}" class="item_img" data-preview-src="" data-preview-group="1">
+                </p>
+                <hr style="width: 100%;opacity: 0"/>
+                {/if}{/if}
+                {if condition="$hous.h_img neq null"}
+                <p><b>房源图片：</b></p>
+                <p>
+                    {volist name="hous.h_img" id="items"}
+                    <img src="{$items}" class="item_img" data-preview-src="" data-preview-group="1">
+                    {/volist}
+
+                </p>
+                {/if}
             </div>
         </div>
     </div>
+</div>
     {if condition="$master neq null"}
     <div class="mui-card">
         <div class="mui-card-content">
@@ -318,7 +378,7 @@
                 </p>
                 <p>
                     {volist name="attach.ha_contact_img" id="items"}
-                    <img src="{$items}" data-preview-src="" data-preview-group="1">
+                    <img src="{$items}" data-preview-src="" data-preview-group="2">
                     {/volist}
                 </p>
                 <hr/>

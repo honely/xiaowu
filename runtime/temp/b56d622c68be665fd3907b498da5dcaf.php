@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\masters.html";i:1540885616;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\masters.html";i:1542533502;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -45,8 +45,13 @@
                 <input type="text" readonly value="<?php echo $master['hm_bank_card']; ?>">
             </div>
             <div class="mui-input-row">
-                <label>现居地址</label>
+                <label>居住地址</label>
                 <input type="text" readonly value="<?php echo $master['hm_address']; ?>" >
+            </div>
+            <div class="mui-card">
+                <div class="mui-input-row" style="margin: 10px 5px;">
+                    <textarea id="textarea" name="hm_remarks" readonly rows="5" placeholder="其他备注信息"><?php echo $master['hm_remarks']; ?></textarea>
+                </div>
             </div>
             <div class="mui-input-row">
                 <label>录入人</label>
@@ -57,9 +62,6 @@
                 <input type="text" readonly value="<?php echo $master['hm_addtime']; ?>" />
             </div>
         </form>
-        <div class="mui-input-row" style="margin: 10px 5px;">
-            <textarea id="textarea" readonly rows="5" placeholder="户主其他备注信息"><?php echo $master['hm_remarks']; ?></textarea>
-        </div>
     </div>
 </div>
 </body>

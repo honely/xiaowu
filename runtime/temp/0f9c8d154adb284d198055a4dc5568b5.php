@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/manager\view\index\preview.html";i:1542270155;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/manager\view\index\preview.html";i:1542706984;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -10,6 +10,15 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
     <style type="text/css">
+        .item_img{
+            width: 23%;
+            float: left;
+            height: 116px;
+            overflow: hidden;
+        }
+        /*.img{*/
+            /*width:100%; height: 92px*/
+        /*}*/
         .mui-preview-image.mui-fullscreen {
             position: fixed;
             z-index: 20;
@@ -185,18 +194,57 @@
                     <br/>
                     房屋面积：<?php echo $hous['h_area']; ?>（㎡）
                     <br/>
+                    房屋户型：<?php echo $hous['h_house_type']; ?>
+                    <br/>
                     <?php if(isset($hous['h_contract_code'])): ?>
                     合同编号：<?php echo $hous['h_contract_code']; ?>（元）
                     <br/>
                     <?php endif; ?>
                     签订日期：<?php echo $hous['h_addtime']; ?>
                     <br/>
-                    房源地址：<?php echo $hous['h_address']; ?>
+                    房源地址：<?php echo $hous['h_address']; if($hous['h_nearbus'] != null): ?>
                     <br/>
+                    附近公交：<?php echo $hous['h_nearbus']; endif; if($hous['h_subway'] != null): ?>
+                    <br/>
+                    沿线地铁：<?php echo $hous['h_subway']; endif; if($hous['h_head'] != null): ?>
+                    <br/>
+                    房屋朝向：<?php echo $hous['h_head']; endif; ?>
                 </p>
+                <?php if(isset($hous['config_img'])): if($hous['config_img'] != null): ?>
+                <b>房屋配置</b><span style="float: right;line-height: 24px;font-size: 11px;color: #828282; font-weight: normal">具体配置以现场实际情况为准</span>
+                <hr/>
+                <div style=" float: left;width: 100% ;background-color: #fff">
+                    <div class="mui-content" style="background-color: #fff">
+                        <?php if(is_array($hous['config_img']) || $hous['config_img'] instanceof \think\Collection || $hous['config_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $hous['config_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$imgs): $mod = ($i % 2 );++$i;?>
+                        <button type="button" class="mui-btn mui-btn-warning" style="margin-top: 10px;margin-left: 10px;">
+                            <?php echo $imgs['type_name']; ?>
+                        </button>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                    </div>
+                </div>
+                <?php endif; endif; if($hous['h_view'] != null): ?>
+                <p style="color: #333;">
+                    <br/>浏览量：<?php echo $hous['h_view']; ?>
+                </p>
+                <?php endif; if(isset($hous['h_house_img'])): if($hous['h_house_img'] != null): ?>
+                <p><b>房源封面图：</b></p>
+                <p>
+                    <img src="<?php echo $hous['h_house_img']; ?>" class="item_img" data-preview-src="" data-preview-group="1">
+                </p>
+                <hr style="width: 100%;opacity: 0"/>
+                <?php endif; endif; if($hous['h_img'] != null): ?>
+                <p><b>房源图片：</b></p>
+                <p>
+                    <?php if(is_array($hous['h_img']) || $hous['h_img'] instanceof \think\Collection || $hous['h_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $hous['h_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
+                    <img src="<?php echo $items; ?>" class="item_img" data-preview-src="" data-preview-group="1">
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+
+                </p>
+                <?php endif; ?>
             </div>
         </div>
     </div>
+</div>
     <?php if($master != null): ?>
     <div class="mui-card">
         <div class="mui-card-content">
@@ -316,7 +364,7 @@
                 </p>
                 <p>
                     <?php if(is_array($attach['ha_contact_img']) || $attach['ha_contact_img'] instanceof \think\Collection || $attach['ha_contact_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $attach['ha_contact_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
-                    <img src="<?php echo $items; ?>" data-preview-src="" data-preview-group="1">
+                    <img src="<?php echo $items; ?>" data-preview-src="" data-preview-group="2">
                     <?php endforeach; endif; else: echo "" ;endif; ?>
                 </p>
                 <hr/>

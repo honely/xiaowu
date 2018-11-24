@@ -22,6 +22,33 @@ class Index extends Controller{
     }
 
     public function index(){
+        $userInfo=session('userInfo');
+        $cityId=$userInfo['u_c_id'];
+        $userId=$userInfo['u_id'];
+        $houses=Db::table('dcxw_house_allocate')
+            ->join('dcxw_house','dcxw_house.h_b_id = dcxw_house_allocate.hat_house_code')
+            ->where(['hat_c_id' => $cityId,'hat_assign_to' => $userId,'hat_type' => 2])
+            ->where('h_isable = 3 or h_isable = 4 or h_isable = 5')
+            ->select();
+        $connomModel=new \app\marketm\controller\Common();
+        if($houses){
+            foreach($houses as $k =>$v){
+                $houses[$k]['hd_status']=$connomModel->getStatusByHouseCode($v['h_b_id']);
+                $houses[$k]['h_money']=$connomModel->getDecorateMoney($v['h_b_id']);
+                $houses[$k]['h_addtime']=date('Y年m月d日',$v['h_addtime']);
+            }
+        }
+        $count=Db::table('dcxw_house_allocate')
+            ->join('dcxw_house','dcxw_house.h_b_id = dcxw_house_allocate.hat_house_code')
+            ->where(['hat_c_id' => $cityId,'hat_assign_to' => $userId,'h_isable' => 2,'hat_type' => 1])
+            ->count();
+        $this->assign('count',$count);
+        $this->assign('houses',$houses);
+        return $this->fetch();
+    }
+
+
+    public function indexss(){
         $where=" 1 =1 ";
         $keywords=trim($this->request->param('keywords'));
         if(isset($keywords) && !empty($keywords)){
@@ -163,7 +190,7 @@ class Index extends Controller{
             //若有信息是修改，没有信息是添加
             if($renter){
                 $data=$_POST;
-                $data['hr_addtime']=time();
+                $data['hr_remarks']=trim($_POST['hr_remarks']);
                 $data['hr_admin']=$userInfo['u_id'];
                 $update=Db::table('dcxw_house_rent')
                     ->where(['hr_id' => $hr_id])
@@ -232,7 +259,7 @@ class Index extends Controller{
                 ->field('dcxw_house.*,dcxw_province.p_name,dcxw_city.c_name,dcxw_area.area_name')
                 ->where(['h_b_id' => $h_id])
                 ->find();
-            if($houseInfo){
+            if($houseInfo['h_img']){
                 $houseInfo['h_img']=explode(',',$houseInfo['h_img']);
             }
             //房屋配置 备选
@@ -271,7 +298,7 @@ class Index extends Controller{
         }
         $houseInfo=Db::table('dcxw_house')
             ->where(['h_b_id' => $h_id])
-            ->field('h_building,h_address,h_area,h_isable')
+            ->field('h_building,h_address,h_area,h_isable,h_b_id')
             ->find();
         $this->assign('house',$houseInfo);
         $rentLog=Db::table('dcxw_house_rent_log')
@@ -316,9 +343,11 @@ class Index extends Controller{
         $limit=8;
         $rentLog=Db::table('dcxw_house_rent_log')
             ->join('dcxw_house_rent','dcxw_house_rent_log.hrl_renter_id = dcxw_house_rent.hr_id')
+            ->join('dcxw_house_rent_channel','dcxw_house_rent_channel.hrc_id = dcxw_house_rent_log.hrl_rent_channel')
             ->where($where)
             ->limit(($page-1)*$limit,$limit)
-            ->order('hrl_addtime desc')
+            ->field('dcxw_house_rent_log.*,dcxw_house_rent.hr_name,dcxw_house_rent.hr_phone,dcxw_house_rent_channel.hrc_title')
+            ->order('hrl_status,hrl_rent_time desc')
             ->select();
         if($rentLog)
         {
@@ -522,7 +551,8 @@ class Index extends Controller{
         //房源编号；
         $rentInfo=Db::table('dcxw_house_rent_log')
             ->where(['hrl_id' => $h_id])
-            ->column('hrl_house_code');
+            ->field('hrl_house_code,hrl_status')
+            ->find();
         $payLog=Db::table('dcxw_house_rent_pay_log')
             ->join('dcxw_house_rent_log','dcxw_house_rent_log.hrl_id = dcxw_house_rent_pay_log.hrpl_rent_id')
             ->where(['hrpl_rent_id' => $h_id])
@@ -548,7 +578,7 @@ class Index extends Controller{
         }
         $this->assign('count',$count);
         $this->assign('h_id',$h_id);
-        $this->assign('h_b_id',$rentInfo[0]);
+        $this->assign('rent',$rentInfo);
         $this->assign('payLog',$payLog);
         return $this->fetch();
     }
@@ -601,7 +631,7 @@ class Index extends Controller{
         $details=Db::table('dcxw_house_rent_pay_log')
             ->where(['hrpl_id' => $hdl_id])
             ->join('dcxw_user','dcxw_user.u_id = dcxw_house_rent_pay_log.hrpl_user')
-            ->field('dcxw_house_rent_pay_log.*,dcxw_user.u_name')
+            ->field('dcxw_house_rent_pay_log.*,dcxw_user.u_name,dcxw_user.u_job')
             ->find();
         if($details){
             $details['hrpl_addtime']=date('Y年m月d日 H时i分',$details['hrpl_addtime']);

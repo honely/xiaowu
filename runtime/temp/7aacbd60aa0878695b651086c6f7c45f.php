@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\master.html";i:1540886935;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\master.html";i:1542533428;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -45,9 +45,8 @@
                 <input type="text" name="hm_bank_card" onkeyup="this.value=this.value.replace(/\D/g, '')" <?php if(isset($master['hm_bank_card'])): ?> value="<?php echo $master['hm_bank_card']; ?>" <?php endif; ?>  id="hm_bank_card" placeholder="请输入银行卡号">
             </div>
             <div class="mui-input-row">
-                <label>现居地址</label>
+                <label>居住地址</label>
                 <input type="text" name="hm_address"  <?php if(isset($master['hm_address'])): ?> value="<?php echo $master['hm_address']; ?>" <?php endif; ?>  id="hm_address" placeholder="请输入地址">
-                <textarea name="hm_remarks" id="hm_remarks"></textarea>
             </div>
             <?php if($master != null): ?>
                 <div class="mui-input-row">
@@ -59,10 +58,12 @@
                     <input type="text" readonly value="<?php echo $master['hm_addtime']; ?>" />
                 </div>
             <?php endif; ?>
-
+            <div class="mui-card">
+                <div class="mui-input-row" style="margin: 10px 5px;">
+                    <textarea id="textarea" name="hm_remarks" rows="5" placeholder="其他备注信息"><?php if(isset($master['hm_remarks'])): ?><?php echo $master['hm_remarks']; endif; ?></textarea>
+                </div>
+            </div>
         </form>
-        <div class="mui-input-row" style="margin: 10px 5px;">
-            <textarea id="textarea" rows="5" placeholder="户主其他备注信息"><?php if(isset($master['hm_remarks'])): ?><?php echo $master['hm_remarks']; endif; ?> </textarea>
         </div>
         <div class="mui-content-padded">
             <span type="button" id="subBtn" class="mui-btn mui-btn-primary mui-btn-block">提交</span>
@@ -73,14 +74,8 @@
 <script src="__WAP__/js/mui.min.js"></script>
 <script>
     $('#subBtn').click(function () {
-        $('#hm_remarks').html('');
-        var textarea=$('#textarea').val();
-        $('#hm_remarks').html(textarea);
-        var hm_name=$('#hm_name').val();
         var hm_phone=$('#hm_phone').val();
         var hm_idcard=$('#hm_idcard').val();
-        var hm_bank_card=$('#hm_bank_card').val();
-        var hm_address=$('#hm_address').val();
         var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
         var idCard=/^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i;
         if(hm_phone.length>0){

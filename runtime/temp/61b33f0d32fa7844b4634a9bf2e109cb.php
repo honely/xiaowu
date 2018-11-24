@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\person.html";i:1540881058;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\person.html";i:1542593659;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -8,10 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-    <!--标准mui.css-->
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
-    <!--App自定义的css-->
     <link rel="stylesheet" type="text/css" href="__WAP__/css/app.css"/>
     <style>
         .mui-content-padded{
@@ -19,7 +16,6 @@
         }
     </style>
 </head>
-
 <body>
 <header class="mui-bar mui-bar-nav">
     <a class="mui-action-back mui-icon mui-icon-back mui-pull-left"></a>
@@ -40,7 +36,7 @@
     $('#loginOut').click(function () {
         $.ajax({
             type:"post",
-            url:"<?=url('login/loginout')?>",
+            url:"<?=url('marketm/login/loginout')?>",
             data:$('#payForm').serialize(),
             success:function (result) {
                 console.log(result);

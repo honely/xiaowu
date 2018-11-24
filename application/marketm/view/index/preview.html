@@ -160,6 +160,9 @@
             max-width: 100%;
             height: auto;
         }
+        input{
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -393,8 +396,15 @@
                     <label>物业电话：</label>
                     <input type="text" readonly {if isset($attach.ha_wuye_phone)} value="{$attach.ha_wuye_phone}" {/if}>
                 </div>
+                <div class="mui-input-row">
+                    <label>物业费用：</label>
+                    <input type="text" readonly {if isset($attach.ha_wuye_fee)} value="{$attach.ha_wuye_fee}" {/if}>
+                </div>
+                <div class="mui-input-row">
+                    <label>物业费类型：</label>
+                    <input type="text" readonly {if isset($attach.ha_wuye_fee_type)} value="{$attach.ha_wuye_fee_type}" {/if}>
+                </div>
             </div>
-
             <div class="mui-card">
                 <div class="mui-input-row" style="margin: 10px 5px;">
                     <label>其他备注信息：</label>
@@ -408,13 +418,13 @@
     <div class="mui-card">
         <div class="mui-input-row" style="margin: 10px 5px;">
             <label>转交备注：</label>
-            <input id="transInfo" type="text">
+            <input id="transInfo" type="text" value="">
         </div>
     </div>
-    <span id="toWork" class="mui-btn mui-btn-primary mui-btn-block">信息准确无误，转施工</span>
+    <span id="toWork" class="mui-btn mui-btn-primary mui-btn-block">信息准确无误，提交信息</span>
     {/if}
-    {if condition="$hous.h_isable eq 2"}
-    <span class="mui-btn mui-btn-warning mui-btn-block">已转交给工程部</span>
+    {if condition="$hous.h_isable eq 7"}
+    <span class="mui-btn mui-btn-warning mui-btn-block">已提交</span>
     {/if}
 </div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
@@ -447,7 +457,7 @@
                         console.log(result);
                         if(result.code == '1'){
                             mui.alert(result.msg, function() {
-                                window.location.href="<?=url('index/payment')?>?h_id="+h_id;
+                                window.location.href="<?=url('index/house')?>";
                             });
                         }else{
                             mui.alert(result.msg, function() {

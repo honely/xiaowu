@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/manager\view\index\decorate.html";i:1542362063;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/manager\view\index\decorate.html";i:1542519867;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -50,8 +50,8 @@
                 </div>
             </li>
             <?php endforeach; endif; else: echo "" ;endif; else: ?>
-            <li class="mui-table-view-cell mui-collapse">
-                <a class="mui-navigate-right" href="#">暂无装修记录</a>
+            <li class="mui-table-view-cell">
+                <a style="text-align: center;">暂无装修记录！</a>
             </li>
             <?php endif; ?>
         </ul>

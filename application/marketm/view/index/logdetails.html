@@ -178,15 +178,20 @@
             {/if}
             。
         </p>
-        <p>
-            本条记录由【{$logs.u_name}】在{$logs.hpl_addtime}提交。
-        </p>
         <p><b>回款凭证</b></p>
         <p>
             {volist name="logs.hpl_img" id="items"}
             <img src="{$items}" data-preview-src="" data-preview-group="1">
             {/volist}
-
+        </p>
+        <br>
+        <p class="mui-pull-right">
+            <b>提交人</b>：{$logs.u_job}---{$logs.u_name}
+        </p>
+        <p><hr style="opacity:0"/></p>
+        <hr style="opacity:0"/>
+        <p class="mui-pull-right">
+            <b>时间</b>：{$logs.hpl_addtime}
         </p>
     </div>
 </div>

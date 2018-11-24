@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\preview.html";i:1541742331;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\preview.html";i:1543031660;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -160,6 +160,9 @@
         p img {
             max-width: 100%;
             height: auto;
+        }
+        input{
+            font-size: 14px;
         }
     </style>
 </head>
@@ -391,8 +394,15 @@
                     <label>物业电话：</label>
                     <input type="text" readonly <?php if(isset($attach['ha_wuye_phone'])): ?> value="<?php echo $attach['ha_wuye_phone']; ?>" <?php endif; ?>>
                 </div>
+                <div class="mui-input-row">
+                    <label>物业费用：</label>
+                    <input type="text" readonly <?php if(isset($attach['ha_wuye_fee'])): ?> value="<?php echo $attach['ha_wuye_fee']; ?>" <?php endif; ?>>
+                </div>
+                <div class="mui-input-row">
+                    <label>物业费类型：</label>
+                    <input type="text" readonly <?php if(isset($attach['ha_wuye_fee_type'])): ?> value="<?php echo $attach['ha_wuye_fee_type']; ?>" <?php endif; ?>>
+                </div>
             </div>
-
             <div class="mui-card">
                 <div class="mui-input-row" style="margin: 10px 5px;">
                     <label>其他备注信息：</label>
@@ -405,12 +415,12 @@
     <div class="mui-card">
         <div class="mui-input-row" style="margin: 10px 5px;">
             <label>转交备注：</label>
-            <input id="transInfo" type="text">
+            <input id="transInfo" type="text" value="">
         </div>
     </div>
-    <span id="toWork" class="mui-btn mui-btn-primary mui-btn-block">信息准确无误，转施工</span>
-    <?php endif; if($hous['h_isable'] == 2): ?>
-    <span class="mui-btn mui-btn-warning mui-btn-block">已转交给工程部</span>
+    <span id="toWork" class="mui-btn mui-btn-primary mui-btn-block">信息准确无误，提交信息</span>
+    <?php endif; if($hous['h_isable'] == 7): ?>
+    <span class="mui-btn mui-btn-warning mui-btn-block">已提交</span>
     <?php endif; ?>
 </div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
@@ -443,7 +453,7 @@
                         console.log(result);
                         if(result.code == '1'){
                             mui.alert(result.msg, function() {
-                                window.location.href="<?=url('index/payment')?>?h_id="+h_id;
+                                window.location.href="<?=url('index/house')?>";
                             });
                         }else{
                             mui.alert(result.msg, function() {

@@ -18,6 +18,13 @@
         .color-red{
             color: red;
         }
+        .mui-btn-block {
+            font-size: 14px;
+            padding: 0 0 0 6px;
+        }
+        .mui-btn-primary{
+            padding: 10px 0 10px;
+        }
     </style>
 </head>
 
@@ -42,7 +49,7 @@
         </div>
     </div>
     <div class="mui-content-padded" style="margin: 5px;">
-        <form class="mui-input-group layui-form" id="attachForm" style="background-color: #efeff4">
+        <form class="mui-input-group" id="attachForm" style="background-color: #efeff4">
             <div class="mui-card">
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>合同编号：</label>
@@ -71,7 +78,7 @@
                     <input type="text" lay-verify="required" {if isset($attach.ha_rent_price)} value="{$attach.ha_rent_price}" {/if}  class="layui-input" id="ha_rent_price" name="ha_rent_price">
                 </div>
                 <div class="mui-input-row">
-                    <label><span class="color-red">*</span>租期：</label>
+                    <label><span class="color-red">*</span>租期（月）：</label>
                     <input type="text" lay-verify="required" {if isset($attach.ha_rent_time)} value="{$attach.ha_rent_time}" {/if}  class="layui-input" id="ha_rent_time" name="ha_rent_time">
                 </div>
                 <div class="mui-input-row">
@@ -117,9 +124,13 @@
                     <label>电费单价：</label>
                     <input type="text" {if isset($attach.ha_elect_price)} value="{$attach.ha_elect_price}" {/if} id="ha_elect_price" class="layui-input" name="ha_elect_price" >
                 </div>
-                <div class="mui-input-row">
-                    <label>缴费方式：</label>
-                    <input type="text" {if isset($attach.ha_elect_type)} value="{$attach.ha_elect_type}" {/if} id="ha_elect_type" class="layui-input" name="ha_elect_type" >
+                <div class="mui-content-padded">
+                    <select name="ha_elect_type" id="ha_elect_type" class="mui-btn mui-btn-block">
+                        <option value="">请选择电费缴纳方式</option>
+                        {volist name="electType" id="items"}
+                        <option value="{$key}">缴纳方式：{$items}</option>
+                        {/volist}
+                    </select>
                 </div>
                 <div class="mui-input-row">
                     <label>备注：</label>
@@ -150,13 +161,17 @@
             </div>
 
             <div class="mui-card">
-                <div class="mui-input-row">
-                    <label>供暖方式：</label>
-                    <input type="text" {if isset($attach.ha_warm_type)} value="{$attach.ha_warm_type}" {/if}   class="layui-input" id="ha_warm_type" name="ha_warm_type">
+                <div class="mui-content-padded">
+                    <select name="ha_warm_type" id="ha_warm_type" class="mui-btn mui-btn-block">
+                        <option value="">请选择供暖方式</option>
+                        {volist name="warmType" id="items"}
+                        <option value="{$key}">供暖方式：{$items}</option>
+                        {/volist}
+                    </select>
                 </div>
                 <div class="mui-input-row">
                     <label>暖气单价：</label>
-                    <input type="text" {if isset($attach.ha_warm_price)} value="{$attach.ha_warm_price}" {/if}  class="layui-input" id="ha_warm_price" name="ha_warm_price" >
+                    <input type="text" {if isset($attach.ha_warm_price)} onkeyup="this.value=this.value.replace(/\D/g, '')" value="{$attach.ha_warm_price}" {/if}  class="layui-input" id="ha_warm_price" name="ha_warm_price" >
                 </div>
                 <div class="mui-input-row">
                     <label>缴费方式：</label>
@@ -201,6 +216,18 @@
                 <div class="mui-input-row">
                     <label>物业电话：</label>
                     <input type="text" {if isset($attach.ha_wuye_phone)} value="{$attach.ha_wuye_phone}" {/if}  class="layui-input" id="ha_wuye_phone" name="ha_wuye_phone">
+                </div>
+                <div class="mui-input-row">
+                    <label>物业费用：</label>
+                    <input type="text" {if isset($attach.ha_wuye_fee)} onkeyup="this.value=this.value.replace(/\D/g, '')" value="{$attach.ha_wuye_fee}" {/if}  class="layui-input" id="ha_wuye_fee" name="ha_wuye_fee">
+                </div>
+                <div class="mui-content-padded">
+                    <select name="ha_wuye_fee_type" id="ha_wuye_fee_type" class="mui-btn mui-btn-block">
+                        <option value="">请选择物业费类型</option>
+                        {volist name="wuyeFeeType" id="items"}
+                        <option value="{$key}">物业费类型：{$items}</option>
+                        {/volist}
+                    </select>
                 </div>
             </div>
 
@@ -247,28 +274,46 @@
         });
         //监听提交
         form.on('submit(saveInfo)', function(){
-            $.ajax({
-                type: 'POST',
-                url: "<?=url('index/addattach')?>?h_id={$h_b_id}",
-                data: $('#attachForm').serialize(),
-                dataType:  'json',
-                success: function(data){
-                    console.log(data);
-                    if(data.code="1"){
-                        mui.alert(data.msg, function() {
-                            window.location.href="<?=url('index/house')?>";
-                        });
-                    }else{
-                        mui.alert(data.msg);
+            var ha_contact_code=$('#ha_contact_code').val();
+            var img=$('#img').val();
+            var ha_rent_price=$('#ha_rent_price').val();
+            var ha_rent_time=$('#ha_rent_time').val();
+            var ha_deadline=$('#ha_deadline').val();
+            var ha_decorate_permit=$('#ha_decorate_permit').val();
+            if(
+                ha_contact_code<=0
+                || img.length<=0
+                || ha_rent_price.length<=0
+                || ha_rent_time.length<=0
+                || ha_deadline<=0
+                || ha_decorate_permit<=0
+            ) {
+                mui.alert('请确定以上必填内容填写完成后提交！', function () {
+                });
+            }else{
+                $.ajax({
+                    type: 'POST',
+                    url: "<?=url('index/addattach')?>?h_id={$h_b_id}",
+                    data: $('#attachForm').serialize(),
+                    dataType:  'json',
+                    success: function(data){
+                        console.log(data);
+                        if(data.code="1"){
+                            mui.alert(data.msg, function() {
+                                window.location.href="<?=url('index/house')?>";
+                            });
+                        }else{
+                            mui.alert(data.msg);
+                        }
                     }
-                }
-            });
+                });
+            }
         });
         //图片上传
         upload.render({
             elem: '#upload'
             ,url: '{:url("common/upload")}'
-            ,size:600 //限制文件大小，单位 KB
+            ,size:5000 //限制文件大小，单位 KB
             ,ext: 'jpg|png|gif'
             ,accept: 'images' //限制文件大小，单位 KB
             ,before: function(input){

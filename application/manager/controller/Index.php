@@ -58,7 +58,6 @@ class Index extends Controller{
             }
         }
         $this->assign('count',$count);
-//        dump($houses);
         $this->assign('houses',$houses);
         return $this->fetch();
     }
@@ -179,6 +178,19 @@ class Index extends Controller{
         $house=Db::table('dcxw_house')
             ->where(['h_b_id' => $h_id])
             ->find();
+        $commodel=new Common();
+        if($house){
+            $house['h_house_type']=$commodel->getHouseTypeNameByTypeId($house['h_house_type']);
+            $house['h_head']=$commodel->houseHead($house['h_head']);
+            $house['h_config']=explode(',',$house['h_config']);
+            if($house['h_img']){
+                $house['h_img']=explode(',',$house['h_img']);
+                $house['config_img']=[];
+                for($i=0;$i<count($house['h_config']);$i++){
+                    $house['config_img'][$i]=Db::table('dcxw_type')->where(['type_id' => $house['h_config'][$i]])->field('type_name,type_img')->find();
+                }
+            }
+        }
         $this->assign('hous',$house);
         //客户经理信息
         $u_id=$house['h_admin'];
@@ -246,8 +258,6 @@ class Index extends Controller{
             ->field('h_building,h_address')
             ->find();
         $this->assign('house',$houseInfo);
-        //吧施工节点转化为文字
-//        状态变更表1.事业部专项工程部；2工程部开始开工；3进场检查；4水电验收；5防水验收；6瓦工验收，7乳胶漆验收；8主材验收；9软装验收；10；自检;11,移交给运营部
         $connomModel=new Common();
         $daily['hdl_status']=$connomModel->getStatus($daily['hdl_status']);
         $this->assign('logs',$daily);
@@ -270,7 +280,7 @@ class Index extends Controller{
         }
         $houseInfo=Db::table('dcxw_house')
             ->where(['h_b_id' => $h_id])
-            ->field('h_building,h_address,h_area,h_isable')
+            ->field('h_building,h_address,h_area,h_isable,h_b_id')
             ->find();
         $this->assign('house',$houseInfo);
         $rentLog=Db::table('dcxw_house_rent_log')
@@ -315,9 +325,11 @@ class Index extends Controller{
         $limit=8;
         $rentLog=Db::table('dcxw_house_rent_log')
             ->join('dcxw_house_rent','dcxw_house_rent_log.hrl_renter_id = dcxw_house_rent.hr_id')
+            ->join('dcxw_house_rent_channel','dcxw_house_rent_channel.hrc_id = dcxw_house_rent_log.hrl_rent_channel')
             ->where($where)
             ->limit(($page-1)*$limit,$limit)
-            ->order('hrl_addtime desc')
+            ->field('dcxw_house_rent_log.*,dcxw_house_rent.hr_name,dcxw_house_rent.hr_phone,dcxw_house_rent_channel.hrc_title')
+            ->order('hrl_status,hrl_rent_time desc')
             ->select();
         if($rentLog)
         {
@@ -392,16 +404,18 @@ class Index extends Controller{
      * 出租信息详情
      * */
     public function rentdetail(){
-        $hrl_id=trim($_GET['hrl_id']);
+        $hrl_id=intval(trim($_GET['hrl_id']));
         //根据出租记录id找出房源编号
         $rentInfo=Db::table('dcxw_house_rent_log')
             ->join('dcxw_house_rent_channel','dcxw_house_rent_channel.hrc_id = dcxw_house_rent_log.hrl_rent_channel')
             ->where(['hrl_id' => $hrl_id])
             ->field('dcxw_house_rent_channel.hrc_title,dcxw_house_rent_log.*')
             ->find();
-        $rentInfo['hrl_contact_img']=explode(',',$rentInfo['hrl_contact_img']);
-        $rentInfo['hrl_rent_time']=date('Y/m/d',$rentInfo['hrl_rent_time']);
-        $rentInfo['hrl_dead_time']=date('Y/m/d',$rentInfo['hrl_dead_time']);
+        if($rentInfo){
+            $rentInfo['hrl_contact_img']=explode(',',$rentInfo['hrl_contact_img']);
+            $rentInfo['hrl_rent_time']=date('Y/m/d',$rentInfo['hrl_rent_time']);
+            $rentInfo['hrl_dead_time']=date('Y/m/d',$rentInfo['hrl_dead_time']);
+        }
         $this->assign('rent',$rentInfo);
         $h_code=$rentInfo['hrl_house_code'];
         $renter_id=$rentInfo['hrl_renter_id'];
@@ -526,6 +540,42 @@ class Index extends Controller{
         $payLog['rent_name']=$commonModel->getRenterNameViaRentId($payLog['hrl_renter_id']);
         $payLog['rent_phone']=$commonModel->getRenterPhoneViaRentId($payLog['hrl_renter_id']);
         $this->assign('payLog',$payLog);
+        return $this->fetch();
+    }
+
+
+
+
+    /*
+     * 交接信息
+     * */
+    public function  allot()
+    {
+        $h_id=trim($_GET['h_id']);
+        $commModel= new Common();
+        $marToDec=Db::table('dcxw_house_allocate')
+            ->where(['hat_house_code' => $h_id ,'hat_is_assign' => 1])
+            ->order('hat_add_time')
+            ->select();
+        if($marToDec){
+            foreach ($marToDec as $k =>$v)
+            {
+                $marToDec[$k]['hat_add_time']=date('Y年m月d日 H时i分',$v['hat_add_time']);
+                $marToDec[$k]['hat_assign_time']=date('Y年m月d日 H时i分',$v['hat_assign_time']);
+                $marToDec[$k]['hat_assign_too']=$commModel->getUserName($v['hat_assign_to']);
+                $marToDec[$k]['hat_assign_to_job']=$commModel->getUserJob($v['hat_assign_to']);
+                $marToDec[$k]['hat_assigner_name']=$commModel->getUserName($v['hat_assigner']);
+                $marToDec[$k]['hat_assigner_job']=$commModel->getUserJob($v['hat_assigner']);
+                $marToDec[$k]['hat_admin_name']=$commModel->getUserName($v['hat_admin']);
+                $marToDec[$k]['hat_admin_job']=$commModel->getUserJob($v['hat_admin']);
+                if($v['hat_type'] == 1){
+                    $marToDec[$k]['hat_assign_title'] = "事业部->工程部 交接";
+                }else{
+                    $marToDec[$k]['hat_assign_title'] = "工程部->运营部 交接";
+                }
+            }
+        }
+        $this->assign('marToDec',$marToDec);
         return $this->fetch();
     }
 

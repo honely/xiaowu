@@ -6,6 +6,7 @@
  * Time: 14:04
  */
 namespace app\admin\controller;
+use app\marketm\controller\Common;
 use think\Controller;
 use think\Db;
 use think\Request;
@@ -52,6 +53,13 @@ class Staff extends Controller{
             ->limit(($page-1)*$limit,$limit)
             ->order('u_addtime desc')
             ->select();
+        $commonModel=new Common();
+        if($admin){
+            foreach ($admin as $key => $val){
+                $admin[$key]['u_c_id'] =$commonModel->getCitynameByCityId($val['u_c_id']);
+                $admin[$key]['u_depart_id'] =$commonModel->getDepartNameByDepartId($val['u_depart_id']);
+            }
+        }
         $res['code'] = 0;
         $res['msg'] = "";
         $res['data'] = $admin;
@@ -94,6 +102,7 @@ class Staff extends Controller{
         if($_POST){
             $data['u_name'] = $_POST['u_name'];
             $data['u_job'] = $_POST['u_job'];
+            $data['u_c_id'] = $_POST['u_c_id'];
             $data['u_sex'] = $_POST['u_sex'];
             $data['u_phone'] = $_POST['u_phone'];
             $data['u_depart_id'] = intval(trim($_POST['u_depart_id']));
@@ -120,6 +129,9 @@ class Staff extends Controller{
                 $this->error('添加员工失败','index');
             }
         }else{
+            $indexModel=new \app\common\controller\Index();
+            $city=$indexModel->getCityName();
+            $this->assign('city',$city);
             $department=Db::table('dcxw_department')
                 ->order('d_addtime desc')
                 ->select();
@@ -211,6 +223,7 @@ class Staff extends Controller{
             $data['u_name'] = $_POST['u_name'];
             $data['u_job'] = $_POST['u_job'];
             $data['u_sex'] = $_POST['u_sex'];
+            $data['u_c_id'] = $_POST['u_c_id'];
             $data['u_depart_id'] = intval(trim($_POST['u_depart_id']));
             $data['u_phone'] = $_POST['u_phone'];
             $data['u_addtime'] = time();
@@ -241,6 +254,9 @@ class Staff extends Controller{
             $adminInfo=Db::table('dcxw_user')
                 ->where(['u_id' => $ad_id])
                 ->find();
+            $indexModel=new \app\common\controller\Index();
+            $city=$indexModel->getCityName();
+            $this->assign('city',$city);
             $department=Db::table('dcxw_department')
                 ->order('d_addtime desc')
                 ->select();

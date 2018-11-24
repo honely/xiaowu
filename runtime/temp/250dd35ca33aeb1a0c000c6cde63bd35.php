@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/admin\view\staff\index.html";i:1537600174;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/admin\view\staff\index.html";i:1542604236;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,6 +53,8 @@
         <thead>
         <tr>
             <th lay-data="{field:'u_id', align:'left',  sort: true}">员工编号</th>
+            <th lay-data="{field:'u_c_id',  align:'left'}">城市区域</th>
+            <th lay-data="{field:'u_depart_id',  align:'left'}">部门</th>
             <th lay-data="{field:'u_name',  align:'left'}">员工姓名</th>
             <th lay-data="{field:'u_phone', align:'left'}">员工电话</th>
             <th lay-data="{field:'u_email', align:'left'}">员工邮箱</th>

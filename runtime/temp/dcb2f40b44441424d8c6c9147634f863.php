@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\dailylog.html";i:1541135671;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\dailylog.html";i:1542965387;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -14,7 +14,7 @@
 <header class="mui-bar mui-bar-nav">
     <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/index')?>"></a>
     <h1 class="mui-title">监理日记</h1>
-    <?php if($status < 11): ?>
+    <?php if($status < 6): ?>
         <a class="mui-icon-plusempty mui-icon mui-icon-right-nav mui-pull-right" href="<?=url('index/addlog')?>?h_id=<?php echo $h_id; ?>"></a>
     <?php endif; ?>
 </header>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\paylog.html";i:1541144037;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\paylog.html";i:1542511671;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -12,9 +12,11 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/rentlog')?>?h_id=<?php echo $h_b_id; ?>"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/rentlog')?>?h_id=<?php echo $rent['hrl_house_code']; ?>"></a>
     <h1 class="mui-title">租金缴纳记录</h1>
-    <a class="mui-icon-plusempty mui-icon mui-icon-right-nav mui-pull-right" href="<?=url('index/addpaylog')?>?h_id=<?php echo $h_id; ?>"></a>
+    <?php if($rent['hrl_status'] == 1): ?>
+        <a class="mui-icon-plusempty mui-icon mui-icon-right-nav mui-pull-right" href="<?=url('index/addpaylog')?>?h_id=<?php echo $h_id; ?>"></a>
+    <?php endif; ?>
 </header>
 <div class="mui-content" style="padding-top: 40px;">
     <div class="mui-card">

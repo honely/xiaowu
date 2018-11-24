@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\addlog.html";i:1541746005;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\addlog.html";i:1542965417;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
     <link rel="stylesheet" href="__LAY__/css/layui.css">
-    <style>
+    <style type="text/css">
         h5 {
             margin: 5px 7px;
         }
@@ -26,8 +26,6 @@
         .img{
             width:100%; height: 92px
         }
-    </style>
-    <style type="text/css">
         .mui-preview-image.mui-fullscreen {
             position: fixed;
             z-index: 20;
@@ -227,7 +225,7 @@
         </form>
     </div>
 </div>
-<?php if($status < 11): ?>
+<?php if($status < 6): ?>
 <div class="mui-card">
     <form class="mui-input-group mui-input-groups">
         <div class="mui-input-row mui-checkbox mui-left">
@@ -319,7 +317,7 @@
         upload.render({
             elem: '#upload'
             ,url: '<?php echo url("common/upload"); ?>'
-            ,size:600
+            ,size:5000
             ,ext: 'jpg|png|gif'
             ,accept: 'images'
             ,before: function(input){

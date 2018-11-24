@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\addpaylog.html";i:1541747126;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\addpaylog.html";i:1542593331;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -122,7 +122,7 @@
         upload.render({
             elem: '#upload'
             ,url: '<?php echo url("common/upload"); ?>'
-            ,size:600 //限制文件大小，单位 KB
+            ,size:5000 //限制文件大小，单位 KB
             ,ext: 'jpg|png|gif'
             ,accept: 'images' //限制文件大小，单位 KB
             ,before: function(input){

@@ -65,34 +65,19 @@ class Common extends Controller{
                 $statusTip="接到通知";
                 break;
             case 2:
-                $statusTip="开始开工";
+                $statusTip="基装部分";
                 break;
             case 3:
-                $statusTip="进场检查";
+                $statusTip="主材部分";
                 break;
             case 4:
-                $statusTip="水电验收";
+                $statusTip="软装部分";
                 break;
             case 5:
-                $statusTip="防水验收";
+                $statusTip="完工";
                 break;
             case 6:
-                $statusTip="瓦工验收";
-                break;
-            case 7:
-                $statusTip="乳胶漆验收";
-                break;
-            case 8:
-                $statusTip="主材验收";
-                break;
-            case 9:
-                $statusTip="软装验收";
-                break;
-            case 10:
-                $statusTip="自检";
-                break;
-            case 11:
-                $statusTip="转入运营部";
+                $statusTip="运营部";
                 break;
         }
         return $statusTip;
@@ -108,6 +93,14 @@ class Common extends Controller{
     public function getUserName($admin_id){
         $userInfo=Db::table('dcxw_user')->where(['u_id' => $admin_id])->field('u_name')->find();
         $username=$userInfo['u_name'];
+        return $username;
+    }
+
+
+    //根据id获取前端添加人员名称
+    public function getUserJob($admin_id){
+        $userInfo=Db::table('dcxw_user')->where(['u_id' => $admin_id])->field('u_job')->find();
+        $username=$userInfo['u_job'];
         return $username;
     }
 
@@ -135,6 +128,12 @@ class Common extends Controller{
                 break;
             case 6:
                 $statusTip="已签单";
+                break;
+            case 7:
+                $statusTip="分配中";
+                break;
+            case 8:
+                $statusTip="分派中";
                 break;
         }
         return $statusTip;
@@ -166,6 +165,19 @@ class Common extends Controller{
             return 0;
         }
 
+    }
+
+
+
+    //根据房源编号获取装修状态
+    public function getStatusByHouseCode($h_id){
+        $decorateInfo=Db::table('dcxw_house_decorate')
+            ->where(['hd_house_code' => $h_id])
+            ->field('hd_status')
+            ->find();
+        $status=$decorateInfo['hd_status'];
+        $statusName=$this->getStatus($status);
+        return $statusName;
     }
 
     function get_last_time($time = NULL) {
@@ -212,6 +224,27 @@ class Common extends Controller{
             '5' => '五厅',
         ];
     }
+    public function getDinnerName($id){
+        $tip="";
+        switch ($id) {
+            case 1:
+                $tip="一厅";
+                break;
+            case 2:
+                $tip="两厅";
+                break;
+            case 3:
+                $tip="三厅";
+                break;
+            case 4:
+                $tip="四厅";
+                break;
+            case 5:
+                $tip="五厅";
+                break;
+        }
+        return $tip;
+    }
 
     public function getRoom(){
         return [
@@ -223,6 +256,30 @@ class Common extends Controller{
         ];
     }
 
+
+
+    public function getRoomName($id){
+        $tip="";
+        switch ($id) {
+            case 1:
+                $tip="一室";
+                break;
+            case 2:
+                $tip="两室";
+                break;
+            case 3:
+                $tip="三室";
+                break;
+            case 4:
+                $tip="四室";
+                break;
+            case 5:
+                $tip="五室";
+                break;
+        }
+        return $tip;
+    }
+
     public function getBath(){
         return [
             '1' => '一卫',
@@ -232,7 +289,27 @@ class Common extends Controller{
             '5' => '五卫',
         ];
     }
-
+    public function getBathName($id){
+        $tip="";
+        switch ($id) {
+            case 1:
+                $tip="一卫";
+                break;
+            case 2:
+                $tip="两卫";
+                break;
+            case 3:
+                $tip="三卫";
+                break;
+            case 4:
+                $tip="四卫";
+                break;
+            case 5:
+                $tip="五卫";
+                break;
+        }
+        return $tip;
+    }
     public function getCook(){
         return [
             '1' => '一厨',
@@ -242,6 +319,43 @@ class Common extends Controller{
             '5' => '五厨',
         ];
     }
+    public function getCookName($id){
+        $tip="";
+        switch ($id) {
+            case 1:
+                $tip="一厨";
+                break;
+            case 2:
+                $tip="两厨";
+                break;
+            case 3:
+                $tip="三厨";
+                break;
+            case 4:
+                $tip="四厨";
+                break;
+            case 5:
+                $tip="五厨";
+                break;
+        }
+        return $tip;
+    }
+
+
+
+    /*
+     * 根据房屋类型的类型id，一个由四个数字中间用逗号分隔的字符串
+     * */
+    public function getHouseTypeNameByTypeId($typeId){
+        $typeIds=explode(',',$typeId);
+        $roomType=$this->getRoomName($typeIds[0]);
+        $dinnerType=$this->getDinnerName($typeIds[1]);
+        $cookType=$this->getCookName($typeIds[2]);
+        $bathType=$this->getBathName($typeIds[3]);
+        $typeName=$roomType.''.$dinnerType.''.$cookType.''.$bathType;
+        return $typeName;
+    }
+
 
 
     //根据租客id获取租客姓名
@@ -262,5 +376,151 @@ class Common extends Controller{
             ->column('hr_phone');
         return $rentInfo[0];
 
+    }
+
+
+
+
+
+    public function houseHead($id){
+        $tip="";
+        switch ($id) {
+            case 1:
+                $tip="东";
+                break;
+            case 2:
+                $tip="南";
+                break;
+            case 3:
+                $tip="西";
+                break;
+            case 4:
+                $tip="北";
+                break;
+            case 5:
+                $tip="东南";
+                break;
+            case 6:
+                $tip="西南";
+                break;
+            case 7:
+                $tip="东北";
+                break;
+            case 8:
+                $tip="西北";
+                break;
+        }
+        return $tip;
+    }
+
+    /*
+     * 根据城市id获取城市名称
+     * */
+    public function getCitynameByCityId($c_id){
+        $cityInfo=Db::table('dcxw_city')->where(['c_id' =>$c_id])->field('c_name')->find();
+        $cityName=$cityInfo['c_name'];
+        return $cityName;
+    }
+
+
+    /*
+     * 根据城市id获取城市名称
+     * */
+    public function getDepartNameByDepartId($depart_id){
+        $departInfo=Db::table('dcxw_department')->where(['d_id' =>$depart_id])->field('d_name')->find();
+        $departName=$departInfo['d_name'];
+        return $departName;
+    }
+
+
+
+
+
+    /*
+     * 电费缴纳方式
+     * */
+    public function electType()
+    {
+        return [
+            '1' => '物业代缴',
+            '2' => '国家电网'
+        ];
+    }
+
+
+    /*
+     * 根据id获取电费缴纳方式名称
+     * */
+    public function getElectTypeName($id)
+    {
+        $typeName="";
+        switch ($id) {
+            case 1:
+                $typeName="物业代缴";
+                break;
+            case 2:
+                $typeName="国家电网";
+                break;
+        }
+        return $typeName;
+    }
+
+
+    /*
+     * 供暖方式
+     * */
+    public function warmType()
+    {
+        return [
+            '1' => '集中供暖',
+            '2' => '天然气暖'
+        ];
+    }
+
+
+    /*
+     * 根据id获取供暖方式名称
+     * */
+    public function getWarmTypeName($id)
+    {
+        $typeName="";
+        switch ($id) {
+            case 1:
+                $typeName="集中供暖";
+                break;
+            case 2:
+                $typeName="天然气暖";
+                break;
+        }
+        return $typeName;
+    }
+
+
+    /*
+     * 物业费类型
+     * */
+    public function wuYeFeeType()
+    {
+        return [
+            '1' => '平米单价',
+            '2' => '每月单价'
+        ];
+    }
+
+
+    /*
+     *根据id获取物业费类型名称
+     * */
+    public function getWuYeFeeTypeName($id){
+        $typeName="";
+        switch ($id) {
+            case 1:
+                $typeName="平米单价";
+                break;
+            case 2:
+                $typeName="每月单价";
+                break;
+        }
+        return $typeName;
     }
 }

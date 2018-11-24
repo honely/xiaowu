@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\addrent.html";i:1541820400;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\addrent.html";i:1542593388;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -30,7 +30,6 @@
         }
     </style>
 </head>
-
 <body>
 <header class="mui-bar mui-bar-nav">
     <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
@@ -93,6 +92,10 @@
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>水表底数：</label>
                     <input type="text" class="layui-input" lay-verify="required" id="hrl_water_start" name="hrl_water_start" >
+                </div>
+                <div class="mui-input-row">
+                    <label><span class="color-red">*</span>燃气底数：</label>
+                    <input type="text" class="layui-input" lay-verify="required" id="hrl_air_start" name="hrl_water_start" >
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>合同编号：</label>
@@ -178,9 +181,9 @@
         upload.render({
             elem: '#upload'
             ,url: '<?php echo url("common/upload"); ?>'
-            ,size:600 //限制文件大小，单位 KB
+            ,size:5000
             ,ext: 'jpg|png|gif'
-            ,accept: 'images' //限制文件大小，单位 KB
+            ,accept: 'images'
             ,before: function(input){
                 loading = layer.load(2, {
                     shade: [0.2,'#000']

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\attach.html";i:1540978010;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\attach.html";i:1543031401;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -10,12 +10,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
     <link rel="stylesheet" type="text/css" href="__WAP__/css/app.css" />
-    <style>
+    <style type="text/css">
         h5 {
             margin: 5px 7px;
         }
-    </style>
-    <style type="text/css">
         .mui-preview-image.mui-fullscreen {
             position: fixed;
             z-index: 20;
@@ -211,11 +209,11 @@
                 </div>
                 <div class="mui-input-row">
                     <label>租金(每月)：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_rent_price'])): ?> value="<?php echo $attach['ha_rent_price']; ?>" <?php endif; ?>>
+                    <input type="text" onkeyup="this.value=this.value.replace(/\D/g, '')" readonly <?php if(isset($attach['ha_rent_price'])): ?> value="<?php echo $attach['ha_rent_price']; ?>" <?php endif; ?>>
                 </div>
                 <div class="mui-input-row">
-                    <label>租期：</label>
-                    <input type="text" readonly <?php if(isset($attach['ha_rent_time'])): ?> value="<?php echo $attach['ha_rent_time']; ?>" <?php endif; ?>>
+                    <label>租期（月）：</label>
+                    <input type="text" onkeyup="this.value=this.value.replace(/\D/g, '')" readonly <?php if(isset($attach['ha_rent_time'])): ?> value="<?php echo $attach['ha_rent_time']; ?>" <?php endif; ?>>
                 </div>
                 <div class="mui-input-row">
                     <label>到期时间：</label>
@@ -343,6 +341,14 @@
                 <div class="mui-input-row">
                     <label>物业电话：</label>
                     <input type="text" readonly <?php if(isset($attach['ha_wuye_phone'])): ?> value="<?php echo $attach['ha_wuye_phone']; ?>" <?php endif; ?>>
+                </div>
+                <div class="mui-input-row">
+                    <label>物业费用：</label>
+                    <input type="text" readonly <?php if(isset($attach['ha_wuye_fee'])): ?> value="<?php echo $attach['ha_wuye_fee']; ?>" <?php endif; ?>>
+                </div>
+                <div class="mui-input-row">
+                    <label>物业费类型：</label>
+                    <input type="text" readonly <?php if(isset($attach['ha_wuye_fee_type'])): ?> value="<?php echo $attach['ha_wuye_fee_type']; ?>" <?php endif; ?>>
                 </div>
             </div>
 

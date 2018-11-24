@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\improve.html";i:1541755943;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\improve.html";i:1542685785;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="__WAP__/css/app.css" />
     <link rel="stylesheet" type="text/css" href="__WAP__/css/mui.picker.min.css" />
     <link rel="stylesheet" href="__LAY__/css/layui.css">
-    <style>
+    <style type="text/css">
         h5 {
             margin: 5px 7px;
         }
@@ -28,8 +28,6 @@
         .img{
             width:100%; height: 92px
         }
-    </style>
-    <style type="text/css">
         .mui-preview-image.mui-fullscreen {
             position: fixed;
             z-index: 20;
@@ -219,8 +217,8 @@
                         <option value="4" <?php if($house['h_head'] == 4): ?>selected<?php endif; ?>>北</option>
                         <option value="5" <?php if($house['h_head'] == 5): ?>selected<?php endif; ?>>东南</option>
                         <option value="6" <?php if($house['h_head'] == 6): ?>selected<?php endif; ?>>西南</option>
-                        <option value="6" <?php if($house['h_head'] == 7): ?>selected<?php endif; ?>>东北</option>
-                        <option value="6" <?php if($house['h_head'] == 8): ?>selected<?php endif; ?>>西北</option>
+                        <option value="7" <?php if($house['h_head'] == 7): ?>selected<?php endif; ?>>东北</option>
+                        <option value="8" <?php if($house['h_head'] == 8): ?>selected<?php endif; ?>>西北</option>
                     </select>
                 </div>
                 <div class="mui-input-row">
@@ -228,7 +226,7 @@
                     <span id="upload" class="mui-btn mui-btn-primary">上传</span>
                 </div>
                 <div id="imgPre">
-                    <?php if(isset($house['h_img'])): if(is_array($house['h_img']) || $house['h_img'] instanceof \think\Collection || $house['h_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $house['h_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
+                    <?php if(isset($house['h_img'])): if($house['h_img'] != null): if(is_array($house['h_img']) || $house['h_img'] instanceof \think\Collection || $house['h_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $house['h_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
                     <li class="item_img">
                         <div class="operate">
                             <i class="close layui-icon"></i>
@@ -236,7 +234,7 @@
                         <img src="__PUBLIC__/<?php echo $items; ?>" class="img" data-preview-src="" data-preview-group="1">
                         <input type="hidden" name="h_img[]" lay-verify="imgReg" value="<?php echo $items; ?>" />
                     </li>
-                    <?php endforeach; endif; else: echo "" ;endif; endif; ?>
+                    <?php endforeach; endif; else: echo "" ;endif; endif; endif; ?>
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>租金：</label>
@@ -341,7 +339,7 @@
         upload.render({
             elem: '#upload'
             ,url: '<?php echo url("common/upload"); ?>'
-            ,size:600 //限制文件大小，单位 KB
+            ,size:5000 //限制文件大小，单位 KB
             ,ext: 'jpg|png|gif'
             ,accept: 'images' //限制文件大小，单位 KB
             ,before: function(input){

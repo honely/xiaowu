@@ -23,6 +23,40 @@ class Index extends Controller{
     }
 
     public function index(){
+        $userInfo=session('userInfo');
+        $cityId=$userInfo['u_c_id'];
+        $userId=$userInfo['u_id'];
+        $houses=Db::table('dcxw_house_allocate')
+            ->join('dcxw_house','dcxw_house.h_b_id = dcxw_house_allocate.hat_house_code')
+            ->where(['hat_c_id' => $cityId,'hat_assign_to' => $userId,'h_isable' => 2,'hat_type' => 1])
+            ->select();
+        $connomModel=new \app\marketm\controller\Common();
+        if($houses){
+            foreach($houses as $k =>$v){
+                $houses[$k]['hd_status']=$connomModel->getStatusByHouseCode($v['h_b_id']);
+                $houses[$k]['h_money']=$connomModel->getDecorateMoney($v['h_b_id']);
+                $houses[$k]['h_addtime']=date('Y年m月d日',$v['h_addtime']);
+                $payInfo=Db::table('dcxw_house_pay')->where(['hp_house_code' =>$v['h_b_id']])->column('hp_paid_ratio');
+                if($payInfo){
+                    $houses[$k]['paid_ratio']=($payInfo[0]*100)."%";
+                    $houses[$k]['is_paid_ratio']=1;
+                }else{
+                    $houses[$k]['paid_ratio']="0";
+                    $houses[$k]['is_paid_ratio']=2;
+                }
+            }
+        }
+        $count=Db::table('dcxw_house_allocate')
+            ->join('dcxw_house','dcxw_house.h_b_id = dcxw_house_allocate.hat_house_code')
+            ->where(['hat_c_id' => $cityId,'hat_assign_to' => $userId,'h_isable' => 2,'hat_type' => 1])
+            ->count();
+        $this->assign('count',$count);
+        $this->assign('houses',$houses);
+        return $this->fetch();
+    }
+
+
+    public function indexss(){
         $where=" 1 =1 ";
         $keywords=trim($this->request->param('keywords'));
         if(isset($keywords) && !empty($keywords)){
@@ -324,10 +358,19 @@ class Index extends Controller{
                 $changeLog=Db::table('dcxw_house_decorate_status')->insert($statusq);
                 //3.添加装修日志记录
                 $add=Db::table('dcxw_house_decorate_log')->insert($data);
-                if($status == 10){
+                if($status == 5){
                     Db::table('dcxw_house')
                         ->where(['h_b_id' => $h_id])
-                        ->setInc('h_isable');
+                        ->update(['h_isable' => 8]);
+                    //给转交分配表增添数据
+                    $datas['hat_house_code']=$h_id;
+                    $datas['hat_c_id']=$userInfo['u_c_id'];
+                    $datas['hat_sub_tips']=$remarks;
+                    $datas['hat_add_time']=time();
+                    $datas['hat_is_assign']=2;
+                    $datas['hat_type']=2;
+                    $datas['hat_admin']=$userInfo['u_id'];
+                    Db::table('dcxw_house_allocate')->insert($datas);
                 }
                 //4.如果转入运营部，则主表的h_isable=3；运营部配置中。
                 if($add && $decorateStatus && $changeLog){

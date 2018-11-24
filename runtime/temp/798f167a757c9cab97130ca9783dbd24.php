@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\index.html";i:1542259717;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\index.html";i:1542522247;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -100,8 +100,8 @@
                     <option value="4">北</option>
                     <option value="5">东南</option>
                     <option value="6">西南</option>
-                    <option value="6">东北</option>
-                    <option value="6">西北</option>
+                    <option value="7">东北</option>
+                    <option value="8">西北</option>
                 </select>
             </div>
             <div class="mui-input-row">

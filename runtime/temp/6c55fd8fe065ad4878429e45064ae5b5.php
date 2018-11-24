@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\attachs.html";i:1540978325;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\attachs.html";i:1543030939;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -18,6 +18,13 @@
         }
         .color-red{
             color: red;
+        }
+        .mui-btn-block {
+            font-size: 14px;
+            padding: 0 0 0 6px;
+        }
+        .mui-btn-primary{
+            padding: 10px 0 10px;
         }
     </style>
 </head>
@@ -43,7 +50,7 @@
         </div>
     </div>
     <div class="mui-content-padded" style="margin: 5px;">
-        <form class="mui-input-group layui-form" id="attachForm" style="background-color: #efeff4">
+        <form class="mui-input-group" id="attachForm" style="background-color: #efeff4">
             <div class="mui-card">
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>合同编号：</label>
@@ -70,7 +77,7 @@
                     <input type="text" lay-verify="required" <?php if(isset($attach['ha_rent_price'])): ?> value="<?php echo $attach['ha_rent_price']; ?>" <?php endif; ?>  class="layui-input" id="ha_rent_price" name="ha_rent_price">
                 </div>
                 <div class="mui-input-row">
-                    <label><span class="color-red">*</span>租期：</label>
+                    <label><span class="color-red">*</span>租期（月）：</label>
                     <input type="text" lay-verify="required" <?php if(isset($attach['ha_rent_time'])): ?> value="<?php echo $attach['ha_rent_time']; ?>" <?php endif; ?>  class="layui-input" id="ha_rent_time" name="ha_rent_time">
                 </div>
                 <div class="mui-input-row">
@@ -116,9 +123,13 @@
                     <label>电费单价：</label>
                     <input type="text" <?php if(isset($attach['ha_elect_price'])): ?> value="<?php echo $attach['ha_elect_price']; ?>" <?php endif; ?> id="ha_elect_price" class="layui-input" name="ha_elect_price" >
                 </div>
-                <div class="mui-input-row">
-                    <label>缴费方式：</label>
-                    <input type="text" <?php if(isset($attach['ha_elect_type'])): ?> value="<?php echo $attach['ha_elect_type']; ?>" <?php endif; ?> id="ha_elect_type" class="layui-input" name="ha_elect_type" >
+                <div class="mui-content-padded">
+                    <select name="ha_elect_type" id="ha_elect_type" class="mui-btn mui-btn-block">
+                        <option value="">请选择电费缴纳方式</option>
+                        <?php if(is_array($electType) || $electType instanceof \think\Collection || $electType instanceof \think\Paginator): $i = 0; $__LIST__ = $electType;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
+                        <option value="<?php echo $key; ?>">缴纳方式：<?php echo $items; ?></option>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                    </select>
                 </div>
                 <div class="mui-input-row">
                     <label>备注：</label>
@@ -149,13 +160,17 @@
             </div>
 
             <div class="mui-card">
-                <div class="mui-input-row">
-                    <label>供暖方式：</label>
-                    <input type="text" <?php if(isset($attach['ha_warm_type'])): ?> value="<?php echo $attach['ha_warm_type']; ?>" <?php endif; ?>   class="layui-input" id="ha_warm_type" name="ha_warm_type">
+                <div class="mui-content-padded">
+                    <select name="ha_warm_type" id="ha_warm_type" class="mui-btn mui-btn-block">
+                        <option value="">请选择供暖方式</option>
+                        <?php if(is_array($warmType) || $warmType instanceof \think\Collection || $warmType instanceof \think\Paginator): $i = 0; $__LIST__ = $warmType;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
+                        <option value="<?php echo $key; ?>">供暖方式：<?php echo $items; ?></option>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                    </select>
                 </div>
                 <div class="mui-input-row">
                     <label>暖气单价：</label>
-                    <input type="text" <?php if(isset($attach['ha_warm_price'])): ?> value="<?php echo $attach['ha_warm_price']; ?>" <?php endif; ?>  class="layui-input" id="ha_warm_price" name="ha_warm_price" >
+                    <input type="text" <?php if(isset($attach['ha_warm_price'])): ?> onkeyup="this.value=this.value.replace(/\D/g, '')" value="<?php echo $attach['ha_warm_price']; ?>" <?php endif; ?>  class="layui-input" id="ha_warm_price" name="ha_warm_price" >
                 </div>
                 <div class="mui-input-row">
                     <label>缴费方式：</label>
@@ -200,6 +215,18 @@
                 <div class="mui-input-row">
                     <label>物业电话：</label>
                     <input type="text" <?php if(isset($attach['ha_wuye_phone'])): ?> value="<?php echo $attach['ha_wuye_phone']; ?>" <?php endif; ?>  class="layui-input" id="ha_wuye_phone" name="ha_wuye_phone">
+                </div>
+                <div class="mui-input-row">
+                    <label>物业费用：</label>
+                    <input type="text" <?php if(isset($attach['ha_wuye_fee'])): ?> onkeyup="this.value=this.value.replace(/\D/g, '')" value="<?php echo $attach['ha_wuye_fee']; ?>" <?php endif; ?>  class="layui-input" id="ha_wuye_fee" name="ha_wuye_fee">
+                </div>
+                <div class="mui-content-padded">
+                    <select name="ha_wuye_fee_type" id="ha_wuye_fee_type" class="mui-btn mui-btn-block">
+                        <option value="">请选择物业费类型</option>
+                        <?php if(is_array($wuyeFeeType) || $wuyeFeeType instanceof \think\Collection || $wuyeFeeType instanceof \think\Paginator): $i = 0; $__LIST__ = $wuyeFeeType;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
+                        <option value="<?php echo $key; ?>">物业费类型：<?php echo $items; ?></option>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                    </select>
                 </div>
             </div>
 
@@ -246,28 +273,46 @@
         });
         //监听提交
         form.on('submit(saveInfo)', function(){
-            $.ajax({
-                type: 'POST',
-                url: "<?=url('index/addattach')?>?h_id=<?php echo $h_b_id; ?>",
-                data: $('#attachForm').serialize(),
-                dataType:  'json',
-                success: function(data){
-                    console.log(data);
-                    if(data.code="1"){
-                        mui.alert(data.msg, function() {
-                            window.location.href="<?=url('index/house')?>";
-                        });
-                    }else{
-                        mui.alert(data.msg);
+            var ha_contact_code=$('#ha_contact_code').val();
+            var img=$('#img').val();
+            var ha_rent_price=$('#ha_rent_price').val();
+            var ha_rent_time=$('#ha_rent_time').val();
+            var ha_deadline=$('#ha_deadline').val();
+            var ha_decorate_permit=$('#ha_decorate_permit').val();
+            if(
+                ha_contact_code<=0
+                || img.length<=0
+                || ha_rent_price.length<=0
+                || ha_rent_time.length<=0
+                || ha_deadline<=0
+                || ha_decorate_permit<=0
+            ) {
+                mui.alert('请确定以上必填内容填写完成后提交！', function () {
+                });
+            }else{
+                $.ajax({
+                    type: 'POST',
+                    url: "<?=url('index/addattach')?>?h_id=<?php echo $h_b_id; ?>",
+                    data: $('#attachForm').serialize(),
+                    dataType:  'json',
+                    success: function(data){
+                        console.log(data);
+                        if(data.code="1"){
+                            mui.alert(data.msg, function() {
+                                window.location.href="<?=url('index/house')?>";
+                            });
+                        }else{
+                            mui.alert(data.msg);
+                        }
                     }
-                }
-            });
+                });
+            }
         });
         //图片上传
         upload.render({
             elem: '#upload'
             ,url: '<?php echo url("common/upload"); ?>'
-            ,size:600 //限制文件大小，单位 KB
+            ,size:5000 //限制文件大小，单位 KB
             ,ext: 'jpg|png|gif'
             ,accept: 'images' //限制文件大小，单位 KB
             ,before: function(input){

@@ -495,7 +495,7 @@ class Index extends Controller{
         $logs=Db::table('dcxw_house_pay_log')
             ->join('dcxw_user','dcxw_user.u_id = dcxw_house_pay_log.hpl_user')
             ->where(['hpl_id' => $hpl_id])
-            ->field('dcxw_house_pay_log.*,dcxw_user.u_name')
+            ->field('dcxw_house_pay_log.*,dcxw_user.u_name,dcxw_user.u_job')
             ->find();
         $logs['hpl_addtime']=date('Y年m月d日 H时i分',$logs['hpl_addtime']);
         $logs['hpl_money']=number_format($logs['hpl_money'],2);
@@ -522,6 +522,7 @@ class Index extends Controller{
     public function attach(){
         $h_id=trim($_GET['h_id']);
         $a_id=intval(trim($_GET['a_id']));
+        $commoModel=new Common();
         $master=Db::table('dcxw_house_master')
             ->where(['hm_house_code' => $h_id])
             ->field('hm_name,hm_phone')
@@ -545,17 +546,33 @@ class Index extends Controller{
                 $attach['ha_contact_img']=explode(',',$attach['ha_contact_img']);
                 $attach['ha_deadline']=date('Y-m-d',$attach['ha_deadline']);
                 $attach['ha_decorate_permit']=date('Y-m-d',$attach['ha_decorate_permit']);
+                $attach['ha_elect_type']=$commoModel->getElectTypeName($attach['ha_elect_type']);
+                $attach['ha_warm_type']=$commoModel->getWarmTypeName($attach['ha_warm_type']);
+                $attach['ha_wuye_fee_type']=$commoModel->getWuYeFeeTypeName($attach['ha_wuye_fee_type']);
             if($a_id == 2){
+                $electType=$commoModel->electType();
+                $this->assign('electType',$electType);
+                $warmType=$commoModel->warmType();
+                $this->assign('warmType',$warmType);
+                $wuyeFeeType=$commoModel->wuyeFeeType();
+                $this->assign('wuyeFeeType',$wuyeFeeType);
                 $this->assign('h_b_id',$h_id);
                 $this->assign('attach',$attach);
                 return $this->fetch('attachs');
             }else{
                 //仅做展示
+
                 $this->assign('h_b_id',$h_id);
                 $this->assign('attach',$attach);
                 return $this->fetch();
             }
         }else{
+            $electType=$commoModel->electType();
+            $this->assign('electType',$electType);
+            $warmType=$commoModel->warmType();
+            $this->assign('warmType',$warmType);
+            $wuyeFeeType=$commoModel->wuyeFeeType();
+            $this->assign('wuyeFeeType',$wuyeFeeType);
             $this->assign('h_b_id',$h_id);
             $this->assign('attach',$attach);
             return $this->fetch('attachs');
@@ -609,6 +626,7 @@ class Index extends Controller{
      * */
     public function preview(){
         $h_id=trim($_GET['h_id']);
+        $commoModel=new Common();
         //房屋基本信息
         $house=Db::table('dcxw_house')
             ->where(['h_b_id' => $h_id])
@@ -656,6 +674,9 @@ class Index extends Controller{
             $attach['ha_contact_img']=explode(',',$attach['ha_contact_img']);
             $attach['ha_deadline']=date('Y-m-d',$attach['ha_deadline']);
             $attach['ha_decorate_permit']=date('Y-m-d',$attach['ha_decorate_permit']);
+            $attach['ha_elect_type']=$commoModel->getElectTypeName($attach['ha_elect_type']);
+            $attach['ha_warm_type']=$commoModel->getWarmTypeName($attach['ha_warm_type']);
+            $attach['ha_wuye_fee_type']=$commoModel->getWuYeFeeTypeName($attach['ha_wuye_fee_type']);
         }
         $this->assign('attach',$attach);
         return $this->fetch();
@@ -669,36 +690,31 @@ class Index extends Controller{
     }
 
     /*
-     * 转施工
+     * 转行政
      * */
     public function towork(){
         $h_id=trim($_POST['h_id']);
+        //转交备注
         $transInfo=trim($_POST['transfer']);
         $userInfo=session('userInfo');
+
         //1.更改房屋主表的状态
         $toWork=Db::table('dcxw_house')
             ->where('h_b_id', $h_id)
-            ->update(['h_isable' => 2]);
-        //2.给房屋装修表添加信息；
-        $data['hd_house_code']=$h_id;
-        $data['hd_addtime']=time();
-        $data['hd_status']=1;
-        $data['hd_admin']=$userInfo['u_id'];
-        $data['hd_tips']=$transInfo;
-        $add=Db::table('dcxw_house_decorate')->insert($data);
-//1.事业部专项工程部；2工程部开始开工；3进场检查；4水电验证；5防水验收；6瓦工验收，7乳胶漆验收；8主材验收；9软装验收；10；自检';
-        //3.给房屋装修状态表添加信息
-        $dataStatus['hds_house_code']=$h_id;
-        $dataStatus['hds_start_status']=1;
-        $dataStatus['hds_end_status']=1;
-        $dataStatus['hds_change_time']=time();
-        $dataStatus['hds_user_id']=$userInfo['u_id'];
-        $dataStatus['hds_change_tips']=$transInfo;
-        $addStatus=Db::table('dcxw_house_decorate_status')->insert($dataStatus);
-        if($toWork && $add && $addStatus){
-            $this->success('转交成功！','',$toWork);
+            ->update(['h_isable' => 7]);
+        //给转交分配表增添数据
+        $data['hat_house_code']=$h_id;
+        $data['hat_c_id']=$userInfo['u_c_id'];
+        $data['hat_sub_tips']=$transInfo;
+        $data['hat_add_time']=time();
+        $data['hat_is_assign']=2;
+        $data['hat_type']=1;
+        $data['hat_admin']=$userInfo['u_id'];
+        $trans=Db::table('dcxw_house_allocate')->insert($data);
+        if($toWork && $trans){
+            $this->success('转交成功！','',$transInfo);
         }else{
-            $this->error('转交失败！','',$toWork);
+            $this->error('转交失败！','',$transInfo);
         }
     }
 }

@@ -180,13 +180,7 @@
                     房源地址：{$house.h_address}
                     <br/>
                 </p>
-            </div>
-        </div>
-    </div>
-    <!--租客信息-->
-    <div class="mui-card">
-        <div class="mui-card-content">
-            <div class="mui-card-content-inner">
+                <hr/>
                 <p><b>租客信息</b></p>
                 <p style="color: #333;">
                     姓名：{$renter.hr_name}
@@ -196,15 +190,23 @@
                     <br/>
                     身份证号：{$renter.hr_idcard}
                     {/if}
+                    {if condition="$renter.hr_remarks neq null"}
+                    <br/>
+                    备注信息：{$renter.hr_remarks}
+                    {/if}
                 </p>
-            </div>
-        </div>
-    </div>
-    <!--出租信息-->
-    <div class="mui-card">
-        <div class="mui-card-content">
-            <div class="mui-card-content-inner">
+                <hr/>
                 <p><b>出租信息</b></p>
+                租房日期：{$rent.hrl_rent_time}-{$rent.hrl_dead_time}
+                <br/>
+                租房押金：{$rent.hrl_foregift}（元）
+                <br/>
+                租房单价：{$rent.hrl_rent_price}（元）/ {if condition="$rent.hrl_rent_type eq 1"}日{else/}月{/if}
+                <br/>
+                付租方式：{if condition="$rent.hrl_pay_type eq 1"}日租金{else/}月租金{/if}
+                <br/>
+                出租渠道：{$rent.hrc_title}
+                <br/>
                 <p style="color: #333;">
                     合同编号：{$rent.hrl_contact_code}
                     <br/>
@@ -217,16 +219,6 @@
                     </li>
                     {/volist}
                 </div>
-                    <br/>
-                    租房日期：{$rent.hrl_rent_time}-{$rent.hrl_dead_time}
-                    <br/>
-                    租房押金：{$rent.hrl_foregift}（元）
-                    <br/>
-                    租房单价：{$rent.hrl_rent_price}（元）/ {if condition="$rent.hrl_rent_type eq 1"}日{else/}月{/if}
-                    <br/>
-                    付租方式：{if condition="$rent.hrl_pay_type eq 1"}日租金{else/}月租金{/if}
-                    <br/>
-                    出租渠道：{$rent.hrc_title}
                     <br/>
                     电表底数：{$rent.hrl_elect_start}
                 {if condition="$rent.hrl_status eq 2"}
@@ -242,23 +234,6 @@
                 </p>
             </div>
         </div>
-    </div>
-    {if condition="$rent.hrl_status eq 1"}
-        <form class="mui-input-group layui-form" id="attachForm" style="background-color: #efeff4">
-        <div class="mui-card">
-            <div class="mui-input-row">
-                <label>电表结数：</label>
-                <input type="text" {if isset($rent.hrl_elect_end)} value="{$rent.hrl_elect_end}" readonly  {/if} class="layui-input" lay-verify="required" id="hrl_elect_end" name="hrl_elect_end">
-                <input type="text" name="hrl_id" id="hrl_id" value="{$rent.hrl_id}" >
-            </div>
-            <div class="mui-input-row">
-                <label>水表结数</label>
-                <input type="text" {if isset($rent.hrl_water_end)} value="{$rent.hrl_water_end}" readonly {/if} id="hrl_water_end" name="hrl_water_end" >
-            </div>
-        </div>
-        </form>
-    <span id="finishRent" class="mui-btn mui-btn-primary mui-btn-block">完成出租</span>
-    {/if}
     </div>
 </div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
