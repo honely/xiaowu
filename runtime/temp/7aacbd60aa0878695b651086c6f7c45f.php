@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\master.html";i:1542533428;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\master.html";i:1543048312;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -15,6 +15,9 @@
         }
         .color-red{
             color: red;
+        }
+        label,input,textarea{
+            font-size: 14px;
         }
     </style>
 </head>
@@ -60,7 +63,7 @@
             <?php endif; ?>
             <div class="mui-card">
                 <div class="mui-input-row" style="margin: 10px 5px;">
-                    <textarea id="textarea" name="hm_remarks" rows="5" placeholder="其他备注信息"><?php if(isset($master['hm_remarks'])): ?><?php echo $master['hm_remarks']; endif; ?></textarea>
+                    <textarea id="textarea" name="hm_remarks" rows="10" placeholder="其他备注信息"><?php if(isset($master['hm_remarks'])): ?><?php echo $master['hm_remarks']; endif; ?></textarea>
                 </div>
             </div>
         </form>

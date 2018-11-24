@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\index.html";i:1542952793;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\index.html";i:1543049119;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -94,7 +94,7 @@
 <div class="mui-content">
     <div style="height: 44px;width: 100%">
         <div class="allocate-top">
-            <a><div class="spans divs">待分配</div></a>
+            <a><div class="spans divs">待分配（<?php echo $count; ?>）</div></a>
             <a href="<?=url('admin/allocated')?>"><div class="spans actives divs">已分配</div></a>
             <a href="<?=url('admin/all')?>"><div class="spans actives divs">全部</div></a>
         </div>
@@ -216,14 +216,13 @@
                             '                        <br/>' +
                             '                        房屋面积：'+data[i].h_area+'（㎡）' +
                             '                        <br/>' +
-                            '                        房屋地址：'+data[i].h_address+''+
-                            '                        <br/>' +
-                            '                        提交人：'+data[i].hat_admin+''+
-                            '                        <br/>' +
-                            '                        转交备注：'+data[i].hat_sub_tips+''+
-                            '                        <br/>' +
-                            '                        提交时间：'+data[i].hat_add_time+''+
-                            '                    </p>' +
+                            '                        房屋地址：'+data[i].h_address+'';
+                        html+='<br/>此房源信息在' +data[i].hat_add_time+'由'+data[i].hat_admin_job+'---'+data[i].hat_admin+'提交';
+                        if(data[i].hat_sub_tips != null){
+                            html+='备注信息为'+data[i].hat_sub_tips+'。';
+
+                        }
+                        html+='                    </p>' +
                             '                </div>' +
                             '            </div>' +
                             '            <div class="mui-card-footer">' +

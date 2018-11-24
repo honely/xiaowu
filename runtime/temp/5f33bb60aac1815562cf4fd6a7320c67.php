@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\allocate.html";i:1543037301;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\allocate.html";i:1543049076;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +51,7 @@
         .mui-icon-extra-calendar{
             color: #007aff;font-size: 24px;line-height: 40px;margin-top: 3px;
         }
-        input,select,option{
+        input,select,option,textarea{
             font-size: 14px;
         }
     </style>

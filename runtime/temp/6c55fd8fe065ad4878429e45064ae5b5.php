@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\attachs.html";i:1543030939;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\attachs.html";i:1543048601;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -25,6 +25,9 @@
         }
         .mui-btn-primary{
             padding: 10px 0 10px;
+        }
+        label,input,textarea{
+            font-size: 14px;
         }
     </style>
 </head>

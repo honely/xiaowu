@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\payment.html";i:1539768410;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\payment.html";i:1543048493;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -9,6 +9,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
+    <style>
+        label,input,textarea{
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">

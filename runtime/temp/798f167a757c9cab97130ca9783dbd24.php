@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\index.html";i:1542522247;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\index.html";i:1543048841;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -17,17 +17,16 @@
             width: 25%;
             float: left;
             overflow: hidden;
+            font-size: 14px;
         }
         .mui-width33{
             width: 33.33%;
             float: left;
             overflow: hidden;
+            font-size: 14px;
         }
-        p{
-            font-size: 16px;
-        }
-        label{
-            font-size: 16px;
+        p,label,input,textarea{
+            font-size: 14px;
         }
     </style>
 </head>
@@ -91,7 +90,7 @@
                 </select>
             </div>
             <div class="mui-content-padded">
-                <select name="h_head" id="h_head" class="mui-btn mui-btn-block">
+                <select name="h_head" id="h_head" class="mui-btn mui-btn-block" style="font-size: 14px;">
                     <!--房屋朝向,1东，2南，3西，4北，5东南，6西南，7东北，8西北-->
                     <option value="">请选择房屋朝向</option>
                     <option value="1">东</option>

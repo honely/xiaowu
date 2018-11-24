@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\attach.html";i:1543031401;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\attach.html";i:1543048601;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -164,6 +164,9 @@
         p img {
             max-width: 100%;
             height: auto;
+        }
+        label,input,textarea{
+            font-size: 14px;
         }
     </style>
 </head>

@@ -15,6 +15,9 @@
         .color-red{
             color: red;
         }
+        label,input,textarea{
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -59,7 +62,7 @@
             {/if}
             <div class="mui-card">
                 <div class="mui-input-row" style="margin: 10px 5px;">
-                    <textarea id="textarea" name="hm_remarks" rows="5" placeholder="其他备注信息">{if isset($master.hm_remarks)}{$master.hm_remarks}{/if}</textarea>
+                    <textarea id="textarea" name="hm_remarks" rows="10" placeholder="其他备注信息">{if isset($master.hm_remarks)}{$master.hm_remarks}{/if}</textarea>
                 </div>
             </div>
         </form>

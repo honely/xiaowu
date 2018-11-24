@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\masters.html";i:1542533502;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\masters.html";i:1543051537;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -15,6 +15,9 @@
         }
         .color-red{
             color: red;
+        }
+        label,input,textarea{
+            font-size: 14px;
         }
     </style>
 </head>
@@ -49,17 +52,20 @@
                 <input type="text" readonly value="<?php echo $master['hm_address']; ?>" >
             </div>
             <div class="mui-card">
-                <div class="mui-input-row" style="margin: 10px 5px;">
-                    <textarea id="textarea" name="hm_remarks" readonly rows="5" placeholder="其他备注信息"><?php echo $master['hm_remarks']; ?></textarea>
+                <div class="mui-card-content">
+                    <div class="mui-card-content-inner">
+                        <p><?php if(isset($master['hm_remarks'])): ?><?php echo $master['hm_remarks']; endif; ?>
+                        </p>
+                        <p class="mui-pull-right">
+                            <b>提交人</b>：<?php echo $master['u_job']; ?>---<?php echo $master['hm_admin']; ?>
+                        </p>
+                        <hr style="opacity:0;width: 100%;"/>
+                        <hr style="opacity:0"/>
+                        <p class="mui-pull-right">
+                            <b>时间</b>：<?php echo $master['hm_addtime']; ?>
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="mui-input-row">
-                <label>录入人</label>
-                <input type="text" readonly value="<?php echo $master['hm_admin']; ?>">
-            </div>
-            <div class="mui-input-row">
-                <label>录入时间</label>
-                <input type="text" readonly value="<?php echo $master['hm_addtime']; ?>" />
             </div>
         </form>
     </div>

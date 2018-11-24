@@ -15,6 +15,9 @@
         .color-red{
             color: red;
         }
+        label,input,textarea{
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -48,17 +51,20 @@
                 <input type="text" readonly value="{$master.hm_address}" >
             </div>
             <div class="mui-card">
-                <div class="mui-input-row" style="margin: 10px 5px;">
-                    <textarea id="textarea" name="hm_remarks" readonly rows="5" placeholder="其他备注信息">{$master.hm_remarks}</textarea>
+                <div class="mui-card-content">
+                    <div class="mui-card-content-inner">
+                        <p>{if isset($master.hm_remarks)}{$master.hm_remarks}{/if}
+                        </p>
+                        <p class="mui-pull-right">
+                            <b>提交人</b>：{$master.u_job}---{$master.hm_admin}
+                        </p>
+                        <hr style="opacity:0;width: 100%;"/>
+                        <hr style="opacity:0"/>
+                        <p class="mui-pull-right">
+                            <b>时间</b>：{$master.hm_addtime}
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="mui-input-row">
-                <label>录入人</label>
-                <input type="text" readonly value="{$master.hm_admin}">
-            </div>
-            <div class="mui-input-row">
-                <label>录入时间</label>
-                <input type="text" readonly value="{$master.hm_addtime}" />
             </div>
         </form>
     </div>

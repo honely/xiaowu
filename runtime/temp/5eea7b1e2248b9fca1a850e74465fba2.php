@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\all.html";i:1542952684;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\all.html";i:1543039655;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -130,7 +130,7 @@
                             <br/>
                             此房源信息在<?php echo $vo['hat_add_time']; ?>由<?php echo $vo['hat_admin_job']; ?>---<?php echo $vo['hat_admin']; ?>提交<?php if($vo['hat_sub_tips'] != null): ?>，备注信息为<?php echo $vo['hat_sub_tips']; endif; ?>。
                             <?php if($vo['hat_is_assign'] == 1): ?>
-                            此房源已在<?php echo $vo['hat_assign_time']; ?>由<?php echo $vo['hat_assigner_job']; ?>---<?php echo $vo['hat_assigner']; ?>分配给<?php echo $vo['hat_assign_to_job']; ?>---<?php echo $vo['hat_assign_too']; if($vo['hat_assign_tips'] != null): ?>
+                            <br/>此房源已在<?php echo $vo['hat_assign_time']; ?>由<?php echo $vo['hat_assigner_job']; ?>---<?php echo $vo['hat_assigner']; ?>分配给<?php echo $vo['hat_assign_to_job']; ?>---<?php echo $vo['hat_assign_too']; if($vo['hat_assign_tips'] != null): ?>
                             ，备注信息为<?php echo $vo['hat_assign_tips']; endif; ?>
                             。
                             <?php endif; ?>

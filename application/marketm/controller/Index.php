@@ -170,7 +170,6 @@ class Index extends Controller{
     public function master(){
         $h_id=trim($_GET['h_id']);
         $m_id=trim($_GET['m_id']);
-
         $masterInfo=Db::table('dcxw_house_master')
             ->where(['hm_house_code' => $h_id])
             ->find();
@@ -179,8 +178,9 @@ class Index extends Controller{
                 $masterInfo['hm_addtime']=date('Y-m-d H:i:s',$masterInfo['hm_addtime']);
                 $masterArr=Db::table('dcxw_user')
                     ->where(['u_id' => $masterInfo['hm_admin']])
-                    ->column('u_name');
-                $masterInfo['hm_admin']=$masterArr[0];
+                    ->field('u_name,u_job')->find();
+                $masterInfo['hm_admin']=$masterArr['u_name'];
+                $masterInfo['u_job']=$masterArr['u_job'];
             }
             if($m_id == 2){
                 $this->assign('h_b_id',$h_id);
