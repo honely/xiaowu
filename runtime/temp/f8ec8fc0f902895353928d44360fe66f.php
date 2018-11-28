@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/manager\view\allot\index.html";i:1543039769;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/manager\view\allot\index.html";i:1543283744;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -82,6 +82,9 @@
             -webkit-touch-callout: none;
             -webkit-user-select: none;
         }
+        .mui-card-link{
+            color:#007aff ;
+        }
     </style>
 </head>
 <body>
@@ -111,11 +114,11 @@
             <div class="mui-card">
                 <div class="mui-card-content">
                     <div class="mui-card-content-inner">
-                        <p><b>房源编号：【<?php echo $alc['hat_house_code']; ?>】</b>
+                        <p style="line-height: 26px"><b>房源编号：【<?php echo $alc['hat_house_code']; ?>】</b>
                             <span style="float: right;"><span style="margin-left: 8px;" class="mui-badge mui-badge-primary mui-badge-inverted">未分配</span>
                         </span>
                         </p>
-                        <p><b>小区名称</b>：<?php echo $alc['h_building']; ?>
+                        <p style="line-height: 26px"><b>小区名称</b>：<?php echo $alc['h_building']; ?>
                         </p>
                         <p style="color: #333;line-height: 26px;">
                             装修款额：<?php echo $alc['decorate_money']; ?>（元）

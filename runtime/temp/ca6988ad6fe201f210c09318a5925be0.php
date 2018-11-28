@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\attach.html";i:1543048601;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\attach.html";i:1543282806;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -173,7 +173,7 @@
 
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/house')?>"></a>
     <h1 class="mui-title">房屋附属</h1>
     <a class="mui-icon mui-icon-compose mui-icon-right-nav mui-pull-right" href="<?=url('index/attach')?>?h_id=<?php echo $h_b_id; ?>&a_id=2"></a>
 </header>
@@ -212,11 +212,11 @@
                 </div>
                 <div class="mui-input-row">
                     <label>租金(每月)：</label>
-                    <input type="text" onkeyup="this.value=this.value.replace(/\D/g, '')" readonly <?php if(isset($attach['ha_rent_price'])): ?> value="<?php echo $attach['ha_rent_price']; ?>" <?php endif; ?>>
+                    <input type="text" readonly <?php if(isset($attach['ha_rent_price'])): ?> value="<?php echo $attach['ha_rent_price']; ?>" <?php endif; ?>>
                 </div>
                 <div class="mui-input-row">
                     <label>租期（月）：</label>
-                    <input type="text" onkeyup="this.value=this.value.replace(/\D/g, '')" readonly <?php if(isset($attach['ha_rent_time'])): ?> value="<?php echo $attach['ha_rent_time']; ?>" <?php endif; ?>>
+                    <input type="text" readonly <?php if(isset($attach['ha_rent_time'])): ?> value="<?php echo $attach['ha_rent_time']; ?>" <?php endif; ?>>
                 </div>
                 <div class="mui-input-row">
                     <label>到期时间：</label>
@@ -354,10 +354,12 @@
                     <input type="text" readonly <?php if(isset($attach['ha_wuye_fee_type'])): ?> value="<?php echo $attach['ha_wuye_fee_type']; ?>" <?php endif; ?>>
                 </div>
             </div>
-
             <div class="mui-card">
-                <div class="mui-input-row" style="margin: 10px 5px;">
-                    <textarea id="textarea" readonly rows="5" placeholder="其他备注信息"><?php if(isset($attach['ha_remarks'])): ?><?php echo $attach['ha_remarks']; endif; ?></textarea>
+                <div class="mui-card-content">
+                    <div class="mui-card-content-inner">
+                        <p>备注信息：<?php if(isset($attach['ha_remarks'])): ?><?php echo $attach['ha_remarks']; endif; ?>
+                        </p>
+                    </div>
                 </div>
             </div>
         </form>

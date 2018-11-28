@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\person.html";i:1539834204;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\person.html";i:1543197836;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -22,7 +22,7 @@
 
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-back mui-pull-left"></a>
+    <a class="mui-icon mui-icon-back mui-pull-left" href="<?=url('index/house')?>"></a>
     <h1 class="mui-title">设置</h1>
 </header>
 <div class="mui-content">

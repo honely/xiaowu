@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\rentlog.html";i:1543050103;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\rentlog.html";i:1543286741;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -85,6 +85,13 @@
 </div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>
+<script>
+    mui('body').on('tap','a',function(){
+        if(this.href){
+            window.top.location.href=this.href;
+        }
+    });
+</script>
 <script>
     mui.init({
         swipeBack:true //启用右滑关闭功能

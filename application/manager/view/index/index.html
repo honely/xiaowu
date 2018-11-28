@@ -8,6 +8,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
+    <style>
+        input{
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
@@ -91,10 +96,7 @@
 <script>
     function formQuery(){
         var keywords=$('#keywords').val();
-        location.href="<?=url('index/house')?>?&keywords="+keywords;
-    }
-    function alertss(){
-        mui.alert('暂无回款信息！');
+        location.href="<?=url('index/index')?>?&keywords="+keywords;
     }
 </script>
 <script>

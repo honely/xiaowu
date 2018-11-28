@@ -66,6 +66,8 @@ class Index extends Controller{
             $cook=$commonM->getCook();
             $room=$commonM->getRoom();
             $bath=$commonM->getBath();
+            $houseHead=$commonM->houseHeadFun();
+            $this->assign('houseHead',$houseHead);
             $this->assign('dinner',$dinner);
             $this->assign('cook',$cook);
             $this->assign('room',$room);
@@ -546,9 +548,7 @@ class Index extends Controller{
                 $attach['ha_contact_img']=explode(',',$attach['ha_contact_img']);
                 $attach['ha_deadline']=date('Y-m-d',$attach['ha_deadline']);
                 $attach['ha_decorate_permit']=date('Y-m-d',$attach['ha_decorate_permit']);
-                $attach['ha_elect_type']=$commoModel->getElectTypeName($attach['ha_elect_type']);
-                $attach['ha_warm_type']=$commoModel->getWarmTypeName($attach['ha_warm_type']);
-                $attach['ha_wuye_fee_type']=$commoModel->getWuYeFeeTypeName($attach['ha_wuye_fee_type']);
+
             if($a_id == 2){
                 $electType=$commoModel->electType();
                 $this->assign('electType',$electType);
@@ -561,7 +561,9 @@ class Index extends Controller{
                 return $this->fetch('attachs');
             }else{
                 //仅做展示
-
+                $attach['ha_elect_type']=$commoModel->getElectTypeName($attach['ha_elect_type']);
+                $attach['ha_warm_type']=$commoModel->getWarmTypeName($attach['ha_warm_type']);
+                $attach['ha_wuye_fee_type']=$commoModel->getWuYeFeeTypeName($attach['ha_wuye_fee_type']);
                 $this->assign('h_b_id',$h_id);
                 $this->assign('attach',$attach);
                 return $this->fetch();

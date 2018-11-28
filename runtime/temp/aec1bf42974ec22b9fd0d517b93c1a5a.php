@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/manager\view\allot\details.html";i:1543039018;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/manager\view\allot\details.html";i:1543285239;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -174,7 +174,7 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('allot/index')?>"></a>
     <h1 class="mui-title">房源预览</h1>
 </header>
 <div class="mui-content" style="padding-top: 40px;">
@@ -189,7 +189,7 @@
                 </p>
                 <?php endif; ?>
 
-                <p style="color: #333;">
+                <p style="color: #333;line-height: 26px;">
                     小区名称：<?php echo $hous['h_building']; ?>
                     <br/>
                     房屋面积：<?php echo $hous['h_area']; ?>（㎡）
@@ -206,7 +206,7 @@
     <div class="mui-card-content">
         <div class="mui-card-content-inner">
             <p><b>房主信息</b></p>
-            <p style="color: #333;">
+            <p style="color: #333;line-height: 26px;">
                 姓名：<?php echo $master['hm_name']; ?>
                 <br/>
                 联系方式：<?php echo $master['hm_phone']; ?>
@@ -227,14 +227,14 @@
     <div class="mui-card-content">
         <div class="mui-card-content-inner">
             <p><b>回款信息</b></p>
-            <p style="color: #333;">
+            <p style="color: #333;line-height: 26px;">
                 总装修款<?php echo $payInfo['hp_money']; ?>元，已回款<?php echo $payInfo['hp_paid']; ?>元，未回款<?php echo $payInfo['hp_will_pay']; ?>元，回款率<?php echo $payInfo['hp_paid_ratio']; ?>。
             </p>
             <?php if($payLogs != null): ?>
             <p><b>回款记录</b></p>
             <?php if(is_array($payLogs) || $payLogs instanceof \think\Collection || $payLogs instanceof \think\Paginator): $i = 0; $__LIST__ = $payLogs;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$logs): $mod = ($i % 2 );++$i;?>
-            <p style="color: #333;">
-                <?php echo $logs['hpl_addtime']; ?> 回款<?php echo $logs['hpl_money']; ?>元。
+            <p style="color: #333;line-height: 26px;">
+                <?php echo $logs['hpl_addtime']; ?> 回款<?php echo $logs['hpl_money']; ?>元。<br/>
             </p>
             <?php endforeach; endif; else: echo "" ;endif; endif; ?>
         </div>
@@ -348,6 +348,13 @@
 <script src="__WAP__/js/mui.min.js"></script>
 <script src="__WAP__/js/mui.zoom.js"></script>
 <script src="__WAP__/js/mui.previewimage.js"></script>
+<script>
+    mui('body').on('tap','a',function(){
+        if(this.href){
+            window.top.location.href=this.href;
+        }
+    });
+</script>
 <script>
     mui.previewImage();
 </script>

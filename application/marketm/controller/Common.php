@@ -380,6 +380,18 @@ class Common extends Controller{
 
 
 
+    public function houseHeadFun(){
+        return [
+            '1' => '东',
+            '2' => '南',
+            '3' => '西',
+            '4' => '北',
+            '5' => '东南',
+            '6' => '西南',
+            '7' => '东北',
+            '8' => '西北',
+        ];
+    }
 
 
     public function houseHead($id){

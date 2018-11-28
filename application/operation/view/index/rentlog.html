@@ -87,6 +87,13 @@
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>
 <script>
+    mui('body').on('tap','a',function(){
+        if(this.href){
+            window.top.location.href=this.href;
+        }
+    });
+</script>
+<script>
     mui.init({
         swipeBack:true //启用右滑关闭功能
     });

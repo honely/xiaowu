@@ -164,7 +164,7 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/paylog')?>?h_id={$rent_id}"></a>
     <h1 class="mui-title">收租详情</h1>
 </header>
 <div class="mui-content">
@@ -172,9 +172,6 @@
         <h4>房源编号【{$payLog.hrl_house_code}】</h4>
         <p>
             今收到房客【{$payLog.rent_name}】电话【{$payLog.rent_phone}】，房租{$payLog.hrpl_money}元。
-        </p>
-        <p>
-            本条记录由【{$details.u_name}】在{$details.hrpl_addtime}提交。
         </p>
         <p><b>收款凭证</b></p>
         <p>
@@ -198,6 +195,13 @@
 <script src="__WAP__/js/mui.min.js"></script>
 <script src="__WAP__/js/mui.zoom.js"></script>
 <script src="__WAP__/js/mui.previewimage.js"></script>
+<script>
+    mui('body').on('tap','a',function(){
+        if(this.href){
+            window.top.location.href=this.href;
+        }
+    });
+</script>
 <script>
     mui.previewImage();
 </script>

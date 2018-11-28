@@ -173,7 +173,7 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/index')?>"></a>
     <h1 class="mui-title">房源预览</h1>
 </header>
 <div class="mui-content" style="padding-top: 40px;">
@@ -315,6 +315,10 @@
                 物业电话：{if isset($attach.ha_wuye_phone)}{$attach.ha_wuye_phone}{/if}
             </p>
             <p style="color: #333;">
+                物业费：{if isset($attach.ha_wuye_fee)}{$attach.ha_wuye_fee}{/if}
+                物业费类型：{if isset($attach.ha_wuye_fee_type)}{$attach.ha_wuye_fee_type}{/if}
+            </p>
+            <p style="color: #333;">
                 合同编号：{if isset($attach.ha_contact_code)}{$attach.ha_contact_code}{/if}
             </p>
             <p style="color: #333;">
@@ -352,6 +356,13 @@
 <script src="__WAP__/js/mui.previewimage.js"></script>
 <script>
     mui.previewImage();
+</script>
+<script>
+    mui('body').on('tap','a',function(){
+        if(this.href){
+            window.top.location.href=this.href;
+        }
+    });
 </script>
 </body>
 </html>

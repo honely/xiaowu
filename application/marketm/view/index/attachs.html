@@ -28,12 +28,15 @@
         label,input,textarea{
             font-size: 14px;
         }
+        a{
+            color:#007aff;
+        }
     </style>
 </head>
 
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/house')?>"></a>
     <h1 class="mui-title">房屋附属</h1>
 </header>
 <div class="mui-content">
@@ -78,11 +81,11 @@
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>租金(每月)：</label>
-                    <input type="text" lay-verify="required" {if isset($attach.ha_rent_price)} value="{$attach.ha_rent_price}" {/if}  class="layui-input" id="ha_rent_price" name="ha_rent_price">
+                    <input type="text" lay-verify="required" onkeyup="this.value=this.value.replace(/\D/g, '')" {if isset($attach.ha_rent_price)} value="{$attach.ha_rent_price}" {/if}  class="layui-input" id="ha_rent_price" name="ha_rent_price">
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>租期（月）：</label>
-                    <input type="text" lay-verify="required" {if isset($attach.ha_rent_time)} value="{$attach.ha_rent_time}" {/if}  class="layui-input" id="ha_rent_time" name="ha_rent_time">
+                    <input type="text" lay-verify="required"  onkeyup="this.value=this.value.replace(/\D/g, '')" {if isset($attach.ha_rent_time)} value="{$attach.ha_rent_time}" {/if}  class="layui-input" id="ha_rent_time" name="ha_rent_time">
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>到期时间：</label>
@@ -121,17 +124,17 @@
                 </div>
                 <div class="mui-input-row">
                     <label>电表底数：</label>
-                    <input type="text" {if isset($attach.ha_elect_start)} value="{$attach.ha_elect_start}" {/if} class="layui-input" id="ha_elect_start" name="ha_elect_start">
+                    <input type="text"  onkeyup="clearNoNum(this)"  {if isset($attach.ha_elect_start)} value="{$attach.ha_elect_start}" {/if} class="layui-input" id="ha_elect_start" name="ha_elect_start">
                 </div>
                 <div class="mui-input-row">
                     <label>电费单价：</label>
-                    <input type="text" {if isset($attach.ha_elect_price)} value="{$attach.ha_elect_price}" {/if} id="ha_elect_price" class="layui-input" name="ha_elect_price" >
+                    <input type="text"  {if isset($attach.ha_elect_price)} value="{$attach.ha_elect_price}" {/if} id="ha_elect_price" class="layui-input" name="ha_elect_price" >
                 </div>
                 <div class="mui-content-padded">
                     <select name="ha_elect_type" id="ha_elect_type" class="mui-btn mui-btn-block">
                         <option value="">请选择电费缴纳方式</option>
                         {volist name="electType" id="items"}
-                        <option value="{$key}">缴纳方式：{$items}</option>
+                        <option value="{$key}" {if condition="$attach.ha_elect_type eq $key"}selected{/if}>缴纳方式：{$items}</option>
                         {/volist}
                     </select>
                 </div>
@@ -147,11 +150,11 @@
                 </div>
                 <div class="mui-input-row">
                     <label>水表底数：</label>
-                    <input type="text" {if isset($attach.ha_water_start)} value="{$attach.ha_water_start}" {/if} class="layui-input" id="ha_water_start" name="ha_water_start">
+                    <input type="text" onkeyup="clearNoNum(this)" {if isset($attach.ha_water_start)} value="{$attach.ha_water_start}" {/if} class="layui-input" id="ha_water_start" name="ha_water_start">
                 </div>
                 <div class="mui-input-row">
                     <label>水费单价：</label>
-                    <input type="text" {if isset($attach.ha_water_price)} value="{$attach.ha_water_price}" {/if} class="layui-input" id="ha_water_price" name="ha_water_price" >
+                    <input type="text"  {if isset($attach.ha_water_price)} value="{$attach.ha_water_price}" {/if} class="layui-input" id="ha_water_price" name="ha_water_price" >
                 </div>
                 <div class="mui-input-row">
                     <label>缴费方式：</label>
@@ -168,13 +171,13 @@
                     <select name="ha_warm_type" id="ha_warm_type" class="mui-btn mui-btn-block">
                         <option value="">请选择供暖方式</option>
                         {volist name="warmType" id="items"}
-                        <option value="{$key}">供暖方式：{$items}</option>
+                        <option value="{$key}" {if condition="$attach.ha_warm_type eq $key"}selected{/if}>供暖方式：{$items}</option>
                         {/volist}
                     </select>
                 </div>
                 <div class="mui-input-row">
                     <label>暖气单价：</label>
-                    <input type="text" {if isset($attach.ha_warm_price)} onkeyup="this.value=this.value.replace(/\D/g, '')" value="{$attach.ha_warm_price}" {/if}  class="layui-input" id="ha_warm_price" name="ha_warm_price" >
+                    <input type="text" {if isset($attach.ha_warm_price)} value="{$attach.ha_warm_price}" {/if}  class="layui-input" id="ha_warm_price" name="ha_warm_price" >
                 </div>
                 <div class="mui-input-row">
                     <label>缴费方式：</label>
@@ -204,7 +207,7 @@
             <div class="mui-card">
                 <div class="mui-input-row">
                     <label>燃气底数：</label>
-                    <input type="text"  {if isset($attach.ha_air_start)} value="{$attach.ha_air_start}" {/if}   class="layui-input" id="ha_air_start" name="ha_air_start">
+                    <input type="text" onkeyup="clearNoNum(this)" {if isset($attach.ha_air_start)} value="{$attach.ha_air_start}" {/if}   class="layui-input" id="ha_air_start" name="ha_air_start">
                 </div>
                 <div class="mui-input-row">
                     <label>燃气备注：</label>
@@ -228,15 +231,14 @@
                     <select name="ha_wuye_fee_type" id="ha_wuye_fee_type" class="mui-btn mui-btn-block">
                         <option value="">请选择物业费类型</option>
                         {volist name="wuyeFeeType" id="items"}
-                        <option value="{$key}">物业费类型：{$items}</option>
+                        <option value="{$key}" {if condition="$attach.ha_wuye_fee_type eq $key"}selected{/if}>物业费类型：{$items}</option>
                         {/volist}
                     </select>
                 </div>
             </div>
-
             <div class="mui-card">
-                <div class="mui-input-row" style="margin: 10px 5px;">
-                    <textarea id="textarea" name="ha_remarks" rows="5" placeholder="其他备注信息">{if isset($attach.ha_remarks)}{$attach.ha_remarks}{/if}</textarea>
+                <div class="mui-input-row" style="margin: 10px 5px;height: 131px;">
+                    <textarea id="textarea" style="height: 131px;" name="ha_remarks" rows="10" placeholder="其他备注信息">{if isset($attach.ha_remarks)}{$attach.ha_remarks}{/if}</textarea>
                 </div>
             </div>
             <div id='result' class="ui-alert"></div>
@@ -247,6 +249,28 @@
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>
 <script src="__LAY__/layui.js"></script>
+<script>
+    mui('body').on('tap','a',function(){
+        if(this.href){
+            window.top.location.href=this.href;
+        }
+    });
+    function clearNoNum(obj){
+        if(obj.value !=''&& obj.value.substr(0,1) == '.'){
+            obj.value="";
+        }
+        obj.value = obj.value.replace(/^0*(0\.|[1-9])/, '$1');
+        obj.value = obj.value.replace(/[^\d.]/g,"");
+        obj.value = obj.value.replace(/\.{2,}/g,".");
+        obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");
+        obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3');
+        if(obj.value.indexOf(".")< 0 && obj.value !=""){
+            if(obj.value.substr(0,1) == '0' && obj.value.length == 2){
+                obj.value= obj.value.substr(1,obj.value.length);
+            }
+        }
+    }
+</script>
 <script>
     mui.init({
         swipeBack: true //启用右滑关闭功能

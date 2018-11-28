@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\addpaylog.html";i:1542593331;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\addpaylog.html";i:1543287528;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -26,18 +26,21 @@
         .img{
             width:100%; height: 92px
         }
+        a{
+            color:#007aff;
+        }
     </style>
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-action-back mui-icon-left-nav mui-pull-left" href="<?=url('index/house')?>"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/paylog')?>?h_id=<?php echo $hr_id; ?>"></a>
     <h1 class="mui-title">添加收租</h1>
 </header>
 <div class="mui-content">
     <div class="mui-card">
         <div class="mui-card-content">
             <div class="mui-card-content-inner">
-                <p style="color: #333;">
+                <p style="color: #333;line-height: 26px;">
                     房客：【<?php echo $renter['hr_name']; ?>】，电话：<?php echo $renter['hr_phone']; ?>，租住房源编号为【<?php echo $rent['hrl_house_code']; ?>】的房屋，<?php echo $rent['hrl_dead_time']; ?>合同到期。
                 </p>
             </div>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\improve.html";i:1542685785;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\improve.html";i:1543286811;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -179,12 +179,15 @@
             max-width: 100%;
             height: auto;
         }
+        a{
+            color: #007aff;
+        }
     </style>
 </head>
 
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/index')?>"></a>
     <h1 class="mui-title">房源信息</h1>
 </header>
 <div class="mui-content">
@@ -283,6 +286,13 @@
 <script src="__WAP__/js/mui.previewimage.js"></script>
 <script>
     mui.previewImage();
+</script>
+<script>
+    mui('body').on('tap','a',function(){
+        if(this.href){
+            window.top.location.href=this.href;
+        }
+    });
 </script>
 <script>
     mui.init({

@@ -15,20 +15,31 @@
     <h1 class="mui-title">房屋转交记录</h1>
 </header>
 <div class="mui-content" style="padding-top: 40px;">
-    {volist name="marToDec" id="log"}
-    <div class="mui-card">
-        <div class="mui-card-content">
-            <div class="mui-card-content-inner">
-                <p><b>{$log.hat_assign_title}</b>
-                <p style="color: #333;">
-                本条记录在{$log.hat_add_time}由{$log.hat_admin_job}--{$log.hat_admin_name}提交，
-                由{$log.hat_assigner_job}--{$log.hat_assigner_name}在{$log.hat_assign_time},
-                分配给{$log.hat_assign_to_job}--{$log.hat_assign_too}。
-                </p>
+    {if condition="$marToDec neq null"}
+        {volist name="marToDec" id="log"}
+            <div class="mui-card">
+                <div class="mui-card-content">
+                    <div class="mui-card-content-inner">
+                        <p><b>{$log.hat_assign_title}</b>
+                        <p style="color: #333;">
+                            本条记录在{$log.hat_add_time}由{$log.hat_admin_job}--{$log.hat_admin_name}提交，
+                            由{$log.hat_assigner_job}--{$log.hat_assigner_name}在{$log.hat_assign_time},
+                            分配给{$log.hat_assign_to_job}--{$log.hat_assign_too}。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {/volist}
+    {else/}
+        <div class="mui-card">
+            <div class="mui-card-content">
+                <div class="mui-card-content-inner">
+                    <p><b>暂无交接记录！</b>
+                </div>
             </div>
         </div>
-    </div>
-    {/volist}
+    {/if}
+
 </div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>

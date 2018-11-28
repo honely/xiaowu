@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/manager\view\index\preview.html";i:1542706984;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/manager\view\index\preview.html";i:1543199888;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -174,7 +174,7 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/index')?>"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/index')?>"></a>
     <h1 class="mui-title">房源预览</h1>
 </header>
 <div class="mui-content" style="padding-top: 40px;">
@@ -394,6 +394,13 @@
 <script src="__WAP__/js/mui.previewimage.js"></script>
 <script>
     mui.previewImage();
+</script>
+<script>
+    mui('body').on('tap','a',function(){
+        if(this.href){
+            window.top.location.href=this.href;
+        }
+    });
 </script>
 </body>
 </html>

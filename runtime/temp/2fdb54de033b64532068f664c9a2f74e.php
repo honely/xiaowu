@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\addpaylog.html";i:1542592994;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\addpaylog.html";i:1543284445;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -26,18 +26,21 @@
         .img{
             width:100%; height: 92px
         }
+        a{
+            color: #007aff;
+        }
     </style>
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-action-back mui-icon-left-nav mui-pull-left" href="<?=url('index/house')?>"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/payment')?>?h_id=<?php echo $h_b_id; ?>"></a>
     <h1 class="mui-title">添加回款记录</h1>
 </header>
 <div class="mui-content">
     <div class="mui-card">
         <div class="mui-card-content">
             <div class="mui-card-content-inner">
-                <p style="color: #333;">
+                <p style="color: #333;line-height: 26px;">
                     总装修款：<?php echo $payMoney['hp_money']; ?>元，已回款：<?php echo $payMoney['hp_paid']; ?>元。未回款： <?php echo $payMoney['hp_will_pay']; ?>元，回款比率:<?php echo $payMoney['hp_paid_ratio']; ?>。
                 </p>
             </div>
@@ -58,8 +61,8 @@
 
             </div>
             <div class="mui-card">
-                <div class="mui-input-row" style="margin: 10px 5px;">
-                    <textarea id="textarea" name="hpl_tips" rows="5" placeholder="其他备注信息"></textarea>
+                <div class="mui-input-row" style="margin: 10px 5px;height: 131px;">
+                    <textarea id="textarea" style="height: 131px;" name="hpl_tips" rows="10" placeholder="其他备注信息"></textarea>
                 </div>
             </div>
             <span style="margin-top: 5px;" id="subBtn" lay-submit lay-filter="saveInfo" class="mui-btn mui-btn-primary mui-btn-block">确认添加</span>

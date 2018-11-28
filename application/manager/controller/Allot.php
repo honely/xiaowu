@@ -42,7 +42,7 @@ class Allot extends Controller{
             ->where(['hat_c_id' =>$cityId,'hat_is_assign' => 2,'hat_type' =>2,'h_isable' => 8])
             ->where($where)
             ->field('dcxw_house_allocate.*,dcxw_house.h_building,dcxw_house.h_area,dcxw_house.h_address')
-            ->limit(1)
+            ->limit(8)
             ->order('hat_add_time desc')
             ->select();
         if($allocate){
@@ -88,7 +88,7 @@ class Allot extends Controller{
         }else{
             $page=1;
         }
-        $limit=1;
+        $limit=8;
         $allocate=Db::table('dcxw_house_allocate')
             ->join('dcxw_house','dcxw_house.h_b_id = dcxw_house_allocate.hat_house_code')
             ->where(['hat_is_assign' => 2,'hat_type' =>2])
@@ -140,7 +140,7 @@ class Allot extends Controller{
             ->where(['hat_c_id' =>$cityId,'hat_is_assign' => 1,'hat_type' =>2])
             ->where($where)
             ->field('dcxw_house_allocate.*,dcxw_house.h_building,dcxw_house.h_area,dcxw_house.h_address')
-            ->limit(1)
+            ->limit(8)
             ->order('hat_add_time desc')
             ->select();
         if($allocate){
@@ -186,7 +186,7 @@ class Allot extends Controller{
         }else{
             $page=1;
         }
-        $limit=1;
+        $limit=8;
         $allocate=Db::table('dcxw_house_allocate')
             ->join('dcxw_house','dcxw_house.h_b_id = dcxw_house_allocate.hat_house_code')
             ->where(['hat_is_assign' => 1,'hat_type' =>2])
@@ -236,7 +236,7 @@ class Allot extends Controller{
             ->join('dcxw_house','dcxw_house.h_b_id = dcxw_house_allocate.hat_house_code')
             ->where(['hat_c_id' =>$cityId,'hat_type' =>2])
             ->where($where)
-            ->limit(1)
+            ->limit(8)
             ->field('dcxw_house_allocate.*,dcxw_house.h_building,dcxw_house.h_area,dcxw_house.h_address')
             ->order('hat_is_assign desc,hat_add_time desc')
             ->select();
@@ -281,7 +281,7 @@ class Allot extends Controller{
         }else{
             $page=1;
         }
-        $limit=1;
+        $limit=8;
         $allocate=Db::table('dcxw_house_allocate')
             ->join('dcxw_house','dcxw_house.h_b_id = dcxw_house_allocate.hat_house_code')
             ->where($where)

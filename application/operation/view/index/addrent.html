@@ -27,11 +27,14 @@
         .img{
             width:100%; height: 92px
         }
+        a{
+            color: #007aff;
+        }
     </style>
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/rentlog')?>?h_id={$h_id}"></a>
     <h1 class="mui-title">添加出租信息</h1>
 </header>
 <div class="mui-content">
@@ -53,13 +56,13 @@
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>联系方式：</label>
-                    <input type="text" class="layui-input" onkeyup="this.value=this.value.replace(/\D/g, '')"  id="hr_phone" name="hr_phone" >
+                    <input type="text" class="layui-input" lay-verify="required|phone" onkeyup="this.value=this.value.replace(/\D/g, '')"  id="hr_phone" name="hr_phone" >
                 </div>
             </div>
             <div class="mui-card">
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>租房单价：</label>
-                    <input type="text" class="layui-input" lay-verify="required" onkeyup="this.value=this.value.replace(/\D/g, '')"  id="hrl_rent_price" name="hrl_rent_price">
+                    <input type="text" class="layui-input" lay-verify="required" onkeyup="clearNoNum(this)"  id="hrl_rent_price" name="hrl_rent_price">
                 </div>
                 <div class="mui-content-padded">
                     <h5 class="mui-content-padded"><span class="color-red">*</span>出租渠道</h5>
@@ -78,23 +81,23 @@
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>租房押金：</label>
-                    <input type="text" class="layui-input" lay-verify="required"  id="hrl_foregift" name="hrl_foregift">
+                    <input type="text" class="layui-input" onkeyup="clearNoNum(this)" lay-verify="required"  id="hrl_foregift" name="hrl_foregift">
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>支付方式：</label>
-                    <input type="text" class="layui-input" lay-verify="required"  id="hrl_pay_type" name="hrl_pay_type">
+                    <input type="text" class="layui-input"  lay-verify="required"  id="hrl_pay_type" name="hrl_pay_type">
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>电表底数：</label>
-                    <input type="text" class="layui-input" lay-verify="required"  id="hrl_elect_start" name="hrl_elect_start">
+                    <input type="text" class="layui-input" onkeyup="clearNoNum(this)" lay-verify="required"  id="hrl_elect_start" name="hrl_elect_start">
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>水表底数：</label>
-                    <input type="text" class="layui-input" lay-verify="required" id="hrl_water_start" name="hrl_water_start" >
+                    <input type="text" class="layui-input" onkeyup="clearNoNum(this)" lay-verify="required" id="hrl_water_start" name="hrl_water_start" >
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>燃气底数：</label>
-                    <input type="text" class="layui-input" lay-verify="required" id="hrl_air_start" name="hrl_water_start" >
+                    <input type="text" class="layui-input" onkeyup="clearNoNum(this)" lay-verify="required" id="hrl_air_start" name="hrl_air_start" >
                 </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>合同编号：</label>
@@ -103,7 +106,7 @@
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>合同扫描件</label>
                     <span id="upload" class="mui-btn mui-btn-primary">上传</span>
-                    <input type="hidden" id="img" lay-verify="imgReg" value="123"/>
+                    <input type="hidden" id="img" lay-verify="imgReg" value=""/>
                 </div>
                 <div id="imgPre" style="overflow: hidden">
                 </div>
@@ -133,7 +136,21 @@
     mui.init({
         swipeBack: true //启用右滑关闭功能
     });
-
+    function clearNoNum(obj){
+        if(obj.value !=''&& obj.value.substr(0,1) == '.'){
+            obj.value="";
+        }
+        obj.value = obj.value.replace(/^0*(0\.|[1-9])/, '$1');
+        obj.value = obj.value.replace(/[^\d.]/g,"");
+        obj.value = obj.value.replace(/\.{2,}/g,".");
+        obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");
+        obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3');
+        if(obj.value.indexOf(".")< 0 && obj.value !=""){
+            if(obj.value.substr(0,1) == '0' && obj.value.length == 2){
+                obj.value= obj.value.substr(1,obj.value.length);
+            }
+        }
+    }
     layui.use( ['form','jquery','upload','laydate'], function(){
         var form = layui.form
             ,upload = layui.upload
@@ -153,7 +170,7 @@
             }
             ,imgReg:function (value) {
                 if(value.length <= 0){
-                    return '请上传打款凭证！';
+                    return '请上传合同扫描件！';
                 }
             }
         });

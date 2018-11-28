@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\addlog.html";i:1542965417;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\addlog.html";i:1543284047;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -177,21 +177,24 @@
             max-width: 100%;
             height: auto;
         }
+        a{
+            color: #007aff;
+        }
     </style>
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-action-back mui-icon-left-nav mui-pull-left" href="<?=url('index/house')?>"></a>
+    <a class="mui-icon mui-action-back mui-icon-left-nav mui-pull-left" href="<?=url('index/dailylog')?>h_id=<?php echo $h_id; ?>"></a>
     <h1 class="mui-title">添加监理日志</h1>
 </header>
 <div class="mui-content">
     <div class="mui-card">
         <div class="mui-card-content">
             <div class="mui-card-content-inner">
-                <p><b>当前装修阶段</b>
+                <p style="line-height: 26px;"><b>当前装修阶段</b>
                     <span style="margin-left: 8px;" class="mui-badge mui-badge-danger mui-pull-right"><?php echo $statusStart; ?></span>
                 </p>
-                <p style="color: #333;">
+                <p style="color: #333;line-height: 26px;">
                     小区名称：<?php echo $house['h_building']; ?>
                     <br/>
                     房源地址：<?php echo $house['h_address']; ?>
@@ -217,8 +220,8 @@
 
             </div>
             <div class="mui-card">
-                <div class="mui-input-row" style="margin: 10px 5px;">
-                    <textarea id="textarea" name="hdl_content" rows="5" placeholder="日志内容"></textarea>
+                <div class="mui-input-row" style="margin: 10px 5px;height: 131px;">
+                    <textarea id="textarea" style="height: 131px;" name="hdl_content" rows="10" placeholder="日志内容"><?php if(isset($attach['ha_remarks'])): ?><?php echo $attach['ha_remarks']; endif; ?></textarea>
                     <textarea id="textareas" style="display: none" name="trans" rows="5" placeholder="日志内容"></textarea>
                 </div>
             </div>

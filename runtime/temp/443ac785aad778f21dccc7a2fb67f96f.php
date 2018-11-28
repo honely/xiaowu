@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/manager\view\allot\allocated.html";i:1543039018;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/manager\view\allot\allocated.html";i:1543283758;}*/ ?>
 ﻿<!DOCTYPE html>
 <html>
 
@@ -82,6 +82,9 @@
             -webkit-touch-callout: none;
             -webkit-user-select: none;
         }
+        .mui-card-link{
+            color:#007aff ;
+        }
     </style>
 </head>
 <body>
@@ -111,10 +114,10 @@
             <div class="mui-card">
                 <div class="mui-card-content">
                     <div class="mui-card-content-inner">
-                        <p><b>房源编号：【<?php echo $vo['hat_house_code']; ?>】</b>
+                        <p style="line-height: 26px"><b>房源编号：【<?php echo $vo['hat_house_code']; ?>】</b>
                             <span style="float: right;"><span style="margin-left: 8px;" class="mui-badge mui-badge-warning mui-badge-inverted">已分配</span></span>
                         </p>
-                        <p><b>小区名称</b>：<?php echo $vo['h_building']; ?>
+                        <p style="line-height: 26px"><b>小区名称</b>：<?php echo $vo['h_building']; ?>
 
                         </p>
                         <p style="color: #333;line-height: 26px;">

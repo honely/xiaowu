@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\timeline.html";i:1541127975;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\timeline.html";i:1543199081;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +12,7 @@
 </head>
 <body class="mui-ios mui-ios-11 mui-ios-11-0">
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/index')?>"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/index')?>"></a>
     <h1 class="mui-title">装修进度</h1>
 </header>
 <div id="app" class="mui-content" style="background-color: rgb(255, 255, 255);">
@@ -29,4 +29,11 @@
     </section>
 </div>
 </body>
+<script>
+    mui('body').on('tap','a',function(){
+        if(this.href){
+            window.top.location.href=this.href;
+        }
+    });
+</script>
 </html>

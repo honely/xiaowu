@@ -90,16 +90,10 @@
             </div>
             <div class="mui-content-padded">
                 <select name="h_head" id="h_head" class="mui-btn mui-btn-block" style="font-size: 14px;">
-                    <!--房屋朝向,1东，2南，3西，4北，5东南，6西南，7东北，8西北-->
                     <option value="">请选择房屋朝向</option>
-                    <option value="1">东</option>
-                    <option value="2">南</option>
-                    <option value="3">西</option>
-                    <option value="4">北</option>
-                    <option value="5">东南</option>
-                    <option value="6">西南</option>
-                    <option value="7">东北</option>
-                    <option value="8">西北</option>
+                    {volist name="houseHead" id="items"}
+                        <option value="{$key}">{$items}</option>
+                    {/volist}
                 </select>
             </div>
             <div class="mui-input-row">

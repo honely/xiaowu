@@ -21,7 +21,7 @@
     </style>
 </head>
 
-<body>
+<body style="background-color: #efeff4">
 <header class="mui-bar mui-bar-nav">
     <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/house')?>"></a>
     <h1 class="mui-title">户主信息</h1>
@@ -50,20 +50,21 @@
                 <label>居住地址</label>
                 <input type="text" readonly value="{$master.hm_address}" >
             </div>
-            <div class="mui-card">
-                <div class="mui-card-content">
-                    <div class="mui-card-content-inner">
-                        <p>{if isset($master.hm_remarks)}{$master.hm_remarks}{/if}
-                        </p>
-                        <p class="mui-pull-right">
-                            <b>提交人</b>：{$master.u_job}---{$master.hm_admin}
-                        </p>
-                        <hr style="opacity:0;width: 100%;"/>
-                        <hr style="opacity:0"/>
-                        <p class="mui-pull-right">
-                            <b>时间</b>：{$master.hm_addtime}
-                        </p>
-                    </div>
+            <div class="mui-card-content">
+                <div class="mui-card-content-inner">
+                    <p>备注信息：{if isset($master.hm_remarks)}{$master.hm_remarks}{/if}
+                    </p>
+                </div>
+            </div>
+            <div class="mui-card-content" style="padding-bottom: 20px;">
+                <div class="mui-card-content-inner">
+                    <p class="mui-pull-right">
+                        <b>提交人</b>：{$master.u_job}---{$master.hm_admin}
+                    </p>
+                    <hr style="opacity:0;width: 100%;"/>
+                    <p class="mui-pull-right">
+                        <b>时间</b>：{$master.hm_addtime}
+                    </p>
                 </div>
             </div>
         </form>

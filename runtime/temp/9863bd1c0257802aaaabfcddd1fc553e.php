@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\alldetails.html";i:1542784918;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\alldetails.html";i:1543198738;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -12,7 +12,7 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/index')?>"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('admin/index')?>"></a>
     <h1 class="mui-title">转交详情</h1>
 </header>
 <div class="mui-content" style="padding-top: 40px;">
@@ -66,6 +66,13 @@
 <script src="__WAP__/js/mui.previewimage.js"></script>
 <script>
     mui.previewImage();
+</script>
+<script>
+    mui('body').on('tap','a',function(){
+        if(this.href){
+            window.top.location.href=this.href;
+        }
+    });
 </script>
 </body>
 </html>

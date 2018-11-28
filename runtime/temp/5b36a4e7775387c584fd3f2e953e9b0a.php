@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/manager\view\allot\allocate.html";i:1543049782;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/manager\view\allot\allocate.html";i:1543285239;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,7 +58,7 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left"  href="<?=url('allot/index')?>"></a>
     <h1 class="mui-title">分配房源</h1>
 </header>
 <div class="mui-content">
@@ -110,6 +110,13 @@
 </div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>
+<script>
+    mui('body').on('tap','a',function(){
+        if(this.href){
+            window.top.location.href=this.href;
+        }
+    });
+</script>
 <script>
     mui.init({
         swipeBack: true //启用右滑关闭功能

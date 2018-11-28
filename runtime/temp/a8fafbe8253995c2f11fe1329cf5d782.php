@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\details.html";i:1543050681;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\details.html";i:1543298517;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -174,7 +174,7 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/index')?>"></a>
     <h1 class="mui-title">房源预览</h1>
 </header>
 <div class="mui-content" style="padding-top: 40px;">
@@ -313,6 +313,10 @@
                 物业电话：<?php if(isset($attach['ha_wuye_phone'])): ?><?php echo $attach['ha_wuye_phone']; endif; ?>
             </p>
             <p style="color: #333;">
+                物业费：<?php if(isset($attach['ha_wuye_fee'])): ?><?php echo $attach['ha_wuye_fee']; endif; ?>
+                物业费类型：<?php if(isset($attach['ha_wuye_fee_type'])): ?><?php echo $attach['ha_wuye_fee_type']; endif; ?>
+            </p>
+            <p style="color: #333;">
                 合同编号：<?php if(isset($attach['ha_contact_code'])): ?><?php echo $attach['ha_contact_code']; endif; ?>
             </p>
             <p style="color: #333;">
@@ -350,6 +354,13 @@
 <script src="__WAP__/js/mui.previewimage.js"></script>
 <script>
     mui.previewImage();
+</script>
+<script>
+    mui('body').on('tap','a',function(){
+        if(this.href){
+            window.top.location.href=this.href;
+        }
+    });
 </script>
 </body>
 </html>

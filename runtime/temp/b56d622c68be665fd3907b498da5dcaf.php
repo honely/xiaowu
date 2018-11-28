@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\masters.html";i:1543051537;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\masters.html";i:1543196230;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -22,7 +22,7 @@
     </style>
 </head>
 
-<body>
+<body style="background-color: #efeff4">
 <header class="mui-bar mui-bar-nav">
     <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/house')?>"></a>
     <h1 class="mui-title">户主信息</h1>
@@ -51,20 +51,21 @@
                 <label>居住地址</label>
                 <input type="text" readonly value="<?php echo $master['hm_address']; ?>" >
             </div>
-            <div class="mui-card">
-                <div class="mui-card-content">
-                    <div class="mui-card-content-inner">
-                        <p><?php if(isset($master['hm_remarks'])): ?><?php echo $master['hm_remarks']; endif; ?>
-                        </p>
-                        <p class="mui-pull-right">
-                            <b>提交人</b>：<?php echo $master['u_job']; ?>---<?php echo $master['hm_admin']; ?>
-                        </p>
-                        <hr style="opacity:0;width: 100%;"/>
-                        <hr style="opacity:0"/>
-                        <p class="mui-pull-right">
-                            <b>时间</b>：<?php echo $master['hm_addtime']; ?>
-                        </p>
-                    </div>
+            <div class="mui-card-content">
+                <div class="mui-card-content-inner">
+                    <p>备注信息：<?php if(isset($master['hm_remarks'])): ?><?php echo $master['hm_remarks']; endif; ?>
+                    </p>
+                </div>
+            </div>
+            <div class="mui-card-content" style="padding-bottom: 20px;">
+                <div class="mui-card-content-inner">
+                    <p class="mui-pull-right">
+                        <b>提交人</b>：<?php echo $master['u_job']; ?>---<?php echo $master['hm_admin']; ?>
+                    </p>
+                    <hr style="opacity:0;width: 100%;"/>
+                    <p class="mui-pull-right">
+                        <b>时间</b>：<?php echo $master['hm_addtime']; ?>
+                    </p>
                 </div>
             </div>
         </form>

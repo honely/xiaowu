@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\dailylog.html";i:1542965387;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\dailylog.html";i:1543199111;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -52,6 +52,13 @@
 <script>
     mui.init({
         swipeBack:true //启用右滑关闭功能
+    });
+</script>
+<script>
+    mui('body').on('tap','a',function(){
+        if(this.href){
+            window.top.location.href=this.href;
+        }
     });
 </script>
 <script>

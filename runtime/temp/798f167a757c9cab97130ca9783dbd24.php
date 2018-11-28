@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\index.html";i:1543048841;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\index.html";i:1543197484;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -91,16 +91,10 @@
             </div>
             <div class="mui-content-padded">
                 <select name="h_head" id="h_head" class="mui-btn mui-btn-block" style="font-size: 14px;">
-                    <!--房屋朝向,1东，2南，3西，4北，5东南，6西南，7东北，8西北-->
                     <option value="">请选择房屋朝向</option>
-                    <option value="1">东</option>
-                    <option value="2">南</option>
-                    <option value="3">西</option>
-                    <option value="4">北</option>
-                    <option value="5">东南</option>
-                    <option value="6">西南</option>
-                    <option value="7">东北</option>
-                    <option value="8">西北</option>
+                    <?php if(is_array($houseHead) || $houseHead instanceof \think\Collection || $houseHead instanceof \think\Paginator): $i = 0; $__LIST__ = $houseHead;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
+                        <option value="<?php echo $key; ?>"><?php echo $items; ?></option>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
                 </select>
             </div>
             <div class="mui-input-row">

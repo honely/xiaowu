@@ -183,6 +183,7 @@ class Index extends Controller{
             $house['h_house_type']=$commodel->getHouseTypeNameByTypeId($house['h_house_type']);
             $house['h_head']=$commodel->houseHead($house['h_head']);
             $house['h_config']=explode(',',$house['h_config']);
+            $house['h_addtime']=date('Y-m-d H:i:s',$house['h_addtime']);
             if($house['h_img']){
                 $house['h_img']=explode(',',$house['h_img']);
                 $house['config_img']=[];
@@ -234,6 +235,9 @@ class Index extends Controller{
             $attach['ha_deadline']=date("Y-m-d",$attach['ha_deadline']);
             $attach['ha_decorate_permit']=date("Y-m-d",$attach['ha_decorate_permit']);
             $attach['ha_contact_img']=explode(',',$attach['ha_contact_img']);
+            $attach['ha_elect_type']=$commodel->getElectTypeName($attach['ha_elect_type']);
+            $attach['ha_warm_type']=$commodel->getWarmTypeName($attach['ha_warm_type']);
+            $attach['ha_wuye_fee_type']=$commodel->getWuYeFeeTypeName($attach['ha_wuye_fee_type']);
         }
         $this->assign('attach',$attach);
         return $this->fetch();

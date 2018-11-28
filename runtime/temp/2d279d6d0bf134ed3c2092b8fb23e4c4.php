@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:78:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\rentdetail.html";i:1541820759;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:78:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\rentdetail.html";i:1543297979;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -165,7 +165,7 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/rentlog')?>?h_id=<?php echo $house['h_b_id']; ?>"></a>
     <h1 class="mui-title">出租详情</h1>
 </header>
 <div class="mui-content" style="padding-top: 40px;">
@@ -231,10 +231,12 @@
                 <br/>
                 电表结数：<?php echo $rent['hrl_elect_end']; endif; ?>
                     <br/>
-                    水表底数：<?php echo $rent['hrl_water_start']; ?>
-                    <br/>
+                    水表底数：<?php echo $rent['hrl_water_start']; if($rent['hrl_status'] == 2): ?>
+                <br/>水表结数：<?php echo $rent['hrl_water_end']; endif; ?>
+                <br/> 燃气底数：<?php echo $rent['hrl_air_start']; ?>
+                <br/>
                 <?php if($rent['hrl_status'] == 2): ?>
-                水表底数：<?php echo $rent['hrl_water_end']; endif; ?>
+                燃气结数：<?php echo $rent['hrl_air_end']; endif; ?>
                 </p>
             </div>
         </div>
@@ -244,12 +246,16 @@
         <div class="mui-card">
             <div class="mui-input-row">
                 <label>电表结数：</label>
-                <input type="text" <?php if(isset($rent['hrl_elect_end'])): ?> value="<?php echo $rent['hrl_elect_end']; ?>" readonly  <?php endif; ?> class="layui-input" lay-verify="required" id="hrl_elect_end" name="hrl_elect_end">
+                <input type="text" onkeyup="clearNoNum(this)" <?php if(isset($rent['hrl_elect_end'])): ?> value="<?php echo $rent['hrl_elect_end']; ?>" readonly  <?php endif; ?> class="layui-input" lay-verify="required" id="hrl_elect_end" name="hrl_elect_end">
                 <input type="text" name="hrl_id" id="hrl_id" value="<?php echo $rent['hrl_id']; ?>" >
             </div>
             <div class="mui-input-row">
-                <label>水表结数</label>
-                <input type="text" <?php if(isset($rent['hrl_water_end'])): ?> value="<?php echo $rent['hrl_water_end']; ?>" readonly <?php endif; ?> id="hrl_water_end" name="hrl_water_end" >
+                <label>水表结数：</label>
+                <input type="text" onkeyup="clearNoNum(this)" <?php if(isset($rent['hrl_water_end'])): ?> value="<?php echo $rent['hrl_water_end']; ?>" readonly <?php endif; ?> id="hrl_water_end" name="hrl_water_end" >
+            </div>
+            <div class="mui-input-row">
+                <label>燃气结数：</label>
+                <input type="text" onkeyup="clearNoNum(this)" <?php if(isset($rent['hrl_air_end'])): ?> value="<?php echo $rent['hrl_air_end']; ?>" readonly <?php endif; ?> id="hrl_air_end" name="hrl_air_end" >
             </div>
         </div>
         </form>
@@ -265,13 +271,36 @@
     mui.previewImage();
 </script>
 <script>
+    mui('body').on('tap','a',function(){
+        if(this.href){
+            window.top.location.href=this.href;
+        }
+    });
+    function clearNoNum(obj){
+        if(obj.value !=''&& obj.value.substr(0,1) == '.'){
+            obj.value="";
+        }
+        obj.value = obj.value.replace(/^0*(0\.|[1-9])/, '$1');
+        obj.value = obj.value.replace(/[^\d.]/g,"");
+        obj.value = obj.value.replace(/\.{2,}/g,".");
+        obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");
+        obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3');
+        if(obj.value.indexOf(".")< 0 && obj.value !=""){
+            if(obj.value.substr(0,1) == '0' && obj.value.length == 2){
+                obj.value= obj.value.substr(1,obj.value.length);
+            }
+        }
+    }
+</script>
+<script>
     mui.init({
         swipeBack:true //启用右滑关闭功能
     });
     $('#finishRent').click(function () {
         var elect_end=$('#hrl_elect_end').val();
         var water_end=$('#hrl_water_end').val();
-        if(elect_end.length<=0 || water_end.length<=0){
+        var air_end=$('#hrl_air_end').val();
+        if(elect_end.length<=0 || water_end.length<=0 || air_end.length<=0){
             mui.alert('请输入要填写的信息后提交！', function() {
             });
         }else{

@@ -56,6 +56,13 @@
     });
 </script>
 <script>
+    mui('body').on('tap','a',function(){
+        if(this.href){
+            window.top.location.href=this.href;
+        }
+    });
+</script>
+<script>
     $('#moreBtn').click(function () {
         var page=parseInt($('#page').val());
         var h_id=parseInt({$h_id});

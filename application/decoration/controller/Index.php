@@ -26,9 +26,16 @@ class Index extends Controller{
         $userInfo=session('userInfo');
         $cityId=$userInfo['u_c_id'];
         $userId=$userInfo['u_id'];
+        $where=" 1 =1 ";
+        $keywords=trim($this->request->param('keywords'));
+        if(isset($keywords) && !empty($keywords)){
+            $where.=" and ( h_b_id like '%".$keywords."%')";
+            $this->assign('keywords',$keywords);
+        }
         $houses=Db::table('dcxw_house_allocate')
             ->join('dcxw_house','dcxw_house.h_b_id = dcxw_house_allocate.hat_house_code')
             ->where(['hat_c_id' => $cityId,'hat_assign_to' => $userId,'h_isable' => 2,'hat_type' => 1])
+            ->where($where)
             ->select();
         $connomModel=new \app\marketm\controller\Common();
         if($houses){
@@ -49,6 +56,7 @@ class Index extends Controller{
         $count=Db::table('dcxw_house_allocate')
             ->join('dcxw_house','dcxw_house.h_b_id = dcxw_house_allocate.hat_house_code')
             ->where(['hat_c_id' => $cityId,'hat_assign_to' => $userId,'h_isable' => 2,'hat_type' => 1])
+            ->where($where)
             ->count();
         $this->assign('count',$count);
         $this->assign('houses',$houses);

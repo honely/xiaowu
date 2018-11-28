@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"G:\xampp\htdocs\bbb\public/../application/manager\view\index\rent.html";i:1542508334;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"G:\xampp\htdocs\bbb\public/../application/manager\view\index\rent.html";i:1543203400;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -9,6 +9,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
+    <style>
+        input{
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">

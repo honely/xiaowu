@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\all.html";i:1543039655;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\all.html";i:1543283788;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -82,6 +82,9 @@
             -webkit-touch-callout: none;
             -webkit-user-select: none;
         }
+        .mui-card-link{
+            color:#007aff ;
+        }
     </style>
 </head>
 <body>
@@ -111,14 +114,14 @@
             <div class="mui-card">
                 <div class="mui-card-content">
                     <div class="mui-card-content-inner">
-                        <p><b>房源编号：【<?php echo $vo['hat_house_code']; ?>】</b>
+                        <p style="line-height: 26px"><b>房源编号：【<?php echo $vo['hat_house_code']; ?>】</b>
                             <?php if($vo['hat_is_assign'] == 2): ?>
                             <span style="float: right;"><span style="margin-left: 8px;" class="mui-badge mui-badge-primary mui-badge-inverted">未分配</span></span>
                             <?php else: ?>
                             <span style="float: right;"><span style="margin-left: 8px;" class="mui-badge mui-badge-warning mui-badge-inverted">已分配</span></span>
                             <?php endif; ?>
                         </p>
-                        <p><b>小区名称</b>：<?php echo $vo['h_building']; ?>
+                        <p style="line-height: 26px"><b>小区名称</b>：<?php echo $vo['h_building']; ?>
 
                         </p>
                         <p style="color: #333;line-height: 26px;">
@@ -151,7 +154,7 @@
         <?php endforeach; endif; else: echo "" ;endif; ?>
         <div class="mui-card">
             <input type="hidden" value="1" id="page1"/>
-            <div id="moreBtn1" class="mui-card-content" style="height: 40px;text-align: center;line-height: 36px;<?php if($count > 1): ?>display: block<?php else: ?>display: none<?php endif; ?>">
+            <div id="moreBtn1" class="mui-card-content" style="height: 40px;text-align: center;line-height: 36px;<?php if($count > 8): ?>display: block<?php else: ?>display: none<?php endif; ?>">
                 加载更多
             </div>
         </div>

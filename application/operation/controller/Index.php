@@ -25,9 +25,16 @@ class Index extends Controller{
         $userInfo=session('userInfo');
         $cityId=$userInfo['u_c_id'];
         $userId=$userInfo['u_id'];
+        $where=" 1 =1 ";
+        $keywords=trim($this->request->param('keywords'));
+        if(isset($keywords) && !empty($keywords)){
+            $where.=" and ( h_b_id like '%".$keywords."%')";
+            $this->assign('keywords',$keywords);
+        }
         $houses=Db::table('dcxw_house_allocate')
             ->join('dcxw_house','dcxw_house.h_b_id = dcxw_house_allocate.hat_house_code')
             ->where(['hat_c_id' => $cityId,'hat_assign_to' => $userId,'hat_type' => 2])
+            ->where($where)
             ->where('h_isable = 3 or h_isable = 4 or h_isable = 5')
             ->select();
         $connomModel=new \app\marketm\controller\Common();
@@ -41,6 +48,7 @@ class Index extends Controller{
         $count=Db::table('dcxw_house_allocate')
             ->join('dcxw_house','dcxw_house.h_b_id = dcxw_house_allocate.hat_house_code')
             ->where(['hat_c_id' => $cityId,'hat_assign_to' => $userId,'h_isable' => 2,'hat_type' => 1])
+            ->where($where)
             ->count();
         $this->assign('count',$count);
         $this->assign('houses',$houses);
@@ -127,6 +135,10 @@ class Index extends Controller{
         $house=Db::table('dcxw_house')
             ->where(['h_b_id' => $h_id])
             ->find();
+        $commonM=new \app\marketm\controller\Common();
+        if($house){
+            $house['h_house_type']=$commonM->getHouseTypeNameByTypeId($house['h_house_type']);
+        }
         $this->assign('hous',$house);
         //客户经理信息
         $u_id=$house['h_admin'];
@@ -170,6 +182,9 @@ class Index extends Controller{
             $attach['ha_deadline']=date("Y-m-d",$attach['ha_deadline']);
             $attach['ha_contact_img']=explode(",",$attach['ha_contact_img']);
             $attach['ha_decorate_permit']=date("Y-m-d",$attach['ha_decorate_permit']);
+            $attach['ha_warm_type']=$commonM->getWarmTypeName($attach['ha_warm_type']);
+            $attach['ha_elect_type']=$commonM->getElectTypeName($attach['ha_elect_type']);
+            $attach['ha_wuye_fee_type']=$commonM->getWuYeFeeTypeName($attach['ha_wuye_fee_type']);
         }
         $this->assign('attach',$attach);
         return $this->fetch();
@@ -219,8 +234,9 @@ class Index extends Controller{
                 $renter['hr_addtime']=date('Y-m-d H:i:s',$renter['hr_addtime']);
                 $masterArr=Db::table('dcxw_user')
                     ->where(['u_id' => $renter['hr_admin']])
-                    ->column('u_name');
-                $renter['hr_admin']=$masterArr[0];
+                    ->field('u_name,u_job')->find();
+                $renter['hr_admin']=$masterArr['u_name'];
+                $renter['u_job']=$masterArr['u_job'];
             }
         }
         $this->assign('renter',$renter);
@@ -389,6 +405,7 @@ class Index extends Controller{
                 $rentLog['hrl_renter_id']=$rent_id;
                 $rentLog['hrl_elect_start']=trim($_POST['hrl_elect_start']);
                 $rentLog['hrl_water_start']=trim($_POST['hrl_water_start']);
+                $rentLog['hrl_air_start']=trim($_POST['hrl_air_start']);
                 $rentLog['hrl_rent_time']=strtotime(trim($_POST['hrl_rent_time'])." 00:00:00");
                 $rentLog['hrl_dead_time']=strtotime(trim($_POST['hrl_dead_time'])." 23:59:59");
                 $rentLog['hrl_contact_code']=trim($_POST['hrl_contact_code']);
@@ -517,6 +534,7 @@ class Index extends Controller{
             $hrl_id=intval(trim($_POST['hrl_id']));
             $data['hrl_elect_end']=trim($_POST['hrl_elect_end']);
             $data['hrl_water_end']=trim($_POST['hrl_water_end']);
+            $data['hrl_air_end']=trim($_POST['hrl_air_end']);
             $data['hrl_status']=2;
             $finishRent=Db::table('dcxw_house_rent_log')
                 ->where(['hrl_id' => $hrl_id])
@@ -649,6 +667,7 @@ class Index extends Controller{
         $payLog['rent_name']=$commonModel->getRenterNameViaRentId($payLog['hrl_renter_id']);
         $payLog['rent_phone']=$commonModel->getRenterPhoneViaRentId($payLog['hrl_renter_id']);
         $this->assign('payLog',$payLog);
+        $this->assign('rent_id',$rent_id);
         return $this->fetch();
     }
 }

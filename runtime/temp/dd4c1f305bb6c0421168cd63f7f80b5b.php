@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\login\login.html";i:1542962930;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\login\login.html";i:1543305068;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,25 +12,79 @@
         h5 {
             margin: 5px 7px;
         }
+        .login{
+            width: 100%;
+            height: 100%;
+            background: url(__WAP__/images/login-bg.png) no-repeat;
+            background-size: cover;
+            position: fixed;
+            z-index: -10;
+        }
+        .welcome{
+            width: 100%;
+            margin: 30% 0;
+            text-align: center;
+            color: #fff;
+            font-size: 25px;
+        }
+        .login-form{
+            margin: 0;
+            padding: 0;
+            border: 0;
+            list-style: none;
+            font-style: normal;
+        }
+        .login-inp{
+            margin: 0 30px 15px 30px;
+            border: 1px solid #fff;
+            border-radius: 25px;
+            line-height: 42px;
+        }
+        .login-inp label {
+            width: 20%;
+            text-align: center;
+            display: inline-block;
+            color: #fff;
+        }
+        .login-inp input {
+            line-height: 40px;
+            color: #fff;
+            width: 80%;
+            display: inline-block;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            float: right;
+        }
+        .login-inp span{
+            display: block;
+            width: 100%;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            font-size: 16px;
+            letter-spacing: 5px;
+        }
     </style>
 </head>
 <body>
-<header class="mui-bar mui-bar-nav">
-    <h1 class="mui-title">登录</h1>
-</header>
-<div class="mui-content">
+<div class="mui-content login" >
+    <div class="welcome">
+        欢迎登录大城小屋！
+        <!--<img src="__WAP__/images/welcome.png"/>-->
+    </div>
     <div class="mui-content-padded" style="margin: 5px;">
-        <form class="mui-input-group" id="loginForm">
-            <div class="mui-input-row">
+        <form class="login-form" id="loginForm">
+            <div class="login-inp">
                 <label>账号</label>
-                <input type="text" name="u_account" id="u_account" placeholder="请输入手机号或邮箱进行登录">
+                <input type="text" name="u_account" id="u_account" placeholder="请输入手机号或邮箱">
             </div>
-            <div class="mui-input-row">
+            <div class="login-inp">
                 <label>密码</label>
-                <input type="password" name="u_password" id="u_password" class="mui-input-password">
+                <input type="password" name="u_password" id="u_password" placeholder="请输入密码"/>
             </div>
-            <div class="mui-content-padded">
-                <span type="button" id="login" class="mui-btn mui-btn-primary mui-btn-block">登录</span>
+            <div class="login-inp">
+                <span id="login">登录</span>
             </div>
         </form>
     </div>
