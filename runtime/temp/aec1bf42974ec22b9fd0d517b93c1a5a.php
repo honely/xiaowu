@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/manager\view\allot\details.html";i:1543285239;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/manager\view\allot\details.html";i:1544419102;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -174,7 +174,9 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('allot/index')?>"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left"
+        <?php switch($type): case "1": ?>href="<?=url('allot/index')?>"<?php break; case "2": ?>href="<?=url('allot/allocated')?>"<?php break; case "3": ?>href="<?=url('allot/all')?>"<?php break; endswitch; ?>
+    ></a>
     <h1 class="mui-title">房源预览</h1>
 </header>
 <div class="mui-content" style="padding-top: 40px;">
@@ -182,6 +184,7 @@
         <div class="mui-card-content">
             <div class="mui-card-content-inner">
                 <p><b>基本信息</b>：房源编号：【<?php echo $hous['h_b_id']; ?>】
+                    <a href="<?=url('allot/editbase')?>?h_id=<?php echo $hous['h_b_id']; ?>&type=<?php echo $type; ?>" class="mui-icon mui-icon-compose mui-pull-right color-blue"></a>
                 </p>
                 <?php if($manger != null): ?>
                 <p>
@@ -244,7 +247,9 @@
 <div class="mui-card">
     <div class="mui-card-content">
         <div class="mui-card-content-inner">
-            <p><b>附属信息</b></p>
+            <p><b>附属信息</b>
+                <a href="<?=url('allot/editattch')?>?h_id=<?php echo $hous['h_b_id']; ?>&type=<?php echo $type; ?>" class="mui-icon mui-icon-compose mui-pull-right color-blue"></a>
+            </p>
             <p style="color: #333;">
                 钥匙：<?php if(isset($attach['ha_keys'])): ?><?php echo $attach['ha_keys']; endif; ?>
                 备注：<?php if(isset($attach['ha_keys_remarks'])): ?><?php echo $attach['ha_keys_remarks']; endif; ?>
@@ -313,15 +318,21 @@
                 物业电话：<?php if(isset($attach['ha_wuye_phone'])): ?><?php echo $attach['ha_wuye_phone']; endif; ?>
             </p>
             <p style="color: #333;">
+                物业费用：<?php if(isset($attach['ha_wuye_fee'])): ?><?php echo $attach['ha_wuye_fee']; endif; ?>
+                物业费类型：<?php if(isset($attach['ha_wuye_fee_type'])): ?><?php echo $attach['ha_wuye_fee_type']; endif; ?>
+            </p>
+            <p style="color: #333;">
                 合同编号：<?php if(isset($attach['ha_contact_code'])): ?><?php echo $attach['ha_contact_code']; endif; ?>
             </p>
             <p style="color: #333;">
                 <b>合同扫描件：</b>
             </p>
             <p>
-                <?php if(is_array($attach['ha_contact_img']) || $attach['ha_contact_img'] instanceof \think\Collection || $attach['ha_contact_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $attach['ha_contact_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
-                <img src="<?php echo $items; ?>" data-preview-src="" data-preview-group="2">
-                <?php endforeach; endif; else: echo "" ;endif; ?>
+                <?php if($attach['ha_contact_img_first'] != null): ?>
+                <img src="__WEB__/img/one-btn.png" style="width: 20%" data-preview-src="<?php echo $attach['ha_contact_img_first']; ?>" data-preview-group="1">
+                <?php endif; if($attach['ha_contact_imgs'] != null): if(is_array($attach['ha_contact_imgs']) || $attach['ha_contact_imgs'] instanceof \think\Collection || $attach['ha_contact_imgs'] instanceof \think\Paginator): $i = 0; $__LIST__ = $attach['ha_contact_imgs'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
+                <img style="display: none" src="<?php echo $items; ?>" data-preview-src="" data-preview-group="1">
+                <?php endforeach; endif; else: echo "" ;endif; endif; ?>
             </p>
             <hr/>
             <p style="color: #333;">

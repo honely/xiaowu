@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"G:\xampp\htdocs\bbb\public/../application/manager\view\allot\alldetails.html";i:1543038692;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"G:\xampp\htdocs\bbb\public/../application/manager\view\allot\alldetails.html";i:1543915454;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -12,7 +12,9 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left"
+    <?php switch($type): case "1": ?>href="<?=url('allot/index')?>"<?php break; case "2": ?>href="<?=url('allot/allocated')?>"<?php break; case "3": ?>href="<?=url('allot/all')?>"<?php break; endswitch; ?>
+    ></a>
     <h1 class="mui-title">转交详情</h1>
 </header>
 <div class="mui-content" style="padding-top: 40px;">
@@ -64,6 +66,13 @@
 <script src="__WAP__/js/mui.min.js"></script>
 <script src="__WAP__/js/mui.zoom.js"></script>
 <script src="__WAP__/js/mui.previewimage.js"></script>
+<script>
+    mui('body').on('tap','a',function(){
+        if(this.href){
+            window.top.location.href=this.href;
+        }
+    });
+</script>
 <script>
     mui.previewImage();
 </script>

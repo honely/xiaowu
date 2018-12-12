@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/manager\view\index\index.html";i:1543203379;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/manager\view\index\index.html";i:1544436254;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -18,7 +18,7 @@
 <body>
 <header class="mui-bar mui-bar-nav">
     <h1 class="mui-title">房源列表</h1>
-    <a class="mui-icon mui-icon-person mui-pull-right" href="<?=url('index/person')?>"></a>
+    <a class="mui-icon mui-icon-person mui-pull-right" href="<?=url('marketm/index/person')?>?role=6"></a>
 </header>
 <div class="mui-content" style="background:#fff;">
     <div class="mui-content-padded">
@@ -66,17 +66,12 @@
             </div>
         </div>
         <div class="mui-card-footer">
-            <a class="mui-card-link"
-            <?php if($hous['is_paid_ratio'] == 1): ?>
-             href="<?=url('index/payment')?>?h_id=<?php echo $hous['h_b_id']; ?>"
-            <?php else: ?>
-            onclick="alertss()"
-            <?php endif; ?>
-            >回款信息</a>
-            <a class="mui-card-link" href="<?=url('index/decorate')?>?b_id=<?php echo $hous['h_b_id']; ?>">装修信息</a>
-            <a class="mui-card-link" href="<?=url('index/rent')?>?h_id=<?php echo $hous['h_b_id']; ?>">出租信息</a>
-            <a class="mui-card-link" href="<?=url('index/preview')?>?h_id=<?php echo $hous['h_b_id']; ?>">房源预览</a>
-            <a class="mui-card-link" href="<?=url('index/allot')?>?h_id=<?php echo $hous['h_b_id']; ?>">交接信息</a>
+            <a class="mui-card-link" href="<?=url('index/payment')?>?h_id=<?php echo $hous['h_b_id']; ?>">回款</a>
+            <a class="mui-card-link" href="<?=url('index/decorate')?>?b_id=<?php echo $hous['h_b_id']; ?>">装修</a>
+            <a class="mui-card-link" href="<?=url('index/rent')?>?h_id=<?php echo $hous['h_b_id']; ?>">出租</a>
+            <a class="mui-card-link" href="<?=url('index/preview')?>?h_id=<?php echo $hous['h_b_id']; ?>">房源</a>
+            <a class="mui-card-link" href="<?=url('index/allot')?>?h_id=<?php echo $hous['h_b_id']; ?>">交接</a>
+            <a class="mui-card-link" href="<?=url('index/maintain')?>?h_id=<?php echo $hous['h_b_id']; ?>">维护</a>
         </div>
     </div>
     <?php endforeach; endif; else: echo "" ;endif; endif; ?>
@@ -95,10 +90,7 @@
 <script>
     function formQuery(){
         var keywords=$('#keywords').val();
-        location.href="<?=url('index/house')?>?&keywords="+keywords;
-    }
-    function alertss(){
-        mui.alert('暂无回款信息！');
+        location.href="<?=url('index/index')?>?&keywords="+keywords;
     }
 </script>
 <script>
@@ -149,6 +141,7 @@
                         '            <a class="mui-card-link" href="<?=url('index/payment')?>?h_id='+data[i].h_b_id+'">回款信息</a>' +
                         '            <a class="mui-card-link" href="<?=url('index/attach')?>?h_id='+data[i].h_b_id+'&a_id='+data[i].a_id+'">房屋附属</a>' +
                         '            <a class="mui-card-link" href="<?=url('index/preview')?>?h_id='+data[i].h_b_id+'">房源预览</a>' +
+                        '            <a class="mui-card-link" href="<?=url('index/maintain')?>?h_id='+data[i].h_b_id+'">维护</a>' +
                         '        </div>' +
                         '    </div>';
                     }

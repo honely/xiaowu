@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\index.html";i:1543283770;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\index.html";i:1543915850;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -89,7 +89,7 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-icon-person mui-pull-left" style=" color: #007aff;" href="<?=url('index/person')?>"></a>
+    <a class="mui-icon mui-icon-person mui-pull-left" style=" color: #007aff;" href="<?=url('marketm/index/person')?>?role=2"></a>
     <h1 class="mui-title">分配列表</h1>
     <span id='demo6' data-options='{"type":"month"}' class="btn mui-icon-extra mui-icon-extra-calendar mui-pull-right"></span>
     <span id='result' class="ui-alert mui-pull-right"><?php if(isset($date)): ?><?php echo $date; endif; ?></span>
@@ -132,8 +132,8 @@
                     </div>
                 </div>
                 <div class="mui-card-footer">
-                    <a class="mui-card-link " href="<?=url('admin/details')?>?h_id=<?php echo $alc['hat_house_code']; ?>">房源详情</a>
-                    <a class="mui-card-link" href="<?=url('admin/allocate')?>?hat_id=<?php echo $alc['hat_id']; ?>">点击分配</a>
+                    <a class="mui-card-link " href="<?=url('admin/details')?>?h_id=<?php echo $alc['hat_house_code']; ?>&type=3">房源详情</a>
+                    <a class="mui-card-link" href="<?=url('admin/allocate')?>?hat_id=<?php echo $alc['hat_id']; ?>&type=3">点击分配</a>
                 </div>
             </div>
         </div>
@@ -229,8 +229,8 @@
                             '                </div>' +
                             '            </div>' +
                             '            <div class="mui-card-footer">' +
-                            '            <a class="mui-card-link" href="<?=url('admin/details')?>?h_id='+data[i].hat_house_code+'">房源详情</a>' +
-                        '            <a class="mui-card-link" href="<?=url('admin/allocate')?>?hat_id='+data[i].hat_id+'">点击分配</a>' +
+                            '            <a class="mui-card-link" href="<?=url('admin/details')?>?h_id='+data[i].hat_house_code+'&type=3">房源详情</a>' +
+                        '            <a class="mui-card-link" href="<?=url('admin/allocate')?>?hat_id='+data[i].hat_id+'&type=3">点击分配</a>' +
                             '            </div>' +
                             '        </div>';
                     }

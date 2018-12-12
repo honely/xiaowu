@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/index\view\seek\details.html";i:1540274412;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1541063850;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1542016255;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/index\view\seek\details.html";i:1540274412;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1541063850;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1543972776;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -354,6 +354,11 @@
 <footer style="height: auto;padding: 10px 0px;color: white;line-height: 1.8;background: #212121;">
     <div class="container text-center">
         <p>重庆分公司：重庆市江北区江北城IFS国金中心T2栋610 &nbsp;&nbsp; 电话：023-67753595&nbsp;&nbsp;&nbsp;&nbsp;023-67753685</p>
+    </div>
+</footer>
+<footer style="height: auto;padding: 10px 0px;color: white;line-height: 1.8;background: #212121;">
+    <div class="container text-center">
+        <p>南京分公司：南京市鼓楼区集庆门大街268号（苏宁慧谷E08-2-1004室）</p>
     </div>
 </footer>
 <footer style="height: auto;padding: 10px 0px;color: #5b5b5b;line-height: 1.8;background: #212121;">

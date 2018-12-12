@@ -196,6 +196,12 @@
                 <p><b>房源编号：【{$house.h_b_id}】</b>
                 <span style="float: right;">{$house.p_name}-{$house.c_name}-{$house.area_name}</span>
                 </p>
+                <p style="line-height: 26px;">
+                    小区名称:{$house.h_building}<br/>
+                    房屋户型:{$house.h_house_type}<br/>
+                    房屋朝向:{$house.h_head}<br/>
+                    房源地址:{$house.h_address}<br/>
+                </p>
             </div>
         </div>
     </div>
@@ -210,22 +216,10 @@
                     <label><span class="color-red">*</span>房源地址：</label>
                     <input type="text" value="{$house.h_address}" class="layui-input" name="h_address">
                 </div>
-                <div class="mui-content-padded">
-                    <select name="h_head" id="h_head" class="mui-btn mui-btn-block">
-                        <option value="">请选择房屋朝向</option>
-                        <option value="1" {if condition="$house.h_head eq 1"}selected{/if}>东</option>
-                        <option value="2" {if condition="$house.h_head eq 2"}selected{/if}>南</option>
-                        <option value="3" {if condition="$house.h_head eq 3"}selected{/if}>西</option>
-                        <option value="4" {if condition="$house.h_head eq 4"}selected{/if}>北</option>
-                        <option value="5" {if condition="$house.h_head eq 5"}selected{/if}>东南</option>
-                        <option value="6" {if condition="$house.h_head eq 6"}selected{/if}>西南</option>
-                        <option value="7" {if condition="$house.h_head eq 7"}selected{/if}>东北</option>
-                        <option value="8" {if condition="$house.h_head eq 8"}selected{/if}>西北</option>
-                    </select>
-                </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>房源图片</label>第一张为封面图。
                     <span id="upload" class="mui-btn mui-btn-primary">上传</span>
+                    <input type="text" id="h_img" name="h_img[]" lay-verify="imgReg" {if condition="$house.h_img neq null"}value="aaa"{/if}/>
                 </div>
                 <div id="imgPre">
                     {if isset($house.h_img)}
@@ -236,7 +230,7 @@
                             <i class="close layui-icon"></i>
                         </div>
                         <img src="__PUBLIC__/{$items}" class="img" data-preview-src="" data-preview-group="1">
-                        <input type="hidden" name="h_img[]" lay-verify="imgReg" value="{$items}" />
+                        <input type="text" name="h_img[]" lay-verify="imgReg" value="{$items}" />
                     </li>
                     {/volist}
                     {/if}
@@ -362,7 +356,7 @@
             }
             ,done: function(res){
                 console.log(res);
-                $('#img').val(res.path);
+                $('#h_img').val(res.path);
                 $('#imgPre').append('' +
                     '<li class="item_img"><div class="operate"><i  class="close layui-icon"></i></div><img src="__PUBLIC__/' + res.path + '" class="img" ><input type="hidden" class="h_img" name="h_img[]" value="' + res.path + '" /></li>');
                 layer.close(loading);

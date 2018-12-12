@@ -179,9 +179,14 @@
         </p>
         <p><b>回款凭证</b></p>
         <p>
-            {volist name="logs.hpl_img" id="items"}
-            <img src="{$items}" data-preview-src="" data-preview-group="1">
+            {if condition="$logs.hpl_img_first neq null"}
+            <img src="__WEB__/img/one-btn.png"  style="width: 20%" data-preview-src="{$logs.hpl_img_first}" data-preview-group="1">
+            {/if}
+            {if condition="$logs.hpl_imgs neq null"}
+            {volist name="logs.hpl_imgs" id="items"}
+            <img style="display: none" src="{$items}" data-preview-src="" data-preview-group="1">
             {/volist}
+            {/if}
         </p>
         <br>
         <p class="mui-pull-right">

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\dailylog.html";i:1543199111;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\dailylog.html";i:1544075742;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -12,10 +12,12 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/index')?>"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left"
+    <?php switch($type): case "1": ?>href="<?=url('index/decorating')?>"<?php break; case "2": ?>href="<?=url('index/allocated')?>"<?php break; case "3": ?>href="<?=url('index/index')?>"<?php break; endswitch; ?>
+    ></a>
     <h1 class="mui-title">监理日记</h1>
-    <?php if($status < 6): ?>
-        <a class="mui-icon-plusempty mui-icon mui-icon-right-nav mui-pull-right" href="<?=url('index/addlog')?>?h_id=<?php echo $h_id; ?>"></a>
+    <?php if($status != 6): ?>
+        <a class="mui-icon-plusempty mui-icon mui-icon-right-nav mui-pull-right" href="<?=url('index/addlog')?>?h_id=<?php echo $h_id; ?>&type=<?php echo $type; ?>"></a>
     <?php endif; ?>
 </header>
 <div class="mui-content" style="padding-top: 40px;">
@@ -28,8 +30,12 @@
                 </li>
                 <?php else: if(is_array($dailyLog) || $dailyLog instanceof \think\Collection || $dailyLog instanceof \think\Paginator): $i = 0; $__LIST__ = $dailyLog;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$log): $mod = ($i % 2 );++$i;?>
                         <li class="mui-table-view-cell mui-media">
-                            <a class="mui-navigate-right" href="<?=url('index/logdetails')?>?hdl_id=<?php echo $log['hdl_id']; ?>">
-                                <img class="mui-media-object mui-pull-left" src="<?php echo $log['hdl_img']; ?>">
+                            <a class="mui-navigate-right" href="<?=url('index/logdetails')?>?hdl_id=<?php echo $log['hdl_id']; ?>&type=<?php echo $type; ?>">
+                                <img class="mui-media-object mui-pull-left"
+                                     <?php if(isset($log['hdl_img'])): ?>
+                                        src="<?php echo $log['hdl_img']; ?>"
+                                     <?php endif; ?>
+                                >
                                 <div class="mui-media-body">
                                     <?php echo $log['hdl_addtime']; ?>
                                 </div>

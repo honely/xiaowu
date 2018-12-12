@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\all.html";i:1543283788;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\all.html";i:1543976678;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -89,7 +89,7 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-icon-person mui-pull-left" style=" color: #007aff;" href="<?=url('index/person')?>"></a>
+    <a class="mui-icon mui-icon-person mui-pull-left" style=" color: #007aff;" href="<?=url('marketm/index/person')?>?role=2"></a>
     <h1 class="mui-title">分配列表</h1>
     <span id='demo6' data-options='{"type":"month"}' class="btn mui-icon-extra mui-icon-extra-calendar mui-pull-right"></span>
     <span id='result' class="ui-alert mui-pull-right"><?php if(isset($date)): ?><?php echo $date; endif; ?></span>
@@ -99,18 +99,19 @@
         <div class="allocate-top">
             <a href="<?=url('admin/index')?>"><div class="spans actives divs">待分配</div></a>
             <a href="<?=url('admin/allocated')?>"><div class="spans actives divs">已分配</div></a>
-            <a><div class="spans divs">全部</div></a>
+            <a><div class="spans divs">全部（<?php echo $count; ?>）</div></a>
         </div>
     </div>
-    <div class="mui-content">
+    <div class="mui-content" >
         <?php if($allocate == null): ?>
         <div class="mui-card">
             <div class="mui-card-content" style="height: 40px;text-align: center;line-height: 36px;">
                 暂无房源
             </div>
         </div>
-        <?php else: if(is_array($allocate) || $allocate instanceof \think\Collection || $allocate instanceof \think\Paginator): $i = 0; $__LIST__ = $allocate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+        <?php else: ?>
         <div id="getMore">
+        <?php if(is_array($allocate) || $allocate instanceof \think\Collection || $allocate instanceof \think\Paginator): $i = 0; $__LIST__ = $allocate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
             <div class="mui-card">
                 <div class="mui-card-content">
                     <div class="mui-card-content-inner">
@@ -141,17 +142,16 @@
                     </div>
                 </div>
                 <div class="mui-card-footer">
-                    <a class="mui-card-link" href="<?=url('admin/details')?>?h_id=<?php echo $vo['hat_house_code']; ?>">房源详情</a>
+                    <a class="mui-card-link" href="<?=url('admin/details')?>?h_id=<?php echo $vo['hat_house_code']; ?>&type=1">房源详情</a>
                     <?php if($vo['hat_is_assign'] == 1): ?>
-                    <a class="mui-card-link" href="<?=url('admin/alldetails')?>?hat_id=<?php echo $vo['hat_id']; ?>">分配详情</a>
+                    <a class="mui-card-link" href="<?=url('admin/alldetails')?>?hat_id=<?php echo $vo['hat_id']; ?>&type=1">分配详情</a>
                     <?php else: ?>
-                    <a class="mui-card-link" href="<?=url('admin/allocate')?>?hat_id=<?php echo $vo['hat_id']; ?>">点击分配</a>
+                    <a class="mui-card-link" href="<?=url('admin/allocate')?>?hat_id=<?php echo $vo['hat_id']; ?>&type=1">点击分配</a>
                     <?php endif; ?>
                 </div>
             </div>
-        </div>
-
         <?php endforeach; endif; else: echo "" ;endif; ?>
+        </div>
         <div class="mui-card">
             <input type="hidden" value="1" id="page1"/>
             <div id="moreBtn1" class="mui-card-content" style="height: 40px;text-align: center;line-height: 36px;<?php if($count > 8): ?>display: block<?php else: ?>display: none<?php endif; ?>">
@@ -258,11 +258,11 @@
                             '                </div>' +
                             '            </div>' +
                             '            <div class="mui-card-footer">' +
-                            '            <a class="mui-card-link" href="<?=url('admin/details')?>?h_id='+data[i].hat_house_code+'">房源详情</a>';
+                            '            <a class="mui-card-link" href="<?=url('admin/details')?>?h_id='+data[i].hat_house_code+'&type=1">房源详情</a>';
                         if(data[i].hat_is_assign == 2){
-                            html+='<a class="mui-card-link" href="<?=url('admin/allocate')?>?hat_id='+data[i].hat_id+'">点击分配</a>';
+                            html+='<a class="mui-card-link" href="<?=url('admin/allocate')?>?hat_id='+data[i].hat_id+'&type=1">点击分配</a>';
                         }else{
-                            html+=' <a class="mui-card-link" href="<?=url('admin/alldetails')?>?hat_id='+data[i].hat_id+'">分配详情</a>';
+                            html+=' <a class="mui-card-link" href="<?=url('admin/alldetails')?>?hat_id='+data[i].hat_id+'&type=1">分配详情</a>';
                         }
                         html+='            </div>' +
                         '        </div>';

@@ -1,0 +1,2023 @@
+---------------------------------------------------------------
+[ 2018-12-05T17:31:08+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/all.html
+[ info ] www.bbb.com/manager/allot/all.html [运行时间：0.068004s][吞吐率：14.70req/s] [内存消耗：2,472.48kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'all',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/allocated.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->all[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\all.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_is_assign desc,hat_add_time desc LIMIT 8 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150006' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150007' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150003' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150002' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010100001' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:31:09+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/allocated.html
+[ info ] www.bbb.com/manager/allot/allocated.html [运行时间：0.065004s][吞吐率：15.38req/s] [内存消耗：2,438.99kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'allocated',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/all.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->allocated[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\allocated.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 1  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_add_time desc LIMIT 8 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150007' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150003' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150002' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010100001' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 1  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:31:10+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/index.html
+[ info ] www.bbb.com/manager/allot/index.html [运行时间：0.047002s][吞吐率：21.28req/s] [内存消耗：2,351.30kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/allocated.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->index[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\index.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 2  AND `hat_type` = 2  AND `h_isable` = 8  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_add_time desc LIMIT 8 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 2  AND `hat_type` = 2  AND `h_isable` = 8  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:31:11+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/allocated.html
+[ info ] www.bbb.com/manager/allot/allocated.html [运行时间：0.056004s][吞吐率：17.86req/s] [内存消耗：2,438.99kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'allocated',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->allocated[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\allocated.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 1  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_add_time desc LIMIT 8 [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150007' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150003' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150002' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010100001' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 1  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:31:12+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/all.html
+[ info ] www.bbb.com/manager/allot/all.html [运行时间：0.058004s][吞吐率：17.24req/s] [内存消耗：2,472.30kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'all',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/allocated.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->all[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\all.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_is_assign desc,hat_add_time desc LIMIT 8 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150006' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150007' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150003' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150002' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010100001' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:31:14+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/all.html?date=2018-12
+[ info ] www.bbb.com/manager/allot/all.html?date=2018-12 [运行时间：0.059004s][吞吐率：16.95req/s] [内存消耗：2,400.13kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'all',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/all.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+  'date' => '2018-12',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->all[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\all.html [ array (
+  0 => 'date',
+  1 => 'count',
+  2 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  hat_add_time >=1543593600 and hat_add_time <=1546271999 ) ORDER BY hat_is_assign desc,hat_add_time desc LIMIT 8 [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150006' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150007' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  hat_add_time >=1543593600 and hat_add_time <=1546271999 ) LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:31:15+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/allocate.html?hat_id=31&type=3
+[ info ] www.bbb.com/manager/allot/allocate.html?hat_id=31&type=3 [运行时间：0.050003s][吞吐率：20.00req/s] [内存消耗：2,358.86kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'allocate',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/all.html?date=2018-12',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+  'hat_id' => '31',
+  'type' => '3',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->allocate[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\allocate.html [ array (
+  0 => 'type',
+  1 => 'allocate',
+  2 => 'admins',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_id` = 31  AND `hat_type` = 2  AND `hat_ishow` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_id`,`u_name` FROM `dcxw_user` WHERE  `u_c_id` = 3  AND `u_depart_id` = 3 ORDER BY u_addtime desc [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:31:31+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/all.html
+[ info ] www.bbb.com/manager/allot/all.html [运行时间：0.061003s][吞吐率：16.39req/s] [内存消耗：2,472.35kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'all',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/allocate.html?hat_id=31&type=3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->all[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\all.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_is_assign desc,hat_add_time desc LIMIT 8 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150006' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150007' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150003' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150002' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010100001' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:39:21+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/all.html
+[ info ] www.bbb.com/manager/allot/all.html [运行时间：0.070004s][吞吐率：14.28req/s] [内存消耗：2,472.55kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'all',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/allocate.html?hat_id=31&type=3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->all[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\all.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_is_assign desc,hat_add_time desc LIMIT 8 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150006' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150007' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150003' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150002' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010100001' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:39:22+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/all.html
+[ info ] www.bbb.com/manager/allot/all.html [运行时间：0.067003s][吞吐率：14.92req/s] [内存消耗：2,472.55kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'all',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/allocate.html?hat_id=31&type=3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->all[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\all.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_is_assign desc,hat_add_time desc LIMIT 8 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150006' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150007' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150003' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150002' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010100001' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:39:22+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/all.html
+[ info ] www.bbb.com/manager/allot/all.html [运行时间：0.053003s][吞吐率：18.87req/s] [内存消耗：2,472.55kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'all',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/allocate.html?hat_id=31&type=3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->all[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\all.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_is_assign desc,hat_add_time desc LIMIT 8 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150006' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150007' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150003' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150002' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010100001' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:39:23+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/index.html
+[ info ] www.bbb.com/manager/allot/index.html [运行时间：0.060004s][吞吐率：16.67req/s] [内存消耗：2,351.30kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/all.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->index[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\index.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 2  AND `hat_type` = 2  AND `h_isable` = 8  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_add_time desc LIMIT 8 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 2  AND `hat_type` = 2  AND `h_isable` = 8  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:39:24+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/allocated.html
+[ info ] www.bbb.com/manager/allot/allocated.html [运行时间：0.090006s][吞吐率：11.11req/s] [内存消耗：2,438.99kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'allocated',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->allocated[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\allocated.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 1  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_add_time desc LIMIT 8 [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150007' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150003' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150002' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010100001' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 1  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:39:25+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/index.html
+[ info ] www.bbb.com/manager/allot/index.html [运行时间：0.071004s][吞吐率：14.08req/s] [内存消耗：2,351.30kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/allocated.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->index[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\index.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 2  AND `hat_type` = 2  AND `h_isable` = 8  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_add_time desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 2  AND `hat_type` = 2  AND `h_isable` = 8  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:39:25+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/allocated.html
+[ info ] www.bbb.com/manager/allot/allocated.html [运行时间：0.090005s][吞吐率：11.11req/s] [内存消耗：2,438.99kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'allocated',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->allocated[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\allocated.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 1  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_add_time desc LIMIT 8 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150007' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150003' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150002' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010100001' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 1  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:39:26+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/index.html
+[ info ] www.bbb.com/manager/allot/index.html [运行时间：0.068004s][吞吐率：14.71req/s] [内存消耗：2,351.30kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/allocated.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->index[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\index.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 2  AND `hat_type` = 2  AND `h_isable` = 8  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_add_time desc LIMIT 8 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 2  AND `hat_type` = 2  AND `h_isable` = 8  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:39:26+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/allocated.html
+[ info ] www.bbb.com/manager/allot/allocated.html [运行时间：0.076004s][吞吐率：13.16req/s] [内存消耗：2,438.99kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'allocated',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->allocated[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\allocated.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 1  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_add_time desc LIMIT 8 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150007' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150003' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150002' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010100001' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 1  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:39:27+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/index.html
+[ info ] www.bbb.com/manager/allot/index.html [运行时间：0.076004s][吞吐率：13.16req/s] [内存消耗：2,351.30kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/allocated.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->index[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\index.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 2  AND `hat_type` = 2  AND `h_isable` = 8  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_add_time desc LIMIT 8 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 2  AND `hat_type` = 2  AND `h_isable` = 8  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:39:29+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/allocated.html
+[ info ] www.bbb.com/manager/allot/allocated.html [运行时间：0.094006s][吞吐率：10.64req/s] [内存消耗：2,438.99kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'allocated',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->allocated[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\allocated.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 1  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_add_time desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150007' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150003' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150002' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010100001' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 1  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:39:30+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/all.html
+[ info ] www.bbb.com/manager/allot/all.html [运行时间：0.084004s][吞吐率：11.90req/s] [内存消耗：2,472.30kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'all',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/allocated.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->all[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\all.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_is_assign desc,hat_add_time desc LIMIT 8 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150006' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150007' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150003' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150002' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010100001' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:39:30+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/allocated.html
+[ info ] www.bbb.com/manager/allot/allocated.html [运行时间：0.097005s][吞吐率：10.31req/s] [内存消耗：2,438.99kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'allocated',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/all.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->allocated[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\allocated.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 1  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_add_time desc LIMIT 8 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150007' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150003' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150002' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010100001' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 1  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:39:32+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/index.html
+[ info ] www.bbb.com/manager/allot/index.html [运行时间：0.084005s][吞吐率：11.90req/s] [内存消耗：2,351.30kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/allocated.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->index[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\index.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 2  AND `hat_type` = 2  AND `h_isable` = 8  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_add_time desc LIMIT 8 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 2  AND `hat_type` = 2  AND `h_isable` = 8  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:39:33+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/allocated.html
+[ info ] www.bbb.com/manager/allot/allocated.html [运行时间：0.086005s][吞吐率：11.63req/s] [内存消耗：2,438.99kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'allocated',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->allocated[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\allocated.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 1  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_add_time desc LIMIT 8 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150007' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150003' [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150002' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010100001' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 1  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:39:33+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/all.html
+[ info ] www.bbb.com/manager/allot/all.html [运行时间：0.089005s][吞吐率：11.24req/s] [内存消耗：2,472.30kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'all',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/allocated.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->all[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\all.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_is_assign desc,hat_add_time desc LIMIT 8 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150006' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150007' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150003' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150002' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010100001' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:54:24+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/index.html
+[ info ] www.bbb.com/manager/allot/index.html [运行时间：0.058003s][吞吐率：17.24req/s] [内存消耗：2,351.30kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/all.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->index[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\index.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 2  AND `hat_type` = 2  AND `h_isable` = 8  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_add_time desc LIMIT 8 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 2  AND `hat_type` = 2  AND `h_isable` = 8  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:54:25+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/allocated.html
+[ info ] www.bbb.com/manager/allot/allocated.html [运行时间：0.075005s][吞吐率：13.33req/s] [内存消耗：2,438.99kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'allocated',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->allocated[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\allocated.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 1  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_add_time desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150007' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150003' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150002' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010100001' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 1  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:54:26+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/all.html
+[ info ] www.bbb.com/manager/allot/all.html [运行时间：0.091005s][吞吐率：10.99req/s] [内存消耗：2,472.30kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'all',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/allocated.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->all[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\all.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_is_assign desc,hat_add_time desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150006' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` IS NULL LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150007' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150003' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150002' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010100001' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:54:26+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/allocated.html
+[ info ] www.bbb.com/manager/allot/allocated.html [运行时间：0.093006s][吞吐率：10.75req/s] [内存消耗：2,438.99kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'allocated',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/all.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->allocated[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\allocated.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 1  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_add_time desc LIMIT 8 [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_pay` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150007' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 17 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150003' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 81 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010150002' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 106 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `hp_money` FROM `dcxw_house_pay` WHERE  `hp_house_code` = '1010100001' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 114 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `u_job` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 19 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `u_name` FROM `dcxw_user` WHERE  `u_id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 1  AND `hat_type` = 2  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-12-05T17:54:27+08:00 ] 127.0.0.1 127.0.0.1 GET /manager/allot/index.html
+[ info ] www.bbb.com/manager/allot/index.html [运行时间：0.074004s][吞吐率：13.51req/s] [内存消耗：2,351.30kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'allot',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.bbb.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.bbb.com/manager/allot/allocated.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'UM_distinctid=165c8054c9284-062272fa320a7f-323b5b03-1fa400-165c8054c93808; gr_user_id=6dd39fe4-2773-44f6-ac77-0d4960055290; CNZZDATA1000353613=343486579-1536658864-http%253A%252F%252Fwww.bbb.com%252F%7C1536800850; Hm_lvt_7492c81cf0f836f83a82e76a134d25e2=1536659115,1536800847; 58325___929688_KS_58325___929688=605a224bc5a142cd8b2384ab3d412caa; POP800_VISIT_TIMES=2; POP800_VISITOR_ID_L=666F09007A17D84DA467814349C4912C; CNZZDATA1274542463=1363221369-1536803477-null%7C1536803746; PAGE_VIEW_TIMES=5; PHPSESSID=52ag9ldb52bmvvas1raoimc5aj',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\manager\controller\Allot->index[ G:\xampp\htdocs\bbb\application\manager\controller\Allot.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/manager\view\allot\index.html [ array (
+  0 => 'count',
+  1 => 'allocate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house_allocate` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `dcxw_house_allocate`.*,`dcxw_house`.`h_building`,`dcxw_house`.`h_area`,`dcxw_house`.`h_address` FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 2  AND `hat_type` = 2  AND `h_isable` = 8  AND `hat_ishow` = 1  AND (  1 = 1 ) ORDER BY hat_add_time desc LIMIT 8 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dcxw_house_allocate` INNER JOIN `dcxw_house` `dcxw_house` ON `dcxw_house`.`h_b_id`=`dcxw_house_allocate`.`hat_house_code` WHERE  `hat_c_id` = 3  AND `hat_is_assign` = 2  AND `hat_type` = 2  AND `h_isable` = 8  AND `hat_ishow` = 1  AND (  1 = 1 ) LIMIT 1 [ RunTime:0.000000s ]

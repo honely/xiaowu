@@ -160,11 +160,20 @@
             max-width: 100%;
             height: auto;
         }
+        .color-blue{
+            color: #007aff;
+        }
     </style>
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/index')?>"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left"
+        {switch name="$type"}
+            {case value="1"}href="<?=url('index/decorating')?>"{/case}
+            {case value="2"}href="<?=url('index/allocated')?>"{/case}
+            {case value="3"}href="<?=url('index/index')?>"{/case}
+        {/switch}
+    ></a>
     <h1 class="mui-title">房源预览</h1>
 </header>
 <div class="mui-content" style="padding-top: 40px;">
@@ -172,6 +181,7 @@
         <div class="mui-card-content">
             <div class="mui-card-content-inner">
                 <p><b>基本信息</b>：房源编号：【{$hous.h_b_id}】
+                    <a href="<?=url('index/editbase')?>?h_id={$hous.h_b_id}&type={$type}" class="mui-icon mui-icon-compose mui-pull-right color-blue"></a>
                 </p>
                 {if condition="$manger neq null"}
                 <p>
@@ -242,7 +252,9 @@
     <div class="mui-card">
         <div class="mui-card-content">
             <div class="mui-card-content-inner">
-                <p><b>附属信息</b></p>
+                <p><b>附属信息</b>
+                    <a href="<?=url('index/editattch')?>?h_id={$hous.h_b_id}&type={$type}" class="mui-icon mui-icon-compose mui-pull-right color-blue"></a>
+                </p>
                 <p style="color: #333;">
                     钥匙：{if isset($attach.ha_keys)}{$attach.ha_keys}{/if}
                     备注：{if isset($attach.ha_keys_remarks)}{$attach.ha_keys_remarks}{/if}
@@ -311,15 +323,24 @@
                     物业电话：{if isset($attach.ha_wuye_phone)}{$attach.ha_wuye_phone}{/if}
                 </p>
                 <p style="color: #333;">
+                    物业费用：{if isset($attach.ha_wuye_fee)}{$attach.ha_wuye_fee}{/if}
+                    物业费类型：{if isset($attach.ha_wuye_fee_type)}{$attach.ha_wuye_fee_type}{/if}
+                </p>
+                <p style="color: #333;">
                     合同编号：{if isset($attach.ha_contact_code)}{$attach.ha_contact_code}{/if}
                 </p>
                 <p style="color: #333;">
                     <b>合同扫描件：</b>
                 </p>
                 <p>
-                    {volist name="attach.ha_contact_img" id="items"}
-                    <img src="{$items}" data-preview-src="" data-preview-group="1">
+                    {if condition="$attach.ha_contact_img_first neq null"}
+                    <img src="__WEB__/img/one-btn.png" style="width: 20%" data-preview-src="{$attach.ha_contact_img_first}" data-preview-group="1">
+                    {/if}
+                    {if condition="$attach.ha_contact_imgs neq null"}
+                    {volist name="attach.ha_contact_imgs" id="items"}
+                    <img style="display: none" src="{$items}" data-preview-src="" data-preview-group="1">
                     {/volist}
+                    {/if}
                 </p>
                 <hr/>
                 <p style="color: #333;">

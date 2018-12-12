@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\logdetails.html";i:1543198121;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\logdetails.html";i:1543803577;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -179,9 +179,11 @@
         </p>
         <p><b>回款凭证</b></p>
         <p>
-            <?php if(is_array($logs['hpl_img']) || $logs['hpl_img'] instanceof \think\Collection || $logs['hpl_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $logs['hpl_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
-            <img src="<?php echo $items; ?>" data-preview-src="" data-preview-group="1">
-            <?php endforeach; endif; else: echo "" ;endif; ?>
+            <?php if($logs['hpl_img_first'] != null): ?>
+            <img src="__WEB__/img/one-btn.png"  style="width: 20%" data-preview-src="<?php echo $logs['hpl_img_first']; ?>" data-preview-group="1">
+            <?php endif; if($logs['hpl_imgs'] != null): if(is_array($logs['hpl_imgs']) || $logs['hpl_imgs'] instanceof \think\Collection || $logs['hpl_imgs'] instanceof \think\Paginator): $i = 0; $__LIST__ = $logs['hpl_imgs'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
+            <img style="display: none" src="<?php echo $items; ?>" data-preview-src="" data-preview-group="1">
+            <?php endforeach; endif; else: echo "" ;endif; endif; ?>
         </p>
         <br>
         <p class="mui-pull-right">

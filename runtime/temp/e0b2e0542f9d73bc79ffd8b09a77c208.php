@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"G:\xampp\htdocs\bbb\public/../application/manager\view\allot\all.html";i:1543283765;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"G:\xampp\htdocs\bbb\public/../application/manager\view\allot\all.html";i:1543977553;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -89,7 +89,7 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-icon-person mui-pull-left" style=" color: #007aff;" href="<?=url('index/person')?>"></a>
+    <a class="mui-icon mui-icon-person mui-pull-left" style=" color: #007aff;" href="<?=url('marketm/index/person')?>?role=4"></a>
     <h1 class="mui-title">分配列表</h1>
     <span id='demo6' data-options='{"type":"month"}' class="btn mui-icon-extra mui-icon-extra-calendar mui-pull-right"></span>
     <span id='result' class="ui-alert mui-pull-right"><?php if(isset($date)): ?><?php echo $date; endif; ?></span>
@@ -141,11 +141,12 @@
                     </div>
                 </div>
                 <div class="mui-card-footer">
-                    <a class="mui-card-link" href="<?=url('allot/details')?>?h_id=<?php echo $vo['hat_house_code']; ?>">房源详情</a>
+                    <a class="mui-card-link" href="<?=url('allot/details')?>?h_id=<?php echo $vo['hat_house_code']; ?>&type=3">房源详情</a>
+                    <a class="mui-card-link" href="<?=url('allot/declog')?>?h_id=<?php echo $vo['hat_house_code']; ?>&type=3">监理记录</a>
                     <?php if($vo['hat_is_assign'] == 1): ?>
-                    <a class="mui-card-link" href="<?=url('allot/alldetails')?>?hat_id=<?php echo $vo['hat_id']; ?>">分配详情</a>
+                    <a class="mui-card-link" href="<?=url('allot/alldetails')?>?hat_id=<?php echo $vo['hat_id']; ?>&type=3">分配详情</a>
                     <?php else: ?>
-                    <a class="mui-card-link" href="<?=url('allot/allocate')?>?hat_id=<?php echo $vo['hat_id']; ?>">点击分配</a>
+                    <a class="mui-card-link" href="<?=url('allot/allocate')?>?hat_id=<?php echo $vo['hat_id']; ?>&type=3">点击分配</a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -154,7 +155,7 @@
         <?php endforeach; endif; else: echo "" ;endif; ?>
         <div class="mui-card">
             <input type="hidden" value="1" id="page1"/>
-            <div id="moreBtn1" class="mui-card-content" style="height: 40px;text-align: center;line-height: 36px;<?php if($count > 1): ?>display: block<?php else: ?>display: none<?php endif; ?>">
+            <div id="moreBtn1" class="mui-card-content" style="height: 40px;text-align: center;line-height: 36px;<?php if($count > 8): ?>display: block<?php else: ?>display: none<?php endif; ?>">
                 加载更多
             </div>
         </div>
@@ -258,11 +259,12 @@
                             '                </div>' +
                             '            </div>' +
                             '            <div class="mui-card-footer">' +
-                            '            <a class="mui-card-link" href="<?=url('allot/details')?>?h_id='+data[i].hat_house_code+'">房源详情</a>';
+                            '            <a class="mui-card-link" href="<?=url('allot/details')?>?h_id='+data[i].hat_house_code+'&type=3">房源详情</a>'+
+                        '            <a class="mui-card-link" href="<?=url('allot/declog')?>?h_id='+data[i].hat_house_code+'&type=3">监理记录</a>';
                         if(data[i].hat_is_assign == 2){
-                            html+='<a class="mui-card-link" href="<?=url('allot/allocate')?>?hat_id='+data[i].hat_id+'">点击分配</a>';
+                            html+='<a class="mui-card-link" href="<?=url('allot/allocate')?>?hat_id='+data[i].hat_id+'&type=3">点击分配</a>';
                         }else{
-                            html+=' <a class="mui-card-link" href="<?=url('allot/alldetails')?>?hat_id='+data[i].hat_id+'">分配详情</a>';
+                            html+=' <a class="mui-card-link" href="<?=url('allot/alldetails')?>?hat_id='+data[i].hat_id+'&type=3">分配详情</a>';
                         }
                         html+='            </div>' +
                         '        </div>';

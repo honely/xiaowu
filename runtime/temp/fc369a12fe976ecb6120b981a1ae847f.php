@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:79:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\logdetails.html";i:1543199656;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:79:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\logdetails.html";i:1544075553;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -165,7 +165,9 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/dailylog')?>?h_id=<?php echo $logs['hdl_house_code']; ?>"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left"
+       href="<?=url('index/dailylog')?>?h_id=<?php echo $logs['hdl_house_code']; ?>&type=<?php echo $type; ?>"
+    ></a>
     <h1 class="mui-title">日志详情</h1>
 </header>
 <div class="mui-content">
@@ -184,13 +186,16 @@
         <p>
             <b>日志内容</b>：<?php echo $logs['hdl_content']; ?>
         </p>
+        <?php if(isset($logs['hdl_img_first'])): ?>
         <p><b>日志图片：</b></p>
         <p>
-            <?php if(is_array($logs['hdl_img']) || $logs['hdl_img'] instanceof \think\Collection || $logs['hdl_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $logs['hdl_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
-            <img src="<?php echo $items; ?>" data-preview-src="" data-preview-group="1">
-            <?php endforeach; endif; else: echo "" ;endif; ?>
-
+            <?php if($logs['hdl_img_first'] != null): ?>
+            <img src="__WEB__/img/one-btn.png" style="width: 20%" data-preview-src="<?php echo $logs['hdl_img_first']; ?>" data-preview-group="1">
+            <?php endif; if($logs['hdl_imgs'] != null): if(is_array($logs['hdl_imgs']) || $logs['hdl_imgs'] instanceof \think\Collection || $logs['hdl_imgs'] instanceof \think\Paginator): $i = 0; $__LIST__ = $logs['hdl_imgs'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
+            <img style="display: none" src="<?php echo $items; ?>" data-preview-src="" data-preview-group="1">
+            <?php endforeach; endif; else: echo "" ;endif; endif; ?>
         </p>
+        <?php endif; ?>
         <br>
         <p class="mui-pull-right">
             <b>提交人</b>：<?php echo $logs['u_job']; ?>---<?php echo $logs['u_name']; ?>

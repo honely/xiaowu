@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\allocated.html";i:1543283779;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\allocated.html";i:1543975359;}*/ ?>
 ﻿<!DOCTYPE html>
 <html>
 
@@ -89,7 +89,7 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-icon-person mui-pull-left" style=" color: #007aff;" href="<?=url('index/person')?>"></a>
+    <a class="mui-icon mui-icon-person mui-pull-left" style=" color: #007aff;" href="<?=url('marketm/index/person')?>?role=2"></a>
     <h1 class="mui-title">分配列表</h1>
     <span id='demo6' data-options='{"type":"month"}' class="btn mui-icon-extra mui-icon-extra-calendar mui-pull-right"></span>
     <span id='result' class="ui-alert mui-pull-right"><?php if(isset($date)): ?><?php echo $date; endif; ?></span>
@@ -98,7 +98,7 @@
     <div style="height: 44px;width: 100%">
         <div class="allocate-top">
             <a href="<?=url('admin/index')?>"><div class="spans actives divs">待分配</div></a>
-            <a><div class="spans divs">已分配</div></a>
+            <a><div class="spans divs">已分配（<?php echo $count; ?>）</div></a>
             <a href="<?=url('admin/all')?>"><div class="spans actives divs">全部</div></a>
         </div>
     </div>
@@ -135,8 +135,8 @@
                     </div>
                 </div>
                 <div class="mui-card-footer">
-                    <a class="mui-card-link" href="<?=url('admin/details')?>?h_id=<?php echo $vo['hat_house_code']; ?>">房源详情</a>
-                    <a class="mui-card-link" href="<?=url('admin/alldetails')?>?hat_id=<?php echo $vo['hat_id']; ?>">分配详情</a>
+                    <a class="mui-card-link" href="<?=url('admin/details')?>?h_id=<?php echo $vo['hat_house_code']; ?>&type=2">房源详情</a>
+                    <a class="mui-card-link" href="<?=url('admin/alldetails')?>?hat_id=<?php echo $vo['hat_id']; ?>&type=2">分配详情</a>
                 </div>
             </div>
         </div>
@@ -240,8 +240,8 @@
                             '                </div>' +
                             '            </div>' +
                             '            <div class="mui-card-footer">' +
-                            '            <a class="mui-card-link" href="<?=url('admin/details')?>?h_id='+data[i].hat_house_code+'">房源详情</a>' +
-                        '            <a class="mui-card-link" href="<?=url('admin/alldetails')?>?hat_id='+data[i].hat_id+'">分配详情</a>' +
+                            '            <a class="mui-card-link" href="<?=url('admin/details')?>?h_id='+data[i].hat_house_code+'&type=2">房源详情</a>' +
+                        '            <a class="mui-card-link" href="<?=url('admin/alldetails')?>?hat_id='+data[i].hat_id+'&type=2">分配详情</a>' +
                         '            </div>' +
                         '        </div>';
                     }

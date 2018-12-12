@@ -211,15 +211,16 @@
                     合同编号：{$rent.hrl_contact_code}
                     <br/>
                     合同图片:
-                <div id="imgPre">
-                    {volist name="rent.hrl_contact_img" id="items"}
-                    <li class="item_img" style="list-style-type: none">
-                        <img src="__PUBLIC__/{$items}" class="img" data-preview-src="" data-preview-group="1"  >
-                        <input type="hidden" name="hrl_contact_img[]" value="' + res.path + '" />
-                    </li>
+                <p>
+                    {if condition="$rent.hrl_contact_img_first neq null"}
+                    <img src="__WEB__/img/one-btn.png" style="width: 20%" data-preview-src="{$rent.hrl_contact_img_first}" data-preview-group="1">
+                    {/if}
+                    {if condition="$rent.hrl_contact_imgs neq null"}
+                    {volist name="rent.hrl_contact_imgs" id="items"}
+                    <img style="display: none" src="{$items}" data-preview-src="" data-preview-group="1">
                     {/volist}
-                </div>
-                    <br/>
+                    {/if}
+                </p>
                     电表底数：{$rent.hrl_elect_start}
                 {if condition="$rent.hrl_status eq 2"}
                 <br/>
@@ -229,7 +230,12 @@
                     水表底数：{$rent.hrl_water_start}
                     <br/>
                 {if condition="$rent.hrl_status eq 2"}
-                水表底数：{$rent.hrl_water_end}
+                水表结数：{$rent.hrl_water_end}<br/>
+                {/if}
+                    燃气底数：{$rent.hrl_air_start}
+                <br/>
+                {if condition="$rent.hrl_status eq 2"}
+                燃气结数：{$rent.hrl_air_end}
                 {/if}
                 </p>
             </div>

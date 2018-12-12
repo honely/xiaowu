@@ -11,7 +11,13 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-icon-left-nav mui-pull-left"  href="<?=url('allot/index')?>"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left"
+    {switch name="$type"}
+        {case value="1"}href="<?=url('allot/index')?>"{/case}
+        {case value="2"}href="<?=url('allot/allocated')?>"{/case}
+        {case value="3"}href="<?=url('allot/all')?>"{/case}
+    {/switch}
+    ></a>
     <h1 class="mui-title">转交详情</h1>
 </header>
 <div class="mui-content" style="padding-top: 40px;">

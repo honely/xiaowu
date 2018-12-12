@@ -103,4 +103,10 @@ class Index extends Controller{
             return $this->fetch();
         }
     }
+
+
+
+    public function person(){
+        return $this->fetch();
+    }
 }

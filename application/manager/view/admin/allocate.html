@@ -57,7 +57,13 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('admin/index')?>"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left"
+        {switch name="$type"}
+            {case value="1"}href="<?=url('admin/all')?>"{/case}
+            {case value="2"}href="<?=url('admin/allocated')?>"{/case}
+            {case value="3"}href="<?=url('admin/index')?>"{/case}
+        {/switch}
+    ></a>
     <h1 class="mui-title">房源预览</h1>
 </header>
 <div class="mui-content">
@@ -96,6 +102,13 @@
                         {/volist}
                     </select>
                 </div>
+                <form class="mui-input-group">
+                    <div class="mui-input-row mui-checkbox mui-left">
+                        <label>发送短信通知！</label>
+                        <input name="hat_is_msg" type="checkbox" >
+                        <input type="hidden" name="hat_is_msg" id="hat_is_msg" value="2"/>
+                    </div>
+                </form>
                 <input id="hat_id" type="hidden" value="{$allocate.hat_id}"/>
                 <div class="mui-input-row" style="margin: 10px 5px;">
                     <textarea id="hat_assign_tips" name="hat_assign_tips" rows="5" placeholder="其他备注信息"></textarea>
@@ -113,9 +126,18 @@
     mui.init({
         swipeBack: true //启用右滑关闭功能
     });
+    mui('.mui-input-group').on('change', 'input', function() {
+        var value = this.checked?"true":"false";
+        if(value == "true"){
+            $('#hat_is_msg').val('1');
+        }else{
+            $('#hat_is_msg').val('2');
+        }
+    });
     $('#subBtn').click(function () {
         var hat_assign_to=$('#hat_assign_to').val();
         var hat_assign_tips=$('#hat_assign_tips').val();
+        var hat_is_msg=$('#hat_is_msg').val();
         var hat_id=$('#hat_id').val();
         if(hat_assign_to.length<=0){
             mui.alert('请选择将要分配的监理！', function() {
@@ -125,7 +147,7 @@
             $.ajax({
                 type: 'POST',
                 url: "<?=url('admin/assigned')?>",
-                data: {'hat_assign_to':hat_assign_to,'hat_assign_tips':hat_assign_tips,'hat_id':hat_id},
+                data: {'hat_assign_to':hat_assign_to,'hat_assign_tips':hat_assign_tips,'hat_id':hat_id,'hat_is_msg':hat_is_msg},
                 dataType:  'json',
                 success: function(data){
                     console.log(data);

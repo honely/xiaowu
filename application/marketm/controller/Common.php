@@ -9,6 +9,7 @@
 namespace app\marketm\controller;
 use think\Controller;
 use think\Db;
+use think\Loader;
 
 class Common extends Controller{
     //二级联动根据传过来的省份id获取对应的城市名称
@@ -74,10 +75,13 @@ class Common extends Controller{
                 $statusTip="软装部分";
                 break;
             case 5:
-                $statusTip="完工";
+                $statusTip="自检";
                 break;
             case 6:
                 $statusTip="运营部";
+                break;
+            case 7:
+                $statusTip="二次自检";
                 break;
         }
         return $statusTip;
@@ -93,6 +97,13 @@ class Common extends Controller{
     public function getUserName($admin_id){
         $userInfo=Db::table('dcxw_user')->where(['u_id' => $admin_id])->field('u_name')->find();
         $username=$userInfo['u_name'];
+        return $username;
+    }
+
+ //根据id获取前端添加人员名称
+    public function getUserPhone($admin_id){
+        $userInfo=Db::table('dcxw_user')->where(['u_id' => $admin_id])->field('u_phone')->find();
+        $username=$userInfo['u_phone'];
         return $username;
     }
 
@@ -378,8 +389,6 @@ class Common extends Controller{
 
     }
 
-
-
     public function houseHeadFun(){
         return [
             '1' => '东',
@@ -436,7 +445,7 @@ class Common extends Controller{
 
 
     /*
-     * 根据城市id获取城市名称
+     * 根据部门id获取部门名称
      * */
     public function getDepartNameByDepartId($depart_id){
         $departInfo=Db::table('dcxw_department')->where(['d_id' =>$depart_id])->field('d_name')->find();
@@ -535,4 +544,190 @@ class Common extends Controller{
         }
         return $typeName;
     }
+
+
+
+
+
+    //根据IP获取城市信息
+    public function getCityInfoViaIp($ip){
+        $ip = @file_get_contents("http://ip.taobao.com/service/getIpInfo.php?ip=".$ip);
+        $ip = json_decode($ip,true);
+        return $ip;
+    }
+
+
+
+    //获取用户网络状态
+    public function getUserNetStatus($Agent)
+    {
+        if (strpos($Agent, 'NetType/WIFI')) {
+            $netType = "WIFI";
+        } else if (strpos($Agent, 'NetType/4')) {
+            $netType = "4G";
+        } else if (strpos($Agent, 'NetType/3')) {
+            $netType = "3G";
+        } else if (strpos($Agent, 'NetType/2')) {
+            $netType = "2G";
+        } else {
+            $netType = "Internet";
+        }
+        return $netType;
+    }
+
+
+    //获取用户设备型号
+    public function getUserOperationSys($user_agent){
+        if(stripos($user_agent, 'Windows')) {
+            $brand = 'windows';
+        } elseif(stripos($user_agent,"iPhone")!==false){
+            $brand= 'iPhone';
+        } else if(stripos($user_agent,"SAMSUNG")!==false||stripos($user_agent,"Galaxy")!==false||strpos($user_agent,"GT-")!==false||strpos($user_agent,"SCH-")!==false){
+            $brand='三星';
+        }elseif(stripos($user_agent,"Huawei")!==false||stripos($user_agent,"Honor")!==false||stripos($user_agent,"H60-")!==false||stripos($user_agent,"H30-")!==false){
+            $brand='华为';
+        }elseif(stripos($user_agent,"Lenovo")!==false){
+            $brand='联想';
+        }elseif(strpos($user_agent,"MI-ONE")!==false||strpos($user_agent,"MI 1S")!==false||strpos($user_agent,"MI 2")!==false||strpos($user_agent,"MI 3")!==false||strpos($user_agent,"MI 4")!==false||strpos($user_agent,"MI-4")!==false){
+            $brand='小米';
+        }elseif(strpos($user_agent,"HM NOTE")!==false||strpos($user_agent,"HM201")!==false){
+            $brand='红米';
+        }elseif(stripos($user_agent,"Coolpad")!==false||strpos($user_agent,"8190Q")!==false||strpos($user_agent,"5910")!==false){
+            $brand='酷派';
+        }elseif(stripos($user_agent,"ZTE")!==false||stripos($user_agent,"X9180")!==false||stripos($user_agent,"N9180")!==false||stripos($user_agent,"U9180")!==false){
+            $brand='中兴';
+        }elseif(stripos($user_agent,"OPPO")!==false||strpos($user_agent,"X9007")!==false||strpos($user_agent,"X907")!==false||strpos($user_agent,"X909")!==false||strpos($user_agent,"R831S")!==false||strpos($user_agent,"R827T")!==false||strpos($user_agent,"R821T")!==false||strpos($user_agent,"R811")!==false||strpos($user_agent,"R2017")!==false){
+            $brand='OPPO';
+        }elseif(strpos($user_agent,"HTC")!==false||stripos($user_agent,"Desire")!==false){
+            $brand='HTC';
+        }elseif(stripos($user_agent,"vivo")!==false){
+            $brand='vivo';
+        }elseif(stripos($user_agent,"K-Touch")!==false){
+            $brand='天语';
+        }elseif(stripos($user_agent,"Nubia")!==false||stripos($user_agent,"NX50")!==false||stripos($user_agent,"NX40")!==false){
+            $brand='努比亚';
+        }elseif(strpos($user_agent,"M045")!==false||strpos($user_agent,"M032")!==false||strpos($user_agent,"M355")!==false){
+            $brand='魅族';
+        }elseif(stripos($user_agent,"DOOV")!==false){
+            $brand='朵唯';
+        }elseif(stripos($user_agent,"GFIVE")!==false){
+            $brand='基伍';
+        }elseif(stripos($user_agent,"Gionee")!==false||strpos($user_agent,"GN")!==false){
+            $brand='金立';
+        }elseif(stripos($user_agent,"HS-U")!==false||stripos($user_agent,"HS-E")!==false){
+            $brand='海信';
+        }elseif(stripos($user_agent,"Nokia")!==false){
+            $brand='诺基亚';
+        }else{
+            $brand='其他手机';
+        }
+        return $brand;
+    }
+
+
+    //获取浏览器类型
+    function getBrowserType($userAgent){
+        if(empty($userAgent)){
+            return 'robot！';
+        }
+        if( (false == strpos($userAgent,'MSIE')) && (strpos($userAgent, 'Trident')!==FALSE) ){
+            return 'IE 11.0';
+        }
+        if(false!==strpos($userAgent,'MSIE 10.0')){
+            return 'IE 10.0';
+        }
+        if(false!==strpos($userAgent,'MSIE 9.0')){
+            return 'IE 9.0';
+        }
+        if(false!==strpos($userAgent,'MSIE 8.0')){
+            return 'IE 8.0';
+        }
+        if(false!==strpos($userAgent,'MSIE 7.0')){
+            return 'IE 7.0';
+        }
+        if(false!==strpos($userAgent,'MSIE 6.0')){
+            return 'IE 6.0';
+        }
+        if(false!==strpos($userAgent,'Edge')){
+            return 'Edge';
+        }
+        if(false!==strpos($userAgent,'Firefox')){
+            return 'Firefox';
+        }
+        if(false!==strpos($userAgent,'Chrome')){
+            return 'Chrome';
+        }
+        if(false!==strpos($userAgent,'Safari')){
+            return 'Safari';
+        }
+        if(false!==strpos($userAgent,'Opera')){
+            return 'Opera';
+        }
+        if(false!==strpos($userAgent,'360SE')){
+            return '360SE';
+        }
+        if(false!==strpos($userAgent,'MicroMessage')){
+            return '微信浏览器';
+        }
+    }
+
+
+
+    //把对象转换成数组的方法；
+    public function object2array($object) {
+        if (is_object($object)) {
+            foreach ($object as $key => $value) {
+                $array[$key] = $value;
+            }
+        }
+        else {
+            $array = $object;
+        }
+        return $array;
+    }
+
+
+    /*
+     * 根据城市获取该分公司的行政部分配管理员名称
+     * */
+    public function getAdminNameViaCityId($cityId){
+        $adminInfo=Db::table('dcxw_user')
+            ->where(['u_c_id' => $cityId,'u_depart_id' => 5])
+            ->field('u_name,u_phone')
+            ->find();
+        return $adminInfo?$adminInfo:null;
+    }
+
+
+
+    /*
+     * 根据城市获取该分公司的行政部分配管理员名称
+     * */
+    public function getOperNameViaCityId($cityId){
+        $adminInfo=Db::table('dcxw_user')
+            ->where(['u_c_id' => $cityId,'u_depart_id' => 6])
+            ->field('u_name,u_phone')
+            ->find();
+        return $adminInfo?$adminInfo:null;
+    }
+
+
+    public function sendMsg($adminInfo){
+        //短信发送
+        Loader::import('aliyun/api_demo/SmsDemo',EXTEND_PATH);
+        $sms = new \SmsDemo();
+        $keyInfo=Db::table('dcxw_setinfo')->where(['s_key' => 'ali_sms_key'])->find();
+        $keyId=$keyInfo['s_value'];
+        $secretinfo=Db::table('dcxw_setinfo')->where(['s_key' => 'ali_sms_secret'])->find();
+        $keySecret=$secretinfo['s_value'];
+        $signName="大城小屋";
+        $phone=$adminInfo['u_phone'];
+        $name=$adminInfo['u_name'];
+        $templateCode="SMS_152212638";
+        $sem1=$sms->sendMarToAdm($phone,$signName,$templateCode,$name,$keyId,$keySecret);
+        $array=$this->object2array($sem1);
+        return $array['Code'] == 'OK'?"1":"2";
+    }
+
+
 }

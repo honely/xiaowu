@@ -17,7 +17,7 @@
 <body>
 <header class="mui-bar mui-bar-nav">
     <h1 class="mui-title">房源列表</h1>
-    <a class="mui-icon mui-icon-person mui-pull-right" href="<?=url('index/person')?>"></a>
+    <a class="mui-icon mui-icon-person mui-pull-right" href="<?=url('marketm/index/person')?>?role=6"></a>
 </header>
 <div class="mui-content" style="background:#fff;">
     <div class="mui-content-padded">
@@ -66,17 +66,12 @@
             </div>
         </div>
         <div class="mui-card-footer">
-            <a class="mui-card-link"
-            {if condition="$hous.is_paid_ratio eq 1"}
-             href="<?=url('index/payment')?>?h_id={$hous.h_b_id}"
-            {else/}
-            onclick="alertss()"
-            {/if}
-            >回款信息</a>
-            <a class="mui-card-link" href="<?=url('index/decorate')?>?b_id={$hous.h_b_id}">装修信息</a>
-            <a class="mui-card-link" href="<?=url('index/rent')?>?h_id={$hous.h_b_id}">出租信息</a>
-            <a class="mui-card-link" href="<?=url('index/preview')?>?h_id={$hous.h_b_id}">房源预览</a>
-            <a class="mui-card-link" href="<?=url('index/allot')?>?h_id={$hous.h_b_id}">交接信息</a>
+            <a class="mui-card-link" href="<?=url('index/payment')?>?h_id={$hous.h_b_id}">回款</a>
+            <a class="mui-card-link" href="<?=url('index/decorate')?>?b_id={$hous.h_b_id}">装修</a>
+            <a class="mui-card-link" href="<?=url('index/rent')?>?h_id={$hous.h_b_id}">出租</a>
+            <a class="mui-card-link" href="<?=url('index/preview')?>?h_id={$hous.h_b_id}">房源</a>
+            <a class="mui-card-link" href="<?=url('index/allot')?>?h_id={$hous.h_b_id}">交接</a>
+            <a class="mui-card-link" href="<?=url('index/maintain')?>?h_id={$hous.h_b_id}">维护</a>
         </div>
     </div>
     {/volist}
@@ -147,6 +142,7 @@
                         '            <a class="mui-card-link" href="<?=url('index/payment')?>?h_id='+data[i].h_b_id+'">回款信息</a>' +
                         '            <a class="mui-card-link" href="<?=url('index/attach')?>?h_id='+data[i].h_b_id+'&a_id='+data[i].a_id+'">房屋附属</a>' +
                         '            <a class="mui-card-link" href="<?=url('index/preview')?>?h_id='+data[i].h_b_id+'">房源预览</a>' +
+                        '            <a class="mui-card-link" href="<?=url('index/maintain')?>?h_id='+data[i].h_b_id+'">维护</a>' +
                         '        </div>' +
                         '    </div>';
                     }

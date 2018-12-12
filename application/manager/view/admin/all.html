@@ -88,7 +88,7 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-icon-person mui-pull-left" style=" color: #007aff;" href="<?=url('index/person')?>"></a>
+    <a class="mui-icon mui-icon-person mui-pull-left" style=" color: #007aff;" href="<?=url('marketm/index/person')?>?role=2"></a>
     <h1 class="mui-title">分配列表</h1>
     <span id='demo6' data-options='{"type":"month"}' class="btn mui-icon-extra mui-icon-extra-calendar mui-pull-right"></span>
     <span id='result' class="ui-alert mui-pull-right">{if isset($date)}{$date}{/if}</span>
@@ -98,10 +98,10 @@
         <div class="allocate-top">
             <a href="<?=url('admin/index')?>"><div class="spans actives divs">待分配</div></a>
             <a href="<?=url('admin/allocated')?>"><div class="spans actives divs">已分配</div></a>
-            <a><div class="spans divs">全部</div></a>
+            <a><div class="spans divs">全部（{$count}）</div></a>
         </div>
     </div>
-    <div class="mui-content">
+    <div class="mui-content" >
         {if condition="$allocate eq null"}
         <div class="mui-card">
             <div class="mui-card-content" style="height: 40px;text-align: center;line-height: 36px;">
@@ -109,8 +109,8 @@
             </div>
         </div>
         {else/}
-        {volist name="allocate" id="vo"}
         <div id="getMore">
+        {volist name="allocate" id="vo"}
             <div class="mui-card">
                 <div class="mui-card-content">
                     <div class="mui-card-content-inner">
@@ -143,17 +143,16 @@
                     </div>
                 </div>
                 <div class="mui-card-footer">
-                    <a class="mui-card-link" href="<?=url('admin/details')?>?h_id={$vo.hat_house_code}">房源详情</a>
+                    <a class="mui-card-link" href="<?=url('admin/details')?>?h_id={$vo.hat_house_code}&type=1">房源详情</a>
                     {if condition="$vo.hat_is_assign eq 1"}
-                    <a class="mui-card-link" href="<?=url('admin/alldetails')?>?hat_id={$vo.hat_id}">分配详情</a>
+                    <a class="mui-card-link" href="<?=url('admin/alldetails')?>?hat_id={$vo.hat_id}&type=1">分配详情</a>
                     {else/}
-                    <a class="mui-card-link" href="<?=url('admin/allocate')?>?hat_id={$vo.hat_id}">点击分配</a>
+                    <a class="mui-card-link" href="<?=url('admin/allocate')?>?hat_id={$vo.hat_id}&type=1">点击分配</a>
                     {/if}
                 </div>
             </div>
-        </div>
-
         {/volist}
+        </div>
         <div class="mui-card">
             <input type="hidden" value="1" id="page1"/>
             <div id="moreBtn1" class="mui-card-content" style="height: 40px;text-align: center;line-height: 36px;{if condition='$count gt 8'}display: block{else/}display: none{/if}">
@@ -260,11 +259,11 @@
                             '                </div>' +
                             '            </div>' +
                             '            <div class="mui-card-footer">' +
-                            '            <a class="mui-card-link" href="<?=url('admin/details')?>?h_id='+data[i].hat_house_code+'">房源详情</a>';
+                            '            <a class="mui-card-link" href="<?=url('admin/details')?>?h_id='+data[i].hat_house_code+'&type=1">房源详情</a>';
                         if(data[i].hat_is_assign == 2){
-                            html+='<a class="mui-card-link" href="<?=url('admin/allocate')?>?hat_id='+data[i].hat_id+'">点击分配</a>';
+                            html+='<a class="mui-card-link" href="<?=url('admin/allocate')?>?hat_id='+data[i].hat_id+'&type=1">点击分配</a>';
                         }else{
-                            html+=' <a class="mui-card-link" href="<?=url('admin/alldetails')?>?hat_id='+data[i].hat_id+'">分配详情</a>';
+                            html+=' <a class="mui-card-link" href="<?=url('admin/alldetails')?>?hat_id='+data[i].hat_id+'&type=1">分配详情</a>';
                         }
                         html+='            </div>' +
                         '        </div>';

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\timeline.html";i:1543199081;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\timeline.html";i:1543558056;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +12,9 @@
 </head>
 <body class="mui-ios mui-ios-11 mui-ios-11-0">
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/index')?>"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left"
+    <?php switch($type): case "1": ?>href="<?=url('index/decorating')?>"<?php break; case "2": ?>href="<?=url('index/allocated')?>"<?php break; case "3": ?>href="<?=url('index/index')?>"<?php break; endswitch; ?>
+    ></a>
     <h1 class="mui-title">装修进度</h1>
 </header>
 <div id="app" class="mui-content" style="background-color: rgb(255, 255, 255);">

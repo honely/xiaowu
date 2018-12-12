@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\improve.html";i:1543286811;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\improve.html";i:1543652959;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -197,6 +197,12 @@
                 <p><b>房源编号：【<?php echo $house['h_b_id']; ?>】</b>
                 <span style="float: right;"><?php echo $house['p_name']; ?>-<?php echo $house['c_name']; ?>-<?php echo $house['area_name']; ?></span>
                 </p>
+                <p style="line-height: 26px;">
+                    小区名称:<?php echo $house['h_building']; ?><br/>
+                    房屋户型:<?php echo $house['h_house_type']; ?><br/>
+                    房屋朝向:<?php echo $house['h_head']; ?><br/>
+                    房源地址:<?php echo $house['h_address']; ?><br/>
+                </p>
             </div>
         </div>
     </div>
@@ -211,22 +217,10 @@
                     <label><span class="color-red">*</span>房源地址：</label>
                     <input type="text" value="<?php echo $house['h_address']; ?>" class="layui-input" name="h_address">
                 </div>
-                <div class="mui-content-padded">
-                    <select name="h_head" id="h_head" class="mui-btn mui-btn-block">
-                        <option value="">请选择房屋朝向</option>
-                        <option value="1" <?php if($house['h_head'] == 1): ?>selected<?php endif; ?>>东</option>
-                        <option value="2" <?php if($house['h_head'] == 2): ?>selected<?php endif; ?>>南</option>
-                        <option value="3" <?php if($house['h_head'] == 3): ?>selected<?php endif; ?>>西</option>
-                        <option value="4" <?php if($house['h_head'] == 4): ?>selected<?php endif; ?>>北</option>
-                        <option value="5" <?php if($house['h_head'] == 5): ?>selected<?php endif; ?>>东南</option>
-                        <option value="6" <?php if($house['h_head'] == 6): ?>selected<?php endif; ?>>西南</option>
-                        <option value="7" <?php if($house['h_head'] == 7): ?>selected<?php endif; ?>>东北</option>
-                        <option value="8" <?php if($house['h_head'] == 8): ?>selected<?php endif; ?>>西北</option>
-                    </select>
-                </div>
                 <div class="mui-input-row">
                     <label><span class="color-red">*</span>房源图片</label>第一张为封面图。
                     <span id="upload" class="mui-btn mui-btn-primary">上传</span>
+                    <input type="text" id="h_img" name="h_img[]" lay-verify="imgReg" <?php if($house['h_img'] != null): ?>value="aaa"<?php endif; ?>/>
                 </div>
                 <div id="imgPre">
                     <?php if(isset($house['h_img'])): if($house['h_img'] != null): if(is_array($house['h_img']) || $house['h_img'] instanceof \think\Collection || $house['h_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $house['h_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
@@ -235,7 +229,7 @@
                             <i class="close layui-icon"></i>
                         </div>
                         <img src="__PUBLIC__/<?php echo $items; ?>" class="img" data-preview-src="" data-preview-group="1">
-                        <input type="hidden" name="h_img[]" lay-verify="imgReg" value="<?php echo $items; ?>" />
+                        <input type="text" name="h_img[]" lay-verify="imgReg" value="<?php echo $items; ?>" />
                     </li>
                     <?php endforeach; endif; else: echo "" ;endif; endif; endif; ?>
                 </div>
@@ -359,7 +353,7 @@
             }
             ,done: function(res){
                 console.log(res);
-                $('#img').val(res.path);
+                $('#h_img').val(res.path);
                 $('#imgPre').append('' +
                     '<li class="item_img"><div class="operate"><i  class="close layui-icon"></i></div><img src="__PUBLIC__/' + res.path + '" class="img" ><input type="hidden" class="h_img" name="h_img[]" value="' + res.path + '" /></li>');
                 layer.close(loading);

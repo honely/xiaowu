@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\preview.html";i:1543197800;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\preview.html";i:1543827649;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -250,14 +250,11 @@
                 </div>
                 <div class="mui-input-row">
                     <label>合同扫描件</label>
-                </div>
-                <div id="imgPre">
-                    <?php if(is_array($attach['ha_contact_img']) || $attach['ha_contact_img'] instanceof \think\Collection || $attach['ha_contact_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $attach['ha_contact_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
-                    <li class="item_img" style="list-style-type: none">
-                        <img src="__PUBLIC__/<?php echo $items; ?>" class="img" style="padding: 5px;" data-preview-src="" data-preview-group="1"  >
-                        <input type="hidden" name="ha_contact_img[]" value="' + res.path + '" />
-                    </li>
-                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                    <?php if($attach['ha_contact_img_first'] != null): ?>
+                    <img src="__WEB__/img/one-btn.png" style="width: 20%;height: 19px;margin-top: 10px;"  data-preview-src="<?php echo $attach['ha_contact_img_first']; ?>" data-preview-group="1">
+                    <?php endif; if($attach['ha_contact_imgs'] != null): if(is_array($attach['ha_contact_imgs']) || $attach['ha_contact_imgs'] instanceof \think\Collection || $attach['ha_contact_imgs'] instanceof \think\Paginator): $i = 0; $__LIST__ = $attach['ha_contact_imgs'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
+                    <img style="display: none" src="<?php echo $items; ?>" data-preview-src="" data-preview-group="1">
+                    <?php endforeach; endif; else: echo "" ;endif; endif; ?>
                 </div>
                 <div class="mui-input-row">
                     <label>租金(每月)：</label>
@@ -417,6 +414,13 @@
             <label>转交备注：</label>
             <input id="transInfo" type="text" value="">
         </div>
+        <form class="mui-input-group mui-input-groups">
+            <div class="mui-input-row mui-checkbox mui-left">
+                <label>发送短信通知！</label>
+                <input name="hat_is_msg" type="checkbox" >
+                <input type="hidden" name="hat_is_msg" id="hat_is_msg" value="2"/>
+            </div>
+        </form>
     </div>
     <span id="toWork" class="mui-btn mui-btn-primary mui-btn-block">信息准确无误，提交信息</span>
     <?php endif; if($hous['h_isable'] == 7): ?>
@@ -434,6 +438,14 @@
             window.top.location.href=this.href;
         }
     });
+    mui('.mui-input-groups').on('change', 'input', function() {
+        var value = this.checked?"true":"false";
+        if(value == "true"){
+            $('#hat_is_msg').val('1');
+        }else{
+            $('#hat_is_msg').val('2');
+        }
+    });
 </script>
 <script>
     mui.init({
@@ -442,13 +454,14 @@
     $("#toWork").click(function () {
         var h_id=<?php echo $hous['h_b_id']; ?>;
         var transInfo=$('#transInfo').val();
+        var hat_is_msg=$('#hat_is_msg').val();
         var btnArray = ['否', '是'];
         mui.confirm('请确认信息准确无误？', 'Hello MUI', btnArray, function(e) {
             if (e.index == 1) {
                 $.ajax({
                     type:"post",
                     url:"<?=url('index/towork')?>",
-                    data:{'h_id':h_id,'transfer':transInfo},
+                    data:{'h_id':h_id,'transfer':transInfo,'hat_is_msg':hat_is_msg},
                     success:function (result) {
                         console.log(result);
                         if(result.code == '1'){

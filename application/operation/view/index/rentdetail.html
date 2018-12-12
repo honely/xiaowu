@@ -209,15 +209,16 @@
                     合同编号：{$rent.hrl_contact_code}
                     <br/>
                     合同图片:
-                <div id="imgPre">
-                    {volist name="rent.hrl_contact_img" id="items"}
-                    <li class="item_img" style="list-style-type: none">
-                        <img src="__PUBLIC__/{$items}" class="img" data-preview-src="" data-preview-group="1"  >
-                        <input type="hidden" name="hrl_contact_img[]" value="' + res.path + '" />
-                    </li>
-                    {/volist}
-                </div>
-                    <br/>
+                    <p>
+                        {if condition="$rent.hrl_contact_img_first neq null"}
+                        <img src="__WEB__/img/one-btn.png" style="width: 20%" data-preview-src="{$rent.hrl_contact_img_first}" data-preview-group="1">
+                        {/if}
+                        {if condition="$rent.hrl_contact_imgs neq null"}
+                        {volist name="rent.hrl_contact_imgs" id="items"}
+                        <img style="display: none" src="{$items}" data-preview-src="" data-preview-group="1">
+                        {/volist}
+                        {/if}
+                    </p>
                     租房日期：{$rent.hrl_rent_time}-{$rent.hrl_dead_time}
                     <br/>
                     租房押金：{$rent.hrl_foregift}（元）

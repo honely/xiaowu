@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/manager\view\index\preview.html";i:1543199888;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/manager\view\index\preview.html";i:1544080233;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -234,13 +234,11 @@
                 <hr style="width: 100%;opacity: 0"/>
                 <?php endif; endif; if($hous['h_img'] != null): ?>
                 <p><b>房源图片：</b></p>
-                <p>
-                    <?php if(is_array($hous['h_img']) || $hous['h_img'] instanceof \think\Collection || $hous['h_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $hous['h_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
-                    <img src="<?php echo $items; ?>" class="item_img" data-preview-src="" data-preview-group="1">
-                    <?php endforeach; endif; else: echo "" ;endif; ?>
-
-                </p>
-                <?php endif; ?>
+                <?php if($hous['h_img_first'] != null): ?>
+                <img src="__WEB__/img/one-btn.png" style="width: 20%;height: 19px;margin-top: 10px;"  data-preview-src="<?php echo $hous['h_img_first']; ?>" data-preview-group="2">
+                <?php endif; if($hous['h_imgs'] != null): if(is_array($hous['h_imgs']) || $hous['h_imgs'] instanceof \think\Collection || $hous['h_imgs'] instanceof \think\Paginator): $i = 0; $__LIST__ = $hous['h_imgs'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
+                <img style="display: none" src="<?php echo $items; ?>" data-preview-src="" data-preview-group="2">
+                <?php endforeach; endif; else: echo "" ;endif; endif; endif; ?>
             </div>
         </div>
     </div>
@@ -357,16 +355,20 @@
                     物业电话：<?php if(isset($attach['ha_wuye_phone'])): ?><?php echo $attach['ha_wuye_phone']; endif; ?>
                 </p>
                 <p style="color: #333;">
-                    合同编号：<?php if(isset($attach['ha_contact_code'])): ?><?php echo $attach['ha_contact_code']; endif; ?>
+                    物业费用：<?php if(isset($attach['ha_wuye_fee'])): ?><?php echo $attach['ha_wuye_fee']; endif; ?>
+                    物业费类型：<?php if(isset($attach['ha_wuye_fee_type'])): ?><?php echo $attach['ha_wuye_fee_type']; endif; ?>
                 </p>
                 <p style="color: #333;">
-                    <b>合同扫描件：</b>
+                    合同编号：<?php if(isset($attach['ha_contact_code'])): ?><?php echo $attach['ha_contact_code']; endif; ?>
                 </p>
-                <p>
-                    <?php if(is_array($attach['ha_contact_img']) || $attach['ha_contact_img'] instanceof \think\Collection || $attach['ha_contact_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $attach['ha_contact_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
-                    <img src="<?php echo $items; ?>" data-preview-src="" data-preview-group="2">
-                    <?php endforeach; endif; else: echo "" ;endif; ?>
-                </p>
+                <div class="mui-input-row">
+                    <label style="padding-left: 0px;padding-top: 11px;">合同扫描件</label>
+                    <?php if($attach['ha_contact_img_first'] != null): ?>
+                    <img src="__WEB__/img/one-btn.png" style="width: 20%;height: 19px;margin-top: 10px;"  data-preview-src="<?php echo $attach['ha_contact_img_first']; ?>" data-preview-group="3">
+                    <?php endif; if($attach['ha_contact_imgs'] != null): if(is_array($attach['ha_contact_imgs']) || $attach['ha_contact_imgs'] instanceof \think\Collection || $attach['ha_contact_imgs'] instanceof \think\Paginator): $i = 0; $__LIST__ = $attach['ha_contact_imgs'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
+                    <img style="display: none" src="<?php echo $items; ?>" data-preview-src="" data-preview-group="3">
+                    <?php endforeach; endif; else: echo "" ;endif; endif; ?>
+                </div>
                 <hr/>
                 <p style="color: #333;">
                     租金(每月)：<?php if(isset($attach['ha_rent_price'])): ?><?php echo $attach['ha_rent_price']; endif; ?>

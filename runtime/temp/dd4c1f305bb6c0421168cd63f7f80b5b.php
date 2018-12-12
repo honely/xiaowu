@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\login\login.html";i:1543305068;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\login\login.html";i:1543372143;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,7 +71,6 @@
 <div class="mui-content login" >
     <div class="welcome">
         欢迎登录大城小屋！
-        <!--<img src="__WAP__/images/welcome.png"/>-->
     </div>
     <div class="mui-content-padded" style="margin: 5px;">
         <form class="login-form" id="loginForm">

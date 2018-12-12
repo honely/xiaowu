@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\allocate.html";i:1543198738;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\allocate.html";i:1543976926;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,7 +58,9 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('admin/index')?>"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left"
+        <?php switch($type): case "1": ?>href="<?=url('admin/all')?>"<?php break; case "2": ?>href="<?=url('admin/allocated')?>"<?php break; case "3": ?>href="<?=url('admin/index')?>"<?php break; endswitch; ?>
+    ></a>
     <h1 class="mui-title">房源预览</h1>
 </header>
 <div class="mui-content">
@@ -97,6 +99,13 @@
                         <?php endforeach; endif; else: echo "" ;endif; ?>
                     </select>
                 </div>
+                <form class="mui-input-group">
+                    <div class="mui-input-row mui-checkbox mui-left">
+                        <label>发送短信通知！</label>
+                        <input name="hat_is_msg" type="checkbox" >
+                        <input type="hidden" name="hat_is_msg" id="hat_is_msg" value="2"/>
+                    </div>
+                </form>
                 <input id="hat_id" type="hidden" value="<?php echo $allocate['hat_id']; ?>"/>
                 <div class="mui-input-row" style="margin: 10px 5px;">
                     <textarea id="hat_assign_tips" name="hat_assign_tips" rows="5" placeholder="其他备注信息"></textarea>
@@ -114,9 +123,18 @@
     mui.init({
         swipeBack: true //启用右滑关闭功能
     });
+    mui('.mui-input-group').on('change', 'input', function() {
+        var value = this.checked?"true":"false";
+        if(value == "true"){
+            $('#hat_is_msg').val('1');
+        }else{
+            $('#hat_is_msg').val('2');
+        }
+    });
     $('#subBtn').click(function () {
         var hat_assign_to=$('#hat_assign_to').val();
         var hat_assign_tips=$('#hat_assign_tips').val();
+        var hat_is_msg=$('#hat_is_msg').val();
         var hat_id=$('#hat_id').val();
         if(hat_assign_to.length<=0){
             mui.alert('请选择将要分配的监理！', function() {
@@ -126,7 +144,7 @@
             $.ajax({
                 type: 'POST',
                 url: "<?=url('admin/assigned')?>",
-                data: {'hat_assign_to':hat_assign_to,'hat_assign_tips':hat_assign_tips,'hat_id':hat_id},
+                data: {'hat_assign_to':hat_assign_to,'hat_assign_tips':hat_assign_tips,'hat_id':hat_id,'hat_is_msg':hat_is_msg},
                 dataType:  'json',
                 success: function(data){
                     console.log(data);

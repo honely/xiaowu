@@ -14,8 +14,8 @@ class Login extends Controller{
         if($_POST){
             $account=trim($_POST['u_account']);
             $isExist=Db::table('dcxw_user')
-                ->where(['u_phone' =>$account])
-                ->whereOr(['u_email' =>$account])
+                ->where('( u_phone = '.$account.' or u_email = '.$account.')')
+                ->where(['u_isable' => 1])
                 ->find();
             if($isExist){
                 $ePassword=$isExist['u_password'];

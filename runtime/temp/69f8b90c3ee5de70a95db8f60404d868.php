@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\paydetail.html";i:1543289328;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\paydetail.html";i:1543806025;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -174,15 +174,13 @@
         <p>
             今收到房客【<?php echo $payLog['rent_name']; ?>】电话【<?php echo $payLog['rent_phone']; ?>】，房租<?php echo $payLog['hrpl_money']; ?>元。
         </p>
-        <p>
-            本条记录由【<?php echo $details['u_name']; ?>】在<?php echo $details['hrpl_addtime']; ?>提交。
-        </p>
         <p><b>收款凭证</b></p>
         <p>
-            <?php if(is_array($details['hrpl_img']) || $details['hrpl_img'] instanceof \think\Collection || $details['hrpl_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $details['hrpl_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
-            <img src="<?php echo $items; ?>" data-preview-src="" data-preview-group="1">
-            <?php endforeach; endif; else: echo "" ;endif; ?>
-
+            <?php if($details['hrpl_img_first'] != null): ?>
+            <img src="__WEB__/img/one-btn.png" style="width: 20%" data-preview-src="<?php echo $details['hrpl_img_first']; ?>" data-preview-group="1">
+            <?php endif; if($details['hrpl_imgs'] != null): if(is_array($details['hrpl_imgs']) || $details['hrpl_imgs'] instanceof \think\Collection || $details['hrpl_imgs'] instanceof \think\Paginator): $i = 0; $__LIST__ = $details['hrpl_imgs'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
+            <img style="display: none" src="<?php echo $items; ?>" data-preview-src="" data-preview-group="1">
+            <?php endforeach; endif; else: echo "" ;endif; endif; ?>
         </p>
         <br>
         <p class="mui-pull-right">

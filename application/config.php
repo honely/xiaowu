@@ -99,7 +99,7 @@ return [
     // 域名部署
     'url_domain_deploy'      => false,
     // 域名根，如thinkphp.cn
-    'url_domain_root'        => 'http://ceshi.qblzs.cn/',
+    'url_domain_root'        => 'http://www.xiaowugroup.com/',
     // 是否自动转换URL中的控制器和操作名
     'url_convert'            => true,
     // 默认的访问控制器层
@@ -164,7 +164,8 @@ return [
     // 显示错误信息
     'show_error_msg'         => false,
     // 异常处理handle类 留空使用 \think\exception\Handle
-    'exception_handle'       => '',
+//    'exception_handle'       => '',
+    'exception_handle'       => '\\app\\common\\exception\\Http',
 
     // +----------------------------------------------------------------------
     // | 日志设置

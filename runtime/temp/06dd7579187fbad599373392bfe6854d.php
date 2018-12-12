@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\addrent.html";i:1543298238;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\addrent.html";i:1543298297;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -171,7 +171,7 @@
             }
             ,imgReg:function (value) {
                 if(value.length <= 0){
-                    return '请上传打款凭证！';
+                    return '请上传合同扫描件！';
                 }
             }
         });

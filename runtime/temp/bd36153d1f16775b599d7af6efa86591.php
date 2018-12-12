@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/manager\view\index\person.html";i:1542265033;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/manager\view\index\person.html";i:1543374780;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -8,10 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-    <!--标准mui.css-->
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
-    <!--App自定义的css-->
     <link rel="stylesheet" type="text/css" href="__WAP__/css/app.css"/>
     <style>
         .mui-content-padded{
@@ -19,13 +16,15 @@
         }
     </style>
 </head>
-
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-back mui-pull-left"></a>
+    <a class="mui-icon mui-icon-back mui-pull-left" href="<?=url('index/index')?>"></a>
     <h1 class="mui-title">设置</h1>
 </header>
 <div class="mui-content">
+    <div class="mui-content-padded">
+        <a href="<?=url('marketm/index/resetpwd')?>" class="mui-btn mui-btn-primary mui-btn-block">修改密码</a>
+    </div>
     <div class="mui-content-padded">
         <span id="loginOut" class="mui-btn mui-btn-primary mui-btn-block">退出登录</span>
     </div>

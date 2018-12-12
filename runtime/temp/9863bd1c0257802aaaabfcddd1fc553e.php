@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\alldetails.html";i:1543198738;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\alldetails.html";i:1543916730;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -12,7 +12,9 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('admin/index')?>"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left"
+        <?php switch($type): case "1": ?>href="<?=url('admin/all')?>"<?php break; case "2": ?>href="<?=url('admin/allocated')?>"<?php break; case "3": ?>href="<?=url('admin/index')?>"<?php break; endswitch; ?>
+    ></a>
     <h1 class="mui-title">转交详情</h1>
 </header>
 <div class="mui-content" style="padding-top: 40px;">

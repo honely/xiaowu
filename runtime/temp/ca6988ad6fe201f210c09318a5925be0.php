@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\attach.html";i:1543282806;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\attach.html";i:1543803548;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -201,13 +201,10 @@
                 </div>
                 <div class="mui-input-row">
                     <label>合同扫描件</label>
-                </div>
-                <div id="imgPre">
-                    <?php if(isset($attach['ha_contact_img'])): if(is_array($attach['ha_contact_img']) || $attach['ha_contact_img'] instanceof \think\Collection || $attach['ha_contact_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $attach['ha_contact_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
-                    <li class="item_img" style="list-style-type: none">
-                        <img src="__PUBLIC__/<?php echo $items; ?>" class="img" style="padding: 5px;" data-preview-src="" data-preview-group="1" >
-                        <input type="hidden" name="ha_contact_img[]" value="<?php echo $items; ?>" />
-                    </li>
+                    <?php if($attach['ha_contact_img_first'] != null): ?>
+                    <img src="__WEB__/img/one-btn.png" style="width: 20%;height: 19px;margin-top: 10px;" data-preview-src="<?php echo $attach['ha_contact_img_first']; ?>" data-preview-group="1">
+                    <?php endif; if($attach['ha_contact_imgs'] != null): if(is_array($attach['ha_contact_imgs']) || $attach['ha_contact_imgs'] instanceof \think\Collection || $attach['ha_contact_imgs'] instanceof \think\Paginator): $i = 0; $__LIST__ = $attach['ha_contact_imgs'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
+                    <img style="display: none" src="<?php echo $items; ?>" data-preview-src="" data-preview-group="1">
                     <?php endforeach; endif; else: echo "" ;endif; endif; ?>
                 </div>
                 <div class="mui-input-row">

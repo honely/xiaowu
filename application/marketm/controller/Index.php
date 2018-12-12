@@ -7,8 +7,10 @@
  * Name: Controller
  */
 namespace app\marketm\controller;
+use app\marketm\model\Commons;
 use think\Controller;
 use think\Db;
+use think\Loader;
 use think\Request;
 
 class Index extends Controller{
@@ -203,6 +205,7 @@ class Index extends Controller{
 
     public function addmaster(){
         $userInfo=session('userInfo');
+        $logCommon=new Commons();
         $h_id=trim($_GET['h_id']);
         if($_POST){
             $master=Db::table('dcxw_house_master')
@@ -218,9 +221,9 @@ class Index extends Controller{
                     ->where(['hm_house_code' => $h_id])
                     ->update($data);
                 if($update){
-                    $this->success('修改成功！','',$master);
+                    $this->success('修改成功！');
                 }else{
-                    $this->error('修改失败！','',$master);
+                    $this->error('修改失败！');
                 }
             }else{
                 $data=$_POST;
@@ -499,24 +502,20 @@ class Index extends Controller{
             ->where(['hpl_id' => $hpl_id])
             ->field('dcxw_house_pay_log.*,dcxw_user.u_name,dcxw_user.u_job')
             ->find();
-        $logs['hpl_addtime']=date('Y年m月d日 H时i分',$logs['hpl_addtime']);
-        $logs['hpl_money']=number_format($logs['hpl_money'],2);
-        $logs['hpl_img']=explode(',',$logs['hpl_img']);
+        if($logs){
+            if($logs['hpl_img']){
+                $logs['hpl_imgs']=explode(',',$logs['hpl_img']);
+                $logs['hpl_img_first']=explode(',',$logs['hpl_img'])[0];
+                if(count($logs['hpl_imgs']) >=1){
+                    unset($logs['hpl_imgs'][0]);
+                }
+            }
+            $logs['hpl_addtime']=date('Y年m月d日 H时i分',$logs['hpl_addtime']);
+            $logs['hpl_money']=number_format($logs['hpl_money'],2);
+        }
         $this->assign('logs',$logs);
         return $this->fetch();
     }
-
-
-
-
-    public function editpay(){
-        $hpl_id=intval(trim($_GET['hpl_id']));
-        dump($hpl_id);
-        return $this->fetch();
-    }
-
-
-
 
     /*
      * 房屋附属信息
@@ -545,11 +544,17 @@ class Index extends Controller{
             ->where(['ha_house_code' => $h_id])
             ->find();
         if($attach){
-                $attach['ha_contact_img']=explode(',',$attach['ha_contact_img']);
-                $attach['ha_deadline']=date('Y-m-d',$attach['ha_deadline']);
-                $attach['ha_decorate_permit']=date('Y-m-d',$attach['ha_decorate_permit']);
-
+            $attach['ha_deadline']=date('Y-m-d',$attach['ha_deadline']);
+            $attach['ha_decorate_permit']=date('Y-m-d',$attach['ha_decorate_permit']);
+            if($attach['ha_contact_img']){
+                $attach['ha_contact_imgs']=explode(',',$attach['ha_contact_img']);
+                $attach['ha_contact_img_first']=explode(',',$attach['ha_contact_img'])[0];
+                if(count($attach['ha_contact_imgs']) >=1){
+                    unset($attach['ha_contact_imgs'][0]);
+                }
+            }
             if($a_id == 2){
+                $attach['ha_contact_img']=explode(',',$attach['ha_contact_img']);
                 $electType=$commoModel->electType();
                 $this->assign('electType',$electType);
                 $warmType=$commoModel->warmType();
@@ -673,7 +678,13 @@ class Index extends Controller{
             ->where(['ha_house_code' => $h_id])
             ->find();
         if($attach){
-            $attach['ha_contact_img']=explode(',',$attach['ha_contact_img']);
+            if($attach['ha_contact_img']){
+                $attach['ha_contact_imgs']=explode(',',$attach['ha_contact_img']);
+                $attach['ha_contact_img_first']=explode(',',$attach['ha_contact_img'])[0];
+                if(count($attach['ha_contact_imgs']) >=1){
+                    unset($attach['ha_contact_imgs'][0]);
+                }
+            }
             $attach['ha_deadline']=date('Y-m-d',$attach['ha_deadline']);
             $attach['ha_decorate_permit']=date('Y-m-d',$attach['ha_decorate_permit']);
             $attach['ha_elect_type']=$commoModel->getElectTypeName($attach['ha_elect_type']);
@@ -688,6 +699,15 @@ class Index extends Controller{
 
 
     public function person(){
+        $role=intval(trim($_GET['role']));
+        $userInfo=session('userInfo');
+        $commonModel=new Common();
+        if($userInfo){
+            $userInfo['u_depart_id']=$commonModel->getDepartNameByDepartId($userInfo['u_depart_id']);
+            $userInfo['u_c_id']=$commonModel->getCitynameByCityId($userInfo['u_c_id']);
+        }
+        $this->assign('role',$role);
+        $this->assign('user',$userInfo);
         return $this->fetch();
     }
 
@@ -696,10 +716,10 @@ class Index extends Controller{
      * */
     public function towork(){
         $h_id=trim($_POST['h_id']);
-        //转交备注
+//        //转交备注
         $transInfo=trim($_POST['transfer']);
+        $hat_is_msg=intval(trim($_POST['hat_is_msg']));
         $userInfo=session('userInfo');
-
         //1.更改房屋主表的状态
         $toWork=Db::table('dcxw_house')
             ->where('h_b_id', $h_id)
@@ -710,13 +730,60 @@ class Index extends Controller{
         $data['hat_sub_tips']=$transInfo;
         $data['hat_add_time']=time();
         $data['hat_is_assign']=2;
+        $data['hat_is_msg']=$hat_is_msg;
         $data['hat_type']=1;
         $data['hat_admin']=$userInfo['u_id'];
         $trans=Db::table('dcxw_house_allocate')->insert($data);
-        if($toWork && $trans){
-            $this->success('转交成功！','',$transInfo);
+        $commonModel=new Common();
+        if($hat_is_msg == 1){
+            $adminInfo=$commonModel->getAdminNameViaCityId($userInfo['u_c_id']);
+            $sendMsg=$commonModel->sendMsg($adminInfo);
+            if(!empty($sendMsg) && $sendMsg == 1){
+                $this->success('转交成功！短信已发送。');
+            }else{
+                $this->error('转交失败！');
+            }
         }else{
-            $this->error('转交失败！','',$transInfo);
+            if($toWork && $trans){
+                $this->success('转交成功！','',$transInfo);
+            }else{
+                $this->error('转交失败！','',$transInfo);
+            }
+        }
+
+    }
+
+
+
+    public function resetpwd(){
+        $role=Request::instance()->get('role');
+        $account=session('userInfo');
+        $this->assign('role',$role);
+        $this->assign('account',$account);
+        if($_POST){
+            $u_id=intval(trim($_POST['u_id']));
+            $u_password=Db::table('dcxw_user')->where(['u_id' =>$u_id])->column('u_password');
+            $u_passwords=$u_password[0];
+            $password=md5(trim($_POST['u_password']));
+            $passNew=md5(trim($_POST['u_passwordn']));
+            if($u_passwords != $password){
+                $this->error('您输入的密码与原始密码不一致，请重新输入！');
+            }else{
+                if($u_passwords == $passNew){
+                    $this->error('输入的新密码请勿与原密码相同！');
+                }else{
+                    $data['u_password']=md5(trim($_POST['u_passwordn']));
+                    $update=Db::table('dcxw_user')->where(['u_id' =>$u_id])->update($data);
+                    if($update){
+                        session(null);
+                        $this->success('修改成功，请重新登录！');
+                    }else{
+                        $this->error('修改密码失败！');
+                    }
+                }
+            }
+        }else{
+            return $this->fetch();
         }
     }
 }

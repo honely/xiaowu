@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"G:\xampp\htdocs\bbb\public/../application/wap\view\index\resetpwd.html";i:1537844550;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"G:\xampp\htdocs\bbb\public/../application/wap\view\index\resetpwd.html";i:1537845583;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -74,7 +74,7 @@
                     'success':function (result) {
                         if(result.code == '1'){
                             mui.alert(result.msg, function() {
-                                window.location.href="<?=url('index/index')?>";
+                                window.location.href="<?=url('login/login')?>";
                             });
                         }else{
                             mui.alert(result.msg, function() {

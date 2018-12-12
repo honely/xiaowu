@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\house.html";i:1543048206;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\house.html";i:1543559734;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -17,7 +17,7 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-icon-person mui-icon-right-navmui-pull-left " href="<?=url('index/person')?>" ></a>
+    <a class="mui-icon mui-icon-person mui-icon-right-navmui-pull-left " href="<?=url('index/person')?>?role=1" ></a>
     <h1 class="mui-title">房源列表</h1>
     <a class="mui-icon mui-icon-plusempty mui-pull-right" href="<?=url('index/index')?>"></a>
 </header>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\addlog.html";i:1543284047;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\addlog.html";i:1544171147;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -184,7 +184,7 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-action-back mui-icon-left-nav mui-pull-left" href="<?=url('index/dailylog')?>h_id=<?php echo $h_id; ?>"></a>
+    <a class="mui-icon mui-action-back mui-icon-left-nav mui-pull-left" href="<?=url('index/dailylog')?>h_id=<?php echo $h_id; ?>&type=<?php echo $type; ?>"></a>
     <h1 class="mui-title">添加监理日志</h1>
 </header>
 <div class="mui-content">
@@ -215,9 +215,9 @@
                 <span id="upload" class="mui-btn mui-btn-primary">上传</span>
                 <input type="hidden" class="layui-input" id="img" lay-verify="required"  value=""/>
                 <input type="hidden" name="isTrans" id="isTrans" value="2"/>
+                <input type="hidden" name="isMsg" id="isMsg" value="2"/>
             </div>
             <div id="imgPre" style="overflow: hidden">
-
             </div>
             <div class="mui-card">
                 <div class="mui-input-row" style="margin: 10px 5px;height: 131px;">
@@ -228,18 +228,24 @@
         </form>
     </div>
 </div>
-<?php if($status < 6): ?>
+<?php if($status < 8): ?>
 <div class="mui-card">
-    <form class="mui-input-group mui-input-groups">
+    <form class="mui-input-group mui-input-groupss">
         <div class="mui-input-row mui-checkbox mui-left">
             <label><?php echo $statusStart; ?>阶段已完工，转入
                 <?php if($nextStatus == null): ?>
                     运营部
                 <?php else: ?>
                 <?php echo $nextStatus; endif; ?>。</label>
-            <input name="checkbox"  type="checkbox" >
+            <input name="isTrans" type="checkbox" >
         </div>
         <div class="mui-card" id="transTips" style="display: none">
+            <?php if(($status == 5) OR ($status == 7)): ?>
+                <div class="mui-input-row mui-checkbox mui-left">
+                    <label>发送短信通知</label>
+                    <input name="isMsg" type="checkbox" >
+                </div>
+            <?php endif; ?>
             <div class="mui-input-row" style="margin: 10px 5px;">
                 <textarea id="transRemark" rows="5" placeholder="转接备注"></textarea>
             </div>
@@ -256,17 +262,28 @@
 <script src="__WAP__/js/mui.previewimage.js"></script>
 <script>
     mui.previewImage();
-    mui('.mui-input-groups').on('change', 'input', function() {
-        var value = this.checked?"true":"false";
-        if(value == "true"){
-            $("#transTips").show();
-            $('#isTrans').val(1);
-        }else{
-            $("#transTips").hide();
-            $('#isTrans').val(2);
+    mui('.mui-input-group').on('change', 'input', function() {
+         var value = this.checked?"true":"false";
+         var names = this.name;
+         console.log();
+         if(names == "isTrans"){
+             if(value == "true"){
+                 $("#transTips").show();
+                 $('#isTrans').val(1);
+             }else{
+                 $("#transTips").hide();
+                 $('#isTrans').val(2);
+                 $('#isMsg').val(2);
+             }
+         }
+        if(names == "isMsg"){
+            if(value == "true"){
+                $('#isMsg').val(1);
+            }else{
+                $('#isMsg').val(2);
+            }
         }
     });
-
 </script>
 <script>
 
@@ -306,7 +323,7 @@
                             console.log(result);
                             if(result.code == '1'){
                                 layer.msg(result.msg, {icon: 1, time: 2000},function () {
-                                    location.href="<?=url('index/dailylog')?>?h_id=<?php echo $h_id; ?>";
+                                    location.href="<?=url('index/dailylog')?>?h_id=<?php echo $h_id; ?>&type=<?php echo $type; ?>";
                                 });
                             }else{
                                 layer.msg(result.msg, {icon: 2, time: 3000});

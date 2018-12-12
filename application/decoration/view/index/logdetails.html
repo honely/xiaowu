@@ -164,7 +164,9 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('index/dailylog')?>?h_id={$logs.hdl_house_code}"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left"
+       href="<?=url('index/dailylog')?>?h_id={$logs.hdl_house_code}&type={$type}"
+    ></a>
     <h1 class="mui-title">日志详情</h1>
 </header>
 <div class="mui-content">
@@ -183,13 +185,19 @@
         <p>
             <b>日志内容</b>：{$logs.hdl_content}
         </p>
+        {if isset($logs.hdl_img_first)}
         <p><b>日志图片：</b></p>
         <p>
-            {volist name="logs.hdl_img" id="items"}
-            <img src="{$items}" data-preview-src="" data-preview-group="1">
+            {if condition="$logs.hdl_img_first neq null"}
+            <img src="__WEB__/img/one-btn.png" style="width: 20%" data-preview-src="{$logs.hdl_img_first}" data-preview-group="1">
+            {/if}
+            {if condition="$logs.hdl_imgs neq null"}
+            {volist name="logs.hdl_imgs" id="items"}
+            <img style="display: none" src="{$items}" data-preview-src="" data-preview-group="1">
             {/volist}
-
+            {/if}
         </p>
+        {/if}
         <br>
         <p class="mui-pull-right">
             <b>提交人</b>：{$logs.u_job}---{$logs.u_name}

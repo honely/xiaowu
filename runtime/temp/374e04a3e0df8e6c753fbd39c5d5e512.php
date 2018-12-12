@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"G:\xampp\htdocs\bbb\public/../application/manager\view\index\rentdetail.html";i:1542528064;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"G:\xampp\htdocs\bbb\public/../application/manager\view\index\rentdetail.html";i:1543804889;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -208,15 +208,13 @@
                     合同编号：<?php echo $rent['hrl_contact_code']; ?>
                     <br/>
                     合同图片:
-                <div id="imgPre">
-                    <?php if(is_array($rent['hrl_contact_img']) || $rent['hrl_contact_img'] instanceof \think\Collection || $rent['hrl_contact_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $rent['hrl_contact_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
-                    <li class="item_img" style="list-style-type: none">
-                        <img src="__PUBLIC__/<?php echo $items; ?>" class="img" data-preview-src="" data-preview-group="1"  >
-                        <input type="hidden" name="hrl_contact_img[]" value="' + res.path + '" />
-                    </li>
-                    <?php endforeach; endif; else: echo "" ;endif; ?>
-                </div>
-                    <br/>
+                <p>
+                    <?php if($rent['hrl_contact_img_first'] != null): ?>
+                    <img src="__WEB__/img/one-btn.png" style="width: 20%" data-preview-src="<?php echo $rent['hrl_contact_img_first']; ?>" data-preview-group="1">
+                    <?php endif; if($rent['hrl_contact_imgs'] != null): if(is_array($rent['hrl_contact_imgs']) || $rent['hrl_contact_imgs'] instanceof \think\Collection || $rent['hrl_contact_imgs'] instanceof \think\Paginator): $i = 0; $__LIST__ = $rent['hrl_contact_imgs'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
+                    <img style="display: none" src="<?php echo $items; ?>" data-preview-src="" data-preview-group="1">
+                    <?php endforeach; endif; else: echo "" ;endif; endif; ?>
+                </p>
                     电表底数：<?php echo $rent['hrl_elect_start']; if($rent['hrl_status'] == 2): ?>
                 <br/>
                 电表结数：<?php echo $rent['hrl_elect_end']; endif; ?>
@@ -224,7 +222,12 @@
                     水表底数：<?php echo $rent['hrl_water_start']; ?>
                     <br/>
                 <?php if($rent['hrl_status'] == 2): ?>
-                水表底数：<?php echo $rent['hrl_water_end']; endif; ?>
+                水表结数：<?php echo $rent['hrl_water_end']; ?><br/>
+                <?php endif; ?>
+                    燃气底数：<?php echo $rent['hrl_air_start']; ?>
+                <br/>
+                <?php if($rent['hrl_status'] == 2): ?>
+                燃气结数：<?php echo $rent['hrl_air_end']; endif; ?>
                 </p>
             </div>
         </div>

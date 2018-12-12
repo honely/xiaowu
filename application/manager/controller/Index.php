@@ -134,9 +134,17 @@ class Index extends Controller{
             ->where(['hpl_id' => $hpl_id])
             ->field('dcxw_house_pay_log.*,dcxw_user.u_name,dcxw_user.u_job')
             ->find();
-        $logs['hpl_addtime']=date('Y年m月d日 H时i分',$logs['hpl_addtime']);
-        $logs['hpl_money']=number_format($logs['hpl_money'],2);
-        $logs['hpl_img']=explode(',',$logs['hpl_img']);
+        if($logs){
+            if($logs['hpl_img']){
+                $logs['hpl_imgs']=explode(',',$logs['hpl_img']);
+                $logs['hpl_img_first']=explode(',',$logs['hpl_img'])[0];
+                if(count($logs['hpl_imgs']) >=1){
+                    unset($logs['hpl_imgs'][0]);
+                }
+            }
+            $logs['hpl_addtime']=date('Y年m月d日 H时i分',$logs['hpl_addtime']);
+            $logs['hpl_money']=number_format($logs['hpl_money'],2);
+        }
         $this->assign('logs',$logs);
         return $this->fetch();
     }
@@ -185,6 +193,11 @@ class Index extends Controller{
             $house['h_config']=explode(',',$house['h_config']);
             $house['h_addtime']=date('Y-m-d H:i:s',$house['h_addtime']);
             if($house['h_img']){
+                $house['h_imgs']=explode(',',$house['h_img']);
+                $house['h_img_first']=explode(',',$house['h_img'])[0];
+                if(count($house['h_imgs']) >=1){
+                    unset($house['h_imgs'][0]);
+                }
                 $house['h_img']=explode(',',$house['h_img']);
                 $house['config_img']=[];
                 for($i=0;$i<count($house['h_config']);$i++){
@@ -232,9 +245,15 @@ class Index extends Controller{
             ->where(['ha_house_code' => $h_id])
             ->find();
         if($attach){
+            if($attach['ha_contact_img']){
+                $attach['ha_contact_imgs']=explode(',',$attach['ha_contact_img']);
+                $attach['ha_contact_img_first']=explode(',',$attach['ha_contact_img'])[0];
+                if(count($attach['ha_contact_imgs']) >=1){
+                    unset($attach['ha_contact_imgs'][0]);
+                }
+            }
             $attach['ha_deadline']=date("Y-m-d",$attach['ha_deadline']);
             $attach['ha_decorate_permit']=date("Y-m-d",$attach['ha_decorate_permit']);
-            $attach['ha_contact_img']=explode(',',$attach['ha_contact_img']);
             $attach['ha_elect_type']=$commodel->getElectTypeName($attach['ha_elect_type']);
             $attach['ha_warm_type']=$commodel->getWarmTypeName($attach['ha_warm_type']);
             $attach['ha_wuye_fee_type']=$commodel->getWuYeFeeTypeName($attach['ha_wuye_fee_type']);
@@ -255,8 +274,16 @@ class Index extends Controller{
             ->where(['hdl_id' => $hdl_id])
             ->field('dcxw_house_decorate_log.*,dcxw_user.u_name,dcxw_user.u_job')
             ->find();
-        $daily['hdl_img']=explode(',',$daily['hdl_img']);
-        $daily['hdl_addtime']=date('Y年m月d日 H时i分',$daily['hdl_addtime']);
+        if($daily){
+            if($daily['hdl_img']){
+                $daily['hdl_imgs']=explode(',',$daily['hdl_img']);
+                $daily['hdl_img_first']=explode(',',$daily['hdl_img'])[0];
+                if(count($daily['hdl_imgs']) >=1){
+                    unset($daily['hdl_imgs'][0]);
+                }
+            }
+            $daily['hdl_addtime']=date('Y年m月d日 H时i分',$daily['hdl_addtime']);
+        }
         $houseInfo=Db::table('dcxw_house')
             ->where(['h_b_id' => $daily['hdl_house_code']])
             ->field('h_building,h_address')
@@ -416,7 +443,13 @@ class Index extends Controller{
             ->field('dcxw_house_rent_channel.hrc_title,dcxw_house_rent_log.*')
             ->find();
         if($rentInfo){
-            $rentInfo['hrl_contact_img']=explode(',',$rentInfo['hrl_contact_img']);
+            if($rentInfo['hrl_contact_img']){
+                $rentInfo['hrl_contact_imgs']=explode(',',$rentInfo['hrl_contact_img']);
+                $rentInfo['hrl_contact_img_first']=explode(',',$rentInfo['hrl_contact_img'])[0];
+                if(count($rentInfo['hrl_contact_imgs']) >=1){
+                    unset($rentInfo['hrl_contact_imgs'][0]);
+                }
+            }
             $rentInfo['hrl_rent_time']=date('Y/m/d',$rentInfo['hrl_rent_time']);
             $rentInfo['hrl_dead_time']=date('Y/m/d',$rentInfo['hrl_dead_time']);
         }
@@ -530,7 +563,13 @@ class Index extends Controller{
             ->find();
         if($details){
             $details['hrpl_addtime']=date('Y年m月d日 H时i分',$details['hrpl_addtime']);
-            $details['hrpl_img']=explode(',',$details['hrpl_img']);
+            if($details['hrpl_img']){
+                $details['hrpl_imgs']=explode(',',$details['hrpl_img']);
+                $details['hrpl_img_first']=explode(',',$details['hrpl_img'])[0];
+                if(count($details['hrpl_imgs']) >=1){
+                    unset($details['hrpl_imgs'][0]);
+                }
+            }
         }
         $this->assign('details',$details);
         $rent_id=$details['hrpl_rent_id'];
@@ -580,6 +619,87 @@ class Index extends Controller{
             }
         }
         $this->assign('marToDec',$marToDec);
+        return $this->fetch();
+    }
+
+
+    /*
+     * 维护记录
+     * */
+    public function maintain()
+    {
+        $h_id=trim($_GET['h_id']);
+        $maintLog=Db::table('dcxw_house_maintenance')
+            ->where(['hmt_house_code' => $h_id])
+            ->order('hmt_add_time desc')
+            ->limit(10)
+            ->select();
+        if($maintLog){
+            foreach ($maintLog as $k => $v){
+                $maintLog[$k]['hmt_img']=explode(',',$v['hmt_img'])[0];
+            }
+        }
+        $count=Db::table('dcxw_house_maintenance')
+            ->where(['hmt_house_code' => $h_id])
+            ->count();
+        $this->assign('h_id',$h_id);
+        $this->assign('count',$count);
+        $this->assign('maintLog',$maintLog);
+        return $this->fetch();
+    }
+
+
+    /*
+    * 出租记录加载更多
+    * */
+    public function mainmore(){
+        $h_id=trim($_POST['h_id']);
+        $where='hmt_house_code = '.$h_id;
+
+        if($_POST){
+            $page=intval(trim($_POST['page']));
+        }else{
+            $page=1;
+        }
+        $limit=8;
+        $rentLog=Db::table('dcxw_house_maintenance')
+            ->where($where)
+            ->limit(($page-1)*$limit,$limit)
+            ->order('hmt_add_time desc')
+            ->select();
+        if($rentLog)
+        {
+            foreach($rentLog as $k => $v)
+            {
+                $rentLog[$k]['hmt_add_time']=date('Y/m/d',$v['hmt_add_time']);
+            }
+        }
+        if($rentLog){
+            $this->success('更多完成','',$rentLog);
+        }else{
+            $this->error('更多失败','',$rentLog);
+        }
+    }
+
+    public function maindetails(){
+        $hmt_id=intval(trim($this->request->param('hmt_id')));
+        $maintInfo=Db::table('dcxw_house_maintenance')
+            ->where(['hmt_id' => $hmt_id])
+            ->find();
+        if($maintInfo){
+            $commomModel=new \app\marketm\controller\Common();
+            if($maintInfo['hmt_img']){
+                $maintInfo['hmt_imgs']=explode(',',$maintInfo['hmt_img']);
+                $maintInfo['hmt_img_first']=explode(',',$maintInfo['hmt_img'])[0];
+                if(count($maintInfo['hmt_imgs']) >=1){
+                    unset($maintInfo['hmt_imgs'][0]);
+                }
+            }
+            $maintInfo['hmt_add_time']=date('Y-m-d H:i:s',$maintInfo['hmt_add_time']);
+            $maintInfo['u_job']=$commomModel->getUserJob($maintInfo['hmt_admin']);
+            $maintInfo['hmt_admin']=$commomModel->getUserName($maintInfo['hmt_admin']);
+        }
+        $this->assign('logs',$maintInfo);
         return $this->fetch();
     }
 

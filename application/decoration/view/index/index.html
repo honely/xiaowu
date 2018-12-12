@@ -13,70 +13,157 @@
             font-size: 14px;
         }
     </style>
+    <style>
+        .mui-card .mui-control-content {
+            padding: 10px;
+        }
+        .mui-table-cell h4{
+            line-height: 23px;
+        }
+        .mui-table-cell h5{
+            line-height: 23px;
+        }
+        .mui-card-link{
+            color: #007aff;
+        }
+        .spans {
+            background-color: #007aff;
+            color: #ffffff;
+            border: 1px solid #8f8f94;
+        }
+        .divs{
+            width: 33.3%;
+            line-height: 36px;
+            float: left;
+            text-align: center;
+            border: 1px solid #8f8f94;
+        }
+        .actives{
+            background-color: #ffffff;
+            color: #007aff;
+        }
+        .allocate-top{
+            padding-top:10px;
+            padding-left:10px;
+            padding-right:10px;
+            position:fixed;
+            overflow:hidden;
+            z-index:3333;
+            width: 100%;
+            opacity:1;
+        }
+        .mui-icon-extra-calendar{
+            color: #007aff;font-size: 24px;line-height: 40px;margin-top: 3px;
+        }
+        html,
+        body,
+        .mui-content {
+            height: 0px;
+            margin: 0px;
+            background-color: #efeff4;
+        }
+        h5.mui-content-padded {
+            margin-left: 3px;
+            margin-top: 20px !important;
+        }
+        h5.mui-content-padded:first-child {
+            margin-top: 12px !important;
+        }
+        .mui-btn {
+            font-size: 16px;
+            padding: 8px;
+            margin: 3px;
+        }
+        .ui-alert {
+            text-align: center;
+            padding: 20px 10px;
+            font-size: 16px;
+        }
+        * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+        }
+        .mui-card-link{
+            color:#007aff ;
+        }
+    </style>
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
     <h1 class="mui-title">房源列表</h1>
-    <a class="mui-icon mui-icon-person mui-icon-right-nav mui-pull-right" href="<?=url('index/person')?>" ></a>
+    <a class="mui-icon mui-icon-person mui-icon-right-nav mui-pull-right" href="<?=url('marketm/index/person')?>?role=3" ></a>
 </header>
-<div class="mui-content" style="background:#fff;">
-    <div class="mui-content-padded">
-        <input style="float: left;width: 80%" id="keywords" type="text" placeholder="请输入房源编号进行搜索"{if isset($keywords)} value="{$keywords}" {/if} />
-        <span onclick="formQuery()" style="float: left;width: 18%;margin-left: 5px;padding-left: 5px;margin-top: 5px;padding-top: 5px;" class="mui-btn mui-btn-primary mui-icon mui-icon-search">
+<div class="mui-content">
+    <div style="height: 44px;width: 100%">
+        <div class="allocate-top">
+            <a href="<?=url('index/decorating')?>"><div class="spans actives divs">装修中</div></a>
+            <a href="<?=url('index/allocated')?>"><div class="spans actives divs">已转交</div></a>
+            <a><div class="spans divs">全部（{$count}）</div></a>
+        </div>
+        <div class="allocate-top" style="margin-top: 50px;">
+            <input style="float: left;width: 77%" id="keywords" type="text" placeholder="请输入房源编号进行搜索"{if isset($keywords)} value="{$keywords}" {/if} />
+            <span onclick="formQuery()" style="float: left;width: 19%;margin-left: 5px;padding-left: 5px;margin-top: 5px;padding-top: 5px;" class="mui-btn mui-btn-primary mui-icon mui-icon-search">
             搜索
         </span>
-    </div>
-</div>
-<div class="mui-content" id="getMore" style="padding-top: 40px;">
-    {if condition="$houses eq null"}
-    <div class="mui-card">
-        <div class="mui-card-content" style="height: 40px;text-align: center;line-height: 36px;">
-            暂无房源
         </div>
     </div>
-    {else/}
-    {volist name="houses" id="hous"}
-    <div class="mui-card">
-        <div class="mui-card-content">
-            <div class="mui-card-content-inner">
-                <p><b>房源编号：【{$hous.h_b_id}】</b>
-                    {if condition="$hous.is_paid_ratio eq 1"}
-                    <span style="float: right;">回款率：<span style="margin-left: 8px;" class="mui-badge mui-badge-success">{$hous.paid_ratio}</span></span>
-                    {/if}
-                </p>
-                <p><b>小区名称</b>：{$hous.h_building}
-                    <span style="float: right;">装修阶段：<span style="margin-left: 8px;" class="mui-badge mui-badge-purple">{$hous.hd_status}</span></span>
-                </p>
-                <p style="color: #333;">
-                    {if condition="$hous.is_paid_ratio eq 1"}
-                    装修款额：{$hous.h_money}（元）
-                    <br/>
-                    {/if}
-                    房屋面积：{$hous.h_area}（㎡）
-                    <br/>
-                    {if isset($hous.h_contract_code)}
-                    合同编号：{$hous.h_contract_code}（元）
-                    <br/>
-                    {/if}
-                    签订日期：{$hous.h_addtime}
-                    <br/>
-                    房源地址：{$hous.h_address}
-                    <br/>
-                </p>
+    <div class="mui-content" style="margin-top: 67px;">
+        {if condition="$houses eq null"}
+        <div class="mui-card">
+            <div class="mui-card-content" style="height: 40px;text-align: center;line-height: 36px;">
+                暂无房源
             </div>
         </div>
-        <div class="mui-card-footer">
-            <a class="mui-card-link" href="<?=url('index/details')?>?h_id={$hous.h_b_id}">房源详情</a>
-            <a class="mui-card-link" href="<?=url('index/timeline')?>?h_id={$hous.h_b_id}">装修进度</a>
-            <a class="mui-card-link" href="<?=url('index/dailylog')?>?h_id={$hous.h_b_id}">监理记录</a>
+        {else/}
+        <div id="getMore">
+        {volist name="houses" id="hous"}
+            <div class="mui-card">
+                <div class="mui-card-content">
+                    <div class="mui-card-content-inner">
+                        <p><b>房源编号：【{$hous.h_b_id}】</b>
+                            {if condition="$hous.is_paid_ratio eq 1"}
+                            <span style="float: right;">回款率：<span style="margin-left: 8px;" class="mui-badge mui-badge-success">{$hous.paid_ratio}</span></span>
+                            {/if}
+                        </p>
+                        <p><b>小区名称</b>：{$hous.h_building}
+                            <span style="float: right;">房屋状态：<span style="margin-left: 8px;" class="mui-badge mui-badge-purple">{$hous.hd_status}</span></span>
+                        </p>
+                        <p style="color: #333;">
+                            {if condition="$hous.is_paid_ratio eq 1"}
+                            装修款额：{$hous.h_money}（元）
+                            <br/>
+                            {/if}
+                            房屋面积：{$hous.h_area}（㎡）
+                            <br/>
+                            {if isset($hous.h_contract_code)}
+                            合同编号：{$hous.h_contract_code}（元）
+                            <br/>
+                            {/if}
+                            签订日期：{$hous.h_addtime}
+                            <br/>
+                            房源地址：{$hous.h_address}
+                            <br/>
+                        </p>
+                    </div>
+                </div>
+                <div class="mui-card-footer">
+                    <a class="mui-card-link" href="<?=url('index/details')?>?h_id={$hous.h_b_id}&type=3">房源详情</a>
+                    <a class="mui-card-link" href="<?=url('index/timeline')?>?h_id={$hous.h_b_id}&type=3">装修进度</a>
+                    <a class="mui-card-link" href="<?=url('index/dailylog')?>?h_id={$hous.h_b_id}&type=3">监理记录</a>
+                </div>
+            </div>
+        {/volist}
         </div>
+        <div class="mui-card">
+            <input type="hidden" value="1" id="page"/>
+            <div id="moreBtn" class="mui-card-content" style="height: 40px;text-align: center;line-height: 36px;{if condition='$count gt 2'}display: block{else/}display: none{/if}">
+                加载更多
+            </div>
+        </div>
+        {/if}
+
     </div>
-    {/volist}
-    {/if}
-</div>
-<div class="mui-card">
-    <input type="hidden" value="1" id="page"/>
-    <div id="moreBtn" class="mui-btn" style="text-align: center;width: 100%;{if condition='$count gt 8'}display: block{else/}display: none{/if}">加载更多</div>
+
 </div>
 <script src="__WEB__/js/jquery-1.10.2.min.js"></script>
 <script src="__WAP__/js/mui.min.js"></script>
@@ -88,7 +175,7 @@
 <script>
     function formQuery(){
         var keywords=$('#keywords').val();
-        location.href="<?=url('index/index')?>?&keywords="+keywords;
+        location.href="<?=url('index/index')?>?keywords="+keywords;
     }
 </script>
 <script>
@@ -134,10 +221,10 @@
                             '                </p>' +
                             '            </div>' +
                             '        </div>' +
-                            '<div class="mui-card-footer">\n' +
-                            '            <a class="mui-card-link" href="<?=url('index/details')?>?h_id='+data[i].h_b_id+'">房源详情</a>\n' +
-                            '            <a class="mui-card-link" href="<?=url('index/timeline')?>?h_id='+data[i].h_b_id+'">装修进度</a>\n' +
-                            '            <a class="mui-card-link" href="<?=url('index/dailylog')?>?h_id='+data[i].h_b_id+'">监理记录</a>\n' +
+                            '<div class="mui-card-footer">' +
+                            '            <a class="mui-card-link" href="<?=url('index/details')?>?h_id='+data[i].h_b_id+'&type=3">房源详情</a>' +
+                            '            <a class="mui-card-link" href="<?=url('index/timeline')?>?h_id='+data[i].h_b_id+'&type=3">装修进度</a>' +
+                            '            <a class="mui-card-link" href="<?=url('index/dailylog')?>?h_id='+data[i].h_b_id+'&type=3">监理记录</a>' +
                             '        </div></div>';
                     }
                 }

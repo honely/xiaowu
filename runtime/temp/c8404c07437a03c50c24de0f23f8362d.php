@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\person.html";i:1542247492;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"G:\xampp\htdocs\bbb\public/../application/decoration\view\index\person.html";i:1543546066;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -8,26 +8,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-    <!--标准mui.css-->
     <link rel="stylesheet" href="__WAP__/css/mui.min.css">
-    <!--App自定义的css-->
     <link rel="stylesheet" type="text/css" href="__WAP__/css/app.css"/>
     <style>
         .mui-content-padded{
             margin: 10px;
         }
+        #head-img1 {
+            position: absolute;
+            bottom: 10px;
+            right: 25px;
+            width: 40px;
+            height: 40px;
+        }
+        .mui-table-view-cell{
+            position: relative;
+            overflow: hidden;
+            padding: 11px 15px;
+        }
+        a{
+            font-size: 14px;
+        }
     </style>
 </head>
-
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-back mui-pull-left"></a>
+    <a class="mui-icon mui-icon-back mui-pull-left" href="<?=url('index/index')?>"></a>
     <h1 class="mui-title">设置</h1>
 </header>
 <div class="mui-content">
-    <div class="mui-content-padded">
-        <span id="loginOut" class="mui-btn mui-btn-primary mui-btn-block">退出登录</span>
+    <div class="mui-scroll">
+        <ul class="mui-table-view">
+            <li  id="head" class="mui-table-view-cell">
+                <a style="line-height: 40px;" >头像
+                    <span class="mui-pull-right head">
+                            <img class="head-img" id="head-img1" src="__WAP__/images/logo.png"/>
+                        </span>
+                </a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a>姓名<span class="mui-pull-right"><?php echo $user['u_name']; ?></span></a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a>电话<span class="mui-pull-right"><?php echo $user['u_phone']; ?></span></a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a>职位<span class="mui-pull-right"><?php echo $user['u_c_id']; ?>-<?php echo $user['u_depart_id']; ?>-<?php echo $user['u_job']; ?></span></a>
+            </li>
+        </ul>
+        <ul class="mui-table-view" style="margin-top: 20px;">
+            <li class="mui-table-view-cell">
+                <a href="<?=url('index/resetpwd')?>" class="mui-navigate-right">修改密码</a>
+            </li>
+        </ul>
+        <ul class="mui-table-view" style="margin-top: 20px;">
+            <li class="mui-table-view-cell" style="text-align: center;">
+                <a id="loginOut">退出登录</a>
+            </li>
+        </ul>
     </div>
 </div>
 </body>
@@ -36,6 +74,9 @@
 <script>
     mui.init({
         swipeBack:true //启用右滑关闭功能
+    });
+    $("#head").click(function(){
+        mui.alert('这个图像公司统一的，不能改！！');
     });
     $('#loginOut').click(function () {
         $.ajax({

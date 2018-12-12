@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\person.html";i:1542593659;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\person.html";i:1543374785;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -18,10 +18,13 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-back mui-pull-left"></a>
+    <a class="mui-icon mui-icon-back mui-pull-left" href="<?=url('index/index')?>"></a>
     <h1 class="mui-title">设置</h1>
 </header>
 <div class="mui-content">
+    <div class="mui-content-padded">
+        <a href="<?=url('marketm/index/resetpwd')?>" class="mui-btn mui-btn-primary mui-btn-block">修改密码</a>
+    </div>
     <div class="mui-content-padded">
         <span id="loginOut" class="mui-btn mui-btn-primary mui-btn-block">退出登录</span>
     </div>

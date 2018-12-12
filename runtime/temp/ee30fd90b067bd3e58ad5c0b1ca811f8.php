@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\details.html";i:1543198738;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/manager\view\admin\details.html";i:1544239095;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -174,7 +174,9 @@
 </head>
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="<?=url('admin/index')?>"></a>
+    <a class="mui-icon mui-icon-left-nav mui-pull-left"
+        <?php switch($type): case "1": ?>href="<?=url('admin/all')?>"<?php break; case "2": ?>href="<?=url('admin/allocated')?>"<?php break; case "3": ?>href="<?=url('admin/index')?>"<?php break; endswitch; ?>
+    ></a>
     <h1 class="mui-title">房源预览</h1>
 </header>
 <div class="mui-content" style="padding-top: 40px;">
@@ -313,15 +315,21 @@
                 物业电话：<?php if(isset($attach['ha_wuye_phone'])): ?><?php echo $attach['ha_wuye_phone']; endif; ?>
             </p>
             <p style="color: #333;">
+                物业费用：<?php if(isset($attach['ha_wuye_fee'])): ?><?php echo $attach['ha_wuye_fee']; endif; ?>
+                物业费类型：<?php if(isset($attach['ha_wuye_fee_type'])): ?><?php echo $attach['ha_wuye_fee_type']; endif; ?>
+            </p>
+            <p style="color: #333;">
                 合同编号：<?php if(isset($attach['ha_contact_code'])): ?><?php echo $attach['ha_contact_code']; endif; ?>
             </p>
             <p style="color: #333;">
                 <b>合同扫描件：</b>
             </p>
             <p>
-                <?php if(is_array($attach['ha_contact_img']) || $attach['ha_contact_img'] instanceof \think\Collection || $attach['ha_contact_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $attach['ha_contact_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
-                <img src="<?php echo $items; ?>" data-preview-src="" data-preview-group="2">
-                <?php endforeach; endif; else: echo "" ;endif; ?>
+                <?php if($attach['ha_contact_img_first'] != null): ?>
+                <img src="__WEB__/img/one-btn.png" style="width: 20%" data-preview-src="<?php echo $attach['ha_contact_img_first']; ?>" data-preview-group="1">
+                <?php endif; if($attach['ha_contact_imgs'] != null): if(is_array($attach['ha_contact_imgs']) || $attach['ha_contact_imgs'] instanceof \think\Collection || $attach['ha_contact_imgs'] instanceof \think\Paginator): $i = 0; $__LIST__ = $attach['ha_contact_imgs'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
+                <img style="display: none" src="<?php echo $items; ?>" data-preview-src="" data-preview-group="1">
+                <?php endforeach; endif; else: echo "" ;endif; endif; ?>
             </p>
             <hr/>
             <p style="color: #333;">

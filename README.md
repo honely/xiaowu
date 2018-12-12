@@ -53,3 +53,36 @@ public function insertLog()
            }
         }
     }
+
+
+#图片另一页显示
+##1.页面代码
+<p>
+            {if condition="$logs.hdl_img_first neq null"}
+            <img src="__WEB__/img/oneBtn.png" style="width: 20%" data-preview-src="{$logs.hdl_img_first}" data-preview-group="1">
+            {/if}
+            {if condition="$logs.hdl_imgs neq null"}
+            {volist name="logs.hdl_imgs" id="items"}
+            <img style="display: none" src="{$items}" data-preview-src="" data-preview-group="1">
+            {/volist}
+            {/if}
+        </p>
+ 
+ ##2.控制器代码
+ if($daily['hdl_img']){
+                 $daily['hdl_imgs']=explode(',',$daily['hdl_img']);
+                 $daily['hdl_img_first']=explode(',',$daily['hdl_img'])[0];
+                 if(count($daily['hdl_imgs']) >=1){
+                     unset($daily['hdl_imgs'][0]);
+                 }
+             }
+             
+             
+##边角颜色             
+              .color-blue{
+                         color: #007aff;
+                     }
+                     
+##边角代码
+ <span class="mui-icon mui-icon-compose mui-pull-right color-blue"></span>
+ <span class="mui-icon mui-icon-compose mui-pull-right color-blue"></span>

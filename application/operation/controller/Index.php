@@ -7,6 +7,7 @@
  * Name: Controller
  */
 namespace app\operation\controller;
+use app\marketm\model\Commons;
 use think\Controller;
 use think\Db;
 use think\Request;
@@ -180,7 +181,13 @@ class Index extends Controller{
             ->find();
         if($attach){
             $attach['ha_deadline']=date("Y-m-d",$attach['ha_deadline']);
-            $attach['ha_contact_img']=explode(",",$attach['ha_contact_img']);
+            if($attach['ha_contact_img']){
+                $attach['ha_contact_imgs']=explode(',',$attach['ha_contact_img']);
+                $attach['ha_contact_img_first']=explode(',',$attach['ha_contact_img'])[0];
+                if(count($attach['ha_contact_imgs']) >=1){
+                    unset($attach['ha_contact_imgs'][0]);
+                }
+            }
             $attach['ha_decorate_permit']=date("Y-m-d",$attach['ha_decorate_permit']);
             $attach['ha_warm_type']=$commonM->getWarmTypeName($attach['ha_warm_type']);
             $attach['ha_elect_type']=$commonM->getElectTypeName($attach['ha_elect_type']);
@@ -259,7 +266,6 @@ class Index extends Controller{
             $data['h_house_img']=$_POST['h_img'][0];
             $data['h_img']=trim($h_img,',');
             $data['h_add_type']=2;
-            $data['h_admin']=$userInfo['u_id'];
             $data['h_updatetime']=time();
             $update=Db::table('dcxw_house')->where(['h_b_id' => $h_id])->update($data);
             if($update){
@@ -275,8 +281,14 @@ class Index extends Controller{
                 ->field('dcxw_house.*,dcxw_province.p_name,dcxw_city.c_name,dcxw_area.area_name')
                 ->where(['h_b_id' => $h_id])
                 ->find();
-            if($houseInfo['h_img']){
-                $houseInfo['h_img']=explode(',',$houseInfo['h_img']);
+            if($houseInfo){
+                $commonModel=new \app\marketm\controller\Common();
+                $houseInfo['h_head']=$commonModel->houseHead($houseInfo['h_head']);
+                $houseInfo['h_house_type']=$commonModel->getHouseTypeNameByTypeId($houseInfo['h_house_type']);
+                if($houseInfo['h_img']){
+                    $houseInfo['h_img']=explode(',',$houseInfo['h_img']);
+
+                }
             }
             //房屋配置 备选
             $houseConf=Db::table('dcxw_type')
@@ -299,6 +311,63 @@ class Index extends Controller{
         return $this->fetch();
     }
 
+
+    public function decorate(){
+        $h_id=trim($_GET['b_id']);
+        $commomModel=new \app\marketm\controller\Common();
+        $step=Db::table('dcxw_house_decorate_status')
+            ->distinct(true)
+            ->where(['hds_house_code' => $h_id])
+            ->order('hds_change_time desc')
+            ->field('')
+            ->select();
+        foreach ($step as $k => $v){
+            $step[$k]['hds_end_statuss']=$commomModel->getStatus($v['hds_end_status']);
+            $step[$k]['hds_change_time']=date('Y-m-d H:i:s',$v['hds_change_time']);
+            //日志记录
+            $step[$k]['decorate_log']=Db::table('dcxw_house_decorate_log')
+                ->where(['hdl_status' =>$v['hds_end_status'],'hdl_house_code' =>$h_id])
+                ->order('hdl_addtime desc')
+                ->select();
+            $step[$k]['decorate_count']=Db::table('dcxw_house_decorate_log')
+                ->where(['hdl_status' =>$v['hds_end_status'],'hdl_house_code' =>$h_id])
+                ->count();
+            foreach ($step[$k]['decorate_log'] as $key =>$val){
+                $step[$k]['decorate_log'][$key]['hdl_admin'] =$commomModel->getUserName($val['hdl_admin']);
+            }
+        }
+        $this->assign('step',$step);
+        $this->assign('h_id',$h_id);
+        return $this->fetch();
+    }
+
+    public function decdetails(){
+        $hdl_id=trim($_GET['hdl_id']);
+        $daily=Db::table('dcxw_house_decorate_log')
+            ->join('dcxw_user','dcxw_user.u_id = dcxw_house_decorate_log.hdl_admin')
+            ->where(['hdl_id' => $hdl_id])
+            ->field('dcxw_house_decorate_log.*,dcxw_user.u_name,dcxw_user.u_job')
+            ->find();
+        if($daily){
+            $daily['hdl_addtime']=date('Y年m月d日 H时i分',$daily['hdl_addtime']);
+            $connomModel=new \app\marketm\controller\Common();
+            $daily['hdl_status']=$connomModel->getStatus($daily['hdl_status']);
+            if($daily['hdl_img']){
+                $daily['hdl_imgs']=explode(',',$daily['hdl_img']);
+                $daily['hdl_img_first']=explode(',',$daily['hdl_img'])[0];
+                if(count($daily['hdl_imgs']) >=1){
+                    unset($daily['hdl_imgs'][0]);
+                }
+            }
+            $houseInfo=Db::table('dcxw_house')
+                ->where(['h_b_id' => $daily['hdl_house_code']])
+                ->field('h_building,h_address')
+                ->find();
+            $this->assign('house',$houseInfo);
+        }
+        $this->assign('logs',$daily);
+        return $this->fetch();
+    }
 
     /*
      * 出租记录
@@ -510,9 +579,17 @@ class Index extends Controller{
             ->where(['hrl_id' => $hrl_id])
             ->field('dcxw_house_rent_channel.hrc_title,dcxw_house_rent_log.*')
             ->find();
-        $rentInfo['hrl_contact_img']=explode(',',$rentInfo['hrl_contact_img']);
-        $rentInfo['hrl_rent_time']=date('Y/m/d',$rentInfo['hrl_rent_time']);
-        $rentInfo['hrl_dead_time']=date('Y/m/d',$rentInfo['hrl_dead_time']);
+        if($rentInfo){
+            if($rentInfo['hrl_contact_img']){
+                $rentInfo['hrl_contact_imgs']=explode(',',$rentInfo['hrl_contact_img']);
+                $rentInfo['hrl_contact_img_first']=explode(',',$rentInfo['hrl_contact_img'])[0];
+                if(count($rentInfo['hrl_contact_imgs']) >=1){
+                    unset($rentInfo['hrl_contact_imgs'][0]);
+                }
+            }
+            $rentInfo['hrl_rent_time']=date('Y/m/d',$rentInfo['hrl_rent_time']);
+            $rentInfo['hrl_dead_time']=date('Y/m/d',$rentInfo['hrl_dead_time']);
+        }
         $this->assign('rent',$rentInfo);
         $h_code=$rentInfo['hrl_house_code'];
         $renter_id=$rentInfo['hrl_renter_id'];
@@ -653,7 +730,13 @@ class Index extends Controller{
             ->find();
         if($details){
             $details['hrpl_addtime']=date('Y年m月d日 H时i分',$details['hrpl_addtime']);
-            $details['hrpl_img']=explode(',',$details['hrpl_img']);
+            if($details['hrpl_img']){
+                $details['hrpl_imgs']=explode(',',$details['hrpl_img']);
+                $details['hrpl_img_first']=explode(',',$details['hrpl_img'])[0];
+                if(count($details['hrpl_imgs']) >=1){
+                    unset($details['hrpl_imgs'][0]);
+                }
+            }
         }
         $this->assign('details',$details);
         $rent_id=$details['hrpl_rent_id'];
@@ -670,4 +753,237 @@ class Index extends Controller{
         $this->assign('rent_id',$rent_id);
         return $this->fetch();
     }
+
+
+    /*
+     * 房源维护记录
+     * */
+    public function maintlog(){
+        $h_id=trim($_GET['h_id']);
+        $maintLog=Db::table('dcxw_house_maintenance')
+            ->where(['hmt_house_code' => $h_id])
+            ->order('hmt_add_time desc')
+            ->limit(10)
+            ->select();
+        if($maintLog){
+            foreach ($maintLog as $k => $v){
+                $maintLog[$k]['hmt_img']=explode(',',$v['hmt_img'])[0];
+            }
+        }
+        $count=Db::table('dcxw_house_maintenance')
+            ->where(['hmt_house_code' => $h_id])
+            ->count();
+        $this->assign('h_id',$h_id);
+        $this->assign('count',$count);
+        $this->assign('maintLog',$maintLog);
+        return $this->fetch();
+    }
+
+    /*
+    * 出租记录加载更多
+    * */
+    public function mainmore(){
+        $h_id=trim($_POST['h_id']);
+        $where='hmt_house_code = '.$h_id;
+
+        if($_POST){
+            $page=intval(trim($_POST['page']));
+        }else{
+            $page=1;
+        }
+        $limit=8;
+        $rentLog=Db::table('dcxw_house_maintenance')
+            ->where($where)
+            ->limit(($page-1)*$limit,$limit)
+            ->order('hmt_add_time desc')
+            ->select();
+        if($rentLog)
+        {
+            foreach($rentLog as $k => $v)
+            {
+                $rentLog[$k]['hmt_add_time']=date('Y/m/d',$v['hmt_add_time']);
+            }
+        }
+        if($rentLog){
+            $this->success('更多完成','',$rentLog);
+        }else{
+            $this->error('更多失败','',$rentLog);
+        }
+    }
+
+
+    /*
+     * 添加维护记录
+     * */
+    public function addlog()
+    {
+        $h_id=trim($_GET['h_id']);
+        $userInfo=session('userInfo');
+        if($_POST){
+            $data=$_POST;
+            $data['hmt_add_time']=time();
+            $img=$_POST['hmt_img'];
+            $hpl_img='';
+            for ($i=0;$i<sizeof($img);$i++){
+                $hpl_img.=$img[$i].",";
+            }
+            $data['hmt_img']=trim($hpl_img,',');
+            $data['hmt_admin']=$userInfo['u_id'];
+            $data['hmt_house_code']=$h_id;
+            $add=Db::table('dcxw_house_maintenance')->insert($data);
+            if($add){
+                $this->success('添加成功！');
+            }else{
+                $this->error('添加失败！');
+            }
+        }else{
+            $house=Db::table('dcxw_house')
+                ->where(['h_b_id' => $h_id])
+                ->field('h_building,h_address')
+                ->find();
+            $this->assign('house',$house);
+            $this->assign('h_id',$h_id);
+            return $this->fetch();
+        }
+    }
+
+
+    public function logdetails(){
+        $hmt_id=intval(trim($this->request->param('hmt_id')));
+        $maintInfo=Db::table('dcxw_house_maintenance')
+            ->where(['hmt_id' => $hmt_id])
+            ->find();
+        if($maintInfo){
+            $commomModel=new \app\marketm\controller\Common();
+            if($maintInfo['hmt_img']){
+                $maintInfo['hmt_imgs']=explode(',',$maintInfo['hmt_img']);
+                $maintInfo['hmt_img_first']=explode(',',$maintInfo['hmt_img'])[0];
+                if(count($maintInfo['hmt_imgs']) >=1){
+                    unset($maintInfo['hmt_imgs'][0]);
+                }
+            }
+            $maintInfo['hmt_add_time']=date('Y-m-d H:i:s',$maintInfo['hmt_add_time']);
+            $maintInfo['u_job']=$commomModel->getUserJob($maintInfo['hmt_admin']);
+            $maintInfo['hmt_admin']=$commomModel->getUserName($maintInfo['hmt_admin']);
+        }
+        $this->assign('logs',$maintInfo);
+        return $this->fetch();
+    }
+
+
+
+
+    /*
+     * 运营主管修改房源
+     * */
+    public function editbase(){
+        $h_id=Request::instance()->get('h_id');
+        $type=Request::instance()->get('type');
+        $post=Request::instance()->post();
+        if($post){
+            //1.更新房源信息
+            $data=$post;
+            $data['h_updatetime'] = time();
+            $pre=Db::table('dcxw_house')->where(['h_b_id' => $h_id])->find();
+            $house=Db::table('dcxw_house')->where(['h_b_id' => $h_id])->update($data);
+            $now = Db::table('dcxw_house')->where(['h_b_id' => $h_id])->find();
+            $logCommon = new Commons();
+            //2.添加修改记录
+            $insertLog=$logCommon->operationLog($now,$pre,1);
+            if($house && $insertLog){
+                $this->success('修改成功！');
+            }else{
+                $this->success('修改成功！');
+            }
+        }else{
+            $this->assign('h_b_id',$h_id);
+            $this->assign('type',$type);
+            $house=Db::table('dcxw_house')->where(['h_b_id' => $h_id])
+                ->field('h_area,h_address,h_building')
+                ->find();
+            $this->assign('house',$house);
+            return $this->fetch();
+        }
+    }
+
+
+    /*
+    * 运营主管修改房源附属信息
+    * */
+    public function editattch(){
+        $h_id=Request::instance()->get('h_id');
+        $type=Request::instance()->get('type');
+        $this->assign('type',$type);
+        $post=Request::instance()->post();
+        if($post){
+            $userInfo=session('userInfo');
+            $attach=Db::table('dcxw_house_attachment')
+                ->where(['ha_house_code' => $h_id])
+                ->find();
+            $data=$_POST;
+            $data['ha_addtime']=time();
+            $data['ha_deadline']=strtotime($post['ha_deadline']." 23:59:59");
+            $data['ha_decorate_permit']=strtotime($post['ha_decorate_permit']." 23:59:59");
+            $data['ha_user']=$userInfo['u_id'];
+            $img=$post['ha_contact_img'];
+            $hpl_img='';
+            for ($i=0;$i<sizeof($img);$i++){
+                $hpl_img.=$img[$i].",";
+            }
+            $data['ha_contact_img']=trim($hpl_img,',');
+            if($attach){
+                $update=Db::table('dcxw_house_attachment')
+                    ->where(['ha_house_code' => $h_id])
+                    ->update($data);
+                $now = Db::table('dcxw_house_attachment')
+                    ->where(['ha_house_code' => $h_id])
+                    ->find();
+                $logCommon = new Commons();
+                //2.添加修改记录
+                $insertLog=$logCommon->operationLog($now,$attach,2);
+                if($update && $insertLog){
+                    $this->success('修改成功','',$data);
+                }else{
+                    $this->error('修改失败','',$data);
+                }
+            }
+        }else{
+            $master=Db::table('dcxw_house_master')
+                ->where(['hm_house_code' => $h_id])
+                ->field('hm_name,hm_phone')
+                ->find();
+            //客户经理姓名和电话
+            $houseInfo=Db::table('dcxw_house')
+                ->where(['h_b_id' => $h_id])
+                ->field('h_admin')
+                ->find();
+            $manager=Db::table('dcxw_user')
+                ->where(['u_id' => $houseInfo['h_admin']])
+                ->field('u_name,u_phone,u_job')
+                ->find();
+            $attach=Db::table('dcxw_house_attachment')
+                ->where(['ha_house_code' => $h_id])
+                ->find();
+            if($attach){
+                $attach['ha_deadline']=date('Y-m-d',$attach['ha_deadline']);
+                $attach['ha_decorate_permit']=date('Y-m-d',$attach['ha_decorate_permit']);
+            }
+            $commoModel=new \app\marketm\controller\Common();
+            $attach['ha_contact_img']=explode(',',$attach['ha_contact_img']);
+            $electType=$commoModel->electType();
+            $this->assign('electType',$electType);
+            $warmType=$commoModel->warmType();
+            $this->assign('warmType',$warmType);
+            $wuyeFeeType=$commoModel->wuyeFeeType();
+            $this->assign('wuyeFeeType',$wuyeFeeType);
+            $this->assign('h_b_id',$h_id);
+            $this->assign('attach',$attach);
+            $this->assign('manager',$manager);
+            $this->assign('master',$master);
+            $this->assign('h_b_id',$h_id);
+            return $this->fetch();
+        }
+    }
+
+
 }

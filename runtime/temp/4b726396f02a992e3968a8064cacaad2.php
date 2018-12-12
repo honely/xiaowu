@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\index.html";i:1543050082;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/operation\view\index\index.html";i:1543560308;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -18,7 +18,7 @@
 <body style="background-color: #fff">
 <header class="mui-bar mui-bar-nav">
     <h1 class="mui-title">房源列表</h1>
-    <a class="mui-icon mui-icon-person mui-icon-right-nav mui-pull-right" href="<?=url('index/person')?>" ></a>
+    <a class="mui-icon mui-icon-person mui-icon-right-nav mui-pull-right" href="<?=url('marketm/index/person')?>?role=5" ></a>
 </header>
 <div class="mui-content" style="background:#fff;">
     <div class="mui-content-padded">
@@ -68,7 +68,9 @@
         </div>
         <div class="mui-card-footer">
             <a class="mui-card-link" href="<?=url('index/details')?>?h_id=<?php echo $hous['h_b_id']; ?>">房源详情</a>
+            <a class="mui-card-link" href="<?=url('index/decorate')?>?b_id=<?php echo $hous['h_b_id']; ?>">装修信息</a>
             <a class="mui-card-link" href="<?=url('index/improve')?>?h_id=<?php echo $hous['h_b_id']; ?>">信息完善</a>
+            <a class="mui-card-link" href="<?=url('index/maintlog')?>?h_id=<?php echo $hous['h_b_id']; ?>">房源维护</a>
             <a class="mui-card-link" href="<?=url('index/rentlog')?>?h_id=<?php echo $hous['h_b_id']; ?>">出租记录</a>
         </div>
     </div>
