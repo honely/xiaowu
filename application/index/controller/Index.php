@@ -37,15 +37,14 @@ class Index extends Controller{
         $this->assign('banner',$banner);
 
         //房源
-        $house=Db::table('dcxw_house')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_house.h_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_house.h_c_id')
-            ->join('dcxw_area','dcxw_area.area_id = dcxw_house.h_a_id')
-            ->where(['h_isable' => 2])
-            ->whereOr(['h_isable' => 4])
+        $house=Db::table('dcxw_houses')
+            ->join('dcxw_province','dcxw_province.p_id = dcxw_houses.h_p_id')
+            ->join('dcxw_city','dcxw_city.c_id = dcxw_houses.h_c_id')
+            ->join('dcxw_area','dcxw_area.area_id = dcxw_houses.h_a_id')
+            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_houses.h_admin')
+            ->where(['h_isable' => 1,'h_rent_status' => 2])
             ->limit(6)
             ->order('h_istop,h_view desc')
-            ->field('dcxw_province.p_name,dcxw_city.c_name,dcxw_area.area_name,dcxw_house.*')
             ->select();
         $this->assign('house',$house);
         return $this->fetch();

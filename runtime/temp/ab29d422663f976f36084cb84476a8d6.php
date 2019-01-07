@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\house\index.html";i:1544428991;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1544233614;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1544177090;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\house\index.html";i:1545359957;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1543896573;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1545295183;}*/ ?>
 <!DOCTYPE html>
 <!--[if IE 7 ]><html class="ie ie7"> <![endif]-->
 <!--[if IE 8 ]><html class="ie ie8"> <![endif]-->
@@ -66,7 +66,7 @@
                 </li>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
                 <li>
-                    <a href="#" target="_blank" style="color:#5b5b5b;font-size: 16px;" >看房热线：
+                    <a href="#" target="_blank" style="color:#5b5b5b;font-size: 16px;" >看房热线
                         <em style="color: #ff6000;font-size: 22px;font-weight: bold;margin-top: 5px;">
                             <?php echo $hotLine; ?>
                         </em>
@@ -86,7 +86,6 @@
         </li>
     </ul>
 </div>
-
 <!-- owner -->
 <div class="owner">
     <h3><span>房东</span>选择我们的理由</h3>
@@ -165,6 +164,17 @@
 </div>
 <div id="layers-sign" class="none">
     <form class="layui-form" id="houseForm" >
+        <div class="layui-form-item">
+            <label class="layui-form-label">地区</label>
+            <div class="layui-input-inline">
+                <select name="dp_c_id" id="dp_c_id" lay-verify="required">
+                    <option value="">--请选择地区--</option>
+                    <?php if(is_array($cityInfo) || $cityInfo instanceof \think\Collection || $cityInfo instanceof \think\Paginator): $i = 0; $__LIST__ = $cityInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$city): $mod = ($i % 2 );++$i;?>
+                    <option value="<?php echo $city['c_id']; ?>"><?php echo $city['c_name']; ?></option>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                </select>
+            </div>
+        </div>
         <div class="layui-form-item">
             <label class="layui-form-label">您的称呼</label>
             <div class="layui-input-inline">
@@ -294,6 +304,7 @@
                     'url':"<?=url('house/deposit')?>",
                     'data':$('#houseForm').serialize(),
                     'success':function (result) {
+                        console.log(result);
                         if(result.code == '1'){
                             layer.msg(result.msg, {icon: 1, time: 2000},function () {
                                 window.location.reload();

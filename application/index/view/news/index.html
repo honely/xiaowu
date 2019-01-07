@@ -49,7 +49,7 @@
                             <li class="clearfix">
                                 <figure class="pull-left">
                                     <a href="<?=url('news/details')?>?art_id={$art.art_id}">
-                                        <img src="{$art.art_img}" alt="{$art.art_img_alt}">
+                                        <img src="__PUBLIC__/{$art.art_img}" alt="{$art.art_img_alt}">
                                     </a>
                                 </figure>
                                 <div class="pull-right">
@@ -90,7 +90,7 @@
                     <li class="clearfix">
                         <a href="<?=url('news/details')?>?art_id={$hot.art_id}">
                             <figure class="pull-left">
-                                <img src="{$hot.art_img}" alt="{$hot.art_img_alt}">
+                                <img src="__PUBLIC__/{$hot.art_img}" alt="{$hot.art_img_alt}">
                             </figure>
                             <div class="pull-right" style="width: 184px;" >
                                 <p>{$hot.art_title}</p>

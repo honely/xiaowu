@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\seek.html";i:1537867365;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\seek.html";i:1545375528;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1543896579;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1543896579;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,6 +33,7 @@
         <thead>
         <tr>
             <th lay-data="{field:'dp_id', width:150, sort: true}">托管编号</th>
+            <th lay-data="{field:'dp_area'}">地区</th>
             <th lay-data="{field:'dp_name'}">托管人</th>
             <th lay-data="{field:'dp_phone'}">联系电话</th>
             <th lay-data="{field:'dp_addtime', sort: true}">提交时间</th>

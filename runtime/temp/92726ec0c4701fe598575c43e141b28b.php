@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\index\index.html";i:1542015965;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1544177090;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\index\index.html";i:1545294319;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1545295183;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -45,7 +45,7 @@
                 </li>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
                 <li>
-                    <a style="color:#5b5b5b;font-size: 16px;" >看房热线：
+                    <a style="color:#5b5b5b;font-size: 16px;" >看房热线
                         <em style="color: #ff6000;font-size: 22px;font-weight: bold;margin-top: 5px;">
                             <?php echo $hotLine; ?>
                         </em>
@@ -62,7 +62,7 @@
             <div class="swiper-wrapper" style="margin-top: 54px;" >
                 <?php if(is_array($banner) || $banner instanceof \think\Collection || $banner instanceof \think\Paginator): $i = 0; $__LIST__ = $banner;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ban): $mod = ($i % 2 );++$i;?>
                 <a <?php if($ban['ba_url'] != null): ?>href="<?php echo $ban['ba_url']; ?>" target="_blank"<?php endif; ?> class="swiper-slide">
-                <img style="width: 100%;height: 490px" src="<?php echo $ban['ba_img']; ?>" alt="<?php echo $ban['ba_img']; ?>"/>
+                <img style="width: 100%;height: 490px" src="__PUBLIC__/<?php echo $ban['ba_img']; ?>" alt="<?php echo $ban['ba_img']; ?>"/>
                 </a>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
             </div>
@@ -111,7 +111,7 @@
                             <?php if($house != null): if(is_array($house) || $house instanceof \think\Collection || $house instanceof \think\Paginator): $i = 0; $__LIST__ = $house;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$hou): $mod = ($i % 2 );++$i;?>
                             <div class="col-sm-4 col-xs-12" style="height:350px;">
                                 <a class="img-filter center-block" href="<?=url('seek/details')?>?h_id=<?php echo $hou['h_id']; ?>">
-                                    <img style="width: 350px;height: 262px;" src="<?php echo $hou['h_house_img']; ?>" alt="<?php echo $hou['h_img_alt']; ?>">
+                                    <img style="width: 350px;height: 262px;" src="__PUBLIC__/<?php echo $hou['h_house_img']; ?>" alt="<?php echo $hou['h_img_alt']; ?>">
                                     <div class="img-info selected-info">
                                         <p><?php echo $hou['h_name']; ?></p>
                                         <span>租金：<?php echo $hou['h_rent']; ?>元/<?php if($hou['h_rent_type'] == 1): ?>月<?php else: ?>日<?php endif; ?>&nbsp;&nbsp;&nbsp;<?php echo $hou['h_address']; ?></span>
@@ -194,7 +194,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+<!--<div class="container">
     <div class="bs-example bs-example-tabs" style="padding-bottom:0px !important;" role="tabpanel" data-example-id="togglable-tabs">
         <h2 class="text-center service-tit">
             战略合作伙伴
@@ -221,7 +221,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <!--footer-->
 <div class="footer" style="padding-top: 30px;height: 169px;">
     <!--  -->

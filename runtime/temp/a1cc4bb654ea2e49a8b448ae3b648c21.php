@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\index.html";i:1541236989;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1541226131;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1541228282;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\index.html";i:1545295671;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1543896569;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1543896569;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,7 +89,7 @@
         <div class="swiper-wrapper" style="height: 100%">
             <?php if(is_array($banner) || $banner instanceof \think\Collection || $banner instanceof \think\Paginator): $i = 0; $__LIST__ = $banner;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ban): $mod = ($i % 2 );++$i;?>
             <div class="swiper-slide" style="height: 100%">
-                <img src="<?php echo $ban['ba_img']; ?>" style="height: 100%" >
+                <img src="__PUBLIC__/<?php echo $ban['ba_img']; ?>" style="height: 100%" >
             </div>
             <?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
@@ -219,7 +219,7 @@
                 <?php else: ?>
                     <li class="mui-table-view-cell mui-media mui-col-xs-6">
                         <a href="<?=url('index/details')?>?h_id=<?php echo $hous['h_id']; ?>">
-                            <img style="height: 130px;" class="mui-media-object" src="<?php echo $hous['h_house_img']; ?>">
+                            <img style="height: 130px;" class="mui-media-object" src="__PUBLIC__/<?php echo $hous['h_house_img']; ?>">
                             <div class="mui-media-body"><?php echo $hous['h_name']; ?></div>
                         </a>
                     </li>
@@ -242,7 +242,7 @@
             <?php if(is_array($news) || $news instanceof \think\Collection || $news instanceof \think\Paginator): $i = 0; $__LIST__ = $news;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$chap): $mod = ($i % 2 );++$i;?>
             <li class="mui-table-view-cell mui-media">
                 <a href="<?=url('index/detail')?>?art_id=<?php echo $chap['art_id']; ?>">
-                    <img class="mui-media-object mui-pull-left" src="<?php echo $chap['art_img']; ?>">
+                    <img class="mui-media-object mui-pull-left" src="__PUBLIC__/<?php echo $chap['art_img']; ?>">
                     <div class="mui-media-body">
                         <?php echo $chap['art_title']; ?>
                         <p class='mui-ellipsis'><?php echo $chap['art_subtitle']; ?></p>

@@ -49,7 +49,7 @@
                 {field:'ba_bid', width:180,  sort: true, title:'广告编号'}
                 ,{field:'ba_title',width:165, title: '广告名称'}
                 ,{field:'ba_via',width:165, title: '显示端'}
-                ,{field:'ba_img', title: '广告封面',width: 250,templet:'<div><img src="{{ d.ba_img}}"></div>'}
+                ,{field:'ba_img', title: '广告封面',width: 250,templet:'<div><img src="__PUBLIC__{{ d.ba_img}}"></div>'}
                 ,{field:'ba_order',width:150,title: '广告排序',edit:'text', sort: true}
                 ,{field:'ba_createtime',width:210, title: '操作时间'}
                 ,{field:'ad_realname',width:170, title: '操作人'}

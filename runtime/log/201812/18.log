@@ -1,0 +1,1234 @@
+---------------------------------------------------------------
+[ 2018-12-18T18:11:15+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] www.xiaowu.com/ [运行时间：0.400023s][吞吐率：2.50req/s] [内存消耗：2,152.79kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ G:\xampp\htdocs\bbb\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/index\view\index\index.html [ array (
+  0 => 'hotLine',
+  1 => 'navinfo',
+  2 => 'banner',
+  3 => 'house',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_setinfo` [ RunTime:0.055003s ]
+[ sql ] [ SQL ] SELECT `s_value` FROM `dcxw_setinfo` WHERE  `s_key` = 'hotline' [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_nav` [ RunTime:0.045003s ]
+[ sql ] [ SQL ] SELECT `nav_title`,`nav_url` FROM `dcxw_nav` WHERE  `nav_isable` = 1 ORDER BY nav_order desc [ RunTime:0.009000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.037002s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_isable` = 1  AND `ba_via` = 1 ORDER BY ba_order desc [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.039002s ]
+[ sql ] [ SQL ] SELECT `dcxw_province`.`p_name`,`dcxw_city`.`c_name`,`dcxw_area`.`area_name`,`dcxw_house`.* FROM `dcxw_house` INNER JOIN `dcxw_province` `dcxw_province` ON `dcxw_province`.`p_id`=`dcxw_house`.`h_p_id` INNER JOIN `dcxw_city` `dcxw_city` ON `dcxw_city`.`c_id`=`dcxw_house`.`h_c_id` INNER JOIN `dcxw_area` `dcxw_area` ON `dcxw_area`.`area_id`=`dcxw_house`.`h_a_id` WHERE  `h_isable` = 2 OR `h_isable` = 4 ORDER BY h_istop,h_view desc LIMIT 6 [ RunTime:0.015001s ]
+---------------------------------------------------------------
+[ 2018-12-18T18:11:15+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/banner/20181031/38318eac295109bda5c152ab8fe953ab.jpg
+[ info ] www.xiaowu.com/uploads/banner/20181031/38318eac295109bda5c152ab8fe953ab.jpg [运行时间：0.023002s][吞吐率：43.47req/s] [内存消耗：1,273.94kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181031',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:15+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/banner/20181031/55fc3a078df5bc639daf32e5ddbb09ae.png
+[ info ] www.xiaowu.com/uploads/banner/20181031/55fc3a078df5bc639daf32e5ddbb09ae.png [运行时间：0.021001s][吞吐率：47.62req/s] [内存消耗：1,273.94kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181031',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:15+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/banner/20180916/5e18c0a72371ba7c0c1b15fe8cd465c0.jpg
+[ info ] www.xiaowu.com/uploads/banner/20180916/5e18c0a72371ba7c0c1b15fe8cd465c0.jpg [运行时间：0.018001s][吞吐率：55.55req/s] [内存消耗：1,273.94kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20180916',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:15+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/banner/20181030/17b536f248a25382d7e14b391714f8ed.jpg
+[ info ] www.xiaowu.com/uploads/banner/20181030/17b536f248a25382d7e14b391714f8ed.jpg [运行时间：0.020001s][吞吐率：50.00req/s] [内存消耗：1,273.94kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181030',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:15+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/banner/20181030/17b536f248a25382d7e14b391714f8ed.jpg
+[ info ] www.xiaowu.com/uploads/banner/20181030/17b536f248a25382d7e14b391714f8ed.jpg [运行时间：0.019001s][吞吐率：52.63req/s] [内存消耗：1,273.94kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181030',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:15+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/banner/20181031/38318eac295109bda5c152ab8fe953ab.jpg
+[ info ] www.xiaowu.com/uploads/banner/20181031/38318eac295109bda5c152ab8fe953ab.jpg [运行时间：0.020001s][吞吐率：50.00req/s] [内存消耗：1,273.94kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181031',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:35+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/index/index
+[ info ] www.xiaowu.com/mobile/index/index [运行时间：0.062003s][吞吐率：16.13req/s] [内存消耗：2,152.19kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\mobile\controller\Index->index[ G:\xampp\htdocs\bbb\application\mobile\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/mobile\view\index\index.html [ array (
+  0 => 'banNum',
+  1 => 'banner',
+  2 => 'house',
+  3 => 'news',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_isable` = 1  AND `ba_via` = 2 ORDER BY ba_order desc [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `h_id`,`h_house_img`,`h_name`,`h_isable`,`h_building`,`h_house_type`,`h_area` FROM `dcxw_house` WHERE  `h_isable` = 2 OR `h_isable` = 4 ORDER BY h_view desc LIMIT 4 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_article` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `art_id`,`art_img`,`art_title`,`art_subtitle` FROM `dcxw_article` WHERE  `art_isable` = 1 ORDER BY art_istop,art_view desc LIMIT 4 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-12-18T18:11:35+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/banner/20181031/f123d87dffc809521f7b908d62e687a7.jpg
+[ info ] www.xiaowu.com/uploads/banner/20181031/f123d87dffc809521f7b908d62e687a7.jpg [运行时间：0.019001s][吞吐率：52.63req/s] [内存消耗：1,274.01kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181031',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:35+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/banner/20181031/227e99cacb574bd29f2595453efcdf2e.jpg
+[ info ] www.xiaowu.com/uploads/banner/20181031/227e99cacb574bd29f2595453efcdf2e.jpg [运行时间：0.020001s][吞吐率：50.00req/s] [内存消耗：1,274.01kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181031',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:35+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/article/20181009/4a140e419d6ad9ea6e0349253521a2bb.jpg
+[ info ] www.xiaowu.com/uploads/article/20181009/4a140e419d6ad9ea6e0349253521a2bb.jpg [运行时间：0.018001s][吞吐率：55.55req/s] [内存消耗：1,274.01kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'article',
+    2 => '20181009',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:35+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/banner/20181031/38f2c25d226302294cc83016964a425f.png
+[ info ] www.xiaowu.com/uploads/banner/20181031/38f2c25d226302294cc83016964a425f.png [运行时间：0.034002s][吞吐率：29.41req/s] [内存消耗：1,274.01kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181031',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:35+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/article/20181009/0ab593d2a9824f93d8f6ef02ffd8786e.jpg
+[ info ] www.xiaowu.com/uploads/article/20181009/0ab593d2a9824f93d8f6ef02ffd8786e.jpg [运行时间：0.019001s][吞吐率：52.63req/s] [内存消耗：1,274.01kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'article',
+    2 => '20181009',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:35+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/article/20181009/4a1b1fcd847ac4a694693b4e3aaf1d71.jpg
+[ info ] www.xiaowu.com/uploads/article/20181009/4a1b1fcd847ac4a694693b4e3aaf1d71.jpg [运行时间：0.018001s][吞吐率：55.55req/s] [内存消耗：1,274.01kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'article',
+    2 => '20181009',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:35+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/article/20181009/d88884bd8a84742d7eeb91731ad2f395.jpg
+[ info ] www.xiaowu.com/uploads/article/20181009/d88884bd8a84742d7eeb91731ad2f395.jpg [运行时间：0.043002s][吞吐率：23.25req/s] [内存消耗：1,274.01kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'article',
+    2 => '20181009',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:35+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/banner/20181031/38f2c25d226302294cc83016964a425f.png
+[ info ] www.xiaowu.com/uploads/banner/20181031/38f2c25d226302294cc83016964a425f.png [运行时间：0.018001s][吞吐率：55.55req/s] [内存消耗：1,274.01kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181031',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:35+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/banner/20181031/227e99cacb574bd29f2595453efcdf2e.jpg
+[ info ] www.xiaowu.com/uploads/banner/20181031/227e99cacb574bd29f2595453efcdf2e.jpg [运行时间：0.022001s][吞吐率：45.45req/s] [内存消耗：1,274.01kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181031',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:38+08:00 ] 127.0.0.1 127.0.0.1 GET /web/js/swiper.min.js.map
+[ info ] www.xiaowu.com/web/js/swiper.min.js.map [运行时间：0.019001s][吞吐率：52.63req/s] [内存消耗：1,272.84kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'web',
+    1 => 'js',
+    2 => 'swiper.min.js.map',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:41+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/index/advance.html
+[ info ] www.xiaowu.com/mobile/index/advance.html [运行时间：0.037002s][吞吐率：27.03req/s] [内存消耗：1,522.97kb] [文件加载：46]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'index',
+    2 => 'advance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\mobile\controller\Index->advance[ G:\xampp\htdocs\bbb\application\mobile\controller\Index.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/mobile\view\index\advance.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:44+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/index/index.html
+[ info ] www.xiaowu.com/mobile/index/index.html [运行时间：0.071004s][吞吐率：14.08req/s] [内存消耗：2,152.95kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/advance.html',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\mobile\controller\Index->index[ G:\xampp\htdocs\bbb\application\mobile\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/mobile\view\index\index.html [ array (
+  0 => 'banNum',
+  1 => 'banner',
+  2 => 'house',
+  3 => 'news',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_isable` = 1  AND `ba_via` = 2 ORDER BY ba_order desc [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_house` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `h_id`,`h_house_img`,`h_name`,`h_isable`,`h_building`,`h_house_type`,`h_area` FROM `dcxw_house` WHERE  `h_isable` = 2 OR `h_isable` = 4 ORDER BY h_view desc LIMIT 4 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_article` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `art_id`,`art_img`,`art_title`,`art_subtitle` FROM `dcxw_article` WHERE  `art_isable` = 1 ORDER BY art_istop,art_view desc LIMIT 4 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-12-18T18:11:44+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/banner/20181031/38f2c25d226302294cc83016964a425f.png
+[ info ] www.xiaowu.com/uploads/banner/20181031/38f2c25d226302294cc83016964a425f.png [运行时间：0.017001s][吞吐率：58.82req/s] [内存消耗：1,274.26kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181031',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:44+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/banner/20181031/227e99cacb574bd29f2595453efcdf2e.jpg
+[ info ] www.xiaowu.com/uploads/banner/20181031/227e99cacb574bd29f2595453efcdf2e.jpg [运行时间：0.019001s][吞吐率：52.63req/s] [内存消耗：1,274.26kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181031',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:44+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/article/20181009/4a140e419d6ad9ea6e0349253521a2bb.jpg
+[ info ] www.xiaowu.com/uploads/article/20181009/4a140e419d6ad9ea6e0349253521a2bb.jpg [运行时间：0.018001s][吞吐率：55.55req/s] [内存消耗：1,274.26kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'article',
+    2 => '20181009',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:44+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/article/20181009/d88884bd8a84742d7eeb91731ad2f395.jpg
+[ info ] www.xiaowu.com/uploads/article/20181009/d88884bd8a84742d7eeb91731ad2f395.jpg [运行时间：0.030002s][吞吐率：33.33req/s] [内存消耗：1,274.26kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'article',
+    2 => '20181009',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:44+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/banner/20181031/f123d87dffc809521f7b908d62e687a7.jpg
+[ info ] www.xiaowu.com/uploads/banner/20181031/f123d87dffc809521f7b908d62e687a7.jpg [运行时间：0.020001s][吞吐率：50.00req/s] [内存消耗：1,274.26kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181031',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:44+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/article/20181009/4a1b1fcd847ac4a694693b4e3aaf1d71.jpg
+[ info ] www.xiaowu.com/uploads/article/20181009/4a1b1fcd847ac4a694693b4e3aaf1d71.jpg [运行时间：0.021001s][吞吐率：47.62req/s] [内存消耗：1,274.26kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'article',
+    2 => '20181009',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:44+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/article/20181009/0ab593d2a9824f93d8f6ef02ffd8786e.jpg
+[ info ] www.xiaowu.com/uploads/article/20181009/0ab593d2a9824f93d8f6ef02ffd8786e.jpg [运行时间：0.056003s][吞吐率：17.86req/s] [内存消耗：1,274.26kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'article',
+    2 => '20181009',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:44+08:00 ] 127.0.0.1 127.0.0.1 GET /web/js/swiper.min.js.map
+[ info ] www.xiaowu.com/web/js/swiper.min.js.map [运行时间：0.022001s][吞吐率：45.45req/s] [内存消耗：1,272.84kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'web',
+    1 => 'js',
+    2 => 'swiper.min.js.map',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:11:46+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/index/deposit.html
+[ info ] www.xiaowu.com/mobile/index/deposit.html [运行时间：0.022001s][吞吐率：45.45req/s] [内存消耗：1,522.88kb] [文件加载：46]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'index',
+    2 => 'deposit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\mobile\controller\Index->deposit[ G:\xampp\htdocs\bbb\application\mobile\controller\Index.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:12:53+08:00 ] 127.0.0.1 127.0.0.1 GET http://config.pinyin.sogou.com/api/toolbox/geturl.php?h=51BF22E7755913AC81E7EB29C50968A0&v=9.1.0.2589&r=0000_sogou_pinyin_9.1.0.2589
+[ info ] config.pinyin.sogou.comhttp://config.pinyin.sogou.com/api/toolbox/geturl.php?h=51BF22E7755913AC81E7EB29C50968A0&v=9.1.0.2589&r=0000_sogou_pinyin_9.1.0.2589 [运行时间：0.017001s][吞吐率：58.82req/s] [内存消耗：1,274.96kb] [文件加载：42]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'toolbox',
+    2 => 'geturl.php',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'SOGOU_UPDATER',
+  'host' => 'config.pinyin.sogou.com',
+  'accept' => '*/*',
+  'proxy-connection' => 'Keep-Alive',
+)
+[ info ] [ PARAM ] array (
+  'h' => '51BF22E7755913AC81E7EB29C50968A0',
+  'v' => '9.1.0.2589',
+  'r' => '0000_sogou_pinyin_9.1.0.2589',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:13:12+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/index/deposit.html
+[ info ] www.xiaowu.com/mobile/index/deposit.html [运行时间：0.027001s][吞吐率：37.04req/s] [内存消耗：1,648.65kb] [文件加载：48]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'index',
+    2 => 'deposit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\mobile\controller\Index->deposit[ G:\xampp\htdocs\bbb\application\mobile\controller\Index.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:14:43+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/index/deposit.html
+[ info ] www.xiaowu.com/mobile/index/deposit.html [运行时间：0.040003s][吞吐率：25.00req/s] [内存消耗：1,648.65kb] [文件加载：48]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'index',
+    2 => 'deposit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\mobile\controller\Index->deposit[ G:\xampp\htdocs\bbb\application\mobile\controller\Index.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:17:04+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/index/deposit.html
+[ info ] www.xiaowu.com/mobile/index/deposit.html [运行时间：0.041002s][吞吐率：24.39req/s] [内存消耗：1,649.52kb] [文件加载：48]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'index',
+    2 => 'deposit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\mobile\controller\Index->deposit[ G:\xampp\htdocs\bbb\application\mobile\controller\Index.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:17:17+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/index/deposit.html
+[ info ] www.xiaowu.com/mobile/index/deposit.html [运行时间：0.031002s][吞吐率：32.26req/s] [内存消耗：1,523.95kb] [文件加载：46]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'index',
+    2 => 'deposit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\mobile\controller\Index->deposit[ G:\xampp\htdocs\bbb\application\mobile\controller\Index.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:18:12+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/index/deposit.html
+[ info ] www.xiaowu.com/mobile/index/deposit.html [运行时间：0.028002s][吞吐率：35.71req/s] [内存消耗：1,649.52kb] [文件加载：48]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'index',
+    2 => 'deposit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\mobile\controller\Index->deposit[ G:\xampp\htdocs\bbb\application\mobile\controller\Index.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:18:40+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/index/deposit.html
+[ info ] www.xiaowu.com/mobile/index/deposit.html [运行时间：0.032002s][吞吐率：31.25req/s] [内存消耗：1,649.52kb] [文件加载：48]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'index',
+    2 => 'deposit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\mobile\controller\Index->deposit[ G:\xampp\htdocs\bbb\application\mobile\controller\Index.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:19:06+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/index/deposit.html
+[ info ] www.xiaowu.com/mobile/index/deposit.html [运行时间：0.037002s][吞吐率：27.03req/s] [内存消耗：1,649.52kb] [文件加载：48]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'index',
+    2 => 'deposit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\mobile\controller\Index->deposit[ G:\xampp\htdocs\bbb\application\mobile\controller\Index.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:20:03+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/index/deposit.html
+[ info ] www.xiaowu.com/mobile/index/deposit.html [运行时间：0.032002s][吞吐率：31.25req/s] [内存消耗：1,649.52kb] [文件加载：48]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'index',
+    2 => 'deposit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\mobile\controller\Index->deposit[ G:\xampp\htdocs\bbb\application\mobile\controller\Index.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:20:04+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/index/deposit.html
+[ info ] www.xiaowu.com/mobile/index/deposit.html [运行时间：0.044002s][吞吐率：22.73req/s] [内存消耗：1,523.95kb] [文件加载：46]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'index',
+    2 => 'deposit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\mobile\controller\Index->deposit[ G:\xampp\htdocs\bbb\application\mobile\controller\Index.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:20:04+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/index/deposit.html
+[ info ] www.xiaowu.com/mobile/index/deposit.html [运行时间：0.021001s][吞吐率：47.62req/s] [内存消耗：1,523.95kb] [文件加载：46]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'index',
+    2 => 'deposit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\mobile\controller\Index->deposit[ G:\xampp\htdocs\bbb\application\mobile\controller\Index.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:20:20+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/index/deposit.html
+[ info ] www.xiaowu.com/mobile/index/deposit.html [运行时间：0.039002s][吞吐率：25.64req/s] [内存消耗：1,649.52kb] [文件加载：48]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'index',
+    2 => 'deposit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\mobile\controller\Index->deposit[ G:\xampp\htdocs\bbb\application\mobile\controller\Index.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:20:22+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/index/deposit.html
+[ info ] www.xiaowu.com/mobile/index/deposit.html [运行时间：0.032002s][吞吐率：31.25req/s] [内存消耗：1,523.95kb] [文件加载：46]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'index',
+    2 => 'deposit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\mobile\controller\Index->deposit[ G:\xampp\htdocs\bbb\application\mobile\controller\Index.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-12-18T18:22:50+08:00 ] 127.0.0.1 127.0.0.1 GET /mobile/index/deposit.html
+[ info ] www.xiaowu.com/mobile/index/deposit.html [运行时间：0.030002s][吞吐率：33.33req/s] [内存消耗：1,649.52kb] [文件加载：48]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mobile',
+    1 => 'index',
+    2 => 'deposit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowu.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowu.com/mobile/index/index.html',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\mobile\controller\Index->deposit[ G:\xampp\htdocs\bbb\application\mobile\controller\Index.php ]
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html [ array (
+) ]
+[ info ] [ LOG ] INIT File

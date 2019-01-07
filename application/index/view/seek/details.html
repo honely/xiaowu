@@ -109,7 +109,7 @@
                     <!-- 带有此功能则加has -->
                     {volist name="house.config_img" id="imgs"}
                     <li class="peitao-item has">
-                        <img src="{$imgs.type_img}" style="height: 50px;width: 50px;padding: 8px;"/>
+                        <img src="__PUBLIC__/{$imgs.type_img}" style="height: 50px;width: 50px;padding: 8px;"/>
                         <div class="peitao-info">{$imgs.type_name}</div>
                     </li>
                     {/volist}
@@ -192,7 +192,7 @@
             <li>
                 <a href="<?=url('seek/details')?>?h_id={$vo.h_id}">
                                 <span>
-                                    <img src="{$vo.h_house_img}" alt="{$vo.h_img_alt}">
+                                    <img src="__PUBLIC__/{$vo.h_house_img}" alt="{$vo.h_img_alt}">
                                 </span>
                     <em>{$vo.h_name}</em>
                 </a>

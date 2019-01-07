@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/index\view\seek\details.html";i:1540274412;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1541063850;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1543972776;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/index\view\seek\details.html";i:1545294433;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1543896573;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1545295183;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -51,8 +51,7 @@
                 </li>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
                 <li>
-                    <a href="#" target="_blank" style="color:#5b5b5b;font-size: 16px;" >看房热线：8:00~22:00
-                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="#" target="_blank" style="color:#5b5b5b;font-size: 16px;" >看房热线
                         <em style="color: #ff6000;font-size: 22px;font-weight: bold;margin-top: 5px;">
                             <?php echo $hotLine; ?>
                         </em>
@@ -172,7 +171,7 @@
                     <!-- 带有此功能则加has -->
                     <?php if(is_array($house['config_img']) || $house['config_img'] instanceof \think\Collection || $house['config_img'] instanceof \think\Paginator): $i = 0; $__LIST__ = $house['config_img'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$imgs): $mod = ($i % 2 );++$i;?>
                     <li class="peitao-item has">
-                        <img src="<?php echo $imgs['type_img']; ?>" style="height: 50px;width: 50px;padding: 8px;"/>
+                        <img src="__PUBLIC__/<?php echo $imgs['type_img']; ?>" style="height: 50px;width: 50px;padding: 8px;"/>
                         <div class="peitao-info"><?php echo $imgs['type_name']; ?></div>
                     </li>
                     <?php endforeach; endif; else: echo "" ;endif; ?>
@@ -255,7 +254,7 @@
             <li>
                 <a href="<?=url('seek/details')?>?h_id=<?php echo $vo['h_id']; ?>">
                                 <span>
-                                    <img src="<?php echo $vo['h_house_img']; ?>" alt="<?php echo $vo['h_img_alt']; ?>">
+                                    <img src="__PUBLIC__/<?php echo $vo['h_house_img']; ?>" alt="<?php echo $vo['h_img_alt']; ?>">
                                 </span>
                     <em><?php echo $vo['h_name']; ?></em>
                 </a>
@@ -359,6 +358,11 @@
 <footer style="height: auto;padding: 10px 0px;color: white;line-height: 1.8;background: #212121;">
     <div class="container text-center">
         <p>南京分公司：南京市鼓楼区集庆门大街268号（苏宁慧谷E08-2-1004室）</p>
+    </div>
+</footer>
+<footer style="height: auto;padding: 10px 0px;color: white;line-height: 1.8;background: #212121;">
+    <div class="container text-center">
+        <p>杭州分公司：杭州市江干区钱江新城新业路228号来福士广场（塔一3603）</p>
     </div>
 </footer>
 <footer style="height: auto;padding: 10px 0px;color: #5b5b5b;line-height: 1.8;background: #212121;">

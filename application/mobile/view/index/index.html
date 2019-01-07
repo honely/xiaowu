@@ -75,7 +75,7 @@
         <div class="swiper-wrapper" style="height: 100%">
             {volist name="banner" id="ban"}
             <div class="swiper-slide" style="height: 100%">
-                <img src="{$ban.ba_img}" style="height: 100%" >
+                <img src="__PUBLIC__/{$ban.ba_img}" style="height: 100%" >
             </div>
             {/volist}
         </div>
@@ -206,7 +206,7 @@
                 {else/}
                     <li class="mui-table-view-cell mui-media mui-col-xs-6">
                         <a href="<?=url('index/details')?>?h_id={$hous.h_id}">
-                            <img style="height: 130px;" class="mui-media-object" src="{$hous.h_house_img}">
+                            <img style="height: 130px;" class="mui-media-object" src="__PUBLIC__/{$hous.h_house_img}">
                             <div class="mui-media-body">{$hous.h_name}</div>
                         </a>
                     </li>
@@ -230,7 +230,7 @@
             {volist name="news" id="chap" }
             <li class="mui-table-view-cell mui-media">
                 <a href="<?=url('index/detail')?>?art_id={$chap.art_id}">
-                    <img class="mui-media-object mui-pull-left" src="{$chap.art_img}">
+                    <img class="mui-media-object mui-pull-left" src="__PUBLIC__/{$chap.art_img}">
                     <div class="mui-media-body">
                         {$chap.art_title}
                         <p class='mui-ellipsis'>{$chap.art_subtitle}</p>

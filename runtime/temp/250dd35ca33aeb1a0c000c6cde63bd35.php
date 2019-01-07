@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/admin\view\staff\index.html";i:1544163992;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/admin\view\staff\index.html";i:1543896576;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1543896579;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1543896579;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,7 +59,7 @@
             <th lay-data="{field:'u_phone', align:'left'}">员工电话</th>
             <th lay-data="{field:'u_email', align:'left'}">员工邮箱</th>
             <th lay-data="{field:'u_job', align:'left'}">员工职位</th>
-            <th lay-data="{field:'u_isable',width:120, align:'left' ,templet: '#switchTpl',sort:true, unresize: true}">是否在职</th>
+            <!--<th lay-data="{field:'u_isable',width:120, align:'left' ,templet: '#switchTpl',sort:true, unresize: true}">是否在职</th>-->
             <th lay-data="{align:'center',width:160, toolbar: '#barDemo'}">操作</th>
         </tr>
         </thead>

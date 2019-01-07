@@ -1,0 +1,317 @@
+---------------------------------------------------------------
+[ 2019-01-02T16:52:02+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] www.wxmini.com/ [运行时间：0.129007s][吞吐率：7.75req/s] [内存消耗：2,291.80kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.wxmini.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ G:\xampp\htdocs\bbb\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/index\view\index\index.html [ array (
+  0 => 'hotLine',
+  1 => 'navinfo',
+  2 => 'banner',
+  3 => 'house',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_setinfo` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT `s_value` FROM `dcxw_setinfo` WHERE  `s_key` = 'hotline' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_nav` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `nav_title`,`nav_url` FROM `dcxw_nav` WHERE  `nav_isable` = 1 ORDER BY nav_order desc [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_isable` = 1  AND `ba_via` = 1 ORDER BY ba_order desc [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_houses` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_houses` INNER JOIN `dcxw_province` `dcxw_province` ON `dcxw_province`.`p_id`=`dcxw_houses`.`h_p_id` INNER JOIN `dcxw_city` `dcxw_city` ON `dcxw_city`.`c_id`=`dcxw_houses`.`h_c_id` INNER JOIN `dcxw_area` `dcxw_area` ON `dcxw_area`.`area_id`=`dcxw_houses`.`h_a_id` INNER JOIN `dcxw_admin` `dcxw_admin` ON `dcxw_admin`.`ad_id`=`dcxw_houses`.`h_admin` WHERE  `h_isable` = 1  AND `h_rent_status` = 2 ORDER BY h_istop,h_view desc LIMIT 6 [ RunTime:0.013001s ]
+---------------------------------------------------------------
+[ 2019-01-02T16:52:02+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/banner/20181031/38318eac295109bda5c152ab8fe953ab.jpg
+[ info ] www.wxmini.com//uploads/banner/20181031/38318eac295109bda5c152ab8fe953ab.jpg [运行时间：0.031001s][吞吐率：32.26req/s] [内存消耗：1,273.68kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181031',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.wxmini.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.wxmini.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-02T16:52:02+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/banner/20181031/55fc3a078df5bc639daf32e5ddbb09ae.png
+[ info ] www.wxmini.com//uploads/banner/20181031/55fc3a078df5bc639daf32e5ddbb09ae.png [运行时间：0.028001s][吞吐率：35.71req/s] [内存消耗：1,273.68kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181031',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.wxmini.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.wxmini.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-02T16:52:02+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/banner/20180916/5e18c0a72371ba7c0c1b15fe8cd465c0.jpg
+[ info ] www.wxmini.com//uploads/banner/20180916/5e18c0a72371ba7c0c1b15fe8cd465c0.jpg [运行时间：0.019002s][吞吐率：52.63req/s] [内存消耗：1,273.68kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20180916',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.wxmini.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.wxmini.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-02T16:52:02+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/banner/20181030/17b536f248a25382d7e14b391714f8ed.jpg
+[ info ] www.wxmini.com//uploads/banner/20181030/17b536f248a25382d7e14b391714f8ed.jpg [运行时间：0.018001s][吞吐率：55.55req/s] [内存消耗：1,273.68kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181030',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.wxmini.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.wxmini.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-02T16:52:02+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/example/20181207/00c40d90b2d20ed5f4b9a59413c197a5.jpg
+[ info ] www.wxmini.com//uploads/example/20181207/00c40d90b2d20ed5f4b9a59413c197a5.jpg [运行时间：0.017001s][吞吐率：58.82req/s] [内存消耗：1,273.68kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'example',
+    2 => '20181207',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.wxmini.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.wxmini.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-02T16:52:02+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/example/20181206/edc05663bd383d716cc4fedd055cf11e.jpg
+[ info ] www.wxmini.com//uploads/example/20181206/edc05663bd383d716cc4fedd055cf11e.jpg [运行时间：0.021001s][吞吐率：47.62req/s] [内存消耗：1,273.68kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'example',
+    2 => '20181206',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.wxmini.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.wxmini.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-02T16:52:02+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/example/20181206/14a00354aa4a48627b0db5abc916752c.jpg
+[ info ] www.wxmini.com//uploads/example/20181206/14a00354aa4a48627b0db5abc916752c.jpg [运行时间：0.020001s][吞吐率：50.00req/s] [内存消耗：1,273.68kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'example',
+    2 => '20181206',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.wxmini.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.wxmini.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-02T16:52:02+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/example/20181207/fc12e30492d9378a864c7ea7405b8e5c.jpg
+[ info ] www.wxmini.com//uploads/example/20181207/fc12e30492d9378a864c7ea7405b8e5c.jpg [运行时间：0.017000s][吞吐率：58.82req/s] [内存消耗：1,273.68kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'example',
+    2 => '20181207',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.wxmini.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.wxmini.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-02T16:52:02+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/example/20181206/a19efb8074b69b5022603e20077242b8.jpg
+[ info ] www.wxmini.com//uploads/example/20181206/a19efb8074b69b5022603e20077242b8.jpg [运行时间：0.019001s][吞吐率：52.63req/s] [内存消耗：1,273.68kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'example',
+    2 => '20181206',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.wxmini.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.wxmini.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-02T16:52:02+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/example/20181206/ee4a32b44ab74617683eb3fe88f6443d.jpg
+[ info ] www.wxmini.com//uploads/example/20181206/ee4a32b44ab74617683eb3fe88f6443d.jpg [运行时间：0.032002s][吞吐率：31.25req/s] [内存消耗：1,273.68kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'example',
+    2 => '20181206',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.wxmini.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.wxmini.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-02T16:52:02+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/banner/20181031/38318eac295109bda5c152ab8fe953ab.jpg
+[ info ] www.wxmini.com//uploads/banner/20181031/38318eac295109bda5c152ab8fe953ab.jpg [运行时间：0.018001s][吞吐率：55.55req/s] [内存消耗：1,273.68kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181031',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.wxmini.com',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.wxmini.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File

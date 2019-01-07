@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/index\view\news\details.html";i:1538968811;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1541063850;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1543972776;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"G:\xampp\htdocs\bbb\public/../application/index\view\news\details.html";i:1538968811;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1544233614;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1544177090;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -51,8 +51,7 @@
                 </li>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
                 <li>
-                    <a href="#" target="_blank" style="color:#5b5b5b;font-size: 16px;" >看房热线：8:00~22:00
-                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="#" target="_blank" style="color:#5b5b5b;font-size: 16px;" >看房热线：
                         <em style="color: #ff6000;font-size: 22px;font-weight: bold;margin-top: 5px;">
                             <?php echo $hotLine; ?>
                         </em>
@@ -234,6 +233,11 @@
 <footer style="height: auto;padding: 10px 0px;color: white;line-height: 1.8;background: #212121;">
     <div class="container text-center">
         <p>南京分公司：南京市鼓楼区集庆门大街268号（苏宁慧谷E08-2-1004室）</p>
+    </div>
+</footer>
+<footer style="height: auto;padding: 10px 0px;color: white;line-height: 1.8;background: #212121;">
+    <div class="container text-center">
+        <p>杭州分公司：杭州市江干区钱江新城新业路228号来福士广场（塔一3603）</p>
     </div>
 </footer>
 <footer style="height: auto;padding: 10px 0px;color: #5b5b5b;line-height: 1.8;background: #212121;">

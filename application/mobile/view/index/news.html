@@ -75,7 +75,7 @@
         {volist name="news" id="vo"}
         <li class="mui-table-view-cell mui-media mui-col-xs-6">
             <a href="<?=url('index/detail')?>?art_id={$vo.art_id}">
-                <img style="height: 130px;" class="mui-media-object" src="{$vo.art_img}">
+                <img style="height: 130px;" class="mui-media-object" src="__PUBLIC__/{$vo.art_img}">
                 <div class="mui-media-body">{$vo.art_title}</div>
             </a>
         </li>
@@ -105,7 +105,7 @@
                     for (var i=0;i<data.length;i++) {
                         html+='<li class="mui-table-view-cell mui-media mui-col-xs-6">\n' +
                             '             <a href="<?=url('index/detail')?>?art_id='+data[i].art_id+'">'+
-                        '                <img style="height: 130px;" class="mui-media-object" src="'+data[i].art_img+'" />'+
+                        '                <img style="height: 130px;" class="mui-media-object" src="__PUBLIC__/'+data[i].art_img+'" />'+
                         '                <div class="mui-media-body">'+data[i].art_title+'</div>\n' +
                         '            </a>\n' +
                         '        </li>';

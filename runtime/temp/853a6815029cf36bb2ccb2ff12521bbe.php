@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/index\view\seek\index.html";i:1541040105;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1544233614;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1544177090;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/index\view\seek\index.html";i:1545294388;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1543896573;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1545295183;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -51,7 +51,7 @@
                 </li>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
                 <li>
-                    <a href="#" target="_blank" style="color:#5b5b5b;font-size: 16px;" >看房热线：
+                    <a href="#" target="_blank" style="color:#5b5b5b;font-size: 16px;" >看房热线
                         <em style="color: #ff6000;font-size: 22px;font-weight: bold;margin-top: 5px;">
                             <?php echo $hotLine; ?>
                         </em>
@@ -146,7 +146,7 @@
 
                 <div class="top">
                     <a href="<?=url('seek/details')?>?h_id=<?php echo $house['h_id']; ?>">
-                        <img src="<?php echo $house['h_house_img']; ?>" alt="<?php echo $house['h_img_alt']; ?>">
+                        <img src="__PUBLIC__/<?php echo $house['h_house_img']; ?>" alt="<?php echo $house['h_img_alt']; ?>">
                     </a>
                 </div>
                 <div class="bto clearfix">

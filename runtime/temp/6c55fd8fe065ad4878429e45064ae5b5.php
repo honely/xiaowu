@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\attachs.html";i:1544238188;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\attachs.html";i:1544579067;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -522,7 +522,9 @@
                 console.log(res);
                 $('#img').val(res.path);
                 $('#imgPre').append('' +
-                    '<li class="item_img"><div class="operate"><i  class="close layui-icon"></i></div><img src="__PUBLIC__/' + res.path + '" class="img" ><input type="hidden" name="ha_contact_img[]" value="' + res.path + '" /></li>');
+                    '<li class="item_img"><div class="operate"><i  class="close layui-icon"></i></div>' +
+                    '<img src="__PUBLIC__/' + res.path + '" class="img" data-preview-src="" data-preview-group="1" >' +
+                    '<input type="hidden" name="ha_contact_img[]" value="' + res.path + '" /></li>');
                 layer.close(loading);
                 layer.msg(res.msg, {icon: 1, time: 1000});
             }

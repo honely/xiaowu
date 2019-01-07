@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html";i:1541236989;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1541226131;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1541228282;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\index\deposit.html";i:1545299118;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\header.html";i:1543896569;s:72:"G:\xampp\htdocs\bbb\public/../application/mobile\view\common\footer.html";i:1543896569;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +29,7 @@
     }
 
     #topPopover {
-       position: absolute;
+        position: absolute;
         top: 16px;
         right: 6px;
     }
@@ -89,7 +89,7 @@
 </div>
 <div class="mui-content" style="padding-top: 0px;">
     <div class="mui-card-content-inner" style="padding-bottom: 2px;">
-       <p style="font-size: 20px;">房东选择我们的理由</p>
+        <p style="font-size: 20px;">房东选择我们的理由</p>
     </div>
     <div class="mui-card-header mui-card-media" style="height:37vw;background-image:url(__WEB__/img/dp01.png);"></div>
 </div>
@@ -98,6 +98,15 @@
 </div>
 <div class="mui-content" style="padding-top: 10px;">
     <form id="order">
+        <div class="mui-input-row">
+            <label>地区</label>
+            <select name="dp_c_id" id="dp_c_id">
+                <option value="">--请选择地区--</option>
+                <?php if(is_array($cityInfo) || $cityInfo instanceof \think\Collection || $cityInfo instanceof \think\Paginator): $i = 0; $__LIST__ = $cityInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$city): $mod = ($i % 2 );++$i;?>
+                <option value="<?php echo $city['c_id']; ?>"><?php echo $city['c_name']; ?></option>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+        </div>
         <div class="mui-input-row">
             <label>姓名</label>
             <input type="text" name="dp_name" id="dp_name" placeholder="请输入您的姓名">
@@ -136,36 +145,45 @@
 </html>
 <script>
     function makeOrders(){
+        var dp_c_id=$('#dp_c_id').val();
         var dp_name=$('#dp_name').val();
         var dp_phone=$('#dp_phone').val();
         var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
-        if(dp_name.length<=0){
-            mui.alert("请输入您的姓名！", function() {
-                $('#dp_name').focus();
+        if(dp_c_id <= 0){
+            mui.alert("请选择地区！", function() {
+                $('#dp_c_id').focus();
             });
         }else{
-            if(dp_phone.length != 11 || dp_phone.length<=0 ||!myreg.test(dp_phone)){
-                mui.alert("请输入正确的手机号码！", function() {
-                    $('#dp_phone').focus();
+            if(dp_name.length<=0){
+                mui.alert("请输入您的姓名！", function() {
+                    $('#dp_name').focus();
                 });
             }else{
-                $.ajax({
-                    'type':"post",
-                    'url':"<?=url('index/deposit')?>",
-                    'data':$('#order').serialize(),
-                    'success':function (result) {
-                        if(result.code == '1'){
-                            mui.alert(result.msg);
-                            window.reload();
-                        }else{
-                            mui.alert(result.msg);
+                if(dp_phone.length != 11 || dp_phone.length<=0 ||!myreg.test(dp_phone)){
+                    mui.alert("请输入正确的手机号码！", function() {
+                        $('#dp_phone').focus();
+                    });
+                }else{
+                    $.ajax({
+                        'type':"post",
+                        'url':"<?=url('index/deposit')?>",
+                        'data':$('#order').serialize(),
+                        'success':function (result) {
+                            if(result.code == '1'){
+                                console.log(result);
+                                mui.alert(result.msg);
+                                window.reload();
+                            }else{
+                                mui.alert(result.msg);
+                            }
+                        },
+                        'error':function (error) {
+                            console.log(error);
                         }
-                    },
-                    'error':function (error) {
-                        console.log(error);
-                    }
-                })
+                    })
+                }
             }
         }
+
     }
 </script>

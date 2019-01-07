@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:74:"G:\xampp\htdocs\bbb\public/../application/admin\view\banner\addbanner.html";i:1538190467;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:74:"G:\xampp\htdocs\bbb\public/../application/admin\view\banner\addbanner.html";i:1544759393;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,18 +63,17 @@
                                 <div class="layui-input-inline">
                                     <select name="ba_via" lay-verify="required" lay-filter="aihao">
                                         <option value="">请选择显示端</option>
-                                        <option value="1">PC端</option>
-                                        <option value="2">移动端</option>
+                                        <?php if(is_array($bannerType) || $bannerType instanceof \think\Collection || $bannerType instanceof \think\Paginator): $i = 0; $__LIST__ = $bannerType;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
+                                            <option value="<?php echo $key; ?>"><?php echo $items; ?></option>
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
                                     </select>
                                 </div>
                                 <div class="layui-input-inline">
                                     <select name="ba_order" lay-verify="required" lay-filter="aihao">
                                         <option value="">请选择排列顺序</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
+                                        <?php if(is_array($bannerOrder) || $bannerOrder instanceof \think\Collection || $bannerOrder instanceof \think\Paginator): $i = 0; $__LIST__ = $bannerOrder;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
+                                            <option value="<?php echo $key; ?>"><?php echo $items; ?></option>
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
                                     </select>
                                 </div>
                                 <div class="layui-form-mid layui-word-aux">数字越大越靠前，默认排序为时间倒序！</div>

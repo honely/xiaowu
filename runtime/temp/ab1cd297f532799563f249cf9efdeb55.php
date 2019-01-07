@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/index\view\news\index.html";i:1538988095;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1544233614;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1544177090;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/index\view\news\index.html";i:1545294587;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1543896573;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1545295183;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -51,7 +51,7 @@
                 </li>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
                 <li>
-                    <a href="#" target="_blank" style="color:#5b5b5b;font-size: 16px;" >看房热线：
+                    <a href="#" target="_blank" style="color:#5b5b5b;font-size: 16px;" >看房热线
                         <em style="color: #ff6000;font-size: 22px;font-weight: bold;margin-top: 5px;">
                             <?php echo $hotLine; ?>
                         </em>
@@ -111,7 +111,7 @@
                             <li class="clearfix">
                                 <figure class="pull-left">
                                     <a href="<?=url('news/details')?>?art_id=<?php echo $art['art_id']; ?>">
-                                        <img src="<?php echo $art['art_img']; ?>" alt="<?php echo $art['art_img_alt']; ?>">
+                                        <img src="__PUBLIC__/<?php echo $art['art_img']; ?>" alt="<?php echo $art['art_img_alt']; ?>">
                                     </a>
                                 </figure>
                                 <div class="pull-right">
@@ -152,7 +152,7 @@
                     <li class="clearfix">
                         <a href="<?=url('news/details')?>?art_id=<?php echo $hot['art_id']; ?>">
                             <figure class="pull-left">
-                                <img src="<?php echo $hot['art_img']; ?>" alt="<?php echo $hot['art_img_alt']; ?>">
+                                <img src="__PUBLIC__/<?php echo $hot['art_img']; ?>" alt="<?php echo $hot['art_img_alt']; ?>">
                             </figure>
                             <div class="pull-right" style="width: 184px;" >
                                 <p><?php echo $hot['art_title']; ?></p>

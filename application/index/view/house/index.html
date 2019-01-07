@@ -103,6 +103,17 @@
 <div id="layers-sign" class="none">
     <form class="layui-form" id="houseForm" >
         <div class="layui-form-item">
+            <label class="layui-form-label">地区</label>
+            <div class="layui-input-inline">
+                <select name="dp_c_id" id="dp_c_id" lay-verify="required">
+                    <option value="">--请选择地区--</option>
+                    {volist name="cityInfo" id="city"}
+                    <option value="{$city.c_id}">{$city.c_name}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
             <label class="layui-form-label">您的称呼</label>
             <div class="layui-input-inline">
                 <input type="hidden" class="bu_id" name="cus_case" value=""/>
@@ -145,6 +156,7 @@
                     'url':"<?=url('house/deposit')?>",
                     'data':$('#houseForm').serialize(),
                     'success':function (result) {
+                        console.log(result);
                         if(result.code == '1'){
                             layer.msg(result.msg, {icon: 1, time: 2000},function () {
                                 window.location.reload();

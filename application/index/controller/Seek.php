@@ -79,23 +79,23 @@ class Seek extends Controller{
         //房源
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',6,'intval');
-        $house=Db::table('dcxw_house')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_house.h_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_house.h_c_id')
-            ->join('dcxw_area','dcxw_area.area_id = dcxw_house.h_a_id')
-            ->where(['h_isable' => 2])
-            ->whereOr(['h_isable' => 4])
+        $house=Db::table('dcxw_houses')
+            ->join('dcxw_province','dcxw_province.p_id = dcxw_houses.h_p_id')
+            ->join('dcxw_city','dcxw_city.c_id = dcxw_houses.h_c_id')
+            ->join('dcxw_area','dcxw_area.area_id = dcxw_houses.h_a_id')
+            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_houses.h_admin')
+            ->where(['h_isable' => 1,'h_rent_status' => 2])
             ->where($where)
             ->order('h_istop asc,h_isable,h_view desc')
             ->limit(($page-1)*$limit,$limit)
             ->field('h_name,h_nearbus,h_b_id,h_subway,h_house_img,h_img_alt,h_video,h_address,h_building,h_rent,h_rent_type,h_id')
             ->select();
-        $count=Db::table('dcxw_house')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_house.h_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_house.h_c_id')
-            ->join('dcxw_area','dcxw_area.area_id = dcxw_house.h_a_id')
-            ->where(['h_isable' => 2])
-            ->whereOr(['h_isable' => 4])
+        $count=Db::table('dcxw_houses')
+            ->join('dcxw_province','dcxw_province.p_id = dcxw_houses.h_p_id')
+            ->join('dcxw_city','dcxw_city.c_id = dcxw_houses.h_c_id')
+            ->join('dcxw_area','dcxw_area.area_id = dcxw_houses.h_a_id')
+            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_houses.h_admin')
+            ->where(['h_isable' => 1,'h_rent_status' => 2])
             ->where($where)
             ->count();
         $this->assign('count',$count);
@@ -111,8 +111,8 @@ class Seek extends Controller{
     public function details(){
         $h_id=intval(trim($_GET['h_id']));
         //浏览量加一
-        Db::table('dcxw_house')->where(['h_id' => $h_id])->setInc('h_view');
-        $house=Db::table('dcxw_house')->where(['h_id' => $h_id])->find();
+        Db::table('dcxw_houses')->where(['h_id' => $h_id])->setInc('h_view');
+        $house=Db::table('dcxw_houses')->where(['h_id' => $h_id])->find();
         $house['h_img']=explode(',',$house['h_img']);
         $house['h_config']=explode(',',$house['h_config']);
         $house['config_img']=[];
@@ -131,7 +131,7 @@ class Seek extends Controller{
             ->select();
         $this->assign('navinfo',$navInfo);
         //热门房源
-        $hotHouse=Db::table('dcxw_house')->where('h_id','neq',$h_id)->order('h_view desc')->limit(4)->select();
+        $hotHouse=Db::table('dcxw_houses')->where('h_id','neq',$h_id)->order('h_view desc')->limit(4)->select();
         $this->assign('hotHouse',$hotHouse);
         return $this->fetch();
     }

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\logdetails.html";i:1543803577;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\logdetails.html";i:1544579067;}*/ ?>
 <!DOCTYPE html>
 <html>
 

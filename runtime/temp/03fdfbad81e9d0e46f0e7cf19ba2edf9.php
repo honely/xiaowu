@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\about\index.html";i:1544177125;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1544233614;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1544177090;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\about\index.html";i:1545295211;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1543896573;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1545295183;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -51,7 +51,7 @@
                 </li>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
                 <li>
-                    <a href="#" target="_blank" style="color:#5b5b5b;font-size: 16px;" >看房热线：
+                    <a href="#" target="_blank" style="color:#5b5b5b;font-size: 16px;" >看房热线
                         <em style="color: #ff6000;font-size: 22px;font-weight: bold;margin-top: 5px;">
                             <?php echo $hotLine; ?>
                         </em>
@@ -116,14 +116,14 @@
 
                     陕西大城小屋不动产管理有限公司由三大机构组成，分别为决策机构、执行机构、监督建构。公司采用“C管理模式（智慧型管理模式）”，C管理模式是以人为核心，凝聚吸收人才为主体，使得企业适应能力性更强，应变能力更为灵活，同时也使得企业所开发的项目更为精良，让企业具有更健康的根基和更广阔的视野。
 
-            </p>
+                </p>
                 <h4 class="content-h4">四、发展模式</h4>
 
                 <p class="content-p">
 
-                大城小屋行走于新型房服务行业前沿，引领全新的智能公寓模式，策略于将毛坯房进行超高性价比回租、整租、合租，优化房屋资源配置，进行所有房屋资源共享，取得1+1大于2的成果。让各房主均能直观感受到持续性的价值回报。
+                    大城小屋行走于新型房服务行业前沿，引领全新的智能公寓模式，策略于将毛坯房进行超高性价比回租、整租、合租，优化房屋资源配置，进行所有房屋资源共享，取得1+1大于2的成果。让各房主均能直观感受到持续性的价值回报。
 
-            </p>
+                </p>
 
                 <h4 class="content-h4">五、联系我们</h4>
                 <p class="content-hp" style="margin-top: 20px;">
@@ -131,16 +131,16 @@
                 <p class="content-hp">
                     电话：029-8755-8112&nbsp;&nbsp;&nbsp;&nbsp;
                 </p><br/><p class="content-hp">
-                    成都分公司：四川省成都市高新区环球中心E1 1-2-702</p>
+                成都分公司：四川省成都市高新区环球中心E1 1-2-702</p>
 
                 <p class="content-hp">
-                电话：028-69215061&nbsp;&nbsp;&nbsp;&nbsp;028-69215051
+                    电话：028-69215061&nbsp;&nbsp;&nbsp;&nbsp;028-69215051
                 </p>
                 <br/>
                 <p class="content-hp">
-                重庆分公司：重庆市江北区江北城IFS国金中心T2栋610</p>
+                    重庆分公司：重庆市江北区江北城IFS国金中心T2栋610</p>
                 <p class="content-hp">
-                电话：023-67753595&nbsp;&nbsp;&nbsp;&nbsp;023-67753685
+                    电话：023-67753595&nbsp;&nbsp;&nbsp;&nbsp;023-67753685
                 </p>
 
                 <br/>
@@ -153,7 +153,7 @@
                 </p>
                 <br/>
                 <!--<p class="content-hp">-->
-                    <!--电话：023-67753595&nbsp;&nbsp;&nbsp;&nbsp;023-67753685-->
+                <!--电话：023-67753595&nbsp;&nbsp;&nbsp;&nbsp;023-67753685-->
                 <!--</p>-->
                 <div class="map" style="width: 810px;height: 500px;margin-top: 10px;" id="baiduMap">
                 </div>

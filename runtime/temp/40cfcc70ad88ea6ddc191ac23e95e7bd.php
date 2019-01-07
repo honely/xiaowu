@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\resetpwd.html";i:1544166625;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\xampp\htdocs\bbb\public/../application/marketm\view\index\resetpwd.html";i:1544579067;}*/ ?>
 <!DOCTYPE html>
 <html>
 
