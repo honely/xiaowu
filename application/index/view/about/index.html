@@ -68,31 +68,33 @@
                     总部地址：陕西省西安市高新区沣惠南路16号7号楼2401</p>
                 <p class="content-hp">
                     电话：029-8755-8112&nbsp;&nbsp;&nbsp;&nbsp;
-                </p><br/><p class="content-hp">
-                成都分公司：四川省成都市高新区环球中心E1 1-2-702</p>
-
-                <p class="content-hp">
-                    电话：028-69215061&nbsp;&nbsp;&nbsp;&nbsp;028-69215051
-                </p>
-                <br/>
-                <p class="content-hp">
-                    重庆分公司：重庆市江北区江北城IFS国金中心T2栋610</p>
-                <p class="content-hp">
-                    电话：023-67753595&nbsp;&nbsp;&nbsp;&nbsp;023-67753685
-                </p>
-
-                <br/>
-                <p class="content-hp">
-                    南京分公司：南京市鼓楼区集庆门大街268号（苏宁慧谷E08-2-1004室）
-                </p>
-                <br/>
-                <p class="content-hp">
-                    杭州分公司：杭州市江干区钱江新城新业路228号来福士广场（塔一3603）
-                </p>
-                <br/>
+                </p><br/>
+                <!---->
                 <!--<p class="content-hp">-->
-                <!--电话：023-67753595&nbsp;&nbsp;&nbsp;&nbsp;023-67753685-->
+                <!--成都分公司：四川省成都市高新区环球中心E1 1-2-702</p>-->
+
+                <!--<p class="content-hp">-->
+                    <!--电话：028-69215061&nbsp;&nbsp;&nbsp;&nbsp;028-69215051-->
                 <!--</p>-->
+                <!--<br/>-->
+                <!--<p class="content-hp">-->
+                    <!--重庆分公司：重庆市江北区江北城IFS国金中心T2栋610</p>-->
+                <!--<p class="content-hp">-->
+                    <!--电话：023-67753595&nbsp;&nbsp;&nbsp;&nbsp;023-67753685-->
+                <!--</p>-->
+
+                <!--<br/>-->
+                <!--<p class="content-hp">-->
+                    <!--南京分公司：南京市鼓楼区集庆门大街268号（苏宁慧谷E08-2-1004室）-->
+                <!--</p>-->
+                <!--<br/>-->
+                <!--<p class="content-hp">-->
+                    <!--杭州分公司：杭州市江干区钱江新城新业路228号来福士广场（塔一3603）-->
+                <!--</p>-->
+                <!--<br/>-->
+                <!--&lt;!&ndash;<p class="content-hp">&ndash;&gt;-->
+                <!--&lt;!&ndash;电话：023-67753595&nbsp;&nbsp;&nbsp;&nbsp;023-67753685&ndash;&gt;-->
+                <!--&lt;!&ndash;</p>&ndash;&gt;-->
                 <div class="map" style="width: 810px;height: 500px;margin-top: 10px;" id="baiduMap">
                 </div>
                 <p><br/></p>
@@ -113,7 +115,7 @@
                     <li class="clearfix">
                         <a href="<?=url('news/details')?>?art_id={$hot.art_id}">
                             <figure class="pull-left">
-                                <img src="{$hot.art_img}" alt="{$hot.art_img_alt}">
+                                <img src="__PUBLIC__{$hot.art_img}" alt="{$hot.art_img_alt}">
                             </figure>
                             <div class="pull-right" style="width: 184px;" >
                                 <p>{$hot.art_title}</p>
@@ -159,7 +161,7 @@
     </div>
 </div>
 {include file="common/footer" /}
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=OGTwaNvPpPjfAmiUQ3mQtSkt"></script>
+<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=OGTwaNvPpPjfAmiUQ3mQtSkt"></script>
 <script>
     // 百度地图API功能
     var map = new BMap.Map('baiduMap');//创建Map实

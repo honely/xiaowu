@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\xampp\htdocs\bbb\public/../application/wap\view\login\login.html";i:1543372347;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\xampp\htdocs\bbb\public/../application/wap\view\login\login.html";i:1543896567;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,7 +70,7 @@
 <body>
 <div class="mui-content login" >
     <div class="welcome">
-        欢迎登录大城小屋！
+        欢迎登录小屋课堂！
     </div>
     <div class="mui-content-padded" style="margin: 5px;">
         <form class="login-form" id="loginForm">

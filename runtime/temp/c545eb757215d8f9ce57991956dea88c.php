@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"G:\xampp\htdocs\bbb\public/../application/wap\view\index\details.html";i:1537947807;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"G:\xampp\htdocs\bbb\public/../application/wap\view\index\details.html";i:1543896567;}*/ ?>
 <!DOCTYPE html>
 <html>
 

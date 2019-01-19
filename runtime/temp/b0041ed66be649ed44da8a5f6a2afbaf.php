@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\xampp\htdocs\bbb\public/../application/wap\view\index\index.html";i:1543374274;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\xampp\htdocs\bbb\public/../application/wap\view\index\index.html";i:1546914939;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -34,7 +34,7 @@
         <?php if(is_array($lesson) || $lesson instanceof \think\Collection || $lesson instanceof \think\Paginator): $i = 0; $__LIST__ = $lesson;if( count($__LIST__)==0 ) : echo "暂无相关课程" ;else: foreach($__LIST__ as $key=>$les): $mod = ($i % 2 );++$i;?>
             <li class="mui-table-view-cell mui-media mui-col-xs-6">
                 <a href="<?=url('index/chapter')?>?ls_id=<?php echo $les['ls_id']; ?>">
-                    <img class="mui-media-object" src="<?php echo $les['ls_img']; ?>" alt="<?php echo $les['ls_img_alt']; ?>">
+                    <img class="mui-media-object" src="__PUBLIC__/<?php echo $les['ls_img']; ?>" alt="<?php echo $les['ls_img_alt']; ?>">
                     <div class="mui-media-body"><?php echo $les['ls_title']; ?></div>
                 </a>
             </li>

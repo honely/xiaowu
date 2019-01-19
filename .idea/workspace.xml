@@ -2,243 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="850003d0-3bd9-4cc3-a03e-00bd285a8ff8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/123123/bbb/application/common/controller/Getip.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/123123/bbb/application/common/controller/Index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/123123/bbb/application/mobile/view/index/advance.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/123123/bbb/application/mobile/view/index/promise.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/123123/bbb/public/web/img/service.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/admin/controller/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/admin/controller/Article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/admin/controller/Banner.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/admin/controller/Banner.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/admin/view/article/addarticle.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/admin/view/article/addarticle.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/admin/view/article/editarticle.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/admin/view/article/editarticle.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/admin/view/banner/add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/admin/view/banner/addart.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/admin/view/banner/addbanner.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/admin/view/banner/addbanner.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/admin/view/banner/artbanner.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/admin/view/banner/banner.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/admin/view/banner/banner.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/admin/view/banner/edit.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/admin/view/banner/editart.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/admin/view/banner/editbanner.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/admin/view/banner/editbanner.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/admin/view/banner/product.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/admin/view/customer/addconpon.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/admin/view/customer/addconpon.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/admin/view/customer/editconpon.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/admin/view/customer/editconpon.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/admin/view/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/admin/view/index/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/index/controller/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/index/controller/Index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/index/controller/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/index/controller/News.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/index/view/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/index/view/about/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/index/view/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/index/view/index/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/index/view/news/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/index/view/news/details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/index/view/news/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/index/view/news/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/mobile/controller/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/mobile/controller/Index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/mobile/view/common/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/mobile/view/common/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/mobile/view/common/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/mobile/view/common/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/mobile/view/index/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/mobile/view/index/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/mobile/view/index/deposit.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/mobile/view/index/deposit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/mobile/view/index/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/mobile/view/index/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/mobile/view/index/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/mobile/view/index/details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/mobile/view/index/house.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/mobile/view/index/house.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/mobile/view/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/mobile/view/index/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/mobile/view/index/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/mobile/view/index/nav.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/application/mobile/view/index/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/application/mobile/view/index/news.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/public/.htaccess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/public/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/public/wap/css/mui.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/public/wap/css/mui.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/public/wap/js/mui.js" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/public/wap/js/mui.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/public/web/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/public/web/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/public/web/img/dp01.png" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/public/web/img/dp01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/public/web/img/dp_banners.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/public/web/img/dp_banners.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/runtime/temp/03fdfbad81e9d0e46f0e7cf19ba2edf9.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/runtime/temp/03fdfbad81e9d0e46f0e7cf19ba2edf9.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/runtime/temp/09a49a2af1d6a074e056ffaf8c8df4c7.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/runtime/temp/09a49a2af1d6a074e056ffaf8c8df4c7.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/runtime/temp/0afbac7bf3c2e5b91c91ac273ed102fd.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/runtime/temp/0afbac7bf3c2e5b91c91ac273ed102fd.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/runtime/temp/30f79b465559e3aaf098d5b52111b067.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/runtime/temp/30f79b465559e3aaf098d5b52111b067.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/runtime/temp/4fc7233108c47f377d92de6a9b0336d6.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/runtime/temp/4fc7233108c47f377d92de6a9b0336d6.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/runtime/temp/80f5b837ee02bb9ac1016bbb2045f6be.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/runtime/temp/80f5b837ee02bb9ac1016bbb2045f6be.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/runtime/temp/8646ff47f13c96d14b3c9137c323e0a7.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/runtime/temp/8646ff47f13c96d14b3c9137c323e0a7.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/runtime/temp/90f0aba10a511849b5104b776e003927.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/runtime/temp/90f0aba10a511849b5104b776e003927.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/runtime/temp/92726ec0c4701fe598575c43e141b28b.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/runtime/temp/92726ec0c4701fe598575c43e141b28b.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/runtime/temp/a134cd35c676c158c4a41e71d655c648.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/runtime/temp/a134cd35c676c158c4a41e71d655c648.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/runtime/temp/a1cc4bb654ea2e49a8b448ae3b648c21.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/runtime/temp/a1cc4bb654ea2e49a8b448ae3b648c21.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/runtime/temp/a5a7e6f50c017624c9d94e2f24aa4e02.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/runtime/temp/a5a7e6f50c017624c9d94e2f24aa4e02.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/runtime/temp/ab1cd297f532799563f249cf9efdeb55.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/runtime/temp/ab1cd297f532799563f249cf9efdeb55.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/runtime/temp/b2937d9f6b31177b4ebee3aed7eb3616.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/runtime/temp/b2937d9f6b31177b4ebee3aed7eb3616.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/runtime/temp/b7f82693866f0f3f9854a40c5eee3e8a.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/runtime/temp/b7f82693866f0f3f9854a40c5eee3e8a.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/runtime/temp/c5191226c319789d0363f69b4ffea795.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/runtime/temp/c5191226c319789d0363f69b4ffea795.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/runtime/temp/c545eb757215d8f9ce57991956dea88c.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/runtime/temp/c545eb757215d8f9ce57991956dea88c.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/runtime/temp/e7be6dc43054dcc0df0bd34eafdde66c.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/runtime/temp/e7be6dc43054dcc0df0bd34eafdde66c.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/runtime/temp/fb730c591aa0e2c5167f21fcf1841adc.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/runtime/temp/fb730c591aa0e2c5167f21fcf1841adc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/runtime/temp/fd499ff00785a7ee6df5d5141f84169b.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/runtime/temp/fd499ff00785a7ee6df5d5141f84169b.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123123/bbb/thinkphp/library/think/Request.php" beforeDir="false" afterPath="$PROJECT_DIR$/123123/bbb/thinkphp/library/think/Request.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/application/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/controller/House.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/controller/House.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/controller/Market.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/controller/Partner.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/banner/banner.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/banner/banner.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/house/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/house/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/house/declog.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/house/decorate.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/application/admin/view/house/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/house/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/house/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/house/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/house/paydetail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/house/paylog.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/house/payment.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/house/rent.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/house/rentdetail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/house/seek.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/house/seek.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/house/showdetail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/market/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/partner/add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/partner/edit.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/partner/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/admin/view/staff/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/staff/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decorate/controller/Common.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decorate/controller/House.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decorate/controller/Index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decorate/view/common/footer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decorate/view/common/header.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decorate/view/common/toper.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decorate/view/house/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decorate/view/index/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decorate/view/index/welcome.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decoration/controller/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/decoration/controller/Index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decoration/view/index/addlog.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/decoration/view/index/addlog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decoration/view/index/allocated.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decoration/view/index/dailylog.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/decoration/view/index/dailylog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decoration/view/index/decorating.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decoration/view/index/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/decoration/view/index/details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decoration/view/index/editattch.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decoration/view/index/editbase.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decoration/view/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/decoration/view/index/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decoration/view/index/indexss.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decoration/view/index/logdetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/decoration/view/index/logdetails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/decoration/view/index/timeline.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/decoration/view/index/timeline.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/controller/House.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/controller/House.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/controller/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/controller/Index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/controller/Seek.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/controller/Seek.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/index/view/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/view/about/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/view/common/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/view/common/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/view/house/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/view/house/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/view/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/view/index/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/view/news/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/view/news/details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/view/news/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/view/news/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/view/seek/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/view/seek/details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/view/seek/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/view/seek/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/controller/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/controller/Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/controller/Allot.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/controller/Allot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/controller/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/controller/Index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/admin/all.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/view/admin/all.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/admin/alldetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/view/admin/alldetails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/admin/allocate.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/view/admin/allocate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/admin/allocated.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/view/admin/allocated.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/admin/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/view/admin/details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/view/admin/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/allot/all.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/view/allot/all.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/allot/alldetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/view/allot/alldetails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/allot/allocate.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/view/allot/allocate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/allot/allocated.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/view/allot/allocated.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/allot/declog.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/allot/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/view/allot/details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/allot/editattch.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/allot/editbase.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/allot/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/view/allot/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/allot/logdetails.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/index/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/view/index/details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/view/index/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/index/logdetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/view/index/logdetails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/index/maindetails.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/index/maintain.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/index/paydetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/view/index/paydetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/index/preview.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/view/index/preview.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/manager/view/index/rentdetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/manager/view/index/rentdetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/market/controller/Common.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/market/controller/House.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/market/controller/Index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/market/controller/Login.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/market/view/common/footer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/market/view/common/header.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/market/view/common/toper.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/market/view/house/add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/market/view/house/addpaylog.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/market/view/house/attachment.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/market/view/house/details.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/market/view/house/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/market/view/house/master.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/market/view/house/paylog.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/market/view/house/preview.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/market/view/index/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/market/view/index/welcome.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/market/view/login/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/marketm/controller/Common.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/marketm/controller/Common.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/marketm/controller/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/marketm/controller/Index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/marketm/controller/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/marketm/controller/Login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/marketm/model/Commons.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/marketm/view/index/attach.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/marketm/view/index/attach.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/marketm/view/index/attachs.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/marketm/view/index/attachs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/marketm/view/index/house.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/marketm/view/index/house.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/marketm/view/index/logdetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/marketm/view/index/logdetails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/marketm/view/index/person.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/marketm/view/index/person.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/marketm/view/index/preview.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/marketm/view/index/preview.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/marketm/view/index/resetpwd.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/marketm/view/index/resetpwd.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/mobile/controller/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/mobile/controller/Index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/index/view/common/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/view/common/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/mobile/view/index/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/mobile/view/index/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/mobile/view/index/deposit.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/mobile/view/index/deposit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/mobile/view/index/house.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/mobile/view/index/house.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/mobile/view/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/mobile/view/index/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/mobile/view/index/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/mobile/view/index/news.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/operation/controller/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/operation/controller/Index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/operation/view/index/addlog.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/operation/view/index/decdetails.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/operation/view/index/decorate.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/operation/view/index/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/operation/view/index/details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/operation/view/index/editattch.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/operation/view/index/editbase.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/operation/view/index/improve.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/operation/view/index/improve.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/operation/view/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/operation/view/index/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/operation/view/index/logdetails.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/operation/view/index/maintlog.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/operation/view/index/paydetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/operation/view/index/paydetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/operation/view/index/rentdetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/operation/view/index/rentdetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddxx.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/05619081b499abbea9ddfb2903da7010.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/05619081b499abbea9ddfb2903da7010.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/19450a724dbf99c79f9920abee671cc0.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/19450a724dbf99c79f9920abee671cc0.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/24b7176c2660598529226998058da6d4.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/24b7176c2660598529226998058da6d4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/250dd35ca33aeb1a0c000c6cde63bd35.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/250dd35ca33aeb1a0c000c6cde63bd35.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/2fdb54de033b64532068f664c9a2f74e.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/2fdb54de033b64532068f664c9a2f74e.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/4b3e51c82232e6ffec9bee9c1a07909b.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/4b3e51c82232e6ffec9bee9c1a07909b.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/4b9abd3e9fc9400bce000a779d986846.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/4b9abd3e9fc9400bce000a779d986846.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/5aa57a53d52a0a6effbaa8c9994cf86f.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/5aa57a53d52a0a6effbaa8c9994cf86f.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/60960a5e14c33024953cb9affb7a5e4a.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/60960a5e14c33024953cb9affb7a5e4a.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/798f167a757c9cab97130ca9783dbd24.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/798f167a757c9cab97130ca9783dbd24.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/7dc5f67caeb260140e47e52fe0f0594d.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/7dc5f67caeb260140e47e52fe0f0594d.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/853a6815029cf36bb2ccb2ff12521bbe.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/853a6815029cf36bb2ccb2ff12521bbe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/8b1d71ddcacf6b0b82569e89afbe79a3.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/8b1d71ddcacf6b0b82569e89afbe79a3.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/92726ec0c4701fe598575c43e141b28b.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/92726ec0c4701fe598575c43e141b28b.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/a134cd35c676c158c4a41e71d655c648.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/a134cd35c676c158c4a41e71d655c648.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/a1cc4bb654ea2e49a8b448ae3b648c21.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/a1cc4bb654ea2e49a8b448ae3b648c21.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/a5a7e6f50c017624c9d94e2f24aa4e02.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/a5a7e6f50c017624c9d94e2f24aa4e02.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/ab29d422663f976f36084cb84476a8d6.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/ab29d422663f976f36084cb84476a8d6.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/abf291dd1ec02b2eb9abe244065ad01f.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/abf291dd1ec02b2eb9abe244065ad01f.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/adf1991d375caad11602c729ec8dc507.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/adf1991d375caad11602c729ec8dc507.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/afb7013cdca4656ddc2f3d4632b23330.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/afb7013cdca4656ddc2f3d4632b23330.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/b7f82693866f0f3f9854a40c5eee3e8a.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/b7f82693866f0f3f9854a40c5eee3e8a.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/c117f4383090e0c30806e0517f3f78d9.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/c117f4383090e0c30806e0517f3f78d9.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/d3b312315694a30b386ce1b91b761645.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/d3b312315694a30b386ce1b91b761645.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/d569c45d0fd987cd245a3604c08ee39d.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/d569c45d0fd987cd245a3604c08ee39d.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/d743ff005bd8e08066e06ec2b6bb3bb2.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/d743ff005bd8e08066e06ec2b6bb3bb2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/d7ebc28baa8074c62f6a88f3ef31234a.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/d7ebc28baa8074c62f6a88f3ef31234a.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/dca14fa7c0ade7a47a9e0cd9a5452216.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/dca14fa7c0ade7a47a9e0cd9a5452216.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/dd4c1f305bb6c0421168cd63f7f80b5b.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/dd4c1f305bb6c0421168cd63f7f80b5b.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/e14670f07d00f9ae5ddb54b6de8f029d.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/e14670f07d00f9ae5ddb54b6de8f029d.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/e484fa8ad75a4d6f00cf945a69cca22b.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/e484fa8ad75a4d6f00cf945a69cca22b.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/ee2d462e66bf87b7456914cf182e9481.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/ee2d462e66bf87b7456914cf182e9481.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/f1030c28d5b0b759b14cc62b88fddf32.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/f1030c28d5b0b759b14cc62b88fddf32.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/f9bd2b2bacefe537dcb902ce3c9bf39b.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/f9bd2b2bacefe537dcb902ce3c9bf39b.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/temp/ff6320237033a4463320f3c062e4347f.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/ff6320237033a4463320f3c062e4347f.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/wap/view/index/chapter.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/wap/view/index/chapter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/wap/view/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/wap/view/index/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/log/201901/07.log" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/log/201901/07.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/536bab68d1283eb14ab227cc118878b4.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/536bab68d1283eb14ab227cc118878b4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/5ea39177d78ce857d42bf51c8ca2fb90.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/5ea39177d78ce857d42bf51c8ca2fb90.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/6298095ae3ab46f5b9cd7dcb3c93bcb0.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/6298095ae3ab46f5b9cd7dcb3c93bcb0.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/86b256c851a74afe7382eeb396ea3309.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/86b256c851a74afe7382eeb396ea3309.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/b0041ed66be649ed44da8a5f6a2afbaf.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/b0041ed66be649ed44da8a5f6a2afbaf.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/c545eb757215d8f9ce57991956dea88c.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/c545eb757215d8f9ce57991956dea88c.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/d432537d8b03caf897ddb54389132115.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/d432537d8b03caf897ddb54389132115.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/f0638031aa3e524187a8b488b67f5534.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/f0638031aa3e524187a8b488b67f5534.php" afterDir="false" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -320,9 +100,9 @@
     <session id="-1442078431">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="79" />
+          <entry key="project.closed" value="82" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="3" />
+          <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.11" value="4" />
           <entry key="project.open.time.19" value="1" />
@@ -331,8 +111,8 @@
           <entry key="project.open.time.21" value="8" />
           <entry key="project.open.time.22" value="4" />
           <entry key="project.open.time.23" value="8" />
-          <entry key="project.open.time.24" value="4" />
-          <entry key="project.open.time.25" value="4" />
+          <entry key="project.open.time.24" value="5" />
+          <entry key="project.open.time.25" value="5" />
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.28" value="3" />
           <entry key="project.open.time.29" value="1" />
@@ -343,17 +123,17 @@
           <entry key="project.open.time.7" value="9" />
           <entry key="project.open.time.8" value="13" />
           <entry key="project.open.time.9" value="13" />
-          <entry key="project.opened" value="92" />
+          <entry key="project.opened" value="95" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="64" />
           <entry key="dummy" value="1" />
-          <entry key="html" value="40816" />
+          <entry key="html" value="40839" />
           <entry key="json" value="10" />
           <entry key="md" value="177" />
-          <entry key="php" value="46919" />
+          <entry key="php" value="47004" />
           <entry key="sql" value="23" />
           <entry key="txt" value="11" />
         </counts>
@@ -361,10 +141,10 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="64" />
-          <entry key="HTML" value="40816" />
+          <entry key="HTML" value="40839" />
           <entry key="JSON" value="10" />
           <entry key="Markdown" value="177" />
-          <entry key="PHP" value="46919" />
+          <entry key="PHP" value="47004" />
           <entry key="PLAIN_TEXT" value="12" />
           <entry key="SQL" value="23" />
         </counts>
@@ -374,7 +154,7 @@
           <entry key="bak" value="3" />
           <entry key="css" value="34" />
           <entry key="htaccess" value="1" />
-          <entry key="html" value="1365" />
+          <entry key="html" value="1373" />
           <entry key="html___jb_tmp___" value="1" />
           <entry key="jpg" value="15" />
           <entry key="js" value="18" />
@@ -390,7 +170,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="34" />
-          <entry key="HTML" value="1365" />
+          <entry key="HTML" value="1373" />
           <entry key="Image" value="34" />
           <entry key="JSON" value="3" />
           <entry key="JavaScript" value="18" />
@@ -414,59 +194,60 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/mobile/controller/Index.php">
+        <entry file="file://$PROJECT_DIR$/application/wap/view/index/chapter.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6666">
-              <caret line="208" column="22" selection-start-line="208" selection-start-column="22" selection-end-line="208" selection-end-column="22" />
-              <folding>
-                <element signature="e#6#89#0#PHP" expanded="true" />
-                <element signature="e#123#144#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="1023">
+              <caret line="31" column="48" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/admin/controller/House.php">
+        <entry file="file://$PROJECT_DIR$/application/admin/view/house/edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="304" column="9" selection-start-line="304" selection-start-column="9" selection-end-line="304" selection-end-column="9" />
+            <state relative-caret-position="33">
+              <caret line="228" column="26" selection-start-line="228" selection-start-column="26" selection-end-line="228" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/index/view/common/footer.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="528">
+              <caret line="57" column="74" lean-forward="true" selection-start-line="57" selection-start-column="74" selection-end-line="57" selection-end-column="74" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/marketm/controller/Index.php">
+        <entry file="file://$PROJECT_DIR$/application/mobile/view/index/about.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="725" column="37" lean-forward="true" selection-start-line="725" selection-start-column="37" selection-end-line="725" selection-end-column="37" />
+            <state relative-caret-position="3597">
+              <caret line="152" column="45" lean-forward="true" selection-start-line="152" selection-start-column="45" selection-end-line="152" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/admin/view/house/seek.html">
+        <entry file="file://$PROJECT_DIR$/application/index/view/about/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="52" />
+            <state relative-caret-position="-396">
+              <caret line="117" column="52" selection-start-line="117" selection-start-column="52" selection-end-line="117" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/admin/controller/Operatelog.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1980">
-              <caret line="68" column="13" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/application/wap/view/index/details.html">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4587">
-              <caret line="147" column="40" selection-start-line="147" selection-start-column="40" selection-end-line="147" selection-end-column="40" />
+            <state relative-caret-position="4620">
+              <caret line="148" column="17" selection-start-line="148" selection-start-column="9" selection-end-line="148" selection-end-column="17" />
               <folding>
                 <element signature="e#6#80#0#PHP" expanded="true" />
               </folding>
@@ -477,8 +258,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/marketm/controller/Common.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="205" column="22" selection-start-line="205" selection-start-column="22" selection-end-line="205" selection-end-column="22" />
+            <state relative-caret-position="6864">
+              <caret line="216" column="22" selection-start-line="216" selection-start-column="22" selection-end-line="216" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -486,7 +267,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
+            <state relative-caret-position="23859">
               <caret line="731" column="25" selection-start-line="731" selection-start-column="25" selection-end-line="731" selection-end-column="25" />
             </state>
           </provider>
@@ -603,11 +384,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/manager/view/admin/details.html" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/application/decoration/view/index/details.html" />
-        <option value="$PROJECT_DIR$/application/marketm/view/index/attachs.html" />
-        <option value="$PROJECT_DIR$/application/decoration/view/index/editattch.html" />
         <option value="$PROJECT_DIR$/application/marketm/controller/Index.php" />
         <option value="$PROJECT_DIR$/application/decoration/view/index/editbase.html" />
         <option value="$PROJECT_DIR$/application/decoration/controller/Index.php" />
@@ -641,19 +417,24 @@
         <option value="$PROJECT_DIR$/application/index/view/seek/details.html" />
         <option value="$PROJECT_DIR$/application/index/view/news/index.html" />
         <option value="$PROJECT_DIR$/application/index/view/news/details.html" />
-        <option value="$PROJECT_DIR$/application/index/view/common/footer.html" />
-        <option value="$PROJECT_DIR$/application/index/view/about/index.html" />
         <option value="$PROJECT_DIR$/application/mobile/view/index/index.html" />
         <option value="$PROJECT_DIR$/application/mobile/view/index/news.html" />
         <option value="$PROJECT_DIR$/application/mobile/view/index/house.html" />
         <option value="$PROJECT_DIR$/application/mobile/view/index/deposit.html" />
         <option value="$PROJECT_DIR$/application/database.php" />
-        <option value="$PROJECT_DIR$/application/config.php" />
         <option value="$PROJECT_DIR$/application/index/controller/House.php" />
         <option value="$PROJECT_DIR$/application/index/view/house/index.html" />
         <option value="$PROJECT_DIR$/application/mobile/controller/Index.php" />
         <option value="$PROJECT_DIR$/application/admin/controller/House.php" />
         <option value="$PROJECT_DIR$/application/admin/view/house/seek.html" />
+        <option value="$PROJECT_DIR$/application/wap/controller/Index.php" />
+        <option value="$PROJECT_DIR$/application/config.php" />
+        <option value="$PROJECT_DIR$/application/wap/view/index/index.html" />
+        <option value="$PROJECT_DIR$/application/wap/view/index/chapter.html" />
+        <option value="$PROJECT_DIR$/application/admin/view/house/edit.html" />
+        <option value="$PROJECT_DIR$/application/index/view/common/footer.html" />
+        <option value="$PROJECT_DIR$/application/index/view/about/index.html" />
+        <option value="$PROJECT_DIR$/application/mobile/view/index/about.html" />
       </list>
     </option>
   </component>
@@ -665,7 +446,6 @@
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
-      <path value="$PROJECT_DIR$/123123/bbb/public/layui/package.json" />
       <path value="$PROJECT_DIR$/public/layui/package.json" />
     </packageJsonPaths>
   </component>
@@ -749,6 +529,48 @@
               <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
               <item name="bbb" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbb" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="index" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbb" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="index" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbb" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="index" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="about" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbb" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="mobile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbb" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bbb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bbb" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="index" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -906,6 +728,9 @@
       <workItem from="1545617833092" duration="1270000" />
       <workItem from="1546565588787" duration="351000" />
       <workItem from="1546676281946" duration="2674000" />
+      <workItem from="1546913951655" duration="1744000" />
+      <workItem from="1547449414987" duration="1804000" />
+      <workItem from="1547865271371" duration="2215000" />
     </task>
     <task id="LOCAL-00001" summary="project sql">
       <created>1537524922547</created>
@@ -925,7 +750,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1433079000" />
+    <option name="totallyTimeSpent" value="1438842000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -939,7 +764,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1673774" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17217484" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1025,26 +850,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/Admin.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/marketm/model/Commons.php" />
-    <entry file="file://$PROJECT_DIR$/application/marketm/view/index/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="62" column="18" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/model/Banner.php" />
-    <entry file="file://$PROJECT_DIR$/application/admin/view/banner/editbanner.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="61" column="38" lean-forward="true" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/api/model/Common.php" />
     <entry file="file://$PROJECT_DIR$/application/api/controller/Banner.php" />
     <entry file="file://$PROJECT_DIR$/application/admin/controller/Banner.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1137,27 +942,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/index/view/common/footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="806">
-          <caret line="86" column="7" selection-start-line="86" selection-start-column="7" selection-end-line="86" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/index/view/about/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3776">
-          <caret line="176" column="9" selection-start-line="176" selection-start-column="9" selection-end-line="176" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/mobile/view/index/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-943">
-          <caret line="233" column="48" lean-forward="true" selection-start-line="233" selection-start-column="48" selection-end-line="233" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/mobile/view/index/detail.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1200,20 +984,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/123123/bbb/application/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/123123/bbb/application/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="142" column="3" selection-start-line="142" selection-start-column="3" selection-end-line="149" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/123123/bbb/application/database.php" />
+    <entry file="file://$PROJECT_DIR$/123123/bbb/application/config.php" />
     <entry file="file://$PROJECT_DIR$/application/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="429">
@@ -1225,21 +997,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1155">
           <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
-          <folding>
-            <element signature="e#6#103#0#PHP" expanded="true" />
-            <element signature="e#136#157#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/7zOCAF5737B/Index.php" />
     <entry file="file://$PROJECT_DIR$/application/mobile/controller/Index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6666">
           <caret line="208" column="22" selection-start-line="208" selection-start-column="22" selection-end-line="208" selection-end-column="22" />
-          <folding>
-            <element signature="e#6#89#0#PHP" expanded="true" />
-            <element signature="e#123#144#0#PHP" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/controller/House.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9768">
+          <caret line="304" column="9" selection-start-line="304" selection-start-column="9" selection-end-line="304" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1257,13 +1029,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/marketm/controller/Index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24750">
+          <caret line="760" column="36" selection-start-line="760" selection-start-column="36" selection-end-line="760" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/wap/controller/Index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/wap/view/index/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1254">
+          <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/mobile/view/index/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7656">
+          <caret line="232" column="69" selection-start-line="232" selection-start-column="69" selection-end-line="232" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/wap/view/index/chapter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1023">
+          <caret line="31" column="48" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/wap/view/index/details.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4587">
-          <caret line="147" column="40" selection-start-line="147" selection-start-column="40" selection-end-line="147" selection-end-column="40" />
+        <state relative-caret-position="4620">
+          <caret line="148" column="17" selection-start-line="148" selection-start-column="9" selection-end-line="148" selection-end-column="17" />
           <folding>
             <element signature="e#6#80#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/marketm/controller/Common.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6864">
+          <caret line="216" column="22" selection-start-line="216" selection-start-column="22" selection-end-line="216" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23859">
+          <caret line="731" column="25" selection-start-line="731" selection-start-column="25" selection-end-line="731" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1278,38 +1102,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/House.php">
+    <entry file="file://$PROJECT_DIR$/application/admin/view/house/edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="304" column="9" selection-start-line="304" selection-start-column="9" selection-end-line="304" selection-end-column="9" />
+        <state relative-caret-position="33">
+          <caret line="228" column="26" selection-start-line="228" selection-start-column="26" selection-end-line="228" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/marketm/controller/Common.php">
+    <entry file="file://$PROJECT_DIR$/application/index/view/common/footer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="205" column="22" selection-start-line="205" selection-start-column="22" selection-end-line="205" selection-end-column="22" />
+        <state relative-caret-position="528">
+          <caret line="57" column="74" lean-forward="true" selection-start-line="57" selection-start-column="74" selection-end-line="57" selection-end-column="74" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/User.php">
+    <entry file="file://$PROJECT_DIR$/application/index/view/about/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="731" column="25" selection-start-line="731" selection-start-column="25" selection-end-line="731" selection-end-column="25" />
+        <state relative-caret-position="-396">
+          <caret line="117" column="52" selection-start-line="117" selection-start-column="52" selection-end-line="117" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/7zOCAF5737B/Index.php">
+    <entry file="file://$PROJECT_DIR$/application/mobile/view/index/about.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="28" column="19" lean-forward="true" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/marketm/controller/Index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="725" column="37" lean-forward="true" selection-start-line="725" selection-start-column="37" selection-end-line="725" selection-end-column="37" />
+        <state relative-caret-position="3597">
+          <caret line="152" column="45" lean-forward="true" selection-start-line="152" selection-start-column="45" selection-end-line="152" selection-end-column="45" />
         </state>
       </provider>
     </entry>
