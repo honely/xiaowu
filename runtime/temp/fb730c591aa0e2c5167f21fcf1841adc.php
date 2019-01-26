@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"G:\xampp\htdocs\bbb\public/../application/admin\view\banner\banner.html";i:1538190897;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1536287308;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"G:\xampp\htdocs\bbb\public/../application/admin\view\banner\banner.html";i:1545293459;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1543896579;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1543896579;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,7 +71,7 @@
                 {field:'ba_bid', width:180,  sort: true, title:'广告编号'}
                 ,{field:'ba_title',width:165, title: '广告名称'}
                 ,{field:'ba_via',width:165, title: '显示端'}
-                ,{field:'ba_img', title: '广告封面',width: 250,templet:'<div><img src="{{ d.ba_img}}"></div>'}
+                ,{field:'ba_img', title: '广告封面',width: 250,templet:'<div><img src="__PUBLIC__{{ d.ba_img}}"></div>'}
                 ,{field:'ba_order',width:150,title: '广告排序',edit:'text', sort: true}
                 ,{field:'ba_createtime',width:210, title: '操作时间'}
                 ,{field:'ad_realname',width:170, title: '操作人'}

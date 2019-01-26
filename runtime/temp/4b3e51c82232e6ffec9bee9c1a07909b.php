@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\seek.html";i:1545375528;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1543896579;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1543896579;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"G:\xampp\htdocs\bbb\public/../application/admin\view\house\seek.html";i:1548128938;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\header.html";i:1543896579;s:70:"G:\xampp\htdocs\bbb\public/../application/admin\view\index\footer.html";i:1543896579;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,6 +28,31 @@
     </span>
 </div>
 <hr/>
+<?php if($admin_id == 1): ?>
+    <section class="panel panel-padding" style="padding-top: 10px;padding-left: 10px;">
+        <form class="layui-form layui-form-pane1">
+            <div class="layui-form-item  demoTable">
+                <div class="layui-inline">
+                    <div class="layui-input-inline">
+                        <select name="case_admin" id="case_admin">
+                            <option value="">请选区域</option>
+                            <?php if(is_array($regin) || $regin instanceof \think\Collection || $regin instanceof \think\Paginator): $i = 0; $__LIST__ = $regin;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ad): $mod = ($i % 2 );++$i;?>
+                            <option value="<?php echo $ad['c_id']; ?>"><?php echo $ad['c_name']; ?></option>
+                            <?php endforeach; endif; else: echo "" ;endif; ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <div class="layui-input-inline">
+                        <span class="layui-btn" data-type="reload">查询</span>
+                        <a href="<?=url('house/seek')?>" class="layui-btn layui-btn-warm">刷新</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+<?php endif; ?>
+
 <section class="panel panel-padding">
     <table lay-skin="line" class="layui-table" lay-filter="demo" lay-data="{height: 'full-200', cellMinWidth:60, url:'/admin/house/seekData/', limit:20,limits:[20,30,50] ,id: 'testReload',page:true}" >
         <thead>
@@ -66,25 +91,14 @@
         var $ = layui.$, active = {
             //表格重载
             reload: function(){
-                var keywords = $('#keywords').val();
-                var case_area = $('#case_area').val();
-                var case_admin = $('#case_admin').val()?$('#case_admin').val():0;
-                var case_designer = $('#case_designer').val();
-                var case_decotime = $('#case_decotime').val();
+                var case_admin = $('#case_admin').val();
                 //执行重载
                 table.reload('testReload', {
-                    url: '/admin/example/expData/'
+                    url: '/admin/house/seekData/'
                     ,page: {
                         curr: 1 //重新从第 1 页开始
                     }
                     ,where: {
-                        keywords: keywords,
-                        case_p_id: p_id,
-                        bu_c_id: c_id,
-                        branch: b_id,
-                        case_area: case_area,
-                        case_decotime: case_decotime,
-                        case_designer: case_designer,
                         case_admin: case_admin
                     },
                     success:function (data) {

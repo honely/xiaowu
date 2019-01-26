@@ -281,6 +281,12 @@ class House extends Controller{
      * 房源托管列表
      * */
     public function seek(){
+        $admin_id=session('adminId');
+        $regin = Db::table('dcxw_city')->field('c_id,c_name')->select();
+        if($regin){
+           $this->assign('regin',$regin);
+        }
+        $this->assign('admin_id',$admin_id);
         return $this->fetch();
     }
 
@@ -290,18 +296,15 @@ class House extends Controller{
     public function seekData(){
         $where =' 1 = 1 ';
         $city_id=session('ad_c_id');
-        if(!empty($city_id)){
-            $where .=' and dp_c_id = '.$city_id;
+        $admin_id=session('adminId');
+        if($admin_id != 1){
+            if(!empty($city_id)){
+                $where .=' and dp_c_id = '.$city_id;
+            }
         }
-        $keywords = trim($this->request->param('keywords'));
-        $case_decotime=trim($this->request->param('case_decotime'));
-        if(isset($keywords) && !empty($keywords)){
-            $where.=" and ( h_name like '%".$keywords."%' or h_b_id like '%".$keywords."%' )";
-        }
-        if(isset($case_decotime) && !empty($case_decotime)){
-            $sdate=strtotime(substr($case_decotime,'0','10')." 00:00:00");
-            $edate=strtotime(substr($case_decotime,'-10')." 23:59:59");
-            $where.=" and ( h_addtime >= ".$sdate." and h_addtime <= ".$edate." ) ";
+        $case_admin = trim($this->request->param('case_admin'));
+        if(isset($case_admin) && !empty($case_admin)){
+            $where.=" and dp_c_id = ".$case_admin;
         }
         $count=Db::table('dcxw_deposit')
             ->where($where)

@@ -86,3 +86,11 @@ public function insertLog()
 ##边角代码
  <span class="mui-icon mui-icon-compose mui-pull-right color-blue"></span>
  <span class="mui-icon mui-icon-compose mui-pull-right color-blue"></span>
+ 
+ #小程序接口
+ ##1.从首页跳转到房源列表页type参数表示跳转的页面读取的数据的不同；
+ type=1热门房源，不管是短租还是月租，都按照热门度排序，即按照浏览量排序
+ 
+ type=2短租列表，房源里面短租的房源，排序按照浏览量排
+ 
+ type=3月租列表，房源里面月租的房源，排序按照浏览量排

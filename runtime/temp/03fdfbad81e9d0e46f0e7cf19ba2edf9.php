@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\about\index.html";i:1545295211;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1543896573;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1545295183;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"G:\xampp\htdocs\bbb\public/../application/index\view\about\index.html";i:1547865624;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\header.html";i:1543896573;s:71:"G:\xampp\htdocs\bbb\public/../application/index\view\common\footer.html";i:1547865340;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -130,31 +130,33 @@
                     总部地址：陕西省西安市高新区沣惠南路16号7号楼2401</p>
                 <p class="content-hp">
                     电话：029-8755-8112&nbsp;&nbsp;&nbsp;&nbsp;
-                </p><br/><p class="content-hp">
-                成都分公司：四川省成都市高新区环球中心E1 1-2-702</p>
-
-                <p class="content-hp">
-                    电话：028-69215061&nbsp;&nbsp;&nbsp;&nbsp;028-69215051
-                </p>
-                <br/>
-                <p class="content-hp">
-                    重庆分公司：重庆市江北区江北城IFS国金中心T2栋610</p>
-                <p class="content-hp">
-                    电话：023-67753595&nbsp;&nbsp;&nbsp;&nbsp;023-67753685
-                </p>
-
-                <br/>
-                <p class="content-hp">
-                    南京分公司：南京市鼓楼区集庆门大街268号（苏宁慧谷E08-2-1004室）
-                </p>
-                <br/>
-                <p class="content-hp">
-                    杭州分公司：杭州市江干区钱江新城新业路228号来福士广场（塔一3603）
-                </p>
-                <br/>
+                </p><br/>
+                <!---->
                 <!--<p class="content-hp">-->
-                <!--电话：023-67753595&nbsp;&nbsp;&nbsp;&nbsp;023-67753685-->
+                <!--成都分公司：四川省成都市高新区环球中心E1 1-2-702</p>-->
+
+                <!--<p class="content-hp">-->
+                    <!--电话：028-69215061&nbsp;&nbsp;&nbsp;&nbsp;028-69215051-->
                 <!--</p>-->
+                <!--<br/>-->
+                <!--<p class="content-hp">-->
+                    <!--重庆分公司：重庆市江北区江北城IFS国金中心T2栋610</p>-->
+                <!--<p class="content-hp">-->
+                    <!--电话：023-67753595&nbsp;&nbsp;&nbsp;&nbsp;023-67753685-->
+                <!--</p>-->
+
+                <!--<br/>-->
+                <!--<p class="content-hp">-->
+                    <!--南京分公司：南京市鼓楼区集庆门大街268号（苏宁慧谷E08-2-1004室）-->
+                <!--</p>-->
+                <!--<br/>-->
+                <!--<p class="content-hp">-->
+                    <!--杭州分公司：杭州市江干区钱江新城新业路228号来福士广场（塔一3603）-->
+                <!--</p>-->
+                <!--<br/>-->
+                <!--&lt;!&ndash;<p class="content-hp">&ndash;&gt;-->
+                <!--&lt;!&ndash;电话：023-67753595&nbsp;&nbsp;&nbsp;&nbsp;023-67753685&ndash;&gt;-->
+                <!--&lt;!&ndash;</p>&ndash;&gt;-->
                 <div class="map" style="width: 810px;height: 500px;margin-top: 10px;" id="baiduMap">
                 </div>
                 <p><br/></p>
@@ -175,7 +177,7 @@
                     <li class="clearfix">
                         <a href="<?=url('news/details')?>?art_id=<?php echo $hot['art_id']; ?>">
                             <figure class="pull-left">
-                                <img src="<?php echo $hot['art_img']; ?>" alt="<?php echo $hot['art_img_alt']; ?>">
+                                <img src="__PUBLIC__<?php echo $hot['art_img']; ?>" alt="<?php echo $hot['art_img_alt']; ?>">
                             </figure>
                             <div class="pull-right" style="width: 184px;" >
                                 <p><?php echo $hot['art_title']; ?></p>
@@ -280,26 +282,26 @@
         <p>总部地址：陕西省西安市高新区沣惠南路16号7号楼2401 &nbsp;&nbsp;  电话：029-8755-8112</p>
     </div>
 </footer>
-<footer style="height: auto;padding: 10px 0px;color: white;line-height: 1.8;background: #212121;">
-    <div class="container text-center">
-        <p>成都分公司：四川省成都市高新区环球中心E1 1-2-702 &nbsp;&nbsp; 电话：028-69215061&nbsp;&nbsp;&nbsp;&nbsp;028-69215051</p>
-    </div>
-</footer>
-<footer style="height: auto;padding: 10px 0px;color: white;line-height: 1.8;background: #212121;">
-    <div class="container text-center">
-        <p>重庆分公司：重庆市江北区江北城IFS国金中心T2栋610 &nbsp;&nbsp; 电话：023-67753595&nbsp;&nbsp;&nbsp;&nbsp;023-67753685</p>
-    </div>
-</footer>
-<footer style="height: auto;padding: 10px 0px;color: white;line-height: 1.8;background: #212121;">
-    <div class="container text-center">
-        <p>南京分公司：南京市鼓楼区集庆门大街268号（苏宁慧谷E08-2-1004室）</p>
-    </div>
-</footer>
-<footer style="height: auto;padding: 10px 0px;color: white;line-height: 1.8;background: #212121;">
-    <div class="container text-center">
-        <p>杭州分公司：杭州市江干区钱江新城新业路228号来福士广场（塔一3603）</p>
-    </div>
-</footer>
+<!--<footer style="height: auto;padding: 10px 0px;color: white;line-height: 1.8;background: #212121;">-->
+    <!--<div class="container text-center">-->
+        <!--<p>成都分公司：四川省成都市高新区环球中心E1 1-2-702 &nbsp;&nbsp; 电话：028-69215061&nbsp;&nbsp;&nbsp;&nbsp;028-69215051</p>-->
+    <!--</div>-->
+<!--</footer>-->
+<!--<footer style="height: auto;padding: 10px 0px;color: white;line-height: 1.8;background: #212121;">-->
+    <!--<div class="container text-center">-->
+        <!--<p>重庆分公司：重庆市江北区江北城IFS国金中心T2栋610 &nbsp;&nbsp; 电话：023-67753595&nbsp;&nbsp;&nbsp;&nbsp;023-67753685</p>-->
+    <!--</div>-->
+<!--</footer>-->
+<!--<footer style="height: auto;padding: 10px 0px;color: white;line-height: 1.8;background: #212121;">-->
+    <!--<div class="container text-center">-->
+        <!--<p>南京分公司：南京市鼓楼区集庆门大街268号（苏宁慧谷E08-2-1004室）</p>-->
+    <!--</div>-->
+<!--</footer>-->
+<!--<footer style="height: auto;padding: 10px 0px;color: white;line-height: 1.8;background: #212121;">-->
+    <!--<div class="container text-center">-->
+        <!--<p>杭州分公司：杭州市江干区钱江新城新业路228号来福士广场（塔一3603）</p>-->
+    <!--</div>-->
+<!--</footer>-->
 <footer style="height: auto;padding: 10px 0px;color: #5b5b5b;line-height: 1.8;background: #212121;">
     <div class="container text-center">
         <p>Copyright © 2018 www.xiaowugroup.com 陕西大城小屋不动产管理有限公司 版权所有 陕ICP备18007211号</p>
@@ -307,7 +309,7 @@
 </footer>
 </body>
 </html>
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=OGTwaNvPpPjfAmiUQ3mQtSkt"></script>
+<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=OGTwaNvPpPjfAmiUQ3mQtSkt"></script>
 <script>
     // 百度地图API功能
     var map = new BMap.Map('baiduMap');//创建Map实

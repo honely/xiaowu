@@ -1,0 +1,1586 @@
+---------------------------------------------------------------
+[ 2019-01-21T11:42:36+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] www.xiaowuasda.com/ [运行时间：0.093005s][吞吐率：10.75req/s] [内存消耗：2,503.71kb] [文件加载：55]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ G:\xampp\htdocs\bbb\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/index\view\index\index.html [ array (
+  0 => 'hotLine',
+  1 => 'navinfo',
+  2 => 'banner',
+  3 => 'house',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_setinfo` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `s_value` FROM `dcxw_setinfo` WHERE  `s_key` = 'hotline' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_nav` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT `nav_title`,`nav_url` FROM `dcxw_nav` WHERE  `nav_isable` = 1 ORDER BY nav_order desc [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_isable` = 1  AND `ba_via` = 1 ORDER BY ba_order desc [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_houses` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_houses` INNER JOIN `dcxw_province` `dcxw_province` ON `dcxw_province`.`p_id`=`dcxw_houses`.`h_p_id` INNER JOIN `dcxw_city` `dcxw_city` ON `dcxw_city`.`c_id`=`dcxw_houses`.`h_c_id` INNER JOIN `dcxw_area` `dcxw_area` ON `dcxw_area`.`area_id`=`dcxw_houses`.`h_a_id` INNER JOIN `dcxw_admin` `dcxw_admin` ON `dcxw_admin`.`ad_id`=`dcxw_houses`.`h_admin` WHERE  `h_isable` = 1  AND `h_rent_status` = 2 ORDER BY h_istop,h_view desc LIMIT 6 [ RunTime:0.008001s ]
+---------------------------------------------------------------
+[ 2019-01-21T11:42:36+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/banner/20181031/38318eac295109bda5c152ab8fe953ab.jpg
+[ info ] www.xiaowuasda.com//uploads/banner/20181031/38318eac295109bda5c152ab8fe953ab.jpg [运行时间：0.060004s][吞吐率：16.67req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181031',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T11:42:36+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/banner/20181031/55fc3a078df5bc639daf32e5ddbb09ae.png
+[ info ] www.xiaowuasda.com//uploads/banner/20181031/55fc3a078df5bc639daf32e5ddbb09ae.png [运行时间：0.029002s][吞吐率：34.48req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181031',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T11:42:36+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/banner/20181030/17b536f248a25382d7e14b391714f8ed.jpg
+[ info ] www.xiaowuasda.com//uploads/banner/20181030/17b536f248a25382d7e14b391714f8ed.jpg [运行时间：0.022002s][吞吐率：45.45req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181030',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T11:42:37+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/banner/20180916/5e18c0a72371ba7c0c1b15fe8cd465c0.jpg
+[ info ] www.xiaowuasda.com//uploads/banner/20180916/5e18c0a72371ba7c0c1b15fe8cd465c0.jpg [运行时间：0.030002s][吞吐率：33.33req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20180916',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T11:42:37+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/example/20181207/00c40d90b2d20ed5f4b9a59413c197a5.jpg
+[ info ] www.xiaowuasda.com//uploads/example/20181207/00c40d90b2d20ed5f4b9a59413c197a5.jpg [运行时间：0.025002s][吞吐率：40.00req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'example',
+    2 => '20181207',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T11:42:37+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/example/20181206/14a00354aa4a48627b0db5abc916752c.jpg
+[ info ] www.xiaowuasda.com//uploads/example/20181206/14a00354aa4a48627b0db5abc916752c.jpg [运行时间：0.028002s][吞吐率：35.71req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'example',
+    2 => '20181206',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T11:42:37+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/banner/20181030/17b536f248a25382d7e14b391714f8ed.jpg
+[ info ] www.xiaowuasda.com//uploads/banner/20181030/17b536f248a25382d7e14b391714f8ed.jpg [运行时间：0.020001s][吞吐率：50.00req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181030',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T11:42:37+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/example/20181207/fc12e30492d9378a864c7ea7405b8e5c.jpg
+[ info ] www.xiaowuasda.com//uploads/example/20181207/fc12e30492d9378a864c7ea7405b8e5c.jpg [运行时间：0.027001s][吞吐率：37.04req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'example',
+    2 => '20181207',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T11:42:37+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/banner/20181031/38318eac295109bda5c152ab8fe953ab.jpg
+[ info ] www.xiaowuasda.com//uploads/banner/20181031/38318eac295109bda5c152ab8fe953ab.jpg [运行时间：0.021001s][吞吐率：47.62req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181031',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T11:42:37+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/example/20181206/a19efb8074b69b5022603e20077242b8.jpg
+[ info ] www.xiaowuasda.com//uploads/example/20181206/a19efb8074b69b5022603e20077242b8.jpg [运行时间：0.028002s][吞吐率：35.71req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'example',
+    2 => '20181206',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T11:42:37+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/example/20181206/ee4a32b44ab74617683eb3fe88f6443d.jpg
+[ info ] www.xiaowuasda.com//uploads/example/20181206/ee4a32b44ab74617683eb3fe88f6443d.jpg [运行时间：0.080005s][吞吐率：12.50req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'example',
+    2 => '20181206',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T11:42:37+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/example/20181206/edc05663bd383d716cc4fedd055cf11e.jpg
+[ info ] www.xiaowuasda.com//uploads/example/20181206/edc05663bd383d716cc4fedd055cf11e.jpg [运行时间：0.096006s][吞吐率：10.42req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'example',
+    2 => '20181206',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T11:52:07+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.054003s][吞吐率：18.52req/s] [内存消耗：2,062.55kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.001000s ]
+[ error ] [0]variable type error： array[G:\xampp\htdocs\bbb\thinkphp\library\think\Response.php:318]
+---------------------------------------------------------------
+[ 2019-01-21T11:53:11+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.055003s][吞吐率：18.18req/s] [内存消耗：2,029.59kb] [文件加载：51]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-01-21T11:55:21+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.061004s][吞吐率：16.39req/s] [内存消耗：2,063.56kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.001000s ]
+[ error ] [0]variable type error： array[G:\xampp\htdocs\bbb\thinkphp\library\think\Response.php:318]
+---------------------------------------------------------------
+[ 2019-01-21T11:55:22+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.070004s][吞吐率：14.28req/s] [内存消耗：2,063.56kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.000000s ]
+[ error ] [0]variable type error： array[G:\xampp\htdocs\bbb\thinkphp\library\think\Response.php:318]
+---------------------------------------------------------------
+[ 2019-01-21T11:55:22+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.064004s][吞吐率：15.62req/s] [内存消耗：2,063.56kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.001000s ]
+[ error ] [0]variable type error： array[G:\xampp\htdocs\bbb\thinkphp\library\think\Response.php:318]
+---------------------------------------------------------------
+[ 2019-01-21T11:55:22+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.061003s][吞吐率：16.39req/s] [内存消耗：2,063.56kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.001000s ]
+[ error ] [0]variable type error： array[G:\xampp\htdocs\bbb\thinkphp\library\think\Response.php:318]
+---------------------------------------------------------------
+[ 2019-01-21T11:55:23+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.032001s][吞吐率：31.25req/s] [内存消耗：2,063.56kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.001000s ]
+[ error ] [0]variable type error： array[G:\xampp\htdocs\bbb\thinkphp\library\think\Response.php:318]
+---------------------------------------------------------------
+[ 2019-01-21T11:55:49+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.057003s][吞吐率：17.54req/s] [内存消耗：2,063.67kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.000000s ]
+[ error ] [0]variable type error： array[G:\xampp\htdocs\bbb\thinkphp\library\think\Response.php:318]
+---------------------------------------------------------------
+[ 2019-01-21T11:55:50+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.063004s][吞吐率：15.87req/s] [内存消耗：2,063.67kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.000000s ]
+[ error ] [0]variable type error： array[G:\xampp\htdocs\bbb\thinkphp\library\think\Response.php:318]
+---------------------------------------------------------------
+[ 2019-01-21T11:55:50+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.055003s][吞吐率：18.18req/s] [内存消耗：2,063.67kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.000000s ]
+[ error ] [0]variable type error： array[G:\xampp\htdocs\bbb\thinkphp\library\think\Response.php:318]
+---------------------------------------------------------------
+[ 2019-01-21T11:55:50+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.062003s][吞吐率：16.13req/s] [内存消耗：2,063.67kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.000000s ]
+[ error ] [0]variable type error： array[G:\xampp\htdocs\bbb\thinkphp\library\think\Response.php:318]
+---------------------------------------------------------------
+[ 2019-01-21T11:55:50+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.043003s][吞吐率：23.25req/s] [内存消耗：2,063.67kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.000000s ]
+[ error ] [0]variable type error： array[G:\xampp\htdocs\bbb\thinkphp\library\think\Response.php:318]
+---------------------------------------------------------------
+[ 2019-01-21T11:55:51+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.054004s][吞吐率：18.52req/s] [内存消耗：2,063.67kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.001000s ]
+[ error ] [0]variable type error： array[G:\xampp\htdocs\bbb\thinkphp\library\think\Response.php:318]
+---------------------------------------------------------------
+[ 2019-01-21T11:55:51+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.052003s][吞吐率：19.23req/s] [内存消耗：2,063.67kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.000000s ]
+[ error ] [0]variable type error： array[G:\xampp\htdocs\bbb\thinkphp\library\think\Response.php:318]
+---------------------------------------------------------------
+[ 2019-01-21T11:55:51+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.062003s][吞吐率：16.13req/s] [内存消耗：2,063.67kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.000000s ]
+[ error ] [0]variable type error： array[G:\xampp\htdocs\bbb\thinkphp\library\think\Response.php:318]
+---------------------------------------------------------------
+[ 2019-01-21T11:55:51+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.050003s][吞吐率：20.00req/s] [内存消耗：2,063.67kb] [文件加载：54]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.000000s ]
+[ error ] [0]variable type error： array[G:\xampp\htdocs\bbb\thinkphp\library\think\Response.php:318]
+---------------------------------------------------------------
+[ 2019-01-21T11:56:27+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.033002s][吞吐率：30.30req/s] [内存消耗：2,029.57kb] [文件加载：51]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-01-21T12:15:46+08:00 ] 127.0.0.1 127.0.0.1 GET http://input.shouji.sogou.com/jsp/personalcenter/pcgettime.jsp?h=51BF22E7755913AC81E7EB29C50968A0&v=9.1.0.2589&r=0000_sogou_pinyin_9.1.0.2589&St=1&Ut=1
+[ info ] input.shouji.sogou.comhttp://input.shouji.sogou.com/jsp/personalcenter/pcgettime.jsp?h=51BF22E7755913AC81E7EB29C50968A0&v=9.1.0.2589&r=0000_sogou_pinyin_9.1.0.2589&St=1&Ut=1 [运行时间：0.022001s][吞吐率：45.45req/s] [内存消耗：1,273.34kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'jsp',
+    1 => 'personalcenter',
+    2 => 'pcgettime.jsp',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'SOGOU_UPDATER',
+  'host' => 'input.shouji.sogou.com',
+  'accept' => '*/*',
+  'proxy-connection' => 'Keep-Alive',
+)
+[ info ] [ PARAM ] array (
+  'h' => '51BF22E7755913AC81E7EB29C50968A0',
+  'v' => '9.1.0.2589',
+  'r' => '0000_sogou_pinyin_9.1.0.2589',
+  'St' => '1',
+  'Ut' => '1',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T13:17:11+08:00 ] 127.0.0.1 127.0.0.1 GET http://config.pinyin.sogou.com/api/toolbox/geturl.php?h=51BF22E7755913AC81E7EB29C50968A0&v=9.1.0.2589&r=0000_sogou_pinyin_9.1.0.2589
+[ info ] config.pinyin.sogou.comhttp://config.pinyin.sogou.com/api/toolbox/geturl.php?h=51BF22E7755913AC81E7EB29C50968A0&v=9.1.0.2589&r=0000_sogou_pinyin_9.1.0.2589 [运行时间：0.023001s][吞吐率：43.48req/s] [内存消耗：1,275.03kb] [文件加载：42]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'toolbox',
+    2 => 'geturl.php',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'SOGOU_UPDATER',
+  'host' => 'config.pinyin.sogou.com',
+  'accept' => '*/*',
+  'proxy-connection' => 'Keep-Alive',
+)
+[ info ] [ PARAM ] array (
+  'h' => '51BF22E7755913AC81E7EB29C50968A0',
+  'v' => '9.1.0.2589',
+  'r' => '0000_sogou_pinyin_9.1.0.2589',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T13:18:28+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.056003s][吞吐率：17.86req/s] [内存消耗：2,036.51kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-01-21T13:18:31+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.054003s][吞吐率：18.52req/s] [内存消耗：2,036.58kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/api/banner/miniBanner',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-01-21T13:18:34+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.042003s][吞吐率：23.81req/s] [内存消耗：2,036.58kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/api/banner/miniBanner',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-01-21T13:18:35+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.069004s][吞吐率：14.49req/s] [内存消耗：2,036.78kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/api/banner/miniBanner',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-01-21T13:18:39+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.054003s][吞吐率：18.52req/s] [内存消耗：2,036.58kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/api/banner/miniBanner',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-01-21T13:38:11+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.064004s][吞吐率：15.62req/s] [内存消耗：2,033.96kb] [文件加载：52]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/api/banner/miniBanner',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-01-21T13:57:54+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] www.xiaowuasda.com/ [运行时间：0.092005s][吞吐率：10.87req/s] [内存消耗：2,293.09kb] [文件加载：53]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ G:\xampp\htdocs\bbb\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\xampp\htdocs\bbb\public/../application/index\view\index\index.html [ array (
+  0 => 'hotLine',
+  1 => 'navinfo',
+  2 => 'banner',
+  3 => 'house',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007001s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_setinfo` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `s_value` FROM `dcxw_setinfo` WHERE  `s_key` = 'hotline' [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_nav` [ RunTime:0.009000s ]
+[ sql ] [ SQL ] SELECT `nav_title`,`nav_url` FROM `dcxw_nav` WHERE  `nav_isable` = 1 ORDER BY nav_order desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_isable` = 1  AND `ba_via` = 1 ORDER BY ba_order desc [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_houses` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_houses` INNER JOIN `dcxw_province` `dcxw_province` ON `dcxw_province`.`p_id`=`dcxw_houses`.`h_p_id` INNER JOIN `dcxw_city` `dcxw_city` ON `dcxw_city`.`c_id`=`dcxw_houses`.`h_c_id` INNER JOIN `dcxw_area` `dcxw_area` ON `dcxw_area`.`area_id`=`dcxw_houses`.`h_a_id` INNER JOIN `dcxw_admin` `dcxw_admin` ON `dcxw_admin`.`ad_id`=`dcxw_houses`.`h_admin` WHERE  `h_isable` = 1  AND `h_rent_status` = 2 ORDER BY h_istop,h_view desc LIMIT 6 [ RunTime:0.006000s ]
+---------------------------------------------------------------
+[ 2019-01-21T13:57:54+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/banner/20181031/38318eac295109bda5c152ab8fe953ab.jpg
+[ info ] www.xiaowuasda.com//uploads/banner/20181031/38318eac295109bda5c152ab8fe953ab.jpg [运行时间：0.031002s][吞吐率：32.26req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181031',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T13:57:54+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/banner/20181031/55fc3a078df5bc639daf32e5ddbb09ae.png
+[ info ] www.xiaowuasda.com//uploads/banner/20181031/55fc3a078df5bc639daf32e5ddbb09ae.png [运行时间：0.036002s][吞吐率：27.78req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181031',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T13:57:54+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/banner/20181030/17b536f248a25382d7e14b391714f8ed.jpg
+[ info ] www.xiaowuasda.com//uploads/banner/20181030/17b536f248a25382d7e14b391714f8ed.jpg [运行时间：0.018001s][吞吐率：55.55req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181030',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T13:57:54+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/banner/20180916/5e18c0a72371ba7c0c1b15fe8cd465c0.jpg
+[ info ] www.xiaowuasda.com//uploads/banner/20180916/5e18c0a72371ba7c0c1b15fe8cd465c0.jpg [运行时间：0.019001s][吞吐率：52.63req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20180916',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T13:57:54+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/example/20181206/edc05663bd383d716cc4fedd055cf11e.jpg
+[ info ] www.xiaowuasda.com//uploads/example/20181206/edc05663bd383d716cc4fedd055cf11e.jpg [运行时间：0.023001s][吞吐率：43.48req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'example',
+    2 => '20181206',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T13:57:54+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/example/20181206/14a00354aa4a48627b0db5abc916752c.jpg
+[ info ] www.xiaowuasda.com//uploads/example/20181206/14a00354aa4a48627b0db5abc916752c.jpg [运行时间：0.033001s][吞吐率：30.30req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'example',
+    2 => '20181206',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T13:57:54+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/example/20181207/00c40d90b2d20ed5f4b9a59413c197a5.jpg
+[ info ] www.xiaowuasda.com//uploads/example/20181207/00c40d90b2d20ed5f4b9a59413c197a5.jpg [运行时间：0.032002s][吞吐率：31.25req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'example',
+    2 => '20181207',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T13:57:54+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/example/20181206/ee4a32b44ab74617683eb3fe88f6443d.jpg
+[ info ] www.xiaowuasda.com//uploads/example/20181206/ee4a32b44ab74617683eb3fe88f6443d.jpg [运行时间：0.020001s][吞吐率：50.00req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'example',
+    2 => '20181206',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T13:57:54+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/example/20181206/a19efb8074b69b5022603e20077242b8.jpg
+[ info ] www.xiaowuasda.com//uploads/example/20181206/a19efb8074b69b5022603e20077242b8.jpg [运行时间：0.025001s][吞吐率：40.00req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'example',
+    2 => '20181206',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T13:57:54+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/example/20181207/fc12e30492d9378a864c7ea7405b8e5c.jpg
+[ info ] www.xiaowuasda.com//uploads/example/20181207/fc12e30492d9378a864c7ea7405b8e5c.jpg [运行时间：0.021001s][吞吐率：47.62req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'example',
+    2 => '20181207',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T13:57:54+08:00 ] 127.0.0.1 127.0.0.1 GET //uploads/banner/20181031/38318eac295109bda5c152ab8fe953ab.jpg
+[ info ] www.xiaowuasda.com//uploads/banner/20181031/38318eac295109bda5c152ab8fe953ab.jpg [运行时间：0.020001s][吞吐率：50.00req/s] [内存消耗：1,274.09kb] [文件加载：41]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => 'banner',
+    2 => '20181031',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'referer' => 'http://www.xiaowuasda.com/',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-01-21T13:58:09+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.052003s][吞吐率：19.23req/s] [内存消耗：2,133.16kb] [文件加载：56]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.000000s ]
+[ error ] [2]A non-numeric value encountered[G:\xampp\htdocs\bbb\application\api\controller\Banner.php:22]
+---------------------------------------------------------------
+[ 2019-01-21T14:00:00+08:00 ] 127.0.0.1 127.0.0.1 GET /api/banner/miniBanner
+[ info ] www.xiaowuasda.com/api/banner/miniBanner [运行时间：0.054004s][吞吐率：18.52req/s] [内存消耗：2,033.64kb] [文件加载：52]
+[ info ] [ LANG ] G:\xampp\htdocs\bbb\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'banner',
+    2 => 'miniBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.xiaowuasda.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'max-age=0',
+  'proxy-connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'x-lantern-version' => '5.2.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Banner->miniBanner[ G:\xampp\htdocs\bbb\application\api\controller\Banner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=ddxx;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dcxw_banner` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `dcxw_banner` WHERE  `ba_via` = 2  AND `ba_isable` = 1 ORDER BY ba_order desc [ RunTime:0.000000s ]

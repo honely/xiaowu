@@ -10,6 +10,7 @@
 // +----------------------------------------------------------------------
 
 define('THINK_VERSION', '5.0.11');
+define('RES_URL', 'https://xiaowugroup.com/public');
 define('THINK_START_TIME', microtime(true));
 define('THINK_START_MEM', memory_get_usage());
 define('EXT', '.php');
