@@ -32,29 +32,29 @@ class Worksite extends Controller{
 
     //在施工地
     public function index(){
-        $provInfo=Db::table('dcxw_province')->select();
+        $provInfo=Db::table('super_province')->select();
         $this->assign('prov',$provInfo);
         //操作人管理员
-        $admin = Db::table('dcxw_admin')->select();
+        $admin = Db::table('super_admin')->select();
         $this->assign('admin',$admin);
         //设计师
-        $design=Db::table('dcxw_designer')->where(['des_isable' => '1'])->field('des_id,des_name')->select();
+        $design=Db::table('super_designer')->where(['des_isable' => '1'])->field('des_id,des_name')->select();
         $this->assign('design',$design);
         //工长
-        $worker=Db::table('dcxw_worker')->where(['wk_isable' => '1'])->field('wk_id,wk_name')->select();
+        $worker=Db::table('super_worker')->where(['wk_isable' => '1'])->field('wk_id,wk_name')->select();
         $this->assign('worker',$worker);
         //已展示
-        $display=Db::table('dcxw_worksite')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_worksite.w_c_id')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_worksite.w_p_id')
-            ->join('dcxw_designer','dcxw_designer.des_id = dcxw_worksite.w_desinger')
+        $display=Db::table('super_worksite')
+            ->join('super_city','super_city.c_id = super_worksite.w_c_id')
+            ->join('super_province','super_province.p_id = super_worksite.w_p_id')
+            ->join('super_designer','super_designer.des_id = super_worksite.w_desinger')
             ->where(['w_isable'=>1])->count();
         $this->assign('display',$display);
         //未展示
-        $none=Db::table('dcxw_worksite')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_worksite.w_c_id')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_worksite.w_p_id')
-            ->join('dcxw_designer','dcxw_designer.des_id = dcxw_worksite.w_desinger')
+        $none=Db::table('super_worksite')
+            ->join('super_city','super_city.c_id = super_worksite.w_c_id')
+            ->join('super_province','super_province.p_id = super_worksite.w_p_id')
+            ->join('super_designer','super_designer.des_id = super_worksite.w_desinger')
             ->where(['w_isable'=>2])->count();
         $this->assign('none',$none);
         $this->assign('all',intval($display)+intval($none));
@@ -105,18 +105,18 @@ class Worksite extends Controller{
             $edate=strtotime(substr($w_decotime,'-10')." 23:59:59");
             $where.=" and ( w_decotime >= ".$sdate." and w_decotime <= ".$edate." ) ";
         }
-        $count=Db::table('dcxw_worksite')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_worksite.w_c_id')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_worksite.w_p_id')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_worksite.w_admin')
+        $count=Db::table('super_worksite')
+            ->join('super_city','super_city.c_id = super_worksite.w_c_id')
+            ->join('super_province','super_province.p_id = super_worksite.w_p_id')
+            ->join('super_admin','super_admin.ad_id = super_worksite.w_admin')
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $example=Db::table('dcxw_worksite')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_worksite.w_c_id')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_worksite.w_p_id')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_worksite.w_admin')
+        $example=Db::table('super_worksite')
+            ->join('super_city','super_city.c_id = super_worksite.w_c_id')
+            ->join('super_province','super_province.p_id = super_worksite.w_p_id')
+            ->join('super_admin','super_admin.ad_id = super_worksite.w_admin')
             ->where($where)
             ->limit(($page-1)*$limit,$limit)
             ->order('w_istop ASC ,w_view desc')
@@ -140,7 +140,7 @@ class Worksite extends Controller{
             $stime=strtotime(date('Y-m-d 00:00:00'));
             $etime=strtotime(date('Y-m-d 23:59:59'));
             //获取当日预约的数量
-            $buNum=Db::table('dcxw_worksite')->where('w_decotime','between',[$stime,$etime])->count();
+            $buNum=Db::table('super_worksite')->where('w_decotime','between',[$stime,$etime])->count();
             //生成用户编号；
             $data['w_bid'] = date('Ymd').sprintf("%04d", $buNum+1);
             $data['w_img'] = implode(',',$_POST['w_img']);
@@ -171,7 +171,7 @@ class Worksite extends Controller{
             $data['w_updatetime']=time();
             $data['w_isable']=$_POST['w_isable'];
             $data['w_admin'] = session('adminId');
-            $add=Db::table('dcxw_worksite')->insert($data);
+            $add=Db::table('super_worksite')->insert($data);
             if($add){
                 $this->success('发布案例成功！','example');
             }else{
@@ -179,21 +179,21 @@ class Worksite extends Controller{
             }
         }else{
             //工长
-            $worker=Db::table('dcxw_worker')->where(['wk_isable' => '1'])->field('wk_id,wk_name')->select();
+            $worker=Db::table('super_worker')->where(['wk_isable' => '1'])->field('wk_id,wk_name')->select();
             $this->assign('worker',$worker);
             //设计师
-            $design=Db::table('dcxw_designer')->where(['des_isable' => '1'])->field('des_id,des_name')->select();
+            $design=Db::table('super_designer')->where(['des_isable' => '1'])->field('des_id,des_name')->select();
             $this->assign('design',$design);
             //风格
-            $style=Db::table('dcxw_type')->where(['type_isable' => '1','type_sort' => '2'])->field('type_id,type_name')->select();
+            $style=Db::table('super_type')->where(['type_isable' => '1','type_sort' => '2'])->field('type_id,type_name')->select();
             $this->assign('style',$style);
             //楼盘
-            $build=Db::table('dcxw_buildings')->where(['bu_isable' => '1'])->field('bu_id,bu_name')->select();
+            $build=Db::table('super_buildings')->where(['bu_isable' => '1'])->field('bu_id,bu_name')->select();
             $this->assign('build',$build);
             //房屋类型
-            $houseType=Db::table('dcxw_type')->where(['type_isable' => '1','type_sort' => '4'])->field('type_id,type_name')->select();
+            $houseType=Db::table('super_type')->where(['type_isable' => '1','type_sort' => '4'])->field('type_id,type_name')->select();
             $this->assign('houseType',$houseType);
-            $provInfo=Db::table('dcxw_province')->select();
+            $provInfo=Db::table('super_province')->select();
             $this->assign('prov',$provInfo);
             return $this->fetch();
         }
@@ -233,7 +233,7 @@ class Worksite extends Controller{
             $data['w_updatetime']=time();
             $data['w_isable']=$_POST['w_isable'];
             $data['w_admin'] = session('adminId');
-            $edit=Db::table('dcxw_worksite')->where(['w_id'=>$w_id])->update($data);
+            $edit=Db::table('super_worksite')->where(['w_id'=>$w_id])->update($data);
             if($edit){
                 $this->success('修改案例成功','example');
             }else{
@@ -241,17 +241,17 @@ class Worksite extends Controller{
             }
         }else{
             //设计师
-            $design=Db::table('dcxw_designer')->where(['des_isable' => '1'])->field('des_id,des_name')->select();
+            $design=Db::table('super_designer')->where(['des_isable' => '1'])->field('des_id,des_name')->select();
             $this->assign('design',$design);
             //风格
-            $style=Db::table('dcxw_type')->where(['type_isable' => '1','type_sort' => '2'])->field('type_id,type_name')->select();
+            $style=Db::table('super_type')->where(['type_isable' => '1','type_sort' => '2'])->field('type_id,type_name')->select();
             $this->assign('style',$style);
             //楼盘
-            $build=Db::table('dcxw_buildings')->where(['bu_isable' => '1'])->field('bu_id,bu_name')->select();
+            $build=Db::table('super_buildings')->where(['bu_isable' => '1'])->field('bu_id,bu_name')->select();
             $this->assign('build',$build);
-            $provInfo=Db::table('dcxw_province')->select();
+            $provInfo=Db::table('super_province')->select();
             $this->assign('prov',$provInfo);
-            $artInfo=Db::table('dcxw_worksite')->where(['w_id'=>$w_id])->find();
+            $artInfo=Db::table('super_worksite')->where(['w_id'=>$w_id])->find();
             //案例图片
             $artInfo['w_img']=explode(',',$artInfo['w_img']);
             $artInfo['w_img_title']=explode(',',$artInfo['w_img_title']);
@@ -260,8 +260,8 @@ class Worksite extends Controller{
             $artInfo['w_type']=explode(',',$artInfo['w_type']);
             $provId=$artInfo['w_p_id'];
             $c_id=$artInfo['w_c_id'];
-            $city=Db::table('dcxw_city')->where(['p_id' => $provId])->select();
-            $branchs=Db::table('dcxw_branch')->where(['b_city' =>$c_id ])->field('b_id,b_name')->select();
+            $city=Db::table('super_city')->where(['p_id' => $provId])->select();
+            $branchs=Db::table('super_branch')->where(['b_city' =>$c_id ])->field('b_id,b_name')->select();
             $this->assign('branchs',$branchs);
             $this->assign('city',$city);
             $this->assign('case',$artInfo);
@@ -272,7 +272,7 @@ class Worksite extends Controller{
     //刷新某一案例
     public function refresh(){
         $w_id=intval($_GET['w_id']);
-        $refresh=Db::table('dcxw_worksite')->where(['w_id' => $w_id])->update(['w_updatetime' => time()]);
+        $refresh=Db::table('super_worksite')->where(['w_id' => $w_id])->update(['w_updatetime' => time()]);
         if($refresh){
             $this->success('刷新案例成功','example');
         }else{
@@ -283,7 +283,7 @@ class Worksite extends Controller{
     //删除某一案例
     public function del(){
         $w_id=intval($_GET['w_id']);
-        $delArt=Db::table('dcxw_worksite')->where(['w_id' => $w_id])->delete();
+        $delArt=Db::table('super_worksite')->where(['w_id' => $w_id])->delete();
         if($delArt){
             $this->success('删除案例成功','example');
         }else{
@@ -308,7 +308,7 @@ class Worksite extends Controller{
                 $data['w_istop'] = '2';
                 $data['w_admin'] = session('adminId');
             }
-            $changeStatus = Db::table('dcxw_worksite')->where(['w_id' => $ba_id])->update($data);
+            $changeStatus = Db::table('super_worksite')->where(['w_id' => $ba_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -338,7 +338,7 @@ class Worksite extends Controller{
                 $data['w_istop'] = '2';
                 $data['w_admin'] = session('adminId');
             }
-            $changeStatus = Db::table('dcxw_worksite')->where(['w_id' => $ba_id])->update($data);
+            $changeStatus = Db::table('super_worksite')->where(['w_id' => $ba_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';

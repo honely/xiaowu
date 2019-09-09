@@ -49,20 +49,20 @@ class House extends Controller{
             $edate=strtotime(substr($case_decotime,'-10')." 23:59:59");
             $where.=" and ( h_addtime >= ".$sdate." and h_addtime <= ".$edate." ) ";
         }
-        $count=Db::table('dcxw_houses')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_houses.h_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_houses.h_c_id')
-            ->join('dcxw_area','dcxw_area.area_id = dcxw_houses.h_a_id')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_houses.h_admin')
+        $count=Db::table('super_houses')
+            ->join('super_province','super_province.p_id = super_houses.h_p_id')
+            ->join('super_city','super_city.c_id = super_houses.h_c_id')
+            ->join('super_area','super_area.area_id = super_houses.h_a_id')
+            ->join('super_admin','super_admin.ad_id = super_houses.h_admin')
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $design=Db::table('dcxw_houses')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_houses.h_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_houses.h_c_id')
-            ->join('dcxw_area','dcxw_area.area_id = dcxw_houses.h_a_id')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_houses.h_admin')
+        $design=Db::table('super_houses')
+            ->join('super_province','super_province.p_id = super_houses.h_p_id')
+            ->join('super_city','super_city.c_id = super_houses.h_c_id')
+            ->join('super_area','super_area.area_id = super_houses.h_a_id')
+            ->join('super_admin','super_admin.ad_id = super_houses.h_admin')
             ->limit(($page-1)*$limit,$limit)
             ->order('h_istop asc,h_isable,h_view desc')
             ->where($where)
@@ -74,7 +74,7 @@ class House extends Controller{
                 $design[$key]['h_iscop'] = $val['h_iscop']== 1 ? '整租':'合租';
                 $design[$key]['c_name'] = $val['c_name']."-".$val['area_name'];
                 $design[$key]['h_rent'] = "￥".$val['h_rent']."/".$type;
-                $design[$key]['case_num']=Db::table('dcxw_case')->where(['case_designer' => $val['h_id']])->count();
+                $design[$key]['case_num']=Db::table('super_case')->where(['case_designer' => $val['h_id']])->count();
             }
         }
         $res['code'] = 0;
@@ -102,7 +102,7 @@ class House extends Controller{
             }
             $data['h_img']=trim($h_img,',');
             $data['h_admin'] = session('adminId');
-            $add=Db::table('dcxw_houses')->insert($data);
+            $add=Db::table('super_houses')->insert($data);
             if($add){
                 return  json(['code' => '1','msg' => '发布成功！','data' => $data]);
             }else{
@@ -110,18 +110,18 @@ class House extends Controller{
             }
         }else{
             //房屋配置 备选
-            $houseConf=Db::table('dcxw_type')
+            $houseConf=Db::table('super_type')
                 ->where(['type_sort' => 2,'type_isable' => 1])
                 ->order('type_order')
                 ->select();
             $this->assign('houseConf',$houseConf);
             //房屋类型 备选
-            $houseType=Db::table('dcxw_type')
+            $houseType=Db::table('super_type')
                 ->where(['type_sort' => 1,'type_isable' => 1])
                 ->order('type_order')
                 ->select();
             $this->assign('houseType',$houseType);
-            $provInfo=Db::table('dcxw_province')->select();
+            $provInfo=Db::table('super_province')->select();
             $this->assign('prov',$provInfo);
             return $this->fetch();
         }
@@ -144,14 +144,14 @@ class House extends Controller{
             }
             $data['h_img']=trim($h_img,',');
             $data['h_admin'] = session('adminId');
-            $update=Db::table('dcxw_houses')->where(['h_id' => $h_id])->update($data);
+            $update=Db::table('super_houses')->where(['h_id' => $h_id])->update($data);
             if($update){
                 return  json(['code' => '1','msg' => '修改成功！','data' => $data]);
             }else{
                 return  json(['code' => '2','msg' => '修改失败！','data' => $data]);
             }
         }else{
-            $houseInfo=Db::table('dcxw_houses')->where(['h_id' => $h_id])->find();
+            $houseInfo=Db::table('super_houses')->where(['h_id' => $h_id])->find();
             $houseInfo['h_imgs']=rtrim($houseInfo['h_img'],',');
             $houseInfo['h_img']=explode(',',$houseInfo['h_imgs']);
             $type_list = "";
@@ -160,23 +160,23 @@ class House extends Controller{
             }
             $this->assign('type_list',$type_list);
             $this->assign('house',$houseInfo);
-            $city=Db::table('dcxw_city')->where(['p_id' => $houseInfo['h_p_id']])->select();
+            $city=Db::table('super_city')->where(['p_id' => $houseInfo['h_p_id']])->select();
             $this->assign('city',$city);
-            $area=Db::table('dcxw_area')->where(['area_c_id' => $houseInfo['h_c_id']])->select();
+            $area=Db::table('super_area')->where(['area_c_id' => $houseInfo['h_c_id']])->select();
             $this->assign('area',$area);
             //房屋配置 备选
-            $houseConf=Db::table('dcxw_type')
+            $houseConf=Db::table('super_type')
                 ->where(['type_sort' => 2,'type_isable' => 1])
                 ->order('type_order')
                 ->select();
             $this->assign('houseConf',$houseConf);
             //房屋类型 备选
-            $houseType=Db::table('dcxw_type')
+            $houseType=Db::table('super_type')
                 ->where(['type_sort' => 1,'type_isable' => 1])
                 ->order('type_order')
                 ->select();
             $this->assign('houseType',$houseType);
-            $provInfo=Db::table('dcxw_province')->select();
+            $provInfo=Db::table('super_province')->select();
             $this->assign('prov',$provInfo);
             return $this->fetch();
         }
@@ -202,7 +202,7 @@ class House extends Controller{
                 $data['h_istop'] = '2';
                 $data['h_admin'] = session('adminId');
             }
-            $changeStatus = Db::table('dcxw_houses')->where(['h_id' => $h_id])->update($data);
+            $changeStatus = Db::table('super_houses')->where(['h_id' => $h_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -232,7 +232,7 @@ class House extends Controller{
                 $data['h_istop'] = '2';
                 $data['h_admin'] = session('adminId');
             }
-            $changeStatus = Db::table('dcxw_houses')->where(['h_id' => $h_id])->update($data);
+            $changeStatus = Db::table('super_houses')->where(['h_id' => $h_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -255,7 +255,7 @@ class House extends Controller{
      * */
     public function del(){
         $h_id=intval($_GET['h_id']);
-        $delArt=Db::table('dcxw_houses')->where(['h_id' => $h_id])->delete();
+        $delArt=Db::table('super_houses')->where(['h_id' => $h_id])->delete();
         if($delArt){
             $this->success('删除房源成功','index');
         }else{
@@ -266,8 +266,8 @@ class House extends Controller{
 
     public function refresh(){
         $h_id=intval($_GET['h_id']);
-        $refresh=Db::table('dcxw_houses')->where(['h_id' => $h_id])->update(['h_updatetime' => time()]);
-        $setView=Db::table('dcxw_houses')->where(['h_id' => $h_id])->setInc('h_view');
+        $refresh=Db::table('super_houses')->where(['h_id' => $h_id])->update(['h_updatetime' => time()]);
+        $setView=Db::table('super_houses')->where(['h_id' => $h_id])->setInc('h_view');
         if($refresh && $setView){
             $this->success('刷新房源成功','index');
         }else{
@@ -282,7 +282,7 @@ class House extends Controller{
      * */
     public function seek(){
         $admin_id=session('adminId');
-        $regin = Db::table('dcxw_city')->field('c_id,c_name')->select();
+        $regin = Db::table('super_city')->field('c_id,c_name')->select();
         if($regin){
            $this->assign('regin',$regin);
         }
@@ -306,12 +306,12 @@ class House extends Controller{
         if(isset($case_admin) && !empty($case_admin)){
             $where.=" and dp_c_id = ".$case_admin;
         }
-        $count=Db::table('dcxw_deposit')
+        $count=Db::table('super_deposit')
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $design=Db::table('dcxw_deposit')
+        $design=Db::table('super_deposit')
             ->limit(($page-1)*$limit,$limit)
             ->order('dp_addtime desc')
             ->where($where)
@@ -321,7 +321,7 @@ class House extends Controller{
                 $design[$key]['dp_area'] = $this->getCityNameViaCid($val['dp_c_id']);
                 $design[$key]['dp_addtime'] = date('Y-m-d H:i:s',$val['dp_addtime']);
                 $design[$key]['dp_updatetime'] = date('Y-m-d H:i:s',$val['dp_updatetime']);
-                $design[$key]['dp_admin'] = $val['dp_admin'] == null? '暂未回访':Db::table('dcxw_admin')->where(['ad_id ' => $val['dp_admin']])->column('ad_realname');
+                $design[$key]['dp_admin'] = $val['dp_admin'] == null? '暂未回访':Db::table('super_admin')->where(['ad_id ' => $val['dp_admin']])->column('ad_realname');
             }
         }
         $res['code'] = 0;
@@ -332,7 +332,7 @@ class House extends Controller{
     }
 
     public function getCityNameViaCid($c_id){
-        $cityName=Db::table('dcxw_city')->where(['c_id' => $c_id])->column('c_name');
+        $cityName=Db::table('super_city')->where(['c_id' => $c_id])->column('c_name');
         return $cityName?$cityName[0]:'西安';
     }
 
@@ -342,7 +342,7 @@ class House extends Controller{
      * */
     public function delseek(){
         $dp_id=intval($_GET['dp_id']);
-        $delArt=Db::table('dcxw_deposit')->where(['dp_id' => $dp_id])->delete();
+        $delArt=Db::table('super_deposit')->where(['dp_id' => $dp_id])->delete();
         if($delArt){
             $this->success('删除成功','seek');
         }else{
@@ -356,7 +356,7 @@ class House extends Controller{
      * */
     public function editseek(){
         $dp_id=intval(trim($_GET['dp_id']));
-        $deposit=Db::table('dcxw_deposit')->where(['dp_id' => $dp_id])->find();
+        $deposit=Db::table('super_deposit')->where(['dp_id' => $dp_id])->find();
         $deposit['dp_addtime']=date('Y-m-d H:i:s',$deposit['dp_addtime']);
         $this->assign('deposit',$deposit);
         return $this->fetch();
@@ -371,7 +371,7 @@ class House extends Controller{
         $data['dp_tips']=$_POST['dp_tips'];
         $data['dp_updatetime'] = time();
         $data['dp_admin'] = session('adminId');
-        $update=Db::table('dcxw_deposit')->where(['dp_id' => $dp_id])->update($data);
+        $update=Db::table('super_deposit')->where(['dp_id' => $dp_id])->update($data);
         if($update){
             $this->success('修改成功！');
         }else{
@@ -400,12 +400,12 @@ class House extends Controller{
             $edate=strtotime(substr($case_decotime,'-10')." 23:59:59");
             $where.=" and ( h_addtime >= ".$sdate." and h_addtime <= ".$edate." ) ";
         }
-        $count=Db::table('dcxw_house_order')
+        $count=Db::table('super_house_order')
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $design=Db::table('dcxw_house_order')
+        $design=Db::table('super_house_order')
             ->limit(($page-1)*$limit,$limit)
             ->where($where)
             ->order('ho_addtime desc')

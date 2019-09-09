@@ -47,13 +47,13 @@ class Operatelog extends Controller{
             $edate=strtotime(substr($case_decotime,'-10')." 23:59:59");
             $where.=" and ( h_addtime >= ".$sdate." and h_addtime <= ".$edate." ) ";
         }
-        $count=Db::table('dcxw_operation_log')
+        $count=Db::table('super_operation_log')
             ->where(['ol_is_delete' => 1])
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $design=Db::table('dcxw_operation_log')
+        $design=Db::table('super_operation_log')
             ->where(['ol_is_delete' => 1])
             ->where($where)
             ->limit(($page-1)*$limit,$limit)
@@ -79,7 +79,7 @@ class Operatelog extends Controller{
 
     public function del(){
         $ol_id = $_GET['ol_id'];
-        $del = Db::table('dcxw_operation_log')
+        $del = Db::table('super_operation_log')
             ->where(['ol_id' => $ol_id])
             ->update(['ol_is_delete' => 2]);
         if($del){

@@ -29,14 +29,14 @@ class District extends Controller{
     }
     //区域管理
     public function district(){
-        $provInfo=Db::table('dcxw_province')->order('p_id desc')->select();
+        $provInfo=Db::table('super_province')->order('p_id desc')->select();
         $this->assign('provInfo',$provInfo);
         return $this->fetch();
     }
 
     public function city(){
-        $cityInfo=Db::table('dcxw_city')
-            ->join('dcxw_province','dcxw_city.p_id = dcxw_province.p_id')
+        $cityInfo=Db::table('super_city')
+            ->join('super_province','super_city.p_id = super_province.p_id')
             ->order('c_id desc')
             ->select();
         $this->assign('city',$cityInfo);
@@ -47,11 +47,11 @@ class District extends Controller{
      * 县区管理
      * */
     public function area(){
-        $areaInfo=Db::table('dcxw_area')
-            ->join('dcxw_province','dcxw_area.area_p_id = dcxw_province.p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_area.area_c_id')
+        $areaInfo=Db::table('super_area')
+            ->join('super_province','super_area.area_p_id = super_province.p_id')
+            ->join('super_city','super_city.c_id = super_area.area_c_id')
             ->order('c_id desc')
-            ->field('dcxw_province.p_name,dcxw_city.c_name,dcxw_area.*')
+            ->field('super_province.p_name,super_city.c_name,super_area.*')
             ->select();
         $this->assign('areaInfo',$areaInfo);
         return $this->fetch();

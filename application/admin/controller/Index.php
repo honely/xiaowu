@@ -32,12 +32,12 @@ class Index extends Controller
 	
 	
     public function header(){
-        $menuList=Db::table('dcxw_menu')
+        $menuList=Db::table('super_menu')
             ->where(['m_fid' => '0', 'm_type' => '1'])
             ->order('m_id desc')
             ->select();
         foreach ($menuList as $k =>$v){
-            $menuList[$k]['child'] = Db::table('dcxw_menu')->where(['m_fid' => $v['m_id'], 'm_type' => '1'])->select();
+            $menuList[$k]['child'] = Db::table('super_menu')->where(['m_fid' => $v['m_id'], 'm_type' => '1'])->select();
         }
         $this->assign('menuList',$menuList);
         return  $this->fetch();
@@ -49,16 +49,16 @@ class Index extends Controller
     public function index(){
         $ad_role=session('ad_role');
         $adminId = session('adminId');
-        $userData = Db::table("dcxw_admin")
+        $userData = Db::table("super_admin")
                     ->alias('admin')
-                    ->join('dcxw_role role',"admin.ad_role=role.r_id")
+                    ->join('super_role role',"admin.ad_role=role.r_id")
                     ->where(['admin.ad_id' => $adminId])
                     ->find();
         if($userData){
             $power_list = explode(',',trim($userData['r_power'],','));
             if($power_list){
                 foreach ($power_list as $val){
-                    $menu_list = Db::table("dcxw_menu")
+                    $menu_list = Db::table("super_menu")
                                  ->where(['m_id' =>$val])
                                  ->find();
                     $powerData[] = $menu_list;
@@ -87,24 +87,24 @@ class Index extends Controller
             }
         }
         if($ad_role == 1){
-            $adminInfo=Db::table('dcxw_admin')
-                ->join('dcxw_role','dcxw_admin.ad_role = dcxw_role.r_id')
+            $adminInfo=Db::table('super_admin')
+                ->join('super_role','super_admin.ad_role = super_role.r_id')
                 ->where(['ad_id' => $adminId])
                 ->find();
         }else{
-            $adminInfo=Db::table('dcxw_admin')
-                ->join('dcxw_city','dcxw_admin.ad_c_id = dcxw_city.c_id')
-                ->join('dcxw_role','dcxw_admin.ad_role = dcxw_role.r_id')
-                ->join('dcxw_branch','dcxw_admin.ad_branch = dcxw_branch.b_id')
+            $adminInfo=Db::table('super_admin')
+                ->join('super_city','super_admin.ad_c_id = super_city.c_id')
+                ->join('super_role','super_admin.ad_role = super_role.r_id')
+                ->join('super_branch','super_admin.ad_branch = super_branch.b_id')
                 ->where(['ad_id' => $adminId])
                 ->find();
         }
         $branchId=session('ad_branch');
-        $branchInfo=Db::table('dcxw_branch')->where(['b_id' => $branchId])->field('b_prex')->find();
+        $branchInfo=Db::table('super_branch')->where(['b_id' => $branchId])->field('b_prex')->find();
         $this->assign('branchWeb',$branchInfo['b_prex']);
         $this->assign('admin',$adminInfo);
         $this->assign('menuList',$parentData);
-        $siteName=Db::table('dcxw_setinfo')->where(['s_key' => 'webname'])->column('s_value');
+        $siteName=Db::table('super_setinfo')->where(['s_key' => 'webname'])->column('s_value');
         $this->assign('siteName',$siteName[0]);
         $this->assign('ad_role',$ad_role);
         return  $this->fetch();
@@ -136,7 +136,7 @@ class Index extends Controller
             $oldPwd=md5($_POST['oldPwd']);
             $newPwd=md5($_POST['newPwd']);
             $newPwd1=md5($_POST['newPwd2']);
-            $adminInfo=Db::table('dcxw_admin')->where(['ad_id' => $adminId])->field('ad_password')->find();
+            $adminInfo=Db::table('super_admin')->where(['ad_id' => $adminId])->field('ad_password')->find();
             $adPwd=$adminInfo['ad_password'];
             if($adPwd != $oldPwd){
                 $this->error('您输入的密码与原始密码不一致，请重新输入！');
@@ -148,7 +148,7 @@ class Index extends Controller
                         $this->error('输入的新密码请勿与原密码相同！');
                     }else{
                         $data['ad_password']=$newPwd;
-                        $resetPwd=Db::table('dcxw_admin')->where(['ad_id' => $adminId])->update($data);
+                        $resetPwd=Db::table('super_admin')->where(['ad_id' => $adminId])->update($data);
                         if($resetPwd){
                             session(null);
                             $this->success('修改密码成功，请重新登录！','login/login');
@@ -165,15 +165,15 @@ class Index extends Controller
     public function adminDetails(){
         $ad_id= session('adminId');
         if($ad_id ==  1){
-            $adminInfo=Db::table('dcxw_admin')
+            $adminInfo=Db::table('super_admin')
                 ->where(['ad_id' => $ad_id])
                 ->find();;
         }else{
-            $adminInfo=Db::table('dcxw_admin')
-                ->join('dcxw_province','dcxw_province.p_id = dcxw_admin.ad_p_id')
-                ->join('dcxw_city','dcxw_city.c_id = dcxw_admin.ad_c_id')
-                ->join('dcxw_branch','dcxw_branch.b_id = dcxw_admin.ad_branch')
-                ->field('dcxw_admin.*,dcxw_province.p_name,dcxw_city.c_name,dcxw_branch.b_name')
+            $adminInfo=Db::table('super_admin')
+                ->join('super_province','super_province.p_id = super_admin.ad_p_id')
+                ->join('super_city','super_city.c_id = super_admin.ad_c_id')
+                ->join('super_branch','super_branch.b_id = super_admin.ad_branch')
+                ->field('super_admin.*,super_province.p_name,super_city.c_name,super_branch.b_name')
                 ->where(['ad_id' => $ad_id])
                 ->find();
         }
@@ -187,7 +187,7 @@ class Index extends Controller
         $ad_id=intval(session('adminId'));
         if($_POST){
             $data=$_POST;
-            $update=Db::table('dcxw_admin')->where(['ad_id' => $ad_id])->update($data);
+            $update=Db::table('super_admin')->where(['ad_id' => $ad_id])->update($data);
             if($update){
                 $this->success('完善信息成功！');
             }else{

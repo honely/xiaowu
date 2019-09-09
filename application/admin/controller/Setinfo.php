@@ -32,15 +32,15 @@ class Setinfo extends Controller
     }
     //配置信息列表
     public function setData(){
-        $count=Db::table('dcxw_setinfo')->count();
-        $setInfo=Db::table('dcxw_setinfo')
+        $count=Db::table('super_setinfo')->count();
+        $setInfo=Db::table('super_setinfo')
             ->where('s_type = 0')
             ->order('s_id desc')
             ->select();
         foreach($setInfo as $k =>$v){
             $setInfo[$k]['s_opeatime']=date('Y-m-d ',$v['s_opeatime']);
             if(!empty($v['s_admin']) && is_int($v['s_admin'])){
-                $adInfo=Db::table('dcxw_admin')
+                $adInfo=Db::table('super_admin')
                     ->where(['ad_id' => $v['s_admin']])
                     ->field('ad_id,ad_realname')->find();
                 $adName = $adInfo['ad_realname'];
@@ -81,7 +81,7 @@ class Setinfo extends Controller
                 $msg = '隐藏';
                 $data['s_is_able'] = '2';
             }
-            $changeStatus = Db::table('dcxw_setinfo')->where(['s_id' => $ba_id])->update($data);
+            $changeStatus = Db::table('super_setinfo')->where(['s_id' => $ba_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -108,7 +108,7 @@ class Setinfo extends Controller
             $data['s_type']=0;
             $data['s_opeatime']=time();
             $data['s_admin']=session('adminId');
-            $addSet=Db::table('dcxw_setinfo')->insert($data);
+            $addSet=Db::table('super_setinfo')->insert($data);
             if($addSet){
                 $this->success('添加成功！','setlist');
             }else{
@@ -130,8 +130,8 @@ class Setinfo extends Controller
             $data['s_desc']=$_POST['s_desc'];
             $data['s_opeatime']=time();
             $data['s_admin']=session('adminId');
-            $edit=Db::table('dcxw_setinfo')->where(['s_id' => $s_id])->update($data);
-            $s_type=Db::table('dcxw_setinfo')->where(['s_id' => $s_id])->find();
+            $edit=Db::table('super_setinfo')->where(['s_id' => $s_id])->update($data);
+            $s_type=Db::table('super_setinfo')->where(['s_id' => $s_id])->find();
             if($s_type['s_type'] == 1){
                 if($edit){
                     $this->success('修改信息成功！','msg/msg');
@@ -146,7 +146,7 @@ class Setinfo extends Controller
                 }
             }
         }else{
-            $setInfo=Db::table('dcxw_setinfo')->where(['s_id' => $s_id])->find();
+            $setInfo=Db::table('super_setinfo')->where(['s_id' => $s_id])->find();
             $this->assign('type',$type);
             $this->assign('set',$setInfo);
             return $this->fetch();
@@ -156,7 +156,7 @@ class Setinfo extends Controller
     //删除配置
     public function delSet(){
         $s_id=intval($_GET['s_id']);
-        $delSet=Db::table('dcxw_setinfo')->where(['s_id' => $s_id])->delete();
+        $delSet=Db::table('super_setinfo')->where(['s_id' => $s_id])->delete();
         if($delSet){
             $this->success('删除配置成功！','setlist');
         }else{
@@ -205,14 +205,14 @@ class Setinfo extends Controller
         }else{
             $where= ' b_id = '.$ad_branch;
         }
-        $count=Db::table('dcxw_branch')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_branch.b_province')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_branch.b_city')
+        $count=Db::table('super_branch')
+            ->join('super_province','super_province.p_id = super_branch.b_province')
+            ->join('super_city','super_city.c_id = super_branch.b_city')
             ->where($where)
             ->count();
-        $branch=Db::table('dcxw_branch')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_branch.b_province')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_branch.b_city')
+        $branch=Db::table('super_branch')
+            ->join('super_province','super_province.p_id = super_branch.b_province')
+            ->join('super_city','super_city.c_id = super_branch.b_city')
             ->where($where)
             ->order('b_id desc')
             ->select();
@@ -232,7 +232,7 @@ class Setinfo extends Controller
     public function branch(){
         $ad_role=intval(session('ad_role'));
         //分站id
-        $all=Db::table('dcxw_branch')->count();
+        $all=Db::table('super_branch')->count();
         $this->assign('all',$all);
         $this->assign('ad_role',$ad_role);
         return $this->fetch();
@@ -252,7 +252,7 @@ class Setinfo extends Controller
                 $msg = '关闭';
                 $data['b_isopen'] = '2';
             }
-            $changeStatus = Db::table('dcxw_branch')->where(['b_id' => $ba_id])->update($data);
+            $changeStatus = Db::table('super_branch')->where(['b_id' => $ba_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -279,7 +279,7 @@ class Setinfo extends Controller
                 $msg = '关闭';
                 $data['b_autosms'] = '2';
             }
-            $changeStatus = Db::table('dcxw_branch')->where(['b_id' => $ba_id])->update($data);
+            $changeStatus = Db::table('super_branch')->where(['b_id' => $ba_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -304,7 +304,7 @@ class Setinfo extends Controller
             $stime=strtotime(date('Y-m-d 00:00:00'));
             $etime=strtotime(date('Y-m-d 23:59:59'));
             //获取当日预约的数量
-            $buNum=Db::table('dcxw_branch')->where('b_createtime','between',[$stime,$etime])->count();
+            $buNum=Db::table('super_branch')->where('b_createtime','between',[$stime,$etime])->count();
             //生成用户编号；
             $data['b_bid'] = date('Ymd').sprintf("%04d", $buNum+1);
             $data['b_name']=$_POST['b_name'];
@@ -332,7 +332,7 @@ class Setinfo extends Controller
             $data['b_design']=$_POST['b_design'];
             $data['b_measure']=$_POST['b_measure'];
             $data['b_admin_tem']=$_POST['b_admin_tem'];
-            $addBase=Db::table('dcxw_branch')->insert($data);
+            $addBase=Db::table('super_branch')->insert($data);
             if($addBase){
                 $this->success('站点信息添加成功！','branch');
             }else{
@@ -340,28 +340,28 @@ class Setinfo extends Controller
             }
         }else{
             //短信签名
-            $sign=Db::table('dcxw_alisign')->where(['ali_sign_able' => 1])->select();
+            $sign=Db::table('super_alisign')->where(['ali_sign_able' => 1])->select();
             $this->assign('sign',$sign);
             //管理员通知模板
-            $adminTem=Db::table('dcxw_smstem')->where(['sms_type' => 1])->select();
+            $adminTem=Db::table('super_smstem')->where(['sms_type' => 1])->select();
             $this->assign('adminTem',$adminTem);
               //2.普通预约
-            $orderTem=Db::table('dcxw_smstem')->where(['sms_type' => 2])->select();
+            $orderTem=Db::table('super_smstem')->where(['sms_type' => 2])->select();
             $this->assign('orderTem',$orderTem);
               //3报价预约
-            $quoteTem=Db::table('dcxw_smstem')->where(['sms_type' => 3])->select();
+            $quoteTem=Db::table('super_smstem')->where(['sms_type' => 3])->select();
             $this->assign('quoteTem',$quoteTem);
               //4量房预约
-            $measureTem=Db::table('dcxw_smstem')->where(['sms_type' => 4])->select();
+            $measureTem=Db::table('super_smstem')->where(['sms_type' => 4])->select();
             $this->assign('measureTem',$measureTem);
               //5活动预约
-            $activityTem=Db::table('dcxw_smstem')->where(['sms_type' => 5])->select();
+            $activityTem=Db::table('super_smstem')->where(['sms_type' => 5])->select();
             $this->assign('activityTem',$activityTem);
               //6设计预约
-            $designTem=Db::table('dcxw_smstem')->where(['sms_type' => 6])->select();
+            $designTem=Db::table('super_smstem')->where(['sms_type' => 6])->select();
             $this->assign('designTem',$designTem);
             //省份
-            $provInfo=Db::table('dcxw_province')->select();
+            $provInfo=Db::table('super_province')->select();
             $this->assign('prov',$provInfo);
             return $this->fetch();
         }
@@ -396,7 +396,7 @@ class Setinfo extends Controller
             $data['b_design']=$_POST['b_design'];
             $data['b_measure']=$_POST['b_measure'];
             $data['b_admin_tem']=$_POST['b_admin_tem'];
-            $editBranch=Db::table('dcxw_branch')->where(['b_id' =>$branch_id])->update($data);
+            $editBranch=Db::table('super_branch')->where(['b_id' =>$branch_id])->update($data);
             if($editBranch){
                 $this->success('修改成功','branch');
             }else{
@@ -404,31 +404,31 @@ class Setinfo extends Controller
             }
         }else{
             //短信签名
-            $sign=Db::table('dcxw_alisign')->where(['ali_sign_able' => 1])->select();
+            $sign=Db::table('super_alisign')->where(['ali_sign_able' => 1])->select();
             $this->assign('sign',$sign);
             //管理员通知模板
-            $adminTem=Db::table('dcxw_smstem')->where(['sms_type' => 1])->select();
+            $adminTem=Db::table('super_smstem')->where(['sms_type' => 1])->select();
             $this->assign('adminTem',$adminTem);
             //2.普通预约
-            $orderTem=Db::table('dcxw_smstem')->where(['sms_type' => 2])->select();
+            $orderTem=Db::table('super_smstem')->where(['sms_type' => 2])->select();
             $this->assign('orderTem',$orderTem);
             //3报价预约
-            $quoteTem=Db::table('dcxw_smstem')->where(['sms_type' => 3])->select();
+            $quoteTem=Db::table('super_smstem')->where(['sms_type' => 3])->select();
             $this->assign('quoteTem',$quoteTem);
             //4量房预约
-            $measureTem=Db::table('dcxw_smstem')->where(['sms_type' => 4])->select();
+            $measureTem=Db::table('super_smstem')->where(['sms_type' => 4])->select();
             $this->assign('measureTem',$measureTem);
             //5活动预约
-            $activityTem=Db::table('dcxw_smstem')->where(['sms_type' => 5])->select();
+            $activityTem=Db::table('super_smstem')->where(['sms_type' => 5])->select();
             $this->assign('activityTem',$activityTem);
             //6设计预约
-            $designTem=Db::table('dcxw_smstem')->where(['sms_type' => 6])->select();
+            $designTem=Db::table('super_smstem')->where(['sms_type' => 6])->select();
             $this->assign('designTem',$designTem);
-            $branchInfo=Db::table('dcxw_branch')->where(['b_id' =>$branch_id])->find();
+            $branchInfo=Db::table('super_branch')->where(['b_id' =>$branch_id])->find();
             $branchInfo['b_createtime']=date('Y-m-d',$branchInfo['b_createtime']);
-            $provInfo=Db::table('dcxw_province')->select();
+            $provInfo=Db::table('super_province')->select();
             $provid=$branchInfo['b_province'];
-            $cusCity=Db::table('dcxw_city')->where(['p_id' => $provid])->select();
+            $cusCity=Db::table('super_city')->where(['p_id' => $provid])->select();
             $this->assign('prov',$provInfo);
             $this->assign('cusCity',$cusCity);
             $this->assign('branch',$branchInfo);
@@ -445,7 +445,7 @@ class Setinfo extends Controller
         $data['b_codecount']=$_POST['b_codecount'];
         $data['b_thridcode']=$_POST['b_thridcode'];
         $data['b_serviceurl']=$_POST['b_serviceurl'];
-        $updateExt=Db::table('dcxw_branch')->where(['b_id' => $branch_id])->update($data);
+        $updateExt=Db::table('super_branch')->where(['b_id' => $branch_id])->update($data);
         if($updateExt){
             $this->success('修改扩展信息成功!');
         }else{
@@ -455,7 +455,7 @@ class Setinfo extends Controller
     //删除某一站点
     public function delBranch(){
         $branch_id=intval($_GET['b_id']);
-        $delBranch=Db::table('dcxw_branch')->where(['b_id'=> $branch_id])->delete();
+        $delBranch=Db::table('super_branch')->where(['b_id'=> $branch_id])->delete();
         if($delBranch){
             $this->success('删除成功','branch');
         }else{
@@ -467,8 +467,8 @@ class Setinfo extends Controller
         return $this->fetch();
     }
     public function userTip(){
-        $count =Db::table('dcxw_type')->where(['type_sort' => 1])->count();
-        $userTip=Db::table('dcxw_type')
+        $count =Db::table('super_type')->where(['type_sort' => 1])->count();
+        $userTip=Db::table('super_type')
             ->order('type_isable asc,type_order desc')
             ->where(['type_sort' => 1])
             ->select();
@@ -476,7 +476,7 @@ class Setinfo extends Controller
             $userTip[$k]['type_addtime']=date('Y-m-d H:i:s',$v['type_addtime']);
             //操作人员对应当前登录的管理员
             if(!empty($v['type_admin']) && is_int($v['type_admin'])){
-                $adInfo=Db::table('dcxw_admin')
+                $adInfo=Db::table('super_admin')
                     ->where(['ad_id' => $v['type_admin']])
                     ->field('ad_id,ad_realname')->find();
                 $adName = $adInfo['ad_realname'];
@@ -507,7 +507,7 @@ class Setinfo extends Controller
                 $data['type_isable'] = '2';
                 $data['type_admin'] = session('adminId');
             }
-            $changeStatus = Db::table('dcxw_type')->where(['type_id' => $ba_id])->update($data);
+            $changeStatus = Db::table('super_type')->where(['type_id' => $ba_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -529,7 +529,7 @@ class Setinfo extends Controller
         $ba_id=$_POST['type_id'];
         $ba_order=intval(trim($_POST['value']));
         if(!empty($ba_order)){
-            $reOrder=Db::table('dcxw_type')->where(['type_id' => $ba_id])->update(['type_order' => $ba_order]);
+            $reOrder=Db::table('super_type')->where(['type_id' => $ba_id])->update(['type_order' => $ba_order]);
             if($reOrder){
                 $this->success('修改排序成功！');
             }else{
@@ -546,8 +546,8 @@ class Setinfo extends Controller
         return $this->fetch();
     }
     public function styleData(){
-        $count =Db::table('dcxw_type')->where(['type_sort' => 2])->count();
-        $userTip=Db::table('dcxw_type')
+        $count =Db::table('super_type')->where(['type_sort' => 2])->count();
+        $userTip=Db::table('super_type')
             ->order('type_isable asc,type_order desc')
             ->where(['type_sort' => 2])
             ->select();
@@ -555,7 +555,7 @@ class Setinfo extends Controller
             $userTip[$k]['type_addtime']=date('Y-m-d H:i:s',$v['type_addtime']);
             //操作人员对应当前登录的管理员
             if(!empty($v['type_admin']) && is_int($v['type_admin'])){
-                $adInfo=Db::table('dcxw_admin')
+                $adInfo=Db::table('super_admin')
                     ->where(['ad_id' => $v['type_admin']])
                     ->field('ad_id,ad_realname')->find();
                 $adName = $adInfo['ad_realname'];
@@ -573,27 +573,27 @@ class Setinfo extends Controller
     //类型列表
     public function typeList123(){
         //类型参数
-        $typeInfo=Db::table('dcxw_type')
+        $typeInfo=Db::table('super_type')
             ->order('type_id desc')
             ->where(['type_sort' => 1])
             ->select();
         //装修风格
-        $styleInfo=Db::table('dcxw_type')
+        $styleInfo=Db::table('super_type')
             ->order('type_id desc')
             ->where(['type_sort' => 2])
             ->select();
         //装修品质
-        $qualityInfo=Db::table('dcxw_type')
+        $qualityInfo=Db::table('super_type')
             ->order('type_id desc')
             ->where(['type_sort' => 3])
             ->select();
         //房屋类型
-        $houseInfo=Db::table('dcxw_type')
+        $houseInfo=Db::table('super_type')
             ->order('type_id desc')
             ->where(['type_sort' => 4])
             ->select();
         //房屋面积
-        $areaInfo=Db::table('dcxw_type')
+        $areaInfo=Db::table('super_type')
             ->order('type_id desc')
             ->where(['type_sort' => 5])
             ->select();
@@ -608,8 +608,8 @@ class Setinfo extends Controller
         return $this->fetch();
     }
     public function levelData(){
-        $count =Db::table('dcxw_type')->where(['type_sort' => 3])->count();
-        $userTip=Db::table('dcxw_type')
+        $count =Db::table('super_type')->where(['type_sort' => 3])->count();
+        $userTip=Db::table('super_type')
             ->order('type_isable asc,type_order desc')
             ->where(['type_sort' => 3])
             ->select();
@@ -617,7 +617,7 @@ class Setinfo extends Controller
             $userTip[$k]['type_addtime']=date('Y-m-d H:i:s',$v['type_addtime']);
             //操作人员对应当前登录的管理员
             if(!empty($v['type_admin']) && is_int($v['type_admin'])){
-                $adInfo=Db::table('dcxw_admin')
+                $adInfo=Db::table('super_admin')
                     ->where(['ad_id' => $v['type_admin']])
                     ->field('ad_id,ad_realname')->find();
                 $adName = $adInfo['ad_realname'];
@@ -636,8 +636,8 @@ class Setinfo extends Controller
         return $this->fetch();
     }
     public function houseData(){
-        $count =Db::table('dcxw_type')->where(['type_sort' => 2])->count();
-        $userTip=Db::table('dcxw_type')
+        $count =Db::table('super_type')->where(['type_sort' => 2])->count();
+        $userTip=Db::table('super_type')
             ->order('type_isable asc,type_order desc')
             ->where(['type_sort' => 2])
             ->select();
@@ -645,7 +645,7 @@ class Setinfo extends Controller
             $userTip[$k]['type_addtime']=date('Y-m-d H:i:s',$v['type_addtime']);
             //操作人员对应当前登录的管理员
             if(!empty($v['type_admin']) && is_int($v['type_admin'])){
-                $adInfo=Db::table('dcxw_admin')
+                $adInfo=Db::table('super_admin')
                     ->where(['ad_id' => $v['type_admin']])
                     ->field('ad_id,ad_realname')->find();
                 $adName = $adInfo['ad_realname'];
@@ -664,8 +664,8 @@ class Setinfo extends Controller
         return $this->fetch();
     }
     public function areaData(){
-        $count =Db::table('dcxw_type')->where(['type_sort' => 5])->count();
-        $userTip=Db::table('dcxw_type')
+        $count =Db::table('super_type')->where(['type_sort' => 5])->count();
+        $userTip=Db::table('super_type')
             ->order('type_isable asc,type_order desc')
             ->where(['type_sort' => 5])
             ->select();
@@ -674,7 +674,7 @@ class Setinfo extends Controller
             $userTip[$k]['type_addtime']=date('Y-m-d H:i:s',$v['type_addtime']);
             //操作人员对应当前登录的管理员
             if(!empty($v['type_admin']) && is_int($v['type_admin'])){
-                $adInfo=Db::table('dcxw_admin')
+                $adInfo=Db::table('super_admin')
                     ->where(['ad_id' => $v['type_admin']])
                     ->field('ad_id,ad_realname')->find();
                 $adName = $adInfo['ad_realname'];
@@ -695,8 +695,8 @@ class Setinfo extends Controller
         return $this->fetch();
     }
     public function fromData(){
-        $count =Db::table('dcxw_type')->where(['type_sort' => 5])->count();
-        $userTip=Db::table('dcxw_type')
+        $count =Db::table('super_type')->where(['type_sort' => 5])->count();
+        $userTip=Db::table('super_type')
             ->order('type_isable asc,type_order desc')
             ->where(['type_sort' => 6])
             ->select();
@@ -704,7 +704,7 @@ class Setinfo extends Controller
             $userTip[$k]['type_addtime']=date('Y-m-d H:i:s',$v['type_addtime']);
             //操作人员对应当前登录的管理员
             if(!empty($v['type_admin']) && is_int($v['type_admin'])){
-                $adInfo=Db::table('dcxw_admin')
+                $adInfo=Db::table('super_admin')
                     ->where(['ad_id' => $v['type_admin']])
                     ->field('ad_id,ad_realname')->find();
                 $adName = $adInfo['ad_realname'];
@@ -725,8 +725,8 @@ class Setinfo extends Controller
         return $this->fetch();
     }
     public function originData(){
-        $count =Db::table('dcxw_type')->where(['type_sort' => 5])->count();
-        $userTip=Db::table('dcxw_type')
+        $count =Db::table('super_type')->where(['type_sort' => 5])->count();
+        $userTip=Db::table('super_type')
             ->order('type_isable asc,type_order desc')
             ->where(['type_sort' => 7])
             ->select();
@@ -734,7 +734,7 @@ class Setinfo extends Controller
             $userTip[$k]['type_addtime']=date('Y-m-d H:i:s',$v['type_addtime']);
             //操作人员对应当前登录的管理员
             if(!empty($v['type_admin']) && is_int($v['type_admin'])){
-                $adInfo=Db::table('dcxw_admin')
+                $adInfo=Db::table('super_admin')
                     ->where(['ad_id' => $v['type_admin']])
                     ->field('ad_id,ad_realname')->find();
                 $adName = $adInfo['ad_realname'];
@@ -763,7 +763,7 @@ class Setinfo extends Controller
             $data['type_isable']=$_POST['type_isable'];
             $data['type_addtime']=time();
             $data['type_admin']=session('adminId');
-            $addSet=Db::table('dcxw_type')->insert($data);
+            $addSet=Db::table('super_type')->insert($data);
             if($addSet){
                 $this->success('添加成功！','houseType');
             }else{
@@ -788,14 +788,14 @@ class Setinfo extends Controller
             $data['type_isable']=$_POST['type_isable'];
             $data['type_addtime']=time();
             $data['type_admin']=session('adminId');
-            $edit=Db::table('dcxw_type')->where(['type_id' => $type_id])->update($data);
+            $edit=Db::table('super_type')->where(['type_id' => $type_id])->update($data);
             if($edit){
                 $this->success('修改成功！','houseType');
             }else{
                 $this->error('修改失败！','houseType');
             }
         }else{
-            $setInfo=Db::table('dcxw_type')->where(['type_id' => $type_id])->find();
+            $setInfo=Db::table('super_type')->where(['type_id' => $type_id])->find();
             $this->assign('conf',$setInfo);
             return $this->fetch();
         }
@@ -847,7 +847,7 @@ class Setinfo extends Controller
             $data['type_isable']=$_POST['type_isable'];
             $data['type_addtime']=time();
             $data['type_admin'] = session('adminId');
-            $addType=Db::table('dcxw_type')->insert($data);
+            $addType=Db::table('super_type')->insert($data);
             if($addType){
                 if($type == 1){
                     $this->success('添加房屋类型成功','typeList');
@@ -869,7 +869,7 @@ class Setinfo extends Controller
             }
         }else{
             //装修品质需要的站点名称
-            $branchInfo=Db::table('dcxw_branch')
+            $branchInfo=Db::table('super_branch')
                 ->field('b_id,b_name')
                 ->where(['b_isopen' => '1'])
                 ->select();
@@ -894,7 +894,7 @@ class Setinfo extends Controller
             $data['type_isable']=$_POST['type_isable'];
             $data['type_addtime']=time();
             $data['type_admin'] = session('adminId');
-            $addType=Db::table('dcxw_type')->where(['type_id' => $typeId])->update($data);
+            $addType=Db::table('super_type')->where(['type_id' => $typeId])->update($data);
             if($addType){
                 if($type == 1){
                     $this->success('修改客户标记成功','typeList');
@@ -915,7 +915,7 @@ class Setinfo extends Controller
                 $this->error();
             }
         }else{
-            $typeInfo=Db::table('dcxw_type')->where(['type_id' => $typeId])->find();
+            $typeInfo=Db::table('super_type')->where(['type_id' => $typeId])->find();
             if($type == 5){
                     $typeInfo['type_remarks']=explode('-',$typeInfo['type_remarks']);
             }
@@ -929,7 +929,7 @@ class Setinfo extends Controller
     //删除一类型：
     public function delType(){
         $type_id=intval($_GET['type_id']);
-        $delType=Db::table('dcxw_type')->where(['type_id' =>$type_id])->delete();
+        $delType=Db::table('super_type')->where(['type_id' =>$type_id])->delete();
         if($delType){
             $this->success('删除成功','typeList');
         }else{

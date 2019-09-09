@@ -74,15 +74,15 @@ class Customer extends Controller{
             $where.=" and ( cus_opptime>= ".$sdate." and cus_opptime <= ".$edate." ) ";
         }
         //分页统计总数；
-        $count=Db::table('dcxw_customer')
-            ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-            ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
+        $count=Db::table('super_customer')
+            ->join('super_province','super_customer.cus_provid = super_province.p_id')
+            ->join('super_city','super_customer.cus_cityid = super_city.c_id')
             ->where($where)->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $cusInfo=Db::table('dcxw_customer')
-            ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-            ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
+        $cusInfo=Db::table('super_customer')
+            ->join('super_province','super_customer.cus_provid = super_province.p_id')
+            ->join('super_city','super_customer.cus_cityid = super_city.c_id')
             ->where($where)
             ->limit(($page-1)*$limit,$limit)
             ->order('cus_id desc')
@@ -94,7 +94,7 @@ class Customer extends Controller{
             $cusInfo[$k]['cus_opptime']=date('Y-m-d H:i:s',$v['cus_opptime']);
             //操作人员对应当前登录的管理员
             if(!empty($v['cus_opeater']) && is_int($v['cus_opeater'])){
-                $adInfo=Db::table('dcxw_admin')
+                $adInfo=Db::table('super_admin')
                     ->where(['ad_id' => $v['cus_opeater']])
                     ->field('ad_id,ad_realname')->find();
                 $adName = $adInfo['ad_realname'];
@@ -133,13 +133,13 @@ class Customer extends Controller{
      * */
     public function conponData(){
         $where = " 1 = 1";
-        $count=Db::table('dcxw_coupon')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_coupon.cp_admin')
+        $count=Db::table('super_coupon')
+            ->join('super_admin','super_admin.ad_id = super_coupon.cp_admin')
             ->where($where)->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $coupon=Db::table('dcxw_coupon')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_coupon.cp_admin')
+        $coupon=Db::table('super_coupon')
+            ->join('super_admin','super_admin.ad_id = super_coupon.cp_admin')
             ->limit(($page-1)*$limit,$limit)
             ->where($where)
             ->order('cp_addtime desc')
@@ -159,7 +159,7 @@ class Customer extends Controller{
             $stime=strtotime(date('Y-m-d 00:00:00'));
             $etime=strtotime(date('Y-m-d 23:59:59'));
             //获取当日预约的数量
-            $buNum=Db::table('dcxw_coupon')->where('cp_addtime','between',[$stime,$etime])->count();
+            $buNum=Db::table('super_coupon')->where('cp_addtime','between',[$stime,$etime])->count();
             //生成用户编号；
             $data=$_POST;
             $data['cp_deadline']=strtotime($_POST['cp_deadline']);
@@ -167,7 +167,7 @@ class Customer extends Controller{
             $data['cp_addtime'] =time();
             $data['cp_admin'] = session('adminId');
             $data['cp_isable'] =1;
-            $add=Db::table('dcxw_coupon')->insert($data);
+            $add=Db::table('super_coupon')->insert($data);
             if($add){
                 $this->success('发布成功！','conpon');
             }else{
@@ -177,12 +177,12 @@ class Customer extends Controller{
             $adminId=session('adminId');
             $ad_role=intval(session('ad_role'));
             if($ad_role == 1 ){// 超级管理员
-                $provInfo=Db::table('dcxw_coupon')->select();
+                $provInfo=Db::table('super_coupon')->select();
                 $this->assign('prov',$provInfo);
             }else{
-                $adminInfo=Db::table('dcxw_coupon')
-                    ->join('dcxw_province','dcxw_province.p_id = dcxw_admin.ad_p_id')
-                    ->field('dcxw_admin.ad_realname,dcxw_role.r_name')
+                $adminInfo=Db::table('super_coupon')
+                    ->join('super_province','super_province.p_id = super_admin.ad_p_id')
+                    ->field('super_admin.ad_realname,super_role.r_name')
                     ->where(['ad_id' => $adminId])
                     ->find();
                 $this->assign('admin',$adminInfo);
@@ -199,7 +199,7 @@ class Customer extends Controller{
      * */
     public function delconpon(){
         $cp_id=intval(trim($_GET['cp_id']));
-        $del=Db::table('dcxw_coupon')->where(['cp_id' => $cp_id])->delete();
+        $del=Db::table('super_coupon')->where(['cp_id' => $cp_id])->delete();
         if($del){
             $this->success('删除成功！');
         }else{
@@ -224,7 +224,7 @@ class Customer extends Controller{
                 $data['cp_isable'] = '2';
                 $data['cp_admin'] = session('adminId');
             }
-            $changeStatus = Db::table('dcxw_coupon')->where(['cp_id' => $cp_id])->update($data);
+            $changeStatus = Db::table('super_coupon')->where(['cp_id' => $cp_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -248,14 +248,14 @@ class Customer extends Controller{
             $data['cp_deadline']=strtotime($_POST['cp_deadline']);
             $data['cp_addtime'] =time();
             $data['cp_admin'] = session('adminId');
-            $update=Db::table('dcxw_coupon')->where(['cp_id' => $cp_id])->update($data);
+            $update=Db::table('super_coupon')->where(['cp_id' => $cp_id])->update($data);
             if($update){
                 $this->success('更新成功！','conpon');
             }else{
                 $this->error('更新失败！','conpon');
             }
         }else{
-            $conpon=Db::table('dcxw_coupon')->where(['cp_id' => $cp_id])->find();
+            $conpon=Db::table('super_coupon')->where(['cp_id' => $cp_id])->find();
             $conpon['cp_deadline']=date('Y-m-d',$conpon['cp_deadline']);
             $this->assign('conpon',$conpon);
             return $this->fetch();

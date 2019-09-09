@@ -32,7 +32,7 @@ class Staff extends Controller{
 
     public function index(){
         $where="1 = 1";
-        $staff=Db::table('dcxw_user')->where($where)->select();
+        $staff=Db::table('super_user')->where($where)->select();
         $this->assign('staff',$staff);
         return $this->fetch();
     }
@@ -43,12 +43,12 @@ class Staff extends Controller{
         if(isset($keywords) && !empty($keywords)){
             $where.=" and ( u_name like '%".$keywords."%' or u_phone like '%".$keywords."%'  or u_job like '%".$keywords."%' )";
         }
-        $count=Db::table('dcxw_user')
+        $count=Db::table('super_user')
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $admin=Db::table('dcxw_user')
+        $admin=Db::table('super_user')
             ->where($where)
             ->limit(($page-1)*$limit,$limit)
             ->order('u_addtime desc')
@@ -81,7 +81,7 @@ class Staff extends Controller{
                 $msg = '修改';
                 $data['u_isable'] = '2';
             }
-            $changeStatus = Db::table('dcxw_user')->where(['u_id' => $ba_id])->update($data);
+            $changeStatus = Db::table('super_user')->where(['u_id' => $ba_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -109,20 +109,20 @@ class Staff extends Controller{
             $data['u_addtime'] = time();
             $data['u_isable'] = 1;
             $data['u_password'] = md5('123456');
-            $isRepeat=Db::table('dcxw_user')
+            $isRepeat=Db::table('super_user')
                 ->where(['u_phone' => $data['u_phone']])
                 ->find();
             if($isRepeat){
                 $this->error('此手机号已注册！','add');
             }
             $data['u_email'] = $_POST['u_email'];
-            $isRepeat=Db::table('dcxw_user')
+            $isRepeat=Db::table('super_user')
                 ->where(['u_email' => $data['u_email']])
                 ->find();
             if($isRepeat){
                 $this->error('此邮箱已注册！','add');
             }
-            $add=Db::table('dcxw_user')->insert($data);
+            $add=Db::table('super_user')->insert($data);
             if($add){
                 $this->success('添加员工成功','index');
             }else{
@@ -132,7 +132,7 @@ class Staff extends Controller{
             $indexModel=new \app\common\controller\Index();
             $city=$indexModel->getCityName();
             $this->assign('city',$city);
-            $department=Db::table('dcxw_department')
+            $department=Db::table('super_department')
                 ->order('d_addtime desc')
                 ->select();
             $this->assign('department',$department);
@@ -147,7 +147,7 @@ class Staff extends Controller{
         $ad_id=$_POST['u_id'];
         $ad_phone=$_POST['u_phone'];
         if($ad_id){
-            $isRepeat=Db::table('dcxw_user')
+            $isRepeat=Db::table('super_user')
                 ->where('u_id','neq',$ad_id)
                 ->where(['u_phone' => $ad_phone])
                 ->find();
@@ -159,7 +159,7 @@ class Staff extends Controller{
                 $res['msg'] = '此手机号经系统检测可用。';
             }
         }else{
-            $isRepeat=Db::table('dcxw_user')->where(['u_phone' => $ad_phone])->find();
+            $isRepeat=Db::table('super_user')->where(['u_phone' => $ad_phone])->find();
             if($isRepeat){
                 $res['code'] = 2;
                 $res['msg'] = '此手机号已注册！';
@@ -178,7 +178,7 @@ class Staff extends Controller{
         $ad_id=$_POST['u_id'];
         $ad_email=$_POST['u_email'];
         if($ad_id){
-            $isRepeat=Db::table('dcxw_user')
+            $isRepeat=Db::table('super_user')
                 ->where('u_id','neq',$ad_id)
                 ->where(['u_email' => $ad_email])
                 ->find();
@@ -190,7 +190,7 @@ class Staff extends Controller{
                 $res['msg'] = '此邮箱经系统检测可用。';
             }
         }else{
-            $isRepeat=Db::table('dcxw_user')->where(['u_email' => $ad_email])->find();
+            $isRepeat=Db::table('super_user')->where(['u_email' => $ad_email])->find();
             if($isRepeat){
                 $res['code'] = 2;
                 $res['msg'] = '此邮箱已注册！';
@@ -207,7 +207,7 @@ class Staff extends Controller{
     //删除管理员
     public function del(){
         $ad_id=intval($_GET['u_id']);
-        $del=Db::table('dcxw_user')->where(['u_id' => $ad_id])->delete();
+        $del=Db::table('super_user')->where(['u_id' => $ad_id])->delete();
         if($del){
             $this->success('删除成功','index');
         }else{
@@ -229,7 +229,7 @@ class Staff extends Controller{
             $data['u_addtime'] = time();
             $data['u_isable'] = 1;
             $data['u_password'] = md5('123456');
-            $isRepeat=Db::table('dcxw_user')
+            $isRepeat=Db::table('super_user')
                 ->where('u_id','neq',$ad_id)
                 ->where(['u_phone' => $data['u_phone']])
                 ->find();
@@ -237,27 +237,27 @@ class Staff extends Controller{
                 $this->error('此手机号已注册！');
             }
             $data['u_email'] = $_POST['u_email'];
-            $isRepeat=Db::table('dcxw_user')
+            $isRepeat=Db::table('super_user')
                 ->where('u_id','neq',$ad_id)
                 ->where(['u_email' => $data['u_email']])
                 ->find();
             if($isRepeat){
                 $this->error('此邮箱已注册！');
             }
-            $edit=Db::table('dcxw_user')->where(['u_id' => $ad_id])->update($data);
+            $edit=Db::table('super_user')->where(['u_id' => $ad_id])->update($data);
             if($edit){
                 $this->success('修改成功！','index');
             }else{
                 $this->error('您未做任何修改！','index');
             }
         }else{
-            $adminInfo=Db::table('dcxw_user')
+            $adminInfo=Db::table('super_user')
                 ->where(['u_id' => $ad_id])
                 ->find();
             $indexModel=new \app\common\controller\Index();
             $city=$indexModel->getCityName();
             $this->assign('city',$city);
-            $department=Db::table('dcxw_department')
+            $department=Db::table('super_department')
                 ->order('d_addtime desc')
                 ->select();
             $this->assign('department',$department);

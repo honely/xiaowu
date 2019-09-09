@@ -24,10 +24,10 @@ class News extends Controller{
         }
         $this->assign('art_type',$art_type);
         //热线电话
-        $hotLine=Db::table('dcxw_setinfo')->where(['s_key' => 'hotline'])->column('s_value');
+        $hotLine=Db::table('super_setinfo')->where(['s_key' => 'hotline'])->column('s_value');
         $this->assign('hotLine',$hotLine[0]);
         //网站导航
-        $navInfo=Db::table('dcxw_nav')
+        $navInfo=Db::table('super_nav')
             ->where(['nav_isable' => 1])
             ->order('nav_order desc')
             ->field('nav_title,nav_url')
@@ -39,11 +39,11 @@ class News extends Controller{
         ];
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',6,'intval');
-        $count=Db::table('dcxw_article')
+        $count=Db::table('super_article')
             ->where($where)
             ->where(['art_type' => $art_type])
             ->count();
-        $artInfo=Db::table('dcxw_article')
+        $artInfo=Db::table('super_article')
             ->where($where)
             ->where(['art_type' => $art_type])
             ->order('art_view desc')
@@ -58,7 +58,7 @@ class News extends Controller{
         $this->assign('count',$count);
         $this->assign('artInfo',$artInfo);
 
-        $hotArt=Db::table('dcxw_article')
+        $hotArt=Db::table('super_article')
             ->where(['art_isable' => 1])
             ->order('art_view desc')
             ->limit(4)
@@ -74,28 +74,28 @@ class News extends Controller{
     public function details(){
         $art_id=$_GET['art_id'];
         //浏览热度加一
-        Db::table('dcxw_article')->where(['art_id' => $art_id])->setInc('art_view');
+        Db::table('super_article')->where(['art_id' => $art_id])->setInc('art_view');
         //文章详情
-        $artInfo=Db::table('dcxw_article')
+        $artInfo=Db::table('super_article')
             ->where(['art_id' => $art_id])
             ->find();
         $artInfo['art_updatetime']=date('Y-m-d',$artInfo['art_updatetime']);
         $this->assign('art',$artInfo);
         //热线电话
-        $hotLine=Db::table('dcxw_setinfo')->where(['s_key' => 'hotline'])->column('s_value');
+        $hotLine=Db::table('super_setinfo')->where(['s_key' => 'hotline'])->column('s_value');
         $this->assign('hotLine',$hotLine[0]);
         //网站导航
-        $navInfo=Db::table('dcxw_nav')
+        $navInfo=Db::table('super_nav')
             ->where(['nav_isable' => 1])
             ->order('nav_order desc')
             ->field('nav_title,nav_url')
             ->select();
         $this->assign('navinfo',$navInfo);
         //首页banner
-        $banner=Db::table('dcxw_banner')->where(['ba_isable' => 1])->order('ba_order desc')->select();
+        $banner=Db::table('super_banner')->where(['ba_isable' => 1])->order('ba_order desc')->select();
         $this->assign('banner',$banner);
 
-        $hotArt=Db::table('dcxw_article')
+        $hotArt=Db::table('super_article')
             ->where('art_id','neq',$art_id)
             ->where(['art_isable' => 1])
             ->order('art_view desc')

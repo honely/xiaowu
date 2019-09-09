@@ -35,15 +35,15 @@ class Example extends Controller{
         //分站id
         $ad_branch = intval(session('ad_branch'));
         //操作人管理员
-        $admin = Db::table('dcxw_admin')->where(['ad_c_id' => $ad_branch])->select();
+        $admin = Db::table('super_admin')->where(['ad_c_id' => $ad_branch])->select();
         $this->assign('admin',$admin);
         if($ad_role == 1 ){// 超级管理员
-            $design=Db::table('dcxw_designer')->where(['des_isable' => '1'])->field('des_id,des_name')->select();
-            $admin = Db::table('dcxw_admin')->where(['ad_isable' => 1])->select();
+            $design=Db::table('super_designer')->where(['des_isable' => '1'])->field('des_id,des_name')->select();
+            $admin = Db::table('super_admin')->where(['ad_isable' => 1])->select();
             $where =' case_sort = 1 ';
         }else{
-            $design=Db::table('dcxw_designer')->where(['des_isable' => '1','des_b_id' => $ad_branch])->field('des_id,des_name')->select();
-            $admin = Db::table('dcxw_admin')->where(['ad_isable' => 1,'ad_branch' => $ad_branch])->select();
+            $design=Db::table('super_designer')->where(['des_isable' => '1','des_b_id' => $ad_branch])->field('des_id,des_name')->select();
+            $admin = Db::table('super_admin')->where(['ad_isable' => 1,'ad_branch' => $ad_branch])->select();
             $where=' case_sort = 1 and case_b_id = '.$ad_branch;
         }
         $this->assign('design',$design);
@@ -71,7 +71,7 @@ class Example extends Controller{
                 $where.=" and case_b_id = ".$branch;
             }
             if(isset($case_area) && !empty($case_area)){
-                $areaInfo=Db::table('dcxw_type')->where(['type_id' =>$case_area])->find();
+                $areaInfo=Db::table('super_type')->where(['type_id' =>$case_area])->find();
                 $areaRange=explode('-',$areaInfo['type_remarks']);
                 $where.=" and case_area >= ".$areaRange[0]." and case_area <= ".$areaRange[1];
             }
@@ -86,39 +86,39 @@ class Example extends Controller{
                 $edate=strtotime(substr($case_decotime,'-10')." 23:59:59");
                 $where.=" and ( case_decotime >= ".$sdate." and case_decotime <= ".$edate." ) ";
             }
-            $data['none']=Db::table('dcxw_case')
-                ->join('dcxw_city','dcxw_city.c_id = dcxw_case.case_c_id')
-                ->join('dcxw_province','dcxw_province.p_id = dcxw_case.case_p_id')
-                ->join('dcxw_designer','dcxw_designer.des_id = dcxw_case.case_designer')
-                ->join('dcxw_type','dcxw_type.type_id = dcxw_case.case_style')
-                ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_case.case_admin')
+            $data['none']=Db::table('super_case')
+                ->join('super_city','super_city.c_id = super_case.case_c_id')
+                ->join('super_province','super_province.p_id = super_case.case_p_id')
+                ->join('super_designer','super_designer.des_id = super_case.case_designer')
+                ->join('super_type','super_type.type_id = super_case.case_style')
+                ->join('super_admin','super_admin.ad_id = super_case.case_admin')
                 ->where(['case_isable'=>2])
                 ->where($where)
                 ->count();
             //已展示
-            $data['display']=Db::table('dcxw_case')
-                ->join('dcxw_city','dcxw_city.c_id = dcxw_case.case_c_id')
-                ->join('dcxw_province','dcxw_province.p_id = dcxw_case.case_p_id')
-                ->join('dcxw_designer','dcxw_designer.des_id = dcxw_case.case_designer')
-                ->join('dcxw_type','dcxw_type.type_id = dcxw_case.case_style')
-                ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_case.case_admin')
+            $data['display']=Db::table('super_case')
+                ->join('super_city','super_city.c_id = super_case.case_c_id')
+                ->join('super_province','super_province.p_id = super_case.case_p_id')
+                ->join('super_designer','super_designer.des_id = super_case.case_designer')
+                ->join('super_type','super_type.type_id = super_case.case_style')
+                ->join('super_admin','super_admin.ad_id = super_case.case_admin')
                 ->where(['case_isable'=>1])
                 ->where($where)
                 ->count();
             //未展示
             $data['all']=intval($data['display'])+intval($data['none']);
-            $decStyle=Db::table('dcxw_type')
+            $decStyle=Db::table('super_type')
                 ->where(['type_sort' => '2','type_isable' => '1'])
                 ->order('type_order desc')
                 ->field('type_id,type_name')
                 ->select();
             foreach($decStyle as $k =>$v){
-                $decStyle[$k]['count']=Db::table('dcxw_case')
-                    ->join('dcxw_city','dcxw_city.c_id = dcxw_case.case_c_id')
-                    ->join('dcxw_province','dcxw_province.p_id = dcxw_case.case_p_id')
-                    ->join('dcxw_designer','dcxw_designer.des_id = dcxw_case.case_designer')
-                    ->join('dcxw_type','dcxw_type.type_id = dcxw_case.case_style')
-                    ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_case.case_admin')
+                $decStyle[$k]['count']=Db::table('super_case')
+                    ->join('super_city','super_city.c_id = super_case.case_c_id')
+                    ->join('super_province','super_province.p_id = super_case.case_p_id')
+                    ->join('super_designer','super_designer.des_id = super_case.case_designer')
+                    ->join('super_type','super_type.type_id = super_case.case_style')
+                    ->join('super_admin','super_admin.ad_id = super_case.case_admin')
                     ->where($where)
                     ->where(['case_style' => $v['type_id']])
                     ->count();
@@ -127,44 +127,44 @@ class Example extends Controller{
             return $data;
         }
         //已展示
-        $display=Db::table('dcxw_case')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_case.case_c_id')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_case.case_p_id')
-            ->join('dcxw_designer','dcxw_designer.des_id = dcxw_case.case_designer')
-            ->join('dcxw_type','dcxw_type.type_id = dcxw_case.case_style')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_case.case_admin')
+        $display=Db::table('super_case')
+            ->join('super_city','super_city.c_id = super_case.case_c_id')
+            ->join('super_province','super_province.p_id = super_case.case_p_id')
+            ->join('super_designer','super_designer.des_id = super_case.case_designer')
+            ->join('super_type','super_type.type_id = super_case.case_style')
+            ->join('super_admin','super_admin.ad_id = super_case.case_admin')
             ->where($where)
             ->where(['case_isable'=>1])->count();
         $this->assign('display',$display);
         //未展示
-        $none=Db::table('dcxw_case')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_case.case_c_id')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_case.case_p_id')
-            ->join('dcxw_designer','dcxw_designer.des_id = dcxw_case.case_designer')
-            ->join('dcxw_type','dcxw_type.type_id = dcxw_case.case_style')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_case.case_admin')
+        $none=Db::table('super_case')
+            ->join('super_city','super_city.c_id = super_case.case_c_id')
+            ->join('super_province','super_province.p_id = super_case.case_p_id')
+            ->join('super_designer','super_designer.des_id = super_case.case_designer')
+            ->join('super_type','super_type.type_id = super_case.case_style')
+            ->join('super_admin','super_admin.ad_id = super_case.case_admin')
             ->where($where)
             ->where(['case_isable'=>2])->count();
         $this->assign('none',$none);
         //获取装修风格
-        $decStyle=Db::table('dcxw_type')
+        $decStyle=Db::table('super_type')
             ->where(['type_sort' => '2','type_isable' => '1'])
             ->order('type_order desc')
             ->field('type_id,type_name')
             ->select();
         foreach($decStyle as $k =>$v){
-            $decStyle[$k]['count']=Db::table('dcxw_case')
-                ->join('dcxw_city','dcxw_city.c_id = dcxw_case.case_c_id')
-                ->join('dcxw_province','dcxw_province.p_id = dcxw_case.case_p_id')
-                ->join('dcxw_designer','dcxw_designer.des_id = dcxw_case.case_designer')
-                ->join('dcxw_type','dcxw_type.type_id = dcxw_case.case_style')
-                ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_case.case_admin')
+            $decStyle[$k]['count']=Db::table('super_case')
+                ->join('super_city','super_city.c_id = super_case.case_c_id')
+                ->join('super_province','super_province.p_id = super_case.case_p_id')
+                ->join('super_designer','super_designer.des_id = super_case.case_designer')
+                ->join('super_type','super_type.type_id = super_case.case_style')
+                ->join('super_admin','super_admin.ad_id = super_case.case_admin')
                 ->where($where)
                 ->where(['case_style' => $v['type_id'],'case_isable' => 1])
                 ->count();
         }
         //面积区间
-        $areaRange=Db::table('dcxw_type')
+        $areaRange=Db::table('super_type')
             ->where(['type_sort' => '5','type_isable' => '1'])
             ->order('type_order desc')
             ->field('type_id,type_name')
@@ -217,7 +217,7 @@ class Example extends Controller{
             $where.=" and case_isable = ".$case_isable;
         }
         if(isset($case_area) && !empty($case_area)){
-            $areaInfo=Db::table('dcxw_type')->where(['type_id' =>$case_area])->find();
+            $areaInfo=Db::table('super_type')->where(['type_id' =>$case_area])->find();
             $areaRange=explode('-',$areaInfo['type_remarks']);
             $where.=" and case_area >= ".$areaRange[0]." and case_area <= ".$areaRange[1];
         }
@@ -236,22 +236,22 @@ class Example extends Controller{
             $edate=strtotime(substr($case_decotime,'-10')." 23:59:59");
             $where.=" and ( case_decotime >= ".$sdate." and case_decotime <= ".$edate." ) ";
         }
-        $count=Db::table('dcxw_case')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_case.case_c_id')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_case.case_p_id')
-            ->join('dcxw_designer','dcxw_designer.des_id = dcxw_case.case_designer')
-            ->join('dcxw_type','dcxw_type.type_id = dcxw_case.case_style')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_case.case_admin')
+        $count=Db::table('super_case')
+            ->join('super_city','super_city.c_id = super_case.case_c_id')
+            ->join('super_province','super_province.p_id = super_case.case_p_id')
+            ->join('super_designer','super_designer.des_id = super_case.case_designer')
+            ->join('super_type','super_type.type_id = super_case.case_style')
+            ->join('super_admin','super_admin.ad_id = super_case.case_admin')
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $example=Db::table('dcxw_case')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_case.case_c_id')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_case.case_p_id')
-            ->join('dcxw_designer','dcxw_designer.des_id = dcxw_case.case_designer')
-            ->join('dcxw_type','dcxw_type.type_id = dcxw_case.case_style')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_case.case_admin')
+        $example=Db::table('super_case')
+            ->join('super_city','super_city.c_id = super_case.case_c_id')
+            ->join('super_province','super_province.p_id = super_case.case_p_id')
+            ->join('super_designer','super_designer.des_id = super_case.case_designer')
+            ->join('super_type','super_type.type_id = super_case.case_style')
+            ->join('super_admin','super_admin.ad_id = super_case.case_admin')
             ->where($where)
             ->limit(($page-1)*$limit,$limit)
             ->order('case_istop ASC ,case_isable Asc,case_view desc')
@@ -277,13 +277,13 @@ class Example extends Controller{
             $stime=strtotime(date('Y-m-d 00:00:00'));
             $etime=strtotime(date('Y-m-d 23:59:59'));
             //获取当日预约的数量
-            $buNum=Db::table('dcxw_case')->where('case_decotime','between',[$stime,$etime])->count();
+            $buNum=Db::table('super_case')->where('case_decotime','between',[$stime,$etime])->count();
             //生成用户编号；
             $data['case_bid'] = date('Ymd').sprintf("%04d", $buNum+1);
             $data['case_img'] = implode(',',$_POST['case_img']);
             $data['case_img_alt'] = implode(',',$_POST['case_img_alt']);
             $data['case_title']=$_POST['case_title'];
-            $isRepeat=Db::table('dcxw_case')->where(['case_title' => $data['case_title']])->find();
+            $isRepeat=Db::table('super_case')->where(['case_title' => $data['case_title']])->find();
             if($isRepeat){
                 $this->error('此案例名称与已有重复，请换一个！','add');
             }
@@ -305,7 +305,7 @@ class Example extends Controller{
             $data['case_decotime']=time();
             $data['case_updatetime']=time();
             $data['case_admin'] = session('adminId');
-            $add=Db::table('dcxw_case')->insert($data);
+            $add=Db::table('super_case')->insert($data);
             if($add){
                 $this->success('发布案例成功！','example');
             }else{
@@ -313,33 +313,33 @@ class Example extends Controller{
             }
         }else{
             //设计师
-            $design=Db::table('dcxw_designer')->where(['des_isable' => '1'])->field('des_id,des_name')->select();
+            $design=Db::table('super_designer')->where(['des_isable' => '1'])->field('des_id,des_name')->select();
             $this->assign('design',$design);
             //风格
-            $style=Db::table('dcxw_type')->where(['type_isable' => '1','type_sort' => '2'])->field('type_id,type_name')->select();
+            $style=Db::table('super_type')->where(['type_isable' => '1','type_sort' => '2'])->field('type_id,type_name')->select();
             $this->assign('style',$style);
             //楼盘
-            $build=Db::table('dcxw_buildings')->where(['bu_isable' => '1'])->field('bu_id,bu_name')->select();
+            $build=Db::table('super_buildings')->where(['bu_isable' => '1'])->field('bu_id,bu_name')->select();
             $this->assign('build',$build);
             //房屋类型
-            $houseType=Db::table('dcxw_type')->where(['type_isable' => '1','type_sort' => '4'])->field('type_id,type_name')->select();
+            $houseType=Db::table('super_type')->where(['type_isable' => '1','type_sort' => '4'])->field('type_id,type_name')->select();
             $this->assign('houseType',$houseType);
             if($ad_role == 1 ){// 超级管理员
-                $provInfo=Db::table('dcxw_province')->select();
+                $provInfo=Db::table('super_province')->select();
                 $this->assign('prov',$provInfo);
             }else{
-                $adminInfo=Db::table('dcxw_admin')
-                    ->join('dcxw_province','dcxw_province.p_id = dcxw_admin.ad_p_id')
-                    ->join('dcxw_city','dcxw_city.c_id = dcxw_admin.ad_c_id')
-                    ->join('dcxw_role','dcxw_role.r_id = dcxw_admin.ad_role')
-                    ->join('dcxw_branch','dcxw_branch.b_id = dcxw_admin.ad_branch')
-                    ->field('dcxw_admin.ad_realname,dcxw_province.p_name,dcxw_city.c_name,dcxw_branch.b_name,dcxw_role.r_name')
+                $adminInfo=Db::table('super_admin')
+                    ->join('super_province','super_province.p_id = super_admin.ad_p_id')
+                    ->join('super_city','super_city.c_id = super_admin.ad_c_id')
+                    ->join('super_role','super_role.r_id = super_admin.ad_role')
+                    ->join('super_branch','super_branch.b_id = super_admin.ad_branch')
+                    ->field('super_admin.ad_realname,super_province.p_name,super_city.c_name,super_branch.b_name,super_role.r_name')
                     ->where(['ad_id' => $adminId])
                     ->find();
                 $this->assign('admin',$adminInfo);
             }
             $this->assign('ad_role',$ad_role);
-            $provInfo=Db::table('dcxw_province')->select();
+            $provInfo=Db::table('super_province')->select();
             $this->assign('prov',$provInfo);
             return $this->fetch();
         }
@@ -356,7 +356,7 @@ class Example extends Controller{
             $data['case_img'] = implode(',',$_POST['case_img']);
             $data['case_img_alt'] = implode(',',$_POST['case_img_alt']);
             $data['case_title']=$_POST['case_title'];
-            $isRepeat=Db::table('dcxw_case')
+            $isRepeat=Db::table('super_case')
                 ->where('case_id','neq',$case_id)
                 ->where(['case_title' => $data['case_title']])
                 ->find();
@@ -382,7 +382,7 @@ class Example extends Controller{
             $data['case_seo_keywords']=$_POST['case_seo_keywords'];
             $data['case_updatetime']=time();
             $data['case_admin'] = session('adminId');
-            $edit=Db::table('dcxw_case')->where(['case_id'=>$case_id])->update($data);
+            $edit=Db::table('super_case')->where(['case_id'=>$case_id])->update($data);
             if($edit){
                 $this->success('修改案例成功','example');
             }else{
@@ -390,33 +390,33 @@ class Example extends Controller{
             }
         }else{
             //设计师
-            $design=Db::table('dcxw_designer')->where(['des_isable' => '1'])->field('des_id,des_name')->select();
+            $design=Db::table('super_designer')->where(['des_isable' => '1'])->field('des_id,des_name')->select();
             $this->assign('design',$design);
             //风格
-            $style=Db::table('dcxw_type')->where(['type_isable' => '1','type_sort' => '2'])->field('type_id,type_name')->select();
+            $style=Db::table('super_type')->where(['type_isable' => '1','type_sort' => '2'])->field('type_id,type_name')->select();
             $this->assign('style',$style);
             //楼盘
-            $build=Db::table('dcxw_buildings')->where(['bu_isable' => '1'])->field('bu_id,bu_name')->select();
+            $build=Db::table('super_buildings')->where(['bu_isable' => '1'])->field('bu_id,bu_name')->select();
             $this->assign('build',$build);
-            $provInfo=Db::table('dcxw_province')->select();
+            $provInfo=Db::table('super_province')->select();
             $this->assign('prov',$provInfo);
-            $artInfo=Db::table('dcxw_case')
-                ->join('dcxw_province','dcxw_province.p_id = dcxw_case.case_p_id')
-                ->join('dcxw_city','dcxw_city.c_id = dcxw_case.case_c_id')
-                ->join('dcxw_branch','dcxw_branch.b_id = dcxw_case.case_b_id')
+            $artInfo=Db::table('super_case')
+                ->join('super_province','super_province.p_id = super_case.case_p_id')
+                ->join('super_city','super_city.c_id = super_case.case_c_id')
+                ->join('super_branch','super_branch.b_id = super_case.case_b_id')
                 ->where(['case_id'=>$case_id])
-                ->field('dcxw_case.*,dcxw_province.p_name,dcxw_city.c_name,dcxw_branch.b_name')
+                ->field('super_case.*,super_province.p_name,super_city.c_name,super_branch.b_name')
                 ->find();
             //案例图片
             $artInfo['case_img']=explode(',',$artInfo['case_img']);
             $artInfo['case_img_alt']=explode(',',$artInfo['case_img_alt']);
             $provId=$artInfo['case_p_id'];
             $c_id=$artInfo['case_c_id'];
-            $city=Db::table('dcxw_city')->where(['p_id' => $provId])->select();
-            $branchs=Db::table('dcxw_branch')->where(['b_city' =>$c_id ])->field('b_id,b_name')->select();
+            $city=Db::table('super_city')->where(['p_id' => $provId])->select();
+            $branchs=Db::table('super_branch')->where(['b_city' =>$c_id ])->field('b_id,b_name')->select();
             $this->assign('branchs',$branchs);
             //房屋类型
-            $houseType=Db::table('dcxw_type')->where(['type_isable' => '1','type_sort' => '4'])->field('type_id,type_name')->select();
+            $houseType=Db::table('super_type')->where(['type_isable' => '1','type_sort' => '4'])->field('type_id,type_name')->select();
             $this->assign('houseType',$houseType);
             $this->assign('city',$city);
             $this->assign('case',$artInfo);
@@ -428,7 +428,7 @@ class Example extends Controller{
     //刷新某一案例
     public function refresh(){
         $case_id=intval($_GET['case_id']);
-        $refresh=Db::table('dcxw_case')->where(['case_id' => $case_id])->update(['case_updatetime' => time()]);
+        $refresh=Db::table('super_case')->where(['case_id' => $case_id])->update(['case_updatetime' => time()]);
         if($refresh){
             $this->success('刷新案例成功','example');
         }else{
@@ -444,7 +444,7 @@ class Example extends Controller{
         $case_id=$_POST['case_id'];
         $case_title=$_POST['case_title'];
         if(isset($case_id)){
-            $isRepeat=Db::table('dcxw_case')
+            $isRepeat=Db::table('super_case')
                 ->where('case_id','neq',$case_id)
                 ->where(['case_title' => $case_title])
                 ->find();
@@ -456,7 +456,7 @@ class Example extends Controller{
                 $res['msg'] = '此名称经过检测可用。';
             }
         }else{
-            $isRepeat=Db::table('dcxw_case')->where(['case_title' => $case_title])->find();
+            $isRepeat=Db::table('super_case')->where(['case_title' => $case_title])->find();
             if($isRepeat){
                 $res['code'] = 2;
                 $res['msg'] = '此案例名称与已有重复，请换一个！';
@@ -482,7 +482,7 @@ class Example extends Controller{
     //删除某一案例
     public function del(){
         $case_id=intval($_GET['case_id']);
-        $delArt=Db::table('dcxw_case')->where(['case_id' => $case_id])->delete();
+        $delArt=Db::table('super_case')->where(['case_id' => $case_id])->delete();
         if($delArt){
             $this->success('删除案例成功','example');
         }else{
@@ -507,7 +507,7 @@ class Example extends Controller{
                 $data['case_istop'] = '2';
                 $data['case_admin'] = session('adminId');
             }
-            $changeStatus = Db::table('dcxw_case')->where(['case_id' => $ba_id])->update($data);
+            $changeStatus = Db::table('super_case')->where(['case_id' => $ba_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -537,7 +537,7 @@ class Example extends Controller{
                 $data['case_istop'] = '2';
                 $data['case_admin'] = session('adminId');
             }
-            $changeStatus = Db::table('dcxw_case')->where(['case_id' => $ba_id])->update($data);
+            $changeStatus = Db::table('super_case')->where(['case_id' => $ba_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';

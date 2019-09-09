@@ -68,20 +68,20 @@ class Building extends Controller{
             $edate=strtotime(substr($case_decotime,'-10')." 23:59:59");
             $where.=" and ( bu_createtime >= ".$sdate." and bu_createtime <= ".$edate." ) ";
         }
-        $count=Db::table('dcxw_buildings')
-                ->join('dcxw_province','dcxw_province.p_id = dcxw_buildings.bu_p_id')
-                ->join('dcxw_city','dcxw_city.c_id = dcxw_buildings.bu_c_id')
-                ->join('dcxw_branch','dcxw_branch.b_id = dcxw_buildings.bu_branch')
-                ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_buildings.bu_admin')
+        $count=Db::table('super_buildings')
+                ->join('super_province','super_province.p_id = super_buildings.bu_p_id')
+                ->join('super_city','super_city.c_id = super_buildings.bu_c_id')
+                ->join('super_branch','super_branch.b_id = super_buildings.bu_branch')
+                ->join('super_admin','super_admin.ad_id = super_buildings.bu_admin')
                 ->where($where)
                 ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $builds=Db::table('dcxw_buildings')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_buildings.bu_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_buildings.bu_c_id')
-            ->join('dcxw_branch','dcxw_branch.b_id = dcxw_buildings.bu_branch')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_buildings.bu_admin')
+        $builds=Db::table('super_buildings')
+            ->join('super_province','super_province.p_id = super_buildings.bu_p_id')
+            ->join('super_city','super_city.c_id = super_buildings.bu_c_id')
+            ->join('super_branch','super_branch.b_id = super_buildings.bu_branch')
+            ->join('super_admin','super_admin.ad_id = super_buildings.bu_admin')
             ->limit(($page-1)*$limit,$limit)
             ->where($where)
             ->order('bu_istop ASC,bu_view desc')
@@ -89,7 +89,7 @@ class Building extends Controller{
         foreach ($builds as $k =>$v){
             $builds[$k]['bu_updatetime'] = date('Y-m-d H:i:s',$v['bu_updatetime']);
             $builds[$k]['c_name'] = $v['p_name']."-".$v['c_name'];
-            $builds[$k]['bu_case_num'] = Db::table('dcxw_case')->where(['case_bulid' => $v['bu_id'],'case_sort' => 1,'case_isable' =>1])->count();
+            $builds[$k]['bu_case_num'] = Db::table('super_case')->where(['case_bulid' => $v['bu_id'],'case_sort' => 1,'case_isable' =>1])->count();
         }
         $res['code'] = 0;
         $res['msg'] = "";
@@ -107,12 +107,12 @@ class Building extends Controller{
         //分站id
         $ad_branch = intval(session('ad_branch'));
         if($ad_role == 1 ){// 超级管理员
-            $design=Db::table('dcxw_designer')->where(['des_isable' => '1'])->field('des_id,des_name')->select();
-            $admin = Db::table('dcxw_admin')->where(['ad_isable' => 1])->select();
+            $design=Db::table('super_designer')->where(['des_isable' => '1'])->field('des_id,des_name')->select();
+            $admin = Db::table('super_admin')->where(['ad_isable' => 1])->select();
             $where =' 1 = 1';
         }else{
-            $design=Db::table('dcxw_designer')->where(['des_isable' => '1','des_b_id' => $ad_branch])->field('des_id,des_name')->select();
-            $admin = Db::table('dcxw_admin')->where(['ad_isable' => 1,'ad_branch' => $ad_branch])->select();
+            $design=Db::table('super_designer')->where(['des_isable' => '1','des_b_id' => $ad_branch])->field('des_id,des_name')->select();
+            $admin = Db::table('super_admin')->where(['ad_isable' => 1,'ad_branch' => $ad_branch])->select();
             $where=' bu_branch = '.$ad_branch;
         }
         $this->assign('design',$design);
@@ -150,31 +150,31 @@ class Building extends Controller{
                 $where.=" and ( bu_createtime >= ".$sdate." and bu_createtime <= ".$edate." ) ";
             }
             //已展示
-            $data['display']=Db::table('dcxw_buildings')
-                ->join('dcxw_province','dcxw_province.p_id = dcxw_buildings.bu_p_id')
-                ->join('dcxw_city','dcxw_city.c_id = dcxw_buildings.bu_c_id')
-                ->join('dcxw_branch','dcxw_branch.b_id = dcxw_buildings.bu_branch')
-                ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_buildings.bu_admin')
+            $data['display']=Db::table('super_buildings')
+                ->join('super_province','super_province.p_id = super_buildings.bu_p_id')
+                ->join('super_city','super_city.c_id = super_buildings.bu_c_id')
+                ->join('super_branch','super_branch.b_id = super_buildings.bu_branch')
+                ->join('super_admin','super_admin.ad_id = super_buildings.bu_admin')
                 ->where($where)
                 ->where(['bu_isable' => 1])
                 ->count();
             //未展示
-            $data['none']=Db::table('dcxw_buildings')
-                ->join('dcxw_province','dcxw_province.p_id = dcxw_buildings.bu_p_id')
-                ->join('dcxw_city','dcxw_city.c_id = dcxw_buildings.bu_c_id')
-                ->join('dcxw_branch','dcxw_branch.b_id = dcxw_buildings.bu_branch')
-                ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_buildings.bu_admin')
+            $data['none']=Db::table('super_buildings')
+                ->join('super_province','super_province.p_id = super_buildings.bu_p_id')
+                ->join('super_city','super_city.c_id = super_buildings.bu_c_id')
+                ->join('super_branch','super_branch.b_id = super_buildings.bu_branch')
+                ->join('super_admin','super_admin.ad_id = super_buildings.bu_admin')
                 ->where($where)
                 ->where(['bu_isable' => 2])
                 ->count();
             $data['all']=intval($data['display'])+intval($data['none']);
             return $data;
         }else{
-            $disShow=Db::table('dcxw_buildings')
+            $disShow=Db::table('super_buildings')
                 ->where($where)
                 ->where(['bu_isable' => 1])
                 ->count();
-            $disNone=Db::table('dcxw_buildings')
+            $disNone=Db::table('super_buildings')
                 ->where($where)
                 ->where(['bu_isable' => 2])
                 ->count();
@@ -191,7 +191,7 @@ class Building extends Controller{
         $bu_id=$_POST['bu_id'];
         $bu_name=$_POST['bu_name'];
         if($bu_id){
-            $isRepeat=Db::table('dcxw_buildings')
+            $isRepeat=Db::table('super_buildings')
                 ->where('bu_id','neq',$bu_id)
                 ->where(['bu_name' => $bu_name])
                 ->find();
@@ -203,7 +203,7 @@ class Building extends Controller{
                 $res['msg'] = '此名称经过检测可用。';
             }
         }else{
-            $isRepeat=Db::table('dcxw_buildings')->where(['bu_name' => $bu_name])->find();
+            $isRepeat=Db::table('super_buildings')->where(['bu_name' => $bu_name])->find();
             if($isRepeat){
                 $res['code'] = 2;
                 $res['msg'] = '此楼盘名称与已有重复，请换一个！';
@@ -236,7 +236,7 @@ class Building extends Controller{
                 $data['bu_isable'] = '2';
                 $data['bu_admin'] = session('adminId');
             }
-            $changeStatus = Db::table('dcxw_buildings')->where(['bu_id' => $ba_id])->update($data);
+            $changeStatus = Db::table('super_buildings')->where(['bu_id' => $ba_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -265,7 +265,7 @@ class Building extends Controller{
                 $data['bu_istop'] = '2';
                 $data['bu_admin'] = session('adminId');
             }
-            $changeStatus = Db::table('dcxw_buildings')->where(['bu_id' => $ba_id])->update($data);
+            $changeStatus = Db::table('super_buildings')->where(['bu_id' => $ba_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -290,11 +290,11 @@ class Building extends Controller{
             $stime=strtotime(date('Y-m-d 00:00:00'));
             $etime=strtotime(date('Y-m-d 23:59:59'));
             //获取当日预约的数量
-            $buNum=Db::table('dcxw_buildings')->where('bu_createtime','between',[$stime,$etime])->count();
+            $buNum=Db::table('super_buildings')->where('bu_createtime','between',[$stime,$etime])->count();
             //生成用户编号；
             $data['bu_bid'] = date('Ymd').sprintf("%04d", $buNum+1);
             $data['bu_name'] = $_POST['bu_name'];
-            $isRepeat=Db::table('dcxw_buildings')->where(['bu_name' => $data['bu_name']])->find();
+            $isRepeat=Db::table('super_buildings')->where(['bu_name' => $data['bu_name']])->find();
             if($isRepeat){
                 $this->error('此楼盘名称与已有重复，请换一个！','add');
             }
@@ -313,7 +313,7 @@ class Building extends Controller{
             $data['bu_createtime'] =time();
             $data['bu_updatetime'] =time();
             $data['bu_admin'] =$adminId;
-            $add=Db::table('dcxw_buildings')->insert($data);
+            $add=Db::table('super_buildings')->insert($data);
             if($add){
                 $this->success('添加楼盘成功','builds');
             }else{
@@ -321,15 +321,15 @@ class Building extends Controller{
             }
         }else{
             if($ad_role == 1 ){// 超级管理员
-                $provInfo=Db::table('dcxw_province')->select();
+                $provInfo=Db::table('super_province')->select();
                 $this->assign('prov',$provInfo);
             }else{
-                $adminInfo=Db::table('dcxw_admin')
-                    ->join('dcxw_province','dcxw_province.p_id = dcxw_admin.ad_p_id')
-                    ->join('dcxw_city','dcxw_city.c_id = dcxw_admin.ad_c_id')
-                    ->join('dcxw_role','dcxw_role.r_id = dcxw_admin.ad_role')
-                    ->join('dcxw_branch','dcxw_branch.b_id = dcxw_admin.ad_branch')
-                    ->field('dcxw_admin.ad_realname,dcxw_province.p_name,dcxw_city.c_name,dcxw_branch.b_name,dcxw_role.r_name')
+                $adminInfo=Db::table('super_admin')
+                    ->join('super_province','super_province.p_id = super_admin.ad_p_id')
+                    ->join('super_city','super_city.c_id = super_admin.ad_c_id')
+                    ->join('super_role','super_role.r_id = super_admin.ad_role')
+                    ->join('super_branch','super_branch.b_id = super_admin.ad_branch')
+                    ->field('super_admin.ad_realname,super_province.p_name,super_city.c_name,super_branch.b_name,super_role.r_name')
                     ->where(['ad_id' => $adminId])
                     ->find();
                 $this->assign('admin',$adminInfo);
@@ -345,7 +345,7 @@ class Building extends Controller{
         $bu_id=intval(trim($this->request->param('bu_id')));
         if($_POST){
             $data['bu_name'] = $_POST['bu_name'];
-            $isRepeat=Db::table('dcxw_buildings')
+            $isRepeat=Db::table('super_buildings')
                 ->where('bu_id','neq',$bu_id)
                 ->where(['bu_name' => $data['bu_name']])
                 ->find();
@@ -369,25 +369,25 @@ class Building extends Controller{
             $data['bu_istop'] = $_POST['bu_istop'];
             $data['bu_updatetime'] =time();
             $data['bu_admin'] = session('adminId');
-            $edit=Db::table('dcxw_buildings')->where(['bu_id' => $bu_id])->update($data);
+            $edit=Db::table('super_buildings')->where(['bu_id' => $bu_id])->update($data);
             if($edit){
                 $this->success('修改楼盘成功！','builds');
             }else{
                 $this->error('修改楼盘失败！','builds');
             }
         }else{
-            $buildsInfo=Db::table('dcxw_buildings')
-                ->join('dcxw_province','dcxw_province.p_id = dcxw_buildings.bu_p_id')
-                ->join('dcxw_city','dcxw_city.c_id = dcxw_buildings.bu_c_id')
-                ->join('dcxw_branch','dcxw_branch.b_id = dcxw_buildings.bu_branch')
+            $buildsInfo=Db::table('super_buildings')
+                ->join('super_province','super_province.p_id = super_buildings.bu_p_id')
+                ->join('super_city','super_city.c_id = super_buildings.bu_c_id')
+                ->join('super_branch','super_branch.b_id = super_buildings.bu_branch')
                 ->where(['bu_id' => $bu_id])
-                ->field('dcxw_buildings.*,dcxw_province.p_name,dcxw_city.c_name,dcxw_branch.b_name')
+                ->field('super_buildings.*,super_province.p_name,super_city.c_name,super_branch.b_name')
                 ->find();
-            $provInfo=Db::table('dcxw_province')->select();
+            $provInfo=Db::table('super_province')->select();
             $provid=$buildsInfo['bu_p_id'];
-            $cusCity=Db::table('dcxw_city')->where(['p_id' => $provid])->select();
+            $cusCity=Db::table('super_city')->where(['p_id' => $provid])->select();
             $c_id=$buildsInfo['bu_c_id'];
-            $branch=Db::table('dcxw_branch')->where(['b_city' =>$c_id ])->field('b_id,b_name')->select();
+            $branch=Db::table('super_branch')->where(['b_city' =>$c_id ])->field('b_id,b_name')->select();
             $this->assign('branchs',$branch);
             $this->assign('prov',$provInfo);
             $this->assign('city',$cusCity);
@@ -401,7 +401,7 @@ class Building extends Controller{
     //删除楼盘
     public function del(){
         $bu_id=intval($_GET['bu_id']);
-        $del=Db::table('dcxw_buildings')->where(['bu_id' => $bu_id])->delete();
+        $del=Db::table('super_buildings')->where(['bu_id' => $bu_id])->delete();
         if($del){
             $this->success('删除楼盘成功','builds');
         }else{
@@ -414,7 +414,7 @@ class Building extends Controller{
     //刷新某一楼盘数据
     public function refresh(){
         $bu_id=intval($_GET['bu_id']);
-        $refresh=Db::table('dcxw_buildings')->where(['bu_id' => $bu_id])->update(['bu_updatetime' => time()]);
+        $refresh=Db::table('super_buildings')->where(['bu_id' => $bu_id])->update(['bu_updatetime' => time()]);
         if($refresh){
             $this->success('刷新楼盘成功','builds');
         }else{

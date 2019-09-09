@@ -31,7 +31,7 @@ class Channel extends Controller{
 
 
     public function index(){
-        $channel=Db::table('dcxw_house_rent_channel')
+        $channel=Db::table('super_house_rent_channel')
             ->order('hrc_isable,hrc_addtime desc')
             ->select();
         $this->assign('channel',$channel);
@@ -47,7 +47,7 @@ class Channel extends Controller{
             $data['hrc_isable']=intval(trim($_POST['hrc_isable']));
             $data['hrc_addtime']=time();
             $data['hrc_admin'] = session('adminId');
-            $add=Db::table('dcxw_house_rent_channel')->insert($data);
+            $add=Db::table('super_house_rent_channel')->insert($data);
             if($add){
                 $this->success('添加成功！','channel/index');
             }else{
@@ -67,7 +67,7 @@ class Channel extends Controller{
             $data['hrc_isable']=intval(trim($_POST['hrc_isable']));
             $data['hrc_addtime']=time();
             $data['hrc_admin'] = session('adminId');
-            $update=Db::table('dcxw_house_rent_channel')
+            $update=Db::table('super_house_rent_channel')
                 ->where(['hrc_id' => $hrc_id])
                 ->update($data);
             if($update){
@@ -76,7 +76,7 @@ class Channel extends Controller{
                 $this->success('您未做任何修改！','channel/index');
             }
         }else{
-            $channel=Db::table('dcxw_house_rent_channel')
+            $channel=Db::table('super_house_rent_channel')
                 ->where(['hrc_id' => $hrc_id])
                 ->find();
             $this->assign('conf',$channel);
@@ -86,7 +86,7 @@ class Channel extends Controller{
 
     public function del(){
         $hrc_id=intval(trim($_GET['hrc_id']));
-        $del=Db::table('dcxw_house_rent_channel')
+        $del=Db::table('super_house_rent_channel')
             ->where(['hrc_id' => $hrc_id])
             ->delete();
         if($del){

@@ -37,12 +37,12 @@ class Question extends Controller{
 
     public function questionData(){
         $where="1 = 1";
-        $count=Db::table('dcxw_question')
+        $count=Db::table('super_question')
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $example=Db::table('dcxw_question')
+        $example=Db::table('super_question')
             ->where($where)
             ->limit(($page-1)*$limit,$limit)
             ->order('q_addtime desc')

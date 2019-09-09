@@ -42,13 +42,13 @@ class Learn extends Controller{
      * */
     public function indexData(){
         $where = " 1 = 1";
-        $count=Db::table('dcxw_lession')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_lession.ls_admin')
+        $count=Db::table('super_lession')
+            ->join('super_admin','super_admin.ad_id = super_lession.ls_admin')
             ->where($where)->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $coupon=Db::table('dcxw_lession')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_lession.ls_admin')
+        $coupon=Db::table('super_lession')
+            ->join('super_admin','super_admin.ad_id = super_lession.ls_admin')
             ->limit(($page-1)*$limit,$limit)
             ->where($where)
             ->order('ls_order desc')
@@ -75,7 +75,7 @@ class Learn extends Controller{
             $data['ls_admin'] =$adminId;
             $data['ls_addtime'] =time();
             $data['ls_updatetime'] =time();
-            $add=Db::table('dcxw_lession')->insert($data);
+            $add=Db::table('super_lession')->insert($data);
             if($add){
                 $this->success('发布课程成功！','index');
             }else{
@@ -99,14 +99,14 @@ class Learn extends Controller{
             $data=$_POST;
             $data['ls_updatetime']=time();
             $data['ls_admin'] = $adminId;
-            $update=Db::table('dcxw_lession')->where(['ls_id'=> $ls_id])->update($data);
+            $update=Db::table('super_lession')->where(['ls_id'=> $ls_id])->update($data);
             if($update){
                 $this->success('修改成功！','index');
             }else{
                 $this->error('您未做任何修改！','index');
             }
         }else{
-            $lessonInfo=Db::table('dcxw_lession')
+            $lessonInfo=Db::table('super_lession')
                 ->where(['ls_id'=> $ls_id])
                 ->find();
             $this->assign('lesson',$lessonInfo);
@@ -126,7 +126,7 @@ class Learn extends Controller{
         $ls_id=intval(trim($_POST['ls_id']));
         $ls_order=intval(trim($_POST['value']));
         if(!empty($ls_order)){
-            $reOrder=Db::table('dcxw_lession')->where(['ls_id' => $ls_id])->update(['ls_order' => $ls_order]);
+            $reOrder=Db::table('super_lession')->where(['ls_id' => $ls_id])->update(['ls_order' => $ls_order]);
             if($reOrder){
                 $this->success('修改排序成功！');
             }else{
@@ -146,7 +146,7 @@ class Learn extends Controller{
         $lc_id=intval(trim($_POST['lc_id']));
         $lc_order=intval(trim($_POST['value']));
         if(!empty($lc_order)){
-            $reOrder=Db::table('dcxw_chapter')->where(['lc_id' => $lc_id])->update(['lc_order' => $lc_order]);
+            $reOrder=Db::table('super_chapter')->where(['lc_id' => $lc_id])->update(['lc_order' => $lc_order]);
             if($reOrder){
                 $this->success('修改排序成功！');
             }else{
@@ -163,7 +163,7 @@ class Learn extends Controller{
      * */
     public function dellesson(){
         $ls_id=intval(trim($_GET['ls_id']));
-        $del=Db::table('dcxw_lession')->where(['ls_id' => $ls_id])->delete();
+        $del=Db::table('super_lession')->where(['ls_id' => $ls_id])->delete();
         if($del){
             $this->success('删除课程成功','index');
         }else{
@@ -177,7 +177,7 @@ class Learn extends Controller{
      * */
     public function sublesson(){
         $ls_id=intval(trim($_GET['ls_id']));
-        $ls_title=Db::table('dcxw_lession')->where(['ls_id' => $ls_id])->column('ls_title');
+        $ls_title=Db::table('super_lession')->where(['ls_id' => $ls_id])->column('ls_title');
         $this->assign('ls_title',$ls_title[0]);
         $this->assign('ls_id',$ls_id);
         return $this->fetch();
@@ -187,20 +187,20 @@ class Learn extends Controller{
     public function chapterData(){
         $where = " 1 = 1";
         $ls_id= intval(trim($this->request->param('ls_id')));
-        $count=Db::table('dcxw_chapter')
-            ->join('dcxw_admin','dcxw_chapter.lc_admin = dcxw_admin.ad_id')
+        $count=Db::table('super_chapter')
+            ->join('super_admin','super_chapter.lc_admin = super_admin.ad_id')
             ->where(['lc_ls_id' => $ls_id])
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $subLesson=Db::table('dcxw_chapter')
-            ->join('dcxw_admin','dcxw_chapter.lc_admin = dcxw_admin.ad_id')
+        $subLesson=Db::table('super_chapter')
+            ->join('super_admin','super_chapter.lc_admin = super_admin.ad_id')
             ->where(['lc_ls_id' => $ls_id])
             ->where($where)
             ->limit(($page-1)*$limit,$limit)
             ->order('lc_order desc')
-            ->field('dcxw_admin.ad_realname,dcxw_chapter.*')
+            ->field('super_admin.ad_realname,super_chapter.*')
             ->select();
         foreach ($subLesson as $k =>$v){
             $subLesson[$k]['lc_addtime'] = date('Y-m-d H:i:s',$v['lc_addtime']);
@@ -223,14 +223,14 @@ class Learn extends Controller{
             $data['lc_admin'] =$adminId;
             $data['lc_addtime'] =time();
             $data['lc_updatetime'] =time();
-            $add=Db::table('dcxw_chapter')->insert($data);
+            $add=Db::table('super_chapter')->insert($data);
             if($add){
                 $this->success('发布成功！');
             }else{
                 $this->error('发布失败！');
             }
         }else{
-            $ls_title=Db::table('dcxw_lession')->where(['ls_id' => $ls_id])->column('ls_title');
+            $ls_title=Db::table('super_lession')->where(['ls_id' => $ls_id])->column('ls_title');
             $this->assign('ls_title',$ls_title[0]);
             $this->assign('ls_id',$ls_id);
             return $this->fetch();
@@ -251,7 +251,7 @@ class Learn extends Controller{
                 $msg = '隐藏';
                 $data['ls_isable'] = 2;
             }
-            $changeStatus = Db::table('dcxw_lession')->where(['ls_id' => $ls_id])->update($data);
+            $changeStatus = Db::table('super_lession')->where(['ls_id' => $ls_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -280,7 +280,7 @@ class Learn extends Controller{
                 $msg = '隐藏';
                 $data['lc_isable'] = 2;
             }
-            $changeStatus = Db::table('dcxw_chapter')->where(['lc_id' => $lc_id])->update($data);
+            $changeStatus = Db::table('super_chapter')->where(['lc_id' => $lc_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -307,18 +307,18 @@ class Learn extends Controller{
             $data=$_POST;
             $data['lc_updatetime']=time();
             $data['lc_admin'] = $adminId;
-            $update=Db::table('dcxw_chapter')->where(['lc_id'=> $lc_id])->update($data);
+            $update=Db::table('super_chapter')->where(['lc_id'=> $lc_id])->update($data);
             if($update){
                 $this->success('修改成功！');
             }else{
                 $this->error('您未做任何修改！');
             }
         }else{
-            $chapterInfo=Db::table('dcxw_chapter')
+            $chapterInfo=Db::table('super_chapter')
                 ->where(['lc_id'=> $lc_id])
                 ->find();
             $ls_id=$chapterInfo['lc_ls_id'];
-            $ls_title=Db::table('dcxw_lession')->where(['ls_id' => $ls_id])->column('ls_title');
+            $ls_title=Db::table('super_lession')->where(['ls_id' => $ls_id])->column('ls_title');
             $this->assign('ls_title',$ls_title[0]);
             $this->assign('ls_id',$ls_id);
             $this->assign('chapter',$chapterInfo);
@@ -332,7 +332,7 @@ class Learn extends Controller{
      * */
     public function delchapter(){
         $lc_id=intval(trim($_GET['lc_id']));
-        $del=Db::table('dcxw_chapter')->where(['lc_id' => $lc_id])->delete();
+        $del=Db::table('super_chapter')->where(['lc_id' => $lc_id])->delete();
         if($del){
             $this->success('删除成功');
         }else{

@@ -137,7 +137,7 @@ class Index extends Controller{
 
 
     public function getCityName(){
-        $city=Db::table('dcxw_city')
+        $city=Db::table('super_city')
             ->order('c_opeatime')
             ->field('c_id,c_name')
             ->select();

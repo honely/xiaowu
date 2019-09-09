@@ -70,34 +70,34 @@ class User extends Controller{
                 $where.=" and ( cus_opptime>= ".$sdate." and cus_opptime <= ".$edate." ) ";
             }
             //手机端
-            $data['display']=Db::table('dcxw_customer')
-                ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-                ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
-                ->join('dcxw_branch','dcxw_customer.cus_branchid = dcxw_branch.b_id')
-                ->join('dcxw_type','dcxw_customer.cus_status = dcxw_type.type_id')
+            $data['display']=Db::table('super_customer')
+                ->join('super_province','super_customer.cus_provid = super_province.p_id')
+                ->join('super_city','super_customer.cus_cityid = super_city.c_id')
+                ->join('super_branch','super_customer.cus_branchid = super_branch.b_id')
+                ->join('super_type','super_customer.cus_status = super_type.type_id')
                 ->where($where)
                 ->where(['cus_sys' => 1])
                 ->count();
             //pc端
-            $data['none']=Db::table('dcxw_customer')
-                ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-                ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
-                ->join('dcxw_branch','dcxw_customer.cus_branchid = dcxw_branch.b_id')
-                ->join('dcxw_type','dcxw_customer.cus_status = dcxw_type.type_id')
+            $data['none']=Db::table('super_customer')
+                ->join('super_province','super_customer.cus_provid = super_province.p_id')
+                ->join('super_city','super_customer.cus_cityid = super_city.c_id')
+                ->join('super_branch','super_customer.cus_branchid = super_branch.b_id')
+                ->join('super_type','super_customer.cus_status = super_type.type_id')
                 ->where($where)
                 ->where(['cus_sys' => 2])
                 ->count();
-            $decStyle=Db::table('dcxw_type')
+            $decStyle=Db::table('super_type')
                 ->where(['type_sort' => '1','type_isable' => '1'])
                 ->order('type_order desc')
                 ->field('type_id,type_name')
                 ->select();
             foreach($decStyle as $k =>$v){
-                $decStyle[$k]['count']=Db::table('dcxw_customer')
-                    ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-                    ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
-                    ->join('dcxw_branch','dcxw_customer.cus_branchid = dcxw_branch.b_id')
-                    ->join('dcxw_type','dcxw_customer.cus_status = dcxw_type.type_id')
+                $decStyle[$k]['count']=Db::table('super_customer')
+                    ->join('super_province','super_customer.cus_provid = super_province.p_id')
+                    ->join('super_city','super_customer.cus_cityid = super_city.c_id')
+                    ->join('super_branch','super_customer.cus_branchid = super_branch.b_id')
+                    ->join('super_type','super_customer.cus_status = super_type.type_id')
                     ->where($where)
                     ->where(['cus_status' => $v['type_id']])
                     ->count();
@@ -107,25 +107,25 @@ class User extends Controller{
             return $data;
         }
         //获取客户标签
-        $userTip=Db::table('dcxw_type')
+        $userTip=Db::table('super_type')
             ->where(['type_sort' => '1','type_isable' => '1'])
             ->order('type_order desc')
             ->field('type_id,type_name')
             ->select();
         foreach($userTip as $k =>$v){
-            $userTip[$k]['count']=Db::table('dcxw_customer')
+            $userTip[$k]['count']=Db::table('super_customer')
                 ->where($where)
                 ->where(['cus_status' => $v['type_id'],'cus_isdelete' => 1])
                 ->count();
         }
-        $tipsConut=Db::table('dcxw_customer')->where($where)->where(['cus_isdelete' => 1])->count();
+        $tipsConut=Db::table('super_customer')->where($where)->where(['cus_isdelete' => 1])->count();
         $this->assign('tipsConut',$tipsConut);
         $this->assign('userTip',$userTip);
         //操作人管理员
-        $admin = Db::table('dcxw_admin')->select();
+        $admin = Db::table('super_admin')->select();
         $this->assign('admin',$admin);
-        $mobileCount=Db::table('dcxw_customer')->where($where)->where(['cus_isdelete' => 1,'cus_sys' => 1])->count();
-        $pcCount=Db::table('dcxw_customer')->where($where)->where(['cus_isdelete' => 1,'cus_sys' => 2])->count();
+        $mobileCount=Db::table('super_customer')->where($where)->where(['cus_isdelete' => 1,'cus_sys' => 1])->count();
+        $pcCount=Db::table('super_customer')->where($where)->where(['cus_isdelete' => 1,'cus_sys' => 2])->count();
         $this->assign('mobileCount',$mobileCount);
         $this->assign('pcCount',$pcCount);
         if($ad_role == 12 ){ //推广
@@ -175,34 +175,34 @@ class User extends Controller{
                 $where.=" and ( cus_opptime>= ".$sdate." and cus_opptime <= ".$edate." ) ";
             }
             //手机端
-            $data['display']=Db::table('dcxw_customer')
-                ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-                ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
-                ->join('dcxw_branch','dcxw_customer.cus_branchid = dcxw_branch.b_id')
-                ->join('dcxw_type','dcxw_customer.cus_status = dcxw_type.type_id')
+            $data['display']=Db::table('super_customer')
+                ->join('super_province','super_customer.cus_provid = super_province.p_id')
+                ->join('super_city','super_customer.cus_cityid = super_city.c_id')
+                ->join('super_branch','super_customer.cus_branchid = super_branch.b_id')
+                ->join('super_type','super_customer.cus_status = super_type.type_id')
                 ->where($where)
                 ->where(['cus_sys' => 1])
                 ->count();
             //pc端
-            $data['none']=Db::table('dcxw_customer')
-                ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-                ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
-                ->join('dcxw_branch','dcxw_customer.cus_branchid = dcxw_branch.b_id')
-                ->join('dcxw_type','dcxw_customer.cus_status = dcxw_type.type_id')
+            $data['none']=Db::table('super_customer')
+                ->join('super_province','super_customer.cus_provid = super_province.p_id')
+                ->join('super_city','super_customer.cus_cityid = super_city.c_id')
+                ->join('super_branch','super_customer.cus_branchid = super_branch.b_id')
+                ->join('super_type','super_customer.cus_status = super_type.type_id')
                 ->where($where)
                 ->where(['cus_sys' => 2])
                 ->count();
-            $decStyle=Db::table('dcxw_type')
+            $decStyle=Db::table('super_type')
                 ->where(['type_sort' => '1','type_isable' => '1'])
                 ->order('type_order desc')
                 ->field('type_id,type_name')
                 ->select();
             foreach($decStyle as $k =>$v){
-                $decStyle[$k]['count']=Db::table('dcxw_customer')
-                    ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-                    ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
-                    ->join('dcxw_branch','dcxw_customer.cus_branchid = dcxw_branch.b_id')
-                    ->join('dcxw_type','dcxw_customer.cus_status = dcxw_type.type_id')
+                $decStyle[$k]['count']=Db::table('super_customer')
+                    ->join('super_province','super_customer.cus_provid = super_province.p_id')
+                    ->join('super_city','super_customer.cus_cityid = super_city.c_id')
+                    ->join('super_branch','super_customer.cus_branchid = super_branch.b_id')
+                    ->join('super_type','super_customer.cus_status = super_type.type_id')
                     ->where($where)
                     ->where(['cus_status' => $v['type_id']])
                     ->count();
@@ -212,25 +212,25 @@ class User extends Controller{
             return $data;
         }
         //获取客户标签
-        $userTip=Db::table('dcxw_type')
+        $userTip=Db::table('super_type')
             ->where(['type_sort' => '1','type_isable' => '1'])
             ->order('type_order desc')
             ->field('type_id,type_name')
             ->select();
         foreach($userTip as $k =>$v){
-            $userTip[$k]['count']=Db::table('dcxw_customer')
+            $userTip[$k]['count']=Db::table('super_customer')
                 ->where($where)
                 ->where(['cus_status' => $v['type_id'],'cus_isdelete' => 1])
                 ->count();
         }
-        $tipsConut=Db::table('dcxw_customer')->where($where)->where(['cus_isdelete' => 1])->count();
+        $tipsConut=Db::table('super_customer')->where($where)->where(['cus_isdelete' => 1])->count();
         $this->assign('tipsConut',$tipsConut);
         $this->assign('userTip',$userTip);
         //操作人管理员
-        $admin = Db::table('dcxw_admin')->select();
+        $admin = Db::table('super_admin')->select();
         $this->assign('admin',$admin);
-        $mobileCount=Db::table('dcxw_customer')->where($where)->where(['cus_isdelete' => 1,'cus_sys' => 1])->count();
-        $pcCount=Db::table('dcxw_customer')->where($where)->where(['cus_isdelete' => 1,'cus_sys' => 2])->count();
+        $mobileCount=Db::table('super_customer')->where($where)->where(['cus_isdelete' => 1,'cus_sys' => 1])->count();
+        $pcCount=Db::table('super_customer')->where($where)->where(['cus_isdelete' => 1,'cus_sys' => 2])->count();
         $this->assign('mobileCount',$mobileCount);
         $this->assign('pcCount',$pcCount);
         $this->assign('ad_role',$ad_role);
@@ -272,34 +272,34 @@ class User extends Controller{
                 $where.=" and ( cus_opptime>= ".$sdate." and cus_opptime <= ".$edate." ) ";
             }
             //手机端
-            $data['display']=Db::table('dcxw_customer')
-                ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-                ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
-                ->join('dcxw_branch','dcxw_customer.cus_branchid = dcxw_branch.b_id')
-                ->join('dcxw_type','dcxw_customer.cus_status = dcxw_type.type_id')
+            $data['display']=Db::table('super_customer')
+                ->join('super_province','super_customer.cus_provid = super_province.p_id')
+                ->join('super_city','super_customer.cus_cityid = super_city.c_id')
+                ->join('super_branch','super_customer.cus_branchid = super_branch.b_id')
+                ->join('super_type','super_customer.cus_status = super_type.type_id')
                 ->where($where)
                 ->where(['cus_sys' => 1])
                 ->count();
             //pc端
-            $data['none']=Db::table('dcxw_customer')
-                ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-                ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
-                ->join('dcxw_branch','dcxw_customer.cus_branchid = dcxw_branch.b_id')
-                ->join('dcxw_type','dcxw_customer.cus_status = dcxw_type.type_id')
+            $data['none']=Db::table('super_customer')
+                ->join('super_province','super_customer.cus_provid = super_province.p_id')
+                ->join('super_city','super_customer.cus_cityid = super_city.c_id')
+                ->join('super_branch','super_customer.cus_branchid = super_branch.b_id')
+                ->join('super_type','super_customer.cus_status = super_type.type_id')
                 ->where($where)
                 ->where(['cus_sys' => 2])
                 ->count();
-            $decStyle=Db::table('dcxw_type')
+            $decStyle=Db::table('super_type')
                 ->where(['type_sort' => '1','type_isable' => '1'])
                 ->order('type_order desc')
                 ->field('type_id,type_name')
                 ->select();
             foreach($decStyle as $k =>$v){
-                $decStyle[$k]['count']=Db::table('dcxw_customer')
-                    ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-                    ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
-                    ->join('dcxw_branch','dcxw_customer.cus_branchid = dcxw_branch.b_id')
-                    ->join('dcxw_type','dcxw_customer.cus_status = dcxw_type.type_id')
+                $decStyle[$k]['count']=Db::table('super_customer')
+                    ->join('super_province','super_customer.cus_provid = super_province.p_id')
+                    ->join('super_city','super_customer.cus_cityid = super_city.c_id')
+                    ->join('super_branch','super_customer.cus_branchid = super_branch.b_id')
+                    ->join('super_type','super_customer.cus_status = super_type.type_id')
                     ->where($where)
                     ->where(['cus_status' => $v['type_id']])
                     ->count();
@@ -309,25 +309,25 @@ class User extends Controller{
             return $data;
         }
         //获取客户标签
-        $userTip=Db::table('dcxw_type')
+        $userTip=Db::table('super_type')
             ->where(['type_sort' => '1','type_isable' => '1'])
             ->order('type_order desc')
             ->field('type_id,type_name')
             ->select();
         foreach($userTip as $k =>$v){
-            $userTip[$k]['count']=Db::table('dcxw_customer')
+            $userTip[$k]['count']=Db::table('super_customer')
                 ->where($where)
                 ->where(['cus_status' => $v['type_id'],'cus_isdelete' => 1])
                 ->count();
         }
-        $tipsConut=Db::table('dcxw_customer')->where($where)->where(['cus_isdelete' => 1])->count();
+        $tipsConut=Db::table('super_customer')->where($where)->where(['cus_isdelete' => 1])->count();
         $this->assign('tipsConut',$tipsConut);
         $this->assign('userTip',$userTip);
         //操作人管理员
-        $admin = Db::table('dcxw_admin')->select();
+        $admin = Db::table('super_admin')->select();
         $this->assign('admin',$admin);
-        $mobileCount=Db::table('dcxw_customer')->where($where)->where(['cus_isdelete' => 1,'cus_sys' => 1])->count();
-        $pcCount=Db::table('dcxw_customer')->where($where)->where(['cus_isdelete' => 1,'cus_sys' => 2])->count();
+        $mobileCount=Db::table('super_customer')->where($where)->where(['cus_isdelete' => 1,'cus_sys' => 1])->count();
+        $pcCount=Db::table('super_customer')->where($where)->where(['cus_isdelete' => 1,'cus_sys' => 2])->count();
         $this->assign('mobileCount',$mobileCount);
         $this->assign('pcCount',$pcCount);
         $this->assign('ad_role',$ad_role);
@@ -349,14 +349,14 @@ class User extends Controller{
     public function user1(){
         $ad_role=intval(session('ad_role'));
         //获取客户标签
-        $userTip=Db::table('dcxw_type')
+        $userTip=Db::table('super_type')
             ->where(['type_sort' => '1','type_isable' => '1'])
             ->field('type_id,type_name')
             ->select();
-        $provInfo=Db::table('dcxw_province')->select();
+        $provInfo=Db::table('super_province')->select();
         $this->assign('prov',$provInfo);
         //操作人管理员
-        $admin = Db::table('dcxw_admin')->select();
+        $admin = Db::table('super_admin')->select();
         $this->assign('admin',$admin);
         $this->assign('userTip',$userTip);
         if($ad_role == 12 ){ //推广
@@ -417,19 +417,19 @@ class User extends Controller{
             $where.=" and ( cus_opptime>= ".$sdate." and cus_opptime <= ".$edate." ) ";
         }
         //分页统计总数；
-        $count=Db::table('dcxw_customer')
-            ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-            ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
-            ->join('dcxw_branch','dcxw_customer.cus_branchid = dcxw_branch.b_id')
-            ->join('dcxw_type','dcxw_customer.cus_status = dcxw_type.type_id')
+        $count=Db::table('super_customer')
+            ->join('super_province','super_customer.cus_provid = super_province.p_id')
+            ->join('super_city','super_customer.cus_cityid = super_city.c_id')
+            ->join('super_branch','super_customer.cus_branchid = super_branch.b_id')
+            ->join('super_type','super_customer.cus_status = super_type.type_id')
             ->where($where)->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $cusInfo=Db::table('dcxw_customer')
-            ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-            ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
-            ->join('dcxw_branch','dcxw_customer.cus_branchid = dcxw_branch.b_id')
-            ->join('dcxw_type','dcxw_customer.cus_status = dcxw_type.type_id')
+        $cusInfo=Db::table('super_customer')
+            ->join('super_province','super_customer.cus_provid = super_province.p_id')
+            ->join('super_city','super_customer.cus_cityid = super_city.c_id')
+            ->join('super_branch','super_customer.cus_branchid = super_branch.b_id')
+            ->join('super_type','super_customer.cus_status = super_type.type_id')
             ->where($where)
             ->limit(($page-1)*$limit,$limit)
             ->order('cus_id desc')
@@ -441,7 +441,7 @@ class User extends Controller{
             $cusInfo[$k]['cus_opptime']=date('Y-m-d H:i:s',$v['cus_opptime']);
             //操作人员对应当前登录的管理员
             if(!empty($v['cus_opeater']) && is_int($v['cus_opeater'])){
-                $adInfo=Db::table('dcxw_admin')
+                $adInfo=Db::table('super_admin')
                     ->where(['ad_id' => $v['cus_opeater']])
                     ->field('ad_id,ad_realname')->find();
                 $adName = $adInfo['ad_realname'];
@@ -469,12 +469,12 @@ class User extends Controller{
     //该方法暂时无效 2018-05-30
     public function user2(){
         //获取客户标签
-        $userTip=Db::table('dcxw_type')
+        $userTip=Db::table('super_type')
             ->order('type_order desc')
             ->where(['type_sort' => '1','type_isable' => '1'])
             ->field('type_id,type_name')
             ->select();
-        $provInfo=Db::table('dcxw_province')->select();
+        $provInfo=Db::table('super_province')->select();
         $this->assign('prov',$provInfo);
         $where=" 1 = 1";
         //根据role_id 去判断这个登录的人是超管 1  ？站长 6？ 客服 8  ？ 推广 12 ；目前就是这4个身份；
@@ -521,19 +521,19 @@ class User extends Controller{
             $where.=" and ( cus_opptime>= ".$sdate." and cus_opptime <= ".$edate." ) ";
         }
         //分页统计总数；
-        $count=Db::table('dcxw_customer')
-            ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-            ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
-            ->join('dcxw_branch','dcxw_customer.cus_branchid = dcxw_branch.b_id')
-            ->join('dcxw_type','dcxw_customer.cus_status = dcxw_type.type_id')
+        $count=Db::table('super_customer')
+            ->join('super_province','super_customer.cus_provid = super_province.p_id')
+            ->join('super_city','super_customer.cus_cityid = super_city.c_id')
+            ->join('super_branch','super_customer.cus_branchid = super_branch.b_id')
+            ->join('super_type','super_customer.cus_status = super_type.type_id')
             ->where($where)->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $cusInfo=Db::table('dcxw_customer')
-            ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-            ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
-            ->join('dcxw_branch','dcxw_customer.cus_branchid = dcxw_branch.b_id')
-            ->join('dcxw_type','dcxw_customer.cus_status = dcxw_type.type_id')
+        $cusInfo=Db::table('super_customer')
+            ->join('super_province','super_customer.cus_provid = super_province.p_id')
+            ->join('super_city','super_customer.cus_cityid = super_city.c_id')
+            ->join('super_branch','super_customer.cus_branchid = super_branch.b_id')
+            ->join('super_type','super_customer.cus_status = super_type.type_id')
             ->where($where)
             ->limit(($page-1)*$limit,$limit)
             ->order('cus_id desc')
@@ -542,7 +542,7 @@ class User extends Controller{
             $cusInfo[$k]['cus_opptime']=date('Y-m-d H:i:s',$v['cus_opptime']);
             //操作人员对应当前登录的管理员
             if(!empty($v['cus_opeater']) && is_int($v['cus_opeater'])){
-                $adInfo=Db::table('dcxw_admin')
+                $adInfo=Db::table('super_admin')
                     ->where(['ad_id' => $v['cus_opeater']])
                     ->field('ad_id,ad_realname')->find();
                 $adName = $adInfo['ad_realname'];
@@ -566,7 +566,7 @@ class User extends Controller{
         }
         dump($cusInfo);
         //操作人管理员
-        $admin = Db::table('dcxw_admin')->select();
+        $admin = Db::table('super_admin')->select();
         $this->assign('admin',$admin);
         $this->assign('count',$count);
         $this->assign('limit',$limit);
@@ -627,7 +627,7 @@ class User extends Controller{
         $ad_role=intval(session('ad_role'));
         $cus_id=intval($_GET['user_id']);
         //获取客户信息；
-        $cusInfo=Db::table('dcxw_customer')->where(['cus_id' => $cus_id])->find();
+        $cusInfo=Db::table('super_customer')->where(['cus_id' => $cus_id])->find();
         //用户系统
         if($cusInfo['cus_sys'] == '1'){
             $cusInfo['cus_sys']='手机端';
@@ -639,20 +639,20 @@ class User extends Controller{
         }
         $cusInfo['cus_opptime']=date('Y-m-d H:i',$cusInfo['cus_opptime']);
         $cus_provid=$cusInfo['cus_provid'];
-        $cusCity=Db::table('dcxw_city')->where(['p_id' => $cus_provid])->select();
+        $cusCity=Db::table('super_city')->where(['p_id' => $cus_provid])->select();
         //获取客户标签
-        $userTip=Db::table('dcxw_type')
+        $userTip=Db::table('super_type')
             ->where(['type_sort' => '1','type_isable' => '1'])
             ->field('type_id,type_name')
             ->select();
-        $provInfo=Db::table('dcxw_province')->select();
+        $provInfo=Db::table('super_province')->select();
 
         //获取装修品质：
-        $decLevel=Db::table('dcxw_type')
+        $decLevel=Db::table('super_type')
             ->where(['type_sort' => '3','type_isable' => '1'])
             ->select();
         //获取装修风格：
-        $decStyle=Db::table('dcxw_type')
+        $decStyle=Db::table('super_type')
             ->where(['type_sort' => '2','type_isable' => '1'])
             ->select();
         $this->assign('ad_role',$ad_role);
@@ -671,7 +671,7 @@ class User extends Controller{
         $data=$_POST;
         $data['cus_opeater'] = session('adminId');
         $data['cus_backtime'] =time();
-        $editCus=Db::table('dcxw_customer')->where(['cus_id' => $cus_id])->update($data);
+        $editCus=Db::table('super_customer')->where(['cus_id' => $cus_id])->update($data);
         if($editCus){
             $this->success('修改成功','user');
         }else{
@@ -684,7 +684,7 @@ class User extends Controller{
         $data['cus_opeater'] = session('adminId');
         $data['cus_isdelete'] = '2';
         $cus_id=intval($this->request->param('cus_id'));
-        $delCus=Db::table('dcxw_customer')->where(['cus_id' => $cus_id])->update($data);
+        $delCus=Db::table('super_customer')->where(['cus_id' => $cus_id])->update($data);
         if($delCus){
             $this->success('删除成功','user');
         }else{
@@ -696,7 +696,7 @@ class User extends Controller{
     public function delBatch(){
         // ids 格式为： 15,13
         $ids=rtrim($this->request->param('ids'),',');
-        $res=Db::table('dcxw_customer')
+        $res=Db::table('super_customer')
             ->where('cus_id','in',$ids)
             ->update(['cus_isdelete' => '2']);
         if($res){
@@ -708,7 +708,7 @@ class User extends Controller{
 
     //全部删除客户数据
     public function delAll(){
-        $res=Db::table('dcxw_customer')->update(['cus_isdelete' => '2']);
+        $res=Db::table('super_customer')->update(['cus_isdelete' => '2']);
         if($res){
             return  json(['code' => '1']);
         }else{
@@ -722,7 +722,7 @@ class User extends Controller{
 //
 //     public function sendMsg(){
 //        $cus_id=intval($_GET['cus_id']);
-//        $cusInfo=Db::table('dcxw_customer')->field('cus_phone')->where(['cus_id'=> $cus_id])->find();
+//        $cusInfo=Db::table('super_customer')->field('cus_phone')->where(['cus_id'=> $cus_id])->find();
 //        $cus_phone=$cusInfo['cus_phone'];
 ////        dump($cus_phone);
 //        Loader::import('aliyun/api_demo/SmsDemo',EXTEND_PATH);
@@ -769,34 +769,34 @@ class User extends Controller{
                 $where.=" and ( cus_opptime>= ".$sdate." and cus_opptime <= ".$edate." ) ";
             }
             //手机端
-            $data['display']=Db::table('dcxw_customer')
-                ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-                ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
-                ->join('dcxw_branch','dcxw_customer.cus_branchid = dcxw_branch.b_id')
-                ->join('dcxw_type','dcxw_customer.cus_status = dcxw_type.type_id')
+            $data['display']=Db::table('super_customer')
+                ->join('super_province','super_customer.cus_provid = super_province.p_id')
+                ->join('super_city','super_customer.cus_cityid = super_city.c_id')
+                ->join('super_branch','super_customer.cus_branchid = super_branch.b_id')
+                ->join('super_type','super_customer.cus_status = super_type.type_id')
                 ->where($where)
                 ->where(['cus_sys' => 1])
                 ->count();
             //pc端
-            $data['none']=Db::table('dcxw_customer')
-                ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-                ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
-                ->join('dcxw_branch','dcxw_customer.cus_branchid = dcxw_branch.b_id')
-                ->join('dcxw_type','dcxw_customer.cus_status = dcxw_type.type_id')
+            $data['none']=Db::table('super_customer')
+                ->join('super_province','super_customer.cus_provid = super_province.p_id')
+                ->join('super_city','super_customer.cus_cityid = super_city.c_id')
+                ->join('super_branch','super_customer.cus_branchid = super_branch.b_id')
+                ->join('super_type','super_customer.cus_status = super_type.type_id')
                 ->where($where)
                 ->where(['cus_sys' => 2])
                 ->count();
-            $decStyle=Db::table('dcxw_type')
+            $decStyle=Db::table('super_type')
                 ->where(['type_sort' => '1','type_isable' => '1'])
                 ->order('type_order desc')
                 ->field('type_id,type_name')
                 ->select();
             foreach($decStyle as $k =>$v){
-                $decStyle[$k]['count']=Db::table('dcxw_customer')
-                    ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-                    ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
-                    ->join('dcxw_branch','dcxw_customer.cus_branchid = dcxw_branch.b_id')
-                    ->join('dcxw_type','dcxw_customer.cus_status = dcxw_type.type_id')
+                $decStyle[$k]['count']=Db::table('super_customer')
+                    ->join('super_province','super_customer.cus_provid = super_province.p_id')
+                    ->join('super_city','super_customer.cus_cityid = super_city.c_id')
+                    ->join('super_branch','super_customer.cus_branchid = super_branch.b_id')
+                    ->join('super_type','super_customer.cus_status = super_type.type_id')
                     ->where($where)
                     ->where(['cus_status' => $v['type_id']])
                     ->count();
@@ -806,19 +806,19 @@ class User extends Controller{
             return $data;
         }
         //分页统计总数；
-        $count=Db::table('dcxw_customer')
-            ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-            ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
-            ->join('dcxw_branch','dcxw_customer.cus_branchid = dcxw_branch.b_id')
-            ->join('dcxw_type','dcxw_customer.cus_status = dcxw_type.type_id')
+        $count=Db::table('super_customer')
+            ->join('super_province','super_customer.cus_provid = super_province.p_id')
+            ->join('super_city','super_customer.cus_cityid = super_city.c_id')
+            ->join('super_branch','super_customer.cus_branchid = super_branch.b_id')
+            ->join('super_type','super_customer.cus_status = super_type.type_id')
             ->where($where)->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $cusInfo=Db::table('dcxw_customer')
-            ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-            ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
-            ->join('dcxw_branch','dcxw_customer.cus_branchid = dcxw_branch.b_id')
-            ->join('dcxw_type','dcxw_customer.cus_status = dcxw_type.type_id')
+        $cusInfo=Db::table('super_customer')
+            ->join('super_province','super_customer.cus_provid = super_province.p_id')
+            ->join('super_city','super_customer.cus_cityid = super_city.c_id')
+            ->join('super_branch','super_customer.cus_branchid = super_branch.b_id')
+            ->join('super_type','super_customer.cus_status = super_type.type_id')
             ->where($where)
             ->limit(($page-1)*$limit,$limit)
             ->order('cus_id desc')
@@ -827,7 +827,7 @@ class User extends Controller{
             $cusInfo[$k]['cus_opptime']=date('Y-m-d H:i:s',$v['cus_opptime']);
             //操作人员对应当前登录的管理员
             if(!empty($v['cus_opeater']) && is_int($v['cus_opeater'])){
-                $adInfo=Db::table('dcxw_admin')
+                $adInfo=Db::table('super_admin')
                     ->where(['ad_id' => $v['cus_opeater']])
                     ->field('ad_id,ad_realname')->find();
                 $adName = $adInfo['ad_realname'];
@@ -847,22 +847,22 @@ class User extends Controller{
             $cusInfo[$k]['cus_link']=explode('/',$v['cus_link'],4)[3];
         }
         //获取客户标签
-        $userTip=Db::table('dcxw_type')
+        $userTip=Db::table('super_type')
             ->where(['type_sort' => '1','type_isable' => '1'])
             ->order('type_order desc')
             ->field('type_id,type_name')
             ->select();
         foreach($userTip as $k =>$v){
-            $userTip[$k]['count']=Db::table('dcxw_customer')->where(['cus_status' => $v['type_id'],'cus_isdelete' => 2])->count();
+            $userTip[$k]['count']=Db::table('super_customer')->where(['cus_status' => $v['type_id'],'cus_isdelete' => 2])->count();
         }
-        $tipsConut=Db::table('dcxw_customer')->where(['cus_isdelete' => 2])->count();
+        $tipsConut=Db::table('super_customer')->where(['cus_isdelete' => 2])->count();
         $this->assign('tipsConut',$tipsConut);
         $this->assign('userTip',$userTip);
         //操作人管理员
-        $admin = Db::table('dcxw_admin')->select();
+        $admin = Db::table('super_admin')->select();
         $this->assign('admin',$admin);
-        $mobileCount=Db::table('dcxw_customer')->where(['cus_isdelete' => 2,'cus_sys' => 1])->count();
-        $pcCount=Db::table('dcxw_customer')->where(['cus_isdelete' => 2,'cus_sys' => 2])->count();
+        $mobileCount=Db::table('super_customer')->where(['cus_isdelete' => 2,'cus_sys' => 1])->count();
+        $pcCount=Db::table('super_customer')->where(['cus_isdelete' => 2,'cus_sys' => 2])->count();
         $this->assign('mobileCount',$mobileCount);
         $this->assign('pcCount',$pcCount);
         $this->assign('cusInfo',$cusInfo);
@@ -874,13 +874,13 @@ class User extends Controller{
 
     //信息回收站动态
     public function back1(){
-        $provInfo=Db::table('dcxw_province')->select();
+        $provInfo=Db::table('super_province')->select();
         $this->assign('prov',$provInfo);
         //操作人管理员
-        $admin = Db::table('dcxw_admin')->select();
+        $admin = Db::table('super_admin')->select();
         $this->assign('admin',$admin);
         //获取客户标签
-        $userTip=Db::table('dcxw_type')
+        $userTip=Db::table('super_type')
             ->where(['type_sort' => '1','type_isable' => '1'])
             ->field('type_id,type_name')
             ->select();
@@ -935,19 +935,19 @@ class User extends Controller{
             $where.=" and ( cus_opptime>= ".$sdate." and cus_opptime <= ".$edate." ) ";
         }
         //分页统计总数；
-        $count=Db::table('dcxw_customer')
-            ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-            ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
-            ->join('dcxw_branch','dcxw_customer.cus_branchid = dcxw_branch.b_id')
-            ->join('dcxw_type','dcxw_customer.cus_status = dcxw_type.type_id')
+        $count=Db::table('super_customer')
+            ->join('super_province','super_customer.cus_provid = super_province.p_id')
+            ->join('super_city','super_customer.cus_cityid = super_city.c_id')
+            ->join('super_branch','super_customer.cus_branchid = super_branch.b_id')
+            ->join('super_type','super_customer.cus_status = super_type.type_id')
             ->where($where)->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $cusInfo=Db::table('dcxw_customer')
-            ->join('dcxw_province','dcxw_customer.cus_provid = dcxw_province.p_id')
-            ->join('dcxw_city','dcxw_customer.cus_cityid = dcxw_city.c_id')
-            ->join('dcxw_branch','dcxw_customer.cus_branchid = dcxw_branch.b_id')
-            ->join('dcxw_type','dcxw_customer.cus_status = dcxw_type.type_id')
+        $cusInfo=Db::table('super_customer')
+            ->join('super_province','super_customer.cus_provid = super_province.p_id')
+            ->join('super_city','super_customer.cus_cityid = super_city.c_id')
+            ->join('super_branch','super_customer.cus_branchid = super_branch.b_id')
+            ->join('super_type','super_customer.cus_status = super_type.type_id')
             ->where($where)
             ->limit(($page-1)*$limit,$limit)
             ->order('cus_id desc')
@@ -958,7 +958,7 @@ class User extends Controller{
             $cusInfo[$k]['cus_link']=$v['cus_device']."&nbsp;&nbsp;".$v['cus_position']."<br/>".explode('/',$v['cus_link'],4)[3];
             //操作人员对应当前登录的管理员
             if(!empty($v['cus_opeater']) && is_int($v['cus_opeater'])){
-                $adInfo=Db::table('dcxw_admin')
+                $adInfo=Db::table('super_admin')
                     ->where(['ad_id' => $v['cus_opeater']])
                     ->field('ad_id,ad_realname')->find();
                 $adName = $adInfo['ad_realname'];
@@ -1009,7 +1009,7 @@ class User extends Controller{
     //恢复某一用户（单个恢复）
     public function backNormal(){
         $cus_id=intval($_GET['cus_id']);
-        $back=Db::table('dcxw_customer')
+        $back=Db::table('super_customer')
             ->where(['cus_id' =>$cus_id,'cus_isdelete' => '2'])
             ->update(['cus_isdelete' => '1']);
         if($back){
@@ -1022,7 +1022,7 @@ class User extends Controller{
     //彻底删除某一用户
     public function absdelete(){
         $cus_id=intval($_GET['cus_id']);
-        $abs=Db::table('dcxw_customer')
+        $abs=Db::table('super_customer')
             ->where(['cus_id' => $cus_id ,'cus_isdelete' => '2'])
             ->delete();
         if($abs){
@@ -1035,7 +1035,7 @@ class User extends Controller{
     //批量彻底删除
     public function absdelBatch(){
         $ids=rtrim($this->request->param('ids'),',');
-        $res=Db::table('dcxw_customer')
+        $res=Db::table('super_customer')
             ->where('cus_id','in',$ids)
             ->where(['cus_isdelete' => '2'])
             ->delete();
@@ -1049,7 +1049,7 @@ class User extends Controller{
     //批量恢复
     public function backBatch(){
         $ids=rtrim($this->request->param('ids'),',');
-        $res=Db::table('dcxw_customer')
+        $res=Db::table('super_customer')
             ->where('cus_id','in',$ids)
             ->where(['cus_isdelete' => '2'])
             ->update(['cus_isdelete' => '1']);
@@ -1079,7 +1079,7 @@ class User extends Controller{
     //二级联动根据传过来的省份id获取对应的城市名称
     public function getCityName(){
         $p_id=intval($_GET['p_id']);
-        $cityNames=Db::table('dcxw_city')->where(['p_id' => $p_id])->select();
+        $cityNames=Db::table('super_city')->where(['p_id' => $p_id])->select();
         if($cityNames){
             return  json(['code' => '1','data' => $cityNames]);
         }else{

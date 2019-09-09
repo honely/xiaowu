@@ -17,15 +17,15 @@ class House extends Controller{
      * */
     public function index(){
         //热线电话
-        $hotLine=Db::table('dcxw_setinfo')->where(['s_key' => 'hotline'])->column('s_value');
+        $hotLine=Db::table('super_setinfo')->where(['s_key' => 'hotline'])->column('s_value');
         $this->assign('hotLine',$hotLine[0]);
         //网站导航
-        $navInfo=Db::table('dcxw_nav')
+        $navInfo=Db::table('super_nav')
             ->where(['nav_isable' => 1])
             ->order('nav_order desc')
             ->field('nav_title,nav_url')
             ->select();
-        $cityInfo=Db::table('dcxw_city')->field('c_id,c_name')->select();
+        $cityInfo=Db::table('super_city')->field('c_id,c_name')->select();
         $this->assign('cityInfo',$cityInfo);
         $this->assign('navinfo',$navInfo);
         return $this->fetch();
@@ -44,7 +44,7 @@ class House extends Controller{
             $sTime=strtotime(date('Y-m-d',$time) ."00:00:00");
             $eTime=strtotime(date('Y-m-d',$time) ."23:59:59");
             $phone=trim($_POST['dp_phone']);
-            $isrepeat=Db::table('dcxw_deposit')
+            $isrepeat=Db::table('super_deposit')
                 ->where(['dp_phone' => $phone])
                 ->where('dp_addtime >= '.$sTime.' and dp_addtime <= '.$eTime.'')
                 ->find();
@@ -56,7 +56,7 @@ class House extends Controller{
                 $data['dp_c_id']=$_POST['dp_c_id'];
                 $data['dp_addtime']=time();
                 $data['dp_updatetime']=time();
-                $add=Db::table('dcxw_deposit')->insert($data);
+                $add=Db::table('super_deposit')->insert($data);
                 if($add){
                     return  json(['code' => '1','msg' => '提交成功！']);
                 }else{

@@ -32,11 +32,11 @@ class Nav extends Controller{
     //导航列表
     public function navData(){
 
-        $count = Db::table('dcxw_nav')
-            ->join('dcxw_admin','dcxw_nav.nav_admin = dcxw_admin.ad_id')
+        $count = Db::table('super_nav')
+            ->join('super_admin','super_nav.nav_admin = super_admin.ad_id')
             ->count();
-        $nav=Db::table('dcxw_nav')
-            ->join('dcxw_admin','dcxw_nav.nav_admin = dcxw_admin.ad_id')
+        $nav=Db::table('super_nav')
+            ->join('super_admin','super_nav.nav_admin = super_admin.ad_id')
             ->order('nav_order desc')
             ->select();
         foreach ($nav as $k => $v){
@@ -51,14 +51,14 @@ class Nav extends Controller{
     }
 
     public function navlist(){
-        $navList=Db::table('dcxw_nav')
+        $navList=Db::table('super_nav')
             ->where(['nav_fid' => 0])
-            ->join('dcxw_admin','dcxw_nav.nav_admin = dcxw_admin.ad_id')
+            ->join('super_admin','super_nav.nav_admin = super_admin.ad_id')
             ->order('nav_order desc')
             ->select();
         foreach($navList as $k =>$v){
-            $navList[$k]['subNav']=Db::table('dcxw_nav')
-                ->join('dcxw_admin','dcxw_nav.nav_admin = dcxw_admin.ad_id')
+            $navList[$k]['subNav']=Db::table('super_nav')
+                ->join('super_admin','super_nav.nav_admin = super_admin.ad_id')
                 ->where(['nav_fid' => $v['nav_id']])
                 ->order('nav_order desc')
                 ->select();
@@ -74,29 +74,29 @@ class Nav extends Controller{
             $m_fid=intval($_GET['nav_id']);
         }
         //查看他是否为顶级菜单
-        $isTopMenu=Db::table('dcxw_nav')->where(['nav_fid' => $m_fid])->find();
+        $isTopMenu=Db::table('super_nav')->where(['nav_fid' => $m_fid])->find();
         $istop=$isTopMenu['nav_fid'];
         if($istop == 0 ){
             $where=" nav_fid = ".$m_fid."";
         }else{
             $where=" nav_fid = ".$m_fid." ";
         }
-        $count=Db::table('dcxw_nav')
+        $count=Db::table('super_nav')
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $navList=Db::table('dcxw_nav')
-            ->join('dcxw_admin','dcxw_nav.nav_admin = dcxw_admin.ad_id')
+        $navList=Db::table('super_nav')
+            ->join('super_admin','super_nav.nav_admin = super_admin.ad_id')
             ->where($where)
             ->order('nav_order desc')
             ->limit(($page-1)*$limit,$limit)
-            ->field('dcxw_nav.*,dcxw_admin.ad_realname')
+            ->field('super_nav.*,super_admin.ad_realname')
             ->select();
         foreach ($navList as $k =>$v){
             $navList[$k]['fName']=$v['nav_fid']== 0 ? "一级导航":"二级导航";
             $navList[$k]['nav_isable']=$v['nav_isable']== 1 ? "显示":"隐藏";
-            $navList[$k]['subNav'] = Db::table('dcxw_nav')->where(['nav_fid' => $v['nav_id'], 'nav_isable' => '1'])->select();
+            $navList[$k]['subNav'] = Db::table('super_nav')->where(['nav_fid' => $v['nav_id'], 'nav_isable' => '1'])->select();
         }
         $this->assign('nav_fid',$m_fid);
         $this->assign('navList',$navList);
@@ -126,7 +126,7 @@ class Nav extends Controller{
                 $msg = '隐藏';
                 $data['nav_isable'] = '2';
             }
-            $changeStatus = Db::table('dcxw_nav')->where(['nav_id' => $ba_id])->update($data);
+            $changeStatus = Db::table('super_nav')->where(['nav_id' => $ba_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -148,7 +148,7 @@ class Nav extends Controller{
         $nav_id=$_POST['nav_id'];
         $nav_order=intval(trim($_POST['value']));
         if(!empty($nav_order)){
-            $reOrder=Db::table('dcxw_nav')->where(['nav_id' => $nav_id])->update(['nav_order' => $nav_order]);
+            $reOrder=Db::table('super_nav')->where(['nav_id' => $nav_id])->update(['nav_order' => $nav_order]);
             if($reOrder){
                 $this->success('修改排序成功！');
             }else{
@@ -183,14 +183,14 @@ class Nav extends Controller{
             $data['nav_isable'] = $_POST['nav_isable'];
             $data['nav_admin'] = session('adminId');
             $data['nav_opeatime'] = time();
-            $add=Db::table('dcxw_nav')->insert($data);
+            $add=Db::table('super_nav')->insert($data);
             if($add){
                 $this->success('添加导航成功','navlist');
             }else{
                 $this->error('添加导航失败','navlist');
             }
         }else{
-            $fNav=Db::table('dcxw_nav')
+            $fNav=Db::table('super_nav')
                 ->where(['nav_isable' => 1,'nav_fid' => 0])
                 ->field('nav_id,nav_title')
                 ->order('nav_order desc')
@@ -217,17 +217,17 @@ class Nav extends Controller{
             $data['nav_isable'] = $_POST['nav_isable'];
             $data['nav_admin'] = session('adminId');
             $data['nav_opeatime'] = time();
-            $edit=Db::table('dcxw_nav')->where(['nav_id' => $nav_id])->update($data);
+            $edit=Db::table('super_nav')->where(['nav_id' => $nav_id])->update($data);
             if($edit){
                 $this->success('修改导航成功！','navlist');
             }else{
                 $this->error('修改导航失败！','navlist');
             }
         }else{
-            $navInfo=Db::table('dcxw_nav')->where(['nav_id' => $nav_id])->find();
+            $navInfo=Db::table('super_nav')->where(['nav_id' => $nav_id])->find();
             $this->assign('nav_fid',$nav_fid);
             $this->assign('nav',$navInfo);
-            $nav_f_info=Db::table('dcxw_nav')->where(['nav_id' => $nav_fid])->find();
+            $nav_f_info=Db::table('super_nav')->where(['nav_id' => $nav_fid])->find();
             $this->assign('f_name',$nav_f_info['nav_title']);
             return $this->fetch();
         }
@@ -237,7 +237,7 @@ class Nav extends Controller{
     //删除导航
     public function del(){
         $nav_id=intval($_GET['nav_id']);
-        $del=Db::table('dcxw_nav')->where(['nav_id' => $nav_id])->delete();
+        $del=Db::table('super_nav')->where(['nav_id' => $nav_id])->delete();
         if($del){
             $this->success('删除成功','navlist');
         }else{

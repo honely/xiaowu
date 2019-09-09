@@ -35,15 +35,15 @@ class Msg extends Controller{
 
     //短信基础配置
     public function setData(){
-        $count=Db::table('dcxw_setinfo')->where(['s_type' => 1])->count();
-        $setInfo=Db::table('dcxw_setinfo')
+        $count=Db::table('super_setinfo')->where(['s_type' => 1])->count();
+        $setInfo=Db::table('super_setinfo')
             ->where(['s_type' => 1])
             ->order('s_id desc')
             ->select();
         foreach($setInfo as $k =>$v){
             $setInfo[$k]['s_opeatime']=date('Y-m-d ',$v['s_opeatime']);
             if(!empty($v['s_admin']) && is_int($v['s_admin'])){
-                $adInfo=Db::table('dcxw_admin')
+                $adInfo=Db::table('super_admin')
                     ->where(['ad_id' => $v['s_admin']])
                     ->field('ad_id,ad_realname')->find();
                 $adName = $adInfo['ad_realname'];
@@ -84,14 +84,14 @@ class Msg extends Controller{
             $adminId=session('adminId');
             $where.=" and ad_id != ".$adminId;
         }
-        $count=Db::table('dcxw_alisign')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_alisign.ali_sign_admin')
+        $count=Db::table('super_alisign')
+            ->join('super_admin','super_admin.ad_id = super_alisign.ali_sign_admin')
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $sign=Db::table('dcxw_alisign')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_alisign.ali_sign_admin')
+        $sign=Db::table('super_alisign')
+            ->join('super_admin','super_admin.ad_id = super_alisign.ali_sign_admin')
             ->where($where)
             ->limit(($page-1)*$limit,$limit)
             ->order('ali_sign_id desc')
@@ -118,7 +118,7 @@ class Msg extends Controller{
                 $msg = '隐藏';
                 $data['ali_sign_able'] = '2';
             }
-            $changeStatus = Db::table('dcxw_alisign')->where(['ali_sign_id' => $ba_id])->update($data);
+            $changeStatus = Db::table('super_alisign')->where(['ali_sign_id' => $ba_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -140,7 +140,7 @@ class Msg extends Controller{
             $data['ali_sign_able']=$_POST['ali_sign_able'];
             $data['ali_sign_addtime']=time();
             $data['ali_sign_admin']=session('adminId');
-            $add=Db::table('dcxw_alisign')->insert($data);
+            $add=Db::table('super_alisign')->insert($data);
             if($add){
                 $this->success('添加短信签名成功！','msgsigns');
             }else{
@@ -160,14 +160,14 @@ class Msg extends Controller{
             $data['ali_sign_able']=$_POST['ali_sign_able'];
             $data['ali_sign_addtime']=time();
             $data['ali_sign_admin']=session('adminId');
-            $edit=Db::table('dcxw_alisign')->where(['ali_sign_id' => $sign_id])->update($data);
+            $edit=Db::table('super_alisign')->where(['ali_sign_id' => $sign_id])->update($data);
             if($edit){
                 $this->success('修改签名成功！','msgsigns');
             }else{
                 $this->error('修改签名失败！','msgsigns');
             }
         }else{
-            $signInfo=Db::table('dcxw_alisign')->where(['ali_sign_id' => $sign_id])->find();
+            $signInfo=Db::table('super_alisign')->where(['ali_sign_id' => $sign_id])->find();
             $this->assign('sign',$signInfo);
             return $this->fetch();
         }
@@ -176,7 +176,7 @@ class Msg extends Controller{
     //删除一签名
     public function delSign(){
         $sign_id=intval($_GET['sign_id']);
-        $del=Db::table('dcxw_alisign')->where(['ali_sign_id' => $sign_id])->delete();
+        $del=Db::table('super_alisign')->where(['ali_sign_id' => $sign_id])->delete();
         if($del){
             $this->success('删除签名成功！','msgsigns');
         }else{
@@ -203,14 +203,14 @@ class Msg extends Controller{
             $adminId=session('adminId');
             $where.=" and ad_id != ".$adminId;
         }
-        $count=Db::table('dcxw_smstem')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_smstem.sms_admin')
+        $count=Db::table('super_smstem')
+            ->join('super_admin','super_admin.ad_id = super_smstem.sms_admin')
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $sign=Db::table('dcxw_smstem')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_smstem.sms_admin')
+        $sign=Db::table('super_smstem')
+            ->join('super_admin','super_admin.ad_id = super_smstem.sms_admin')
             ->where($where)
             ->limit(($page-1)*$limit,$limit)
             ->order('sms_id desc')
@@ -243,7 +243,7 @@ class Msg extends Controller{
             $data['sms_type']=$_POST['sms_type'];
             $data['sms_addtime']=time();
             $data['sms_admin']=session('adminId');
-            $add=Db::table('dcxw_smstem')->insert($data);
+            $add=Db::table('super_smstem')->insert($data);
             if($add){
                 $this->success('添加模板成功！','msgtem');
             }else{
@@ -265,14 +265,14 @@ class Msg extends Controller{
             $data['sms_type']=$_POST['sms_type'];
             $data['sms_addtime']=time();
             $data['sms_admin']=session('adminId');
-            $edit=Db::table('dcxw_smstem')->where(['sms_id' => $sign_id])->update($data);
+            $edit=Db::table('super_smstem')->where(['sms_id' => $sign_id])->update($data);
             if($edit){
                 $this->success('修改模板成功！','msgtem');
             }else{
                 $this->error('修改模板失败！','msgtem');
             }
         }else{
-            $temInfo=Db::table('dcxw_smstem')->where(['sms_id' => $sign_id])->find();
+            $temInfo=Db::table('super_smstem')->where(['sms_id' => $sign_id])->find();
             $this->assign('tem',$temInfo);
             return $this->fetch();
         }
@@ -281,7 +281,7 @@ class Msg extends Controller{
     //删除一模板
     public function delTem(){
         $sms_id=intval($_GET['sms_id']);
-        $del=Db::table('dcxw_smstem')->where(['sms_id' => $sms_id])->delete();
+        $del=Db::table('super_smstem')->where(['sms_id' => $sms_id])->delete();
         if($del){
             $this->success('删除模板成功！','msgtem');
         }else{

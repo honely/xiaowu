@@ -20,7 +20,7 @@ class Login extends Controller{
                 if(empty($pwd)){
                     $this->error('请输入密码！','login');
                 }else{
-                    $login=Db::table('dcxw_admin')
+                    $login=Db::table('super_admin')
                         ->where("(  ad_phone = '".$user."' or  ad_email  = '".$user."' ) and ad_isable = 1 ")
                         ->find();
                     if($login){

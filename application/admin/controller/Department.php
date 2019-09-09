@@ -38,19 +38,19 @@ class Department extends Controller{
             $m_fid=intval($_GET['d_id']);
         }
         //查看他是否为顶级菜单
-        $isTopMenu=Db::table('dcxw_department')->where(['d_id' => $m_fid])->find();
+        $isTopMenu=Db::table('super_department')->where(['d_id' => $m_fid])->find();
         $istop=$isTopMenu['d_id'];
         if($istop == 0 ){
             $where=" d_f_id = ".$m_fid;
         }else{
             $where=" d_f_id = ".$m_fid;
         }
-        $count=Db::table('dcxw_department')
+        $count=Db::table('super_department')
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $menuList=Db::table('dcxw_department')
+        $menuList=Db::table('super_department')
             ->where($where)
             ->limit(($page-1)*$limit,$limit)
             ->select();
@@ -73,7 +73,7 @@ class Department extends Controller{
             $data['d_name']=$_POST['d_name'];
             $data['d_f_id']=$_POST['d_f_id'];
             $data['d_addtime']=time();
-            $addMenu=Db::table('dcxw_department')->insert($data);
+            $addMenu=Db::table('super_department')->insert($data);
             if($addMenu){
                 $this->success('添加部门成功！','index');
             }else{
@@ -83,7 +83,7 @@ class Department extends Controller{
             if(isset($_GET)){
                 $m_fid=intval($_GET['d_f_id']);
                 if($m_fid){//非顶级菜单
-                    $finfo=Db::table("dcxw_department")->where("d_id=".$m_fid)->find();
+                    $finfo=Db::table("super_department")->where("d_id=".$m_fid)->find();
                     $this->assign('finfo',$finfo);
                 }else{//顶部菜单
                     $this->assign('finfo',array("d_id"=>0,"d_f_id"=>0,"d_name"=>'顶级部门'));
@@ -98,7 +98,7 @@ class Department extends Controller{
             $m_id=$_GET['d_id'];
             if($_POST){
                 $data['d_name']=$_POST['d_name'];
-                $editMenu=Db::table('dcxw_department')->where(['d_id' => $m_id])->update($data);
+                $editMenu=Db::table('super_department')->where(['d_id' => $m_id])->update($data);
                 if($editMenu){
                     $this->success('修改菜单成功！','index');
                 }else{
@@ -108,14 +108,14 @@ class Department extends Controller{
                 if(isset($_GET)){
                     $m_fid=intval($_GET['d_f_id']);
                     if($m_fid){//非顶级菜单
-                        $finfo=Db::table("dcxw_department")->where(['d_id' => $m_fid])->find();
-                        $menuInfo=Db::table('dcxw_department')->where(['d_id' => $m_id])->find();
+                        $finfo=Db::table("super_department")->where(['d_id' => $m_fid])->find();
+                        $menuInfo=Db::table('super_department')->where(['d_id' => $m_id])->find();
 //                        dump($menuInfo);
 //                        dump($finfo);
                         $this->assign('finfo',$finfo);
                         $this->assign('menu',$menuInfo);
                     }else{//顶部菜单
-                        $menuInfo=Db::table('dcxw_department')->where(['d_id' => $m_id])->find();
+                        $menuInfo=Db::table('super_department')->where(['d_id' => $m_id])->find();
 //                        dump($menuInfo);
 //                        dump(array("d_id"=>0,"d_f_id"=>0,"d_name"=>'顶级部门'));
                         $this->assign('finfo',array("d_id"=>0,"d_f_id"=>0,"d_name"=>'顶级部门'));

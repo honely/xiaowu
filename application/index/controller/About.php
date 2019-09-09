@@ -16,16 +16,16 @@ class About extends Controller{
      * */
     public function index(){
         //热线电话
-        $hotLine=Db::table('dcxw_setinfo')->where(['s_key' => 'hotline'])->column('s_value');
+        $hotLine=Db::table('super_setinfo')->where(['s_key' => 'hotline'])->column('s_value');
         $this->assign('hotLine',$hotLine[0]);
         //网站导航
-        $navInfo=Db::table('dcxw_nav')
+        $navInfo=Db::table('super_nav')
             ->where(['nav_isable' => 1])
             ->order('nav_order desc')
             ->field('nav_title,nav_url')
             ->select();
         $this->assign('navinfo',$navInfo);
-        $hotArt=Db::table('dcxw_article')
+        $hotArt=Db::table('super_article')
             ->where(['art_isable' => 1])
             ->order('art_view desc')
             ->limit(4)

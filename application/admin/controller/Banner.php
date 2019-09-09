@@ -47,21 +47,20 @@ class Banner extends Controller{
         if(isset($ba_isable) && !empty($ba_isable)){
             $where.=" and ba_isable = ".$ba_isable;
         }
-        $count=Db::table('dcxw_banner')
-                ->join('dcxw_admin','dcxw_banner.ba_admin = dcxw_admin.ad_id')
+        $count=Db::table('super_banner')
+                ->join('super_admin','super_banner.ba_admin = super_admin.ad_id')
                 ->where($where)->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',15,'intval');
-        $pcBan=Db::table('dcxw_banner')
-            ->join('dcxw_admin','dcxw_banner.ba_admin = dcxw_admin.ad_id')
+        $pcBan=Db::table('super_banner')
+            ->join('super_admin','super_banner.ba_admin = super_admin.ad_id')
             ->where($where)
             ->limit(($page-1)*$limit,$limit)
-            ->field('dcxw_banner.*,dcxw_admin.ad_realname')
+            ->field('super_banner.*,super_admin.ad_realname')
             ->order('ba_isable,ba_branch desc ,ba_order desc ,ba_createtime desc')
             ->select();
         foreach ($pcBan as $k =>$v){
             $pcBan[$k]['ba_createtime']=date('Y-m-d H:i:s',$v['ba_createtime']);
-            $pcBan[$k]['ba_via']=$v['ba_via'] == 1 ? "PC端" : "移动端";
             $pcBan[$k]['ba_img']="../../..".$v['ba_img'];
         }
         $res['where']=$where;
@@ -93,7 +92,7 @@ class Banner extends Controller{
                 $data['ba_isable'] = '2';
                 $data['ba_admin'] = session('adminId');
             }
-            $changeStatus = Db::table('dcxw_banner')->where(['ba_id' => $ba_id])->update($data);
+            $changeStatus = Db::table('super_banner')->where(['ba_id' => $ba_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -115,7 +114,7 @@ class Banner extends Controller{
         $ba_id=intval(trim($_POST['ba_id']));
         $ba_order=intval(trim($_POST['value']));
         if(!empty($ba_order)){
-            $reOrder=Db::table('dcxw_banner')->where(['ba_id' => $ba_id])->update(['ba_order' => $ba_order]);
+            $reOrder=Db::table('super_banner')->where(['ba_id' => $ba_id])->update(['ba_order' => $ba_order]);
             if($reOrder){
                 $this->success('修改排序成功！');
             }else{
@@ -141,20 +140,19 @@ class Banner extends Controller{
         if($_POST){
             $stime=strtotime(date('Y-m-d 00:00:00'));
             $etime=strtotime(date('Y-m-d 23:59:59'));
-            $buNum=Db::table('dcxw_banner')->where('ba_createtime','between',[$stime,$etime])->count();
+            $buNum=Db::table('super_banner')->where('ba_createtime','between',[$stime,$etime])->count();
             //生成用户编号；
             $data['ba_bid'] = date('Ymd').sprintf("%04d", $buNum+1);
             $data['ba_title']=$_POST['ba_title'];
             $data['ba_alt']=$_POST['ba_alt'];
             $data['ba_img']=$_POST['ba_img'];
-            $data['ba_via']=$_POST['ba_via'];
             $data['ba_type']=1;
             $data['ba_order']=$_POST['ba_order'];
             $data['ba_isable']=$_POST['ba_isable'];
             $data['ba_url']=$_POST['ba_url'];
             $data['ba_admin'] = $adminId;
             $data['ba_createtime']=time();
-            $addBan=Db::table('dcxw_banner')->insert($data);
+            $addBan=Db::table('super_banner')->insert($data);
             if($addBan){
                 $this->success('添加banner成功！','banner');
             }else{
@@ -162,10 +160,10 @@ class Banner extends Controller{
             }
         }else{
             if($ad_role == 1 ){// 超级管理员
-                $provInfo=Db::table('dcxw_province')->select();
+                $provInfo=Db::table('super_province')->select();
                 $this->assign('prov',$provInfo);
             }else{
-                $adminInfo=Db::table('dcxw_admin')
+                $adminInfo=Db::table('super_admin')
                     ->where(['ad_id' => $adminId])
                     ->find();
                 $this->assign('admin',$adminInfo);
@@ -182,21 +180,20 @@ class Banner extends Controller{
         if($_POST){
             $data['ba_title']=$_POST['ba_title'];
             $data['ba_alt']=$_POST['ba_alt'];
-            $data['ba_via']=$_POST['ba_via'];
             $data['ba_img']=$_POST['ba_img'];
             $data['ba_order']=$_POST['ba_order'];
             $data['ba_isable']=$_POST['ba_isable'];
             $data['ba_url']=$_POST['ba_url'];
             $data['ba_createtime']=time();
             $data['ba_admin'] = $adminId;
-            $update=Db::table('dcxw_banner')->where(['ba_id'=> $ba_id])->update($data);
+            $update=Db::table('super_banner')->where(['ba_id'=> $ba_id])->update($data);
             if($update){
                 $this->success('修改banner成功！','banner');
             }else{
                 $this->error('您未做任何修改！','banner');
             }
         }else{
-            $banInfo=Db::table('dcxw_banner')
+            $banInfo=Db::table('super_banner')
                 ->where(['ba_id'=> $ba_id])
                 ->find();
             $this->assign('ban',$banInfo);
@@ -208,7 +205,7 @@ class Banner extends Controller{
     //删除banner图；
     public function delBanner(){
         $ba_id=intval(trim($_GET['ba_id']));
-        $delBan=Db::table('dcxw_banner')->where(['ba_id'=>$ba_id])->delete();
+        $delBan=Db::table('super_banner')->where(['ba_id'=>$ba_id])->delete();
         if($delBan){
             $this->success('删除成功！','banner');
         }else{
@@ -247,7 +244,7 @@ class Banner extends Controller{
     //产品效果图
     public function product(){
         //操作人管理员
-        $admin = Db::table('dcxw_admin')->select();
+        $admin = Db::table('super_admin')->select();
         $this->assign('admin',$admin);
         $ad_role=intval(session('ad_role'));
         $this->assign('ad_role',$ad_role);
@@ -287,20 +284,20 @@ class Banner extends Controller{
             $edate=strtotime(substr($case_decotime,'-10')." 23:59:59");
             $where.=" and ( case_decotime >= ".$sdate." and case_decotime <= ".$edate." ) ";
         }
-        $count=Db::table('dcxw_case')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_case.case_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_case.case_c_id')
-            ->join('dcxw_branch','dcxw_branch.b_id = dcxw_case.case_b_id')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_case.case_admin')
+        $count=Db::table('super_case')
+            ->join('super_province','super_province.p_id = super_case.case_p_id')
+            ->join('super_city','super_city.c_id = super_case.case_c_id')
+            ->join('super_branch','super_branch.b_id = super_case.case_b_id')
+            ->join('super_admin','super_admin.ad_id = super_case.case_admin')
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $example=Db::table('dcxw_case')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_case.case_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_case.case_c_id')
-            ->join('dcxw_branch','dcxw_branch.b_id = dcxw_case.case_b_id')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_case.case_admin')
+        $example=Db::table('super_case')
+            ->join('super_province','super_province.p_id = super_case.case_p_id')
+            ->join('super_city','super_city.c_id = super_case.case_c_id')
+            ->join('super_branch','super_branch.b_id = super_case.case_b_id')
+            ->join('super_admin','super_admin.ad_id = super_case.case_admin')
             ->where($where)
             ->limit(($page-1)*$limit,$limit)
             ->order('case_istop ASC ,case_view desc')
@@ -308,7 +305,6 @@ class Banner extends Controller{
         foreach($example as $k => $v ){
             $example[$k]['case_updatetime'] = date('Y-m-d H:i:s',$v['case_updatetime']);
             $example[$k]['c_name'] =$v['p_name']."-".$v['c_name']."-".$v['b_name'];
-            $example[$k]['ba_via'] =$v['ba_via']==1?'PC端':'移动端';
         }
         $res['code'] = 0;
         $res['msg'] = "";
@@ -327,7 +323,7 @@ class Banner extends Controller{
             $stime=strtotime(date('Y-m-d 00:00:00'));
             $etime=strtotime(date('Y-m-d 23:59:59'));
             //获取当日预约的数量
-            $buNum=Db::table('dcxw_case')->where('case_decotime','between',[$stime,$etime])->count();
+            $buNum=Db::table('super_case')->where('case_decotime','between',[$stime,$etime])->count();
             //生成用户编号；
             $data['case_bid'] = date('Ymd').sprintf("%04d", $buNum+1);
             $data['case_img'] = implode(',',$_POST['case_img']);
@@ -339,7 +335,7 @@ class Banner extends Controller{
             $data['case_sort']=2;
             $data['case_updatetime']=time();
             $data['case_admin'] = session('adminId');
-            $add=Db::table('dcxw_case')->insert($data);
+            $add=Db::table('super_case')->insert($data);
             if($add){
                 $this->success('发布效果图成功！','product');
             }else{
@@ -348,15 +344,15 @@ class Banner extends Controller{
         }else{
 
             if($ad_role == 1 ){// 超级管理员
-                $provInfo=Db::table('dcxw_province')->select();
+                $provInfo=Db::table('super_province')->select();
                 $this->assign('prov',$provInfo);
             }else{
-                $adminInfo=Db::table('dcxw_admin')
-                    ->join('dcxw_province','dcxw_province.p_id = dcxw_admin.ad_p_id')
-                    ->join('dcxw_city','dcxw_city.c_id = dcxw_admin.ad_c_id')
-                    ->join('dcxw_role','dcxw_role.r_id = dcxw_admin.ad_role')
-                    ->join('dcxw_branch','dcxw_branch.b_id = dcxw_admin.ad_branch')
-                    ->field('dcxw_admin.ad_realname,dcxw_province.p_name,dcxw_city.c_name,dcxw_branch.b_name,dcxw_role.r_name')
+                $adminInfo=Db::table('super_admin')
+                    ->join('super_province','super_province.p_id = super_admin.ad_p_id')
+                    ->join('super_city','super_city.c_id = super_admin.ad_c_id')
+                    ->join('super_role','super_role.r_id = super_admin.ad_role')
+                    ->join('super_branch','super_branch.b_id = super_admin.ad_branch')
+                    ->field('super_admin.ad_realname,super_province.p_name,super_city.c_name,super_branch.b_name,super_role.r_name')
                     ->where(['ad_id' => $adminId])
                     ->find();
                 $this->assign('admin',$adminInfo);
@@ -379,29 +375,29 @@ class Banner extends Controller{
             $data['case_b_id'] = $ad_role == 1 ? $_POST['case_b_id']: session('ad_branch');
             $data['case_updatetime']=time();
             $data['case_admin'] = session('adminId');
-            $edit=Db::table('dcxw_case')->where(['case_id'=>$case_id])->update($data);
+            $edit=Db::table('super_case')->where(['case_id'=>$case_id])->update($data);
             if($edit){
                 $this->success('修改效果图成功','product');
             }else{
                 $this->error('修改效果图失败','product');
             }
         }else{
-            $provInfo=Db::table('dcxw_province')->select();
+            $provInfo=Db::table('super_province')->select();
             $this->assign('prov',$provInfo);
-            $artInfo=Db::table('dcxw_case')
-                ->join('dcxw_province','dcxw_province.p_id = dcxw_case.case_p_id')
-                ->join('dcxw_city','dcxw_city.c_id = dcxw_case.case_c_id')
-                ->join('dcxw_branch','dcxw_branch.b_id = dcxw_case.case_b_id')
+            $artInfo=Db::table('super_case')
+                ->join('super_province','super_province.p_id = super_case.case_p_id')
+                ->join('super_city','super_city.c_id = super_case.case_c_id')
+                ->join('super_branch','super_branch.b_id = super_case.case_b_id')
                 ->where(['case_id'=>$case_id])
-                ->field('dcxw_case.*,dcxw_province.p_name,dcxw_city.c_name,dcxw_branch.b_name')
+                ->field('super_case.*,super_province.p_name,super_city.c_name,super_branch.b_name')
                 ->find();
             //案例图片
             $artInfo['case_img']=explode(',',$artInfo['case_img']);
             $artInfo['case_img_alt']=explode(',',$artInfo['case_img_alt']);
             $provId=$artInfo['case_p_id'];
             $c_id=$artInfo['case_c_id'];
-            $city=Db::table('dcxw_city')->where(['p_id' => $provId])->select();
-            $branchs=Db::table('dcxw_branch')->where(['b_city' =>$c_id ])->field('b_id,b_name')->select();
+            $city=Db::table('super_city')->where(['p_id' => $provId])->select();
+            $branchs=Db::table('super_branch')->where(['b_city' =>$c_id ])->field('b_id,b_name')->select();
             $this->assign('branchs',$branchs);
             $this->assign('city',$city);
             $this->assign('case',$artInfo);
@@ -436,20 +432,20 @@ class Banner extends Controller{
             if(isset($ba_admin) && !empty($ba_admin)){
                 $where.=" and ba_admin = ".$ba_admin;
             }
-            $data['display']=Db::table('dcxw_banner')
-                ->join('dcxw_province','dcxw_banner.ba_p_id = dcxw_province.p_id')
-                ->join('dcxw_city','dcxw_banner.ba_c_id = dcxw_city.c_id')
-                ->join('dcxw_admin','dcxw_banner.ba_admin = dcxw_admin.ad_id')
-                ->join('dcxw_branch','dcxw_banner.ba_branch = dcxw_branch.b_id')
+            $data['display']=Db::table('super_banner')
+                ->join('super_province','super_banner.ba_p_id = super_province.p_id')
+                ->join('super_city','super_banner.ba_c_id = super_city.c_id')
+                ->join('super_admin','super_banner.ba_admin = super_admin.ad_id')
+                ->join('super_branch','super_banner.ba_branch = super_branch.b_id')
                 ->where($where)
                 ->where(['ba_isable' => 1,'ba_type' =>2])
                 ->count();
             //未展示
-            $data['none']=Db::table('dcxw_banner')
-                ->join('dcxw_province','dcxw_banner.ba_p_id = dcxw_province.p_id')
-                ->join('dcxw_city','dcxw_banner.ba_c_id = dcxw_city.c_id')
-                ->join('dcxw_admin','dcxw_banner.ba_admin = dcxw_admin.ad_id')
-                ->join('dcxw_branch','dcxw_banner.ba_branch = dcxw_branch.b_id')
+            $data['none']=Db::table('super_banner')
+                ->join('super_province','super_banner.ba_p_id = super_province.p_id')
+                ->join('super_city','super_banner.ba_c_id = super_city.c_id')
+                ->join('super_admin','super_banner.ba_admin = super_admin.ad_id')
+                ->join('super_branch','super_banner.ba_branch = super_branch.b_id')
                 ->where($where)
                 ->where(['ba_isable' => 2,'ba_type' =>2])
                 ->count();
@@ -464,21 +460,21 @@ class Banner extends Controller{
         }else{
             $where= ' ba_type = 2 and  ba_branch = '.$ad_branch;
         }
-        $disShow=Db::table('dcxw_banner')
+        $disShow=Db::table('super_banner')
             ->where($where)
             ->where(['ba_isable' => 1])
             ->count();
-        $disNone=Db::table('dcxw_banner')
+        $disNone=Db::table('super_banner')
             ->where($where)
             ->where(['ba_isable' => 2])
             ->count();
         $this->assign('show',$disShow);
         $this->assign('none',$disNone);
         $this->assign('all',intval($disShow)+intval($disNone));
-        $provInfo=Db::table('dcxw_province')->select();
+        $provInfo=Db::table('super_province')->select();
         $this->assign('prov',$provInfo);
         //操作人管理员
-        $admin = Db::table('dcxw_admin')->select();
+        $admin = Db::table('super_admin')->select();
         $this->assign('admin',$admin);
         return $this->fetch();
     }
@@ -520,22 +516,22 @@ class Banner extends Controller{
         if(isset($ba_isable) && !empty($ba_isable)){
             $where.=" and ba_isable = ".$ba_isable;
         }
-        $count=Db::table('dcxw_banner')
-            ->join('dcxw_province','dcxw_banner.ba_p_id = dcxw_province.p_id')
-            ->join('dcxw_city','dcxw_banner.ba_c_id = dcxw_city.c_id')
-            ->join('dcxw_admin','dcxw_banner.ba_admin = dcxw_admin.ad_id')
-            ->join('dcxw_branch','dcxw_banner.ba_branch = dcxw_branch.b_id')
+        $count=Db::table('super_banner')
+            ->join('super_province','super_banner.ba_p_id = super_province.p_id')
+            ->join('super_city','super_banner.ba_c_id = super_city.c_id')
+            ->join('super_admin','super_banner.ba_admin = super_admin.ad_id')
+            ->join('super_branch','super_banner.ba_branch = super_branch.b_id')
             ->where($where)->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',15,'intval');
-        $pcBan=Db::table('dcxw_banner')
-            ->join('dcxw_province','dcxw_banner.ba_p_id = dcxw_province.p_id')
-            ->join('dcxw_city','dcxw_banner.ba_c_id = dcxw_city.c_id')
-            ->join('dcxw_admin','dcxw_banner.ba_admin = dcxw_admin.ad_id')
-            ->join('dcxw_branch','dcxw_banner.ba_branch = dcxw_branch.b_id')
+        $pcBan=Db::table('super_banner')
+            ->join('super_province','super_banner.ba_p_id = super_province.p_id')
+            ->join('super_city','super_banner.ba_c_id = super_city.c_id')
+            ->join('super_admin','super_banner.ba_admin = super_admin.ad_id')
+            ->join('super_branch','super_banner.ba_branch = super_branch.b_id')
             ->where($where)
             ->limit(($page-1)*$limit,$limit)
-            ->field('dcxw_banner.*,dcxw_city.c_name,dcxw_province.p_name,dcxw_admin.ad_realname,dcxw_branch.b_name')
+            ->field('super_banner.*,super_city.c_name,super_province.p_name,super_admin.ad_realname,super_branch.b_name')
             ->order('ba_isable,ba_branch desc ,ba_order desc ,ba_createtime desc')
             ->select();
         foreach ($pcBan as $k =>$v){
@@ -557,7 +553,7 @@ class Banner extends Controller{
         if($_POST){
             $stime=strtotime(date('Y-m-d 00:00:00'));
             $etime=strtotime(date('Y-m-d 23:59:59'));
-            $buNum=Db::table('dcxw_banner')->where('ba_createtime','between',[$stime,$etime])->count();
+            $buNum=Db::table('super_banner')->where('ba_createtime','between',[$stime,$etime])->count();
             //生成用户编号；
             $data['ba_bid'] = date('Ymd').sprintf("%04d", $buNum+1);
             $data['ba_title']=$_POST['ba_title'];
@@ -572,7 +568,7 @@ class Banner extends Controller{
             $data['ba_url']=$_POST['ba_url'];
             $data['ba_admin'] = $adminId;
             $data['ba_createtime']=time();
-            $addBan=Db::table('dcxw_banner')->insert($data);
+            $addBan=Db::table('super_banner')->insert($data);
             if($addBan){
                 $this->success('添加banner成功！','artbanner');
             }else{
@@ -580,15 +576,15 @@ class Banner extends Controller{
             }
         }else{
             if($ad_role == 1 ){// 超级管理员
-                $provInfo=Db::table('dcxw_province')->select();
+                $provInfo=Db::table('super_province')->select();
                 $this->assign('prov',$provInfo);
             }else{
-                $adminInfo=Db::table('dcxw_admin')
-                    ->join('dcxw_province','dcxw_province.p_id = dcxw_admin.ad_p_id')
-                    ->join('dcxw_city','dcxw_city.c_id = dcxw_admin.ad_c_id')
-                    ->join('dcxw_role','dcxw_role.r_id = dcxw_admin.ad_role')
-                    ->join('dcxw_branch','dcxw_branch.b_id = dcxw_admin.ad_branch')
-                    ->field('dcxw_admin.ad_realname,dcxw_province.p_name,dcxw_city.c_name,dcxw_branch.b_name,dcxw_role.r_name')
+                $adminInfo=Db::table('super_admin')
+                    ->join('super_province','super_province.p_id = super_admin.ad_p_id')
+                    ->join('super_city','super_city.c_id = super_admin.ad_c_id')
+                    ->join('super_role','super_role.r_id = super_admin.ad_role')
+                    ->join('super_branch','super_branch.b_id = super_admin.ad_branch')
+                    ->field('super_admin.ad_realname,super_province.p_name,super_city.c_name,super_branch.b_name,super_role.r_name')
                     ->where(['ad_id' => $adminId])
                     ->find();
                 $this->assign('admin',$adminInfo);
@@ -612,19 +608,19 @@ class Banner extends Controller{
             $data['ba_url']=$_POST['ba_url'];
             $data['ba_createtime']=time();
             $data['ba_admin'] = $adminId;
-            $update=Db::table('dcxw_banner')->where(['ba_id'=> $ba_id])->update($data);
+            $update=Db::table('super_banner')->where(['ba_id'=> $ba_id])->update($data);
             if($update){
                 $this->success('修改banner成功！','artbanner');
             }else{
                 $this->error('您未做任何修改！','artbanner');
             }
         }else{
-            $banInfo=Db::table('dcxw_banner')
-                ->join('dcxw_province','dcxw_province.p_id = dcxw_banner.ba_p_id')
-                ->join('dcxw_city','dcxw_city.c_id = dcxw_banner.ba_c_id')
-                ->join('dcxw_branch','dcxw_branch.b_id = dcxw_banner.ba_branch')
+            $banInfo=Db::table('super_banner')
+                ->join('super_province','super_province.p_id = super_banner.ba_p_id')
+                ->join('super_city','super_city.c_id = super_banner.ba_c_id')
+                ->join('super_branch','super_branch.b_id = super_banner.ba_branch')
                 ->where(['ba_id'=> $ba_id])
-                ->field('dcxw_banner.*,dcxw_province.p_name,dcxw_city.c_name,dcxw_branch.b_name')
+                ->field('super_banner.*,super_province.p_name,super_city.c_name,super_branch.b_name')
                 ->find();
             $this->assign('ban',$banInfo);
             $this->assign('ad_role',$ad_role);

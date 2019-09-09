@@ -68,20 +68,20 @@ class Designer extends Controller{
             $edate=strtotime(substr($case_decotime,'-10')." 23:59:59");
             $where.=" and ( des_createtime >= ".$sdate." and des_createtime <= ".$edate." ) ";
         }
-        $count=Db::table('dcxw_designer')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_designer.des_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_designer.des_c_id')
-            ->join('dcxw_branch','dcxw_branch.b_id = dcxw_designer.des_b_id')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_designer.dec_admin')
+        $count=Db::table('super_designer')
+            ->join('super_province','super_province.p_id = super_designer.des_p_id')
+            ->join('super_city','super_city.c_id = super_designer.des_c_id')
+            ->join('super_branch','super_branch.b_id = super_designer.des_b_id')
+            ->join('super_admin','super_admin.ad_id = super_designer.dec_admin')
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $design=Db::table('dcxw_designer')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_designer.des_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_designer.des_c_id')
-            ->join('dcxw_branch','dcxw_branch.b_id = dcxw_designer.des_b_id')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_designer.dec_admin')
+        $design=Db::table('super_designer')
+            ->join('super_province','super_province.p_id = super_designer.des_p_id')
+            ->join('super_city','super_city.c_id = super_designer.des_c_id')
+            ->join('super_branch','super_branch.b_id = super_designer.des_b_id')
+            ->join('super_admin','super_admin.ad_id = super_designer.dec_admin')
             ->limit(($page-1)*$limit,$limit)
             ->order('des_istop asc,des_isable,des_view desc')
             ->where($where)
@@ -91,7 +91,7 @@ class Designer extends Controller{
 				$type_id = explode(',',trim($val['des_tanlent'],','));
 				$type_val = "";
 				for($i = 0; $i < count($type_id); $i++){
-					$typeData = Db::table("dcxw_type")
+					$typeData = Db::table("super_type")
 								->where(["type_id" => $type_id[$i]])
 								->find();
 					$type_val .= $typeData ? $typeData['type_name'].',' : "";			
@@ -99,7 +99,7 @@ class Designer extends Controller{
 				$design[$key]['type_name'] = trim($type_val,',');
 				$design[$key]['des_updatetime'] = date('Y-m-d H:i:s',$val['des_updatetime']);
 				$design[$key]['c_name'] = $val['p_name']."-".$val['c_name'];
-				$design[$key]['case_num']=Db::table('dcxw_case')->where(['case_designer' => $val['des_id']])->count();
+				$design[$key]['case_num']=Db::table('super_case')->where(['case_designer' => $val['des_id']])->count();
 			}
 		}
         $res['code'] = 0;
@@ -116,10 +116,10 @@ class Designer extends Controller{
         //分站id
         $ad_branch = intval(session('ad_branch'));
         if($ad_role == 1 ){// 超级管理员
-            $admin = Db::table('dcxw_admin')->where(['ad_isable' => 1])->select();
+            $admin = Db::table('super_admin')->where(['ad_isable' => 1])->select();
             $where =' 1 = 1';
         }else{
-            $admin = Db::table('dcxw_admin')->where(['ad_isable' => 1,'ad_branch' => $ad_branch])->select();
+            $admin = Db::table('super_admin')->where(['ad_isable' => 1,'ad_branch' => $ad_branch])->select();
             $where=' des_b_id = '.$ad_branch;
         }
         $this->assign('admin',$admin);
@@ -155,31 +155,31 @@ class Designer extends Controller{
                 $where.=" and ( des_createtime >= ".$sdate." and des_createtime <= ".$edate." ) ";
             }
             //已展示
-            $data['display']=Db::table('dcxw_designer')
-                ->join('dcxw_province','dcxw_province.p_id = dcxw_designer.des_p_id')
-                ->join('dcxw_city','dcxw_city.c_id = dcxw_designer.des_c_id')
-                ->join('dcxw_branch','dcxw_branch.b_id = dcxw_designer.des_b_id')
-                ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_designer.dec_admin')
+            $data['display']=Db::table('super_designer')
+                ->join('super_province','super_province.p_id = super_designer.des_p_id')
+                ->join('super_city','super_city.c_id = super_designer.des_c_id')
+                ->join('super_branch','super_branch.b_id = super_designer.des_b_id')
+                ->join('super_admin','super_admin.ad_id = super_designer.dec_admin')
                 ->where($where)
                 ->where(['des_isable' => 1])
                 ->count();
             //未展示
-            $data['none']=Db::table('dcxw_designer')
-                ->join('dcxw_province','dcxw_province.p_id = dcxw_designer.des_p_id')
-                ->join('dcxw_city','dcxw_city.c_id = dcxw_designer.des_c_id')
-                ->join('dcxw_branch','dcxw_branch.b_id = dcxw_designer.des_b_id')
-                ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_designer.dec_admin')
+            $data['none']=Db::table('super_designer')
+                ->join('super_province','super_province.p_id = super_designer.des_p_id')
+                ->join('super_city','super_city.c_id = super_designer.des_c_id')
+                ->join('super_branch','super_branch.b_id = super_designer.des_b_id')
+                ->join('super_admin','super_admin.ad_id = super_designer.dec_admin')
                 ->where($where)
                 ->where(['des_isable' => 2])
                 ->count();
             $data['all']=intval($data['display'])+intval($data['none']);
             return $data;
         }
-        $disShow=Db::table('dcxw_designer')
+        $disShow=Db::table('super_designer')
             ->where($where)
             ->where(['des_isable' => 1])
             ->count();
-        $disNone=Db::table('dcxw_designer')
+        $disNone=Db::table('super_designer')
             ->where($where)
             ->where(['des_isable' => 2])
             ->count();
@@ -208,7 +208,7 @@ class Designer extends Controller{
                 $msg = '隐藏';
                 $data['des_isable'] = '2';
             }
-            $changeStatus = Db::table('dcxw_designer')->where(['des_id' => $ba_id])->update($data);
+            $changeStatus = Db::table('super_designer')->where(['des_id' => $ba_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -236,7 +236,7 @@ class Designer extends Controller{
                 $msg = '取消置顶';
                 $data['des_istop'] = '2';
             }
-            $changeStatus = Db::table('dcxw_designer')->where(['des_id' => $ba_id])->update($data);
+            $changeStatus = Db::table('super_designer')->where(['des_id' => $ba_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -262,7 +262,7 @@ class Designer extends Controller{
         $des_id=$_POST['des_id'];
         $des_name=$_POST['des_name'];
         if($des_id){
-            $isRepeat=Db::table('dcxw_designer')
+            $isRepeat=Db::table('super_designer')
                 ->where('des_id','neq',$des_id)
                 ->where(['des_name' => $des_name])
                 ->find();
@@ -274,7 +274,7 @@ class Designer extends Controller{
                 $res['msg'] = '此名字经过检测可用。';
             }
         }else{
-            $isRepeat=Db::table('dcxw_designer')->where(['des_name' => $des_name])->find();
+            $isRepeat=Db::table('super_designer')->where(['des_name' => $des_name])->find();
             if($isRepeat){
                 $res['code'] = 2;
                 $res['msg'] = '此设计师名字与已有重复，请换一个！';
@@ -303,11 +303,11 @@ class Designer extends Controller{
             $stime=strtotime(date('Y-m-d 00:00:00'));
             $etime=strtotime(date('Y-m-d 23:59:59'));
             //获取当日预约的数量
-            $buNum=Db::table('dcxw_designer')->where('des_createtime','between',[$stime,$etime])->count();
+            $buNum=Db::table('super_designer')->where('des_createtime','between',[$stime,$etime])->count();
             //生成用户编号；
             $data['des_bid'] = date('Ymd').sprintf("%04d", $buNum+1);
             $data['des_name'] = $_POST['des_name'];
-            $isRepeat=Db::table('dcxw_designer')->where(['des_name' => $data['des_name']])->find();
+            $isRepeat=Db::table('super_designer')->where(['des_name' => $data['des_name']])->find();
             if($isRepeat){
                 $this->error('此设计师名字与已有重复，请换一个！','add');
             }
@@ -328,30 +328,30 @@ class Designer extends Controller{
             $data['des_createtime'] = time();
             $data['des_updatetime'] = time();
             $data['dec_admin'] = session('adminId');
-            $add=Db::table('dcxw_designer')->insert($data);
+            $add=Db::table('super_designer')->insert($data);
             if($add){
                 $this->success('添加设计师成功','team');
             }else{
                 $this->error('添加设计师失败','team');
             }
         }else{
-            $provInfo=Db::table('dcxw_province')->select();
+            $provInfo=Db::table('super_province')->select();
             $this->assign('prov',$provInfo);
             //设计风格
-            $designStyle = Db::table('dcxw_type')
+            $designStyle = Db::table('super_type')
                            ->where(['type_sort' => '2','type_isable' => '1'])
                            ->select();
             $this->assign('designStyle',$designStyle);
             if($ad_role == 1 ){// 超级管理员
-                $provInfo=Db::table('dcxw_province')->select();
+                $provInfo=Db::table('super_province')->select();
                 $this->assign('prov',$provInfo);
             }else{
-                $adminInfo=Db::table('dcxw_admin')
-                    ->join('dcxw_province','dcxw_province.p_id = dcxw_admin.ad_p_id')
-                    ->join('dcxw_city','dcxw_city.c_id = dcxw_admin.ad_c_id')
-                    ->join('dcxw_role','dcxw_role.r_id = dcxw_admin.ad_role')
-                    ->join('dcxw_branch','dcxw_branch.b_id = dcxw_admin.ad_branch')
-                    ->field('dcxw_admin.ad_realname,dcxw_province.p_name,dcxw_city.c_name,dcxw_branch.b_name,dcxw_role.r_name')
+                $adminInfo=Db::table('super_admin')
+                    ->join('super_province','super_province.p_id = super_admin.ad_p_id')
+                    ->join('super_city','super_city.c_id = super_admin.ad_c_id')
+                    ->join('super_role','super_role.r_id = super_admin.ad_role')
+                    ->join('super_branch','super_branch.b_id = super_admin.ad_branch')
+                    ->field('super_admin.ad_realname,super_province.p_name,super_city.c_name,super_branch.b_name,super_role.r_name')
                     ->where(['ad_id' => $adminId])
                     ->find();
                 $this->assign('admin',$adminInfo);
@@ -367,7 +367,7 @@ class Designer extends Controller{
         $des_id=intval($_GET['des_id']);
         if($_POST){
             $data['des_name'] = $_POST['des_name'];
-            $isRepeat=Db::table('dcxw_designer')
+            $isRepeat=Db::table('super_designer')
                 ->where('des_id','neq',$des_id)
                 ->where(['des_name' => $data['des_name']])
                 ->find();
@@ -393,19 +393,19 @@ class Designer extends Controller{
             $data['des_seo_desc'] = $_POST['des_remarks'];
             $data['des_updatetime'] = time();
             $data['dec_admin'] = session('adminId');
-            $edit=Db::table('dcxw_designer')->where(['des_id' => $des_id])->update($data);
+            $edit=Db::table('super_designer')->where(['des_id' => $des_id])->update($data);
             if($edit){
                 $this->success('修改设计师成功！','team');
             }else{
                 $this->error('修改设计师失败！','team');
             }
         }else{
-            $designInfo=Db::table('dcxw_designer')
-                ->join('dcxw_province','dcxw_province.p_id = dcxw_designer.des_p_id')
-                ->join('dcxw_city','dcxw_city.c_id = dcxw_designer.des_c_id')
-                ->join('dcxw_branch','dcxw_branch.b_id = dcxw_designer.des_b_id')
+            $designInfo=Db::table('super_designer')
+                ->join('super_province','super_province.p_id = super_designer.des_p_id')
+                ->join('super_city','super_city.c_id = super_designer.des_c_id')
+                ->join('super_branch','super_branch.b_id = super_designer.des_b_id')
                 ->where(['des_id' => $des_id])
-                ->field('dcxw_designer.*,dcxw_province.p_name,dcxw_city.c_name,dcxw_branch.b_name')
+                ->field('super_designer.*,super_province.p_name,super_city.c_name,super_branch.b_name')
                 ->find();
             $provid=$designInfo['des_p_id'];
             $type_list = "";
@@ -413,20 +413,20 @@ class Designer extends Controller{
                 $type_list = explode(',',trim($designInfo['des_tanlent'],','));
             }
 
-            $cusCity=Db::table('dcxw_city')->where(['p_id' => $provid])->select();
+            $cusCity=Db::table('super_city')->where(['p_id' => $provid])->select();
             //设计风格
-            $designStyle = Db::table('dcxw_type')
+            $designStyle = Db::table('super_type')
                 ->where(['type_sort' => '2','type_isable' => '1'])
                 ->select();
             $c_id=$designInfo['des_c_id'];
-            $branch=Db::table('dcxw_branch')->where(['b_city' =>$c_id ])->field('b_id,b_name')->select();
+            $branch=Db::table('super_branch')->where(['b_city' =>$c_id ])->field('b_id,b_name')->select();
             $this->assign('branchs',$branch);
             $this->assign('city',$cusCity);
             $this->assign('design',$designInfo);
             $this->assign('designStyle',$designStyle);
             $this->assign('type_list',$type_list);
             if($ad_role == 1 ){// 超级管理员
-                $provInfo=Db::table('dcxw_province')->select();
+                $provInfo=Db::table('super_province')->select();
                 $this->assign('prov',$provInfo);
             }
             $this->assign('ad_role',$ad_role);
@@ -438,7 +438,7 @@ class Designer extends Controller{
     //删除设计师
     public function del(){
         $des_id=intval($_GET['des_id']);
-        $del=Db::table('dcxw_designer')->where(['des_id' => $des_id])->delete();
+        $del=Db::table('super_designer')->where(['des_id' => $des_id])->delete();
         if($del){
             $this->success('删除设计师成功','team');
         }else{
@@ -449,7 +449,7 @@ class Designer extends Controller{
     //刷新设计师
     public function refresh(){
         $des_id=intval($_GET['des_id']);
-        $del=Db::table('dcxw_designer')->where(['des_id' => $des_id])->update(['des_updatetime' => time()]);
+        $del=Db::table('super_designer')->where(['des_id' => $des_id])->update(['des_updatetime' => time()]);
         if($del){
             $this->success('刷新设计师成功','team');
         }else{

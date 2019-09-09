@@ -4,7 +4,7 @@
     <span class="layui-breadcrumb" lay-separator=">">
         <a>系统配置</a>
         <a>类型参数</a>
-        <a><cite>租金范围</cite></a>
+        <a><cite>商品类型</cite></a>
     </span>
         <div style="float:right;">
             <button class="layui-btn layui-btn-primary layui-btn-sm"  onclick="addType()"><i class="layui-icon"></i>添加范围</button>
@@ -12,9 +12,8 @@
     </div>
     <hr/>
     <ul class="layui-tab-title">
-        <li><a href="<?=url('setinfo/typelist')?>">房屋类型</a></li>
-        <li class="layui-this">月租范围</li>
-        <li><a href="<?=url('setinfo/houseType')?>">房屋配置</a></li>
+        <li><a href="<?=url('setinfo/typelist')?>">商品类型</a></li>
+        <li><a href="<?=url('setinfo/houseType')?>">商品类型</a></li>
         </ul>
     <table lay-skin="line" class="layui-table" lay-filter="demo" lay-data="{height: 'full-200', cellMinWidth:80, url:'/admin/setinfo/areaData/', limit:20,limits:[20,30,50] ,id: 'testReload'}" >
                         <thead>

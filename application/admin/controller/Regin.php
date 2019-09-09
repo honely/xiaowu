@@ -36,7 +36,7 @@ class Regin extends Controller{
 
     //1.省份列表（2018.04.20）
     public function province(){
-        $provInfo=Db::table('dcxw_province')->order('p_id desc')->select();
+        $provInfo=Db::table('super_province')->order('p_id desc')->select();
         $this->assign('provInfo',$provInfo);
         return $this->fetch();
     }
@@ -50,7 +50,7 @@ class Regin extends Controller{
             $data['p_code']=$_POST['p_code'];
             $data['p_opeatime']=time();
             $data['p_admin']=$adminId;
-            $addProv=Db::table('dcxw_province')->insert($data);
+            $addProv=Db::table('super_province')->insert($data);
             if($addProv){
                 $this->success('添加成功','district/district');
             }else{
@@ -71,14 +71,14 @@ class Regin extends Controller{
             $data['p_code']=$_POST['p_code'];
             $data['p_opeatime']=time();
             $data['p_admin']=$adminId;
-            $editProv=Db::table('dcxw_province')->where(['p_id' => $pId])->update($data);
+            $editProv=Db::table('super_province')->where(['p_id' => $pId])->update($data);
             if($editProv){
                 $this->success('编辑成功','district/district');
             }else{
                 $this->error('您未做任何修改','district/district');
             }
         }else{
-            $ProvInfo=Db::table('dcxw_province')->where(['p_id' => $pId])->find();
+            $ProvInfo=Db::table('super_province')->where(['p_id' => $pId])->find();
             if($ProvInfo){
                 $this->assign('prov',$ProvInfo);
             }
@@ -90,7 +90,7 @@ class Regin extends Controller{
     //4.删除省份（2018.04.20）若该省份下有城市，城市有分站不可删除
     public function delProv(){
         $p_id=intval($_GET['p_id']);
-        $del=Db::table('dcxw_province')->where(['p_id' =>$p_id])->delete();
+        $del=Db::table('super_province')->where(['p_id' =>$p_id])->delete();
         if($del){
             $this->success('删除成功','district/district');
         }else{
@@ -104,8 +104,8 @@ class Regin extends Controller{
 
     //1.区域城市（2018.04.19）
     public function city(){
-        $cityInfo=Db::table('dcxw_city')->order('c_id desc')->select();
-        $provInfo=Db::table('dcxw_province')->select();
+        $cityInfo=Db::table('super_city')->order('c_id desc')->select();
+        $provInfo=Db::table('super_province')->select();
         $this->assign('prov',$provInfo);
         $this->assign('city',$cityInfo);
         return $this->fetch();
@@ -121,14 +121,14 @@ class Regin extends Controller{
             $data['p_id']=$_POST['p_id'];
             $data['c_name']=$_POST['c_name'];
 
-            $addCity=Db::table('dcxw_city')->insert($data);
+            $addCity=Db::table('super_city')->insert($data);
             if($addCity){
                 $this->success('添加成功','city');
             }else{
                 $this->error('添加失败','city');
             }
         }else{
-            $provInfo=Db::table('dcxw_province')->select();
+            $provInfo=Db::table('super_province')->select();
             $this->assign('prov',$provInfo);
             return $this->fetch();
         }
@@ -145,7 +145,7 @@ class Regin extends Controller{
             $data['c_admin']=$adminId;
             $data['c_name']=$_POST['c_name'];
             $data['p_id']=$_POST['p_id'];
-            $editCity=Db::table('dcxw_city')->where(['c_id' => $cId])->update($data);
+            $editCity=Db::table('super_city')->where(['c_id' => $cId])->update($data);
             if($editCity){
                 $this->success('编辑成功','city');
             }else{
@@ -153,9 +153,9 @@ class Regin extends Controller{
             }
         }else{
             //获取所有品质
-            $provInfo=Db::table('dcxw_province')->select();
+            $provInfo=Db::table('super_province')->select();
             $this->assign('prov',$provInfo);
-            $cityInfo=Db::table('dcxw_city')->where(['c_id' => $cId])->find();
+            $cityInfo=Db::table('super_city')->where(['c_id' => $cId])->find();
             if($cityInfo){
                 $this->assign('city',$cityInfo);
             }
@@ -165,7 +165,7 @@ class Regin extends Controller{
     //4.删除城市（2018.04.20）删除（若该城市有分站不可删除）
     public function delCity(){
         $c_id=intval($_GET['c_id']);
-        $delCity=Db::table('dcxw_city')->where(['c_id' =>$c_id])->delete();
+        $delCity=Db::table('super_city')->where(['c_id' =>$c_id])->delete();
         if($delCity){
             $this->success('删除成功','district/city');
         }else{
@@ -184,14 +184,14 @@ class Regin extends Controller{
             $data['area_code']=$_POST['area_code'];
             $data['area_addtime']=time();
             $data['area_admin']=$adminId;
-            $addProv=Db::table('dcxw_area')->insert($data);
+            $addProv=Db::table('super_area')->insert($data);
             if($addProv){
                 $this->success('添加成功','district/area');
             }else{
                 $this->error('添加失败','addAreas');
             }
         }else{
-            $provInfo=Db::table('dcxw_province')->select();
+            $provInfo=Db::table('super_province')->select();
 //            dump($provInfo);
             $this->assign('prov',$provInfo);
             return $this->fetch();
@@ -210,17 +210,17 @@ class Regin extends Controller{
             $data['area_code']=$_POST['area_code'];
             $data['area_addtime']=time();
             $data['area_admin']=$adminId;
-            $editProv=Db::table('dcxw_area')->where(['area_id' => $area_id])->update($data);
+            $editProv=Db::table('super_area')->where(['area_id' => $area_id])->update($data);
             if($editProv){
                 $this->success('编辑成功','district/area');
             }else{
                 $this->error('您未做任何修改','district/area');
             }
         }else{
-            $areaInfo=Db::table('dcxw_area')->where(['area_id' => $area_id])->find();
-            $provInfo=Db::table('dcxw_province')->select();
+            $areaInfo=Db::table('super_area')->where(['area_id' => $area_id])->find();
+            $provInfo=Db::table('super_province')->select();
             $p_id=$areaInfo['area_p_id'];
-            $cityInfo=Db::table('dcxw_city')->where(['p_id' => $p_id])->select();
+            $cityInfo=Db::table('super_city')->where(['p_id' => $p_id])->select();
             $this->assign('city',$cityInfo);
             $this->assign('prov',$provInfo);
             if($areaInfo){
@@ -234,7 +234,7 @@ class Regin extends Controller{
     //4.删除省份（2018.04.20）若该省份下有城市，城市有分站不可删除
     public function delArea(){
         $area_id=intval($_GET['area_id']);
-        $del=Db::table('dcxw_area')->where(['area_id' =>$area_id])->delete();
+        $del=Db::table('super_area')->where(['area_id' =>$area_id])->delete();
         if($del){
             $this->success('删除成功','district/area');
         }else{

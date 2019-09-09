@@ -16,10 +16,10 @@ class Seek extends Controller{
      * */
     public function index(){
         //热线电话
-        $hotLine=Db::table('dcxw_setinfo')->where(['s_key' => 'hotline'])->column('s_value');
+        $hotLine=Db::table('super_setinfo')->where(['s_key' => 'hotline'])->column('s_value');
         $this->assign('hotLine',$hotLine[0]);
         //网站导航
-        $navInfo=Db::table('dcxw_nav')
+        $navInfo=Db::table('super_nav')
             ->where(['nav_isable' => 1])
             ->order('nav_order desc')
             ->field('nav_title,nav_url')
@@ -27,16 +27,16 @@ class Seek extends Controller{
         $this->assign('navinfo',$navInfo);
 
         //位置区域目前仅限西安市内
-        $area=Db::table('dcxw_area')->where(['area_c_id' => 3])->select();
+        $area=Db::table('super_area')->where(['area_c_id' => 3])->select();
         $this->assign('area',$area);
         //房屋类型
-        $houseType=Db::table('dcxw_type')
+        $houseType=Db::table('super_type')
             ->where(['type_isable' => 1,'type_sort' => 1])
             ->order('type_order desc')
             ->select();
         $this->assign('houseType',$houseType);
         //房屋类型
-        $rent=Db::table('dcxw_type')
+        $rent=Db::table('super_type')
             ->where(['type_isable' => 1,'type_sort' => 5])
             ->order('type_order desc')
             ->select();
@@ -50,7 +50,7 @@ class Seek extends Controller{
         //租金帅选
         $rent_id=0;
         if(isset($_GET['rent_id']) && !empty($_GET['rent_id']) && ($_GET['rent_id'] != 0)){
-            $areaInfo=Db::table('dcxw_type')
+            $areaInfo=Db::table('super_type')
                 ->where(['type_isable' => 1 ,'type_sort' => 5,'type_id' => $_GET['rent_id']])
                 ->field('type_remarks')
                 ->find();
@@ -79,22 +79,22 @@ class Seek extends Controller{
         //房源
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',6,'intval');
-        $house=Db::table('dcxw_houses')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_houses.h_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_houses.h_c_id')
-            ->join('dcxw_area','dcxw_area.area_id = dcxw_houses.h_a_id')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_houses.h_admin')
+        $house=Db::table('super_houses')
+            ->join('super_province','super_province.p_id = super_houses.h_p_id')
+            ->join('super_city','super_city.c_id = super_houses.h_c_id')
+            ->join('super_area','super_area.area_id = super_houses.h_a_id')
+            ->join('super_admin','super_admin.ad_id = super_houses.h_admin')
             ->where(['h_isable' => 1,'h_rent_status' => 2])
             ->where($where)
             ->order('h_istop asc,h_isable,h_view desc')
             ->limit(($page-1)*$limit,$limit)
             ->field('h_name,h_nearbus,h_b_id,h_subway,h_house_img,h_img_alt,h_video,h_address,h_building,h_rent,h_rent_type,h_id')
             ->select();
-        $count=Db::table('dcxw_houses')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_houses.h_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_houses.h_c_id')
-            ->join('dcxw_area','dcxw_area.area_id = dcxw_houses.h_a_id')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_houses.h_admin')
+        $count=Db::table('super_houses')
+            ->join('super_province','super_province.p_id = super_houses.h_p_id')
+            ->join('super_city','super_city.c_id = super_houses.h_c_id')
+            ->join('super_area','super_area.area_id = super_houses.h_a_id')
+            ->join('super_admin','super_admin.ad_id = super_houses.h_admin')
             ->where(['h_isable' => 1,'h_rent_status' => 2])
             ->where($where)
             ->count();
@@ -111,27 +111,27 @@ class Seek extends Controller{
     public function details(){
         $h_id=intval(trim($_GET['h_id']));
         //浏览量加一
-        Db::table('dcxw_houses')->where(['h_id' => $h_id])->setInc('h_view');
-        $house=Db::table('dcxw_houses')->where(['h_id' => $h_id])->find();
+        Db::table('super_houses')->where(['h_id' => $h_id])->setInc('h_view');
+        $house=Db::table('super_houses')->where(['h_id' => $h_id])->find();
         $house['h_img']=explode(',',$house['h_img']);
         $house['h_config']=explode(',',$house['h_config']);
         $house['config_img']=[];
         for($i=0;$i<count($house['h_config']);$i++){
-            $house['config_img'][$i]=Db::table('dcxw_type')->where(['type_id' => $house['h_config'][$i]])->field('type_name,type_img')->find();
+            $house['config_img'][$i]=Db::table('super_type')->where(['type_id' => $house['h_config'][$i]])->field('type_name,type_img')->find();
         }
         $this->assign('house',$house);
         //热线电话
-        $hotLine=Db::table('dcxw_setinfo')->where(['s_key' => 'hotline'])->column('s_value');
+        $hotLine=Db::table('super_setinfo')->where(['s_key' => 'hotline'])->column('s_value');
         $this->assign('hotLine',$hotLine[0]);
         //网站导航
-        $navInfo=Db::table('dcxw_nav')
+        $navInfo=Db::table('super_nav')
             ->where(['nav_isable' => 1])
             ->order('nav_order desc')
             ->field('nav_title,nav_url')
             ->select();
         $this->assign('navinfo',$navInfo);
         //热门房源
-        $hotHouse=Db::table('dcxw_houses')->where('h_id','neq',$h_id)->order('h_view desc')->limit(4)->select();
+        $hotHouse=Db::table('super_houses')->where('h_id','neq',$h_id)->order('h_view desc')->limit(4)->select();
         $this->assign('hotHouse',$hotHouse);
         return $this->fetch();
     }
@@ -146,7 +146,7 @@ class Seek extends Controller{
             $data['ho_phone']=$_POST['ho_phone'];
             $data['ho_remark']=$_POST['ho_remark'];
             $data['ho_addtime']=time();
-            $add=Db::table('dcxw_house_order')->insert($data);
+            $add=Db::table('super_house_order')->insert($data);
             if($add){
                 return  json(['code' => '1','msg' => '提交成功！']);
             }else{

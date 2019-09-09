@@ -69,20 +69,20 @@ class Topic extends Controller{
             $where.=" and ( tp_createtime >= ".$sdate." and tp_createtime <= ".$edate." ) ";
         }
 
-        $count=Db::table('dcxw_topic')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_topic.tp_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_topic.tp_c_id')
-            ->join('dcxw_branch','dcxw_branch.b_id = dcxw_topic.tp_b_id')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_topic.tp_admin')
+        $count=Db::table('super_topic')
+            ->join('super_province','super_province.p_id = super_topic.tp_p_id')
+            ->join('super_city','super_city.c_id = super_topic.tp_c_id')
+            ->join('super_branch','super_branch.b_id = super_topic.tp_b_id')
+            ->join('super_admin','super_admin.ad_id = super_topic.tp_admin')
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $topic=Db::table('dcxw_topic')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_topic.tp_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_topic.tp_c_id')
-            ->join('dcxw_branch','dcxw_branch.b_id = dcxw_topic.tp_b_id')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_topic.tp_admin')
+        $topic=Db::table('super_topic')
+            ->join('super_province','super_province.p_id = super_topic.tp_p_id')
+            ->join('super_city','super_city.c_id = super_topic.tp_c_id')
+            ->join('super_branch','super_branch.b_id = super_topic.tp_b_id')
+            ->join('super_admin','super_admin.ad_id = super_topic.tp_admin')
             ->limit(($page-1)*$limit,$limit)
             ->order('tp_id desc')
             ->where($where)
@@ -102,7 +102,7 @@ class Topic extends Controller{
 
     public function index(){
         $branchId=session('cus_branchid');
-        $branchInfo=Db::table('dcxw_branch')->where(['b_id' => $branchId])->find();
+        $branchInfo=Db::table('super_branch')->where(['b_id' => $branchId])->find();
         $this->assign('branch',$branchInfo);
         return $this->fetch();
     }
@@ -144,36 +144,36 @@ class Topic extends Controller{
                 $where.=" and ( tp_createtime >= ".$sdate." and tp_createtime <= ".$edate." ) ";
             }
             //已展示
-            $data['display']=Db::table('dcxw_topic')
-                ->join('dcxw_province','dcxw_province.p_id = dcxw_topic.tp_p_id')
-                ->join('dcxw_city','dcxw_city.c_id = dcxw_topic.tp_c_id')
-                ->join('dcxw_branch','dcxw_branch.b_id = dcxw_topic.tp_b_id')
-                ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_topic.tp_admin')
+            $data['display']=Db::table('super_topic')
+                ->join('super_province','super_province.p_id = super_topic.tp_p_id')
+                ->join('super_city','super_city.c_id = super_topic.tp_c_id')
+                ->join('super_branch','super_branch.b_id = super_topic.tp_b_id')
+                ->join('super_admin','super_admin.ad_id = super_topic.tp_admin')
                 ->where($where)
                 ->where(['tp_isable' => 1])
                 ->count();
             //未展示
-            $data['none']=Db::table('dcxw_topic')
-                ->join('dcxw_province','dcxw_province.p_id = dcxw_topic.tp_p_id')
-                ->join('dcxw_city','dcxw_city.c_id = dcxw_topic.tp_c_id')
-                ->join('dcxw_branch','dcxw_branch.b_id = dcxw_topic.tp_b_id')
-                ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_topic.tp_admin')
+            $data['none']=Db::table('super_topic')
+                ->join('super_province','super_province.p_id = super_topic.tp_p_id')
+                ->join('super_city','super_city.c_id = super_topic.tp_c_id')
+                ->join('super_branch','super_branch.b_id = super_topic.tp_b_id')
+                ->join('super_admin','super_admin.ad_id = super_topic.tp_admin')
                 ->where($where)
                 ->where(['tp_isable' => 2])
                 ->count();
             $data['all']=intval($data['display'])+intval($data['none']);
             return $data;
         }
-        $provInfo=Db::table('dcxw_province')->select();
+        $provInfo=Db::table('super_province')->select();
         $this->assign('prov',$provInfo);
         //操作人管理员
-        $admin = Db::table('dcxw_admin')->select();
+        $admin = Db::table('super_admin')->select();
         $this->assign('admin',$admin);
         //已展示
-        $display=Db::table('dcxw_topic')->where(['tp_isable'=>1])->count();
+        $display=Db::table('super_topic')->where(['tp_isable'=>1])->count();
         $this->assign('display',$display);
         //未展示
-        $none=Db::table('dcxw_topic')->where(['tp_isable'=>2])->count();
+        $none=Db::table('super_topic')->where(['tp_isable'=>2])->count();
         $this->assign('none',$none);
         $this->assign('all',intval($display)+intval($none));
         return $this->fetch();
@@ -196,7 +196,7 @@ class Topic extends Controller{
                 $msg = '隐藏';
                 $data['tp_isable'] = '2';
             }
-            $changeStatus = Db::table('dcxw_topic')->where(['tp_id' => $ba_id])->update($data);
+            $changeStatus = Db::table('super_topic')->where(['tp_id' => $ba_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -216,7 +216,7 @@ class Topic extends Controller{
             $stime=strtotime(date('Y-m-d 00:00:00'));
             $etime=strtotime(date('Y-m-d 23:59:59'));
             //获取当日预约的数量
-            $buNum=Db::table('dcxw_topic')->where('tp_createtime','between',[$stime,$etime])->count();
+            $buNum=Db::table('super_topic')->where('tp_createtime','between',[$stime,$etime])->count();
             //生成用户编号；
             $data['tp_bid'] = date('Ymd').sprintf("%04d", $buNum+1);
             $data['tp_title']=$_POST['tp_title'];
@@ -230,14 +230,14 @@ class Topic extends Controller{
             $data['tp_seo_desc']=$_POST['tp_seo_desc'];
             $data['tp_isable']=$_POST['tp_isable'];
             $data['tp_admin']=session('adminId');
-            $add=Db::table('dcxw_topic')->insert($data);
+            $add=Db::table('super_topic')->insert($data);
             if($add){
                 $this->success('发布专题成功！','topic');
             }else{
                 $this->error('发布专题失败！','topic');
             }
         }else{
-            $provInfo=Db::table('dcxw_province')->select();
+            $provInfo=Db::table('super_province')->select();
             $this->assign('prov',$provInfo);
             return $this->fetch();
         }
@@ -257,19 +257,19 @@ class Topic extends Controller{
             $data['tp_seo_desc']=$_POST['tp_seo_desc'];
             $data['tp_isable']=$_POST['tp_isable'];
             $data['tp_admin']=session('adminId');
-            $edit=Db::table('dcxw_topic')->where(['tp_id'=>$tp_id])->update($data);
+            $edit=Db::table('super_topic')->where(['tp_id'=>$tp_id])->update($data);
             if($edit){
                 $this->success('修改专题成功','topic');
             }else{
                 $this->error('修改专题失败','topic');
             }
         }else{
-            $topicInfo=Db::table('dcxw_topic')->where(['tp_id'=>$tp_id])->find();
-            $provInfo=Db::table('dcxw_province')->select();
+            $topicInfo=Db::table('super_topic')->where(['tp_id'=>$tp_id])->find();
+            $provInfo=Db::table('super_province')->select();
             $provid=$topicInfo['tp_p_id'];
-            $cusCity=Db::table('dcxw_city')->where(['p_id' => $provid])->select();
+            $cusCity=Db::table('super_city')->where(['p_id' => $provid])->select();
             $c_id=$topicInfo['tp_c_id'];
-            $branch=Db::table('dcxw_branch')->where(['b_city' =>$c_id ])->field('b_id,b_name')->select();
+            $branch=Db::table('super_branch')->where(['b_city' =>$c_id ])->field('b_id,b_name')->select();
             $this->assign('branchs',$branch);
             $this->assign('city',$cusCity);
             $this->assign('prov',$provInfo);
@@ -280,7 +280,7 @@ class Topic extends Controller{
 
     public function del(){
         $tp_id=intval($_GET['tp_id']);
-        $delArt=Db::table('dcxw_topic')->where(['tp_id'=>$tp_id])->delete();
+        $delArt=Db::table('super_topic')->where(['tp_id'=>$tp_id])->delete();
         if($delArt){
             $this->success('删除专题成功','topic');
         }else{

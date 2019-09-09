@@ -56,13 +56,13 @@ class Article extends Controller{
             $edate=strtotime(substr($art_createtime,'-10')." 23:59:59");
             $where.=" and ( art_createtime >= ".$sdate." and art_createtime <= ".$edate." ) ";
         }
-        $count=Db::table('dcxw_article')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_article.art_admin')
+        $count=Db::table('super_article')
+            ->join('super_admin','super_admin.ad_id = super_article.art_admin')
             ->where($where)->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $article=Db::table('dcxw_article')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_article.art_admin')
+        $article=Db::table('super_article')
+            ->join('super_admin','super_admin.ad_id = super_article.art_admin')
             ->limit(($page-1)*$limit,$limit)
             ->where($where)
             ->order('art_istop ASC,art_view desc')
@@ -120,14 +120,14 @@ class Article extends Controller{
                 $where.=" and ( art_createtime >= ".$sdate." and art_createtime <= ".$edate." ) ";
             }
             //已展示
-            $data['display']=Db::table('dcxw_article')->where($where)->where(['art_isable'=>1])->count();
+            $data['display']=Db::table('super_article')->where($where)->where(['art_isable'=>1])->count();
             //未展示
-            $data['none']=Db::table('dcxw_article')->where($where)->where(['art_isable'=>2])->count();
+            $data['none']=Db::table('super_article')->where($where)->where(['art_isable'=>2])->count();
             $data['all']=intval($data['display'])+intval($data['none']);
             return $data;
         }else{
             //操作人管理员
-            $admin = Db::table('dcxw_admin')->select();
+            $admin = Db::table('super_admin')->select();
             $this->assign('admin',$admin);
             return $this->fetch();
         }
@@ -148,7 +148,7 @@ class Article extends Controller{
                 $data['art_isable'] = '2';
                 $data['art_admin'] = session('adminId');
             }
-            $changeStatus = Db::table('dcxw_article')->where(['art_id' => $ba_id])->update($data);
+            $changeStatus = Db::table('super_article')->where(['art_id' => $ba_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -178,7 +178,7 @@ class Article extends Controller{
                 $data['art_istop'] = '2';
                 $data['art_admin'] = session('adminId');
             }
-            $changeStatus = Db::table('dcxw_article')->where(['art_id' => $ba_id])->update($data);
+            $changeStatus = Db::table('super_article')->where(['art_id' => $ba_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -201,7 +201,7 @@ class Article extends Controller{
             $stime=strtotime(date('Y-m-d 00:00:00'));
             $etime=strtotime(date('Y-m-d 23:59:59'));
             //获取当日预约的数量
-            $buNum=Db::table('dcxw_article')->where('art_createtime','between',[$stime,$etime])->count();
+            $buNum=Db::table('super_article')->where('art_createtime','between',[$stime,$etime])->count();
             //生成用户编号；
             $data['art_bid'] = date('Ymd').sprintf("%04d", $buNum+1);
             $data['art_title']=$_POST['art_title'];
@@ -215,7 +215,7 @@ class Article extends Controller{
             $data['art_updatetime']=time();
             $data['art_istop']=$_POST['art_istop'];
             $data['art_admin'] = session('adminId');
-            $add=Db::table('dcxw_article')->insert($data);
+            $add=Db::table('super_article')->insert($data);
             if($add){
                 $this->success('发布文章成功！','article');
             }else{
@@ -225,15 +225,15 @@ class Article extends Controller{
             $adminId=session('adminId');
             $ad_role=intval(session('ad_role'));
             if($ad_role == 1 ){// 超级管理员
-                $provInfo=Db::table('dcxw_province')->select();
+                $provInfo=Db::table('super_province')->select();
                 $this->assign('prov',$provInfo);
             }else{
-                $adminInfo=Db::table('dcxw_admin')
-                    ->join('dcxw_province','dcxw_province.p_id = dcxw_admin.ad_p_id')
-                    ->join('dcxw_city','dcxw_city.c_id = dcxw_admin.ad_c_id')
-                    ->join('dcxw_role','dcxw_role.r_id = dcxw_admin.ad_role')
-                    ->join('dcxw_branch','dcxw_branch.b_id = dcxw_admin.ad_branch')
-                    ->field('dcxw_admin.ad_realname,dcxw_province.p_name,dcxw_city.c_name,dcxw_branch.b_name,dcxw_role.r_name')
+                $adminInfo=Db::table('super_admin')
+                    ->join('super_province','super_province.p_id = super_admin.ad_p_id')
+                    ->join('super_city','super_city.c_id = super_admin.ad_c_id')
+                    ->join('super_role','super_role.r_id = super_admin.ad_role')
+                    ->join('super_branch','super_branch.b_id = super_admin.ad_branch')
+                    ->field('super_admin.ad_realname,super_province.p_name,super_city.c_name,super_branch.b_name,super_role.r_name')
                     ->where(['ad_id' => $adminId])
                     ->find();
                 $this->assign('admin',$adminInfo);
@@ -259,14 +259,14 @@ class Article extends Controller{
             $data['art_type']=intval(trim($_POST['art_type']));
             $data['art_istop']=$_POST['art_istop'];
             $data['art_admin'] = session('adminId');
-            $edit=Db::table('dcxw_article')->where(['art_id'=>$art_id])->update($data);
+            $edit=Db::table('super_article')->where(['art_id'=>$art_id])->update($data);
             if($edit){
                 $this->success('修改文章成功','article');
             }else{
                 $this->error('修改文章失败','article');
             }
         }else{
-            $artInfo=Db::table('dcxw_article')->where(['art_id'=>$art_id])->find();
+            $artInfo=Db::table('super_article')->where(['art_id'=>$art_id])->find();
             $this->assign('art',$artInfo);
             return $this->fetch();
         }
@@ -275,7 +275,7 @@ class Article extends Controller{
     //删除某一文章
     public function delArticle(){
         $art_id=intval($_GET['art_id']);
-        $delArt=Db::table('dcxw_article')->where(['art_id' => $art_id])->delete();
+        $delArt=Db::table('super_article')->where(['art_id' => $art_id])->delete();
         if($delArt){
             $this->success('删除文章成功','article');
         }else{
@@ -288,8 +288,8 @@ class Article extends Controller{
     //刷新某一新闻数据
     public function refresh(){
         $art_id=intval($_GET['art_id']);
-        $refresh=Db::table('dcxw_article')->where(['art_id' => $art_id])->update(['art_updatetime' => time()]);
-        $viewInc=Db::table('dcxw_article')->where(['art_id' => $art_id])->setInc('art_view');
+        $refresh=Db::table('super_article')->where(['art_id' => $art_id])->update(['art_updatetime' => time()]);
+        $viewInc=Db::table('super_article')->where(['art_id' => $art_id])->setInc('art_view');
         if($refresh && $viewInc){
             $this->success('刷新文章成功','article');
         }else{

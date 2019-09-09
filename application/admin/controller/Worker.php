@@ -71,20 +71,20 @@ class Worker extends Controller{
             $edate=strtotime(substr($case_decotime,'-10')." 23:59:59");
             $where.=" and ( wk_addtime >= ".$sdate." and wk_addtime <= ".$edate." ) ";
         }
-        $count=Db::table('dcxw_worker')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_worker.wk_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_worker.wk_c_id')
-            ->join('dcxw_branch','dcxw_branch.b_id = dcxw_worker.wk_b_id')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_worker.wk_admin')
+        $count=Db::table('super_worker')
+            ->join('super_province','super_province.p_id = super_worker.wk_p_id')
+            ->join('super_city','super_city.c_id = super_worker.wk_c_id')
+            ->join('super_branch','super_branch.b_id = super_worker.wk_b_id')
+            ->join('super_admin','super_admin.ad_id = super_worker.wk_admin')
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
-        $worker=Db::table('dcxw_worker')
-            ->join('dcxw_province','dcxw_province.p_id = dcxw_worker.wk_p_id')
-            ->join('dcxw_city','dcxw_city.c_id = dcxw_worker.wk_c_id')
-            ->join('dcxw_branch','dcxw_branch.b_id = dcxw_worker.wk_b_id')
-            ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_worker.wk_admin')
+        $worker=Db::table('super_worker')
+            ->join('super_province','super_province.p_id = super_worker.wk_p_id')
+            ->join('super_city','super_city.c_id = super_worker.wk_c_id')
+            ->join('super_branch','super_branch.b_id = super_worker.wk_b_id')
+            ->join('super_admin','super_admin.ad_id = super_worker.wk_admin')
             ->limit(($page-1)*$limit,$limit)
             ->order('wk_istop asc,wk_view desc')
             ->where($where)
@@ -93,7 +93,7 @@ class Worker extends Controller{
             foreach($worker as $key => $val){
                 $worker[$key]['wk_updatetime'] = date('Y-m-d H:i:s',$val['wk_updatetime']);
                 $worker[$key]['c_name'] = $val['p_name']."-".$val['c_name'];
-                $worker[$key]['site_num']=Db::table('dcxw_worksite')->where(['w_worker' => $val['wk_id']])->count();
+                $worker[$key]['site_num']=Db::table('super_worksite')->where(['w_worker' => $val['wk_id']])->count();
             }
         }
         $res['code'] = 0;
@@ -138,39 +138,39 @@ class Worker extends Controller{
                 $where.=" and ( wk_addtime >= ".$sdate." and wk_addtime <= ".$edate." ) ";
             }
             //已展示
-            $data['display']=Db::table('dcxw_worker')
-                ->join('dcxw_province','dcxw_province.p_id = dcxw_worker.wk_p_id')
-                ->join('dcxw_city','dcxw_city.c_id = dcxw_worker.wk_c_id')
-                ->join('dcxw_branch','dcxw_branch.b_id = dcxw_worker.wk_b_id')
-                ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_worker.wk_admin')
+            $data['display']=Db::table('super_worker')
+                ->join('super_province','super_province.p_id = super_worker.wk_p_id')
+                ->join('super_city','super_city.c_id = super_worker.wk_c_id')
+                ->join('super_branch','super_branch.b_id = super_worker.wk_b_id')
+                ->join('super_admin','super_admin.ad_id = super_worker.wk_admin')
                 ->where($where)
                 ->where(['wk_isable' => 1])
                 ->count();
             //未展示
-            $data['none']=Db::table('dcxw_worker')
-                ->join('dcxw_province','dcxw_province.p_id = dcxw_worker.wk_p_id')
-                ->join('dcxw_city','dcxw_city.c_id = dcxw_worker.wk_c_id')
-                ->join('dcxw_branch','dcxw_branch.b_id = dcxw_worker.wk_b_id')
-                ->join('dcxw_admin','dcxw_admin.ad_id = dcxw_worker.wk_admin')
+            $data['none']=Db::table('super_worker')
+                ->join('super_province','super_province.p_id = super_worker.wk_p_id')
+                ->join('super_city','super_city.c_id = super_worker.wk_c_id')
+                ->join('super_branch','super_branch.b_id = super_worker.wk_b_id')
+                ->join('super_admin','super_admin.ad_id = super_worker.wk_admin')
                 ->where($where)
                 ->where(['wk_isable' => 2])
                 ->count();
             $data['all']=intval($data['display'])+intval($data['none']);
             return $data;
         }
-        $disShow=Db::table('dcxw_worker')
+        $disShow=Db::table('super_worker')
         ->where(['wk_isable' => 1])
         ->count();
-        $disNone=Db::table('dcxw_worker')
+        $disNone=Db::table('super_worker')
             ->where(['wk_isable' => 2])
             ->count();
         $this->assign('show',$disShow);
         $this->assign('none',$disNone);
         $this->assign('all',intval($disShow)+intval($disNone));
-        $provInfo=Db::table('dcxw_province')->select();
+        $provInfo=Db::table('super_province')->select();
         $this->assign('prov',$provInfo);
         //操作人管理员
-        $admin = Db::table('dcxw_admin')->select();
+        $admin = Db::table('super_admin')->select();
         $this->assign('admin',$admin);
         return $this->fetch();
     }
@@ -188,7 +188,7 @@ class Worker extends Controller{
                 $msg = '隐藏';
                 $data['wk_isable'] = '2';
             }
-            $changeStatus = Db::table('dcxw_worker')->where(['wk_id' => $wk_id])->update($data);
+            $changeStatus = Db::table('super_worker')->where(['wk_id' => $wk_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -216,7 +216,7 @@ class Worker extends Controller{
                 $msg = '取消置顶';
                 $data['wk_istop'] = '2';
             }
-            $changeStatus = Db::table('dcxw_worker')->where(['wk_id' => $wk_id])->update($data);
+            $changeStatus = Db::table('super_worker')->where(['wk_id' => $wk_id])->update($data);
             if($changeStatus){
                 $res['code'] = 1;
                 $res['msg'] = $msg.'成功！';
@@ -238,7 +238,7 @@ class Worker extends Controller{
             $stime=strtotime(date('Y-m-d 00:00:00'));
             $etime=strtotime(date('Y-m-d 23:59:59'));
             //获取当日预约的数量
-            $buNum=Db::table('dcxw_worker')->where('wk_addtime','between',[$stime,$etime])->count();
+            $buNum=Db::table('super_worker')->where('wk_addtime','between',[$stime,$etime])->count();
             //生成用户编号；
             $data['wk_bid'] = date('Ymd').sprintf("%04d", $buNum+1);
             $data['wk_name'] = $_POST['wk_name'];
@@ -254,14 +254,14 @@ class Worker extends Controller{
             $data['wk_addtime'] = time();
             $data['wk_updatetime'] = time();
             $data['wk_admin'] = session('adminId');
-            $add=Db::table('dcxw_worker')->insert($data);
+            $add=Db::table('super_worker')->insert($data);
             if($add){
                 $this->success('添加工长成功','index');
             }else{
                 $this->error('添加工长失败','index');
             }
         }else{
-            $provInfo=Db::table('dcxw_province')->select();
+            $provInfo=Db::table('super_province')->select();
             $this->assign('prov',$provInfo);
             return $this->fetch();
         }
@@ -284,19 +284,19 @@ class Worker extends Controller{
             $data['wk_seo_keywords'] = $_POST['wk_seo_keywords'];
             $data['wk_updatetime'] = time();
             $data['wk_admin'] = session('adminId');
-            $edit=Db::table('dcxw_worker')->where(['wk_id' => $wk_id])->update($data);
+            $edit=Db::table('super_worker')->where(['wk_id' => $wk_id])->update($data);
             if($edit){
                 $this->success('修改工长成功！','index');
             }else{
                 $this->error('修改工长失败！','index');
             }
         }else{
-            $workerInfo=Db::table('dcxw_worker')->where(['wk_id' => $wk_id])->find();
-            $provInfo=Db::table('dcxw_province')->select();
+            $workerInfo=Db::table('super_worker')->where(['wk_id' => $wk_id])->find();
+            $provInfo=Db::table('super_province')->select();
             $provid=$workerInfo['wk_p_id'];
-            $cusCity=Db::table('dcxw_city')->where(['p_id' => $provid])->select();
+            $cusCity=Db::table('super_city')->where(['p_id' => $provid])->select();
             $c_id=$workerInfo['wk_c_id'];
-            $branch=Db::table('dcxw_branch')->where(['b_city' =>$c_id ])->field('b_id,b_name')->select();
+            $branch=Db::table('super_branch')->where(['b_city' =>$c_id ])->field('b_id,b_name')->select();
             $this->assign('branchs',$branch);
             $this->assign('prov',$provInfo);
             $this->assign('city',$cusCity);
@@ -310,7 +310,7 @@ class Worker extends Controller{
     //删除工长
     public function del(){
         $wk_id=intval($_GET['wk_id']);
-        $del=Db::table('dcxw_worker')->where(['wk_id' => $wk_id])->delete();
+        $del=Db::table('super_worker')->where(['wk_id' => $wk_id])->delete();
         if($del){
             $this->success('删除工长成功','index');
         }else{
@@ -321,7 +321,7 @@ class Worker extends Controller{
     //刷新工长
     public function refresh(){
         $wk_id=intval($_GET['wk_id']);
-        $del=Db::table('dcxw_worker')->where(['wk_id' => $wk_id])->update(['wk_updatetime' => time()]);
+        $del=Db::table('super_worker')->where(['wk_id' => $wk_id])->update(['wk_updatetime' => time()]);
         if($del){
             $this->success('刷新工长成功','index');
         }else{

@@ -33,7 +33,7 @@ class Excel extends Controller{
 //        $data = array();
 //
 //        //我的数据信息
-//        $contentRows = Db::table('dcxw_customer')->select();
+//        $contentRows = Db::table('super_customer')->select();
 //        if($contentRows){
 //            foreach ($contentRows as $contentRow){
 //                $info = array();
@@ -117,7 +117,7 @@ class Excel extends Controller{
         $objWriter->save('php://output');
     }
     public function outExcelRecharge() {
-        $data=Db::table('dcxw_customer')->field('cus_id,cus_name,cus_phone')->select();
+        $data=Db::table('super_customer')->field('cus_id,cus_name,cus_phone')->select();
         $field = array(
             'A' => array('cus_id', 'ID'),
             'B' => array('cus_name', '客户名称'),
@@ -134,7 +134,7 @@ class Excel extends Controller{
         $xlsName ='客户列表Excel'.date('Y-m-d');
         //数据字段
         $db = Db::getConnection();
-        $fields = $db->getFields("dcxw_customer");
+        $fields = $db->getFields("super_customer");
         $xlsCell = [];
         $i = 0;
         foreach ($fields as $key => $v){
@@ -143,9 +143,9 @@ class Excel extends Controller{
         }
         $excid =rtrim($this->request->param('ids'),',');;
         if (empty($excid)) {
-            $xlsData =Db::table('dcxw_customer')->select(); //全部导出
+            $xlsData =Db::table('super_customer')->select(); //全部导出
         } else {
-            $xlsData =Db::table('dcxw_customer')->where('cus_id','IN',$excid)->select(); //选中导出
+            $xlsData =Db::table('super_customer')->where('cus_id','IN',$excid)->select(); //选中导出
         }
         if (!$xlsData) $this->error("没有数据,无法导出操作╮(╯_╰)╭");
         $this->exportExcel($xlsName,$xlsCell,$fields);
