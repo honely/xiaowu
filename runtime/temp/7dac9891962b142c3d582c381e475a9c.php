@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\shop\edit.html";i:1568010880;s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\header.html";i:1567735110;s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\footer.html";i:1567735110;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\shop\edit.html";i:1568081330;s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\header.html";i:1567735110;s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\footer.html";i:1567735110;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,9 +70,8 @@
                 </div>
                 <div class="layui-form-mid layui-word-aux">数字越大越靠前!</div>
             </div>
-            <?php if($nav_fid == 0): else: ?>
             <div class="layui-form-item">
-                <label class="layui-form-label">导航图片</label>
+                <label class="layui-form-label">分类图片</label>
                 <div class="layui-upload">
                     <button type="button" class="layui-btn" id="uploadNav">上传图片</button>
                     <input type="hidden" name="ss_icon" id="ss_icon" value="<?php echo $nav['ss_icon']; ?>"/>
@@ -82,7 +81,6 @@
                 </div>
                 <div class="layui-form-mid layui-word-aux" style="margin-left: 100px; color:red !important;">备注：图片规格100*100px</div>
             </div>
-            <?php endif; ?>
             <div class="layui-form-item" pane>
                 <label class="layui-form-label">是否可用</label>
                 <div class="layui-input-block">
@@ -110,7 +108,7 @@
         upload.render({
             elem: '#uploadNav'
             ,url: '<?php echo url("nav/upload"); ?>'
-            ,size:120 //限制文件大小，单位 KB
+            ,size:1200 //限制文件大小，单位 KB
             ,ext: 'jpg|png|gif'
             ,accept: 'images' //限制文件大小，单位 KB
             ,before: function(input){

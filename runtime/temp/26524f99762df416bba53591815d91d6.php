@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\shop\add.html";i:1568007691;s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\header.html";i:1567735110;s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\footer.html";i:1567735110;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\shop\add.html";i:1568081242;s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\header.html";i:1567735110;s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\footer.html";i:1567735110;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,11 +21,6 @@
 </head>
 <body class="layui-layout-body">
 
-<style>
-    .dis-none{
-        display: none;
-    }
-</style>
 <div class="layui-body">
     <div style="margin: 20px;">
     <span class="layui-breadcrumb" lay-separator=">">
@@ -80,7 +75,7 @@
                 <div class="layui-form-mid layui-word-aux">数字越大越靠前!</div>
             </div>
 
-            <div class="layui-form-item dis-none">
+            <div class="layui-form-item">
                 <label class="layui-form-label">分类图片</label>
                 <div class="layui-upload">
                     <button type="button" class="layui-btn" id="uploadNav">上传图片</button>

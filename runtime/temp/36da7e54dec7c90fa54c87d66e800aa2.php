@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\index.html";i:1567735110;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\index.html";i:1568086706;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="__LAY__/css/layui.css">
     <script src="__PUBLIC__/static/jquery-1.10.2.min.js"></script>
     <script src="__LAY__/layui.js"></script>
+    <style>
+        .layui-nav-tree .layui-nav-child a {
+            height: 40px;
+            line-height: 40px;
+            margin-left: 15px;
+        }
+    </style>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -30,7 +37,6 @@
         </ul>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item"><a style="padding-left: 10px !important;" href="javascript:location.reload();" >后台主页</a></li>
-            <li class="layui-nav-item"><a style="padding-left: 10px !important;"  href="http://www.xiaowugroup.com/" target="_blank">打开首页</a></li>
             <li class="layui-nav-item"><a style="padding-left: 10px !important;"  id="resetPwd">修改账户</a></li>
             <li class="layui-nav-item"><a style="padding-left: 10px !important;"  href="<?=url('login/loginOut')?>">退出登录</a></li>
         </ul>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\shop\sort.html";i:1568013580;s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\header.html";i:1567735110;s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\footer.html";i:1567735110;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\shop\sort.html";i:1568081374;s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\header.html";i:1567735110;s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\footer.html";i:1567735110;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -106,7 +106,7 @@
                 </td>
                 <td><b><?php echo $na['ss_id']; ?></b></td>
                 <td><b><?php echo $na['ss_title']; ?></b></td>
-                <td><img src="<?php echo $na['ss_icon']; ?>"/></td>
+                <td><img style="width: 30px; height: 30px;"  src="<?php echo $na['ss_icon']; ?>"/></td>
                 <td><?php echo $na['ss_order']; ?></td>
                 <td>
                     <input type="checkbox" value="<?php echo $na['ss_id']; ?>" <?php if($na['ss_del_flg'] == 1): ?>checked<?php endif; ?> lay-filter="isShow" lay-skin="switch" lay-text="是|否">
