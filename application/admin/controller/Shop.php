@@ -24,13 +24,6 @@ class Shop extends Controller
     /***
      * Name: 商品分类列表方法
      * @return mixed
-     * Created by DangMengmeng at 2019/9/9 11:10
-     */
-
-
-    /***
-     * Name: 商品分类列表方法
-     * @return mixed
      * @throws \think\db\exception\DataNotFoundException
      * @throws \think\db\exception\ModelNotFoundException
      * @throws \think\exception\DbException
@@ -67,9 +60,9 @@ class Shop extends Controller
             $data['ss_change_date'] = time();
             $addNew =  $shopModel->addNewSort($data);
             if($addNew){
-                $this->success('添加商品分类成功','index');
+                $this->success('添加商品分类成功','sort');
             }else{
-                $this->error('添加商品分类失败','index');
+                $this->error('添加商品分类失败','sort');
             }
         }
         $f_id = 0;
@@ -149,6 +142,41 @@ class Shop extends Controller
     }
 
 
+    /***
+     * Name: 商品是否置顶
+     * @return mixed
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     * Created by DangMengmeng at 2019/9/11 15:55
+     */
+    public function goodsTop(){
+        $ba_id = $_POST['nav_id'];
+        $change = $_POST['change'];
+        $shopModel = new Shops();
+        if($ba_id && isset($change)){
+            if($change){
+                $msg = '置顶';
+                $data['goods_top_flg'] = '1';
+            }else{
+                $msg = '取消置顶';
+                $data['goods_top_flg'] = '2';
+            }
+            $changeStatus =$shopModel->editGoods($ba_id,$data);
+            if($changeStatus){
+                $res['code'] = 1;
+                $res['msg'] = $msg.'成功！';
+            }else{
+                $res['code'] = 0;
+                $res['msg'] = $msg.'失败！';
+            }
+        }else{
+            $res['code'] = 0;
+            $res['msg'] = '这是个意外！';
+        }
+        return $res;
+    }
+
+
 
     /***
      * Name: 商品分类图标上传方法
@@ -172,7 +200,7 @@ class Shop extends Controller
 
 
     /**
-     * Name: 商品添加方法
+     * Name: 商品添加方法 【第一步添加商品基础信息】
      * @return mixed
      * @throws \think\db\exception\DataNotFoundException
      * @throws \think\db\exception\ModelNotFoundException
@@ -187,7 +215,48 @@ class Shop extends Controller
             $data['goods_price'] = $_POST['goods_price'];
             $data['goods_dis_price'] = $_POST['goods_dis_price'];
             $data['goods_img'] = isset($_POST['goods_img'])?$_POST['goods_img']:'';
-            $data['goods_details'] = $_POST['goods_details'];
+            $data['goods_admin'] = session('adminId');
+            $data['goods_add_date'] = time();
+            $data['goods_change_date'] = time();
+            //是否多图
+            $img = isset($_POST['goods_img_more'])?$_POST['goods_img_more']:array();
+            $h_img = '';
+            for ($i=0;$i<sizeof($img);$i++){
+                $h_img.=$img[$i].",";
+            }
+            $data['goods_img_more']=trim($h_img,',');
+            $addNew =  $shopModel->addProduct($data);
+            if($addNew){
+                return  json(['code' => '1','data' => $addNew]);
+            }else{
+                return  json(['code' => '0','data' => ['']]);
+            }
+        }else{
+            $f_id = 0;
+            $list =$shopModel->getSort($f_id);
+            $this->assign('list',$list);
+            return $this->fetch();
+        }
+    }
+
+
+    /***
+     * Name: 添加商品规格【第二步】
+     * @return mixed
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     * Created by DangMengmeng at 2019/9/11 11:13
+     */
+    public function stepTwo(){
+        $g_id = intval($_GET['g_id']);
+        $shopModel = new Shops();
+        if($_POST){
+            $data['goods_name'] = $_POST['goods_name'];
+            $data['goods_sort'] = $_POST['goods_sort'];
+            $data['goods_price'] = $_POST['goods_price'];
+            $data['goods_dis_price'] = $_POST['goods_dis_price'];
+            $data['goods_img'] = isset($_POST['goods_img'])?$_POST['goods_img']:'';
             $data['goods_admin'] = session('adminId');
             $data['goods_add_date'] = time();
             $data['goods_change_date'] = time();
@@ -200,22 +269,56 @@ class Shop extends Controller
             $data['goods_img_more']=trim($h_img,',');
             $addNew =  $shopModel->addProduct($data);
             if($addNew){
-                $this->success('添加商品成功','index');
+                $this->success('添加商品成功','stepTwo');
             }else{
                 $this->error('添加商品失败','index');
             }
         }
-        $f_id = 0;
-        $list =$shopModel->getSort($f_id);
+        $list =$shopModel->getGoods($g_id);
+        $list['goods_sort'] =$shopModel->getSortName($list['goods_sort']);
+        $list['goods_specs'] =$shopModel->getGoodsSpecs($list['goods_id']);
+        $list['h_imgs']=rtrim($list['goods_img_more'],',');
+        $list['goods_img_more']=explode(',',$list['h_imgs']);
         $this->assign('list',$list);
         return $this->fetch();
+    }
+
+
+
+    public function updateTwo(){
+        $shopModel = new Shops();
+        if($_POST){
+            $goods_id = intval($_POST['goods_id']);
+            $data['goods_name'] = $_POST['goods_name'];
+            $data['goods_price'] = $_POST['goods_price'];
+            $data['goods_dis_price'] = $_POST['goods_dis_price'];
+            $data['goods_img'] = isset($_POST['goods_img'])?$_POST['goods_img']:'';
+            $data['goods_admin'] = session('adminId');
+            $data['goods_details'] = $_POST['goods_details'];
+            //是否多图
+            $img = isset($_POST['goods_img_more'])?$_POST['goods_img_more']:array();
+            $h_img = '';
+            for ($i=0;$i<sizeof($img);$i++){
+                $h_img.=$img[$i].",";
+            }
+            $data['goods_img_more']=trim($h_img,',');
+            $addNew =  $shopModel->editGoods($goods_id,$data);
+            if($addNew){
+                return  json(['code' => '1','data' => $addNew]);
+            }else{
+                return  json(['code' => '0','data' => ['']]);
+            }
+        }
     }
 
     
     /***
      * Name: 二级联动 根据传过来的一级分类id获取改分类下的二级分类
      * @return \think\response\Json
-     * Created by DangMengmeng at 2019/9/10 11:18
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     * Created by DangMengmeng at 2019/9/11 9:47
      */
     public function getSubSort(){
         $shopModel = new Shops();
@@ -229,7 +332,132 @@ class Shop extends Controller
     }
 
 
+    /***
+     * Name: 添加商品规格
+     * @return mixed|\think\response\Json
+     * Created by DangMengmeng at 2019/9/11 15:34
+     */
     public function addSpec(){
+        $g_id = intval($_GET['g_id']);
+        $shopModel = new Shops();
+        if($_POST){
+            $data['gs_goods_id'] = $_POST['gs_goods_id'];
+            $data['gs_title'] = $_POST['gs_title'];
+            $data['gs_price'] = $_POST['gs_price'];
+            $data['gs_stock'] = $_POST['gs_stock'];
+            $data['gs_discont'] = $_POST['gs_discont'];
+            $data['gs_addtime'] = time();
+            $data['gs_update_time'] = time();
+            $data['gs_admin'] = session('adminId');
+            $data['gs_img'] = isset($_POST['gs_img'])?$_POST['gs_img']:'';
+            $addSpec = $shopModel->addSpecs($data);
+            if($addSpec){
+                return  json(['code' => '1','data' => $addSpec]);
+            }else{
+                return  json(['code' => '0','data' => ['']]);
+            }
+        }
+        $this->assign('g_id',$g_id);
         return $this->fetch();
+    }
+
+
+
+    public function delSpec(){
+        $gs_id = intval($_GET['gs_id']);
+        $shopModel = new Shops();
+        $del = $shopModel->deSpec($gs_id);
+        if($del){
+            return  json(['code' => '1','data' => $del]);
+        }else{
+            return  json(['code' => '0','data' => ['']]);
+        }
+    }
+
+    /***
+     * Name: ***方法
+     * @return mixed
+     * Created by DangMengmeng at 2019/9/11 15:35
+     */
+    public function editSpec(){
+        $shopModel = new Shops();
+        $gs_id = intval($_GET['gs_id']);
+            $specs = $shopModel->findSpecs($gs_id);
+            $this->assign('list',$specs);
+            return $this->fetch();
+
+    }
+
+
+    public function eidtSpecss(){
+        if($_POST){
+            $shopModel = new Shops();
+            $gs_id = intval($_GET['gs_id']);
+            $data = $_POST;
+            $edit = $shopModel->editSpec($gs_id,$data);
+            if($edit){
+                return  json(['code' => '1','data' => $edit]);
+            }else{
+                return  json(['code' => '0','data' => ['']]);
+            }
+        }
+    }
+
+
+    /****
+     * Name: 删除商品方法
+     * @return \think\response\Json
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     * Created by DangMengmeng at 2019/9/11 16:29
+     */
+    public function delProduct(){
+        $g_id = intval($_GET['g_id']);
+        $shopModel = new Shops();
+        //真删除
+        $del = $shopModel->delGoods($g_id);
+        //假删除
+        //$data['goods_del_flg']  = 3;
+        //$del = $shopModel->editGoods($g_id,$data);
+        if($del){
+            return  json(['code' => '1','data' => $del,'msg' => '删除成功！']);
+        }else{
+            return  json(['code' => '0','data' => [''],'msg' => '删除失败！']);
+        }
+    }
+
+
+    /***
+     * Name: 上架商品
+     * @return \think\response\Json
+     * Created by DangMengmeng at 2019/9/11 16:41
+     */
+    public function onLine(){
+        $g_id = intval($_GET['g_id']);
+        $shopModel = new Shops();
+        $data['goods_del_flg']  = 1;
+        $Online = $shopModel->editGoods($g_id,$data);
+        if($Online){
+            return  json(['code' => '1','data' => $Online,'msg' => '上架成功！']);
+        }else{
+            return  json(['code' => '0','data' => [''],'msg' => '上架成功！']);
+        }
+    }
+
+    /***
+     * Name: 下架商品方法
+     * @return \think\response\Json
+     * Created by DangMengmeng at 2019/9/11 16:41
+     */
+    public function offLine(){
+        $g_id = intval($_GET['g_id']);
+        $shopModel = new Shops();
+        $data['goods_del_flg']  = 2;
+        $Online = $shopModel->editGoods($g_id,$data);
+        if($Online){
+            return  json(['code' => '1','data' => $Online,'msg' => '上架成功！']);
+        }else{
+            return  json(['code' => '0','data' => [''],'msg' => '上架成功！']);
+        }
     }
 }

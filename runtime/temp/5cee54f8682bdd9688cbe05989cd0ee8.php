@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\shop\addspec.html";i:1568103062;s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\header.html";i:1567735110;s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\footer.html";i:1567735110;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\shop\addspec.html";i:1568196682;s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\header.html";i:1567735110;s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\footer.html";i:1567735110;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,11 +21,12 @@
 </head>
 <body class="layui-layout-body">
 
-<form class="layui-form" style="margin-top: 20px;">
+<form class="layui-form" id="specForm" style="margin-top: 20px;">
     <div class="layui-form-item">
         <label class="layui-form-label">规格名称</label>
         <div class="layui-input-block">
             <input type="text" name="gs_title" style="width: 320px;" lay-verify="title" autocomplete="off" placeholder="请输入规格名称" class="layui-input">
+            <input type="text" name="gs_goods_id" value="<?php echo $g_id; ?>" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item one-pan">
@@ -50,7 +51,14 @@
     <div class="layui-form-item">
         <label class="layui-form-label"><span style="color: red;">*</span>折扣价</label>
         <div class="layui-input-inline">
-            <input type="text" onkeyup="this.value=this.value.replace(/\D/g, '')" name="gs_discount" lay-verify="required" placeholder="请输入折扣价" autocomplete="off" class="layui-input">
+            <input type="text" onkeyup="this.value=this.value.replace(/\D/g, '')" name="gs_discont" lay-verify="required" placeholder="请输入折扣价" autocomplete="off" class="layui-input">
+        </div>
+        <div class="layui-form-mid layui-word-aux">用户实付金额，单位：元。</div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><span style="color: red;">*</span>库存数量</label>
+        <div class="layui-input-inline">
+            <input type="text" onkeyup="this.value=this.value.replace(/\D/g, '')" name="gs_stock" lay-verify="required" placeholder="请输入库存数量" autocomplete="off" class="layui-input">
         </div>
         <div class="layui-form-mid layui-word-aux">用户实付金额，单位：元。</div>
     </div>
@@ -111,29 +119,21 @@
 
 
         
-        //给父页面传值
+        //添加一个商品规格
         $('#transmit').on('click', function(){
-            var gs_title =  $("input[name ='gs_title']").val();
-            var gs_img =  $("input[name ='gs_img']").val();
-            var gs_price =  $("input[name ='gs_price']").val();
-            var gs_discount =  $("input[name ='gs_discount']").val();
-            var gs_stock =  $("input[name ='gs_stock']").val();
-            parent.$('#specTable').append('<tr>\n' +
-                '                            <td>'+gs_title+'</td>\n' +
-                '                            <td>￥：'+gs_price+'</td>\n' +
-                '                            <td>￥：'+gs_discount+'</td>\n' +
-                '                            <td>\n' +
-                '                                <img src="'+gs_img+'"/>\n' +
-                '                            </td>\n' +
-                '                            <td>2019-9-10</td>\n' +
-                '                            <td>正常</td>\n' +
-                '                            <td>\n' +
-                '                                <a class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon">&#xe642;</i>编辑</a>\n' +
-                '                                <a class="layui-btn layui-btn-xs" lay-event="dels"><i class="layui-icon">&#xe640;</i>删除</a>\n' +
-                '                            </td>\n' +
-                '                        </tr>');
-            parent.layer.tips('Look here', '#addSpec', {time: 5000});
-            parent.layer.close(index);
+            var g_id =  $("input[name ='gs_goods_id']").val();
+            $.ajax({
+                type: 'POST',
+                url: "<?=url('shop/addSpec')?>?g_id="+g_id,
+                data:$('#specForm').serialize(),
+                dataType:  'json',
+                success: function(data){
+                    if(data.code == 1){
+                        layer.close(layer.index);
+                        window.parent.location.reload();
+                    }
+                }
+            });
         });
     });
 </script>

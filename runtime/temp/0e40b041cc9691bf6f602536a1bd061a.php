@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\shop\addproduct.html";i:1568106160;s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\header.html";i:1567735110;s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\footer.html";i:1567735110;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\shop\addproduct.html";i:1568187731;s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\header.html";i:1567735110;s:74:"E:\houtai\xiaowu\xiaowu\public/../application/admin\view\index\footer.html";i:1567735110;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +51,7 @@
     <hr/>
     <div style="margin: 10px">
         <div style="padding: 15px;">
-            <form class="layui-form" action="<?=url('shop/addProduct')?>" method="post">
+            <form class="layui-form" id="myForm">
                 <div class="layui-form-item">
                     <label class="layui-form-label"><span style="color: red;">*</span>商品分类</label>
                     <div class="layui-input-inline">
@@ -100,11 +100,17 @@
                     </div>
                     <div class="layui-form-mid layui-word-aux">用户实付金额，单位：元。</div>
                 </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span style="color: red;">*</span>商品库存</label>
+                    <div class="layui-input-inline">
+                        <input type="text" onkeyup="this.value=this.value.replace(/\D/g, '')" name="goods_stock" lay-verify="required" placeholder="请输入商品库存" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
                 <div class="layui-form-item" id="pics">
                     <div class="layui-form-label">商品图片</div>
                     <div class="layui-input-block" style="width: 70%;">
                         <div class="layui-upload">
-                            <button type="button" class="layui-btn layui-btn pull-left" id="slide-pc">选择多图</button>
+                            <button type="button" class="layui-btn layui-btn-sm layui-btn-normal pull-left" id="slide-pc">选择多图</button>
                             <div class="pic-more">
                                 <ul class="pic-more-upload-list" id="slide-pc-priview">
                                 </ul>
@@ -112,15 +118,15 @@
                         </div>
                     </div>
                 </div>
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label">商品详情</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <textarea name="goods_details" id="container"></textarea>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <div class="layui-form-item">
-                    <label class="layui-form-label">商品详情</label>
                     <div class="layui-input-block">
-                        <textarea name="goods_details" id="container"></textarea>
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <div class="layui-input-block">
-                        <button class="layui-btn" lay-submit lay-filter="saveInfo">发布</button>
+                        <button class="layui-btn" lay-submit lay-filter="addPro">下一步</button>
                         <a class="layui-btn layui-btn-primary" href="<?=url('shop/index')?>">返回</a>
                     </div>
                 </div>
@@ -152,7 +158,21 @@
                 $('#layui-form').hide();
             }
         });
-
+        //添加商品基本信息第一步
+        form.on('submit(addPro)', function(){
+            $.ajax({
+                type: 'POST',
+                url: "<?=url('shop/addProduct')?>",
+                data:$('#myForm').serialize(),
+                dataType:  'json',
+                success: function(data){
+                    if(data.code == 1){
+                        var g_id = data.data;
+                        window.location.href='<?=url("shop/stepTwo")?>?g_id='+ g_id;
+                    }
+                }
+            });
+        });
 
         form.verify({
             title: function(value){

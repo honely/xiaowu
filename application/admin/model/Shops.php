@@ -76,6 +76,14 @@ class Shops extends Model
     }
 
 
+
+    public function editGoods($nav_id,$data){
+        $edit = Db::table('super_goods')
+            ->where(['goods_id' => $nav_id])
+            ->update($data);
+        return $edit ? true : false;
+    }
+
     /***
      * Name: 查询一条商品分类方法
      * @param $nav_id   int 分类ID
@@ -101,7 +109,8 @@ class Shops extends Model
      */
     public function addProduct($data){
         $addPro = Db::table('super_goods')->insert($data);
-        return    $addPro ? $addPro : 0;
+        $userId = Db::table('super_goods')->getLastInsID();
+        return $addPro ? $userId : 0;
     }
 
 
@@ -133,13 +142,13 @@ class Shops extends Model
      */
     public function getGoodsList(){
         $list = Db::table('super_goods')
-            ->order('goods_change_date desc')
+            ->order('goods_top_flg asc,goods_change_date desc')
             ->select();
         if($list){
             foreach($list as $key => $val){
                 $list[$key]['goods_sort'] = $this->getSortName($val['goods_sort']);
                 $list[$key]['goods_admin'] = $this->getAdmin($val['goods_admin']);
-                $list[$key]['goods_del_flg'] = $this->getGoodsStatus($val['goods_del_flg']);
+                $list[$key]['goods_del_flgs'] = $this->getGoodsStatus($val['goods_del_flg']);
             }
         }
         return $list ? $list : null;
@@ -182,6 +191,30 @@ class Shops extends Model
 
 
     /***
+     * Name: 获取商品的规格方法
+     * @param $g_id  int 商品ID
+     * @return false|\PDOStatement|string|\think\Collection|null
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     * Created by DangMengmeng at 2019/9/11 15:29
+     */
+    public function getGoodsSpecs($g_id){
+        $goodsSpec = Db::table('super_goods_spec')
+            ->where(['gs_goods_id' => $g_id])
+            ->order('gs_id desc')
+            ->select();
+        if($goodsSpec){
+            foreach($goodsSpec as $key => $val){
+                $goodsSpec[$key]['gs_addtime'] = date('Y-m-d H:i:s',$val['gs_addtime']);
+                $goodsSpec[$key]['gs_status'] = $val['gs_status'] == 1 ? '正常' : '隐藏' ;
+            }
+        }
+        return  $goodsSpec ? $goodsSpec : null;
+    }
+
+
+    /***
      * Name: 获取商品状态方法
      * @param $status
      * @return string
@@ -191,15 +224,93 @@ class Shops extends Model
         //商品状态：1.待上架；2，已下架，3删除
         switch($status){
             case  1;
-                $typeName = '待上架';
+                $typeName = '上架';
                 break;
             case 2;
-                $typeName = '已下架';
+                $typeName = '待上架';
                 break;
             case  3;
                 $typeName = '删除';
                 break;
         }
         return $typeName;
+    }
+
+
+    /***
+     * Name: 获取商品基础信息
+     * @param $g_id
+     * @return array|false|\PDOStatement|string|Model|null
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     * Created by DangMengmeng at 2019/9/11 10:36
+     */
+    public function getGoods($g_id){
+         $goods = Db::table('super_goods')
+             ->where(['goods_id' => $g_id])
+             ->field('goods_id,goods_name,goods_sort,goods_price,goods_dis_price,goods_img,goods_is_spec,goods_details,goods_img_more')
+             ->find();
+         return   $goods ? $goods : null;
+    }
+
+
+
+
+    public function addSpecs($data){
+        $addPro = Db::table('super_goods_spec')->insert($data);
+        $userId = Db::table('super_goods_spec')->getLastInsID();
+        return $addPro ? $userId : 0;
+    }
+
+
+    /****
+     * Name: 删除商品规格
+     * @param $gs_id
+     * @return bool
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     * Created by DangMengmeng at 2019/9/11 16:26
+     */
+    public function deSpec($gs_id){
+        $delSpec = Db::table('super_goods_spec')->where(['gs_id' =>$gs_id])->delete();
+        return $delSpec ? true : false;
+    }
+
+
+    /***
+     * Name: 查找一个商品分类
+     * @param $gs_id
+     * @return array|false|\PDOStatement|string|Model|null
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     * Created by DangMengmeng at 2019/9/11 17:16
+     */
+    public function findSpecs($gs_id){
+        $Spec = Db::table('super_goods_spec')->where(['gs_id' =>$gs_id])->find();
+        return $Spec ? $Spec : null;
+    }
+
+
+    public function editSpec($gs_id,$data){
+        $Spec = Db::table('super_goods_spec')->where(['gs_id' =>$gs_id])->update($data);
+        return $Spec ? $Spec : null;
+    }
+
+
+
+    /***
+     * Name: 删除商品 1.删除商品规格；2.删除商品
+     * @param $g_id   int 商品ID
+     * @return bool
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     * Created by DangMengmeng at 2019/9/11 16:26
+     */
+    public function delGoods($g_id){
+        Db::table('super_goods_spec')->where(['gs_goods_id' =>$g_id])->delete();
+        $del = Db::table('super_goods')->where(['goods_id' =>$g_id])->delete();
+        return $del ? true : false;
     }
 }
